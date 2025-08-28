@@ -5,22 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Главная страница</title>
 <link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
 
-<h1>Главная страница</h1>
+<header class="page-header">
+    <div class="nav-buttons">
+        <!-- Кнопка «На главную» (ведёт в корень) -->
+        <button class="top-btn" onclick="goHome()">На главную</button>
+        <!-- Кнопка «Назад» (возврат в предыдущий раздел) -->
+        <button class="top-btn" onclick="goBack()">Назад</button>
+    </div>
+</header>
 
-<div class="folder-buttons">
-    <button onclick="goToFolder('Кухня')">Кухня</button>
-    <button onclick="goToFolder('folder2')">Folder 2</button>
+<main class="main-container">
+    <!-- Лого -->
+    <img src="logo.png" alt="Лого" class="logo">
 
-</div>
+    <!-- Приветствие -->
+    <h1 id="greeting">Добро пожаловать!</h1>
 
-<script>
-function goToFolder(folderName){
-    window.location.href = folderName + "/index.html";
-}
-</script>
+    <!-- Текущая дата -->
+    <div class="date-container" id="current-date"></div>
+
+    <!-- Кнопки перехода в папки -->
+    <div class="buttons-container">
+        <button class="nav-btn" onclick="location.href='folder1/index.html'">Раздел 1</button>
+        <button class="nav-btn" onclick="location.href='folder2/index.html'">Раздел 2</button>
+        <button class="nav-btn" onclick="location.href='folder3/index.html'">Раздел 3</button>
+    </div>
+</main>
 
 </body>
 </html>
