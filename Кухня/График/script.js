@@ -1,8 +1,10 @@
-const totalDays = 10;
+const totalDays = 14;
+
 const staff = [
     { role: "Шеф", names: ["Стас"], schedule: [1,1,1,1,1,0,0] },
     { role: "Кухня", names: ["Максим","Мигель","Шавкат"], schedule: [1,1,1,1,0,0], offset:[0,1,2] }
 ];
+
 const dessertsStaff = ["Максим","Тимофей","Ирина"];
 staff.push({ role: "Десерты", names: dessertsStaff, schedule:[1,1,1,1,0,0], offset:[0,1,2] });
 
@@ -47,6 +49,7 @@ staff.forEach((group, groupIndex)=>{
     group.names.forEach((name,i)=>{
         const tr = document.createElement("tr");
 
+        // Фиксированный первый столбец
         const tdName = document.createElement("td");
         tdName.textContent = name;
         tdName.classList.add("fixed-column");
