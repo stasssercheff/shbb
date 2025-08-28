@@ -43,12 +43,12 @@ for(let i=0; i<totalDays; i++){
 }
 
 // Тело таблицы
-staff.forEach(group=>{
+staff.forEach((group, groupIndex)=>{
     group.names.forEach((name,i)=>{
         const tr = document.createElement("tr");
 
         const tdName = document.createElement("td");
-        tdName.textContent = `${group.role}: ${name}`;
+        tdName.textContent = name;
         tdName.classList.add("fixed-column");
         tr.appendChild(tdName);
 
@@ -75,11 +75,14 @@ staff.forEach(group=>{
         tbody.appendChild(tr);
     });
 
-    // Разделитель
-    const sep = document.createElement("tr");
-    sep.classList.add("separator");
-    const td = document.createElement("td");
-    td.colSpan = totalDays + 1;
-    sep.appendChild(td);
-    tbody.appendChild(sep);
+    // Разделитель с названием следующего подразделения
+    if(groupIndex < staff.length-1){
+        const sep = document.createElement("tr");
+        sep.classList.add("separator");
+        const td = document.createElement("td");
+        td.colSpan = totalDays + 1;
+        td.textContent = staff[groupIndex+1].role; // название следующего подразделения
+        sep.appendChild(td);
+        tbody.appendChild(sep);
+    }
 });
