@@ -1,4 +1,4 @@
-const totalDays = 14;
+const totalDays = 10;
 const staff = [
     { role: "Шеф", names: ["Стас"], schedule: [1,1,1,1,1,0,0] },
     { role: "Кухня", names: ["Максим","Мигель","Шавкат"], schedule: [1,1,1,1,0,0], offset:[0,1,2] }
