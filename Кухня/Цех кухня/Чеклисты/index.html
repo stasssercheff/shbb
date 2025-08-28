@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folder 1</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
 
+<header>
+    <div class="navigation-buttons">
+        <a href="../index.html" class="nav-btn">← На главную</a>
+    </div>
+</header>
+
+<h1>Folder 1</h1>
+
+<div class="folder-buttons">
+    <button onclick="goToFolder('Заказ продуктов')"> 'Заказ продуктов </button>
+    <button onclick="goToFolder('subfolder2')">Subfolder 2</button>
+</div>
+
+<script>
+function goToFolder(folderName){
+    window.location.href = folderName + "/index.html";
+}
+</script>
+
+</body>
+</html>
