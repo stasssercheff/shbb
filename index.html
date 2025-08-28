@@ -1,28 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главная страница</title>
+  <title>Главная</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <img src="logo.png" alt="Логотип" class="logo">
-    <div class="lang-switch">
-      <button onclick="setLanguage('ru')" id="btn-ru">RU</button>
-      <button onclick="setLanguage('en')" id="btn-en">EN</button>
-    </div>
+  <header>
+    <h1 data-i18n="mainTitle">Главная страница</h1>
+    <button id="lang-switch">EN</button>
   </header>
 
-  <main class="container">
-    <h1 data-lang="title">Рабочие материалы</h1>
-    <p class="date" id="current-date"></p>
-    <p class="day" id="current-day"></p>
-    <p data-lang="description">
-      Это описание страницы. Здесь будет информация для сотрудников.
-    </p>
+  <main>
+    <p data-i18n="chooseSection">Выберите раздел:</p>
+    <nav class="tabs">
+      <a href="Кухня/index.html" data-i18n="kitchen">Кухня</a>
+      <!-- сюда можно добавить другие кнопки -->
+    </nav>
   </main>
 
   <script src="script.js"></script>
