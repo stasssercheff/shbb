@@ -5,21 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главная</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
-    <h1 data-i18n="mainTitle">Главная страница</h1>
-    <button id="lang-switch">EN</button>
+    <img src="logo.png" alt="Логотип" class="logo">
+    <h1 data-i18n="title">Портал сотрудников</h1>
+    <div class="lang-switch">
+      <button onclick="setLanguage('ru')">RU</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
   </header>
 
   <main>
-    <p data-i18n="chooseSection">Выберите раздел:</p>
+    <p data-i18n="description">Добро пожаловать! Выберите раздел:</p>
+
     <nav class="tabs">
-      <a href="Кухня/index.html" data-i18n="kitchen">Кухня</a>
-      <!-- сюда можно добавить другие кнопки -->
+      <a href="tab1/index.html" data-i18n="tab1">Вкладка 1</a>
+      <a href="tab2/index.html" data-i18n="tab2">Вкладка 2</a>
+      <a href="tab3/index.html" data-i18n="tab3">Вкладка 3</a>
+      <a href="tab4/index.html" data-i18n="tab4">Вкладка 4</a>
+      <a href="tab5/index.html" data-i18n="tab5">Вкладка 5</a>
+      <a href="tab6/index.html" data-i18n="tab6">Вкладка 6</a>
     </nav>
   </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
