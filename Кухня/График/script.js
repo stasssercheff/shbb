@@ -13,10 +13,16 @@ const tbody = document.getElementById("schedule-body");
 const today = new Date();
 const daysShortRU = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
 
-// Генерация заголовков
+// Заголовки: сначала пустая ячейка для столбца с именами
+const emptyTh = document.createElement("th");
+emptyTh.textContent = "";
+dateRow.appendChild(emptyTh.cloneNode());
+dayRow.appendChild(emptyTh.cloneNode());
+
+// Генерация заголовков для дней
 for(let i=0; i<totalDays; i++){
     const d = new Date();
-    d.setDate(today.getDate() - today.getDay() + 1 + i); // с понедельника
+    d.setDate(today.getDate() - today.getDay() + 1 + i);
 
     const thDate = document.createElement("th");
     const thDay = document.createElement("th");
@@ -38,7 +44,6 @@ staff.forEach(group=>{
     group.names.forEach((name,i)=>{
         const tr = document.createElement("tr");
 
-        // Столбец с именем
         const tdName = document.createElement("td");
         tdName.textContent = `${group.role}: ${name}`;
         tdName.classList.add("fixed-column");
@@ -55,7 +60,6 @@ staff.forEach(group=>{
 
             if(val===0) td.classList.add("work-0");
 
-            // Сегодняшний день выделяем
             const d = new Date();
             d.setDate(today.getDate() - today.getDay() + 1 + j);
             if(d.toDateString() === today.toDateString()){
