@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Кухня</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Folder 1</title>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header>
-    <h1 data-i18n="kitchenTitle">Кухня</h1>
-    <button id="lang-switch">EN</button>
-  </header>
 
-  <main>
-    <p data-i18n="chooseSection">Выберите раздел кухни:</p>
-    <nav class="tabs">
-      <a href="График/index.html" data-i18n="schedule">График</a>
-      <a href="Цех десерты/index.html" data-i18n="desserts">Цех десерты</a>
-      <a href="Цех кухня/index.html" data-i18n="workshop">Цех кухня</a>
-    </nav>
-    <br>
-    <a href="../index.html" class="back" data-i18n="back">⬅ Назад</a>
-  </main>
+<header>
+    <div class="navigation-buttons">
+        <a href="../index.html" class="nav-btn">← На главную</a>
+    </div>
+</header>
 
-  <script src="script.js"></script>
+<h1>Folder 1</h1>
+
+<div class="folder-buttons">
+    <button onclick="goToFolder('subfolder1')">Subfolder 1</button>
+    <button onclick="goToFolder('subfolder2')">Subfolder 2</button>
+</div>
+
+<script>
+function goToFolder(folderName){
+    window.location.href = folderName + "/index.html";
+}
+</script>
+
 </body>
 </html>
