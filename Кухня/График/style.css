@@ -1,1 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f4f6f8;
+  color: #333;
+}
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.lang-switch button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+thead {
+  background: #0077cc;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
