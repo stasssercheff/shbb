@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главная</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Главная страница</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Логотип" class="logo">
-    <h1 data-i18n="title">Портал сотрудников</h1>
-    <div class="lang-switch">
-      <button onclick="setLanguage('ru')">RU</button>
-      <button onclick="setLanguage('en')">EN</button>
-    </div>
-  </header>
+    <header>
+        <img src="logo.png" alt="Лого" class="logo">
+        <div id="datetime"></div>
+        <h1 id="greeting"></h1>
 
-  <main>
-    <p data-i18n="description">Добро пожаловать! Выберите раздел:</p>
+        <div class="lang-switch">
+            <button onclick="setLang('ru')">RU</button>
+            <button onclick="setLang('en')">EN</button>
+        </div>
+    </header>
 
-    <nav class="tabs">
-      <a href="tab1/index.html" data-i18n="tab1">Вкладка 1</a>
-      <a href="tab2/index.html" data-i18n="tab2">Вкладка 2</a>
-      <a href="tab3/index.html" data-i18n="tab3">Вкладка 3</a>
-      <a href="tab4/index.html" data-i18n="tab4">Вкладка 4</a>
-      <a href="tab5/index.html" data-i18n="tab5">Вкладка 5</a>
-      <a href="tab6/index.html" data-i18n="tab6">Вкладка 6</a>
-    </nav>
-  </main>
+    <main>
+        <h2 data-ru="Папки в корне" data-en="Root folders">Папки в корне</h2>
+        <div class="folder-buttons">
+            <button onclick="goToFolder('folder1')">Folder 1</button>
+            <button onclick="goToFolder('folder2')">Folder 2</button>
+            <button onclick="goToFolder('folder3')">Folder 3</button>
+        </div>
+    </main>
+
+<script src="script.js"></script>
 </body>
 </html>
