@@ -1,1 +1,60 @@
+/* Общие стили */
+body {
+  font-family: 'Inter', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
 
+/* Шапка */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+  height: 50px;
+}
+
+/* Переключатель языков */
+.lang-switch button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #444;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.lang-switch button:hover {
+  background: #666;
+}
+
+/* Контейнер */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.container p {
+  font-size: 18px;
+  margin: 10px 0;
+}
