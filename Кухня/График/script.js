@@ -13,33 +13,36 @@ const tbody = document.getElementById("schedule-body");
 const today = new Date();
 const daysShortRU = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
 
-// Заголовки: сначала пустая ячейка для столбца с именами
-const emptyTh = document.createElement("th");
-emptyTh.textContent = "";
-dateRow.appendChild(emptyTh.cloneNode());
-dayRow.appendChild(emptyTh.cloneNode());
+// Заголовки
+const thDate = document.createElement("th");
+thDate.textContent = "Дата";
+dateRow.appendChild(thDate);
 
-// Генерация заголовков для дней
+const thDay = document.createElement("th");
+thDay.textContent = "День";
+dayRow.appendChild(thDay);
+
+// Даты и дни
 for(let i=0; i<totalDays; i++){
     const d = new Date();
     d.setDate(today.getDate() - today.getDay() + 1 + i);
 
-    const thDate = document.createElement("th");
-    const thDay = document.createElement("th");
+    const thD = document.createElement("th");
+    const thWeek = document.createElement("th");
 
     if(i < totalDays-1){
-        thDate.textContent = d.getDate();
-        thDay.textContent = daysShortRU[d.getDay() === 0 ? 6 : d.getDay()-1];
+        thD.textContent = d.getDate();
+        thWeek.textContent = daysShortRU[d.getDay() === 0 ? 6 : d.getDay()-1];
     } else {
-        thDate.textContent = "";
-        thDay.textContent = "";
+        thD.textContent = "";
+        thWeek.textContent = "";
     }
 
-    dateRow.appendChild(thDate);
-    dayRow.appendChild(thDay);
+    dateRow.appendChild(thD);
+    dayRow.appendChild(thWeek);
 }
 
-// Генерация тела таблицы
+// Тело таблицы
 staff.forEach(group=>{
     group.names.forEach((name,i)=>{
         const tr = document.createElement("tr");
