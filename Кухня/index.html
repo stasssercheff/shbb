@@ -3,31 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Folder 1</title>
-<link rel="stylesheet" href="../style.css">
+<title>Страница проекта</title>
+<!-- Подключение единого CSS из корня -->
+<link rel="stylesheet" href="/style.css">
+<!-- Подключение единого JS из корня -->
+<script src="/script.js" defer></script>
 </head>
 <body>
 
-<header>
-    <div class="navigation-buttons">
-        <a href="../index.html" class="nav-btn">← На главную</a>
-    </div>
+<header class="page-header">
+    <!-- Кнопка на главную (корень проекта) -->
+    <button class="top-btn" onclick="location.href='/index.html'">На главную</button>
+    <!-- Кнопка назад (предыдущая страница) -->
+    <button class="top-btn" onclick="history.back()">Назад</button>
 </header>
 
-<h1>Folder 1</h1>
+<main class="main-container">
+    <!-- Лого сверху -->
+    <img src="/logo.png" alt="Лого" class="logo">
 
-<div class="folder-buttons">
-    <button onclick="goToFolder('График')"> График </button>
-    <button onclick="goToFolder('Цех десерты')"> Цех десерты </button>
-    <button onclick="goToFolder('Цех кухня')"> Цех кухня </button>
-    <button onclick="goToFolder('чеклисты')"> чеклисты </button>
-</div>
+    <!-- Приветствие -->
+    <h1 id="greeting">Добро пожаловать!</h1>
 
-<script>
-function goToFolder(folderName){
-    window.location.href = folderName + "/index.html";
-}
-</script>
+    <!-- Текущая дата -->
+    <div class="date-container" id="current-date"></div>
+
+    <!-- Кнопки переходов в разделы -->
+    <div class="buttons-container">
+        <button class="nav-btn" onclick="location.href='/folder1/index.html'">Раздел 1</button>
+        <button class="nav-btn" onclick="location.href='/folder2/index.html'">Раздел 2</button>
+        <button class="nav-btn" onclick="location.href='/folder3/index.html'">Раздел 3</button>
+    </div>
+
+    <!-- Таблица графика -->
+    <div class="table-container">
+        <table id="schedule-table">
+            <thead>
+                <tr id="date-row">
+                    <th>Дата</th>
+                </tr>
+                <tr id="day-row">
+                    <th>День</th>
+                </tr>
+            </thead>
+            <tbody id="schedule-body">
+                <!-- JS автоматически сгенерирует строки с именами, сменами и разделителями -->
+            </tbody>
+        </table>
+    </div>
+</main>
 
 </body>
 </html>
