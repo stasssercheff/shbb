@@ -1,3 +1,16 @@
+// Функция возврата на главную страницу
+function goHome() {
+    location.href = '/index.html';
+}
+
+// Функция возврата на предыдущую страницу
+function goBack() {
+    history.back();
+}
+
+
+
+
 // === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
