@@ -7,26 +7,20 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Лого" class="logo">
-        <div id="datetime"></div>
-        <h1 id="greeting"></h1>
 
-        <div class="lang-switch">
-            <button onclick="setLang('ru')">RU</button>
-            <button onclick="setLang('en')">EN</button>
-        </div>
-    </header>
+<h1>Главная страница</h1>
 
-    <main>
-        <h2 data-ru="Папки в корне" data-en="Root folders">Папки в корне</h2>
-        <div class="folder-buttons">
-            <button onclick="goToFolder('Кухня')">Kitchen</button>
-            <button onclick="goToFolder('folder2')">Folder 2</button>
+<div class="folder-buttons">
+    <button onclick="goToFolder('folder1')">Folder 1</button>
+    <button onclick="goToFolder('folder2')">Folder 2</button>
+    <button onclick="goToFolder('folder3')">Folder 3</button>
+</div>
 
-        </div>
-    </main>
+<script>
+function goToFolder(folderName){
+    window.location.href = folderName + "/index.html";
+}
+</script>
 
-<script src="script.js"></script>
 </body>
 </html>
