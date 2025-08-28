@@ -1,24 +1,69 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>График</title>
-  <link rel="stylesheet" href="schedule.css">
-  <script src="schedule.js" defer></script>
-</head>
-<body>
-  <header>
-    <h1 id="page-title">График смен</h1>
-    <div class="lang-switch">
-      <button onclick="setLanguage('ru')">RU</button>
-      <button onclick="setLanguage('en')">EN</button>
-    </div>
-  </header>
+const translations = {
+  ru: {
+    title: "График смен",
+    sectionKitchen: "Кухня",
+    sectionDessert: "Десерты",
+    days: ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"]
+  },
+  en: {
+    title: "Schedule",
+    sectionKitchen: "Kitchen",
+    sectionDessert: "Desserts",
+    days: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+  }
+};
 
-  <main>
-    <table id="schedule-table">
-      <!-- таблица будет строиться из JS -->
-    </table>
-  </main>
-</body>
-</html>
+// данные графика (пример, потом поменяешь на реальные смены)
+const scheduleData = {
+  kitchen: [
+    { name: "Стас", shifts: ["Утро","Утро","Выходной","Вечер","Утро","Выходной","Выходной"] },
+    { name: "Максим", shifts: ["Вечер","Вечер","Утро","Выходной","Вечер","Утро","Выходной"] },
+    { name: "Мигель", shifts: ["Выходной","Утро","Вечер","Утро","Выходной","Вечер","Утро"] },
+    { name: "Шавкат", shifts: ["Утро","Вечер","Утро","Выходной","Утро","Вечер","Выходной"] },
+    { name: "Ирина", shifts: ["Выходной","Выходной","Утро","Утро","Вечер","Утро","Выходной"] }
+  ],
+  desserts: [
+    { name: "Максим", shifts: ["Утро","Вечер","Выходной","Утро","Вечер","Выходной","Утро"] },
+    { name: "Тимофей", shifts: ["Вечер","Выходной","Утро","Вечер","Утро","Выходной","Выходной"] },
+    { name: "Ирина", shifts: ["Утро","Утро","Вечер","Выходной","Утро","Вечер","Выходной"] }
+  ]
+};
+
+let currentLang = "ru";
+
+function renderSchedule() {
+  const t = translations[currentLang];
+  document.getElementById("page-title").innerText = t.title;
+
+  const table = document.getElementById("schedule-table");
+  table.innerHTML = "";
+
+  // функция рендера одной секции
+  function renderSection(title, data) {
+    const sectionHeader = document.createElement("tr");
+    sectionHeader.innerHTML = `<th colspan="${t.days.length + 1}" class="section-title">${title}</th>`;
+    table.appendChild(sectionHeader);
+
+    // заголовки дней
+    const headerRow = document.createElement("tr");
+    headerRow.innerHTML = "<th>Сотрудник</th>" + t.days.map(day => `<th>${day}</th>`).join("");
+    table.appendChild(headerRow);
+
+    // сотрудники
+    data.forEach(person => {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${person.name}</td>` + person.shifts.map(shift => `<td>${shift}</td>`).join("");
+      table.appendChild(row);
+    });
+  }
+
+  renderSection(t.sectionKitchen, scheduleData.kitchen);
+  renderSection(t.sectionDessert, scheduleData.desserts);
+}
+
+function setLanguage(lang) {
+  currentLang = lang;
+  renderSchedule();
+}
+
+document.addEventListener("DOMContentLoaded", renderSchedule);
