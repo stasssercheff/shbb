@@ -32,5 +32,5 @@ function setLang(lang) {
 
 // --- Переход по папкам ---
 function goToFolder(folderName) {
-    window.location.href = `${folderName}/index.html`;
+    window.location.href = folderName + '/index.html';
 }
