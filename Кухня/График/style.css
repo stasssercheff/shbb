@@ -7,28 +7,29 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
 }
 
 h1 {
     font-size: 24px;
-    margin: 0;
+    margin-left: 20px;
 }
 
 .home-btn {
     padding: 8px 16px;
-    background-color: #4a90e2;
-    color: #fff;
+    background-color: #d8cfc0;
+    color: #333;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-weight: 600;
     transition: 0.3s;
 }
 
 .home-btn:hover {
-    background-color: #357abd;
+    background-color: #c1b29a;
 }
 
 .table-container {
@@ -61,7 +62,7 @@ h1 {
     font-weight: 600;
 }
 
-/* Фиксированный столбец с именами по ширине самого длинного имени */
+/* Фиксированный столбец с именами */
 .fixed-column {
     position: sticky;
     left: 0;
@@ -69,7 +70,7 @@ h1 {
     font-weight: 600;
     text-align: left;
     padding-left: 10px;
-    width: auto;
+    min-width: 120px;       /* автоширина под самое длинное имя */
     white-space: nowrap;
     box-shadow: 2px 0 5px rgba(0,0,0,0.05);
 }
