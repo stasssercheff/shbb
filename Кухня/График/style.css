@@ -1,87 +1,94 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
-    background-color: #f8f8f8;
+    background-color: #f4f6f8;
+    color: #333;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-}
-
-.home-btn {
-    padding: 6px 12px;
-    background-color: #6fa8dc;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s;
-    margin-right: 10px;
-}
-
-.home-btn:hover {
-    background-color: #3d85c6;
+    margin-bottom: 20px;
 }
 
 h1 {
+    font-size: 24px;
     margin: 0;
-    font-size: 20px;
+}
+
+.home-btn {
+    padding: 8px 16px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background-color: #357abd;
 }
 
 .table-container {
     overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    padding: 10px;
 }
 
 #schedule-table {
     border-collapse: collapse;
     width: 100%;
+    min-width: 800px;
 }
 
 #schedule-table th, #schedule-table td {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     text-align: center;
-    padding: 5px;
-    font-size: 12px;
-    overflow: hidden;
+    padding: 8px;
+    font-size: 13px;
     white-space: nowrap;
 }
 
 #schedule-table thead th {
-    background-color: #ddd;
+    background-color: #e2e6ea;
     position: sticky;
     top: 0;
     z-index: 1;
+    font-weight: 600;
 }
 
 /* Фиксированный столбец с именами */
 .fixed-column {
     position: sticky;
     left: 0;
-    background-color: #f0f0f0;
-    font-weight: bold;
-    z-index: 2;
-    min-width: 120px; /* ширина столбца с именами */
+    background-color: #f9fafb;
+    font-weight: 600;
     text-align: left;
-    padding-left: 5px;
+    padding-left: 10px;
+    min-width: 150px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
 }
 
 /* Разделитель между подразделениями */
 .separator td {
-    background-color: #f9f9f9;
-    height: 5px;
+    background-color: #f1f3f5;
+    height: 6px;
     padding: 0;
     border: none;
 }
 
 /* Выходные */
 td.work-0 {
-    background-color: #fff7a8;
+    background-color: #fff4cc;
 }
 
 /* Сегодняшний день */
 td.today {
-    outline: 2px solid #ff9900;
+    background-color: #d0f0d0;
+    border: 2px solid #4caf50;
+    font-weight: 600;
 }
