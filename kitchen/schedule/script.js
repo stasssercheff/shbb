@@ -1,72 +1,66 @@
-// Данные для графика
-const scheduleData = [
-  { section: "Шеф", names: ["Стас"] },
-  { section: "Кухня", names: ["Максим", "Мигель", "Шавкат", "Ирина"] },
-  { section: "Кондитеры", names: ["Тимофей", "Ирина"] }
+// Настройки
+const chefSchedule = [1,1,1,1,1,0,0]; // 5/2
+const kitchenStaff = ["Максим", "Мигель", "Шавкат"];
+const kitchenSchedule = [1,1,1,1,0,0]; // 4/2
+const kitchenShiftOffset = [0,1,2]; // смещение для каждого сотрудника
+const dessertsStaff = ["Максим","Тимофей","Ирина"]; // можно заполнить аналогично
+
+const staff = [
+    { role: "Шеф", names: ["Стас"], schedule: chefSchedule },
+    { role: "Кухня", names: kitchenStaff, schedule: kitchenSchedule, offset: kitchenShiftOffset },
+    { role: "Десерты", names: dessertsStaff, schedule: [] } // заполняешь сам
 ];
 
-// Функция генерации графика
-function generateSchedule(days = 10) {
-  const table = document.getElementById("schedule-table");
-  table.innerHTML = "";
+// Получаем текущую дату и дни недели
+const today = new Date();
+const daysShortRU = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"];
+const monthDays = 7; // на 7 дней показываем график
 
-  const today = new Date();
-  
-  // Шапка таблицы
-  let headerRow = "<tr><th>Раздел / Имя</th>";
-  for (let i = 0; i < days; i++) {
-    const date = new Date(today);
-    date.setDate(today.getDate() + i);
-    const isToday = i === 0 ? " today" : "";
-    headerRow += `<th class="${isToday}">${date.toLocaleDateString()}</th>`;
-  }
-  headerRow += "</tr>";
-  table.innerHTML += headerRow;
+// --- Заполнение шапки ---
+const dateRow = document.getElementById("date-row");
+const dayRow = document.getElementById("day-row");
 
-  // Тело таблицы
-  scheduleData.forEach(group => {
-    // Раздел
-    table.innerHTML += `<tr><td class="section-cell" colspan="${days + 1}">${group.section}</td></tr>`;
-    
-    // Имена
-    group.names.forEach(name => {
-      let row = `<tr><td class="name-cell">${name}</td>`;
-      for (let i = 0; i < days; i++) {
-        // Пример: случайные смены
-        const shift = Math.random() > 0.5 ? 1 : 0;
-        const cls = shift ? "shift-yes" : "shift-no";
-        const isToday = i === 0 ? " today" : "";
-        row += `<td class="${cls}${isToday}">${shift}</td>`;
-      }
-      row += "</tr>";
-      table.innerHTML += row;
+for(let i=0;i<monthDays;i++){
+    let d = new Date();
+    d.setDate(today.getDate()+i);
+    const tdDate = document.createElement("th");
+    tdDate.textContent = d.getDate();
+    if(d.toDateString() === today.toDateString()) tdDate.classList.add("today");
+    dateRow.appendChild(tdDate);
+
+    const tdDay = document.createElement("th");
+    tdDay.textContent = daysShortRU[d.getDay()===0?6:d.getDay()-1]; // Пн=0
+    if(d.toDateString() === today.toDateString()) tdDay.classList.add("today");
+    dayRow.appendChild(tdDay);
+}
+
+// --- Заполнение тела графика ---
+const tbody = document.getElementById("schedule-body");
+
+staff.forEach(group => {
+    group.names.forEach((name,i)=>{
+        const tr = document.createElement("tr");
+
+        // Первая колонка — роль + имя
+        const tdName = document.createElement("td");
+        tdName.textContent = `${group.role}: ${name}`;
+        tdName.classList.add("fixed-column","name-cell");
+        tr.appendChild(tdName);
+
+        for(let j=0;j<monthDays;j++){
+            const td = document.createElement("td");
+            let work = 0;
+            if(group.role === "Шеф") work = group.schedule[j % 7];
+            else if(group.role === "Кухня") {
+                const offset = group.offset[i];
+                work = group.schedule[(j+offset)%6]; // 6-дневный цикл 4/2
+            } else {
+                work = 0; // десерты пока пусто
+            }
+            td.textContent = work ? "X" : "-";
+            tr.appendChild(td);
+        }
+
+        tbody.appendChild(tr);
     });
-  });
-}
-
-// Перевод интерфейса
-const translations = {
-  ru: {
-    back: "← Назад",
-    home: "На главную",
-    header: "Раздел / Имя"
-  },
-  en: {
-    back: "← Back",
-    home: "Home",
-    header: "Section / Name"
-  }
-};
-
-function setLanguage(lang) {
-  document.querySelector(".nav-buttons button:first-child").textContent = translations[lang].back;
-  document.querySelector(".nav-buttons button:last-child").textContent = translations[lang].home;
-  document.querySelector("#schedule-table th:first-child").textContent = translations[lang].header;
-}
-
-document.getElementById("language-select").addEventListener("change", (e) => {
-  setLanguage(e.target.value);
 });
-
-// Генерация при загрузке
-generateSchedule(10);
