@@ -1,28 +1,28 @@
 const staffSections = {
-  "Шефы": [
-    { name: "Стас", role: "chef" },
-    { name: "Ирина", role: "chef" }
+  "Шеф": [
+    { name: "Стас", role: "chef" }
   ],
-  "Повара": [
+  "Кухня": [
     { name: "Максим", role: "cook" },
     { name: "Мигель", role: "cook" },
-    { name: "Шавкат", role: "cook" },
-    { name: "Тимофей", role: "cook" }
+    { name: "Шавкат", role: "cook" }
   ],
   "Кондитеры": [
-    { name: "Анастасия", role: "chef" } // пример, можно поменять
+    { name: "Тимофей", role: "cook" },
+    { name: "Ирина", role: "cook" }
   ]
 };
 
 const patterns = {
-  chef: [1, 1, 1, 1, 1, 0, 0], // 5/2
-  cook: [1, 1, 1, 1, 0, 0]     // 4/2
+  chef: [1, 1, 1, 1, 1, 0, 0],
+  cook: [1, 1, 1, 1, 0, 0]
 };
 
 const states = ["1", "0", "О", "Б"];
 const classes = { "1": "cell-1", "0": "cell-0", "О": "cell-O", "Б": "cell-B" };
 
 const table = document.getElementById("schedule");
+const tbody = table.querySelector("tbody");
 const saved = JSON.parse(localStorage.getItem("scheduleData") || "{}");
 
 // Получаем понедельник текущей недели
@@ -34,13 +34,11 @@ function getMonday(d) {
 }
 
 const startDate = getMonday(new Date());
-const daysToShow = 60; // «вечный» график, можно 365, будет прокрутка
+const daysToShow = 10;
 
-// Заголовки
-const rowDate = table.insertRow();
-const rowDay = table.insertRow();
-rowDate.insertCell().textContent = "Дата";
-rowDay.insertCell().textContent = "День";
+// Создание заголовков
+const headerDates = document.getElementById("header-dates");
+const headerDays = document.getElementById("header-days");
 
 for (let i = 0; i < daysToShow; i++) {
   let d = new Date(startDate);
@@ -48,22 +46,29 @@ for (let i = 0; i < daysToShow; i++) {
   const dateStr = d.toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit" });
   const dayStr = d.toLocaleDateString("ru-RU", { weekday: "short" });
 
-  rowDate.insertCell().textContent = dateStr;
-  rowDay.insertCell().textContent = dayStr;
+  let thDate = document.createElement("th");
+  thDate.textContent = dateStr;
+  headerDates.appendChild(thDate);
+
+  let thDay = document.createElement("th");
+  thDay.textContent = dayStr;
+  headerDays.appendChild(thDay);
 }
 
-// Добавляем сотрудников по секциям
+// Добавляем сотрудников
 for (let section in staffSections) {
   // строка-разделитель
-  const secRow = table.insertRow();
+  const secRow = tbody.insertRow();
   const secCell = secRow.insertCell();
   secCell.colSpan = daysToShow + 1;
   secCell.textContent = section;
-  secRow.classList.add("section-row");
+  secRow.classList.add("separator");
 
   staffSections[section].forEach((person) => {
-    const row = table.insertRow();
-    row.insertCell().textContent = person.name;
+    const row = tbody.insertRow();
+    const nameCell = row.insertCell();
+    nameCell.textContent = person.name;
+    nameCell.classList.add("sticky-col");
 
     for (let i = 0; i < daysToShow; i++) {
       const pattern = patterns[person.role];
@@ -71,19 +76,19 @@ for (let section in staffSections) {
 
       const cell = row.insertCell();
       const key = `${person.name}-${i}`;
-
       let value = saved[key] || base;
+
       cell.textContent = value;
-      updateCellClass(cell, value);
       cell.setAttribute("data-key", key);
+      updateCellClass(cell, value);
     }
   });
 }
 
-// Клик по ячейкам
+// Клик по ячейкам для точечного редактирования
 table.addEventListener("click", (e) => {
   const cell = e.target;
-  if (cell.cellIndex === 0 || cell.parentNode.rowIndex < 2 || cell.parentNode.classList.contains("section-row")) return;
+  if (cell.cellIndex === 0 || cell.parentNode.classList.contains("separator") || cell.parentNode.rowIndex < 2) return;
 
   let current = cell.textContent.trim();
   let next = states[(states.indexOf(current) + 1) % states.length];
