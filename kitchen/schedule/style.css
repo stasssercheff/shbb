@@ -1,100 +1,69 @@
-body { 
-  font-family: Arial, sans-serif; 
-  margin: 0; 
-  padding: 0; 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
 }
 
-/* Шапка с кнопками */
 .header {
   display: flex;
-  gap: 15px;
-  padding: 15px 20px;
-  background: #f0f0f0;
-  border-bottom: 1px solid #ccc;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 15px;
+  background: #eee;
   position: sticky;
   top: 0;
+  z-index: 20;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background: #ccc;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 20px;
+  padding-bottom: 60px; /* отступ снизу */
+}
+
+.schedule {
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.schedule th,
+.schedule td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: center;
+  min-width: 80px;
+}
+
+.schedule th.sticky-col,
+.schedule td.sticky-col {
+  position: sticky;
+  left: 0;
+  background: #fff;
   z-index: 10;
 }
 
-.header button {
-  padding: 12px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: 1px solid #aaa;
-  background: #fff;
-  border-radius: 6px;
-  transition: background 0.2s;
+.schedule thead th {
+  position: sticky;
+  top: 0;
+  background: #f0f0f0;
+  z-index: 15;
 }
 
-.header button:hover {
-  background: #e6e6e6;
-}
-
-/* Контейнер таблицы */
-.table-container { 
-  overflow-x: auto; 
-  width: 100%; 
-  padding: 30px 20px; /* больше воздуха вокруг таблицы */
-}
-
-/* Таблица */
-table { 
-  border-collapse: collapse; 
-  table-layout: fixed; 
-  min-width: calc(140px + 10 * 80px); 
-}
-
-/* Ячейки */
-th, td { 
-  border: 1px solid #ccc; 
-  text-align: center; 
-  padding: 8px; 
-  font-size: 14px; 
-  cursor: pointer; 
-}
-
-/* Фиксируем первый столбец */
-table td:first-child, table th:first-child { 
-  position: sticky; 
-  left: 0; 
-  background: #fff; 
-  z-index: 3; 
-  width: 140px; 
-  font-weight: bold; 
-  cursor: default; 
-}
-
-/* Фиксируем верхние строки */
-table tr:first-child td, 
-table tr:first-child th,
-table tr:nth-child(2) td, 
-table tr:nth-child(2) th { 
-  position: sticky; 
-  top: 70px; /* отступ под увеличенную шапку */
-  background: #f5f5f5; 
-  z-index: 2; 
-  font-weight: bold; 
-  cursor: default; 
-}
-
-/* Пересечение угла */
-table tr:first-child td:first-child,
-table tr:first-child th:first-child,
-table tr:nth-child(2) td:first-child,
-table tr:nth-child(2) th:first-child {
-  z-index: 5; 
-  background: #eaeaea;
-}
-
-/* Строки-разделители */
-table tr.section-row td {
+.separator td {
   background: #ddd;
   font-weight: bold;
-  cursor: default;
+  text-align: center;
 }
-
-/* Ячейки статуса */
-.cell-1 { background: #c7f7c7; } /* рабочий */
-.cell-0 { background: #ffe29c; } /* выходной */
-.cell-O { background: #a7d8ff; } /* отпуск */
-.cell-B { background: #ff9999; } /* больничный */
