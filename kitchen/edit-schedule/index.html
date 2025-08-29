@@ -1,3 +1,30 @@
-Expected branch to point to
-"d4d6e79926bc372b2f79c5842a56602cbe5
-632e1" but it did not. Pull and try again.
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование графика</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="page-header">
+    <button class="nav-btn" onclick="window.history.back()">Назад</button>
+  </header>
+
+  <div class="table-container">
+    <table class="schedule" id="edit-schedule">
+      <thead>
+        <tr id="edit-header-dates">
+          <th class="sticky-col">Имя</th>
+        </tr>
+        <tr id="edit-header-days">
+          <th class="sticky-col">День</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="edit-schedule.js"></script>
+</body>
+</html>
