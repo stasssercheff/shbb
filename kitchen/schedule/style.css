@@ -55,3 +55,28 @@ body {
   background: #cce0ff !important;
   font-weight: bold;
 }
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.page-header select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #888;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
