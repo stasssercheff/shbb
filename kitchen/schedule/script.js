@@ -1,72 +1,72 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const scheduleBody = document.getElementById("schedule-body");
-    const dateRow = document.getElementById("date-row");
-    const dayRow = document.getElementById("day-row");
+// Данные для графика
+const scheduleData = [
+  { section: "Шеф", names: ["Стас"] },
+  { section: "Кухня", names: ["Максим", "Мигель", "Шавкат", "Ирина"] },
+  { section: "Кондитеры", names: ["Тимофей", "Ирина"] }
+];
 
-    // Список сотрудников по разделам
-    const workers = [
-        { section: "Шеф", names: ["Стас"] },
-        { section: "Кухня", names: ["Максим", "Мигель", "Шавкат"] },
-        { section: "Кондитеры", names: ["Тимофей", "Ирина"] }
-    ];
+// Функция генерации графика
+function generateSchedule(days = 10) {
+  const table = document.getElementById("schedule-table");
+  table.innerHTML = "";
 
-    // Настройки
-    const daysToShow = 10;
-    const today = new Date();
+  const today = new Date();
+  
+  // Шапка таблицы
+  let headerRow = "<tr><th>Раздел / Имя</th>";
+  for (let i = 0; i < days; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
+    const isToday = i === 0 ? " today" : "";
+    headerRow += `<th class="${isToday}">${date.toLocaleDateString()}</th>`;
+  }
+  headerRow += "</tr>";
+  table.innerHTML += headerRow;
 
-    // Генерация заголовков (даты и дни недели)
-    dateRow.innerHTML = "<th>Дата</th>";
-    dayRow.innerHTML = "<th>День</th>";
-
-    for (let i = 0; i < daysToShow; i++) {
-        const d = new Date(today);
-        d.setDate(today.getDate() + i);
-
-        const dateStr = d.toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit" });
-        const dayStr = d.toLocaleDateString("ru-RU", { weekday: "short" });
-
-        const isToday = i === 0 ? "today" : "";
-
-        dateRow.innerHTML += `<th class="${isToday}">${dateStr}</th>`;
-        dayRow.innerHTML += `<th class="${isToday}">${dayStr}</th>`;
-    }
-
-    // Генерация строк сотрудников
-    scheduleBody.innerHTML = "";
-
-    workers.forEach(group => {
-        // строка с названием секции
-        const sectionRow = document.createElement("tr");
-        const sectionCell = document.createElement("td");
-        sectionCell.colSpan = daysToShow + 1;
-        sectionCell.textContent = group.section;
-        sectionCell.classList.add("section-cell");
-        sectionRow.appendChild(sectionCell);
-        scheduleBody.appendChild(sectionRow);
-
-        // строки с именами
-        group.names.forEach(name => {
-            const row = document.createElement("tr");
-
-            // имя
-            const nameCell = document.createElement("td");
-            nameCell.textContent = name;
-            nameCell.classList.add("name-cell");
-            row.appendChild(nameCell);
-
-            // смены на 10 дней (рандомно для примера)
-            for (let i = 0; i < daysToShow; i++) {
-                const shift = Math.round(Math.random()); // 0 или 1
-                const isToday = i === 0 ? "today" : "";
-
-                const cell = document.createElement("td");
-                cell.textContent = shift;
-                cell.classList.add(shift === 1 ? "shift-yes" : "shift-no");
-                if (isToday) cell.classList.add("today");
-                row.appendChild(cell);
-            }
-
-            scheduleBody.appendChild(row);
-        });
+  // Тело таблицы
+  scheduleData.forEach(group => {
+    // Раздел
+    table.innerHTML += `<tr><td class="section-cell" colspan="${days + 1}">${group.section}</td></tr>`;
+    
+    // Имена
+    group.names.forEach(name => {
+      let row = `<tr><td class="name-cell">${name}</td>`;
+      for (let i = 0; i < days; i++) {
+        // Пример: случайные смены
+        const shift = Math.random() > 0.5 ? 1 : 0;
+        const cls = shift ? "shift-yes" : "shift-no";
+        const isToday = i === 0 ? " today" : "";
+        row += `<td class="${cls}${isToday}">${shift}</td>`;
+      }
+      row += "</tr>";
+      table.innerHTML += row;
     });
+  });
+}
+
+// Перевод интерфейса
+const translations = {
+  ru: {
+    back: "← Назад",
+    home: "На главную",
+    header: "Раздел / Имя"
+  },
+  en: {
+    back: "← Back",
+    home: "Home",
+    header: "Section / Name"
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelector(".nav-buttons button:first-child").textContent = translations[lang].back;
+  document.querySelector(".nav-buttons button:last-child").textContent = translations[lang].home;
+  document.querySelector("#schedule-table th:first-child").textContent = translations[lang].header;
+}
+
+document.getElementById("language-select").addEventListener("change", (e) => {
+  setLanguage(e.target.value);
 });
+
+// Генерация при загрузке
+generateSchedule(10);
