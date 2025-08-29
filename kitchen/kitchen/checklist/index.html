@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Folder 1</title>
-<link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница выбора</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-<header>
-    <div class="navigation-buttons">
-        <a href="../index.html" class="nav-btn">← На главную</a>
-    </div>
+<header class="page-header">
+  <!-- Блок кнопок -->
+  <div class="nav-buttons">
+    <button class="top-btn" onclick="location.href='../index.html'">На главную</button>
+    <button class="top-btn" onclick="history.back()">Назад</button>
+  </div>
 </header>
 
-<h1>Folder 1</h1>
+<main class="main-container">
+  <!-- Лого -->
+  <img src="../logo.png" alt="Лого" class="logo">
 
-<div class="folder-buttons">
-    <button onclick="goToFolder('Заказ продуктов')"> 'Заказ продуктов </button>
-    <button onclick="goToFolder('subfolder2')">Subfolder 2</button>
-</div>
+  <!-- Заголовок -->
+  <h1>Выберите подраздел</h1>
 
-<script>
-function goToFolder(folderName){
-    window.location.href = folderName + "/index.html";
-}
-</script>
+  <!-- Кнопки перехода -->
+  <div class="buttons-container">
+    <button class="nav-btn" onclick="location.href='schedule/index.html'">График</button>
+    <button class="nav-btn" onclick="location.href='pastry/index.html'">Кондитерка</button>
+    <button class="nav-btn" onclick="location.href='kitchen/index.html'">Кухня</button>
+  </div>
+</main>
 
 </body>
 </html>
