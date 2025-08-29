@@ -1,61 +1,47 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>График смен</title>
-<link rel="stylesheet" href="../style.css">  <!-- общий стиль -->
-<link rel="stylesheet" href="schedule.css"> <!-- стиль для графика -->
-<script src="../script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>График смен</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="schedule-container">
+    <!-- фиксированная колонка -->
+    <table class="fixed-column">
+      <thead>
+        <tr>
+          <th>Раздел / Имя</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Шеф</td></tr>
+        <tr><td>Стас</td></tr>
+        <tr><td>Кухня</td></tr>
+        <tr><td>Максим</td></tr>
+        <tr><td>Мигель</td></tr>
+        <tr><td>Шавкат</td></tr>
+        <tr><td>Кондитеры</td></tr>
+        <tr><td>Тимофей</td></tr>
+        <tr><td>Ирина</td></tr>
+      </tbody>
+    </table>
 
-<div class="page-header">
-    <button class="top-btn" onclick="goHome()">На главную</button>
-    <button class="top-btn" onclick="goBack()">Назад</button>
-</div>
-
-<main class="main-container">
-    <h1>График смен</h1>
-    <div id="schedule-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Раздел</th>
-                    <th>Понедельник</th>
-                    <th>Вторник</th>
-                    <th>Среда</th>
-                    <th>Четверг</th>
-                    <th>Пятница</th>
-                    <th>Суббота</th>
-                    <th>Воскресенье</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><b>Кухня</b></td>
-                    <td>Стас, Максим</td>
-                    <td>Мигель, Шавкат</td>
-                    <td>Стас, Ирина</td>
-                    <td>Максим, Мигель</td>
-                    <td>Шавкат, Ирина</td>
-                    <td>Стас, Максим</td>
-                    <td>Мигель, Шавкат</td>
-                </tr>
-                <tr>
-                    <td><b>Десерты</b></td>
-                    <td>Максим, Тимофей</td>
-                    <td>Ирина</td>
-                    <td>Максим</td>
-                    <td>Тимофей, Ирина</td>
-                    <td>Максим, Ирина</td>
-                    <td>Тимофей</td>
-                    <td>Ирина</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- прокручиваемая часть -->
+    <div class="scrollable-part">
+      <table id="scheduleTable">
+        <thead>
+          <tr id="datesRow">
+            <!-- сюда JS вставит 10 дат -->
+          </tr>
+        </thead>
+        <tbody id="scheduleBody">
+          <!-- сюда JS вставит смены -->
+        </tbody>
+      </table>
     </div>
-</main>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
