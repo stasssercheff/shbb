@@ -1,8 +1,80 @@
-body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f4f6f8; color:#333; }
-.page-header { display:flex; justify-content:flex-start; gap:10px; padding:10px 20px; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:20; }
-.nav-btn { padding:12px 20px; background:#d8cfc0; color:#333; border:none; border-radius:6px; cursor:pointer; font-weight:600; font-size:16px; transition:0.2s; }
-.nav-btn:hover { background:#c1b29a; }
-.table-container { overflow-x:auto; margin:20px; padding-bottom:60px; }
-.schedule { border-collapse:collapse; table-layout:fixed; width:max-content; }
-.schedule th, .schedule td { border:1px solid #999; padding:6px; text-align:center; min-width:80px; }
-.schedule th.sticky-col, .schedule td.sticky-col { position:sticky; left:0; background:#fff; z-index:10;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+.page-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  gap: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-btn {
+  padding: 12px 20px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #c1b29a;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 20px;
+  padding-bottom: 60px;
+}
+
+.schedule {
+  border-collapse: collapse;
+  min-width: 1000px;
+}
+
+.schedule th,
+.schedule td {
+  border: 1px solid #999;
+  padding: 6px;
+  text-align: center;
+  min-width: 70px;
+}
+
+.schedule th.sticky-col,
+.schedule td.sticky-col {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.schedule thead th {
+  position: sticky;
+  top: 0;
+  background: #f0f0f0;
+  z-index: 15;
+}
+
+.separator td {
+  background: #ddd;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Цвет ячеек графика */
+.cell-1 { background:#c8e6c9; } /* рабочий день */
+.cell-0 { background:#ffcdd2; } /* выходной */
+.cell-O { background:#fff9c4; } /* отпуск */
+.cell-B { background:#bbdefb; } /* больничный */
