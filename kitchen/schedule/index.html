@@ -3,26 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>График работы</title>
-<link rel="stylesheet" href="style.css">
+<title>График смен</title>
+<link rel="stylesheet" href="/style.css">
+<script src="/script.js" defer></script>
+<link rel="stylesheet" href="schedule.css">
 </head>
 <body>
 
-<header>
-    <button class="home-btn" onclick="location.href='../index.html'">Назад</button>
-    <h1>График работы</h1>
-</header>
-
-<div class="table-container">
-    <table id="schedule-table">
-        <thead>
-            <tr id="date-row"></tr>
-            <tr id="day-row"></tr>
-        </thead>
-        <tbody id="schedule-body"></tbody>
-    </table>
+<div class="page-header">
+    <button class="top-btn" onclick="goHome()">На главную</button>
+    <button class="top-btn" onclick="goBack()">Назад</button>
 </div>
 
-<script src="script.js"></script>
+<main class="main-container">
+    <h1>График смен</h1>
+    <div id="schedule-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Раздел</th>
+                    <th>Понедельник</th>
+                    <th>Вторник</th>
+                    <th>Среда</th>
+                    <th>Четверг</th>
+                    <th>Пятница</th>
+                    <th>Суббота</th>
+                    <th>Воскресенье</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Кухня</b></td>
+                    <td>Стас, Максим</td>
+                    <td>Мигель, Шавкат</td>
+                    <td>Стас, Ирина</td>
+                    <td>Максим, Мигель</td>
+                    <td>Шавкат, Ирина</td>
+                    <td>Стас, Максим</td>
+                    <td>Мигель, Шавкат</td>
+                </tr>
+                <tr>
+                    <td><b>Десерты</b></td>
+                    <td>Максим, Тимофей</td>
+                    <td>Ирина</td>
+                    <td>Максим</td>
+                    <td>Тимофей, Ирина</td>
+                    <td>Максим, Ирина</td>
+                    <td>Тимофей</td>
+                    <td>Ирина</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
 </body>
 </html>
