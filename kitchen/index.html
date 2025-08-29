@@ -1,56 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Страница проекта</title>
-<!-- Подключение единого CSS из корня -->
-<link rel="stylesheet" href="../style.css">
-<!-- Подключение единого JS из корня -->
-<script src="../script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница выбора</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
 <header class="page-header">
-    <!-- Кнопка на главную (корень проекта) -->
+  <!-- Блок кнопок -->
+  <div class="nav-buttons">
     <button class="top-btn" onclick="location.href='../index.html'">На главную</button>
-    <!-- Кнопка назад (предыдущая страница) -->
     <button class="top-btn" onclick="history.back()">Назад</button>
+  </div>
 </header>
 
 <main class="main-container">
-    <!-- Лого сверху -->
-    <img src="../logo.png" alt="Лого" class="logo">
+  <!-- Лого -->
+  <img src="../logo.png" alt="Лого" class="logo">
 
-    <!-- Приветствие -->
-    <h1 id="greeting">Приветствую!</h1>
+  <!-- Заголовок -->
+  <h1>Выберите подраздел</h1>
 
-    <!-- Текущая дата -->
-    <div class="date-container" id="current-date"></div>
-
-    <!-- Кнопки переходов в разделы -->
-    <div class="buttons-container">
-        <button class="nav-btn" onclick="location.href='../schedule/index.html'">График</button>
-        <button class="nav-btn" onclick="location.href='../pastry/index.html'">Цех десерты</button>
-        <button class="nav-btn" onclick="location.href='../kitchen/index.html'">Цех кухня</button>
-    </div>
-
-    <!-- Таблица графика -->
-    <div class="table-container">
-        <table id="schedule-table">
-            <thead>
-                <tr id="date-row">
-                    <th>Дата</th>
-                </tr>
-                <tr id="day-row">
-                    <th>День</th>
-                </tr>
-            </thead>
-            <tbody id="schedule-body">
-                <!-- JS автоматически сгенерирует строки -->
-            </tbody>
-        </table>
-    </div>
+  <!-- Кнопки перехода -->
+  <div class="buttons-container">
+    <button class="nav-btn" onclick="location.href='sub1/index.html'">Подраздел 1</button>
+    <button class="nav-btn" onclick="location.href='sub2/index.html'">Подраздел 2</button>
+    <button class="nav-btn" onclick="location.href='sub3/index.html'">Подраздел 3</button>
+  </div>
 </main>
 
 </body>
