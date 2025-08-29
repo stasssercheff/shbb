@@ -1,73 +1,53 @@
-const staffSections = {
-  "Шеф": [{ name: "Стас", role: "chef" }],
-  "Кухня": [
-    { name: "Максим", role: "cook" },
-    { name: "Мигель", role: "cook" },
-    { name: "Шавкат", role: "cook" }
-  ],
-  "Кондитеры": [
-    { name: "Тимофей", role: "cook" },
-    { name: "Ирина", role: "cook" }
-  ]
-};
-
-const patterns = { chef: [1,1,1,1,1,0,0], cook: [1,1,1,1,0,0] };
-const classes = { "1":"cell-1","0":"cell-0","О":"cell-O","Б":"cell-B" };
 const table = document.getElementById("schedule");
 const tbody = table.querySelector("tbody");
-
-// Получаем данные из localStorage или создаём пустой объект
-const saved = JSON.parse(localStorage.getItem("scheduleData") || "{}");
+const classes = { "1":"cell-1","0":"cell-0","О":"cell-O","Б":"cell-B" };
 
 function getMonday(d){
-  d = new Date(d);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+  d=new Date(d); const day=d.getDay(); const diff=d.getDate()-day+(day===0?-6:1);
   return new Date(d.setDate(diff));
 }
 
 const startDate = getMonday(new Date());
-const daysToShow = 365; // вечный график
-
-// Заголовки
+const daysToShow = 365;
 const headerDates = document.getElementById("header-dates");
 const headerDays = document.getElementById("header-days");
 
+// Заголовки
 for(let i=0;i<daysToShow;i++){
-  let d=new Date(startDate);
-  d.setDate(d.getDate()+i);
-  const dateStr=d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
-  const dayStr=d.toLocaleDateString("ru-RU",{weekday:"short"});
-
-  let thDate=document.createElement("th"); thDate.textContent=dateStr; headerDates.appendChild(thDate);
-  let thDay=document.createElement("th"); thDay.textContent=dayStr; headerDays.appendChild(thDay);
+  let d=new Date(startDate); d.setDate(d.getDate()+i);
+  const dateStr = d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
+  const dayStr = d.toLocaleDateString("ru-RU",{weekday:"short"});
+  let thDate = document.createElement("th"); thDate.textContent = dateStr; headerDates.appendChild(thDate);
+  let thDay = document.createElement("th"); thDay.textContent = dayStr; headerDays.appendChild(thDay);
 }
 
-// Добавляем сотрудников
-for(let section in staffSections){
-  const secRow = tbody.insertRow();
-  const secCell = secRow.insertCell();
-  secCell.colSpan = daysToShow+1;
-  secCell.textContent = section;
-  secRow.classList.add("separator");
+// Загружаем данные из JSON
+fetch('../data/schedule.json')
+  .then(res => res.json())
+  .then(data => renderTable(data));
 
-  staffSections[section].forEach(person=>{
-    const row = tbody.insertRow();
-    const nameCell = row.insertCell();
-    nameCell.textContent = person.name;
-    nameCell.classList.add("sticky-col");
+function renderTable(data){
+  for(let section in data){
+    const secRow = tbody.insertRow();
+    const secCell = secRow.insertCell();
+    secCell.colSpan = daysToShow+1;
+    secCell.textContent = section;
+    secRow.classList.add("separator");
 
-    for(let i=0;i<daysToShow;i++){
-      const pattern = patterns[person.role];
-      const base = pattern[i%pattern.length].toString();
-      const cell = row.insertCell();
-      const key = `${person.name}-${i}`;
-      let value = saved[key] || base;
-      cell.textContent=value;
-      updateCellClass(cell,value);
+    const staff = data[section];
+    for(let name in staff){
+      const row = tbody.insertRow();
+      const nameCell = row.insertCell();
+      nameCell.textContent = name;
+      nameCell.classList.add("sticky-col");
+
+      const days = staff[name];
+      for(let i=0;i<daysToShow;i++){
+        const val = days[i % days.length];
+        const cell = row.insertCell();
+        cell.textContent = val;
+        cell.className = classes[val]||"";
+      }
     }
-  });
+  }
 }
-
-function updateCellClass(cell,value){ cell.className=classes[value]||""; }
-// **клики по ячейкам отключены**, просмотр только
