@@ -1,82 +1,83 @@
+/* Общие стили страницы */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
+  margin: 20px;
+  background: #fafafa;
+  color: #333;
 }
 
-.schedule-container {
-  display: flex;
-  border: 1px solid #ccc;
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-/* фиксированный столбец */
-.fixed-column {
+/* Таблица */
+#schedule-table {
   border-collapse: collapse;
-  background: #f5f5f5;
-}
-.fixed-column th, .fixed-column td {
+  width: 100%;
+  table-layout: fixed;
+  overflow-x: auto;
   border: 1px solid #ccc;
-  padding: 8px;
-  min-width: 120px;
-  text-align: left;
+}
+
+/* Заголовки */
+#schedule-table th {
+  background: #f5f5f5;
   font-weight: bold;
-  position: sticky;
-  left: 0;
-  background: #f5f5f5;
-  z-index: 2;
-}
-
-/* прокручиваемая часть */
-.scrollable-part {
-  overflow-x: auto;
-}
-.scrollable-part table {
-  border-collapse: collapse;
-}
-.scrollable-part th, .scrollable-part td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  min-width: 100px;
   text-align: center;
+  border: 1px solid #ccc;
+  padding: 8px;
+  min-width: 70px;
 }
 
-/* смены */
-.shift-1 {
-  background: #c6efce; /* зелёный */
-}
-.shift-0 {
-  background: #fff2cc; /* жёлтый */
-}
-
-/* подсветка сегодняшнего дня */
-.today {
-  background: #cce0ff !important;
-  font-weight: bold;
-}
-
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.page-header select {
-  padding: 5px;
+/* Ячейки */
+#schedule-table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+  min-width: 70px;
   font-size: 14px;
 }
 
-.nav-buttons {
-  display: flex;
-  gap: 10px;
+/* Левый столбец с именами */
+.name-cell {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  font-weight: bold;
+  z-index: 2;
+  text-align: left;
+  padding-left: 10px;
 }
 
-.nav-buttons button {
-  padding: 5px 10px;
-  cursor: pointer;
-  border: 1px solid #888;
-  background: #f5f5f5;
-  border-radius: 4px;
+/* Раздел (Шеф, Кухня, Кондитеры) */
+.section-cell {
+  background: #e0e0e0;
+  font-weight: bold;
+  text-align: center;
+  padding: 6px;
+  border: 1px solid #999;
+}
+
+/* Ячейки смен */
+.shift-yes {
+  background: #c8e6c9; /* мягкий зелёный */
+}
+
+.shift-no {
+  background: #fff9c4; /* мягкий жёлтый */
+}
+
+/* Подсветка сегодняшнего дня */
+.today {
+  background: #ffccbc !important; /* светло-красный */
+  font-weight: bold;
+}
+
+/* Чередование строк для удобства */
+#schedule-body tr:nth-child(even) td {
+  background: #fdfdfd;
+}
+#schedule-body tr:nth-child(odd) td {
+  background: #ffffff;
+}
+
+/* Скролл по горизонтали для больших таблиц */
+.schedule-container {
+  overflow-x: auto;
 }
