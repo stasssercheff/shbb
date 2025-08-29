@@ -4,10 +4,11 @@ body {
   padding: 0; 
 }
 
+/* Шапка с кнопками */
 .header {
   display: flex;
-  gap: 10px;
-  padding: 10px;
+  gap: 15px;
+  padding: 15px 20px;
   background: #f0f0f0;
   border-bottom: 1px solid #ccc;
   position: sticky;
@@ -16,35 +17,44 @@ body {
 }
 
 .header button {
-  padding: 6px 12px;
-  font-size: 14px;
+  padding: 12px 20px;
+  font-size: 16px;
   cursor: pointer;
   border: 1px solid #aaa;
   background: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
 
+.header button:hover {
+  background: #e6e6e6;
+}
+
+/* Контейнер таблицы */
 .table-container { 
   overflow-x: auto; 
   width: 100%; 
-  padding: 15px;
+  padding: 30px 20px; /* больше воздуха вокруг таблицы */
 }
 
+/* Таблица */
 table { 
   border-collapse: collapse; 
   table-layout: fixed; 
   min-width: calc(140px + 10 * 80px); 
 }
 
+/* Ячейки */
 th, td { 
   border: 1px solid #ccc; 
   text-align: center; 
-  padding: 6px; 
+  padding: 8px; 
   font-size: 14px; 
   cursor: pointer; 
 }
 
-table td:first-child { 
+/* Фиксируем первый столбец */
+table td:first-child, table th:first-child { 
   position: sticky; 
   left: 0; 
   background: #fff; 
@@ -54,26 +64,36 @@ table td:first-child {
   cursor: default; 
 }
 
+/* Фиксируем верхние строки */
 table tr:first-child td, 
-table tr:nth-child(2) td { 
+table tr:first-child th,
+table tr:nth-child(2) td, 
+table tr:nth-child(2) th { 
   position: sticky; 
-  top: 40px; /* под кнопками */
+  top: 70px; /* отступ под увеличенную шапку */
   background: #f5f5f5; 
-  z-index: 4; 
+  z-index: 2; 
   font-weight: bold; 
   cursor: default; 
 }
 
+/* Пересечение угла */
+table tr:first-child td:first-child,
+table tr:first-child th:first-child,
+table tr:nth-child(2) td:first-child,
+table tr:nth-child(2) th:first-child {
+  z-index: 5; 
+  background: #eaeaea;
+}
+
+/* Строки-разделители */
 table tr.section-row td {
   background: #ddd;
   font-weight: bold;
   cursor: default;
 }
 
-table td { 
-  width: 80px; 
-}
-
+/* Ячейки статуса */
 .cell-1 { background: #c7f7c7; } /* рабочий */
 .cell-0 { background: #ffe29c; } /* выходной */
 .cell-O { background: #a7d8ff; } /* отпуск */
