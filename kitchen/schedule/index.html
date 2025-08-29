@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -7,55 +6,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-header">
-  <!-- Переключатель языка -->
-  <select id="langSwitcher">
+  <!-- Выбор языка -->
+  <select id="language-select">
     <option value="ru">Русский</option>
     <option value="en">English</option>
   </select>
 
   <!-- Кнопки навигации -->
   <div class="nav-buttons">
-    <button id="btnBack">← Назад</button>
-    <button id="btnHome">🏠 На главную</button>
+    <button onclick="history.back()">← Назад</button>
+    <button onclick="location.href='/'">На главную</button>
   </div>
-</div>
-<hr>
-  
-  <div class="schedule-container">
-    <!-- фиксированная колонка -->
-    <table class="fixed-column">
-      <thead>
-        <tr>
-          <th>Раздел / Имя</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Шеф</td></tr>
-        <tr><td>Стас</td></tr>
-        <tr><td>Кухня</td></tr>
-        <tr><td>Максим</td></tr>
-        <tr><td>Мигель</td></tr>
-        <tr><td>Шавкат</td></tr>
-        <tr><td>Кондитеры</td></tr>
-        <tr><td>Тимофей</td></tr>
-        <tr><td>Ирина</td></tr>
-      </tbody>
-    </table>
 
-    <!-- прокручиваемая часть -->
-    <div class="scrollable-part">
-      <table id="scheduleTable">
-        <thead>
-          <tr id="datesRow">
-            <!-- сюда JS вставит 10 дат -->
-          </tr>
-        </thead>
-        <tbody id="scheduleBody">
-          <!-- сюда JS вставит смены -->
-        </tbody>
-      </table>
-    </div>
+  <!-- Контейнер с таблицей -->
+  <div class="schedule-container">
+    <table id="schedule-table"></table>
   </div>
 
   <script src="script.js"></script>
