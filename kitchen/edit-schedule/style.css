@@ -18,14 +18,14 @@ body {
 }
 
 .nav-btn {
-  padding: 10px 16px; /* чуть меньше */
+  padding: 8px 12px;
   background-color: #d8cfc0;
   color: #333;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px; /* чуть меньше */
+  font-size: 14px;
   transition: 0.2s;
 }
 
@@ -37,22 +37,20 @@ body {
   overflow-x: auto;
   margin: 20px;
   padding-bottom: 60px;
-  width: 100%;
 }
 
 .schedule {
   border-collapse: collapse;
-  min-width: auto;
-  width: max-content; /* ширина под контент, чтобы скролл был только по графику */
+  width: max-content; /* таблица растёт по содержимому */
 }
 
 .schedule th,
 .schedule td {
   border: 1px solid #999;
-  padding: 4px;       /* меньше, чтобы стало компактнее */
+  padding: 3px 5px;      /* меньше, компактнее */
   text-align: center;
-  min-width: 50px;    /* уже */
-  font-size: 12px;    /* меньше текста */
+  min-width: 45px;       /* уже */
+  font-size: 12px;
 }
 
 .schedule th.sticky-col,
@@ -60,7 +58,7 @@ body {
   position: sticky;
   left: 0;
   background: #fff;
-  z-index: 20; /* выше остальных */
+  z-index: 20;
 }
 
 .schedule thead th:not(.sticky-col) {
@@ -77,7 +75,7 @@ body {
 }
 
 /* Цвет ячеек графика */
-.cell-1 { background:#c8e6c9; } /* рабочий день */
-.cell-0 { background:#ffcdd2; } /* выходной */
-.cell-O { background:#fff9c4; } /* отпуск */
-.cell-B { background:#bbdefb; } /* больничный */
+.cell-1 { background:#c8e6c9; } 
+.cell-0 { background:#ffcdd2; } 
+.cell-O { background:#fff9c4; } 
+.cell-B { background:#bbdefb; } 
