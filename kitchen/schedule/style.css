@@ -78,6 +78,6 @@ body {
 
 /* Цвет ячеек графика */
 .cell-1 { background:#c8e6c9; } /* рабочий день */
-.cell-0 { background:#ffcdd2; } /* выходной */
+.cell-0 { background:#ffff00; } /* выходной */
 .cell-O { background:#fff9c4; } /* отпуск */
 .cell-B { background:#bbdefb; } /* больничный */
