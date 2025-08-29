@@ -3,17 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>График работы</title>
+  <title>График</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <button onclick="history.back()">⬅ Назад</button>
-    <button onclick="window.location.href='index.html'">🏠 Главная</button>
+    <button class="nav-btn" onclick="window.history.back()">⬅ Назад</button>
+    <button class="nav-btn" onclick="location.href='index.html'">🏠 На главную</button>
   </header>
 
   <div class="table-container">
-    <table id="schedule"></table>
+    <table class="schedule">
+      <thead>
+        <tr>
+          <th class="sticky-col">Дата</th>
+          <th>05.09</th>
+          <th>06.09</th>
+          <th>07.09</th>
+          <th>08.09</th>
+          <th>09.09</th>
+          <th>10.09</th>
+          <th>11.09</th>
+        </tr>
+        <tr>
+          <th class="sticky-col">День</th>
+          <th>Пн</th>
+          <th>Вт</th>
+          <th>Ср</th>
+          <th>Чт</th>
+          <th>Пт</th>
+          <th>Сб</th>
+          <th>Вс</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="separator"><td colspan="8">Шеф</td></tr>
+        <tr>
+          <td class="sticky-col">Стас</td>
+          <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td>
+        </tr>
+
+        <tr class="separator"><td colspan="8">Кухня</td></tr>
+        <tr>
+          <td class="sticky-col">Максим</td>
+          <td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td>
+        </tr>
+        <tr>
+          <td class="sticky-col">Мигель</td>
+          <td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td>
+        </tr>
+        <tr>
+          <td class="sticky-col">Шавкат</td>
+          <td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td>
+        </tr>
+
+        <tr class="separator"><td colspan="8">Кондитеры</td></tr>
+        <tr>
+          <td class="sticky-col">Тимофей</td>
+          <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td>
+        </tr>
+        <tr>
+          <td class="sticky-col">Ирина</td>
+          <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <script src="script.js"></script>
