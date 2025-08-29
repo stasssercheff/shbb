@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Страница проекта</title>
 <!-- Подключение единого CSS из корня -->
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="../style.css">
 <!-- Подключение единого JS из корня -->
-<script src="/script.js" defer></script>
+<script src="../script.js" defer></script>
 </head>
 <body>
 
 <header class="page-header">
     <!-- Кнопка на главную (корень проекта) -->
-    <button class="top-btn" onclick="location.href='/index.html'">На главную</button>
+    <button class="top-btn" onclick="location.href='../index.html'">На главную</button>
     <!-- Кнопка назад (предыдущая страница) -->
     <button class="top-btn" onclick="history.back()">Назад</button>
 </header>
 
 <main class="main-container">
     <!-- Лого сверху -->
-    <img src="/logo.png" alt="Лого" class="logo">
+    <img src="../logo.png" alt="Лого" class="logo">
 
     <!-- Приветствие -->
     <h1 id="greeting">Приветствую!</h1>
@@ -30,9 +30,9 @@
 
     <!-- Кнопки переходов в разделы -->
     <div class="buttons-container">
-        <button class="nav-btn" onclick="location.href='/schedule/index.html'">График</button>
-        <button class="nav-btn" onclick="location.href='/pastry/index.html'">Цех десерты</button>
-        <button class="nav-btn" onclick="location.href='/kitchen/index.html'">Цех кухня</button>
+        <button class="nav-btn" onclick="location.href='../schedule/index.html'">График</button>
+        <button class="nav-btn" onclick="location.href='../pastry/index.html'">Цех десерты</button>
+        <button class="nav-btn" onclick="location.href='../kitchen/index.html'">Цех кухня</button>
     </div>
 
     <!-- Таблица графика -->
@@ -47,7 +47,7 @@
                 </tr>
             </thead>
             <tbody id="schedule-body">
-                <!-- JS автоматически сгенерирует строки с именами, сменами и разделителями -->
+                <!-- JS автоматически сгенерирует строки -->
             </tbody>
         </table>
     </div>
