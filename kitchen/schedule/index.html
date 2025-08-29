@@ -2,23 +2,39 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>График смен</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>График</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+
+  <!-- Верхняя панель -->
   <div class="top-bar">
-    <button id="btn-back" class="nav-btn">◀ Назад</button>
-    <button id="btn-home" class="nav-btn">🏠 Главная</button>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="history.back()">⬅ Назад</button>
+      <button class="nav-btn" onclick="location.href='/index.html'">🏠 На главную</button>
+    </div>
     <div class="lang-switch">
-      <button data-lang="ru">🇷🇺 Рус</button>
-      <button data-lang="en">🇬🇧 Eng</button>
+      <button onclick="setLanguage('ru')">RU</button>
+      <button onclick="setLanguage('en')">EN</button>
     </div>
   </div>
 
+  <!-- Контейнер графика -->
   <div class="schedule-container">
-    <table id="schedule-table"></table>
+    <table id="schedule-table">
+      <thead>
+        <tr id="date-row">
+          <th class="name-col" data-ru="Имя" data-en="Name">Имя</th>
+        </tr>
+        <tr id="day-row">
+          <th class="name-col" data-ru="День" data-en="Day">День</th>
+        </tr>
+      </thead>
+      <tbody id="schedule-body"></tbody>
+    </table>
   </div>
 
-  <script src="script.js"></script>
 </body>
 </html>
