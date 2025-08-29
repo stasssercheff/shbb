@@ -1,74 +1,44 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #fafafa;
-  color: #333;
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
-/* Контейнер с прокруткой */
+h1 {
+    text-align: center;
+}
+
 .schedule-container {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
-/* Таблица */
-#schedule-table {
-  border-collapse: collapse;
-  width: 100%;
-  table-layout: fixed;
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-/* Заголовки */
-#schedule-table th {
-  background: #f0f0f0;
-  font-weight: bold;
-  text-align: center;
-  padding: 8px;
-  min-width: 70px;
-  border-bottom: 2px solid #ccc;
+thead th, tbody td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
 }
 
-/* Ячейки */
-#schedule-table td {
-  padding: 6px;
-  text-align: center;
-  min-width: 70px;
-  font-size: 14px;
-  border-bottom: 1px solid #eee;
+thead th {
+    background: #f0f0f0;
 }
 
-/* Левый столбец с именами */
-.name-cell {
-  position: sticky;
-  left: 0;
-  background: #fff;
-  font-weight: bold;
-  text-align: left;
-  padding-left: 10px;
-  border-right: 1px solid #ddd;
-  z-index: 2;
+.fixed-column {
+    position: sticky;
+    left: 0;
+    background: #eee;
+    font-weight: bold;
 }
 
-/* Разделы */
-.section-cell {
-  background: #f7f7f7;
-  font-weight: bold;
-  text-align: left;
-  padding: 6px 10px;
-  border-top: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
-}
-
-/* Ячейки смен */
-.shift-yes {
-  background: #d6f5d6; /* мягкий зелёный */
-}
-
-.shift-no {
-  background: #fff9c4; /* мягкий жёлтый */
-}
-
-/* Подсветка сегодняшнего дня */
 .today {
-  background: #ffe0b2 !important; /* светло-оранжевый */
-  font-weight: bold;
+    background: #ffd966;
+    font-weight: bold;
+}
+
+.name-cell {
+    text-align: left;
+    padding-left: 10px;
 }
