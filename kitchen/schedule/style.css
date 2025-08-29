@@ -1,22 +1,57 @@
-#schedule-container {
-    margin-top: 20px;
-    overflow-x: auto;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 
-#schedule-container table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
+.schedule-container {
+  display: flex;
+  border: 1px solid #ccc;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
-#schedule-container th, 
-#schedule-container td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
+/* фиксированный столбец */
+.fixed-column {
+  border-collapse: collapse;
+  background: #f5f5f5;
+}
+.fixed-column th, .fixed-column td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  min-width: 120px;
+  text-align: left;
+  font-weight: bold;
+  position: sticky;
+  left: 0;
+  background: #f5f5f5;
+  z-index: 2;
 }
 
-#schedule-container th {
-    background: #d8cfc0;
-    font-weight: bold;
+/* прокручиваемая часть */
+.scrollable-part {
+  overflow-x: auto;
+}
+.scrollable-part table {
+  border-collapse: collapse;
+}
+.scrollable-part th, .scrollable-part td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  min-width: 100px;
+  text-align: center;
+}
+
+/* смены */
+.shift-1 {
+  background: #c6efce; /* зелёный */
+}
+.shift-0 {
+  background: #fff2cc; /* жёлтый */
+}
+
+/* подсветка сегодняшнего дня */
+.today {
+  background: #cce0ff !important;
+  font-weight: bold;
 }
