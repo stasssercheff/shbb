@@ -6,12 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dateEl.textContent = today.toLocaleDateString('ru-RU', options);
 });
 
-// Функция возврата на главную страницу
+// Функция возврата на сираницу назад
 function goHome() {
     location.href = '/index.html';
-}
-
-// Функция возврата на предыдущую страницу
-function goBack() {
-    history.back();
 }
