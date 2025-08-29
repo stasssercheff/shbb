@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>График смен</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>График смен</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Выбор языка -->
-  <select id="language-select">
-    <option value="ru">Русский</option>
-    <option value="en">English</option>
-  </select>
 
-  <!-- Кнопки навигации -->
-  <div class="nav-buttons">
-    <button onclick="history.back()">← Назад</button>
-    <button onclick="location.href='/'">На главную</button>
-  </div>
+<h1>График смен</h1>
 
-  <!-- Контейнер с таблицей -->
-  <div class="schedule-container">
-    <table id="schedule-table"></table>
-  </div>
+<div class="schedule-container">
+    <table id="schedule">
+        <thead>
+            <tr id="date-row"></tr>
+            <tr id="day-row"></tr>
+        </thead>
+        <tbody id="schedule-body">
+            <!-- Имена и график вставляются через JS -->
+        </tbody>
+    </table>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
