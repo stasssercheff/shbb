@@ -1,16 +1,3 @@
-// Функция возврата на главную страницу
-function goHome() {
-    location.href = '/index.html';
-}
-
-// Функция возврата на предыдущую страницу
-function goBack() {
-    history.back();
-}
-
-
-
-
 // === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
@@ -102,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('input', saveFormData);
   });
 
-  // === Функция сборки сообщения === (отправляет только выбранное)
+  // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
-    let message = `🧾 <b>${lang === 'en' ? 'Order list' : 'заказ продуктов'}</b>\n\n`;
+    let message = `🧾 <b>${lang === 'en' ? 'Order list' : 'Списание/Отдано'}</b>\n\n`;
 
     // Дата
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
@@ -123,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       section.querySelectorAll('.dish').forEach(dish => {
         const select = dish.querySelector('select.qty');
-        if (!select || !select.value) return; // пропуск, если ничего не выбрано
+        if (!select || !select.value) return;
 
         const label = dish.querySelector('label.check-label');
         const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
@@ -152,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
     const token = '8348920386:AAFlufZWkWqsH4-qoqSSHdmgcEM_s46Ke8Q';
-    const chat_id = '-1002393080811';
+    const chat_id = '-4966900925';
 
     const sendMessage = (msg) => {
       return fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -166,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(res => res.json());
     };
 
-    // Разделение длинного текста на части и отправка
+    // Разделение длинного текста на части
     const sendAllParts = async (text) => {
       let start = 0;
       while (start < text.length) {
@@ -177,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // Функция очистки формы
+    // Очистка формы
     const clearForm = () => {
       document.querySelectorAll('select').forEach(select => {
         select.value = '';
@@ -189,9 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     (async () => {
       try {
-        // Отправляем по одному разу на каждый язык
-        await sendAllParts(buildMessage('ru'));
-        await sendAllParts(buildMessage('en'));
+        const checkbox = document.getElementById('sendBoth');
+        const mode = checkbox?.checked ? 'both' : 'ru';
+
+        if (mode === 'ru') {
+          await sendAllParts(buildMessage('ru'));
+        } else if (mode === 'both') {
+          await sendAllParts(buildMessage('ru'));
+          await sendAllParts(buildMessage(document.documentElement.lang));
+        }
 
         alert('✅ Чеклист отправлен!');
         localStorage.clear();
