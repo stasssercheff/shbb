@@ -8,8 +8,8 @@ body {
 .page-header {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 20px;
   gap: 10px;
+  padding: 10px 20px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -18,14 +18,14 @@ body {
 }
 
 .nav-btn {
-  padding: 10px 16px; /* чуть меньше */
+  padding: 8px 12px;
   background-color: #d8cfc0;
   color: #333;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px; /* чуть меньше */
+  font-size: 14px;
   transition: 0.2s;
 }
 
@@ -33,26 +33,40 @@ body {
   background-color: #c1b29a;
 }
 
+.logo-container {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
 .table-container {
   overflow-x: auto;
-  margin: 20px;
-  padding-bottom: 60px;
-  width: 100%;
+  margin: 0 20px 20px 20px;
 }
 
 .schedule {
   border-collapse: collapse;
-  min-width: auto;
-  width: max-content; /* ширина под контент, чтобы скролл был только по графику */
+  width: max-content;
+  font-size: 12px;
 }
 
 .schedule th,
 .schedule td {
   border: 1px solid #999;
-  padding: 4px;       /* меньше, чтобы стало компактнее */
+  padding: 3px 5px;
+  min-width: 45px;
   text-align: center;
-  min-width: 50px;    /* уже */
-  font-size: 12px;    /* меньше текста */
 }
 
 .schedule th.sticky-col,
@@ -60,7 +74,7 @@ body {
   position: sticky;
   left: 0;
   background: #fff;
-  z-index: 20; /* выше остальных */
+  z-index: 20;
 }
 
 .schedule thead th:not(.sticky-col) {
@@ -76,8 +90,13 @@ body {
   text-align: center;
 }
 
-/* Цвет ячеек графика */
-.cell-1 { background:#c8e6c9; } /* рабочий день */
-.cell-0 { background:#ffff00; } /* выходной */
-.cell-O { background:#fff9c4; } /* отпуск */
-.cell-B { background:#bbdefb; } /* больничный */
+/* Цвета ячеек */
+.cell-1 { background:#c8e6c9; }
+.cell-0 { background:#ffcdd2; }
+.cell-O { background:#fff9c4; }
+.cell-B { background:#bbdefb; }
+
+/* Выделение сегодняшнего дня */
+.today {
+  background-color: #ffecb3 !important;
+}
