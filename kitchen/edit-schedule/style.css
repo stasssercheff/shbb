@@ -7,9 +7,9 @@ body {
 
 .page-header {
   display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
+  flex-wrap: wrap;
   gap: 10px;
+  padding: 10px 20px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -41,16 +41,16 @@ body {
 
 .schedule {
   border-collapse: collapse;
-  width: max-content; /* таблица растёт по содержимому */
+  width: max-content;
+  font-size: 12px;
 }
 
 .schedule th,
 .schedule td {
   border: 1px solid #999;
-  padding: 3px 5px;      /* меньше, компактнее */
+  padding: 3px 5px;
+  min-width: 45px;
   text-align: center;
-  min-width: 45px;       /* уже */
-  font-size: 12px;
 }
 
 .schedule th.sticky-col,
@@ -74,8 +74,8 @@ body {
   text-align: center;
 }
 
-/* Цвет ячеек графика */
-.cell-1 { background:#c8e6c9; } 
-.cell-0 { background:#ffcdd2; } 
-.cell-O { background:#fff9c4; } 
-.cell-B { background:#bbdefb; } 
+/* Цвета ячеек */
+.cell-1 { background:#c8e6c9; }
+.cell-0 { background:#ffcdd2; }
+.cell-O { background:#fff9c4; }
+.cell-B { background:#bbdefb; }
