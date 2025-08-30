@@ -3,22 +3,37 @@ const tbody = table.querySelector("tbody");
 const classes = { "1":"cell-1","0":"cell-0","О":"cell-O","Б":"cell-B" };
 
 function getMonday(d){
-  d=new Date(d); const day=d.getDay(); const diff=d.getDate()-day+(day===0?-6:1);
+  d = new Date(d);
+  const day = d.getDay();
+  const diff = d.getDate() - day + (day===0?-6:1);
   return new Date(d.setDate(diff));
 }
 
 const startDate = getMonday(new Date());
-const daysToShow = 365;
+const daysToShow = 60;
 const headerDates = document.getElementById("header-dates");
 const headerDays = document.getElementById("header-days");
 
-// Заголовки
+const today = new Date();
+today.setHours(0,0,0,0);
+
+// Создаём заголовки
 for(let i=0;i<daysToShow;i++){
-  let d=new Date(startDate); d.setDate(d.getDate()+i);
+  let d = new Date(startDate);
+  d.setDate(d.getDate()+i);
+
   const dateStr = d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
   const dayStr = d.toLocaleDateString("ru-RU",{weekday:"short"});
-  let thDate = document.createElement("th"); thDate.textContent = dateStr; headerDates.appendChild(thDate);
-  let thDay = document.createElement("th"); thDay.textContent = dayStr; headerDays.appendChild(thDay);
+
+  let thDate = document.createElement("th");
+  thDate.textContent = dateStr;
+  if(d.getTime() === today.getTime()) thDate.classList.add("today");
+  headerDates.appendChild(thDate);
+
+  let thDay = document.createElement("th");
+  thDay.textContent = dayStr;
+  if(d.getTime() === today.getTime()) thDay.classList.add("today");
+  headerDays.appendChild(thDay);
 }
 
 // Загружаем данные из JSON
@@ -47,6 +62,12 @@ function renderTable(data){
         const cell = row.insertCell();
         cell.textContent = val;
         cell.className = classes[val]||"";
+
+        // Выделяем сегодня
+        const d = new Date(startDate);
+        d.setDate(d.getDate()+i);
+        d.setHours(0,0,0,0);
+        if(d.getTime() === today.getTime()) cell.classList.add("today");
       }
     }
   }
