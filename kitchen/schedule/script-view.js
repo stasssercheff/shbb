@@ -7,9 +7,9 @@ const today = new Date();
 today.setHours(0,0,0,0);
 
 function getMonday(d){
-  d = new Date(d);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day===0?-6:1);
+  d=new Date(d);
+  const day=d.getDay();
+  const diff=d.getDate()-day+(day===0?-6:1);
   return new Date(d.setDate(diff));
 }
 
@@ -17,7 +17,6 @@ const startDate = getMonday(new Date());
 const daysToShow = 60;
 let data = {};
 
-// --- Заголовки дат и дней ---
 for(let i=0;i<daysToShow;i++){
   const d = new Date(startDate);
   d.setDate(d.getDate()+i);
@@ -25,66 +24,59 @@ for(let i=0;i<daysToShow;i++){
   const dateStr = d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
   const dayStr = d.toLocaleDateString("ru-RU",{weekday:"short"});
 
-  const thDate = document.createElement("th");
-  thDate.textContent = dateStr;
-  if(d.getTime() === today.getTime()) thDate.classList.add("today");
+  const thDate=document.createElement("th");
+  thDate.textContent=dateStr;
+  if(d.getTime()===today.getTime()) thDate.classList.add("today");
   headerDates.appendChild(thDate);
 
-  const thDay = document.createElement("th");
-  thDay.textContent = dayStr;
-  if(d.getTime() === today.getTime()) thDay.classList.add("today");
+  const thDay=document.createElement("th");
+  thDay.textContent=dayStr;
+  if(d.getTime()===today.getTime()) thDay.classList.add("today");
   headerDays.appendChild(thDay);
 }
 
-// --- Загружаем JSON ---
 fetch('../data/schedule.json')
-  .then(res => res.json())
-  .then(json => {
+  .then(res=>res.json())
+  .then(json=>{
     data = JSON.parse(JSON.stringify(json));
     renderTable(data);
   });
 
 function renderTable(dataObj){
   for(let section in dataObj){
-    if(section === "exceptions") continue; // исключения не отображаем
+    if(section==="exceptions") continue;
 
-    // строка-разделитель
     const secRow = table.insertRow();
     const secCell = secRow.insertCell();
     secCell.colSpan = daysToShow+1;
     secRow.classList.add("section-row");
-    secCell.textContent = section;
 
     const staff = dataObj[section];
     for(let name in staff){
       const row = table.insertRow();
       const nameCell = row.insertCell();
-      nameCell.textContent = name;
+      nameCell.textContent=name;
       nameCell.classList.add("sticky-col");
 
       const days = staff[name];
       for(let i=0;i<daysToShow;i++){
-        const val = days[i % days.length];
+        const val=days[i%days.length];
+        const extVal = (typeof extensions !== "undefined" && extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || val;
+        const cell=row.insertCell();
+        cell.textContent=extVal;
+        cell.className=classes[extVal]||"";
 
-        // применяем extensions, если есть
-        const extVal = (extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || val;
-
-        const cell = row.insertCell();
-        cell.textContent = extVal;
-        cell.className = classes[extVal]||"";
-
-        // выделяем сегодня
-        const d = new Date(startDate);
+        const d=new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
-        if(d.getTime() === today.getTime()) cell.classList.add("today");
+        if(d.getTime()===today.getTime()) cell.classList.add("today");
       }
     }
   }
 }
 
 function getDateStr(offset){
-  const d = new Date(startDate);
+  const d=new Date(startDate);
   d.setDate(d.getDate()+offset);
   return d.toISOString().split("T")[0];
 }
