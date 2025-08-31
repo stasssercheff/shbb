@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, maximum-scale=1.0">
-  <title>Редактирование графика</title>
-  <link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Редактор графика</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="page-header">
-  <button class="nav-btn" onclick="window.history.back()">Назад</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">На главную</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
 </header>
 
 <div class="logo-container">
   <img src="../logo.png" alt="Лого" class="logo">
-  <h1>Редактирование графика</h1>
+  <h1>Редактор графика</h1>
 </div>
 
-<div class="editor-container">
-  <input type="date" id="dateInput">
-  <select id="sectionSelect"></select>
-  <select id="nameSelect"></select>
-  <select id="valueSelect">
-    <option value="1">Смена</option>
-    <option value="0">Выходной</option>
-    <option value="О">Отпуск</option>
-    <option value="Б">Больничный</option>
-  </select>
-  <button onclick="addException()">Добавить исключение</button>
+<div class="table-container">
+  <table class="schedule" id="schedule-editor">
+    <thead>
+      <tr id="header-dates"><th class="sticky-col">Дата</th></tr>
+      <tr id="header-days"><th class="sticky-col">День</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 </div>
 
 <div class="buttons">
-  <button onclick="downloadJson()">Скачать JSON</button>
+  <button id="save-json">Скачать JSON</button>
 </div>
 
-<pre id="output"></pre>
-
-<script src="./edit-schedule.js"></script>
+<script src="script-edit.js"></script>
 </body>
 </html>
