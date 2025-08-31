@@ -15,7 +15,7 @@ function getMonday(d) {
 }
 
 const startDate = getMonday(new Date("2025-08-31"));
-const daysToShow = 60; // вечный график
+const daysToShow = 10; // на экран телефонов 10 дней
 
 // Заголовки
 for(let i=0;i<daysToShow;i++){
