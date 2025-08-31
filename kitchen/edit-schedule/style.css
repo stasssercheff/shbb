@@ -80,18 +80,13 @@ th {
   text-align: left;
 }
 
-/* --- смены --- */
 .shift-1 { background: #a6e6a6; }
 .shift-0 { background: #fff7a6; }
 .shift-O { background: #ffcccc; }
 .shift-Б { background: #cce0ff; }
 
-/* --- подсветка сегодня --- */
-.today {
-  background-color: #cce0ff !important;
-}
+.today { background-color: #cce0ff !important; }
 
-/* --- панель extensions --- */
 .extensions-panel {
   margin: 10px 20px;
   font-size: 12px;
@@ -108,8 +103,4 @@ th {
   margin-top: 5px;
   padding: 4px 8px;
   font-size: 12px;
-}
-
-.buttons {
-  margin: 10px 20px;
 }
