@@ -1,83 +1,64 @@
-const table = document.getElementById("edit-schedule").tBodies[0] || document.getElementById("edit-schedule");
-const classes = { "1":"cell-1","0":"cell-0","ВЗ":"cell-ВЗ","Б":"cell-Б" };
-const states = ["1","0","О","Б"];
+let scheduleData = {};
 
-function getMonday(d){
-  d = new Date(d);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day===0?-6:1);
-  return new Date(d.setDate(diff));
+async function loadData() {
+  const res = await fetch("../Data/schedule.json");
+  scheduleData = await res.json();
+
+  const sectionSelect = document.getElementById("sectionSelect");
+  sectionSelect.innerHTML = "";
+
+  for (const section in scheduleData) {
+    if (section === "exceptions") continue;
+    const opt = document.createElement("option");
+    opt.value = section;
+    opt.textContent = section;
+    sectionSelect.appendChild(opt);
+  }
+
+  updateNameSelect();
 }
 
-const startDate = getMonday(new Date());
-const daysToShow = 60; // можно увеличить
-const headerDates = document.getElementById("header-dates");
-const headerDays = document.getElementById("header-days");
+function updateNameSelect() {
+  const section = document.getElementById("sectionSelect").value;
+  const nameSelect = document.getElementById("nameSelect");
+  nameSelect.innerHTML = "";
 
-for(let i=0;i<daysToShow;i++){
-  let d = new Date(startDate); d.setDate(d.getDate()+i);
-  let thDate = document.createElement("th");
-  thDate.textContent = d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
-  headerDates.appendChild(thDate);
-
-  let thDay = document.createElement("th");
-  thDay.textContent = d.toLocaleDateString("ru-RU",{weekday:"short"});
-  headerDays.appendChild(thDay);
-}
-
-// Загружаем данные из JSON
-fetch('../data/schedule.json')
-  .then(res => res.json())
-  .then(data => renderTable(data));
-
-let savedData = {};
-
-function renderTable(data){
-  savedData = JSON.parse(JSON.stringify(data));
-  for(let section in data){
-    const secRow = table.insertRow();
-    const secCell = secRow.insertCell();
-    secCell.colSpan = daysToShow+1;
-    secCell.textContent = section;
-    secRow.classList.add("separator");
-
-    const staff = data[section];
-    for(let name in staff){
-      const row = table.insertRow();
-      const nameCell = row.insertCell();
-      nameCell.textContent = name;
-      nameCell.classList.add("sticky-col");
-
-      const days = staff[name];
-      for(let i=0;i<daysToShow;i++){
-        const val = days[i % days.length];
-        const cell = row.insertCell();
-        cell.textContent = val;
-        cell.className = classes[val]||"";
-        cell.dataset.section = section;
-        cell.dataset.name = name;
-        cell.dataset.index = i;
-
-        // клик для редактирования
-        cell.addEventListener("click", e=>{
-          let current = e.target.textContent.trim();
-          let next = states[(states.indexOf(current)+1)%states.length];
-          e.target.textContent = next;
-          e.target.className = classes[next]||"";
-          savedData[section][name][i % days.length] = next;
-        });
-      }
-    }
+  for (const name in scheduleData[section]) {
+    const opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;
+    nameSelect.appendChild(opt);
   }
 }
 
-// Кнопка для скачивания JSON
-document.getElementById("export-json").addEventListener("click", ()=>{
-  const blob = new Blob([JSON.stringify(savedData,null,2)], {type:"application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "schedule.json";
-  a.click();
-  URL.revokeObjectURL(url);
-});
+function addException() {
+  const date = document.getElementById("dateInput").value;
+  const section = document.getElementById("sectionSelect").value;
+  const name = document.getElementById("nameSelect").value;
+  const value = document.getElementById("valueSelect").value;
+
+  if (!date) {
+    alert("Выберите дату");
+    return;
+  }
+
+  if (!scheduleData.exceptions) scheduleData.exceptions = {};
+  if (!scheduleData.exceptions[section]) scheduleData.exceptions[section] = {};
+  if (!scheduleData.exceptions[section][name]) scheduleData.exceptions[section][name] = {};
+
+  scheduleData.exceptions[section][name][date] = value;
+
+  document.getElementById("output").textContent = JSON.stringify(scheduleData, null, 2);
+}
+
+function downloadJson() {
+  const blob = new Blob([JSON.stringify(scheduleData, null, 2)], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "schedule.json";
+  link.click();
+}
+
+document.getElementById("sectionSelect").addEventListener("change", updateNameSelect);
+
+loadData();
