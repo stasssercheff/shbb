@@ -1,76 +1,77 @@
 async function loadSchedule() {
-  const res = await fetch("../Data/schedule.json");
-  const data = await res.json();
+  const response = await fetch('../data/schedule.json');
+  const data = await response.json();
 
-  const tableBody = document.querySelector("#schedule tbody");
-  const headerDates = document.getElementById("header-dates");
-  const headerDays = document.getElementById("header-days");
+  const employees = data.employees;
+  const exceptions = data.exceptions || {};
+  const scheduleTable = document.getElementById('schedule');
+  const tbody = scheduleTable.querySelector('tbody');
 
-  // показываем 10 дней от сегодня
+  const startDate = new Date();
+  startDate.setDate(startDate.getDate() - startDate.getDay() + 1); // понедельник
   const daysToShow = 10;
-  const today = new Date();
+
+  const headerDates = document.getElementById('header-dates');
+  const headerDays = document.getElementById('header-days');
 
   for (let i = 0; i < daysToShow; i++) {
-    const date = new Date(today);
-    date.setDate(today.getDate() + i);
+    const currentDate = new Date(startDate);
+    currentDate.setDate(startDate.getDate() + i);
 
-    const dateStr = date.toISOString().split("T")[0];
-    const dayName = date.toLocaleDateString("ru-RU", { weekday: "short" });
+    const dateStr = currentDate.toISOString().split('T')[0];
+    const day = currentDate.toLocaleDateString('ru-RU', { weekday: 'short' });
 
-    const thDate = document.createElement("th");
-    thDate.textContent = dateStr;
+    const thDate = document.createElement('th');
+    thDate.textContent = currentDate.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' });
     headerDates.appendChild(thDate);
 
-    const thDay = document.createElement("th");
-    thDay.textContent = dayName;
+    const thDay = document.createElement('th');
+    thDay.textContent = day;
     headerDays.appendChild(thDay);
   }
 
-  for (const section in data) {
-    if (section === "exceptions") continue;
+  // группы по разделам
+  const sections = {};
+  for (const id in employees) {
+    const emp = employees[id];
+    if (!sections[emp.section]) sections[emp.section] = [];
+    sections[emp.section].push({ id, ...emp });
+  }
 
-    const sectionRow = document.createElement("tr");
-    sectionRow.classList.add("section-row");
-    const td = document.createElement("td");
-    td.textContent = section;
+  // вывод строк
+  for (const section in sections) {
+    const sectionRow = document.createElement('tr');
+    const td = document.createElement('td');
     td.colSpan = daysToShow + 1;
+    td.textContent = section;
+    td.classList.add('section-row');
     sectionRow.appendChild(td);
-    tableBody.appendChild(sectionRow);
+    tbody.appendChild(sectionRow);
 
-    for (const name in data[section]) {
-      const row = document.createElement("tr");
-      const nameTd = document.createElement("td");
-      nameTd.textContent = name;
-      nameTd.classList.add("name-col");
-      row.appendChild(nameTd);
+    for (const emp of sections[section]) {
+      const tr = document.createElement('tr');
+      const tdName = document.createElement('td');
+      tdName.textContent = emp.name;
+      tdName.classList.add('name-col');
+      tr.appendChild(tdName);
 
       for (let i = 0; i < daysToShow; i++) {
-        const date = new Date(today);
-        date.setDate(today.getDate() + i);
-        const dateStr = date.toISOString().split("T")[0];
+        const currentDate = new Date(startDate);
+        currentDate.setDate(startDate.getDate() + i);
+        const dateStr = currentDate.toISOString().split('T')[0];
 
-        let baseShift = data[section][name][i % data[section][name].length];
-        let finalShift = baseShift;
-
-        // проверяем исключения
-        if (data.exceptions?.[section]?.[name]?.[dateStr]) {
-          finalShift = data.exceptions[section][name][dateStr];
+        let shift = emp.shifts[i % emp.shifts.length]; // циклично
+        if (exceptions[dateStr] && exceptions[dateStr][emp.id]) {
+          shift = exceptions[dateStr][emp.id];
         }
 
-        const td = document.createElement("td");
-        td.textContent = finalShift;
-
-        td.classList.add(
-          finalShift === "1" ? "shift-1" :
-          finalShift === "0" ? "shift-0" :
-          finalShift === "О" ? "shift-O" :
-          finalShift === "Б" ? "shift-Б" :
-          ""
-        );
-
-        row.appendChild(td);
+        const td = document.createElement('td');
+        td.textContent = shift;
+        td.classList.add('shift-' + shift);
+        tr.appendChild(td);
       }
-      tableBody.appendChild(row);
+
+      tbody.appendChild(tr);
     }
   }
 }
