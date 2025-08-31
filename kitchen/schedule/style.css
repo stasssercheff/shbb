@@ -1,102 +1,82 @@
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f8;
+  padding: 0;
+  background: #f9f9f9;
   color: #333;
-}
-
-.page-header {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding: 10px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.nav-btn {
-  padding: 8px 12px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.nav-btn:hover {
-  background-color: #c1b29a;
 }
 
 .logo-container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 15px 0;
 }
 
 .logo {
-  max-width: 120px;
-  height: auto;
+  max-width: 120px;  /* ограничиваем ширину логотипа */
+  height: auto;       /* сохраняем пропорции */
   display: block;
-  margin: 0 auto;
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 20px;    /* компактный заголовок */
   margin: 5px 0;
-}
-
-.table-container {
-  overflow-x: auto;
-  margin: 0 20px 20px 20px;
-}
-
-.schedule {
-  border-collapse: collapse;
-  width: max-content;
-  font-size: 12px;
-}
-
-.schedule th,
-.schedule td {
-  border: 1px solid #999;
-  padding: 3px 5px;
-  min-width: 45px;
   text-align: center;
 }
 
-.schedule th.sticky-col,
-.schedule td.sticky-col {
+.container {
+  width: 100%;
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 900px; /* чтобы влезало хотя бы 7 дней */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 4px 6px;
+  font-size: 12px; /* уменьшаем размер текста */
+}
+
+th {
+  background: #eee;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.name-col {
   position: sticky;
   left: 0;
   background: #fff;
-  z-index: 20;
+  z-index: 3;
+  font-weight: bold;
 }
 
-.schedule thead th:not(.sticky-col) {
-  position: sticky;
-  top: 0;
-  background: #f0f0f0;
-  z-index: 15;
-}
-
-.separator td {
+.section-row td {
   background: #ddd;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 
-/* Цвета ячеек */
-.cell-1 { background:#c8e6c9; }
-.cell-0 { background:#ffcdd2; }
-.cell-O { background:#fff9c4; }
-.cell-B { background:#bbdefb; }
+.today-col {
+  background: #ffeeba !important;
+}
 
-/* Выделение сегодняшнего дня */
-.today {
-  background-color: #ffecb3 !important;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
 }
