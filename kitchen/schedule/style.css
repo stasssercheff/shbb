@@ -1,21 +1,21 @@
+/* --- базовые стили --- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 10px;
+  padding: 0;
   background: #f9f9f9;
   color: #333;
 }
 
 header.page-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 10px;
   background: #eee;
   border-bottom: 1px solid #ccc;
 }
 
 .nav-btn {
-  color: #000;
   padding: 6px 12px;
   font-size: 14px;
   cursor: pointer;
@@ -34,6 +34,7 @@ header.page-header {
 .logo {
   max-width: 120px;
   height: auto;
+  display: block;
 }
 
 h1 {
@@ -42,15 +43,16 @@ h1 {
   text-align: center;
 }
 
+/* --- таблица --- */
 .table-container {
   overflow-x: auto;
-  margin-top: 10px;
+  margin: 10px;
   border: 1px solid #ccc;
 }
 
 table {
   border-collapse: collapse;
-  width: max-content;
+  width: 100%;
   min-width: 900px;
 }
 
@@ -82,11 +84,32 @@ th {
   text-align: left;
 }
 
-.shift-1 { background: #a6e6a6; }
-.shift-0 { background: #fff7a6; }
-.shift-O { background: #ffcccc; }
-.shift-Б { background: #cce0ff; }
+/* --- смены --- */
+.shift-1 { background: #a6e6a6; }   /* светло-зелёный */
+.shift-0 { background: #fff7a6; }   /* светло-жёлтый */
+.shift-O { background: #ffcccc; }   /* красный (выходной) */
+.shift-Б { background: #cce0ff; }   /* голубой (больничный) */
 
+/* --- сегодняшняя дата --- */
 .today {
   background-color: #cce0ff !important;
+}
+
+/* --- панель extensions --- */
+.extensions-panel {
+  margin: 10px 20px;
+  font-size: 12px;
+}
+
+.extensions-panel textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.extensions-panel button {
+  margin-top: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
 }
