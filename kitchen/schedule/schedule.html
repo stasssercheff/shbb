@@ -2,17 +2,15 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>График работы</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
 <header class="page-header">
-  <div class="buttons-container">
-    <button class="nav-btn" onclick="window.history.back()">Назад</button>
-    <button class="nav-btn" onclick="location.href='../index.html'">На главную</button>
-  </div>
+  <button class="nav-btn" onclick="window.history.back()">Назад</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">На главную</button>
 </header>
 
 <div class="logo-container">
@@ -23,8 +21,12 @@
 <div class="table-container">
   <table class="schedule" id="schedule">
     <thead>
-      <tr id="header-dates"><th class="sticky-col top-left">Дата</th></tr>
-      <tr id="header-days"><th class="sticky-col top-left">День</th></tr>
+      <tr id="header-dates">
+        <th class="top-left">Дата</th>
+      </tr>
+      <tr id="header-days">
+        <th class="top-left">День</th>
+      </tr>
     </thead>
     <tbody></tbody>
   </table>
