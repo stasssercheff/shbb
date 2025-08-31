@@ -85,6 +85,31 @@ function renderTable(data){
         // подсветка сегодня
         if(d.getTime() === today.getTime()) cell.classList.add("today");
       }
+      // применяем исключения, если они есть
+function applyExtensions() {
+  if (!window.extensions) return;
+
+  for (let section in extensions) {
+    const staff = extensions[section];
+    for (let name in staff) {
+      const days = staff[name];
+      // находим строку с этим именем
+      const rows = tbody.querySelectorAll('tr');
+      for (let row of rows) {
+        const cellName = row.cells[0].textContent.trim();
+        if (cellName === name) {
+          for (let dateStr in days) {
+            const date = new Date(dateStr);
+            const dayIndex = Math.floor((date - startDate) / (1000*60*60*24)) + 1;
+            if (dayIndex > 0 && dayIndex <= daysToShow) {
+              const cell = row.cells[dayIndex];
+              const val = days[dateStr];
+              cell.textContent = val;
+              cell.className = classes[val] || "";
+            }
+          }
+        }
+      }
     }
   }
 }
