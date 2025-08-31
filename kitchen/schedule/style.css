@@ -14,33 +14,35 @@ body {
 }
 
 .logo {
-  max-width: 120px;  /* ограничиваем ширину логотипа */
-  height: auto;       /* сохраняем пропорции */
+  max-width: 120px;
+  height: auto;
   display: block;
 }
 
 h1 {
-  font-size: 20px;    /* компактный заголовок */
+  font-size: 20px;
   margin: 5px 0;
   text-align: center;
 }
 
-.container {
+.table-container {
   width: 100%;
-  overflow: auto;
+  overflow-x: auto;
+  padding: 10px;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 900px; /* чтобы влезало хотя бы 7 дней */
+  table-layout: fixed;   /* равномерное распределение */
 }
 
 th, td {
   border: 1px solid #ccc;
   text-align: center;
   padding: 4px 6px;
-  font-size: 12px; /* уменьшаем размер текста */
+  font-size: 12px;
+  min-width: 70px;       /* чтобы влезало 10 дней */
 }
 
 th {
@@ -56,6 +58,7 @@ th {
   background: #fff;
   z-index: 3;
   font-weight: bold;
+  min-width: 120px;
 }
 
 .section-row td {
@@ -80,3 +83,9 @@ button {
   font-size: 14px;
   cursor: pointer;
 }
+
+/* стили для разных типов смен */
+.cell-1 { background: #c8e6c9; } /* работа */
+.cell-0 { background: #ffcdd2; } /* выходной */
+.cell-О { background: #fff9c4; } /* отпуск */
+.cell-Б { background: #bbdefb; } /* больничный */
