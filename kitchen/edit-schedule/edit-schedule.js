@@ -41,7 +41,7 @@ for(let i=0;i<daysToShow;i++){
 fetch('../data/schedule.json')
   .then(res => res.json())
   .then(json => {
-    data = JSON.parse(JSON.stringify(json)); // клонируем объект
+    data = JSON.parse(JSON.stringify(json));
     renderTable(data);
   });
 
@@ -69,7 +69,6 @@ function renderTable(dataObj){
         cell.textContent = val;
         cell.className = classes[val]||"";
 
-        // подсветка сегодня
         const d = new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
@@ -82,7 +81,7 @@ function renderTable(dataObj){
           if(states.includes(newVal)){
             days[i % days.length] = newVal;
             e.target.className = classes[newVal]||"";
-            updateExtensionsCode(); // сразу обновляем код
+            updateExtensionsCode(); // обновляем код сразу
           }
         });
       }
@@ -93,45 +92,36 @@ function renderTable(dataObj){
   const extTextarea = document.getElementById("extensions-code");
 
   function updateExtensionsCode() {
-    const ext = JSON.parse(JSON.stringify(extensions || {})); // берём существующие данные extensions.js
+    const ext = {};
     for (let section in data) {
       if(section === "exceptions") continue;
-      if(!ext[section]) ext[section] = {};
+      ext[section] = {};
       const staff = data[section];
       for (let name in staff) {
         const row = [...table.rows].find(r => r.cells[0].textContent.trim() === name);
         if (!row) continue;
-        if(!ext[section][name]) ext[section][name] = {};
+        const daysObj = {};
         for (let i = 0; i < daysToShow; i++) {
           const val = row.cells[i+1].textContent.trim();
-          if(val !== staff[name][i % staff[name].length]){
+          if (val !== staff[name][i % staff[name].length]) {
             const date = new Date(startDate);
             date.setDate(date.getDate()+i);
             const dateStr = date.toISOString().split("T")[0];
-            ext[section][name][dateStr] = val;
+            daysObj[dateStr] = val;
           }
         }
+        if (Object.keys(daysObj).length) ext[section][name] = daysObj;
       }
     }
     extTextarea.value = "const extensions = " + JSON.stringify(ext, null, 2) + ";";
   }
 
-  table.addEventListener("input", updateExtensionsCode);
+  // первый рендер кода
+  updateExtensionsCode();
+
+  // копирование кода
   document.getElementById("copy-extensions").addEventListener("click", ()=>{
     extTextarea.select();
     document.execCommand("copy");
   });
-
-  updateExtensionsCode();
 }
-
-// Сохранение JSON
-document.getElementById("save-json").addEventListener("click", ()=>{
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "schedule.json";
-  a.click();
-  URL.revokeObjectURL(url);
-});
