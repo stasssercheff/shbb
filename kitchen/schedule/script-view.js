@@ -3,7 +3,6 @@ const headerDates = document.getElementById("header-dates");
 const headerDays = document.getElementById("header-days");
 
 const classes = { "1":"shift-1","0":"shift-0","О":"shift-O","Б":"shift-Б" };
-const states = ["1","0","О","Б"];
 const today = new Date();
 today.setHours(0,0,0,0);
 
@@ -41,15 +40,14 @@ for(let i=0;i<daysToShow;i++){
 fetch('../data/schedule.json')
   .then(res => res.json())
   .then(json => {
-    data = JSON.parse(JSON.stringify(json)); // клонируем объект
+    data = JSON.parse(JSON.stringify(json));
     renderTable(data);
   });
 
 function renderTable(dataObj){
   for(let section in dataObj){
-    if(section === "exceptions") continue; // исключения не рендерим
+    if(section === "exceptions") continue;
 
-    // строка-разделитель
     const secRow = table.insertRow();
     const secCell = secRow.insertCell();
     secCell.colSpan = daysToShow+1;
@@ -64,21 +62,11 @@ function renderTable(dataObj){
 
       const days = staff[name];
       for(let i=0;i<daysToShow;i++){
-        let val = days[i % days.length];
-
-        // применяем исключения из extensions.js
-        if(typeof extensions !== "undefined" && extensions[section] && extensions[section][name]){
-          const date = new Date(startDate);
-          date.setDate(date.getDate()+i);
-          const dateStr = date.toISOString().split("T")[0];
-          if(extensions[section][name][dateStr]) val = extensions[section][name][dateStr];
-        }
-
+        const val = days[i % days.length];
         const cell = row.insertCell();
         cell.textContent = val;
         cell.className = classes[val]||"";
 
-        // подсветка сегодня
         const d = new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
