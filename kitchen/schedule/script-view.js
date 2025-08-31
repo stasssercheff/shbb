@@ -1,4 +1,4 @@
-const table = document.getElementById("schedule-view").querySelector("tbody");
+const table = document.getElementById("schedule").querySelector("tbody");
 const headerDates = document.getElementById("header-dates");
 const headerDays = document.getElementById("header-days");
 
@@ -17,7 +17,7 @@ const startDate = getMonday(new Date());
 const daysToShow = 60;
 let data = {};
 
-// Заголовки дат и дней
+// --- Заголовки дат и дней ---
 for(let i=0;i<daysToShow;i++){
   const d = new Date(startDate);
   d.setDate(d.getDate()+i);
@@ -27,14 +27,16 @@ for(let i=0;i<daysToShow;i++){
 
   const thDate = document.createElement("th");
   thDate.textContent = dateStr;
+  if(d.getTime() === today.getTime()) thDate.classList.add("today");
   headerDates.appendChild(thDate);
 
   const thDay = document.createElement("th");
   thDay.textContent = dayStr;
+  if(d.getTime() === today.getTime()) thDay.classList.add("today");
   headerDays.appendChild(thDay);
 }
 
-// Загружаем JSON
+// --- Загружаем JSON ---
 fetch('../data/schedule.json')
   .then(res => res.json())
   .then(json => {
@@ -44,12 +46,14 @@ fetch('../data/schedule.json')
 
 function renderTable(dataObj){
   for(let section in dataObj){
-    if(section === "exceptions") continue;
+    if(section === "exceptions") continue; // исключения не отображаем
 
+    // строка-разделитель
     const secRow = table.insertRow();
     const secCell = secRow.insertCell();
     secCell.colSpan = daysToShow+1;
     secRow.classList.add("section-row");
+    secCell.textContent = section;
 
     const staff = dataObj[section];
     for(let name in staff){
@@ -60,16 +64,16 @@ function renderTable(dataObj){
 
       const days = staff[name];
       for(let i=0;i<daysToShow;i++){
-        const baseVal = days[i % days.length];
+        const val = days[i % days.length];
 
-        // Проверка исключений
-        const extVal = (extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || baseVal;
+        // применяем extensions, если есть
+        const extVal = (extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || val;
 
         const cell = row.insertCell();
         cell.textContent = extVal;
-        cell.className = classes[extVal] || "";
+        cell.className = classes[extVal]||"";
 
-        // выделение сегодняшнего дня целым столбцом
+        // выделяем сегодня
         const d = new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
