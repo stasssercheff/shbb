@@ -1,79 +1,83 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
+const table = document.getElementById("schedule");
+const tbody = table.querySelector("tbody");
+const classes = { "1":"shift-1","0":"shift-0","О":"shift-O","Б":"shift-Б" };
+
+function getMonday(d){
+  d = new Date(d);
+  const day = d.getDay();
+  const diff = d.getDate() - day + (day===0?-6:1);
+  return new Date(d.setDate(diff));
 }
 
-.page-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
-  gap: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+const startDate = getMonday(new Date("2025-08-31")); // Начало с понедельника
+const daysToShow = 60; 
+const headerDates = document.getElementById("header-dates");
+const headerDays = document.getElementById("header-days");
+
+const today = new Date();
+today.setHours(0,0,0,0);
+
+// Создаем заголовки
+for(let i=0;i<daysToShow;i++){
+  let d = new Date(startDate);
+  d.setDate(d.getDate()+i);
+
+  const dateStr = d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
+  const dayStr = d.toLocaleDateString("ru-RU",{weekday:"short"});
+
+  let thDate = document.createElement("th");
+  thDate.textContent = dateStr;
+  if(d.getTime() === today.getTime()) thDate.classList.add("today");
+  headerDates.appendChild(thDate);
+
+  let thDay = document.createElement("th");
+  thDay.textContent = dayStr;
+  if(d.getTime() === today.getTime()) thDay.classList.add("today");
+  headerDays.appendChild(thDay);
 }
 
-.nav-btn {
-  padding: 6px 12px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
+// Функция получения значения с учетом исключений
+function getCellValue(section, name, dateIndex) {
+  let val = scheduleData[section][name][dateIndex % scheduleData[section][name].length];
+  const d = new Date(startDate);
+  d.setDate(d.getDate()+dateIndex);
+  const dateStr = d.toISOString().split('T')[0];
+
+  if(extensions[section] && extensions[section][name] && extensions[section][name][dateStr] !== undefined){
+    val = extensions[section][name][dateStr];
+  }
+  return val;
 }
 
-.nav-btn:hover { background-color: #c1b29a; }
+// Рендер таблицы
+function renderTable(){
+  for(let section in scheduleData){
+    const staff = scheduleData[section];
+    for(let name in staff){
+      const row = tbody.insertRow();
+      const nameCell = row.insertCell();
+      nameCell.textContent = name;
+      nameCell.classList.add("sticky-col");
 
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px 0;
+      for(let i=0;i<daysToShow;i++){
+        const cell = row.insertCell();
+        const val = getCellValue(section, name, i);
+        cell.textContent = val;
+        cell.className = classes[val]||"";
+
+        const d = new Date(startDate);
+        d.setDate(d.getDate()+i);
+        d.setHours(0,0,0,0);
+        if(d.getTime() === today.getTime()) cell.classList.add("today");
+      }
+    }
+
+    // Разделитель между подразделениями
+    const sepRow = tbody.insertRow();
+    const sepCell = sepRow.insertCell();
+    sepCell.colSpan = daysToShow+1;
+    sepCell.classList.add("separator");
+  }
 }
 
-.logo { max-width: 120px; height: auto; display: block; }
-
-h1 { font-size: 20px; margin: 5px 0; text-align: center; }
-
-.table-container {
-  overflow-x: auto;
-  margin: 10px;
-}
-
-table { border-collapse: collapse; width: 100%; min-width: 600px; }
-
-th, td {
-  border: 1px solid #ccc;
-  text-align: center;
-  padding: 4px 6px;
-  font-size: 12px;
-}
-
-th {
-  background: #eee;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.sticky-col {
-  position: sticky;
-  left: 0;
-  background: #fff;
-  z-index: 3;
-  font-weight: bold;
-}
-
-.shift-1 { background: #a6e6a6; }
-.shift-0 { background: #fff7a6; }
-.shift-O { background: #ffcccc; }
-.shift-Б { background: #cce0ff; }
-
-.today { background: #cce0ff !important; }
+renderTable();
