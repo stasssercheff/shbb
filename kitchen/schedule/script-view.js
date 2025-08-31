@@ -1,84 +1,78 @@
-const table = document.getElementById("schedule");
-const tbody = table.querySelector("tbody");
+async function loadSchedule() {
+  const res = await fetch("../Data/schedule.json");
+  const data = await res.json();
 
-// Маппинг значений в классы
-const classes = { 
-  "1": "shift-1", 
-  "0": "shift-0", 
-  "О": "shift-O", 
-  "Б": "shift-Б" 
-};
+  const tableBody = document.querySelector("#schedule tbody");
+  const headerDates = document.getElementById("header-dates");
+  const headerDays = document.getElementById("header-days");
 
-function getMonday(d) {
-  d = new Date(d);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-  return new Date(d.setDate(diff));
-}
+  // показываем 10 дней от сегодня
+  const daysToShow = 10;
+  const today = new Date();
 
-const startDate = getMonday(new Date());
-const daysToShow = 60;
-const headerDates = document.getElementById("header-dates");
-const headerDays = document.getElementById("header-days");
+  for (let i = 0; i < daysToShow; i++) {
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
 
-const today = new Date();
-today.setHours(0, 0, 0, 0);
+    const dateStr = date.toISOString().split("T")[0];
+    const dayName = date.toLocaleDateString("ru-RU", { weekday: "short" });
 
-// === Создание заголовков (дата + день) ===
-for (let i = 0; i < daysToShow; i++) {
-  let d = new Date(startDate);
-  d.setDate(d.getDate() + i);
+    const thDate = document.createElement("th");
+    thDate.textContent = dateStr;
+    headerDates.appendChild(thDate);
 
-  const dateStr = d.toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit" });
-  const dayStr = d.toLocaleDateString("ru-RU", { weekday: "short" });
+    const thDay = document.createElement("th");
+    thDay.textContent = dayName;
+    headerDays.appendChild(thDay);
+  }
 
-  let thDate = document.createElement("th");
-  thDate.textContent = dateStr;
-  if (d.getTime() === today.getTime()) thDate.classList.add("today");
-  headerDates.appendChild(thDate);
+  for (const section in data) {
+    if (section === "exceptions") continue;
 
-  let thDay = document.createElement("th");
-  thDay.textContent = dayStr;
-  if (d.getTime() === today.getTime()) thDay.classList.add("today");
-  headerDays.appendChild(thDay);
-}
+    const sectionRow = document.createElement("tr");
+    sectionRow.classList.add("section-row");
+    const td = document.createElement("td");
+    td.textContent = section;
+    td.colSpan = daysToShow + 1;
+    sectionRow.appendChild(td);
+    tableBody.appendChild(sectionRow);
 
-// === Загрузка данных из JSON ===
-fetch('../data/schedule.json')
-  .then(res => res.json())
-  .then(data => renderTable(data))
-  .catch(err => console.error("Ошибка загрузки JSON:", err));
+    for (const name in data[section]) {
+      const row = document.createElement("tr");
+      const nameTd = document.createElement("td");
+      nameTd.textContent = name;
+      nameTd.classList.add("name-col");
+      row.appendChild(nameTd);
 
-function renderTable(data) {
-  for (let section in data) {
-    // строка-разделитель
-    const secRow = tbody.insertRow();
-    const secCell = secRow.insertCell();
-    secCell.colSpan = daysToShow + 1;
-    secCell.textContent = section;
-    secRow.classList.add("section-row");
-
-    // сотрудники
-    const staff = data[section];
-    for (let name in staff) {
-      const row = tbody.insertRow();
-      const nameCell = row.insertCell();
-      nameCell.textContent = name;
-      nameCell.classList.add("name-col");
-
-      const days = staff[name];
       for (let i = 0; i < daysToShow; i++) {
-        const val = days[i % days.length]; // повторяем график
-        const cell = row.insertCell();
-        cell.textContent = val;
-        cell.className = classes[val] || "";
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        const dateStr = date.toISOString().split("T")[0];
 
-        // выделяем "сегодня"
-        const d = new Date(startDate);
-        d.setDate(d.getDate() + i);
-        d.setHours(0, 0, 0, 0);
-        if (d.getTime() === today.getTime()) cell.classList.add("today-col");
+        let baseShift = data[section][name][i % data[section][name].length];
+        let finalShift = baseShift;
+
+        // проверяем исключения
+        if (data.exceptions?.[section]?.[name]?.[dateStr]) {
+          finalShift = data.exceptions[section][name][dateStr];
+        }
+
+        const td = document.createElement("td");
+        td.textContent = finalShift;
+
+        td.classList.add(
+          finalShift === "1" ? "shift-1" :
+          finalShift === "0" ? "shift-0" :
+          finalShift === "О" ? "shift-O" :
+          finalShift === "Б" ? "shift-Б" :
+          ""
+        );
+
+        row.appendChild(td);
       }
+      tableBody.appendChild(row);
     }
   }
 }
+
+loadSchedule();
