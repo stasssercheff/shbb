@@ -1,5 +1,5 @@
 const table = document.getElementById("edit-schedule").tBodies[0] || document.getElementById("edit-schedule");
-const classes = { "1":"cell-1","0":"cell-0","О":"cell-O","Б":"cell-B" };
+const classes = { "1":"cell-1","0":"cell-0","ВЗ":"cell-ВЗ","Б":"cell-Б" };
 const states = ["1","0","О","Б"];
 
 function getMonday(d){
