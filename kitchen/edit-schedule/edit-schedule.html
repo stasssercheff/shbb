@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Редактирование графика</title>
-<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+  <title>Редактирование графика</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
 <header class="page-header">
   <button class="nav-btn" onclick="window.history.back()">Назад</button>
-  <button class="nav-btn" onclick="location.href='../schedule/schedule.html'">Просмотр графика</button>
-  <button class="nav-btn" id="export-json">Скачать JSON</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">На главную</button>
 </header>
 
-<div class="table-container">
-  <table class="schedule" id="edit-schedule">
-    <thead>
-      <tr id="header-dates"><th class="sticky-col">Имя</th></tr>
-      <tr id="header-days"><th class="sticky-col">День</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+<div class="logo-container">
+  <img src="../logo.png" alt="Лого" class="logo">
+  <h1>Редактирование графика</h1>
 </div>
+
+<div class="editor-container">
+  <input type="date" id="dateInput">
+  <select id="sectionSelect"></select>
+  <select id="nameSelect"></select>
+  <select id="valueSelect">
+    <option value="1">Смена</option>
+    <option value="0">Выходной</option>
+    <option value="О">Отпуск</option>
+    <option value="Б">Больничный</option>
+  </select>
+  <button onclick="addException()">Добавить исключение</button>
+</div>
+
+<div class="buttons">
+  <button onclick="downloadJson()">Скачать JSON</button>
+</div>
+
+<pre id="output"></pre>
 
 <script src="./edit-schedule.js"></script>
 </body>
