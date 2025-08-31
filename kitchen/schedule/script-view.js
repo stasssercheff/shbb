@@ -14,9 +14,8 @@ function getMonday(d) {
   return new Date(d.setDate(diff));
 }
 
-// Начало с понедельника 31.08
 const startDate = getMonday(new Date("2025-08-31"));
-const daysToShow = 60;
+const daysToShow = 60; // вечный график
 
 // Заголовки
 for(let i=0;i<daysToShow;i++){
