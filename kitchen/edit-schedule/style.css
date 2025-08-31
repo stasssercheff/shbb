@@ -1,28 +1,10 @@
-/* --- базовые стили для редактора --- */
-
+/* Общие стили страницы */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #f9f9f9;
   color: #333;
-}
-
-header.page-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  background: #eee;
-  border-bottom: 1px solid #ccc;
-}
-
-.nav-btn {
-  padding: 6px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  background: #fff;
-  border: 1px solid #aaa;
-  border-radius: 4px;
 }
 
 .logo-container {
@@ -33,32 +15,40 @@ header.page-header {
 }
 
 .logo {
-  max-width: 120px;
+  max-width: 100px; /* компактный логотип */
   height: auto;
   display: block;
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 18px;
   margin: 5px 0;
   text-align: center;
 }
 
-/* --- таблица --- */
-table {
+/* Контейнер для таблицы с горизонтальным скроллом */
+.table-container {
+  overflow-x: auto;
+  margin: 0 10px 20px;
+}
+
+/* Таблица графика */
+table.schedule {
   border-collapse: collapse;
   width: 100%;
-  min-width: 900px;
-  margin-bottom: 20px;
+  min-width: 800px; /* помещается около 10 дней на экране телефона */
 }
 
 th, td {
   border: 1px solid #ccc;
   text-align: center;
-  padding: 4px 6px;
+  padding: 4px 4px;
   font-size: 12px;
+  min-width: 40px; /* уже ячейки */
+  max-width: 40px;
 }
 
+/* Заголовки */
 th {
   background: #eee;
   position: sticky;
@@ -66,61 +56,63 @@ th {
   z-index: 2;
 }
 
-.name-col {
+/* Столбец с именами */
+.sticky-col {
   position: sticky;
   left: 0;
   background: #fff;
   z-index: 3;
   font-weight: bold;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Разделители между подразделениями (без текста) */
 .section-row td {
+  height: 10px;
   background: #ddd;
-  font-weight: bold;
-  text-align: left;
+  font-size: 10px;
+  padding: 0;
+  border: none;
 }
 
-/* --- смены (общие цвета, как в viewer) --- */
-.shift-1 {
-  background: #a6e6a6; /* светло-зелёный */
-}
-.shift-0 {
-  background: #fff7a6; /* светло-жёлтый */
-}
-.shift-O {
-  background: #ffcccc; /* красный (выходной) */
-}
-.shift-Б {
-  background: #cce0ff; /* голубой (больничный) */
+/* Сегодняшний день */
+.today {
+  background-color: #cce0ff !important; /* голубой */
 }
 
-/* --- панель управления --- */
-.controls {
+/* Цвета смен */
+.shift-1 { background: #a6e6a6; } /* светло-зеленый */
+.shift-0 { background: #fff7a6; } /* светло-желтый */
+.shift-O { background: #ffcccc; } /* красноватый - выходной */
+.shift-Б { background: #cce0ff; } /* голубой - больничный */
+
+/* Кнопки */
+.page-header {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-button {
-  padding: 8px 14px;
-  font-size: 14px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  cursor: pointer;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 20px;
   background: #fff;
-  transition: background 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-button:hover {
-  background: #eee;
+.nav-btn {
+  padding: 6px 12px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
-input[type="file"] {
-  margin: 10px 0;
-}
-
-select {
-  padding: 4px;
-  font-size: 12px;
+.nav-btn:hover {
+  background-color: #c1b29a;
 }
