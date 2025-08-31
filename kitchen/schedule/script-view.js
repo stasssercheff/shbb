@@ -49,12 +49,6 @@ fetch('../data/schedule.json')
 
 function renderTable(data){
   for(let section in data){
-    // пустая разделительная строка
-    const secRow = tbody.insertRow();
-    const secCell = secRow.insertCell();
-    secCell.colSpan = daysToShow + 1;
-    secRow.classList.add("separator");
-
     const staff = data[section];
     for(let name in staff){
       const row = tbody.insertRow();
@@ -69,7 +63,6 @@ function renderTable(data){
         cell.textContent = val;
         cell.className = classes[val] || "";
 
-        // выделение сегодняшнего дня
         const d = new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
