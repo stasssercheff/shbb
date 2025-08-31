@@ -86,10 +86,8 @@ h1 {
   z-index: 10;
 }
 
-.separator td {
-  background: #ddd;
-  font-weight: bold;
-  text-align: left;
+.top-left {
+  z-index: 15; /* перекрывает другие ячейки */
 }
 
 .today {
