@@ -93,42 +93,39 @@ function renderTable(dataObj){
   const extTextarea = document.getElementById("extensions-code");
 
   function updateExtensionsCode() {
-    const ext = {};
+    const ext = JSON.parse(JSON.stringify(extensions || {})); // берём существующие данные extensions.js
     for (let section in data) {
       if(section === "exceptions") continue;
-      ext[section] = {};
+      if(!ext[section]) ext[section] = {};
       const staff = data[section];
       for (let name in staff) {
         const row = [...table.rows].find(r => r.cells[0].textContent.trim() === name);
         if (!row) continue;
-        const daysObj = {};
+        if(!ext[section][name]) ext[section][name] = {};
         for (let i = 0; i < daysToShow; i++) {
           const val = row.cells[i+1].textContent.trim();
-          if (val !== staff[name][i % staff[name].length]) {
+          if(val !== staff[name][i % staff[name].length]){
             const date = new Date(startDate);
             date.setDate(date.getDate()+i);
             const dateStr = date.toISOString().split("T")[0];
-            daysObj[dateStr] = val;
+            ext[section][name][dateStr] = val;
           }
         }
-        if (Object.keys(daysObj).length) ext[section][name] = daysObj;
       }
     }
     extTextarea.value = "const extensions = " + JSON.stringify(ext, null, 2) + ";";
   }
 
   table.addEventListener("input", updateExtensionsCode);
-
   document.getElementById("copy-extensions").addEventListener("click", ()=>{
     extTextarea.select();
     document.execCommand("copy");
   });
 
-  // первый рендер кода
   updateExtensionsCode();
 }
 
-// Сохранение JSON (кнопка)
+// Сохранение JSON
 document.getElementById("save-json").addEventListener("click", ()=>{
   const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
   const url = URL.createObjectURL(blob);
