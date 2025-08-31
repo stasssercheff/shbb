@@ -6,18 +6,16 @@ body {
   color: #333;
 }
 
-.page-header { 
-  display: flex; 
-  justify-content: flex-end; 
-  padding: 8px; 
-  background: #fff; 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-  position: sticky; top: 0; z-index: 20;
-}
-
-.buttons-container {
+.page-header {
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
+  padding: 10px 20px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav-btn {
@@ -26,76 +24,81 @@ body {
   color: #333;
   border: none;
   border-radius: 6px;
-  font-weight: 600;
   cursor: pointer;
-  transition: 0.2s;
+  font-weight: 600;
 }
 
-.nav-btn:hover { background-color: #c1b29a; }
+.nav-btn:hover {
+  background-color: #c1b29a;
+}
 
 .logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .logo {
-  max-width: 100px;
+  max-width: 120px;
   height: auto;
   display: block;
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 20px;
   margin: 5px 0;
   text-align: center;
 }
 
 .table-container {
   overflow-x: auto;
-  margin: 0 5px 20px 5px;
+  margin: 10px;
 }
 
 .schedule {
   border-collapse: collapse;
-  min-width: 700px;
-  width: 100%;
+  min-width: 900px;
+  width: max-content;
 }
 
-.schedule th, .schedule td {
+.schedule th,
+.schedule td {
   border: 1px solid #ccc;
   text-align: center;
-  padding: 3px 5px;
+  padding: 6px 8px;
   font-size: 12px;
   min-width: 60px;
 }
 
-.schedule th {
-  background: #eee;
-  position: sticky;
-  top: 0;
-  z-index: 5;
-}
-
-.sticky-col {
+.schedule th.top-left,
+.schedule td.top-left {
   position: sticky;
   left: 0;
   background: #fff;
+  z-index: 3;
   font-weight: bold;
-  z-index: 10;
 }
 
-.top-left {
-  z-index: 15; /* перекрывает другие ячейки */
+.schedule thead th {
+  position: sticky;
+  top: 0;
+  background: #eee;
+  z-index: 2;
+}
+
+.separator td {
+  background: #ddd;
+  height: 10px;
+  padding: 0;
+  border: none;
 }
 
 .today {
-  border: 2px solid #f5a623 !important;
+  outline: 2px solid #f39c12;
 }
 
-/* Цвета смен */
-.shift-1 { background: #a6e6a6; }  /* зеленый */
-.shift-0 { background: #fff7a6; }  /* желтый */
-.shift-O { background: #ffcccc; }  /* красный */
-.shift-Б { background: #cce0ff; }  /* голубой */
+.shift-1 { background: #a6e6a6; } /* зеленый */
+.shift-0 { background: #fff7a6; } /* желтый */
+.shift-O { background: #ffcccc; } /* красный */
+.shift-Б { background: #cce0ff; } /* голубой */
