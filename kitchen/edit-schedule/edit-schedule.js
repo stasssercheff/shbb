@@ -84,18 +84,12 @@ function renderTable(dataObj){
             e.target.className = classes[newVal]||"";
           }
         });
+        <div class="extensions-panel">
+  <h3>Код исключений</h3>
+  <textarea id="extensions-code" rows="6" readonly></textarea>
+  <button id="copy-extensions">Копировать код</button>
+</div>
       }
     }
   }
 }
-
-// Сохранение JSON
-document.getElementById("save-json").addEventListener("click", ()=>{
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "schedule.json";
-  a.click();
-  URL.revokeObjectURL(url);
-});
