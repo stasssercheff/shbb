@@ -1,85 +1,33 @@
-const table = document.getElementById("schedule");
-const tbody = table.querySelector("tbody");
-const classes = {
-  "1": "shift-1",
-  "0": "shift-0",
-  "О": "shift-O",
-  "Б": "shift-Б"
-};
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>График</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-function getMonday(d) {
-  d = new Date(d);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-  return new Date(d.setDate(diff));
-}
+<header class="page-header">
+  <button class="nav-btn" onclick="window.history.back()">Назад</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">На главную</button>
+</header>
 
-const startDate = getMonday(new Date("2025-08-31")); // понедельник
-const daysToShow = 60;
+<div class="logo-container">
+  <img src="../logo.png" alt="Лого" class="logo">
+  <h1>График работы</h1>
+</div>
 
-const headerDates = document.getElementById("header-dates");
-const headerDays = document.getElementById("header-days");
+<div class="table-container">
+  <table class="schedule" id="schedule">
+    <thead>
+      <tr id="header-dates"><th class="sticky-col">Дата</th></tr>
+      <tr id="header-days"><th class="sticky-col">День</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
 
-const today = new Date();
-today.setHours(0,0,0,0);
-
-// Заголовки
-for(let i=0;i<daysToShow;i++){
-  let d = new Date(startDate);
-  d.setDate(d.getDate()+i);
-
-  const dateStr = d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
-  const dayStr = d.toLocaleDateString("ru-RU",{weekday:"short"});
-
-  let thDate = document.createElement("th");
-  thDate.textContent = dateStr;
-  if(d.getTime() === today.getTime()) thDate.classList.add("today");
-  headerDates.appendChild(thDate);
-
-  let thDay = document.createElement("th");
-  thDay.textContent = dayStr;
-  if(d.getTime() === today.getTime()) thDay.classList.add("today");
-  headerDays.appendChild(thDay);
-}
-
-// Загружаем данные
-fetch('../data/schedule.json')
-  .then(res => res.json())
-  .then(data => renderTable(data));
-
-function renderTable(data){
-  for(let section in data){
-    const staff = data[section];
-
-    // Добавляем пустую разделительную строку между подразделениями
-    const sepRow = tbody.insertRow();
-    const sepCell = sepRow.insertCell();
-    sepCell.colSpan = daysToShow + 1;
-    sepCell.style.height = "6px";  // высота строки
-    sepCell.style.padding = "0";
-    sepCell.style.border = "none";
-    sepRow.classList.add("separator");
-
-    for(let name in staff){
-      const row = tbody.insertRow();
-      const nameCell = row.insertCell();
-      nameCell.textContent = name;
-      nameCell.classList.add("sticky-col");
-
-      const days = staff[name];
-      for(let i=0;i<daysToShow;i++){
-        const val = days[i % days.length];
-        if(val === "EX") continue; // исключения больше не рендерятся
-
-        const cell = row.insertCell();
-        cell.textContent = val;
-        cell.className = classes[val] || "";
-
-        const d = new Date(startDate);
-        d.setDate(d.getDate()+i);
-        d.setHours(0,0,0,0);
-        if(d.getTime() === today.getTime()) cell.classList.add("today");
-      }
-    }
-  }
-}
+<script src="script-view.js"></script>
+</body>
+</html>
