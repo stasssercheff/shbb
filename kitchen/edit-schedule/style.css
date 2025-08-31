@@ -1,4 +1,3 @@
-/* --- базовые стили --- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -34,7 +33,6 @@ header.page-header {
 .logo {
   max-width: 120px;
   height: auto;
-  display: block;
 }
 
 h1 {
@@ -43,12 +41,15 @@ h1 {
   text-align: center;
 }
 
-/* --- таблица --- */
+.table-container {
+  overflow-x: auto;
+  margin: 10px 20px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
   min-width: 900px;
-  margin-bottom: 20px;
 }
 
 th, td {
@@ -65,7 +66,7 @@ th {
   z-index: 2;
 }
 
-.name-col {
+.sticky-col {
   position: sticky;
   left: 0;
   background: #fff;
@@ -80,48 +81,14 @@ th {
 }
 
 /* --- смены --- */
-.shift-1 {
-  background: #a6e6a6; /* светло-зелёный */
-}
-.shift-0 {
-  background: #fff7a6; /* светло-жёлтый */
-}
-.shift-O {
-  background: #ffcccc; /* красный (выходной) */
-}
-.shift-Б {
-  background: #cce0ff; /* голубой (больничный) */
-}
+.shift-1 { background: #a6e6a6; }
+.shift-0 { background: #fff7a6; }
+.shift-O { background: #ffcccc; }
+.shift-Б { background: #cce0ff; }
 
-/* --- панель управления --- */
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-button {
-  padding: 8px 14px;
-  font-size: 14px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  cursor: pointer;
-  background: #fff;
-  transition: background 0.2s;
-}
-
-button:hover {
-  background: #eee;
-}
-
-input[type="file"] {
-  margin: 10px 0;
-}
-
-select {
-  padding: 4px;
-  font-size: 12px;
+/* --- подсветка сегодня --- */
+.today {
+  background-color: #cce0ff !important;
 }
 
 /* --- панель extensions --- */
@@ -133,12 +100,4 @@ select {
 .extensions-panel textarea {
   width: 100%;
   font-family: monospace;
-  font-size: 12px;
-  resize: vertical;
-}
-
-.extensions-panel button {
-  margin-top: 5px;
-  padding: 4px 8px;
-  font-size: 12px;
-}
+ 
