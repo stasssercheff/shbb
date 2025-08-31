@@ -1,5 +1,4 @@
-/* --- базовые стили для редактора --- */
-
+/* --- базовые стили --- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -80,7 +79,7 @@ th {
   text-align: left;
 }
 
-/* --- смены (общие цвета, как в viewer) --- */
+/* --- смены --- */
 .shift-1 {
   background: #a6e6a6; /* светло-зелёный */
 }
@@ -122,5 +121,24 @@ input[type="file"] {
 
 select {
   padding: 4px;
+  font-size: 12px;
+}
+
+/* --- панель extensions --- */
+.extensions-panel {
+  margin: 10px 20px;
+  font-size: 12px;
+}
+
+.extensions-panel textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.extensions-panel button {
+  margin-top: 5px;
+  padding: 4px 8px;
   font-size: 12px;
 }
