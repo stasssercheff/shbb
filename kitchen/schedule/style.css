@@ -6,6 +6,33 @@ body {
   color: #333;
 }
 
+.page-header { 
+  display: flex; 
+  justify-content: flex-end; 
+  padding: 8px; 
+  background: #fff; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  position: sticky; top: 0; z-index: 20;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  padding: 8px 14px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-btn:hover { background-color: #c1b29a; }
+
 .logo-container {
   display: flex;
   flex-direction: column;
@@ -48,7 +75,7 @@ h1 {
   background: #eee;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 5;
 }
 
 .sticky-col {
@@ -56,7 +83,7 @@ h1 {
   left: 0;
   background: #fff;
   font-weight: bold;
-  z-index: 3;
+  z-index: 10;
 }
 
 .separator td {
@@ -74,26 +101,3 @@ h1 {
 .shift-0 { background: #fff7a6; }  /* желтый */
 .shift-O { background: #ffcccc; }  /* красный */
 .shift-Б { background: #cce0ff; }  /* голубой */
-
-.nav-btn {
-  padding: 8px 14px;
-  margin: 5px;
-  background-color: #d8cfc0;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.nav-btn:hover { background-color: #c1b29a; }
-
-.page-header { 
-  display: flex; 
-  justify-content: flex-start; 
-  align-items: center;
-  padding: 8px; 
-  background: #fff; 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-  position: sticky; top: 0; z-index: 10;
-}
