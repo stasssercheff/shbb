@@ -1,6 +1,6 @@
 const table = document.getElementById("schedule");
 const tbody = table.querySelector("tbody");
-const classes = { "1":"cell-1","0":"cell-0","О":"cell-O","Б":"cell-B" };
+const classes = { "1":"cell-1","0":"cell-0","ВЗ":"cell-ВЗ","Б":"cell-Б" };
 
 function getMonday(d){
   d = new Date(d);
