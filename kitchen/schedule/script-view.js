@@ -63,10 +63,15 @@ function renderTable(dataObj){
       const days = staff[name];
       for(let i=0;i<daysToShow;i++){
         const val = days[i % days.length];
-        const cell = row.insertCell();
-        cell.textContent = val;
-        cell.className = classes[val]||"";
 
+        // Проверка исключений
+        const extVal = (extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || val;
+
+        const cell = row.insertCell();
+        cell.textContent = extVal;
+        cell.className = classes[extVal]||"";
+
+        // выделение сегодня
         const d = new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
@@ -74,4 +79,10 @@ function renderTable(dataObj){
       }
     }
   }
+}
+
+function getDateStr(offset){
+  const d = new Date(startDate);
+  d.setDate(d.getDate()+offset);
+  return d.toISOString().split("T")[0];
 }
