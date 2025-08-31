@@ -1,81 +1,126 @@
+/* --- базовые стили для редактора --- */
+
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f8;
+  padding: 0;
+  background: #f9f9f9;
   color: #333;
 }
 
-.page-header {
+header.page-header {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  justify-content: space-between;
+  padding: 10px;
+  background: #eee;
+  border-bottom: 1px solid #ccc;
 }
 
 .nav-btn {
-  padding: 8px 12px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
+  padding: 6px 12px;
   font-size: 14px;
-  transition: 0.2s;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 4px;
 }
 
-.nav-btn:hover {
-  background-color: #c1b29a;
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
 }
 
-.table-container {
-  overflow-x: auto;
-  margin: 20px;
-  padding-bottom: 60px;
+.logo {
+  max-width: 120px;
+  height: auto;
+  display: block;
 }
 
-.schedule {
+h1 {
+  font-size: 20px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+/* --- таблица --- */
+table {
   border-collapse: collapse;
-  width: max-content;
+  width: 100%;
+  min-width: 900px;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 4px 6px;
   font-size: 12px;
 }
 
-.schedule th,
-.schedule td {
-  border: 1px solid #999;
-  padding: 3px 5px;
-  min-width: 45px;
-  text-align: center;
+th {
+  background: #eee;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-.schedule th.sticky-col,
-.schedule td.sticky-col {
+.name-col {
   position: sticky;
   left: 0;
   background: #fff;
-  z-index: 20;
+  z-index: 3;
+  font-weight: bold;
 }
 
-.schedule thead th:not(.sticky-col) {
-  position: sticky;
-  top: 0;
-  background: #f0f0f0;
-  z-index: 15;
-}
-
-.separator td {
+.section-row td {
   background: #ddd;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 
-/* Цвета ячеек */
-.cell-1 { background:#c8e6c9; }
-.cell-0 { background:#ffcdd2; }
-.cell-O { background:#fff9c4; }
-.cell-B { background:#bbdefb; }
+/* --- смены (общие цвета, как в viewer) --- */
+.shift-1 {
+  background: #a6e6a6; /* светло-зелёный */
+}
+.shift-0 {
+  background: #fff7a6; /* светло-жёлтый */
+}
+.shift-O {
+  background: #ffcccc; /* красный (выходной) */
+}
+.shift-Б {
+  background: #cce0ff; /* голубой (больничный) */
+}
+
+/* --- панель управления --- */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #eee;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+}
+
+select {
+  padding: 4px;
+  font-size: 12px;
+}
