@@ -1,4 +1,4 @@
-const table = document.getElementById("schedule").querySelector("tbody");
+const table = document.getElementById("schedule-view").querySelector("tbody");
 const headerDates = document.getElementById("header-dates");
 const headerDays = document.getElementById("header-days");
 
@@ -27,16 +27,14 @@ for(let i=0;i<daysToShow;i++){
 
   const thDate = document.createElement("th");
   thDate.textContent = dateStr;
-  if(d.getTime() === today.getTime()) thDate.classList.add("today");
   headerDates.appendChild(thDate);
 
   const thDay = document.createElement("th");
   thDay.textContent = dayStr;
-  if(d.getTime() === today.getTime()) thDay.classList.add("today");
   headerDays.appendChild(thDay);
 }
 
-// Загружаем данные JSON
+// Загружаем JSON
 fetch('../data/schedule.json')
   .then(res => res.json())
   .then(json => {
@@ -46,9 +44,8 @@ fetch('../data/schedule.json')
 
 function renderTable(dataObj){
   for(let section in dataObj){
-    if(section === "exceptions") continue; // исключения не рендерим
+    if(section === "exceptions") continue;
 
-    // строка-разделитель
     const secRow = table.insertRow();
     const secCell = secRow.insertCell();
     secCell.colSpan = daysToShow+1;
@@ -63,16 +60,16 @@ function renderTable(dataObj){
 
       const days = staff[name];
       for(let i=0;i<daysToShow;i++){
-        const val = days[i % days.length];
+        const baseVal = days[i % days.length];
 
         // Проверка исключений
-        const extVal = (extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || val;
+        const extVal = (extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || baseVal;
 
         const cell = row.insertCell();
         cell.textContent = extVal;
-        cell.className = classes[extVal]||"";
+        cell.className = classes[extVal] || "";
 
-        // подсветка сегодня
+        // выделение сегодняшнего дня целым столбцом
         const d = new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
