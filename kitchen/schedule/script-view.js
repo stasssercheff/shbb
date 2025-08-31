@@ -3,6 +3,7 @@ const headerDates = document.getElementById("header-dates");
 const headerDays = document.getElementById("header-days");
 
 const classes = { "1":"shift-1","0":"shift-0","О":"shift-O","Б":"shift-Б" };
+const states = ["1","0","О","Б"];
 const today = new Date();
 today.setHours(0,0,0,0);
 
@@ -17,7 +18,7 @@ const startDate = getMonday(new Date());
 const daysToShow = 60;
 let data = {};
 
-// --- Заголовки дат и дней ---
+// Заголовки дат и дней
 for(let i=0;i<daysToShow;i++){
   const d = new Date(startDate);
   d.setDate(d.getDate()+i);
@@ -36,35 +37,17 @@ for(let i=0;i<daysToShow;i++){
   headerDays.appendChild(thDay);
 }
 
-// --- Загружаем основной график ---
+// Загружаем данные JSON
 fetch('../data/schedule.json')
   .then(res => res.json())
   .then(json => {
-    data = JSON.parse(JSON.stringify(json));
-    // Подгружаем расширения
-    if(typeof extensions !== 'undefined'){
-      for(let section in extensions){
-        for(let name in extensions[section]){
-          for(let dateStr in extensions[section][name]){
-            const val = extensions[section][name][dateStr];
-            if(data[section] && data[section][name]){
-              // находим индекс даты
-              const date = new Date(dateStr);
-              const index = Math.round((date - startDate) / (1000*60*60*24));
-              if(index >= 0 && index < daysToShow){
-                data[section][name][index % data[section][name].length] = val;
-              }
-            }
-          }
-        }
-      }
-    }
+    data = JSON.parse(JSON.stringify(json)); // клонируем объект
     renderTable(data);
   });
 
 function renderTable(dataObj){
   for(let section in dataObj){
-    if(section === "exceptions") continue;
+    if(section === "exceptions") continue; // исключения не рендерим
 
     // строка-разделитель
     const secRow = table.insertRow();
@@ -81,7 +64,16 @@ function renderTable(dataObj){
 
       const days = staff[name];
       for(let i=0;i<daysToShow;i++){
-        const val = days[i % days.length];
+        let val = days[i % days.length];
+
+        // применяем исключения из extensions.js
+        if(typeof extensions !== "undefined" && extensions[section] && extensions[section][name]){
+          const date = new Date(startDate);
+          date.setDate(date.getDate()+i);
+          const dateStr = date.toISOString().split("T")[0];
+          if(extensions[section][name][dateStr]) val = extensions[section][name][dateStr];
+        }
+
         const cell = row.insertCell();
         cell.textContent = val;
         cell.className = classes[val]||"";
