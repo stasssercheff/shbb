@@ -68,7 +68,6 @@ th, td {
   text-align: center;
   padding: 4px 4px;
   font-size: 12px;
-  min-width: 60px; /* уже и мельче */
 }
 
 th {
@@ -89,12 +88,8 @@ th {
   text-overflow: ellipsis;
 }
 
-.separator td {
-  height: 6px;
-  background: #ddd;
-  font-size: 8px;
-  padding: 0;
-  border: none;
+td:not(.sticky-col) {
+  min-width: 40px; /* уже в 1,5 раза уже */
 }
 
 .today {
