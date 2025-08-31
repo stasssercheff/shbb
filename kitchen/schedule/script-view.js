@@ -15,9 +15,9 @@ function getMonday(d) {
 }
 
 const startDate = getMonday(new Date("2025-08-31"));
-const daysToShow = 10; // на экран телефонов 10 дней
+const daysToShow = 10; // видимых дней
 
-// Заголовки
+// Создаём заголовки
 for(let i=0;i<daysToShow;i++){
   let d = new Date(startDate);
   d.setDate(d.getDate()+i);
@@ -43,12 +43,6 @@ fetch('../data/schedule.json')
 
 function renderTable(data) {
   for(let section in data){
-    const secRow = tbody.insertRow();
-    const secCell = secRow.insertCell();
-    secCell.colSpan = daysToShow+1;
-    secCell.textContent = section;
-    secRow.classList.add("separator");
-
     const staff = data[section];
     for(let name in staff){
       const row = tbody.insertRow();
