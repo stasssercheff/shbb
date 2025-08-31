@@ -42,15 +42,11 @@ h1 {
   text-align: center;
 }
 
-.table-container {
-  overflow-x: auto;
-  margin: 0 10px 20px 10px;
-}
-
 table {
   border-collapse: collapse;
   width: 100%;
   min-width: 900px;
+  margin-bottom: 20px;
 }
 
 th, td {
@@ -86,7 +82,7 @@ th {
 .shift-O { background: #ffcccc; }
 .shift-Б { background: #cce0ff; }
 
+/* Подсветка сегодняшнего дня */
 .today {
-  outline: 2px solid #66ccff;
-  outline-offset: -2px;
+  background-color: #cce0ff;
 }
