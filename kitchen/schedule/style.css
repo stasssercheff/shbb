@@ -1,31 +1,118 @@
-/* Разделительные строки */
-.section-row td {
-  height: 8px;
-  font-size: 10px;
-  padding: 2px;
-  background: #eee;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
 }
 
-/* Ячейки с именами */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+  display: block;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.page-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  gap: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-btn {
+  padding: 6px 12px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #c1b29a;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 0 10px 40px 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 900px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 4px 4px;
+  font-size: 12px;
+  min-width: 60px; /* уже и мельче */
+}
+
+th {
+  background: #eee;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 .sticky-col {
   position: sticky;
   left: 0;
   background: #fff;
-  z-index: 3;
   font-weight: bold;
-  max-width: 100px;
+  z-index: 3;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-/* Выделение сегодняшнего дня голубым */
+.separator td {
+  height: 6px;
+  background: #ddd;
+  font-size: 8px;
+  padding: 0;
+  border: none;
+}
+
 .today {
-  background-color: #cce0ff !important;
+  background: #a6d8ff !important; /* голубой */
 }
 
-/* Цвета смен */
-.shift-1 { background: #a6e6a6; } /* зелёный */
-.shift-0 { background: #fff7a6; } /* желтый */
-.shift-O { background: #ffcccc; } /* красный */
-.shift-Б { background: #cce0ff; } /* голубой */
+.shift-1 {
+  background: #a6e6a6; /* светло-зелёный */
+}
+
+.shift-0 {
+  background: #fff7a6; /* светло-жёлтый */
+}
+
+.shift-O {
+  background: #ffcccc; /* красноватый */
+}
+
+.shift-Б {
+  background: #cce0ff; /* голубой */
+}
