@@ -84,6 +84,22 @@ th {
   text-align: left;
 }
 
+.shift-1 {
+  background: #a6e6a6; /* светло-зелёный */
+}
+
+.shift-0 {
+  background: #fff7a6; /* светло-жёлтый */
+}
+
+.shift-O {
+  background: #ffcccc; /* красноватый - например выходной */
+}
+
+.shift-Б {
+  background: #cce0ff; /* голубой - например больничный */
+}
+
 .today {
   background: #ffeeba !important;
 }
