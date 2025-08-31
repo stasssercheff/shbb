@@ -14,7 +14,7 @@ function getMonday(d) {
   return new Date(d.setDate(diff));
 }
 
-const startDate = getMonday(new Date("2025-08-31")); // начало понедельника
+const startDate = getMonday(new Date("2025-08-31")); // понедельник
 const daysToShow = 60;
 
 const headerDates = document.getElementById("header-dates");
@@ -23,7 +23,7 @@ const headerDays = document.getElementById("header-days");
 const today = new Date();
 today.setHours(0,0,0,0);
 
-// Заголовки
+// Создаем заголовки
 for(let i=0;i<daysToShow;i++){
   let d = new Date(startDate);
   d.setDate(d.getDate()+i);
@@ -50,6 +50,16 @@ fetch('../data/schedule.json')
 function renderTable(data){
   for(let section in data){
     const staff = data[section];
+
+    // Добавляем пустую разделительную строку между подразделениями
+    const sepRow = tbody.insertRow();
+    const sepCell = sepRow.insertCell();
+    sepCell.colSpan = daysToShow + 1;
+    sepCell.style.height = "6px";  
+    sepCell.style.padding = "0";
+    sepCell.style.border = "none";
+    sepRow.classList.add("separator");
+
     for(let name in staff){
       const row = tbody.insertRow();
       const nameCell = row.insertCell();
@@ -59,6 +69,8 @@ function renderTable(data){
       const days = staff[name];
       for(let i=0;i<daysToShow;i++){
         const val = days[i % days.length];
+        if(val === "EX") continue; // исключения не рендерятся
+
         const cell = row.insertCell();
         cell.textContent = val;
         cell.className = classes[val] || "";
