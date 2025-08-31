@@ -9,7 +9,8 @@
 <body>
 
 <header class="page-header">
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+  <button class="nav-btn" onclick="window.history.back()">Назад</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">На главную</button>
 </header>
 
 <div class="logo-container">
@@ -18,7 +19,7 @@
 </div>
 
 <div class="table-container">
-  <table class="schedule" id="schedule-editor">
+  <table class="schedule" id="schedule">
     <thead>
       <tr id="header-dates"><th class="sticky-col">Дата</th></tr>
       <tr id="header-days"><th class="sticky-col">День</th></tr>
@@ -27,10 +28,11 @@
   </table>
 </div>
 
-<div class="buttons">
-  <button id="save-json">Скачать JSON</button>
-</div>
+<h3>Код исключений (скопируйте и вставьте в extensions.js)</h3>
+<textarea id="code-area" style="width:100%;height:150px;"></textarea>
+<button id="copy-btn">Скопировать</button>
 
+<script src="../schedule/extensions.js"></script>
 <script src="edit-schedule.js"></script>
 </body>
 </html>
