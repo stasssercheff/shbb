@@ -1,77 +1,76 @@
 async function loadSchedule() {
-  const response = await fetch('../data/schedule.json');
-  const data = await response.json();
+  const res = await fetch("../Data/schedule.json");
+  const data = await res.json();
 
-  const employees = data.employees;
-  const exceptions = data.exceptions || {};
-  const scheduleTable = document.getElementById('schedule');
-  const tbody = scheduleTable.querySelector('tbody');
+  const tableBody = document.querySelector("#schedule tbody");
+  const headerDates = document.getElementById("header-dates");
+  const headerDays = document.getElementById("header-days");
 
-  const startDate = new Date();
-  startDate.setDate(startDate.getDate() - startDate.getDay() + 1); // понедельник
+  // показываем 10 дней от сегодня
   const daysToShow = 10;
-
-  const headerDates = document.getElementById('header-dates');
-  const headerDays = document.getElementById('header-days');
+  const today = new Date();
 
   for (let i = 0; i < daysToShow; i++) {
-    const currentDate = new Date(startDate);
-    currentDate.setDate(startDate.getDate() + i);
+    const date = new Date(today);
+    date.setDate(today.getDate() + i);
 
-    const dateStr = currentDate.toISOString().split('T')[0];
-    const day = currentDate.toLocaleDateString('ru-RU', { weekday: 'short' });
+    const dateStr = date.toISOString().split("T")[0];
+    const dayName = date.toLocaleDateString("ru-RU", { weekday: "short" });
 
-    const thDate = document.createElement('th');
-    thDate.textContent = currentDate.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' });
+    const thDate = document.createElement("th");
+    thDate.textContent = dateStr;
     headerDates.appendChild(thDate);
 
-    const thDay = document.createElement('th');
-    thDay.textContent = day;
+    const thDay = document.createElement("th");
+    thDay.textContent = dayName;
     headerDays.appendChild(thDay);
   }
 
-  // группы по разделам
-  const sections = {};
-  for (const id in employees) {
-    const emp = employees[id];
-    if (!sections[emp.section]) sections[emp.section] = [];
-    sections[emp.section].push({ id, ...emp });
-  }
+  for (const section in data) {
+    if (section === "exceptions") continue;
 
-  // вывод строк
-  for (const section in sections) {
-    const sectionRow = document.createElement('tr');
-    const td = document.createElement('td');
-    td.colSpan = daysToShow + 1;
+    const sectionRow = document.createElement("tr");
+    sectionRow.classList.add("section-row");
+    const td = document.createElement("td");
     td.textContent = section;
-    td.classList.add('section-row');
+    td.colSpan = daysToShow + 1;
     sectionRow.appendChild(td);
-    tbody.appendChild(sectionRow);
+    tableBody.appendChild(sectionRow);
 
-    for (const emp of sections[section]) {
-      const tr = document.createElement('tr');
-      const tdName = document.createElement('td');
-      tdName.textContent = emp.name;
-      tdName.classList.add('name-col');
-      tr.appendChild(tdName);
+    for (const name in data[section]) {
+      const row = document.createElement("tr");
+      const nameTd = document.createElement("td");
+      nameTd.textContent = name;
+      nameTd.classList.add("name-col");
+      row.appendChild(nameTd);
 
       for (let i = 0; i < daysToShow; i++) {
-        const currentDate = new Date(startDate);
-        currentDate.setDate(startDate.getDate() + i);
-        const dateStr = currentDate.toISOString().split('T')[0];
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        const dateStr = date.toISOString().split("T")[0];
 
-        let shift = emp.shifts[i % emp.shifts.length]; // циклично
-        if (exceptions[dateStr] && exceptions[dateStr][emp.id]) {
-          shift = exceptions[dateStr][emp.id];
+        let baseShift = data[section][name][i % data[section][name].length];
+        let finalShift = baseShift;
+
+        // проверяем исключения
+        if (data.exceptions?.[section]?.[name]?.[dateStr]) {
+          finalShift = data.exceptions[section][name][dateStr];
         }
 
-        const td = document.createElement('td');
-        td.textContent = shift;
-        td.classList.add('shift-' + shift);
-        tr.appendChild(td);
-      }
+        const td = document.createElement("td");
+        td.textContent = finalShift;
 
-      tbody.appendChild(tr);
+        td.classList.add(
+          finalShift === "1" ? "shift-1" :
+          finalShift === "0" ? "shift-0" :
+          finalShift === "О" ? "shift-O" :
+          finalShift === "Б" ? "shift-Б" :
+          ""
+        );
+
+        row.appendChild(td);
+      }
+      tableBody.appendChild(row);
     }
   }
 }
