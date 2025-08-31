@@ -16,7 +16,6 @@ body {
 .logo {
   max-width: 120px;
   height: auto;
-  display: block;
 }
 
 h1 {
@@ -33,7 +32,7 @@ h1 {
 table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 900px;
+  min-width: 1000px;
 }
 
 th, td {
@@ -64,10 +63,6 @@ th {
   text-align: left;
 }
 
-.today-col {
-  background: #ffeeba !important;
-}
-
 .shift-1 {
   background: #a6e6a6;
 }
@@ -76,16 +71,10 @@ th {
   background: #fff7a6;
 }
 
-.shift-O {
-  background: #ffcccc;
-}
-
 .shift-Б {
   background: #cce0ff;
 }
 
-button {
-  padding: 6px 12px;
-  font-size: 14px;
-  cursor: pointer;
+.shift-O {
+  background: #ffcccc;
 }
