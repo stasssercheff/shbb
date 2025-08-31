@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0">
   <title>Редактирование графика</title>
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -14,27 +14,28 @@
 </header>
 
 <div class="logo-container">
-  <h1>Редактор графика</h1>
+  <img src="../logo.png" alt="Лого" class="logo">
+  <h1>Редактирование графика</h1>
 </div>
 
 <div class="editor-container">
-  <label for="date">Дата:</label>
-  <input type="date" id="date">
-
-  <label for="employee">Сотрудник:</label>
-  <select id="employee"></select>
-
-  <label for="value">Значение:</label>
-  <select id="value">
-    <option value="1">Рабочий</option>
+  <input type="date" id="dateInput">
+  <select id="sectionSelect"></select>
+  <select id="nameSelect"></select>
+  <select id="valueSelect">
+    <option value="1">Смена</option>
     <option value="0">Выходной</option>
+    <option value="О">Отпуск</option>
     <option value="Б">Больничный</option>
-    <option value="O">Отпуск</option>
   </select>
-
-  <button id="save">Сохранить исключение</button>
-  <button id="download">Скачать JSON</button>
+  <button onclick="addException()">Добавить исключение</button>
 </div>
+
+<div class="buttons">
+  <button onclick="downloadJson()">Скачать JSON</button>
+</div>
+
+<pre id="output"></pre>
 
 <script src="./edit-schedule.js"></script>
 </body>
