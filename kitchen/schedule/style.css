@@ -87,6 +87,7 @@ th {
 .shift-O { background: #ffcccc; }
 .shift-Б { background: #cce0ff; }
 
+/* подсветка сегодня */
 .today {
   background-color: #cce0ff !important;
 }
