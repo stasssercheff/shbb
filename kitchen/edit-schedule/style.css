@@ -100,4 +100,16 @@ th {
 .extensions-panel textarea {
   width: 100%;
   font-family: monospace;
- 
+  font-size: 12px;
+  resize: vertical;
+}
+
+.extensions-panel button {
+  margin-top: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.buttons {
+  margin: 10px 20px;
+}
