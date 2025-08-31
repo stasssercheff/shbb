@@ -46,8 +46,9 @@ fetch('../data/schedule.json')
 
 function renderTable(dataObj){
   for(let section in dataObj){
-    if(section === "exceptions") continue;
+    if(section === "exceptions") continue; // исключения не рендерим
 
+    // строка-разделитель
     const secRow = table.insertRow();
     const secCell = secRow.insertCell();
     secCell.colSpan = daysToShow+1;
@@ -71,7 +72,7 @@ function renderTable(dataObj){
         cell.textContent = extVal;
         cell.className = classes[extVal]||"";
 
-        // выделение сегодня
+        // подсветка сегодня
         const d = new Date(startDate);
         d.setDate(d.getDate()+i);
         d.setHours(0,0,0,0);
