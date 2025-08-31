@@ -82,14 +82,59 @@ function renderTable(dataObj){
           if(states.includes(newVal)){
             days[i % days.length] = newVal;
             e.target.className = classes[newVal]||"";
+            updateExtensionsCode(); // сразу обновляем код
           }
         });
-        <div class="extensions-panel">
-  <h3>Код исключений</h3>
-  <textarea id="extensions-code" rows="6" readonly></textarea>
-  <button id="copy-extensions">Копировать код</button>
-</div>
       }
     }
   }
+
+  // --- блок работы с extensions.js ---
+  const extTextarea = document.getElementById("extensions-code");
+
+  function updateExtensionsCode() {
+    const ext = {};
+    for (let section in data) {
+      if(section === "exceptions") continue;
+      ext[section] = {};
+      const staff = data[section];
+      for (let name in staff) {
+        const row = [...table.rows].find(r => r.cells[0].textContent.trim() === name);
+        if (!row) continue;
+        const daysObj = {};
+        for (let i = 0; i < daysToShow; i++) {
+          const val = row.cells[i+1].textContent.trim();
+          if (val !== staff[name][i % staff[name].length]) {
+            const date = new Date(startDate);
+            date.setDate(date.getDate()+i);
+            const dateStr = date.toISOString().split("T")[0];
+            daysObj[dateStr] = val;
+          }
+        }
+        if (Object.keys(daysObj).length) ext[section][name] = daysObj;
+      }
+    }
+    extTextarea.value = "const extensions = " + JSON.stringify(ext, null, 2) + ";";
+  }
+
+  table.addEventListener("input", updateExtensionsCode);
+
+  document.getElementById("copy-extensions").addEventListener("click", ()=>{
+    extTextarea.select();
+    document.execCommand("copy");
+  });
+
+  // первый рендер кода
+  updateExtensionsCode();
 }
+
+// Сохранение JSON (кнопка)
+document.getElementById("save-json").addEventListener("click", ()=>{
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "schedule.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
