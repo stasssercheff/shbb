@@ -1,41 +1,49 @@
+// script-view.js
+
 // URL на CSV из Google Sheets
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpNWtZImdMKoOxbV6McfEXEB67ck7nzA1EcBXNOFdnDTK4o9gniAuz82paEdGAyRSlo6dFKO9zCyLP/pub?gid=0&single=true&output=csv";
 
-// Проверка: дата сегодняшняя
+// Проверка: сегодняшняя дата
 function isToday(dateStr) {
   const today = new Date();
   const d = today.getDate().toString().padStart(2, "0");
   const m = (today.getMonth() + 1).toString().padStart(2, "0");
   const y = today.getFullYear();
-  return dateStr.trim() === `${d}.${m}.${y}`;
+  const todayStr = `${d}.${m}.${y}`;
+  return dateStr.trim() === todayStr;
 }
 
-// Загружаем и строим таблицу
+// Основная функция загрузки и рендера
 async function loadSchedule() {
   try {
     const response = await fetch(CSV_URL);
     const text = await response.text();
 
+    // Разбиваем на строки и ячейки
     const rows = text.trim().split("\n").map(r => r.split(","));
+
     const table = document.getElementById("schedule");
     const theadDates = document.getElementById("header-dates");
     const theadDays = document.getElementById("header-days");
     const tbody = table.querySelector("tbody");
 
+    // Очищаем старое содержимое
     theadDates.innerHTML = '<th class="sticky-col">Дата</th>';
     theadDays.innerHTML = '<th class="sticky-col">День</th>';
     tbody.innerHTML = "";
 
     // Заголовки дат
     for (let i = 2; i < rows[0].length; i++) {
+      if (!rows[0][i]) break;
       const th = document.createElement("th");
       th.textContent = rows[0][i];
       if (isToday(rows[0][i])) th.classList.add("today");
       theadDates.appendChild(th);
     }
 
-    // Заголовки дней недели
+    // Заголовки дней
     for (let i = 2; i < rows[1].length; i++) {
+      if (!rows[1][i]) break;
       const th = document.createElement("th");
       th.textContent = rows[1][i];
       if (isToday(rows[0][i])) th.classList.add("today");
@@ -50,7 +58,7 @@ async function loadSchedule() {
         tr.classList.add("section-row");
       }
 
-      // Первые два столбца фиксированные
+      // Первые два столбца — статичные
       for (let c = 0; c < 2; c++) {
         const td = document.createElement("td");
         td.textContent = rows[r][c] || "";
@@ -58,8 +66,9 @@ async function loadSchedule() {
         tr.appendChild(td);
       }
 
-      // Остальные столбцы — смены
+      // Остальные — смены
       for (let c = 2; c < rows[r].length; c++) {
+        if (!rows[r][c]) break;
         const td = document.createElement("td");
         const val = rows[r][c].trim();
         td.textContent = val;
@@ -81,5 +90,5 @@ async function loadSchedule() {
   }
 }
 
-// Запуск
+// Загружаем при старте
 loadSchedule();
