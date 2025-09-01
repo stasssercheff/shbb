@@ -1,85 +1,56 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f8;
-    color: #333;
+/* --- таблица --- */
+.table-container {
+  overflow-x: auto;
+  margin: 10px;
+  border: 1px solid #ccc;
 }
 
-.page-header {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    gap: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 900px;
 }
 
-.top-btn {
-    padding: 6px 12px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 4px 6px;
+  font-size: 12px;
+  background: #fff;
 }
 
-.top-btn:hover {
-    background-color: #c1b29a;
+/* Заголовки */
+th {
+  background: #eee;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
-.main-container {
-    max-width: 500px;
-    margin: 40px auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+/* Статичный левый столбец */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 10; /* выше заголовков */
+  font-weight: bold;
 }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
+/* Разделители */
+.section-row td {
+  background: #ddd;
+  font-weight: bold;
+  text-align: left;
 }
 
-h1#greeting {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
+/* Смены */
+.shift-1 { background: #a6e6a6; }
+.shift-0 { background: #fff7a6; }
+.shift-O { background: #ffcccc; }
+.shift-Б { background: #cce0ff; }
 
-.date-container {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-
-.nav-btn {
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 250px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    transition: 0.2s;
-}
-
-.nav-btn:hover {
-    background-color: #c1b29a;
+/* Подсветка сегодняшнего дня */
+.today {
+  background-color: #cce0ff !important;
+  font-weight: bold;
 }
