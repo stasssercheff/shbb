@@ -1,82 +1,72 @@
-const table = document.getElementById("schedule").querySelector("tbody");
-const headerDates = document.getElementById("header-dates");
-const headerDays = document.getElementById("header-days");
+document.addEventListener("DOMContentLoaded", () => {
+  const tableContainer = document.getElementById("schedule-table");
+  const csvUrl =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpNWtZImdMKoOxbV6McfEXEB67ck7nzA1EcBXNOFdnDTK4o9gniAuz82paEdGAyRSlo6dFKO9zCyLP/pub?gid=0&single=true&output=csv";
 
-const classes = { "1":"shift-1","0":"shift-0","О":"shift-O","Б":"shift-Б" };
-const today = new Date();
-today.setHours(0,0,0,0);
+  fetch(csvUrl)
+    .then((response) => response.text())
+    .then((csvText) => {
+      const rows = csvText.trim().split("\n").map((row) => row.split(","));
+      renderTable(rows);
+    })
+    .catch((err) => {
+      console.error("Ошибка загрузки CSV:", err);
+      tableContainer.innerHTML = "<p>Не удалось загрузить данные.</p>";
+    });
 
-function getMonday(d){
-  d=new Date(d);
-  const day=d.getDay();
-  const diff=d.getDate()-day+(day===0?-6:1);
-  return new Date(d.setDate(diff));
-}
+  function renderTable(data) {
+    const table = document.createElement("table");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
 
-const startDate = getMonday(new Date());
-const daysToShow = 60;
-let data = {};
+    // --- заголовки ---
+    const headerRow = document.createElement("tr");
+    data[0].forEach((cell, idx) => {
+      const th = document.createElement("th");
+      th.textContent = cell;
+      if (idx === 0) th.classList.add("sticky-col");
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
 
-for(let i=0;i<daysToShow;i++){
-  const d = new Date(startDate);
-  d.setDate(d.getDate()+i);
+    // --- строки данных ---
+    const today = new Date().toLocaleDateString("ru-RU");
 
-  const dateStr = d.toLocaleDateString("ru-RU",{day:"2-digit",month:"2-digit"});
-  const dayStr = d.toLocaleDateString("ru-RU",{weekday:"short"});
+    data.slice(1).forEach((row) => {
+      const tr = document.createElement("tr");
 
-  const thDate=document.createElement("th");
-  thDate.textContent=dateStr;
-  if(d.getTime()===today.getTime()) thDate.classList.add("today");
-  headerDates.appendChild(thDate);
+      row.forEach((cell, idx) => {
+        const td = document.createElement("td");
+        td.textContent = cell;
 
-  const thDay=document.createElement("th");
-  thDay.textContent=dayStr;
-  if(d.getTime()===today.getTime()) thDay.classList.add("today");
-  headerDays.appendChild(thDay);
-}
+        if (idx === 0) {
+          td.classList.add("sticky-col");
 
-fetch('../data/schedule.json')
-  .then(res=>res.json())
-  .then(json=>{
-    data = JSON.parse(JSON.stringify(json));
-    renderTable(data);
-  });
+          // подсветка сегодняшней даты
+          if (cell.trim() === today) {
+            td.classList.add("today");
+          }
+        }
 
-function renderTable(dataObj){
-  for(let section in dataObj){
-    if(section==="exceptions") continue;
+        // стили для смен (shift-1, shift-0, shift-O, shift-Б)
+        if (["1", "0", "O", "Б"].includes(cell.trim())) {
+          td.classList.add(`shift-${cell.trim()}`);
+        }
 
-    const secRow = table.insertRow();
-    const secCell = secRow.insertCell();
-    secCell.colSpan = daysToShow+1;
-    secRow.classList.add("section-row");
+        tr.appendChild(td);
+      });
 
-    const staff = dataObj[section];
-    for(let name in staff){
-      const row = table.insertRow();
-      const nameCell = row.insertCell();
-      nameCell.textContent=name;
-      nameCell.classList.add("sticky-col");
-
-      const days = staff[name];
-      for(let i=0;i<daysToShow;i++){
-        const val=days[i%days.length];
-        const extVal = (typeof extensions !== "undefined" && extensions[section] && extensions[section][name] && extensions[section][name][getDateStr(i)]) || val;
-        const cell=row.insertCell();
-        cell.textContent=extVal;
-        cell.className=classes[extVal]||"";
-
-        const d=new Date(startDate);
-        d.setDate(d.getDate()+i);
-        d.setHours(0,0,0,0);
-        if(d.getTime()===today.getTime()) cell.classList.add("today");
+      // разделители
+      if (row[0].toLowerCase().includes("раздел")) {
+        tr.classList.add("section-row");
       }
-    }
-  }
-}
 
-function getDateStr(offset){
-  const d=new Date(startDate);
-  d.setDate(d.getDate()+offset);
-  return d.toISOString().split("T")[0];
-}
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    tableContainer.innerHTML = "";
+    tableContainer.appendChild(table);
+  }
+});
