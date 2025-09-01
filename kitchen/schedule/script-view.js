@@ -1,5 +1,6 @@
+// script-view.js
+
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpNWtZImdMKoOxbV6McfEXEB67ck7nzA1EcBXNOFdnDTK4o9gniAuz82paEdGAyRSlo6dFKO9zCyLP/pub?gid=0&single=true&output=csv";
-const DAYS_TO_SHOW = 10;
 
 async function loadSchedule() {
   try {
@@ -16,44 +17,57 @@ async function loadSchedule() {
     theadDays.innerHTML = '<th class="sticky-col">День</th>';
     tbody.innerHTML = "";
 
-    // заголовки дат и дней (10 дней)
-    for (let i = 2; i < 2 + DAYS_TO_SHOW; i++) {
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    const csvDates = rows[0].slice(2).map(d => parseDate(d));
+
+    // индекс для окна 7 дней с сегодня как 4-й день
+    let todayIndex = csvDates.findIndex(d => d.getTime() === today.getTime());
+    if(todayIndex === -1) todayIndex = 0; // если сегодня раньше 01.09
+    let startIndex = todayIndex - 3;
+    if(startIndex < 0) startIndex = 0;
+    let endIndex = startIndex + 7;
+    if(endIndex > csvDates.length) {
+      endIndex = csvDates.length;
+      startIndex = Math.max(0, endIndex - 7);
+    }
+
+    // заголовки
+    for (let i = startIndex; i < endIndex; i++) {
       const thDate = document.createElement("th");
-      thDate.textContent = rows[0][i] || "";
-      if (isToday(rows[0][i])) thDate.classList.add("today");
+      thDate.textContent = rows[0][i+2];
+      if(csvDates[i].getTime() === today.getTime()) thDate.classList.add("today");
       theadDates.appendChild(thDate);
 
       const thDay = document.createElement("th");
-      thDay.textContent = rows[1][i] || "";
-      if (isToday(rows[0][i])) thDay.classList.add("today");
+      thDay.textContent = rows[1][i+2];
+      if(csvDates[i].getTime() === today.getTime()) thDay.classList.add("today");
       theadDays.appendChild(thDay);
     }
 
-    // тело таблицы
-    for (let r = 2; r < rows.length; r++) {
+    // тело
+    for (let r=2; r<rows.length; r++) {
       const tr = document.createElement("tr");
-      if (rows[r][0].toLowerCase().includes("раздел")) tr.classList.add("section-row");
 
-      // первые два столбца
-      for (let c = 0; c < 2; c++) {
-        const td = document.createElement("td");
-        td.textContent = rows[r][c] || "";
-        td.classList.add("sticky-col");
-        tr.appendChild(td);
-      }
+      if(rows[r][0].toLowerCase().includes("раздел")) tr.classList.add("section-row");
 
-      // 10 дней
-      for (let c = 2; c < 2 + DAYS_TO_SHOW; c++) {
+      const tdName = document.createElement("td");
+      tdName.textContent = rows[r][1] || rows[r][0];
+      tdName.classList.add("sticky-col");
+      tr.appendChild(tdName);
+
+      for(let c=startIndex; c<endIndex; c++) {
         const td = document.createElement("td");
-        const val = (rows[r][c] || "").trim();
+        const val = (rows[r][c+2] || "").trim();
         td.textContent = val;
 
-        if (val === "1") td.classList.add("shift-1");
-        else if (val === "0") td.classList.add("shift-0");
-        else if (val === "О") td.classList.add("shift-O");
-        else if (val === "Б") td.classList.add("shift-Б");
+        if(val==="1") td.classList.add("shift-1");
+        if(val==="0") td.classList.add("shift-0");
+        if(val==="О") td.classList.add("shift-O");
+        if(val==="Б") td.classList.add("shift-Б");
 
-        if (isToday(rows[0][c])) td.classList.add("today");
+        if(csvDates[c].getTime() === today.getTime()) td.classList.add("today");
 
         tr.appendChild(td);
       }
@@ -61,19 +75,14 @@ async function loadSchedule() {
       tbody.appendChild(tr);
     }
 
-  } catch (err) {
-    console.error("Ошибка загрузки расписания:", err);
+  } catch(err) {
+    console.error("Ошибка загрузки CSV:", err);
   }
 }
 
-function isToday(dateStr) {
-  if (!dateStr) return false;
-  const today = new Date();
-  const d = today.getDate().toString().padStart(2, "0");
-  const m = (today.getMonth() + 1).toString().padStart(2, "0");
-  const y = today.getFullYear();
-  const todayStr = `${d}.${m}.${y}`;
-  return dateStr.trim() === todayStr;
+function parseDate(str){
+  const [d,m,y] = str.split(".").map(Number);
+  return new Date(y,m-1,d);
 }
 
 loadSchedule();
