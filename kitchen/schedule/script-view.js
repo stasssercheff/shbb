@@ -5,7 +5,6 @@ async function loadSchedule() {
   try {
     const response = await fetch(CSV_URL);
     const text = await response.text();
-
     const rows = text.trim().split("\n").map(r => r.split(","));
 
     const table = document.getElementById("schedule");
@@ -17,31 +16,25 @@ async function loadSchedule() {
     theadDays.innerHTML = '<th class="sticky-col">День</th>';
     tbody.innerHTML = "";
 
-    // Заголовки дат
+    // заголовки дат и дней (10 дней)
     for (let i = 2; i < 2 + DAYS_TO_SHOW; i++) {
-      const th = document.createElement("th");
-      th.textContent = rows[0][i];
-      if (isToday(rows[0][i])) th.classList.add("today");
-      theadDates.appendChild(th);
+      const thDate = document.createElement("th");
+      thDate.textContent = rows[0][i] || "";
+      if (isToday(rows[0][i])) thDate.classList.add("today");
+      theadDates.appendChild(thDate);
+
+      const thDay = document.createElement("th");
+      thDay.textContent = rows[1][i] || "";
+      if (isToday(rows[0][i])) thDay.classList.add("today");
+      theadDays.appendChild(thDay);
     }
 
-    // Заголовки дней недели
-    for (let i = 2; i < 2 + DAYS_TO_SHOW; i++) {
-      const th = document.createElement("th");
-      th.textContent = rows[1][i];
-      if (isToday(rows[0][i])) th.classList.add("today");
-      theadDays.appendChild(th);
-    }
-
-    // Тело таблицы
+    // тело таблицы
     for (let r = 2; r < rows.length; r++) {
       const tr = document.createElement("tr");
+      if (rows[r][0].toLowerCase().includes("раздел")) tr.classList.add("section-row");
 
-      if (rows[r][0].toLowerCase().includes("раздел")) {
-        tr.classList.add("section-row");
-      }
-
-      // Первые два столбца — статичные
+      // первые два столбца
       for (let c = 0; c < 2; c++) {
         const td = document.createElement("td");
         td.textContent = rows[r][c] || "";
@@ -49,16 +42,16 @@ async function loadSchedule() {
         tr.appendChild(td);
       }
 
-      // Остальные — смены
+      // 10 дней
       for (let c = 2; c < 2 + DAYS_TO_SHOW; c++) {
         const td = document.createElement("td");
         const val = (rows[r][c] || "").trim();
-
         td.textContent = val;
+
         if (val === "1") td.classList.add("shift-1");
-        if (val === "0") td.classList.add("shift-0");
-        if (val === "О") td.classList.add("shift-O");
-        if (val === "Б") td.classList.add("shift-Б");
+        else if (val === "0") td.classList.add("shift-0");
+        else if (val === "О") td.classList.add("shift-O");
+        else if (val === "Б") td.classList.add("shift-Б");
 
         if (isToday(rows[0][c])) td.classList.add("today");
 
@@ -74,6 +67,7 @@ async function loadSchedule() {
 }
 
 function isToday(dateStr) {
+  if (!dateStr) return false;
   const today = new Date();
   const d = today.getDate().toString().padStart(2, "0");
   const m = (today.getMonth() + 1).toString().padStart(2, "0");
@@ -82,5 +76,4 @@ function isToday(dateStr) {
   return dateStr.trim() === todayStr;
 }
 
-// Запуск
 loadSchedule();
