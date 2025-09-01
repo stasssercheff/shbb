@@ -83,3 +83,54 @@ h1#greeting {
 .nav-btn:hover {
     background-color: #c1b29a;
 }
+
+/* === СТИЛИ ТАБЛИЦЫ РАСПИСАНИЯ === */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 900px; /* чтобы был скролл */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  text-align: center;
+  background: #fff;
+}
+
+/* Первая колонка (раздел/имя) */
+th.sticky-col:first-child,
+td.sticky-col:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 30;
+  background: #fff;
+}
+
+/* Вторая колонка (имя/день) */
+th.sticky-col:nth-child(2),
+td.sticky-col:nth-child(2) {
+  position: sticky;
+  left: 140px; /* ширина первой колонки */
+  z-index: 25;
+  background: #fff;
+}
+
+/* Подсветка сегодняшнего дня */
+th.today,
+td.today {
+  background: #ffe7ba !important;
+  font-weight: 700;
+}
+
+/* Цвета смен */
+.shift-1 { background: #d1f7c4; }
+.shift-0 { background: #fdd; }
+.shift-O { background: #e0e0e0; }
+.shift-Б { background: #b3e5fc; }
+
+/* Разделы */
+.section-row td {
+  font-weight: bold;
+  background: #f4f6f8;
+}
