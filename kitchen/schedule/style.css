@@ -28,7 +28,6 @@ header.page-header {
   font-weight: 600;
   transition: 0.2s;
 }
-
 .nav-btn:hover {
   background-color: #c1b29a;
 }
@@ -60,8 +59,8 @@ h1 {
 
 table {
   border-collapse: collapse;
-  width: max-content;
-  min-width: 700px;
+  width: 100%;
+  min-width: 900px;
 }
 
 th, td {
@@ -69,6 +68,7 @@ th, td {
   text-align: center;
   padding: 4px 6px;
   font-size: 12px;
+  min-width: 60px;
 }
 
 th {
@@ -92,10 +92,10 @@ th {
   text-align: left;
 }
 
-.shift-1 { background: #a6e6a6; }   /* светло-зелёный */
-.shift-0 { background: #fff7a6; }   /* светло-жёлтый */
-.shift-O { background: #ffcccc; }   /* красный (выходной) */
-.shift-Б { background: #cce0ff; }   /* голубой (больничный) */
+.shift-1 { background: #a6e6a6; }
+.shift-0 { background: #fff7a6; }
+.shift-O { background: #ffcccc; }
+.shift-Б { background: #cce0ff; }
 
 .today {
   background-color: #cce0ff !important;
