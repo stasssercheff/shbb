@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
-    let message = `🧾 <b>${lang === 'en' ? 'Order list' : 'Списание/Отдано'}</b>\n\n`;
+    let message = `🧾 <b>${lang === 'en' ? 'Given' : 'Отдано'}</b>\n\n`;
 
     // Дата
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
