@@ -22,7 +22,7 @@ header.page-header {
   background: #fff;
   border: 1px solid #aaa;
   border-radius: 4px;
-  color: #333;       /* <-- чтобы текст был тёмным, не синим */
+  color: #333;       /* текст тёмный */
   text-decoration: none; /* убрать подчёркивание */
 }
 
@@ -76,12 +76,19 @@ th {
   z-index: 2;
 }
 
+/* фиксируем колонку с именами */
 .sticky-col {
   position: sticky;
   left: 0;
   background: #fff;
-  z-index: 3;
+  z-index: 10;             /* выше данных */
   font-weight: bold;
+  border-right: 2px solid #ccc;
+}
+
+/* для заголовков, чтобы они не прятались */
+thead th.sticky-col {
+  z-index: 11;
 }
 
 .section-row td {
@@ -99,23 +106,5 @@ th {
 /* --- сегодняшняя дата --- */
 .today {
   background-color: #cce0ff !important;
-}
-
-/* --- панель extensions --- */
-.extensions-panel {
-  margin: 10px 20px;
-  font-size: 12px;
-}
-
-.extensions-panel textarea {
-  width: 100%;
-  font-family: monospace;
-  font-size: 12px;
-  resize: vertical;
-}
-
-.extensions-panel button {
-  margin-top: 5px;
-  padding: 4px 8px;
-  font-size: 12px;
+  font-weight: bold;
 }
