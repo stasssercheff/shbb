@@ -1,4 +1,3 @@
-// URL на CSV из Google Sheets
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpNWtZImdMKoOxbV6McfEXEB67ck7nzA1EcBXNOFdnDTK4o9gniAuz82paEdGAyRSlo6dFKO9zCyLP/pub?gid=0&single=true&output=csv";
 
 async function loadSchedule() {
@@ -16,11 +15,10 @@ async function loadSchedule() {
     theadDays.innerHTML = '<th class="sticky-col">День</th>';
     tbody.innerHTML = "";
 
-    // сегодня
     const today = new Date();
     today.setHours(0,0,0,0);
 
-    // рендерим заголовки
+    // заголовки
     for (let c = 2; c < rows[0].length; c++) {
       const dateStr = rows[0][c].trim();
       const dayStr = rows[1][c].trim();
@@ -36,21 +34,17 @@ async function loadSchedule() {
       theadDays.appendChild(thDay);
     }
 
-    // рендерим тело
+    // тело
     for (let r = 2; r < rows.length; r++) {
       const tr = document.createElement("tr");
 
-      if (rows[r][0].toLowerCase().includes("раздел")) {
-        tr.classList.add("section-row");
-      }
+      if (rows[r][0].toLowerCase().includes("раздел")) tr.classList.add("section-row");
 
-      // фиксированные первые 2 столбца
-      for (let c = 0; c < 2; c++) {
-        const td = document.createElement("td");
-        td.textContent = rows[r][c] || "";
-        td.classList.add("sticky-col");
-        tr.appendChild(td);
-      }
+      // фиксируем первый столбец
+      const tdFirst = document.createElement("td");
+      tdFirst.textContent = rows[r][0] || "";
+      tdFirst.classList.add("sticky-col");
+      tr.appendChild(tdFirst);
 
       // остальные
       for (let c = 2; c < rows[r].length; c++) {
@@ -71,11 +65,11 @@ async function loadSchedule() {
       tbody.appendChild(tr);
     }
 
-    // после рендера прокрутка к сегодняшнему дню (4-й день в центре 7-дневного окна)
+    // прокрутка к сегодняшнему дню
     const todayIndex = rows[0].findIndex((v,i) => i >= 2 && isToday(v, today));
     if(todayIndex > -1){
       const scrollContainer = document.querySelector(".table-container");
-      const thWidth = 60; // min-width
+      const thWidth = 60; // ширина колонки
       const offset = (todayIndex - 3) * thWidth; 
       scrollContainer.scrollLeft = offset;
     }
