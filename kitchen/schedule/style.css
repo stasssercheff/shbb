@@ -73,18 +73,15 @@ th, td {
 
 th {
   background: #eee;
-  position: sticky;
-  top: 0;
-  z-index: 2;
 }
 
 .sticky-col {
   position: sticky;
   left: 0;
   background: #fff;
-  z-index: 3;
+  z-index: 4;
   font-weight: bold;
-  min-width: 60px; /* задай ширину под имена */
+  min-width: 60px;
 }
 
 .section-row td {
@@ -102,27 +99,18 @@ th {
   background-color: #cce0ff !important;
 }
 
-/* Фиксируем первую колонку (имена) */
-table th:first-child,
-table td:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 2;
-  background: #fff; /* фон, чтобы не перекрывалось */
-}
-
 /* Фиксируем первую строку (даты) */
 table thead tr:first-child th {
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 5;
   background: #fff;
 }
 
 /* Фиксируем вторую строку (дни недели) */
 table thead tr:nth-child(2) th {
   position: sticky;
-  top: 40px; /* высота первой строки */
-  z-index: 3;
+  top: 30px; /* подгони под высоту первой строки */
+  z-index: 5;
   background: #fff;
 }
