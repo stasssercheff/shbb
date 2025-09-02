@@ -18,7 +18,7 @@ async function loadSchedule() {
     const today = new Date();
     today.setHours(0,0,0,0);
 
-    // Заголовки
+    // Создаём заголовки
     for (let c = 2; c < rows[0].length; c++) {
       const dateStr = rows[0][c].trim();
       const dayStr = rows[1][c].trim();
@@ -36,7 +36,7 @@ async function loadSchedule() {
       theadDays.appendChild(thDay);
     }
 
-    // Тело таблицы
+    // Создаём тело таблицы
     for (let r = 2; r < rows.length; r++) {
       const tr = document.createElement("tr");
       if (rows[r][0].toLowerCase().includes("раздел")) tr.classList.add("section-row");
@@ -47,7 +47,7 @@ async function loadSchedule() {
       tdFirst.classList.add("sticky-col");
       tr.appendChild(tdFirst);
 
-      // Остальные колонки
+      // Остальные ячейки
       for (let c = 2; c < rows[r].length; c++) {
         const td = document.createElement("td");
         const val = rows[r][c].trim();
@@ -67,17 +67,15 @@ async function loadSchedule() {
     }
 
     // Прокрутка к сегодняшнему дню
-    const todayIndex = rows[0].findIndex((v,i) => i >= 2 && isToday(v, today));
+    const todayIndex = rows[0].findIndex((v,i) => i>=2 && isToday(v, today));
     if(todayIndex > -1){
       const scrollContainer = document.querySelector(".table-container");
       const thElements = table.querySelectorAll("thead tr:first-child th");
 
       let offset = 0;
-      for(let i = 0; i < todayIndex; i++){
-        offset += thElements[i].offsetWidth;
-      }
+      for(let i = 0; i < todayIndex; i++) offset += thElements[i].offsetWidth;
 
-      // Центрируем сегодняшнюю дату
+      // Центрируем колонку с сегодняшним днем
       scrollContainer.scrollLeft = offset - scrollContainer.clientWidth / 2 + thElements[todayIndex].offsetWidth / 2;
     }
 
