@@ -12,7 +12,7 @@ async function loadSchedule() {
     const today = new Date();
     today.setHours(0,0,0,0);
 
-    // Создаём строки
+    // Создаём строки таблицы
     for (let r = 0; r < rows.length; r++) {
       const tr = document.createElement("tr");
 
@@ -29,32 +29,35 @@ async function loadSchedule() {
         if (val === "О") td.classList.add("shift-O");
         if (val === "Б") td.classList.add("shift-Б");
 
-        // Подсветка сегодняшнего дня (включая шапку)
-        if (c >= 2 && isToday(rows[0][c], today)) td.classList.add("today");
+        // Подсветка сегодняшнего дня только в первых 2 строках (шапка)
+        if ((r === 0 || r === 1) && c >= 2 && isToday(rows[0][c], today)) {
+          td.classList.add("today");
+        }
 
         tr.appendChild(td);
       }
       tbody.appendChild(tr);
     }
 
-    // Прокрутка к сегодняшнему дню
+    // Прокрутка к сегодняшнему дню в центр
     const todayIndex = rows[0].findIndex((v,i)=>i>=2 && isToday(v,today));
-    if(todayIndex>-1){
+    if(todayIndex > -1){
       const scrollContainer = document.querySelector(".table-container");
-      const tdElements = table.querySelectorAll("tr:first-child td");
-      let offset=0;
-      for(let i=0;i<todayIndex;i++) offset += tdElements[i].offsetWidth;
-      scrollContainer.scrollLeft = offset - scrollContainer.clientWidth/2 + tdElements[todayIndex].offsetWidth/2;
+      const firstRowCells = table.querySelectorAll("tr:first-child td");
+      let offset = 0;
+      for(let i=0;i<todayIndex;i++) offset += firstRowCells[i].offsetWidth;
+      // Центрируем
+      scrollContainer.scrollLeft = offset - scrollContainer.clientWidth/2 + firstRowCells[todayIndex].offsetWidth/2;
     }
 
   } catch(err){ console.error("Ошибка загрузки:", err); }
 }
 
-function isToday(dateStr,today){
+function isToday(dateStr, today){
   const [d,m,y] = dateStr.split(".").map(Number);
   const dt = new Date(y,m-1,d);
   dt.setHours(0,0,0,0);
-  return dt.getTime()===today.getTime();
+  return dt.getTime() === today.getTime();
 }
 
 loadSchedule();
