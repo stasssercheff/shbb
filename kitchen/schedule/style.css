@@ -84,7 +84,7 @@ th {
   background: #fff;
   z-index: 3;
   font-weight: bold;
-  min-width: 140px; /* задай ширину под имена */
+  min-width: 70px; /* задай ширину под имена */
 }
 
 .section-row td {
