@@ -1,33 +1,112 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ТТК кафе</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+// ==== Данные блюд ====
+const menuData = [
+  {
+    "раздел": {"ru":"Супы","en":"Soups"},
+    "блюда":[
+      {
+        "название":{"ru":"Борщ","en":"Borscht"},
+        "image":"borscht.jpg",
+        "порции":1,
+        "ингредиенты":[
+          {"название":{"ru":"Свекла","en":"Beet"},"кол-во":200,"ед":"г"},
+          {"название":{"ru":"Картофель","en":"Potatoes"},"кол-во":300,"ед":"г"},
+          {"название":{"ru":"Морковь","en":"Carrot"},"кол-во":100,"ед":"г"}
+        ]
+      }
+    ]
+  },
+  {
+    "раздел": {"ru":"Салаты","en":"Salads"},
+    "блюда":[
+      {
+        "название":{"ru":"Цезарь","en":"Caesar Salad"},
+        "image":"caesar.jpg",
+        "порции":1,
+        "ингредиенты":[
+          {"название":{"ru":"Курица","en":"Chicken"},"кол-во":200,"ед":"г"},
+          {"название":{"ru":"Салат","en":"Lettuce"},"кол-во":100,"ед":"г"},
+          {"название":{"ru":"Сыр Пармезан","en":"Parmesan"},"кол-во":50,"ед":"г"}
+        ]
+      }
+    ]
+  }
+];
 
-<div class="page-header">
-  <select id="lang-select" class="top-btn">
-    <option value="ru">RU</option>
-    <option value="en">EN</option>
-  </select>
-</div>
+// ==== Переменные ====
+let currentLang = 'ru';
+const menuContainer = document.getElementById('menu-container');
+const ttkCard = document.getElementById('ttk-card');
+const ttkTitle = document.getElementById('ttk-title');
+const ttkImage = document.getElementById('ttk-image');
+const portionInput = document.getElementById('portion-input');
+const ttkTbody = ttkCard.querySelector('tbody');
+const backBtn = document.getElementById('back-btn');
+const langSelect = document.getElementById('lang-select');
 
-<div class="main-container" id="menu-container"></div>
+let currentDish = null;
+let baseQuantities = [];
 
-<div class="main-container" id="ttk-card">
-  <span id="back-btn">← Назад</span>
-  <h2 id="ttk-title"></h2>
-  <img id="ttk-image" src="" alt="">
-  <label>Порции: <input type="number" id="portion-input" value="1" min="1" style="width:50px"></label>
-  <table>
-    <thead><tr><th>Ингредиент</th><th>Кол-во</th><th>Ед.</th></tr></thead>
-    <tbody></tbody>
-  </table>
-</div>
+// ==== Функции ====
+function renderMenu() {
+  menuContainer.innerHTML = '';
+  menuData.forEach(section => {
+    const sectionTitle = document.createElement('div');
+    sectionTitle.className = 'section-title';
+    sectionTitle.textContent = section.раздел[currentLang];
+    menuContainer.appendChild(sectionTitle);
+    
+    section.блюда.forEach(dish => {
+      const dishDiv = document.createElement('div');
+      dishDiv.className = 'dish-name';
+      dishDiv.textContent = dish.название[currentLang];
+      dishDiv.addEventListener('click', () => showDish(dish));
+      menuContainer.appendChild(dishDiv);
+    });
+  });
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+function showDish(dish) {
+  currentDish = dish;
+  ttkTitle.textContent = dish.название[currentLang];
+  ttkImage.src = dish.image;
+  portionInput.value = dish.порции;
+  baseQuantities = dish.ингредиенты.map(i => i.кол-во);
+  renderTTKTable(1);
+  menuContainer.style.display = 'none';
+  ttkCard.style.display = 'block';
+}
+
+function renderTTKTable(multiplier=1) {
+  ttkTbody.innerHTML = '';
+  currentDish.ингредиенты.forEach((ing, idx) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${ing.название[currentLang]}</td>
+                    <td contenteditable="true" style="background:#fffae6">${(baseQuantities[idx]*multiplier).toFixed(0)}</td>
+                    <td>${ing.ед}</td>`;
+    ttkTbody.appendChild(tr);
+    tr.children[1].addEventListener('input', (e)=>{
+      const newVal = parseFloat(e.target.textContent);
+      if(!isNaN(newVal)) renderTTKTable(newVal/baseQuantities[idx]);
+    });
+  });
+}
+
+// ==== События ====
+portionInput.addEventListener('input', ()=>{
+  const p = parseFloat(portionInput.value);
+  if(!isNaN(p)) renderTTKTable(p);
+});
+
+backBtn.addEventListener('click', ()=>{
+  ttkCard.style.display = 'none';
+  menuContainer.style.display = 'block';
+});
+
+langSelect.addEventListener('change', ()=>{
+  currentLang = langSelect.value;
+  if(currentDish) showDish(currentDish);
+  else renderMenu();
+});
+
+// ==== Инициализация ====
+renderMenu();
