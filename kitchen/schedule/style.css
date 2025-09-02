@@ -74,7 +74,7 @@ td {
   min-width: 20px;
 }
 
-/* Фиксированный первый столбец */
+/* Фиксируем весь первый столбец */
 table td:first-child {
   position: sticky;
   left: 0;
@@ -84,22 +84,7 @@ table td:first-child {
   min-width: 60px;
 }
 
-/* Фиксированные первые две строки */
-table tr:first-child td {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 6;
-}
-
-table tr:nth-child(2) td {
-  position: sticky;
-  top: 30px; /* высота первой строки */
-  background: #fff;
-  z-index: 6;
-}
-
-/* Стили для разделов */
+/* Стили разделов */
 .section-row td {
   background: #ddd;
   font-weight: bold;
