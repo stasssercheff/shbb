@@ -25,11 +25,13 @@ async function loadSchedule() {
 
       const thDate = document.createElement("th");
       thDate.textContent = dateStr;
+      thDate.classList.add("sticky-col");
       if (isToday(dateStr, today)) thDate.classList.add("today");
       theadDates.appendChild(thDate);
 
       const thDay = document.createElement("th");
       thDay.textContent = dayStr;
+      thDay.classList.add("sticky-col");
       if (isToday(dateStr, today)) thDay.classList.add("today");
       theadDays.appendChild(thDay);
     }
@@ -46,7 +48,7 @@ async function loadSchedule() {
       tdFirst.classList.add("sticky-col");
       tr.appendChild(tdFirst);
 
-      // остальные
+      // остальные колонки
       for (let c = 2; c < rows[r].length; c++) {
         const td = document.createElement("td");
         const val = rows[r][c].trim();
