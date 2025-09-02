@@ -29,8 +29,8 @@ async function loadSchedule() {
         if (val === "О") td.classList.add("shift-O");
         if (val === "Б") td.classList.add("shift-Б");
 
-        // Подсветка сегодняшнего дня только в первых 2 строках (шапка)
-        if ((r === 0 || r === 1) && c >= 2 && isToday(rows[0][c], today)) {
+        // Подсветка сегодняшнего дня только в первых 2 строках
+        if ((r === 0 || r === 1) && c >= 2 && isToday(val, today)) {
           td.classList.add("today");
         }
 
@@ -39,25 +39,31 @@ async function loadSchedule() {
       tbody.appendChild(tr);
     }
 
-    // Прокрутка к сегодняшнему дню в центр
-    const todayIndex = rows[0].findIndex((v,i)=>i>=2 && isToday(v,today));
-    if(todayIndex > -1){
-      const scrollContainer = document.querySelector(".table-container");
-      const firstRowCells = table.querySelectorAll("tr:first-child td");
-      let offset = 0;
-      for(let i=0;i<todayIndex;i++) offset += firstRowCells[i].offsetWidth;
-      // Центрируем
-      scrollContainer.scrollLeft = offset - scrollContainer.clientWidth/2 + firstRowCells[todayIndex].offsetWidth/2;
+    // Прокрутка к сегодняшнему дню
+    const firstRowCells = table.querySelectorAll("tr:first-child td");
+    let todayIndex = -1;
+    for (let i = 2; i < firstRowCells.length; i++) {
+      if (isToday(firstRowCells[i].textContent, today)) {
+        todayIndex = i;
+        break;
+      }
     }
 
-  } catch(err){ console.error("Ошибка загрузки:", err); }
+    if (todayIndex > -1) {
+      const scrollContainer = document.querySelector(".table-container");
+      let offset = 0;
+      for (let i = 0; i < todayIndex; i++) offset += firstRowCells[i].offsetWidth;
+      scrollContainer.scrollLeft = offset - scrollContainer.clientWidth / 2 + firstRowCells[todayIndex].offsetWidth / 2;
+    }
+
+  } catch(err) {
+    console.error("Ошибка загрузки:", err);
+  }
 }
 
-function isToday(dateStr, today){
-  const [d,m,y] = dateStr.split(".").map(Number);
-  const dt = new Date(y,m-1,d);
-  dt.setHours(0,0,0,0);
-  return dt.getTime() === today.getTime();
+function isToday(dateStr, today) {
+  const [d, m] = dateStr.split(".").map(Number); // без года
+  return d === today.getDate() && m === (today.getMonth() + 1);
 }
 
 loadSchedule();
