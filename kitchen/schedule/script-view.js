@@ -12,7 +12,7 @@ async function loadSchedule() {
     const today = new Date();
     today.setHours(0,0,0,0);
 
-    // Создаём все строки в tbody
+    // Создаём строки
     for (let r = 0; r < rows.length; r++) {
       const tr = document.createElement("tr");
 
@@ -29,8 +29,8 @@ async function loadSchedule() {
         if (val === "О") td.classList.add("shift-O");
         if (val === "Б") td.classList.add("shift-Б");
 
-        // Подсветка сегодняшнего дня для первых 2 строк и тела
-        if ((r===0 || r===1 || r>=2) && c>=2 && isToday(rows[0][c], today)) td.classList.add("today");
+        // Подсветка сегодняшнего дня (включая шапку)
+        if (c >= 2 && isToday(rows[0][c], today)) td.classList.add("today");
 
         tr.appendChild(td);
       }
@@ -47,7 +47,7 @@ async function loadSchedule() {
       scrollContainer.scrollLeft = offset - scrollContainer.clientWidth/2 + tdElements[todayIndex].offsetWidth/2;
     }
 
-  } catch(err){ console.error("Ошибка загрузки:",err); }
+  } catch(err){ console.error("Ошибка загрузки:", err); }
 }
 
 function isToday(dateStr,today){
