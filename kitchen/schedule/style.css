@@ -68,7 +68,7 @@ th, td {
   text-align: center;
   padding: 4px 6px;
   font-size: 12px;
-  min-width: 60px;
+  min-width: 30px;
 }
 
 th {
@@ -84,7 +84,7 @@ th {
   background: #fff;
   z-index: 3;
   font-weight: bold;
-  min-width: 70px; /* задай ширину под имена */
+  min-width: 60px; /* задай ширину под имена */
 }
 
 .section-row td {
