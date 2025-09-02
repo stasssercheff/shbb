@@ -2,80 +2,52 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
+  background: #fff;
 }
 
-header.page-header {
+.page-header {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 20px;
-  gap: 10px;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  padding: 10px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ccc;
 }
 
 .nav-btn {
+  margin-left: 10px;
   padding: 6px 12px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
-.nav-btn:hover {
-  background-color: #c1b29a;
 }
 
 .logo-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 15px 0;
+  padding: 10px;
 }
 
 .logo {
-  max-width: 120px;
-  height: auto;
-  display: block;
-}
-
-h1 {
-  font-size: 20px;
-  margin: 5px 0;
-  text-align: center;
+  height: 50px;
+  margin-right: 15px;
 }
 
 .table-container {
   overflow-x: auto;
-  margin: 10px;
-  border: 1px solid #ccc;
+  position: relative;
+  max-width: 100%;
 }
 
-table {
+.schedule {
   border-collapse: collapse;
-  width: 100%;
-  min-width: 900px;
+  width: max-content;
+  min-width: 100%;
 }
 
-th, td {
+.schedule th,
+.schedule td {
   border: 1px solid #ccc;
+  padding: 6px;
   text-align: center;
-  padding: 4px 6px;
-  font-size: 12px;
-  min-width: 60px;
-}
-
-th {
-  background: #eee;
-  position: sticky;
-  top: 0;
-  z-index: 2;
+  min-width: 80px;
 }
 
 .sticky-col {
@@ -83,20 +55,9 @@ th {
   left: 0;
   background: #fff;
   z-index: 3;
-  font-weight: bold;
 }
 
-.section-row td {
-  background: #ddd;
+.today-header {
+  background: #d0ebff;
   font-weight: bold;
-  text-align: left;
-}
-
-.shift-1 { background: #a6e6a6; }
-.shift-0 { background: #fff7a6; }
-.shift-O { background: #ffcccc; }
-.shift-Б { background: #cce0ff; }
-
-.today {
-  background-color: #cce0ff !important;
 }
