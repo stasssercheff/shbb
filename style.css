@@ -1,102 +1,136 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-  color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #333;
 }
 
-header.page-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
-  gap: 10px;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+.page-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.nav-btn {
-  padding: 6px 12px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
-.nav-btn:hover {
-  background-color: #c1b29a;
+.top-btn {
+    padding: 6px 12px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px 0;
+.top-btn:hover {
+    background-color: #c1b29a;
+}
+
+.main-container {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
 .logo {
-  max-width: 120px;
-  height: auto;
-  display: block;
+    width: 120px;
+    margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 20px;
-  margin: 5px 0;
-  text-align: center;
+h1#greeting {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.table-container {
-  overflow-x: auto;
-  margin: 10px;
-  border: 1px solid #ccc;
+.date-container {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
 }
 
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-btn {
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 250px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #c1b29a;
+}
+
+/* === СТИЛИ ТАБЛИЦЫ РАСПИСАНИЯ === */
 table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 900px;
+  min-width: 900px; /* чтобы был скролл */
 }
 
 th, td {
   border: 1px solid #ccc;
+  padding: 6px 10px;
   text-align: center;
-  padding: 4px 6px;
-  font-size: 12px;
-  min-width: 60px;
+  background: #fff;
 }
 
-th {
-  background: #eee;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.sticky-col {
+/* Первая колонка (раздел/имя) */
+th.sticky-col:first-child,
+td.sticky-col:first-child {
   position: sticky;
   left: 0;
+  z-index: 30;
   background: #fff;
-  z-index: 3;
-  font-weight: bold;
 }
 
+/* Вторая колонка (имя/день) */
+th.sticky-col:nth-child(2),
+td.sticky-col:nth-child(2) {
+  position: sticky;
+  left: 140px; /* ширина первой колонки */
+  z-index: 25;
+  background: #fff;
+}
+
+/* Подсветка сегодняшнего дня */
+th.today,
+td.today {
+  background: #ffe7ba !important;
+  font-weight: 700;
+}
+
+/* Цвета смен */
+.shift-1 { background: #d1f7c4; }
+.shift-0 { background: #fdd; }
+.shift-O { background: #e0e0e0; }
+.shift-Б { background: #b3e5fc; }
+
+/* Разделы */
 .section-row td {
-  background: #ddd;
   font-weight: bold;
-  text-align: left;
-}
-
-.shift-1 { background: #a6e6a6; }
-.shift-0 { background: #fff7a6; }
-.shift-O { background: #ffcccc; }
-.shift-Б { background: #cce0ff; }
-
-.today {
-  background-color: #cce0ff !important;
+  background: #f4f6f8;
 }
