@@ -4,34 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ТТК кафе</title>
-<style>
-body { font-family: Arial, sans-serif; margin: 20px; }
-#top-bar { margin-bottom: 20px; }
-.section-title { font-weight: bold; margin-top: 20px; }
-.dish-name { cursor: pointer; color: #007BFF; margin: 5px 0; }
-.dish-name:hover { text-decoration: underline; }
-#ttk-card { border: 1px solid #ccc; padding: 15px; margin-top: 20px; display:none; background: #f9f9f9; }
-#ttk-card img { width: 100%; max-width: 300px; display:block; margin-bottom:10px; }
-#ttk-card table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-#ttk-card th, #ttk-card td { border: 1px solid #ccc; padding: 5px; text-align: left; }
-#ttk-card td[contenteditable="true"] { background: #fffae6; }
-#back-btn { margin-top: 10px; cursor: pointer; color: #007BFF; display: inline-block; }
-#back-btn:hover { text-decoration: underline; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="top-bar">
-  Язык: 
-  <select id="lang-select">
+<div class="page-header">
+  <select id="lang-select" class="top-btn">
     <option value="ru">RU</option>
     <option value="en">EN</option>
   </select>
 </div>
 
-<div id="menu-container"></div>
+<div class="main-container" id="menu-container"></div>
 
-<div id="ttk-card">
+<div class="main-container" id="ttk-card">
   <span id="back-btn">← Назад</span>
   <h2 id="ttk-title"></h2>
   <img id="ttk-image" src="" alt="">
@@ -42,121 +28,6 @@ body { font-family: Arial, sans-serif; margin: 20px; }
   </table>
 </div>
 
-<script>
-// ==== Данные блюд ====
-const menuData = [
-  {
-    "раздел": {"ru":"Супы","en":"Soups"},
-    "блюда":[
-      {
-        "название":{"ru":"Борщ","en":"Borscht"},
-        "image":"borscht.jpg",
-        "порции":1,
-        "ингредиенты":[
-          {"название":{"ru":"Свекла","en":"Beet"},"кол-во":200,"ед":"г"},
-          {"название":{"ru":"Картофель","en":"Potatoes"},"кол-во":300,"ед":"г"},
-          {"название":{"ru":"Морковь","en":"Carrot"},"кол-во":100,"ед":"г"}
-        ]
-      }
-    ]
-  },
-  {
-    "раздел": {"ru":"Салаты","en":"Salads"},
-    "блюда":[
-      {
-        "название":{"ru":"Цезарь","en":"Caesar Salad"},
-        "image":"caesar.jpg",
-        "порции":1,
-        "ингредиенты":[
-          {"название":{"ru":"Курица","en":"Chicken"},"кол-во":200,"ед":"г"},
-          {"название":{"ru":"Салат","en":"Lettuce"},"кол-во":100,"ед":"г"},
-          {"название":{"ru":"Сыр Пармезан","en":"Parmesan"},"кол-во":50,"ед":"г"}
-        ]
-      }
-    ]
-  }
-];
-
-// ==== Переменные ====
-let currentLang = 'ru';
-const menuContainer = document.getElementById('menu-container');
-const ttkCard = document.getElementById('ttk-card');
-const ttkTitle = document.getElementById('ttk-title');
-const ttkImage = document.getElementById('ttk-image');
-const portionInput = document.getElementById('portion-input');
-const ttkTbody = ttkCard.querySelector('tbody');
-const backBtn = document.getElementById('back-btn');
-const langSelect = document.getElementById('lang-select');
-
-let currentDish = null;
-let baseQuantities = [];
-
-// ==== Функции ====
-function renderMenu() {
-  menuContainer.innerHTML = '';
-  menuData.forEach(section => {
-    const sectionTitle = document.createElement('div');
-    sectionTitle.className = 'section-title';
-    sectionTitle.textContent = section.раздел[currentLang];
-    menuContainer.appendChild(sectionTitle);
-    
-    section.блюда.forEach(dish => {
-      const dishDiv = document.createElement('div');
-      dishDiv.className = 'dish-name';
-      dishDiv.textContent = dish.название[currentLang];
-      dishDiv.addEventListener('click', () => showDish(dish));
-      menuContainer.appendChild(dishDiv);
-    });
-  });
-}
-
-function showDish(dish) {
-  currentDish = dish;
-  ttkTitle.textContent = dish.название[currentLang];
-  ttkImage.src = dish.image;
-  portionInput.value = dish.порции;
-  baseQuantities = dish.ингредиенты.map(i => i.кол-во);
-  renderTTKTable(1);
-  menuContainer.style.display = 'none';
-  ttkCard.style.display = 'block';
-}
-
-function renderTTKTable(multiplier=1) {
-  ttkTbody.innerHTML = '';
-  currentDish.ингредиенты.forEach((ing, idx) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${ing.название[currentLang]}</td>
-                    <td contenteditable="true" style="background:#fffae6">${(baseQuantities[idx]*multiplier).toFixed(0)}</td>
-                    <td>${ing.ед}</td>`;
-    ttkTbody.appendChild(tr);
-    tr.children[1].addEventListener('input', (e)=>{
-      const newVal = parseFloat(e.target.textContent);
-      if(!isNaN(newVal)) renderTTKTable(newVal/baseQuantities[idx]);
-    });
-  });
-}
-
-// ==== События ====
-portionInput.addEventListener('input', ()=>{
-  const p = parseFloat(portionInput.value);
-  if(!isNaN(p)) renderTTKTable(p);
-});
-
-backBtn.addEventListener('click', ()=>{
-  ttkCard.style.display = 'none';
-  menuContainer.style.display = 'block';
-});
-
-langSelect.addEventListener('change', ()=>{
-  currentLang = langSelect.value;
-  if(currentDish) showDish(currentDish);
-  else renderMenu();
-});
-
-// ==== Инициализация ====
-renderMenu();
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
