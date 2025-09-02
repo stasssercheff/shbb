@@ -76,12 +76,33 @@ th {
 }
 
 .sticky-col {
+  font-weight: bold;
+  min-width: 60px;
+}
+
+/* Фиксируем весь первый столбец (шапка + тело) */
+table th:first-child,
+table td:first-child {
   position: sticky;
   left: 0;
   background: #fff;
   z-index: 4;
-  font-weight: bold;
-  min-width: 60px;
+}
+
+/* Фиксируем первую строку (даты) */
+table thead tr:first-child th {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #fff;
+}
+
+/* Фиксируем вторую строку (дни недели) */
+table thead tr:nth-child(2) th {
+  position: sticky;
+  top: 30px; /* подгоняем под высоту первой строки */
+  z-index: 6;
+  background: #fff;
 }
 
 .section-row td {
@@ -95,22 +116,7 @@ th {
 .shift-O { background: #ffcccc; }
 .shift-Б { background: #cce0ff; }
 
+/* Подсветка сегодняшнего дня */
 .today {
   background-color: #cce0ff !important;
-}
-
-/* Фиксируем первую строку (даты) */
-table thead tr:first-child th {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  background: #fff;
-}
-
-/* Фиксируем вторую строку (дни недели) */
-table thead tr:nth-child(2) th {
-  position: sticky;
-  top: 30px; /* подгони под высоту первой строки */
-  z-index: 5;
-  background: #fff;
 }
