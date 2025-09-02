@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
     const token = '8348920386:AAFlufZWkWqsH4-qoqSSHdmgcEM_s46Ke8Q';
-    const chat_id = '-4966900925';
+    const chat_id = '-1003076643701';
 
     const sendMessage = (msg) => {
       return fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
