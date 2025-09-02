@@ -5,90 +5,56 @@ async function loadSchedule() {
     const resp = await fetch(CSV_URL);
     const text = await resp.text();
     const rows = text.trim().split("\n").map(r => r.split(","));
-
     const table = document.getElementById("schedule");
-    const theadDates = document.getElementById("header-dates");
-    const theadDays = document.getElementById("header-days");
     const tbody = table.querySelector("tbody");
-
-    theadDates.innerHTML = '<th class="sticky-col">Дата</th>';
-    theadDays.innerHTML = '<th class="sticky-col">День</th>';
     tbody.innerHTML = "";
 
     const today = new Date();
     today.setHours(0,0,0,0);
 
-    // Создаём заголовки
-    for (let c = 2; c < rows[0].length; c++) {
-      const dateStr = rows[0][c].trim();
-      const dayStr = rows[1][c].trim();
-
-      const thDate = document.createElement("th");
-      thDate.textContent = dateStr;
-      thDate.classList.add("sticky-col");
-      if (isToday(dateStr, today)) thDate.classList.add("today");
-      theadDates.appendChild(thDate);
-
-      const thDay = document.createElement("th");
-      thDay.textContent = dayStr;
-      thDay.classList.add("sticky-col");
-      if (isToday(dateStr, today)) thDay.classList.add("today");
-      theadDays.appendChild(thDay);
-    }
-
-    // Создаём тело таблицы
-    for (let r = 2; r < rows.length; r++) {
+    // Создаём все строки в tbody
+    for (let r = 0; r < rows.length; r++) {
       const tr = document.createElement("tr");
-      if (rows[r][0].toLowerCase().includes("раздел")) tr.classList.add("section-row");
 
-      // Первый столбец
-      const tdFirst = document.createElement("td");
-      tdFirst.textContent = rows[r][0] || "";
-      tdFirst.classList.add("sticky-col");
-      tr.appendChild(tdFirst);
+      if (r >= 2 && rows[r][0].toLowerCase().includes("раздел")) tr.classList.add("section-row");
 
-      // Остальные ячейки
-      for (let c = 2; c < rows[r].length; c++) {
+      for (let c = 0; c < rows[r].length; c++) {
         const td = document.createElement("td");
         const val = rows[r][c].trim();
         td.textContent = val;
 
+        // Стили смен
         if (val === "1") td.classList.add("shift-1");
         if (val === "0") td.classList.add("shift-0");
         if (val === "О") td.classList.add("shift-O");
         if (val === "Б") td.classList.add("shift-Б");
 
-        if (isToday(rows[0][c], today)) td.classList.add("today");
+        // Подсветка сегодняшнего дня для первых 2 строк и тела
+        if ((r===0 || r===1 || r>=2) && c>=2 && isToday(rows[0][c], today)) td.classList.add("today");
 
         tr.appendChild(td);
       }
-
       tbody.appendChild(tr);
     }
 
     // Прокрутка к сегодняшнему дню
-    const todayIndex = rows[0].findIndex((v,i) => i>=2 && isToday(v, today));
-    if(todayIndex > -1){
+    const todayIndex = rows[0].findIndex((v,i)=>i>=2 && isToday(v,today));
+    if(todayIndex>-1){
       const scrollContainer = document.querySelector(".table-container");
-      const thElements = table.querySelectorAll("thead tr:first-child th");
-
-      let offset = 0;
-      for(let i = 0; i < todayIndex; i++) offset += thElements[i].offsetWidth;
-
-      // Центрируем колонку с сегодняшним днем
-      scrollContainer.scrollLeft = offset - scrollContainer.clientWidth / 2 + thElements[todayIndex].offsetWidth / 2;
+      const tdElements = table.querySelectorAll("tr:first-child td");
+      let offset=0;
+      for(let i=0;i<todayIndex;i++) offset += tdElements[i].offsetWidth;
+      scrollContainer.scrollLeft = offset - scrollContainer.clientWidth/2 + tdElements[todayIndex].offsetWidth/2;
     }
 
-  } catch (err) {
-    console.error("Ошибка загрузки:", err);
-  }
+  } catch(err){ console.error("Ошибка загрузки:",err); }
 }
 
-function isToday(dateStr, today) {
+function isToday(dateStr,today){
   const [d,m,y] = dateStr.split(".").map(Number);
   const dt = new Date(y,m-1,d);
   dt.setHours(0,0,0,0);
-  return dt.getTime() === today.getTime();
+  return dt.getTime()===today.getTime();
 }
 
 loadSchedule();
