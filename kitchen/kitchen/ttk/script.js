@@ -1,16 +1,26 @@
-// ==== Данные блюд ====
+// ==== Пример данных блюд (тест) ====
 const menuData = [
   {
     "раздел": {"ru":"Супы","en":"Soups"},
     "блюда":[
       {
         "название":{"ru":"Борщ","en":"Borscht"},
-        "image":"borscht.jpg",
+        "image":"images/borscht.jpg",
         "порции":1,
         "ингредиенты":[
           {"название":{"ru":"Свекла","en":"Beet"},"кол-во":200,"ед":"г"},
           {"название":{"ru":"Картофель","en":"Potatoes"},"кол-во":300,"ед":"г"},
           {"название":{"ru":"Морковь","en":"Carrot"},"кол-во":100,"ед":"г"}
+        ]
+      },
+      {
+        "название":{"ru":"Щи","en":"Cabbage Soup"},
+        "image":"images/shchi.jpg",
+        "порции":1,
+        "ингредиенты":[
+          {"название":{"ru":"Капуста","en":"Cabbage"},"кол-во":250,"ед":"г"},
+          {"название":{"ru":"Картофель","en":"Potatoes"},"кол-во":200,"ед":"г"},
+          {"название":{"ru":"Морковь","en":"Carrot"},"кол-во":80,"ед":"г"}
         ]
       }
     ]
@@ -20,7 +30,7 @@ const menuData = [
     "блюда":[
       {
         "название":{"ru":"Цезарь","en":"Caesar Salad"},
-        "image":"caesar.jpg",
+        "image":"images/caesar.jpg",
         "порции":1,
         "ингредиенты":[
           {"название":{"ru":"Курица","en":"Chicken"},"кол-во":200,"ед":"г"},
@@ -81,7 +91,7 @@ function renderTTKTable(multiplier=1) {
   currentDish.ингредиенты.forEach((ing, idx) => {
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${ing.название[currentLang]}</td>
-                    <td contenteditable="true" style="background:#fffae6">${(baseQuantities[idx]*multiplier).toFixed(0)}</td>
+                    <td contenteditable="true">${(baseQuantities[idx]*multiplier).toFixed(0)}</td>
                     <td>${ing.ед}</td>`;
     ttkTbody.appendChild(tr);
     tr.children[1].addEventListener('input', (e)=>{
