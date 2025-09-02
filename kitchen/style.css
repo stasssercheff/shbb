@@ -1,136 +1,104 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f8;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
 }
 
-.page-header {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    gap: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.top-btn {
-    padding: 6px 12px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
-}
-
-.top-btn:hover {
-    background-color: #c1b29a;
-}
-
-.main-container {
-    max-width: 500px;
-    margin: 40px auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-}
-
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-h1#greeting {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.date-container {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
+header.page-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  gap: 10px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .nav-btn {
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 250px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    transition: 0.2s;
+  padding: 6px 12px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.nav-btn:hover { background-color: #c1b29a; }
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
 }
 
-.nav-btn:hover {
-    background-color: #c1b29a;
+.logo { max-width: 120px; height: auto; display: block; }
+
+h1 { font-size: 20px; margin: 5px 0; text-align: center; }
+
+.table-container {
+  overflow-x: auto;
+  margin: 10px;
+  border: 1px solid #ccc;
 }
 
-/* === СТИЛИ ТАБЛИЦЫ РАСПИСАНИЯ === */
 table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 900px; /* чтобы был скролл */
+  min-width: 900px;
 }
 
 th, td {
   border: 1px solid #ccc;
-  padding: 6px 10px;
   text-align: center;
-  background: #fff;
+  padding: 4px 6px;
+  font-size: 12px;
+  min-width: 20px;
 }
 
-/* Первая колонка (раздел/имя) */
-th.sticky-col:first-child,
-td.sticky-col:first-child {
+th { background: #eee; }
+
+.sticky-col { font-weight: bold; min-width: 60px; }
+
+/* Фиксируем весь первый столбец (шапка + тело) */
+table th:first-child {
   position: sticky;
   left: 0;
-  z-index: 30;
   background: #fff;
+  z-index: 7;
+}
+table td:first-child {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 4;
 }
 
-/* Вторая колонка (имя/день) */
-th.sticky-col:nth-child(2),
-td.sticky-col:nth-child(2) {
+/* Верхняя строка (даты) */
+table thead tr:first-child th {
   position: sticky;
-  left: 140px; /* ширина первой колонки */
-  z-index: 25;
-  background: #fff;
+  top: 0;
+  z-index: 8;
 }
+
+/* Вторая строка (дни недели) */
+table thead tr:nth-child(2) th {
+  position: sticky;
+  top: 30px;
+  z-index: 8;
+}
+
+.section-row td { background: #ddd; font-weight: bold; text-align: left; }
+
+.shift-1 { background: #a6e6a6; }
+.shift-0 { background: #fff7a6; }
+.shift-O { background: #ffcccc; }
+.shift-Б { background: #cce0ff; }
 
 /* Подсветка сегодняшнего дня */
-th.today,
-td.today {
-  background: #ffe7ba !important;
-  font-weight: 700;
-}
-
-/* Цвета смен */
-.shift-1 { background: #d1f7c4; }
-.shift-0 { background: #fdd; }
-.shift-O { background: #e0e0e0; }
-.shift-Б { background: #b3e5fc; }
-
-/* Разделы */
-.section-row td {
-  font-weight: bold;
-  background: #f4f6f8;
-}
+.today { background-color: #cce0ff !important; }
