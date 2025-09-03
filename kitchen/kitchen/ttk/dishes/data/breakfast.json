@@ -1,1 +1,293 @@
-1
+[
+  {
+    "name": {
+      "ru": "Паста с креветками",
+      "en": ""
+    },
+    "ingredients": [],
+    "process": {
+      "ru": "",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "ЯЙЦА БЕНЕДИКТ",
+      "en": ""
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "ПФ Пашот",
+          "en": "Prep Poached"
+        },
+        "amount": "1"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Голландский соус Банан",
+          "en": "Prep Hollandaise"
+        },
+        "amount": "20"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Пшеничная гриль",
+          "en": "Prep Wheat grill"
+        },
+        "amount": "1"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Микромикс",
+          "en": "Prep Micro mix"
+        },
+        "amount": "15"
+      }
+    ],
+    "process": {
+      "ru": "С краю тарелки выложить пучком ПФ микс салат. В середину положить гренку с пашотом и голландским соусом. По желанию присыпать перцем.",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "СКРЭМБЛ / SCRAMBLE",
+      "en": ""
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "ПФ Пашот",
+          "en": "Prep Poached"
+        },
+        "amount": "1"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Копченый лосось",
+          "en": "Prep Smoked salmon"
+        },
+        "amount": "30"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Пармезан",
+          "en": "Prep Parmesan"
+        },
+        "amount": "10"
+      }
+    ],
+    "process": {
+      "ru": "Взбить яйца с молоком, добавить соль, обжарить на сливочном масле до состояния скрэмбл.",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "ЙОГУРТ БОУЛ",
+      "en": ""
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "ПФ Гранола",
+          "en": "Prep Granola"
+        },
+        "amount": "60"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Йогурт греческий",
+          "en": "Prep Greek yogurt"
+        },
+        "amount": "150"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Ягоды",
+          "en": "Prep Berries"
+        },
+        "amount": "30"
+      }
+    ],
+    "process": {
+      "ru": "Выложить йогурт в тарелку, сверху гранолу и ягоды.",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "КРОК МАДАМ",
+      "en": "CROQUE MADAME"
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "Хлеб тостовый",
+          "en": "Toast bread"
+        },
+        "amount": "2"
+      },
+      {
+        "ingredient": {
+          "ru": "Ветчина",
+          "en": "Ham"
+        },
+        "amount": "50"
+      },
+      {
+        "ingredient": {
+          "ru": "Сыр",
+          "en": "Cheese"
+        },
+        "amount": "50"
+      },
+      {
+        "ingredient": {
+          "ru": "Яйцо",
+          "en": "Egg"
+        },
+        "amount": "1"
+      }
+    ],
+    "process": {
+      "ru": "Собрать сэндвич: хлеб, ветчина, сыр; обжарить на гриле. Сверху положить глазунью.",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "ПЕНКЕЙКИ С ФРУКТАМИ",
+      "en": "PANCAKES WITH FRUITS"
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "Мука",
+          "en": "Flour"
+        },
+        "amount": "150"
+      },
+      {
+        "ingredient": {
+          "ru": "Молоко",
+          "en": "Milk"
+        },
+        "amount": "200"
+      },
+      {
+        "ingredient": {
+          "ru": "Яйцо",
+          "en": "Egg"
+        },
+        "amount": "2"
+      },
+      {
+        "ingredient": {
+          "ru": "Фрукты",
+          "en": "Fruits"
+        },
+        "amount": "100"
+      }
+    ],
+    "process": {
+      "ru": "Приготовить тесто, жарить на сковороде, подавать с фруктами.",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "СЫРНИКИ",
+      "en": "SYRNIKI"
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "Творог",
+          "en": "Cottage cheese"
+        },
+        "amount": "200"
+      },
+      {
+        "ingredient": {
+          "ru": "Яйцо",
+          "en": "Egg"
+        },
+        "amount": "1"
+      },
+      {
+        "ingredient": {
+          "ru": "Мука",
+          "en": "Flour"
+        },
+        "amount": "50"
+      }
+    ],
+    "process": {
+      "ru": "Смешать творог с яйцом и мукой, сформировать сырники, обжарить.",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "КАША ДРУЖБА",
+      "en": ""
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "Каша",
+          "en": "Porridge"
+        },
+        "amount": "200"
+      },
+      {
+        "ingredient": {
+          "ru": "Молоко",
+          "en": "Milk"
+        },
+        "amount": "100"
+      }
+    ],
+    "process": {
+      "ru": "Приготовить кашу по инструкции, добавить молоко и масло.",
+      "en": ""
+    },
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "ГЛАЗУНЬЯ С РЫБОЙ",
+      "en": "FRIED EGGS WITH FISH"
+    },
+    "ingredients": [
+      {
+        "ingredient": {
+          "ru": "Яйцо",
+          "en": "Egg"
+        },
+        "amount": "2"
+      },
+      {
+        "ingredient": {
+          "ru": "ПФ Форель С/С",
+          "en": "Prep Salted trout"
+        },
+        "amount": "40"
+      }
+    ],
+    "process": {
+      "ru": "На малом огне пожарить глазунью из 2 яиц с маслом и...тру.\nУкрасить гренку микрозеленью выложить сбоку от глазуньи.",
+      "en": "Place the syrniki on a small gastronorm container, ...rawberries, garnish with mint and sprinkle with powdered sugar."
+    },
+    "photo": ""
+  }
+]
