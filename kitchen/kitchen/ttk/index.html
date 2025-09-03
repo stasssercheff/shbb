@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ТТК кафе</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница выбора</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="page-header">
-  <select id="lang-select" class="top-btn">
-    <option value="ru">RU</option>
-    <option value="en">EN</option>
-  </select>
-</div>
+<header class="page-header">
+  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+</header>
 
-<div class="main-container" id="menu-container"></div>
+<main class="main-container">
+  <!-- Лого -->
+  <img src="../logo.png" alt="Лого" class="logo">
 
-<div class="main-container" id="ttk-card">
-  <span id="back-btn">← Назад</span>
-  <h2 id="ttk-title"></h2>
-  <img id="ttk-image" src="" alt="">
-  <label>Порции: <input type="number" id="portion-input" value="1" min="1" style="width:50px"></label>
-  <table>
-    <thead><tr><th>Ингредиент</th><th>Кол-во</th><th>Ед.</th></tr></thead>
-    <tbody></tbody>
-  </table>
-</div>
+  <!-- Заголовок -->
+  <h1>Выберите подраздел</h1>
 
-<script src="script.js"></script>
+  <!-- Кнопки перехода -->
+  <div class="buttons-container">
+    <button class="nav-btn" onclick="location.href='ttk/index.html'">Prep</button>
+    <button class="nav-btn" onclick="location.href='checklist/index.html'">dishes</button>
+  </div>
+</main>
+
 </body>
 </html>
