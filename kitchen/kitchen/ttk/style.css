@@ -34,73 +34,52 @@ body {
 }
 
 .main-container {
-    max-width: 600px;
-    margin: 20px auto;
-    text-align: left;
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
     background-color: #fff;
-    padding: 20px;
+    padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
-.section-title {
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 18px;
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
 }
 
-.dish-name {
-    cursor: pointer;
-    color: #007BFF;
-    margin: 5px 0;
-}
-
-.dish-name:hover {
-    text-decoration: underline;
-}
-
-#ttk-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-top: 20px;
-    display: none;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-}
-
-#ttk-card img {
-    width: 100%;
-    max-width: 400px;
-    display: block;
+h1#greeting {
+    font-size: 24px;
     margin-bottom: 10px;
-    border-radius: 6px;
 }
 
-#ttk-card table {
+.date-container {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-btn {
+    padding: 12px 20px;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-#ttk-card th, #ttk-card td {
-    border: 1px solid #ccc;
-    padding: 6px;
-    text-align: left;
-}
-
-#ttk-card td[contenteditable="true"] {
-    background: #fffae6;
-}
-
-#back-btn {
-    margin-top: 10px;
+    max-width: 250px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    color: #007BFF;
-    display: inline-block;
     font-weight: 600;
+    font-size: 16px;
+    transition: 0.2s;
 }
 
-#back-btn:hover {
-    text-decoration: underline;
+.nav-btn:hover {
+    background-color: #c1b29a;
 }
