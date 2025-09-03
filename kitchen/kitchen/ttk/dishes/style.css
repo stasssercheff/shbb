@@ -34,7 +34,7 @@ body {
 }
 
 .main-container {
-    max-width: 700px;
+    max-width: 600px;
     margin: 40px auto;
     text-align: center;
     background-color: #fff;
@@ -43,17 +43,26 @@ body {
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+h1#page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 .buttons-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    align-items: center;
+    align-items: stretch;
 }
 
-.nav-btn {
+/* --- разделы --- */
+.section-btn {
     padding: 12px 20px;
-    width: 100%;
-    max-width: 300px;
     background-color: #d8cfc0;
     color: #333;
     border: none;
@@ -61,47 +70,50 @@ body {
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
+    text-align: left;
     transition: 0.2s;
 }
 
-.nav-btn:hover {
+.section-btn:hover {
     background-color: #c1b29a;
 }
 
-/* --- Стили ТТК --- */
-.ttk-card {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
+.section-content {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0 20px;
+}
+
+/* --- блюда --- */
+.dish-btn {
+    padding: 10px 16px;
+    background-color: #eee;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.dish-btn:hover {
+    background-color: #ddd;
+}
+
+/* --- карточка блюда --- */
+.card {
+    margin-top: 10px;
+    padding: 15px;
+    background: #fafafa;
     border-radius: 8px;
     text-align: left;
-    background: #fafafa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: none;
 }
 
-.ttk-card h2 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.ttk-card img {
+.card img {
     max-width: 100%;
-    margin: 15px 0;
     border-radius: 6px;
-}
-
-.ttk-card table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 15px;
-}
-
-.ttk-card th,
-.ttk-card td {
-    border: 1px solid #ccc;
-    padding: 6px 10px;
-    text-align: left;
-}
-
-.ttk-card th {
-    background: #eee;
+    margin-top: 10px;
 }
