@@ -1,55 +1,55 @@
 let currentLang = "ru";
-let recipes = [];
+let data = [];
 
-async function loadRecipes() {
-  const response = await fetch("data/breakfast.json");
-  recipes = await response.json();
+async function loadData() {
+  const res = await fetch("../data/breakfast.json");
+  data = await res.json();
   renderDishList();
 }
 
 function switchLanguage(lang) {
   currentLang = lang;
-  document.getElementById("section-title").textContent = recipes.category[lang];
+  document.getElementById("page-title").textContent =
+    lang === "ru" ? "Завтраки" : "Breakfasts";
   renderDishList();
-  document.getElementById("recipe-container").innerHTML = ""; // очистка при смене языка
+  document.getElementById("ttk-container").innerHTML = "";
 }
 
 function renderDishList() {
-  const dishList = document.getElementById("dish-list");
-  dishList.innerHTML = "";
-  recipes.dishes.forEach((dish, index) => {
+  const list = document.getElementById("dish-list");
+  list.innerHTML = "";
+  data.forEach((dish, idx) => {
     const btn = document.createElement("button");
     btn.className = "nav-btn";
-    btn.textContent = dish.name[currentLang];
-    btn.onclick = () => showRecipe(index);
-    dishList.appendChild(btn);
+    btn.textContent = dish.name[currentLang] || dish.name["ru"];
+    btn.onclick = () => showDish(idx);
+    list.appendChild(btn);
   });
 }
 
-function showRecipe(index) {
-  const dish = recipes.dishes[index];
-  const container = document.getElementById("recipe-container");
-  container.innerHTML = `
-    <div class="recipe-card active">
+function showDish(index) {
+  const dish = data[index];
+  const c = document.getElementById("ttk-container");
+  c.innerHTML = `
+    <div class="ttk-card">
       <h2>${dish.name[currentLang]}</h2>
-      <img src="${dish.photo}" alt="${dish.name[currentLang]}">
-      <h3>${currentLang === "ru" ? "Ингредиенты" : "Ingredients"}</h3>
+      ${dish.photo ? `<img src="../фото/${dish.photo}" alt="${dish.name[currentLang]}">` : ""}
       <table>
         <tr>
-          <th>${currentLang === "ru" ? "Название" : "Name"}</th>
-          <th>${currentLang === "ru" ? "Количество" : "Quantity"}</th>
+          <th>${currentLang === "ru" ? "Ингредиенты" : "Ingredients"}</th>
+          <th>${currentLang === "ru" ? "Количество" : "Amount"}</th>
         </tr>
-        ${dish.ingredients.map(ing => `
+        ${dish.ingredients.map(i => `
           <tr>
-            <td>${ing.name[currentLang]}</td>
-            <td>${ing.quantity}</td>
+            <td>${i.name[currentLang]}</td>
+            <td>${i.amount}</td>
           </tr>
         `).join("")}
       </table>
-      <h3>${currentLang === "ru" ? "Процесс приготовления" : "Process"}</h3>
+      <h3>${currentLang === "ru" ? "Процесс" : "Process"}</h3>
       <p>${dish.process[currentLang]}</p>
     </div>
   `;
 }
 
-loadRecipes();
+loadData();
