@@ -4,8 +4,7 @@ const sections = [
   { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfasts.json" },
   { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "data/soups.json" },
   { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "data/salads.json" },
-  { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/mains.json" },
-  { id: "pf", title: { ru: "ПФ", en: "Semi-finished" }, file: "data/pf.json" }
+  { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/mains.json" }
 ];
 
 function init() {
@@ -67,7 +66,7 @@ function toggleSection(sectionId, jsonFile) {
   }
 }
 
-function toggleCard(sectionId, index, dish) {
+function toggleCard(sectionId, index) {
   const card = document.getElementById(`card-${sectionId}-${index}`);
   card.style.display = card.style.display === "block" ? "none" : "block";
 }
