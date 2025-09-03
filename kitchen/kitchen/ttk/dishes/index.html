@@ -2,21 +2,25 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>ТТК — Завтраки</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <title>ТТК</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="page-header">
-    <button class="top-btn" onclick="switchLanguage('ru')">Рус</button>
-    <button class="top-btn" onclick="switchLanguage('en')">Eng</button>
+    <button class="top-btn" onclick="goHome()">🏠 На главную</button>
+    <select id="language-switcher" class="top-btn" onchange="switchLanguage(this.value)">
+      <option value="ru">Русский</option>
+      <option value="en">English</option>
+    </select>
   </header>
 
   <main class="main-container">
-    <h1 id="page-title">Завтраки</h1>
-    <div class="buttons-container" id="dish-list"></div>
-    <div id="ttk-container"></div>
+    <img src="фото/logo.png" alt="Logo" class="logo">
+    <h1 id="page-title">Технологические карты</h1>
+
+    <div id="sections-container" class="buttons-container"></div>
   </main>
 
-  <script src="../js/app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
