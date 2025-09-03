@@ -1,1 +1,107 @@
-1
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+.page-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top-btn {
+    padding: 6px 12px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.top-btn:hover {
+    background-color: #c1b29a;
+}
+
+.main-container {
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-btn {
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #c1b29a;
+}
+
+/* --- Стили ТТК --- */
+.ttk-card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    background: #fafafa;
+}
+
+.ttk-card h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.ttk-card img {
+    max-width: 100%;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.ttk-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.ttk-card th,
+.ttk-card td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.ttk-card th {
+    background: #eee;
+}
