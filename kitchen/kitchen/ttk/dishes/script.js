@@ -43,11 +43,15 @@ function toggleSection(sectionId, jsonFile) {
       .then(res => res.json())
       .then(dishes => {
         content.style.display = "flex";
+        if (dishes.length === 0) {
+          content.innerHTML = "<p style='padding:10px;color:#777;'>Нет блюд</p>";
+          return;
+        }
         dishes.forEach((dish, index) => {
           const dishBtn = document.createElement("button");
           dishBtn.className = "dish-btn";
           dishBtn.textContent = dish.name[currentLanguage];
-          dishBtn.onclick = () => toggleCard(sectionId, index, dish);
+          dishBtn.onclick = () => toggleCard(sectionId, index);
           content.appendChild(dishBtn);
 
           const card = document.createElement("div");
@@ -73,11 +77,7 @@ function toggleCard(sectionId, index) {
 
 function switchLanguage(lang) {
   currentLanguage = lang;
-  init(); // перерисовать разделы
-}
-
-function goHome() {
-  window.location.href = "index.html"; // или на главную сайта
+  init();
 }
 
 document.addEventListener("DOMContentLoaded", init);
