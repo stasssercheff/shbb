@@ -97,7 +97,7 @@ table td:first-child {
 /* Стили смен */
 .shift-1 { background: #a6e6a6; }
 .shift-0 { background: #fff7a6; }
-.shift-O { background: #ffcccc; }
+.shift-VR { background: #ffcccc; }
 .shift-Б { background: #cce0ff; }
 
 /* Подсветка сегодняшнего дня */
