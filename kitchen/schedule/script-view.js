@@ -26,7 +26,7 @@ async function loadSchedule() {
         // Стили смен
         if (val === "1") td.classList.add("shift-1");
         if (val === "0") td.classList.add("shift-0");
-        if (val === "О") td.classList.add("shift-O");
+        if (val === "VR") td.classList.add("shift-VR");
         if (val === "Б") td.classList.add("shift-Б");
 
         // Подсветка сегодняшнего дня только в первых 2 строках
