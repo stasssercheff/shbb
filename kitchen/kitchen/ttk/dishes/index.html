@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ТТК — Кухня</title>
-  <!-- Используем твой CSS из корня -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кухня</title>
   <link rel="stylesheet" href="../style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- шапка -->
+  <!-- Верхняя панель -->
   <header class="page-header">
-    <div style="display:flex; gap:10px; align-items:center;">
-      <button class="top-btn" onclick="goHome()">🏠 Главная</button>
-      <button class="top-btn" onclick="history.back()">⬅ Назад</button>
+    <div>
+      <button class="top-btn" onclick="goBack()">← Назад</button>
+      <button class="top-btn" onclick="goHome()">🏠 На главную</button>
     </div>
-
-    <div style="display:flex; gap:10px;">
-      <button id="lang-ru" class="top-btn">RU</button>
-      <button id="lang-en" class="top-btn">EN</button>
+    <div>
+      <button class="top-btn" onclick="switchLanguage('ru')">RU</button>
+      <button class="top-btn" onclick="switchLanguage('en')">EN</button>
     </div>
   </header>
 
+  <!-- Основное содержимое -->
   <main class="main-container">
-    <!-- логотип (путь до корня) -->
     <img src="../logo.png" alt="Лого" class="logo">
-
-    <h1 id="greeting">Технологические карты — Кухня</h1>
-
-    <!-- Контейнер с разделами -->
+    <h1>Кухня</h1>
     <div id="sections-container"></div>
   </main>
-
-  <script src="script.js" defer></script>
 </body>
 </html>
