@@ -22,7 +22,7 @@
   border: 1px solid #ccc;
   padding: 6px 8px;
   text-align: left;
-  vertical-align: top; /* чтобы текст и фото выравнивались сверху */
+  vertical-align: top; /* текст и фото выравниваются сверху */
 }
 
 /* Фото блюда — квадратное, не ломает строки */
