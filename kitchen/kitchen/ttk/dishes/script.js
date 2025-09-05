@@ -21,7 +21,7 @@ function switchLanguage(lang) {
     table.querySelectorAll("tbody tr").forEach((row, i) => {
       const ingData = JSON.parse(row.children[1].dataset.ingredients || "{}");
       if (ingData[currentLang]) row.children[1].textContent = ingData[currentLang];
-      // Номер тоже текст
+      // Номер ингредиента выводим как текст
       row.children[0].textContent = String(i + 1);
     });
   });
@@ -57,7 +57,7 @@ function renderSection(section, data) {
   container.innerHTML = "";
 
   data.forEach(dish => {
-    // Название блюда
+    // Название блюда (кнопка)
     const btn = document.createElement("button");
     btn.className = "dish-btn";
     btn.dataset.name = JSON.stringify(dish.name);
@@ -75,20 +75,20 @@ function renderSection(section, data) {
     dish.ingredients.forEach((ing, i) => {
       const row = document.createElement("tr");
 
-      // № как текст
+      // № ингредиента как текст
       const tdNum = document.createElement("td");
       tdNum.textContent = String(i + 1);
       tdNum.style.width = "40px";
       row.appendChild(tdNum);
 
-      // Ингредиенты как текст
+      // Ингредиент как текст
       const tdIng = document.createElement("td");
       tdIng.textContent = ing[currentLang];
       tdIng.dataset.ingredients = JSON.stringify(ing);
       tdIng.style.width = "auto";
       row.appendChild(tdIng);
 
-      // Процесс и фото только для первой строки
+      // Процесс и фото только в первой строке
       if (i === 0) {
         const tdProcess = document.createElement("td");
         tdProcess.textContent = dish.process[currentLang];
@@ -99,7 +99,7 @@ function renderSection(section, data) {
 
         const tdPhoto = document.createElement("td");
         const img = document.createElement("img");
-        img.src = dish.photo; // путь к фото
+        img.src = dish.photo;
         img.style.width = "100px";
         img.style.height = "100px";
         img.style.objectFit = "cover";
