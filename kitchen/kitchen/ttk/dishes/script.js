@@ -32,36 +32,36 @@ function toggleSection(sectionId, jsonFile) {
     content.style.display = "none";
     content.innerHTML = "";
   } else {
-    // закрыть все другие
+    // закрыть остальные
     document.querySelectorAll(".section-content").forEach(el => {
       el.style.display = "none";
       el.innerHTML = "";
     });
 
-    // открыть этот
     fetch(jsonFile)
       .then(res => res.json())
       .then(dishes => {
         content.style.display = "flex";
-        if (dishes.length === 0) {
-          content.innerHTML = "<p style='padding:10px;color:#777;'>Нет блюд</p>";
-          return;
-        }
         dishes.forEach((dish, index) => {
           const dishBtn = document.createElement("button");
           dishBtn.className = "dish-btn";
           dishBtn.textContent = dish.name[currentLanguage];
-          dishBtn.onclick = () => toggleCard(sectionId, index);
+          dishBtn.onclick = () => toggleCard(sectionId, index, dish);
           content.appendChild(dishBtn);
 
           const card = document.createElement("div");
           card.className = "card";
           card.id = `card-${sectionId}-${index}`;
+
+          const ingredientsHtml = dish.ingredients.map(ing => 
+            `<li>${ing.name[currentLanguage]} — ${ing.amount}</li>`
+          ).join("");
+
           card.innerHTML = `
             <h3>${dish.name[currentLanguage]}</h3>
-            <p><b>Ингредиенты:</b></p>
-            <ul>${dish.ingredients.map(ing => `<li>${ing}</li>`).join("")}</ul>
-            <p><b>Процесс:</b> ${dish.process[currentLanguage]}</p>
+            <p><b>${currentLanguage === "ru" ? "Ингредиенты" : "Ingredients"}:</b></p>
+            <ul>${ingredientsHtml}</ul>
+            <p><b>${currentLanguage === "ru" ? "Процесс" : "Process"}:</b> ${dish.process[currentLanguage]}</p>
             ${dish.photo ? `<img src="фото/${dish.photo}" alt="${dish.name[currentLanguage]}">` : ""}
           `;
           content.appendChild(card);
@@ -78,6 +78,10 @@ function toggleCard(sectionId, index) {
 function switchLanguage(lang) {
   currentLanguage = lang;
   init();
+}
+
+function goHome() {
+  window.location.href = "index.html";
 }
 
 document.addEventListener("DOMContentLoaded", init);
