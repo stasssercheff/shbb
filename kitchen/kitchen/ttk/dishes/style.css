@@ -119,7 +119,7 @@ h1#greeting {
   width: 100%;
   margin: 10px 0;
   overflow-x: auto;
-  display: block; /* чтобы таблица корректно раскрывалась */
+  display: block;
 }
 
 .dish-table {
@@ -128,7 +128,7 @@ h1#greeting {
   margin: 10px 0;
   font-size: 14px;
   background: #fff;
-  table-layout: auto; /* ширина под содержимое */
+  table-layout: auto;
 }
 
 .dish-table th,
@@ -136,7 +136,7 @@ h1#greeting {
   border: 1px solid #ccc;
   padding: 6px 8px;
   text-align: left;
-  vertical-align: top; /* текст и фото сверху */
+  vertical-align: top;
 }
 
 .dish-table td img {
