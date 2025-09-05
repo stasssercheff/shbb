@@ -1,140 +1,34 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f6f8;
-  color: #333;
-}
-
-.page-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
-  gap: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.top-btn {
-  padding: 8px 16px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.top-btn:hover {
-  background-color: #c1b29a;
-}
-
-.main-container {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
-  background-color: #fff;
-  padding: 30px 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-}
-
-.logo {
-  width: 120px;
-  margin-bottom: 20px;
-}
-
-h1#greeting {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.date-container {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-
-.nav-btn {
-  padding: 14px 20px;
-  width: 100%;
-  max-width: 300px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  transition: 0.2s;
-}
-
-.nav-btn:hover {
-  background-color: #c1b29a;
-}
-
-.panel {
-  display: none;
-  width: 100%;
-  margin: 10px 0 20px;
-}
-
-.dish-btn {
-  display: block;
-  width: 100%;
-  background-color: #f1ede6;
-  border: none;
-  padding: 10px;
-  margin: 5px 0;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.dish-btn:hover {
-  background-color: #e0d7c8;
-}
-
+/* Контейнер таблицы — чтобы таблица занимала всю ширину и корректно раскрывалась */
 .table-container {
+  width: 100%;
   margin: 10px 0;
   overflow-x: auto;
+  display: block; /* чтобы таблица отображалась при раскрытии */
 }
 
+/* Таблица блюда */
 .dish-table {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
   font-size: 14px;
   background: #fff;
+  table-layout: auto; /* ширина под содержимое */
 }
 
-.dish-table th, .dish-table td {
+/* Ячейки таблицы */
+.dish-table th,
+.dish-table td {
   border: 1px solid #ccc;
   padding: 6px 8px;
   text-align: left;
+  vertical-align: top; /* чтобы текст и фото выравнивались сверху */
 }
 
-.dish-table th {
-  background-color: #f9f9f9;
-  font-weight: 600;
-}
-
-.dish-process {
-  margin-top: 10px;
-  font-size: 14px;
-  text-align: left;
+/* Фото блюда — квадратное, не ломает строки */
+.dish-table td img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
