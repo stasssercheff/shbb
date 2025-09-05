@@ -2,24 +2,18 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>ТТК</title>
+  <title>ТТК — блюда</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="page-header">
-    <button class="top-btn" onclick="goHome()">На главную</button>
-    <select id="language-switcher" class="top-btn" onchange="switchLanguage(this.value)">
-      <option value="ru">Русский</option>
-      <option value="en">English</option>
-    </select>
-  </header>
+  <div class="page-header">
+    <button class="top-btn" onclick="goHome()">🏠 Главная</button>
+    <button class="top-btn" onclick="history.back()">⬅ Назад</button>
+    <button class="top-btn" onclick="switchLanguage('ru')">RU</button>
+    <button class="top-btn" onclick="switchLanguage('en')">EN</button>
+  </div>
 
-  <main class="main-container">
-    <img src="фото/logo.png" alt="Logo" class="logo">
-    <h1 id="page-title">Технологические карты</h1>
-
-    <div id="sections-container" class="buttons-container"></div>
-  </main>
+  <div id="sections-container" class="main-container"></div>
 
   <script src="script.js"></script>
 </body>
