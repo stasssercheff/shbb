@@ -2,8 +2,8 @@ let currentLang = "ru";
 
 function switchLanguage(lang) {
   currentLang = lang;
+
   document.querySelectorAll("[data-lang]").forEach(el => {
-    const key = el.dataset.langKey;
     el.textContent = lang === "ru" ? el.dataset.ru : el.dataset.en;
   });
 
@@ -18,10 +18,11 @@ function switchLanguage(lang) {
   });
 
   document.querySelectorAll(".dish-table").forEach(table => {
-    const tbody = table.querySelector("tbody");
-    tbody.querySelectorAll("tr").forEach((row, i) => {
+    table.querySelectorAll("tbody tr").forEach((row, i) => {
       const ingData = JSON.parse(row.children[1].dataset.ingredients || "{}");
       if (ingData[currentLang]) row.children[1].textContent = ingData[currentLang];
+      // Номер тоже текст
+      row.children[0].textContent = String(i + 1);
     });
   });
 }
@@ -64,12 +65,9 @@ function renderSection(section, data) {
     container.appendChild(btn);
 
     // Таблица блюда
-    const tableWrapper = document.createElement("div");
-    tableWrapper.className = "table-container";
-    tableWrapper.style.display = "none";
-
     const table = document.createElement("table");
     table.className = "dish-table";
+    table.style.display = "none";
 
     const tbody = document.createElement("tbody");
     const rowCount = dish.ingredients.length;
@@ -77,29 +75,28 @@ function renderSection(section, data) {
     dish.ingredients.forEach((ing, i) => {
       const row = document.createElement("tr");
 
-      // Столбец №
+      // № как текст
       const tdNum = document.createElement("td");
-      tdNum.textContent = i + 1;
+      tdNum.textContent = String(i + 1);
       tdNum.style.width = "40px";
       row.appendChild(tdNum);
 
-      // Столбец ингредиенты
+      // Ингредиенты как текст
       const tdIng = document.createElement("td");
       tdIng.textContent = ing[currentLang];
       tdIng.dataset.ingredients = JSON.stringify(ing);
       tdIng.style.width = "auto";
       row.appendChild(tdIng);
 
-      // Столбец описание процесса (только для первой строки)
+      // Процесс и фото только для первой строки
       if (i === 0) {
         const tdProcess = document.createElement("td");
         tdProcess.textContent = dish.process[currentLang];
         tdProcess.dataset.process = JSON.stringify(dish.process);
         tdProcess.rowSpan = rowCount;
-        tdProcess.style.width = "400px"; // можно подстроить под содержание
+        tdProcess.style.width = "400px";
         row.appendChild(tdProcess);
 
-        // Столбец фото (только для первой строки)
         const tdPhoto = document.createElement("td");
         const img = document.createElement("img");
         img.src = dish.photo; // путь к фото
@@ -115,12 +112,11 @@ function renderSection(section, data) {
     });
 
     table.appendChild(tbody);
-    tableWrapper.appendChild(table);
-    container.appendChild(tableWrapper);
+    container.appendChild(table);
 
-    // Клик по кнопке блюда — показать/скрыть таблицу
+    // Клик по названию блюда — показать/скрыть таблицу
     btn.addEventListener("click", () => {
-      tableWrapper.style.display = tableWrapper.style.display === "block" ? "none" : "block";
+      table.style.display = table.style.display === "block" ? "none" : "block";
     });
   });
 }
