@@ -1,4 +1,3 @@
-/* ===== Общий стиль ===== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -7,12 +6,11 @@ body {
     color: #333;
 }
 
-/* ===== Шапка ===== */
-header {
+.page-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    gap: 10px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
@@ -20,12 +18,7 @@ header {
     z-index: 10;
 }
 
-#page-title {
-    margin: 0;
-    font-size: 22px;
-}
-
-.lang-switch button {
+.top-btn {
     padding: 6px 12px;
     background-color: #d8cfc0;
     color: #333;
@@ -36,23 +29,47 @@ header {
     transition: 0.2s;
 }
 
-.lang-switch button:hover {
+.top-btn:hover {
     background-color: #c1b29a;
 }
 
-/* ===== Контейнер для секций ===== */
-#sections-container {
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.main-container {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
-/* ===== Кнопки разделов ===== */
-.section-btn {
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+h1#greeting {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.date-container {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-btn {
     padding: 12px 20px;
+    width: 100%;
+    max-width: 250px;
     background-color: #d8cfc0;
     color: #333;
     border: none;
@@ -60,57 +77,9 @@ header {
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
-    text-align: left;
     transition: 0.2s;
-    width: 100%;
 }
 
-.section-btn:hover {
+.nav-btn:hover {
     background-color: #c1b29a;
-}
-
-/* ===== Контейнер внутри раздела ===== */
-.section-content {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    padding-left: 15px;
-}
-
-/* ===== Кнопки блюд ===== */
-.dish-btn {
-    padding: 10px 15px;
-    background-color: #f1eee8;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-    text-align: left;
-    transition: 0.2s;
-}
-
-.dish-btn:hover {
-    background-color: #e6dfd2;
-}
-
-/* ===== Карточка блюда ===== */
-.card {
-    display: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin-top: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-    margin-top: 0;
-}
-
-.card img {
-    max-width: 100%;
-    margin-top: 10px;
-    border-radius: 6px;
 }
