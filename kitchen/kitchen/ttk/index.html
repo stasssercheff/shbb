@@ -3,30 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница выбора</title>
+  <title>Меню</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
+  <header>
+    <h1 id="page-title">Меню</h1>
+    <div class="lang-switch">
+      <button onclick="switchLanguage('ru')">Рус</button>
+      <button onclick="switchLanguage('en')">Eng</button>
+    </div>
+  </header>
 
-<header class="page-header">
-  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
-</header>
+  <main>
+    <div id="sections-container"></div>
+  </main>
 
-<main class="main-container">
-  <!-- Лого -->
-  <img src="../logo.png" alt="Лого" class="logo">
-
-  <!-- Заголовок -->
-  <h1>Выберите подраздел</h1>
-
-  <!-- Кнопки перехода -->
-  <div class="buttons-container">
-    <button class="nav-btn" onclick="location.href='Preps/index.html'">ПФ</button>
-    <button class="nav-btn" onclick="location.href='dishes/index.html'">Блюда</button>
-  </div>
-</main>
-
+  <script src="script.js"></script>
 </body>
 </html>
