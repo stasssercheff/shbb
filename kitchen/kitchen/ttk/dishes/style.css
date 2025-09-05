@@ -34,47 +34,30 @@ body {
 }
 
 .main-container {
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 800px;
+    margin: 20px auto;
     text-align: center;
     background-color: #fff;
-    padding: 30px 20px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-h1#page-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
-}
-
-/* --- разделы --- */
-.section-btn {
-    padding: 12px 20px;
+.section-btn, .dish-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
     background-color: #d8cfc0;
-    color: #333;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
-    text-align: left;
     transition: 0.2s;
 }
 
-.section-btn:hover {
+.section-btn:hover, .dish-btn:hover {
     background-color: #c1b29a;
 }
 
@@ -82,38 +65,21 @@ h1#page-title {
     display: none;
     flex-direction: column;
     gap: 10px;
-    margin: 10px 0 20px;
-}
-
-/* --- блюда --- */
-.dish-btn {
-    padding: 10px 16px;
-    background-color: #eee;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-    text-align: left;
-    transition: 0.2s;
-}
-
-.dish-btn:hover {
-    background-color: #ddd;
-}
-
-/* --- карточка блюда --- */
-.card {
     margin-top: 10px;
-    padding: 15px;
-    background: #fafafa;
-    border-radius: 8px;
-    text-align: left;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card {
     display: none;
+    text-align: left;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
 }
 
 .card img {
     max-width: 100%;
-    border-radius: 6px;
     margin-top: 10px;
+    border-radius: 6px;
 }
