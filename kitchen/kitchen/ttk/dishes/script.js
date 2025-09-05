@@ -1,7 +1,7 @@
 let currentLanguage = "ru";
 
 const sections = [
-  { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfasts.json" },
+  { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfast.json" },
   { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "data/soups.json" },
   { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "data/salads.json" },
   { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/mains.json" }
