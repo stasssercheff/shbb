@@ -1,89 +1,94 @@
-let currentLang = "ru";
+let currentLanguage = "ru";
 
-function switchLanguage(lang) {
-  currentLang = lang;
-  document.getElementById("page-title").textContent =
-    lang === "ru" ? "Завтраки" : "Breakfasts";
-  loadBreakfasts();
-}
+const sections = [
+  { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfast.json" },
+  { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "data/soup.json" },
+  { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "data/salad.json" },
+  { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/main.json" }
+];
 
-function goBack() {
-  history.back();
-}
+function init() {
+  const container = document.getElementById("sections-container");
+  container.innerHTML = "";
 
-function goHome() {
-  window.location.href = "index.html";
-}
+  sections.forEach(sec => {
+    // кнопка раздела
+    const secBtn = document.createElement("button");
+    secBtn.className = "section-btn";
+    secBtn.textContent = sec.title[currentLanguage];
+    secBtn.onclick = () => toggleSection(sec.id, sec.file);
+    container.appendChild(secBtn);
 
-function loadBreakfasts() {
-  fetch("data/breakfast.json")
-    .then(res => {
-      if (!res.ok) throw new Error("Ошибка сети " + res.status);
-      return res.json();
-    })
-    .then(data => renderBreakfasts(data))
-    .catch(err => {
-      console.error("Ошибка загрузки:", err);
-      document.getElementById("breakfast-list").innerHTML =
-        `<p style="color:red">Ошибка загрузки данных</p>`;
-    });
-}
-
-function renderBreakfasts(data) {
-  const list = document.getElementById("breakfast-list");
-  list.innerHTML = "";
-
-  data.forEach((dish, index) => {
-    const dishDiv = document.createElement("div");
-    dishDiv.className = "dish";
-
-    const title = document.createElement("div");
-    title.className = "dish-title";
-    title.textContent = dish.name[currentLang];
-    title.onclick = () => {
-      const details = dishDiv.querySelector(".dish-details");
-      details.style.display =
-        details.style.display === "block" ? "none" : "block";
-    };
-
-    const details = document.createElement("div");
-    details.className = "dish-details";
-
-    // ингредиенты
-    if (dish.ingredients && dish.ingredients.length > 0) {
-      const ingTitle = document.createElement("p");
-      ingTitle.innerHTML = "<b>" + (currentLang === "ru" ? "Ингредиенты:" : "Ingredients:") + "</b>";
-      details.appendChild(ingTitle);
-
-      const ingList = document.createElement("ul");
-      dish.ingredients.forEach(ing => {
-        const li = document.createElement("li");
-        li.textContent = `${ing[currentLang]} — ${ing.amount}`;
-        ingList.appendChild(li);
-      });
-      details.appendChild(ingList);
-    }
-
-    // процесс
-    if (dish.process && dish.process[currentLang]) {
-      const proc = document.createElement("p");
-      proc.innerHTML = "<b>" + (currentLang === "ru" ? "Процесс:" : "Process:") + "</b> " + dish.process[currentLang];
-      details.appendChild(proc);
-    }
-
-    // фото
-    if (dish.photo) {
-      const img = document.createElement("img");
-      img.src = "фото/" + dish.photo;
-      img.alt = dish.name[currentLang];
-      details.appendChild(img);
-    }
-
-    dishDiv.appendChild(title);
-    dishDiv.appendChild(details);
-    list.appendChild(dishDiv);
+    // контейнер для блюд
+    const secContent = document.createElement("div");
+    secContent.className = "section-content";
+    secContent.id = `section-${sec.id}`;
+    container.appendChild(secContent);
   });
 }
 
-// загружаем при старте
-document.addEventListener("DOMContentLoaded", loadBreakfasts);
+function toggleSection(sectionId, jsonFile) {
+  const content = document.getElementById(`section-${sectionId}`);
+
+  if (content.style.display === "flex") {
+    content.style.display = "none";
+    content.innerHTML = "";
+  } else {
+    // закрыть все остальные
+    document.querySelectorAll(".section-content").forEach(el => {
+      el.style.display = "none";
+      el.innerHTML = "";
+    });
+
+    // загрузить блюда
+    fetch(jsonFile)
+      .then(res => res.json())
+      .then(dishes => {
+        content.style.display = "flex";
+        content.style.flexDirection = "column";
+
+        dishes.forEach((dish, index) => {
+          // кнопка блюда
+          const dishBtn = document.createElement("button");
+          dishBtn.className = "dish-btn";
+          dishBtn.textContent = dish.name[currentLanguage];
+          dishBtn.onclick = () => toggleCard(sectionId, index, dish);
+          content.appendChild(dishBtn);
+
+          // карточка блюда
+          const card = document.createElement("div");
+          card.className = "card";
+          card.id = `card-${sectionId}-${index}`;
+          card.innerHTML = `
+            <h3>${dish.name[currentLanguage]}</h3>
+            <p><b>${currentLanguage === "ru" ? "Ингредиенты:" : "Ingredients:"}</b></p>
+            <ul>${dish.ingredients.map(ing => 
+              `<li>${ing[currentLanguage]} — ${ing.amount}</li>`).join("")}</ul>
+            <p><b>${currentLanguage === "ru" ? "Процесс:" : "Process:"}</b> ${dish.process[currentLanguage]}</p>
+            ${dish.photo ? `<img src="фото/${dish.photo}" alt="${dish.name[currentLanguage]}">` : ""}
+          `;
+          content.appendChild(card);
+        });
+      })
+      .catch(err => {
+        content.style.display = "block";
+        content.innerHTML = `<p style="color:red;">Ошибка загрузки: ${err}</p>`;
+      });
+  }
+}
+
+function toggleCard(sectionId, index) {
+  const card = document.getElementById(`card-${sectionId}-${index}`);
+  card.style.display = card.style.display === "block" ? "none" : "block";
+}
+
+function switchLanguage(lang) {
+  currentLanguage = lang;
+  init(); // перерисовать разделы
+}
+
+function goHome() {
+  window.location.href = "index.html"; 
+}
+
+document.addEventListener("DOMContentLoaded", init);
