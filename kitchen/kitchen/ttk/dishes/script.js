@@ -1,94 +1,72 @@
-let currentLanguage = "ru";
+let currentLang = 'ru';
 
-const sections = [
-  { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfast.json" },
-  { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "data/soup.json" },
-  { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "data/salad.json" },
-  { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/main.json" }
-];
+// загрузка json и построение таблицы
+async function loadBreakfast() {
+    try {
+        const response = await fetch('data/breakfast.json');
+        if (!response.ok) throw new Error("Ошибка сети");
+        const data = await response.json();
 
-function init() {
-  const container = document.getElementById("sections-container");
-  container.innerHTML = "";
+        const container = document.getElementById('content');
+        container.innerHTML = ""; // очистка
 
-  sections.forEach(sec => {
-    // кнопка раздела
-    const secBtn = document.createElement("button");
-    secBtn.className = "section-btn";
-    secBtn.textContent = sec.title[currentLanguage];
-    secBtn.onclick = () => toggleSection(sec.id, sec.file);
-    container.appendChild(secBtn);
+        data.forEach((dish, index) => {
+            const table = document.createElement('table');
+            table.classList.add('dish-table');
 
-    // контейнер для блюд
-    const secContent = document.createElement("div");
-    secContent.className = "section-content";
-    secContent.id = `section-${sec.id}`;
-    container.appendChild(secContent);
-  });
-}
+            // Заголовок таблицы (название блюда)
+            const caption = document.createElement('caption');
+            caption.textContent = `${dish.name.ru} / ${dish.name.en}`;
+            table.appendChild(caption);
 
-function toggleSection(sectionId, jsonFile) {
-  const content = document.getElementById(`section-${sectionId}`);
+            // Шапка таблицы
+            const thead = document.createElement('thead');
+            thead.innerHTML = `
+                <tr>
+                    <th>№</th>
+                    <th>${currentLang === 'ru' ? 'Ингредиент' : 'Ingredient'}</th>
+                    <th>${currentLang === 'ru' ? 'Шт/гр' : 'Qty'}</th>
+                    <th>${currentLang === 'ru' ? 'Описание' : 'Description'}</th>
+                    <th>${currentLang === 'ru' ? 'Фото' : 'Photo'}</th>
+                </tr>
+            `;
+            table.appendChild(thead);
 
-  if (content.style.display === "flex") {
-    content.style.display = "none";
-    content.innerHTML = "";
-  } else {
-    // закрыть все остальные
-    document.querySelectorAll(".section-content").forEach(el => {
-      el.style.display = "none";
-      el.innerHTML = "";
-    });
+            // Тело таблицы (ингредиенты)
+            const tbody = document.createElement('tbody');
+            dish.ingredients.forEach((ing, i) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${ing[currentLang]}</td>
+                    <td>${ing.amount}</td>
+                    <td>${i === 0 ? dish.process[currentLang] : ''}</td>
+                    <td>${i === 0 && dish.photo ? `<img src="${dish.photo}" alt="photo" class="dish-photo">` : ''}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+            table.appendChild(tbody);
 
-    // загрузить блюда
-    fetch(jsonFile)
-      .then(res => res.json())
-      .then(dishes => {
-        content.style.display = "flex";
-        content.style.flexDirection = "column";
-
-        dishes.forEach((dish, index) => {
-          // кнопка блюда
-          const dishBtn = document.createElement("button");
-          dishBtn.className = "dish-btn";
-          dishBtn.textContent = dish.name[currentLanguage];
-          dishBtn.onclick = () => toggleCard(sectionId, index, dish);
-          content.appendChild(dishBtn);
-
-          // карточка блюда
-          const card = document.createElement("div");
-          card.className = "card";
-          card.id = `card-${sectionId}-${index}`;
-          card.innerHTML = `
-            <h3>${dish.name[currentLanguage]}</h3>
-            <p><b>${currentLanguage === "ru" ? "Ингредиенты:" : "Ingredients:"}</b></p>
-            <ul>${dish.ingredients.map(ing => 
-              `<li>${ing[currentLanguage]} — ${ing.amount}</li>`).join("")}</ul>
-            <p><b>${currentLanguage === "ru" ? "Процесс:" : "Process:"}</b> ${dish.process[currentLanguage]}</p>
-            ${dish.photo ? `<img src="фото/${dish.photo}" alt="${dish.name[currentLanguage]}">` : ""}
-          `;
-          content.appendChild(card);
+            container.appendChild(table);
         });
-      })
-      .catch(err => {
-        content.style.display = "block";
-        content.innerHTML = `<p style="color:red;">Ошибка загрузки: ${err}</p>`;
-      });
-  }
+
+    } catch (error) {
+        console.error("Ошибка загрузки:", error);
+        document.getElementById('content').innerHTML =
+            `<p style="color:red">Ошибка загрузки: ${error.message}</p>`;
+    }
 }
 
-function toggleCard(sectionId, index) {
-  const card = document.getElementById(`card-${sectionId}-${index}`);
-  card.style.display = card.style.display === "block" ? "none" : "block";
-}
-
+// переключение языка
 function switchLanguage(lang) {
-  currentLanguage = lang;
-  init(); // перерисовать разделы
+    currentLang = lang;
+    loadBreakfast();
 }
 
-function goHome() {
-  window.location.href = "index.html"; 
-}
+// загрузка при старте
+document.addEventListener('DOMContentLoaded', () => {
+    loadBreakfast();
 
-document.addEventListener("DOMContentLoaded", init);
+    document.getElementById('lang-ru').addEventListener('click', () => switchLanguage('ru'));
+    document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+});
