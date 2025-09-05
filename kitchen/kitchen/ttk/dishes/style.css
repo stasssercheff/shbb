@@ -1,4 +1,3 @@
-/* Общие стили страницы */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -9,9 +8,9 @@ body {
 
 .page-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 15px;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  gap: 10px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -20,22 +19,23 @@ body {
 }
 
 .top-btn {
-  padding: 8px 14px;
+  padding: 8px 16px;
   background-color: #d8cfc0;
   color: #333;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 14px;
   transition: 0.2s;
-  font-size: 15px;
 }
+
 .top-btn:hover {
   background-color: #c1b29a;
 }
 
 .main-container {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 40px auto;
   text-align: center;
   background-color: #fff;
@@ -49,110 +49,92 @@ body {
   margin-bottom: 20px;
 }
 
-h1 {
-  font-size: 26px;
+h1#greeting {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.date-container {
+  font-size: 14px;
+  color: #666;
   margin-bottom: 20px;
 }
 
-/* Кнопки разделов */
-.section-btn {
-  display: block;
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-btn {
+  padding: 14px 20px;
   width: 100%;
-  padding: 14px;
-  margin: 10px 0;
-  background: #ddd;
-  border: 1px solid #bbb;
+  max-width: 300px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
   border-radius: 6px;
-  font-size: 18px;
-  font-weight: bold;
   cursor: pointer;
-  text-align: left;
-}
-.section-btn:hover {
-  background: #ccc;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s;
 }
 
-/* Контент раздела */
-.section-content {
+.nav-btn:hover {
+  background-color: #c1b29a;
+}
+
+.panel {
   display: none;
-  margin: 15px 0;
-  padding: 10px;
-  background: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  width: 100%;
+  margin: 10px 0 20px;
 }
 
-/* Кнопки блюд */
 .dish-btn {
   display: block;
   width: 100%;
-  padding: 12px;
-  margin: 6px 0;
-  font-size: 16px;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: #f1ede6;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
   text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
 }
+
 .dish-btn:hover {
-  background: #e0e0e0;
+  background-color: #e0d7c8;
 }
 
-.dish-details {
-  margin: 10px 0 20px 0;
+.table-container {
+  margin: 10px 0;
   overflow-x: auto;
 }
 
-/* Таблица ТТК */
 .dish-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  background: #fff;
+  margin: 10px 0;
   font-size: 14px;
-  table-layout: auto;
+  background: #fff;
 }
 
-.dish-table caption {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 8px;
-  text-align: left;
-}
-
-.dish-table th,
-.dish-table td {
+.dish-table th, .dish-table td {
   border: 1px solid #ccc;
   padding: 6px 8px;
-  vertical-align: top;
+  text-align: left;
 }
 
 .dish-table th {
-  background: #f0f0f0;
+  background-color: #f9f9f9;
+  font-weight: 600;
+}
+
+.dish-process {
+  margin-top: 10px;
+  font-size: 14px;
   text-align: left;
-}
-
-/* Столбцы */
-.dish-table th:first-child,
-.dish-table td:first-child {
-  width: 40px;
-  text-align: center;
-}
-
-.dish-table td:nth-child(3),
-.dish-table th:nth-child(3) {
-  white-space: nowrap;
-  text-align: center;
-}
-
-.dish-table td:nth-child(4) {
-  min-width: 300px;
-}
-
-.dish-photo {
-  max-width: 200px;
-  max-height: 200px;
-  display: block;
-  margin: auto;
 }
