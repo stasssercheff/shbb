@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Главная страница</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Завтраки</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<main class="main-container">
-    <!-- Лого -->
-    <img src="logo.png" alt="Лого" class="logo">
-
-    <!-- Приветствие -->
-    <h1 id="greeting">Добро пожаловать!</h1>
-
-    <!-- Текущая дата -->
-    <div class="date-container" id="current-date"></div>
-
-    <!-- Кнопки перехода в папки -->
-    <div class="buttons-container">
-        <button class="nav-btn" onclick="location.href='kitchen/index.html'">Кухня</button>
+  <header>
+    <div class="nav-buttons">
+      <button onclick="goBack()">⬅ Назад</button>
+      <button onclick="goHome()">🏠 На главную</button>
     </div>
-</main>
+    <div class="lang-switch">
+      <button onclick="switchLanguage('ru')">RU</button>
+      <button onclick="switchLanguage('en')">EN</button>
+    </div>
+  </header>
 
+  <main>
+    <h1 id="page-title">Завтраки</h1>
+    <div id="breakfast-list" class="dish-list"></div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
