@@ -1,31 +1,27 @@
-/* Контейнер таблицы — чтобы таблица занимала всю ширину и корректно раскрывалась */
 .table-container {
   width: 100%;
   margin: 10px 0;
   overflow-x: auto;
-  display: block; /* чтобы таблица отображалась при раскрытии */
+  display: block;
 }
 
-/* Таблица блюда */
 .dish-table {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
   font-size: 14px;
   background: #fff;
-  table-layout: auto; /* ширина под содержимое */
+  table-layout: auto;
 }
 
-/* Ячейки таблицы */
 .dish-table th,
 .dish-table td {
   border: 1px solid #ccc;
   padding: 6px 8px;
   text-align: left;
-  vertical-align: top; /* текст и фото выравниваются сверху */
+  vertical-align: top;
 }
 
-/* Фото блюда — квадратное, не ломает строки */
 .dish-table td img {
   display: block;
   width: 100px;
