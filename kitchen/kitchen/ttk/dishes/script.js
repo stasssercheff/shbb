@@ -21,8 +21,7 @@ function switchLanguage(lang) {
     table.querySelectorAll("tbody tr").forEach((row, i) => {
       const ingData = JSON.parse(row.children[1].dataset.ingredients || "{}");
       if (ingData[currentLang]) row.children[1].textContent = ingData[currentLang];
-      // Номер ингредиента выводим как текст
-      row.children[0].textContent = String(i + 1);
+      row.children[0].textContent = String(i + 1); // номер как текст
     });
   });
 }
@@ -57,17 +56,23 @@ function renderSection(section, data) {
   container.innerHTML = "";
 
   data.forEach(dish => {
-    // Название блюда (кнопка)
+    // Кнопка блюда
     const btn = document.createElement("button");
     btn.className = "dish-btn";
     btn.dataset.name = JSON.stringify(dish.name);
     btn.textContent = dish.name[currentLang];
     container.appendChild(btn);
 
+    // Контейнер для таблицы
+    const tableWrapper = document.createElement("div");
+    tableWrapper.className = "table-container";
+    tableWrapper.style.display = "none"; // скрыта по умолчанию
+    container.appendChild(tableWrapper);
+
     // Таблица блюда
     const table = document.createElement("table");
     table.className = "dish-table";
-    table.style.display = "none";
+    tableWrapper.appendChild(table);
 
     const tbody = document.createElement("tbody");
     const rowCount = dish.ingredients.length;
@@ -75,7 +80,7 @@ function renderSection(section, data) {
     dish.ingredients.forEach((ing, i) => {
       const row = document.createElement("tr");
 
-      // № ингредиента как текст
+      // № как текст
       const tdNum = document.createElement("td");
       tdNum.textContent = String(i + 1);
       tdNum.style.width = "40px";
@@ -90,6 +95,7 @@ function renderSection(section, data) {
 
       // Процесс и фото только в первой строке
       if (i === 0) {
+        // Процесс
         const tdProcess = document.createElement("td");
         tdProcess.textContent = dish.process[currentLang];
         tdProcess.dataset.process = JSON.stringify(dish.process);
@@ -97,13 +103,16 @@ function renderSection(section, data) {
         tdProcess.style.width = "400px";
         row.appendChild(tdProcess);
 
+        // Фото, если есть
         const tdPhoto = document.createElement("td");
-        const img = document.createElement("img");
-        img.src = dish.photo;
-        img.style.width = "100px";
-        img.style.height = "100px";
-        img.style.objectFit = "cover";
-        tdPhoto.appendChild(img);
+        if (dish.photo) {
+          const img = document.createElement("img");
+          img.src = dish.photo;
+          img.style.width = "100px";
+          img.style.height = "100px";
+          img.style.objectFit = "cover";
+          tdPhoto.appendChild(img);
+        }
         tdPhoto.rowSpan = rowCount;
         row.appendChild(tdPhoto);
       }
@@ -112,19 +121,14 @@ function renderSection(section, data) {
     });
 
     table.appendChild(tbody);
-    container.appendChild(table);
 
     // Клик по названию блюда — показать/скрыть таблицу
     btn.addEventListener("click", () => {
-      table.style.display = table.style.display === "block" ? "none" : "block";
+      tableWrapper.style.display = tableWrapper.style.display === "block" ? "none" : "block";
     });
   });
 }
 
 // возврат
-function goHome() {
-  location.href = "index.html";
-}
-function goBack() {
-  history.back();
-}
+function goHome() { location.href = "index.html"; }
+function goBack() { history.back(); }
