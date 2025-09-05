@@ -1,78 +1,121 @@
-/* kitchen/script.js
-   - Поддерживает разделы (завтраки/супы/салаты/основные)
-   - Загружает JSON из ../data/
-   - Строит список блюд; каждое блюдо открывается/закрывается отдельно.
-   - Поддерживает переключение языка (RU/EN).
-*/
+let currentLanguage = "ru";
 
-(() => {
-  const sections = [
-    { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "../data/breakfast.json" },
-    { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "../data/soup.json" },
-    { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "../data/salad.json" },
-    { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "../data/main.json" }
-  ];
+const sections = [
+  { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "../data/breakfasts.json" },
+  { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "../data/soups.json" },
+  { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "../data/salads.json" },
+  { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "../data/mains.json" }
+];
 
-  let currentLang = 'ru';
-  const cache = {}; // кеш JSON по файлам, чтобы не перезагружать
+function init() {
+  const container = document.getElementById("sections-container");
+  container.innerHTML = "";
 
-  // helpers для безопасного чтения полей (поддерживает разные структуры)
-  function getDishName(dish) {
-    if (!dish) return '';
-    return dish.name?.[currentLang] ?? dish.name?.ru ?? dish.title ?? '';
-  }
+  sections.forEach(sec => {
+    const secBtn = document.createElement("button");
+    secBtn.className = "section-btn";
+    secBtn.textContent = sec.title[currentLanguage];
+    secBtn.onclick = () => toggleSection(sec.id, sec.file);
+    container.appendChild(secBtn);
 
-  function getProcess(dish) {
-    return dish.process?.[currentLang] ?? dish.description?.[currentLang] ?? dish.process?.ru ?? dish.description?.ru ?? '';
-  }
+    const secContent = document.createElement("div");
+    secContent.className = "section-content";
+    secContent.id = `section-${sec.id}`;
+    container.appendChild(secContent);
+  });
+}
 
-  function getIngredientText(ing) {
-    if (!ing) return '';
-    // если объект вида { ingredient: {ru, en}, amount: "..." }
-    if (ing.ingredient && typeof ing.ingredient === 'object') {
-      return ing.ingredient[currentLang] ?? ing.ingredient.ru ?? '';
-    }
-    // если объект вида { ru: "...", en: "...", amount: "..." }
-    if (ing[currentLang]) return ing[currentLang];
-    if (ing.ru) return ing.ru;
-    // если строка
-    if (typeof ing === 'string') return ing;
-    return '';
-  }
+function toggleSection(sectionId, jsonFile) {
+  const content = document.getElementById(`section-${sectionId}`);
 
-  function getIngredientAmount(ing) {
-    return ing.amount ?? ing['Шт/гр'] ?? ing.qty ?? ing.qty ?? '';
-  }
-
-  function makeSectionButton(sec) {
-    const btn = document.createElement('button');
-    btn.className = 'section-btn';
-    btn.textContent = sec.title[currentLang] ?? sec.title.ru;
-    btn.type = 'button';
-    return btn;
-  }
-
-  // инициализация интерфейса: секции
-  function init() {
-    const container = document.getElementById('sections-container');
-    container.innerHTML = '';
-
-    sections.forEach(sec => {
-      const secWrapper = document.createElement('div');
-
-      const secBtn = makeSectionButton(sec);
-      secBtn.addEventListener('click', () => toggleSection(sec));
-
-      const secContent = document.createElement('div');
-      secContent.className = 'section-content';
-      secContent.id = `section-${sec.id}`;
-
-      secWrapper.appendChild(secBtn);
-      secWrapper.appendChild(secContent);
-      container.appendChild(secWrapper);
+  if (content.style.display === "block") {
+    content.style.display = "none";
+    content.innerHTML = "";
+  } else {
+    document.querySelectorAll(".section-content").forEach(el => {
+      el.style.display = "none";
+      el.innerHTML = "";
     });
-  }
 
-  // показать/скрыть раздел
-  async function toggleSection(sec) {
-    const content = document.getElementById(`section-${sec
+    fetch(jsonFile)
+      .then(res => res.json())
+      .then(dishes => {
+        content.style.display = "block";
+        dishes.forEach((dish, index) => {
+          const dishBtn = document.createElement("button");
+          dishBtn.className = "dish-btn";
+          dishBtn.textContent = dish.name[currentLanguage];
+          dishBtn.onclick = () => toggleCard(sectionId, index, dish);
+          content.appendChild(dishBtn);
+
+          const card = document.createElement("div");
+          card.className = "dish-details";
+          card.id = `card-${sectionId}-${index}`;
+          card.style.display = "none";
+          card.innerHTML = renderDishTable(dish);
+          content.appendChild(card);
+        });
+      })
+      .catch(err => {
+        content.style.display = "block";
+        content.innerHTML = `<p style="color:red">Ошибка загрузки данных</p>`;
+        console.error(err);
+      });
+  }
+}
+
+function renderDishTable(dish) {
+  const name = dish.name[currentLanguage];
+  const process = dish.process[currentLanguage];
+  const photo = dish.photo ? `<img src="../photos/${dish.photo}" alt="${name}" class="dish-photo">` : "";
+
+  let rows = "";
+  dish.ingredients.forEach((ing, i) => {
+    rows += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${ing.name}</td>
+        <td>${ing.amount}</td>
+        <td>${i === 0 ? process : ""}</td>
+      </tr>
+    `;
+  });
+
+  return `
+    <table class="dish-table">
+      <caption>${name}</caption>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>${currentLanguage === "ru" ? "Ингредиент" : "Ingredient"}</th>
+          <th>${currentLanguage === "ru" ? "Количество" : "Amount"}</th>
+          <th>${currentLanguage === "ru" ? "Описание" : "Process"}</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows}
+      </tbody>
+    </table>
+    ${photo}
+  `;
+}
+
+function toggleCard(sectionId, index, dish) {
+  const card = document.getElementById(`card-${sectionId}-${index}`);
+  card.style.display = card.style.display === "block" ? "none" : "block";
+}
+
+function switchLanguage(lang) {
+  currentLanguage = lang;
+  init();
+}
+
+function goHome() {
+  window.location.href = "../index.html";
+}
+
+function goBack() {
+  history.back();
+}
+
+document.addEventListener("DOMContentLoaded", init);
