@@ -2,24 +2,22 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Завтраки</title>
+  <title>ТТК - Блюда</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Шапка -->
   <header>
-    <div class="nav-buttons">
-      <button onclick="goBack()">⬅ Назад</button>
-      <button onclick="goHome()">🏠 На главную</button>
-    </div>
-    <div class="lang-switch">
-      <button onclick="switchLanguage('ru')">RU</button>
-      <button onclick="switchLanguage('en')">EN</button>
-    </div>
+    <button onclick="goHome()">🏠 Домой</button>
+    <button onclick="history.back()">⬅ Назад</button>
+    <button onclick="switchLanguage('ru')">Рус</button>
+    <button onclick="switchLanguage('en')">Eng</button>
   </header>
 
+  <!-- Основное содержимое -->
   <main>
-    <h1 id="page-title">Завтраки</h1>
-    <div id="breakfast-list" class="dish-list"></div>
+    <h1>Технологические карты</h1>
+    <div id="sections-container"></div>
   </main>
 
   <script src="script.js"></script>
