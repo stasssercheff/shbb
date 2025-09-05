@@ -3,28 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Кухня</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>ТТК Блюда</title>
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Верхняя панель -->
   <header class="page-header">
-    <div>
-      <button class="top-btn" onclick="goBack()">← Назад</button>
-      <button class="top-btn" onclick="goHome()">🏠 На главную</button>
-    </div>
-    <div>
-      <button class="top-btn" onclick="switchLanguage('ru')">RU</button>
-      <button class="top-btn" onclick="switchLanguage('en')">EN</button>
-    </div>
+    <button class="top-btn" onclick="goHome()">Главная</button>
+    <button class="top-btn" onclick="goBack()">Назад</button>
+    <button class="top-btn" onclick="switchLanguage('ru')">RU</button>
+    <button class="top-btn" onclick="switchLanguage('en')">EN</button>
   </header>
 
-  <!-- Основное содержимое -->
   <main class="main-container">
-    <img src="../logo.png" alt="Лого" class="logo">
-    <h1>Кухня</h1>
-    <div id="sections-container"></div>
+    <img src="logo.png" alt="Лого" class="logo">
+    <h1 id="greeting">Портал сотрудников</h1>
+    <div id="current-date" class="date-container"></div>
+
+    <div class="buttons-container">
+      <button class="nav-btn accordion" data-section="breakfast">Завтраки</button>
+      <div class="panel" id="breakfast-section"></div>
+
+      <button class="nav-btn accordion" data-section="soup">Супы</button>
+      <div class="panel" id="soup-section"></div>
+
+      <button class="nav-btn accordion" data-section="salad">Салаты</button>
+      <div class="panel" id="salad-section"></div>
+
+      <button class="nav-btn accordion" data-section="main">Основные блюда</button>
+      <div class="panel" id="main-section"></div>
+    </div>
   </main>
 </body>
 </html>
