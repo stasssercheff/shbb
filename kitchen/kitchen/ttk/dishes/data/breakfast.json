@@ -42,5 +42,111 @@
       "en": "Mix 2 eggs with butter and salt... Cut the cherry tomatoes in half."
     },
     "photo": ""
+  },
+  {
+    "name": { "ru": "ЙОГУРТ БОУЛ", "en": "YOGURT BOWL" },
+    "ingredients": [
+      { "ru": "Йогурт", "en": "Yogurt", "amount": "150" },
+      { "ru": "ПФ Дрэгон фрут", "en": "Dragon fruit", "amount": "50" },
+      { "ru": "Семена тыквы", "en": "Pumpkin seeds", "amount": "20" },
+      { "ru": "Мюсли", "en": "Musly", "amount": "50" },
+      { "ru": "ПФ Манго", "en": "Mango", "amount": "50" },
+      { "ru": "ПФ Клубника", "en": "Strawberry", "amount": "30" },
+      { "ru": "ПФ Мята", "en": "Mint", "amount": "5" },
+      { "ru": "Клубника сублемированная", "en": "Sublemated strawberry", "amount": "5" },
+      { "ru": "Кокосовые чипсы", "en": "Coconut chips", "amount": "5" }
+    ],
+    "process": {
+      "ru": "Смешать нарезанные фрукты (манго, драгонфрут, клубника) в миске, выложить полосой в центре тарелки. С одного края выложить йогурт, с другого – мюсли. Поверх мюслей – семена тыквы и кокосовые чипсы. Сублимированную клубнику натереть сверху. В центр положить мяту.",
+      "en": "Mix chopped fruits (mango, dragon fruit, strawberries) in a bowl, place them in a strip in the center of the plate. Put yogurt at one edge, muesli at the other. Top muesli with pumpkin seeds and coconut chips. Grate freeze-dried strawberries on top. Place mint in the center."
+    },
+    "photo": ""
+  },
+  {
+    "name": { "ru": "КРОК МАДАМ", "en": "CROC MADAM" },
+    "ingredients": [
+      { "ru": "Бриош", "en": "Brioche", "amount": "2(100)" },
+      { "ru": "Масло сливочное", "en": "Butter", "amount": "40" },
+      { "ru": "Моцарелла", "en": "Mozzarella", "amount": "100" },
+      { "ru": "Окорок", "en": "Ham", "amount": "40" },
+      { "ru": "Соль", "en": "Salt", "amount": "1" },
+      { "ru": "Черри", "en": "Cherry", "amount": "30" },
+      { "ru": "Руккола", "en": "Arugula", "amount": "10" },
+      { "ru": "Яйцо", "en": "Egg", "amount": "1" }
+    ],
+    "process": {
+      "ru": "Два ломтика бриоша смазать маслом и обжарить. Один смазать бешамелем, оба покрыть сыром и подплавить. На бешамель выложить окорок, собрать сендвич, запечь 5–7 мин. На сковородке приготовить глазунью, положить сверху. Разрезать сендвич на два треугольника, выложить с салатом и черри.",
+      "en": "Grease two slices of brioche with butter and fry. Spread bechamel on one, cover both with cheese and melt. Put ham on bechamel, assemble sandwich, bake 5–7 min. Fry an egg sunny-side-up, place on top. Cut sandwich into triangles, serve with arugula and cherry tomatoes."
+    },
+    "photo": ""
+  },
+  {
+    "name": { "ru": "ПЕНКЕЙКИ С ФРУКТАМИ", "en": "PANCAKES WITH FRUIT" },
+    "ingredients": [
+      { "ru": "Пэнкейки", "en": "Pancakes", "amount": "2/200" },
+      { "ru": "Манго", "en": "Mango", "amount": "70" },
+      { "ru": "Клубника", "en": "Strawberry", "amount": "2-3" },
+      { "ru": "Дрэгон фрут", "en": "Dragon fruit", "amount": "70" },
+      { "ru": "Нутелла", "en": "Nutella", "amount": "50" },
+      { "ru": "Йогурт", "en": "Yogurt", "amount": "50" },
+      { "ru": "Кленовый сироп", "en": "Maple syrup", "amount": "15" },
+      { "ru": "Сахарная пудра", "en": "Powdered sugar", "amount": "1" },
+      { "ru": "Мята", "en": "Mint", "amount": "1" }
+    ],
+    "process": {
+      "ru": "Испечь 2 пэнкейка, выложить друг на друга. Вокруг разместить фрукты. Маракуйю разрезать и поставить на тарелку. Посыпать сахарной пудрой, украсить мятой. Подать с соусниками: кленовый сироп, нутелла, йогурт.",
+      "en": "Bake 2 pancakes, stack them. Arrange fruits around. Cut passion fruit, place on plate. Sprinkle with powdered sugar, garnish with mint. Serve with sauce boats: maple syrup, Nutella, yogurt."
+    },
+    "photo": ""
+  },
+  {
+    "name": { "ru": "СЫРНИКИ", "en": "SYRNIKI" },
+    "ingredients": [
+      { "ru": "ПФ Сырники", "en": "Prep Syrniki", "amount": "150" },
+      { "ru": "Клубника", "en": "Strawberry", "amount": "2-3" },
+      { "ru": "Йогурт", "en": "Yogurt", "amount": "50" },
+      { "ru": "Мед", "en": "Honey", "amount": "30" },
+      { "ru": "ПФ Соус вишневый", "en": "PF Cherry Sauce", "amount": "30" },
+      { "ru": "Мята", "en": "Mint", "amount": "5" },
+      { "ru": "Сахарная пудра", "en": "Powdered sugar", "amount": "1" }
+    ],
+    "process": {
+      "ru": "Сырники прогреть в печи 10 минут (замороженные – 15). Нарезать клубнику. Выложить сырники, посыпать клубникой, украсить мятой и сахарной пудрой. Подать с соусами в соусниках.",
+      "en": "Heat syrniki in oven for 10 minutes (15 if frozen). Cut strawberries. Arrange syrniki, sprinkle with strawberries, garnish with mint and powdered sugar. Serve with sauces."
+    },
+    "photo": ""
+  },
+  {
+    "name": { "ru": "КАША ДРУЖБА", "en": "PORRIDGE DRUZHBA" },
+    "ingredients": [
+      { "ru": "ПФ каша", "en": "Prep kasha", "amount": "300" },
+      { "ru": "Клубника", "en": "Strawberry", "amount": "2-3" },
+      { "ru": "Голубика", "en": "Blueberry", "amount": "5-7" },
+      { "ru": "Мята", "en": "Mint", "amount": "5" }
+    ],
+    "process": {
+      "ru": "Пакет с кашей прогреть в горячей воде. Выложить кашу в тарелку. Нарезать клубнику, добавить с голубикой в центр. Украсить мятой.",
+      "en": "Heat porridge bag in hot water. Place porridge on plate. Cut strawberries, add with blueberries to the center. Garnish with mint."
+    },
+    "photo": ""
+  },
+  {
+    "name": { "ru": "ГЛАЗУНЬЯ С РЫБОЙ", "en": "SUNNY FRIED EGG" },
+    "ingredients": [
+      { "ru": "Яйцо", "en": "Egg", "amount": "2" },
+      { "ru": "Белая чиабатта", "en": "White ciabatta", "amount": "20" },
+      { "ru": "ПФ Сыр Кремчиз", "en": "Cream cheese", "amount": "20" },
+      { "ru": "Огурец", "en": "Cucumber", "amount": "30" },
+      { "ru": "Помидоры Черри темные", "en": "Dark Cherry Tomatoes", "amount": "30" },
+      { "ru": "Масло растительное", "en": "Vegetable oil", "amount": "5" },
+      { "ru": "Соль", "en": "Salt", "amount": "1" },
+      { "ru": "Микрозелень", "en": "Microgreens", "amount": "3" },
+      { "ru": "ПФ Форель С/С", "en": "Prep Salted trout", "amount": "40" }
+    ],
+    "process": {
+      "ru": "На сковороде пожарить глазунью из 2 яиц. Чиабатту подсушить, смазать кремчизом. Огурец нарезать эллипсами, черри – дольками. Рыбу и черри выложить волной. На тарелку – рукколу, сверху – глазунью, рядом – гренка с микрозеленью.",
+      "en": "Fry 2 sunny-side-up eggs. Toast ciabatta, spread with cream cheese. Slice cucumber into ovals, cut cherry tomatoes. Arrange trout and cherry wave-like. On plate – arugula, top with fried eggs, serve with ciabatta and microgreens."
+    },
+    "photo": ""
   }
 ]
