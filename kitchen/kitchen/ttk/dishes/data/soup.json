@@ -1,1 +1,30 @@
-1
+[
+  {
+    "name": { "ru": "Тыквенный суп", "en": "Pumpkin Soup" },
+    "ingredients": [
+      { "ru": "ПФ Суп тыквенный", "en": "Prep Pumpkin", "amount": "300" },
+      { "ru": "Микрозелень", "en": "Microgreens", "amount": "5" },
+      { "ru": "ПФ Соус песто", "en": "Pesto sauce", "amount": "5" },
+      { "ru": "Сливки", "en": "Cream", "amount": "10" },
+      { "ru": "Семена тыквы", "en": "Pumpkin seeds", "amount": "5" }
+    ],
+    "process": {
+      "ru": "Пакет с супом поместить в горячую воду до полного прогрева. Промять пакет для избегания комочков. Вылить суп в тарелку. Поверх супа в центр отсадить ПФ соус песто. Вокруг по спирали тонкой струйкой отсадить сливки. Поверх песто поместить микрозелень. Поверх сливок поместить семена тыквы.",
+      "en": "Place the soup bag in hot water until fully heated. Knead the bag to avoid lumps. Pour the soup into a bowl. Pour the PF pesto sauce over the soup in the center. Spread the cream around in a thin stream in a spiral. Place microgreens on top of the pesto. Place pumpkin seeds on top of the cream."
+    },
+    "photo": ""
+  },
+  {
+    "name": { "ru": "Крем суп зеленый горошек", "en": "Green Pea Soup" },
+    "ingredients": [
+      { "ru": "ПФ Суп брокколи", "en": "Prep broccoli Soup", "amount": "300" },
+      { "ru": "Сыр пармезан", "en": "Parmesan cheese", "amount": "20" },
+      { "ru": "Белая чиабатта", "en": "White ciabatta", "amount": "20" }
+    ],
+    "process": {
+      "ru": "Размороженный пакет с супом поместить в горячую воду до полного прогрева. Промять пакет для избегания комочков. Вылить суп в тарелку. Поверх супа тонкой струйкой по спирали вылить сливки, посыпать по периметру огрехом. В центр выложить микрозелень.",
+      "en": "Place the soup bag in hot water until fully heated. Knead the bag to avoid lumps. Pour the soup into a bowl. Pour the cream in a thin stream over the soup in a spiral, sprinkle around the perimeter. Place microgreens in the center."
+    },
+    "photo": ""
+  }
+]
