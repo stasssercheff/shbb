@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".accordion").forEach(btn => {
     btn.addEventListener("click", () => {
       const panel = document.getElementById(`${btn.dataset.section}-section`);
-      panel.style.display = panel.style.display === "block" ? "none" : "block";
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
     });
   });
 });
@@ -40,7 +44,7 @@ function switchLanguage(lang) {
     table.querySelectorAll("tbody tr").forEach((row, i) => {
       const ingData = JSON.parse(row.children[1].dataset.ingredients || "{}");
       if (ingData[currentLang]) row.children[1].textContent = ingData[currentLang];
-      row.children[0].textContent = String(i + 1); // номер как текст
+      row.children[0].textContent = String(i + 1);
     });
   });
 }
@@ -64,7 +68,7 @@ function renderSection(section, data) {
     btn.textContent = dish.name[currentLang];
     container.appendChild(btn);
 
-    // Контейнер таблицы
+    // Контейнер таблицы (скрыт по умолчанию)
     const wrapper = document.createElement("div");
     wrapper.className = "table-container";
     wrapper.style.display = "none";
@@ -122,13 +126,13 @@ function renderSection(section, data) {
 
     table.appendChild(tbody);
 
-    // Раскрытие таблицы по клику на название блюда
+    // Клик по названию блюда — показать/скрыть таблицу
     btn.addEventListener("click", () => {
       wrapper.style.display = wrapper.style.display === "block" ? "none" : "block";
     });
   });
 }
 
-// Функции возврата
+// возврат
 function goHome() { location.href = "index.html"; }
 function goBack() { history.back(); }
