@@ -34,794 +34,270 @@
         <select name="chef" class="qty" data-label-ru="Имя" data-label-en="Name">
           <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
           <option value="maxim" data-ru="Максим" data-en="Maksim">Максим</option>
-          <option value="bakha" data-ru="Баха" data-en="Bakha">Баха</option>
+          <option value="bakha" data-ru="Шавкат" data-en="Shavkat">Шавкат</option>
           <option value="miguel" data-ru="Miguel" data-en="Miguel">Miguel</option>
         </select>
       </div>
 
-    <!-- Раздел: Оборудование -->
-<div class="menu-section">
-  <div class="section-title" data-ru="Оборудование" data-en="Equipment">Оборудование</div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Болитор" data-en="Bolitor">Болитор</label>
-    <select name="bolitor" class="qty" data-label-ru="Болитор" data-label-en="Bolitor">
-      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-      <option data-ru="Помыто" data-en="Washed">Помыто</option>
-      <option data-ru="Проебал" data-en="Messed up">Проебал</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Вытяжка" data-en="Extractor">Вытяжка</label>
-    <select name="Extractor" class="qty" data-label-ru="Вытяжка" data-label-en="Extractor">
-      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-      <option data-ru="Помыто" data-en="Washed">Помыто</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Плита" data-en="Stove">Плита</label>
-    <select name="stove" class="qty" data-label-ru="Плита" data-label-en="Stove">
-      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-      <option data-ru="Помыто" data-en="Washed">Помыто</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Столы" data-en="Tables">Столы</label>
-    <select name="tables" class="qty" data-label-ru="Столы" data-label-en="Tables">
-      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-      <option data-ru="Помыто" data-en="Washed">Помыто</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Порядок под столом полка" data-en="Under the table shelf">Порядок под столом полка</label>
-    <select name="under_table_shelf" class="qty" data-label-ru="Порядок под столом полка" data-label-en="Under the table shelf">
-      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-      <option data-ru="Помыто" data-en="Washed">Помыто</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Комментарий" data-en="Comment">Комментарий</label>
-    <textarea class="comment" rows="3" placeholder="..."></textarea>
-  </div>
+    <div class="dish">
+  <label class="check-label" data-ru="Бриош" data-en="Brioche">Бриош</label>
+  <input type="number" name="Brioche" class="qty" data-label-ru="Бриош" data-label-en="Brioche" min="1" max="99" placeholder="Введите число">
 </div>
 
-        <div class="menu-section">
-  <div class="section-title" data-ru="Рабочая зона" data-en="Working zone">Рабочая зона</div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Сахарная пудра" data-en="Powdered sugar">Сахарная пудра</label>
-    <select name="powdered_sugar" class="qty" data-label-ru="Сахарная пудра" data-label-en="Powdered sugar">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Мюсли" data-en="Muesli">Мюсли</label>
-    <select name="muesli" class="qty" data-label-ru="Мюсли" data-label-en="Muesli">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-     <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Перечный соус" data-en="pepper sauce"> Перечный соус</label>
-    <select class="qty">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Кокосовые чипсы" data-en="Coconut chips">Кокосовые чипсы</label>
-    <select name="coconut_chips" class="qty" data-label-ru="Кокосовые чипсы" data-label-en="Coconut chips">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Мед" data-en="Honey">Мед</label>
-    <select name="honey" class="qty" data-label-ru="Мед" data-label-en="Honey">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Кленовый сироп" data-en="Maple syrup">Кленовый сироп</label>
-    <select name="maple_syrup" class="qty" data-label-ru="Кленовый сироп" data-label-en="Maple syrup">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Соус на скрэмбл" data-en="Scramble sauce">Соус на скрэмбл</label>
-    <select name="scramble_sauce" class="qty" data-label-ru="Соус на скрэмбл" data-label-en="Scramble sauce">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Нутелла" data-en="Nutella">Нутелла</label>
-    <select name="nutella" class="qty" data-label-ru="Нутелла" data-label-en="Nutella">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Бальзамик" data-en="Balsamic">Бальзамик</label>
-    <select name="balsamic" class="qty" data-label-ru="Бальзамик" data-label-en="Balsamic">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Токпокки" data-en="Teokbokki">Токпокки</label>
-    <select name="teokbokki" class="qty" data-label-ru="Токпокки" data-label-en="Teokbokki">
-    <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Паста порционно" data-en="Pasta in portions">Паста порционно</label>
-    <select name="pasta_portion" class="qty" data-label-ru="Паста порционно" data-label-en="Pasta in portions">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-     <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Сладкий чили" data-en="Sweet chili">Сладкий чили</label>
-    <select name="sweet_chili" class="qty" data-label-ru="Сладкий чили" data-label-en="Sweet chili">
-     <option data-ru="Есть" data-en="Have">Есть</option>
-     <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Масло" data-en="Cooking oil">Масло</label>
-    <select name="cooking_oil" class="qty" data-label-ru="Масло" data-label-en="Cooking oil">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Чесночное масло" data-en="Garlic oil">Чесночное масло</label>
-    <select name="garlic_oil" class="qty" data-label-ru="Чесночное масло" data-label-en="Garlic oil">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Оливковое масло" data-en="Olive oil">Оливковое масло</label>
-    <select name="olive_oil" class="qty" data-label-ru="Оливковое масло" data-label-en="Olive oil">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Соль" data-en="Salt">Соль</label>
-    <select name="salt" class="qty" data-label-ru="Соль" data-label-en="Salt">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Сахар" data-en="Sugar">Сахар</label>
-    <select name="sugar" class="qty" data-label-ru="Сахар" data-label-en="Sugar">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Перец" data-en="Pepper">Перец</label>
-    <select name="pepper" class="qty" data-label-ru="Перец" data-label-en="Pepper">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Арахис" data-en="Peanut">Арахис</label>
-    <select name="peanut" class="qty" data-label-ru="Арахис" data-label-en="Peanut">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Тыквенные семечки" data-en="Pumpkin seeds">Тыквенные семечки</label>
-    <select name="pumpkin_seeds" class="qty" data-label-ru="Тыквенные семечки" data-label-en="Pumpkin seeds">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Комментарий" data-en="Comment">Комментарий</label>
-    <textarea class="comment" rows="3" placeholder="..."></textarea>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Брокколи" data-en="Broccoli">Брокколи</label>
+  <input type="number" name="Broccoli" class="qty" data-label-ru="Брокколи" data-label-en="Broccoli" min="1" max="99" placeholder="Введите число">
 </div>
 
-        
-      <div class="menu-section">
-  <div class="section-title" data-ru="Холодильник (кухня)" data-en="Fridge (Kitchen)">Холодильник (кухня)</div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Замес тунец" data-en="Tuna kneading">Замес тунец</label>
-    <select name="tuna_kneading" class="qty" data-label-ru="Замес тунец" data-label-en="Tuna kneading">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Соус ягодный" data-en="Berry sauce">Соус ягодный</label>
-    <select name="berry_sauce" class="qty" data-label-ru="Соус ягодный" data-label-en="Berry sauce">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Сделать" data-en="To do">Сделать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Песто" data-en="Pesto">Песто</label>
-    <select name="pesto" class="qty" data-label-ru="Песто" data-label-en="Pesto">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Йогурт" data-en="Yogurt">Йогурт</label>
-    <select name="yogurt" class="qty" data-label-ru="Йогурт" data-label-en="Yogurt">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Ворчестер" data-en="Worchester">Ворчестер</label>
-    <select name="worchester" class="qty" data-label-ru="Ворчестер" data-label-en="Worchester">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Биск" data-en="Bisque">Биск</label>
-    <select name="bisque" class="qty" data-label-ru="Биск" data-label-en="Bisque">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Хлеб бриош (нарезка)" data-en="Brioche bread (sliced)">Хлеб бриош (нарезка)</label>
-    <select name="brioche_bread_sliced" class="qty" data-label-ru="Хлеб бриош (нарезка)" data-label-en="Brioche bread (sliced)">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Хлеб бенедикт" data-en="Benedict bread">Хлеб бенедикт</label>
-    <select name="benedict_bread" class="qty" data-label-ru="Хлеб бенедикт" data-label-en="Benedict bread">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Мята" data-en="Mint">Мята</label>
-    <select name="mint" class="qty" data-label-ru="Мята" data-label-en="Mint">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Микрогрин" data-en="Microgreen">Микрогрин</label>
-    <select name="microgreen" class="qty" data-label-ru="Микрогрин" data-label-en="Microgreen">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Розмарин" data-en="Rosemary">Розмарин</label>
-    <select name="rosemary" class="qty" data-label-ru="Розмарин" data-label-en="Rosemary">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Тимьян" data-en="Thyme">Тимьян</label>
-    <select name="thyme" class="qty" data-label-ru="Тимьян" data-label-en="Thyme">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Яйца (сырые)" data-en="Eggs (raw)">Яйца (сырые)</label>
-    <select name="eggs_raw" class="qty" data-label-ru="Яйца (сырые)" data-label-en="Eggs (raw)">
-      <option data-ru="Есть" data-en="HaveA">Есть</option>
-      <option data-ru="Есть мало" data-en="Have few">Есть мало</option>
-      <option data-ru="Заказать" data-en="To order">Заказать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Яйца (пашот)" data-en="Eggs (poached)">Яйца (пашот)</label>
-    <select name="eggs_poached" class="qty" data-label-ru="Яйца (пашот)" data-label-en="Eggs (poached)">
-      <option data-ru="Есть" data-en="HaveA">Есть</option>
-      <option data-ru="Есть мало" data-en="Have few">Есть мало</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Сырники" data-en="Syrniki">Сырники</label>
-    <select name="syrniki" class="qty" data-label-ru="Сырники" data-label-en="Syrniki">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Тесто блины" data-en="Pancake dough">Тесто блины</label>
-    <select name="pancake_dough" class="qty" data-label-ru="Тесто блины" data-label-en="Pancake dough">
-      <option data-ru="Есть+Пакет" data-en="HaveA+bag">Есть+Пакет</option>
-      <option data-ru="Есть мало" data-en="Have few">Есть мало</option>
-      <option data-ru="Делать" data-en="To do">Делать</option>
-    </select>
-  </div>
-  
-    <div class="dish">
-    <label class="check-label" data-ru="Манго (нарезка)" data-en="Mango (sliced)">Манго (нарезка)</label>
-    <select name="mango_sliced" class="qty" data-label-ru="Манго (нарезка)" data-label-en="Mango (sliced)">
-      <option data-ru="Есть" data-en="HaveA">Есть</option>
-      <option data-ru="Есть мало" data-en="Have few">Есть мало</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Дрэгон (нарезка)" data-en="Dragon (sliced)">Дрэгон (нарезка)</label>
-    <select name="dragon_sliced" class="qty" data-label-ru="Дрэгон (нарезка)" data-label-en="Dragon (sliced)">
-      <option data-ru="Есть" data-en="HaveA">Есть</option>
-      <option data-ru="Есть мало" data-en="Have few">Есть мало</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Клубника" data-en="Strawberry">Клубника</label>
-    <select name="strawberry" class="qty" data-label-ru="Клубника" data-label-en="Strawberry">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Есть мало" data-en="Have few">Есть мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Сыр моцарелла крок" data-en="Mozzarella cheese croque">Сыр моцарелла крок</label>
-    <select name="mozzarella_croque" class="qty" data-label-ru="Сыр моцарелла крок" data-label-en="Mozzarella cheese croque">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Ветчина" data-en="Ham">Ветчина</label>
-    <select name="ham" class="qty" data-label-ru="Ветчина" data-label-en="Ham">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Черри работа" data-en="Cherry work">Черри работа</label>
-    <select name="cherry_work" class="qty" data-label-ru="Черри работа" data-label-en="Cherry work">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Риет" data-en="Riet">Риет</label>
-    <select name="riet" class="qty" data-label-ru="Риет" data-label-en="Riet">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Соленая рыба" data-en="Salted fish">Соленая рыба</label>
-    <select name="salted_fish" class="qty" data-label-ru="Соленая рыба" data-label-en="Salted fish">
-      <option data-ru="Есть+Пакет" data-en="Have+bag">Есть+Пакет</option>
-      <option data-ru="Есть мало" data-en="Have few">Есть мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Каперсы" data-en="Capers">Каперсы</label>
-    <select name="capers" class="qty" data-label-ru="Каперсы" data-label-en="Capers">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-  
-    <div class="dish">
-    <label class="check-label" data-ru="Огурец" data-en="Cucumber">Огурец</label>
-    <select name="cucumber" class="qty" data-label-ru="Огурец" data-label-en="Cucumber">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Перец" data-en="Pepper">Перец</label>
-    <select name="pepper_fridge" class="qty" data-label-ru="Перец" data-label-en="Pepper">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Редис" data-en="Radish">Редис</label>
-    <select name="radish" class="qty" data-label-ru="Редис" data-label-en="Radish">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Брокколи" data-en="Broccoli">Брокколи</label>
-    <select name="broccoli" class="qty" data-label-ru="Брокколи" data-label-en="Broccoli">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Цуккини" data-en="Zucchini">Цуккини</label>
-    <select name="zucchini" class="qty" data-label-ru="Цуккини" data-label-en="Zucchini">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Кремчиз" data-en="Cream cheese">Кремчиз</label>
-    <select name="cream_cheese" class="qty" data-label-ru="Кремчиз" data-label-en="Cream cheese">
-      <option data-ru="Есть+Пакет" data-en="Have+bag">Есть+Пакет</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Вяленые томаты" data-en="Sun-dried tomatoes">Вяленые томаты</label>
-    <select name="sun_dried_tomatoes" class="qty" data-label-ru="Вяленые томаты" data-label-en="Sun-dried tomatoes">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Голандский соус" data-en="Holland sauce">Голандский соус</label>
-    <select name="holland_sauce_2" class="qty" data-label-ru="Голандский соус" data-label-en="Holland sauce">
-      <option data-ru="Есть+Пакет" data-en="Have+bag">Есть+Пакет</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Шпинат" data-en="Spinach">Шпинат</label>
-    <select name="spinach_2" class="qty" data-label-ru="Шпинат" data-label-en="Spinach">
-      <option data-ru="Есть+Пакет" data-en="Have+bag">Есть+Пакет</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-  
-    <div class="dish">
-    <label class="check-label" data-ru="Тартар соус" data-en="Tartar sauce">Тартар соус</label>
-    <select name="tartar_sauce_2" class="qty" data-label-ru="Тартар соус" data-label-en="Tartar sauce">
-      <option data-ru="Есть+Пакет" data-en="Have+bag">Есть+Пакет</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Соус на рыбу" data-en="Fish sauce">Соус на рыбу</label>
-    <select name="fish_sauce_2" class="qty" data-label-ru="Соус на рыбу" data-label-en="Fish sauce">
-      <option data-ru="Есть+Пакет" data-en="Have+bag">Есть+Пакет</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Соус на куру" data-en="Chicken sauce">Соус на куру</label>
-    <select name="chicken_sauce_2" class="qty" data-label-ru="Соус на куру" data-label-en="Chicken sauce">
-      <option data-ru="Есть+Пакет" data-en="Have+bag">Есть+Пакет</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Курица сувид" data-en="Chicken sous vide">Курица сувид</label>
-    <select name="chicken_sous_vide_2" class="qty" data-label-ru="Курица сувид" data-label-en="Chicken sous vide">
-      <option data-ru="0" data-en="0">0</option>
-      <option data-ru="1" data-en="1">1</option>
-      <option data-ru="2" data-en="2">2</option>
-      <option data-ru="3" data-en="3">3</option>
-      <option data-ru="4" data-en="4">4</option>
-      <option data-ru="5" data-en="5">5</option>
-      <option data-ru="6" data-en="6">6</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Говядина сувид" data-en="Beef sous vide">Говядина сувид</label>
-    <select name="beef_sous_vide_2" class="qty" data-label-ru="Говядина сувид" data-label-en="Beef sous vide">
-      <option data-ru="0" data-en="0">0</option>
-      <option data-ru="1" data-en="1">1</option>
-      <option data-ru="2" data-en="2">2</option>
-      <option data-ru="3" data-en="3">3</option>
-      <option data-ru="4" data-en="4">4</option>
-      <option data-ru="5" data-en="5">5</option>
-      <option data-ru="6" data-en="6">6</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Стейк форель" data-en="Trout steak">Стейк форель</label>
-    <select name="trout_steak_2" class="qty" data-label-ru="Стейк форель" data-label-en="Trout steak">
-      <option data-ru="0" data-en="0">0</option>
-      <option data-ru="1" data-en="1">1</option>
-      <option data-ru="2" data-en="2">2</option>
-      <option data-ru="3" data-en="3">3</option>
-      <option data-ru="4" data-en="4">4</option>
-      <option data-ru="5" data-en="5">5</option>
-      <option data-ru="6" data-en="6">6</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Печень" data-en="Liver">Печень</label>
-    <select name="liver_2" class="qty" data-label-ru="Печень" data-label-en="Liver">
-      <option data-ru="0" data-en="0">0</option>
-      <option data-ru="1" data-en="1">1</option>
-      <option data-ru="2" data-en="2">2</option>
-      <option data-ru="3" data-en="3">3</option>
-      <option data-ru="4" data-en="4">4</option>
-      <option data-ru="5" data-en="5">5</option>
-      <option data-ru="6" data-en="6">6</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Руккола" data-en="Arugula">Руккола</label>
-    <select name="arugula" class="qty" data-label-ru="Руккола" data-label-en="Arugula">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-  
-    <div class="dish">
-    <label class="check-label" data-ru="Пармезан" data-en="Parmezan">Пармезан</label>
-    <select name="parmezan" class="qty" data-label-ru="Пармезан" data-label-en="Parmezan">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Микс салат" data-en="Mixed salad">Микс салат</label>
-    <select name="mixed_salad" class="qty" data-label-ru="Микс салат" data-label-en="Mixed salad">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Манго(ценлый)" data-en="Mango (valuable)">Манго(ценлый)</label>
-    <select name="mango_whole" class="qty" data-label-ru="Манго(ценлый)" data-label-en="Mango (valuable)">
-      <option data-ru="1" data-en="1">1</option>
-      <option data-ru="2" data-en="2">2</option>
-      <option data-ru="3" data-en="3">3</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Дрэгон (ценлый)" data-en="Dragon (valuable)">Дрэгон (ценлый)</label>
-    <select name="dragon_whole" class="qty" data-label-ru="Дрэгон (ценлый)" data-label-en="Dragon (valuable)">
-      <option data-ru="1" data-en="1">1</option>
-      <option data-ru="2" data-en="2">2</option>
-      <option data-ru="3" data-en="3">3</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Маракуйя" data-en="Passion fruit">Маракуйя</label>
-    <select name="passion_fruit" class="qty" data-label-ru="Маракуйя" data-label-en="Passion fruit">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Хлеб бриош(дефрост)" data-en="Brioche bread (defrosted)">Хлеб бриош(дефрост)</label>
-    <select name="brioche_defrost" class="qty" data-label-ru="Хлеб бриош(дефрост)" data-label-en="Brioche bread (defrosted)">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Стаф мясо/тофу дефрост" data-en="Staff">Стаф мясо/тофу дефрост</label>
-    <select name="staff_meat_tofu_defrost" class="qty" data-label-ru="Стаф мясо/тофу дефрост" data-label-en="Staff">
-      <option data-ru="Достал" data-en="Taken out">Достал</option>
-      <option data-ru="Заказать" data-en="To order">Заказать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Стаф овощи дефрост" data-en="Staff">Стаф овощи дефрост</label>
-    <select name="staff_vegetables_defrost" class="qty" data-label-ru="Стаф овощи дефрост" data-label-en="Staff">
-      <option data-ru="Достал" data-en="Taken out">Достал</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
-
-  <div class="dish">
-    <label class="check-label" data-ru="Комментарий" data-en="Comment">Комментарий</label>
-    <textarea class="comment" rows="3" placeholder="..."></textarea>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Ветчина" data-en="Ham">Ветчина</label>
+  <input type="number" name="Ham" class="qty" data-label-ru="Ветчина" data-label-en="Ham" min="1" max="99" placeholder="Введите число">
 </div>
 
-<div class="menu-section">
-  <div class="section-title" data-ru="Морозильник (кухня)" data-en="Freezer (kitchen)">Морозильник (кухня)</div>
+<div class="dish">
+  <label class="check-label" data-ru="Говядина сендвич(450)" data-en="Beef sandwich (450)">Говядина сендвич(450)</label>
+  <input type="number" name="Beef sandwich (450)" class="qty" data-label-ru="Говядина сендвич(450)" data-label-en="Beef sandwich (450)" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Сырники" data-en="Cheesecakes">Сырники</label>
-    <select name="freezer_cheesecakes" class="qty" data-label-ru="Сырники" data-label-en="Cheesecakes">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Говядина сувид" data-en="Beef sous vide">Говядина сувид</label>
+  <input type="number" name="Beef sous vide" class="qty" data-label-ru="Говядина сувид" data-label-en="Beef sous vide" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Гренки тартар" data-en="Croutons tartare">Гренки тартар</label>
-    <select name="croutons_tartare" class="qty" data-label-ru="Гренки тартар" data-label-en="Croutons tartare">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Говядина тартар" data-en="Beef tartare">Говядина тартар</label>
+  <input type="number" name="Beef tartare" class="qty" data-label-ru="Говядина тартар" data-label-en="Beef tartare" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Хлеб сендвичи" data-en="Bread sandwiches">Хлеб сендвичи</label>
-    <select name="bread_sandwiches" class="qty" data-label-ru="Хлеб сендвичи" data-label-en="Bread sandwiches">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Не было" data-en="Wasn’t">Не было</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Дренонфрут" data-en="Draenonfruit">Дренонфрут</label>
+  <input type="number" name="Draenonfruit" class="qty" data-label-ru="Дренонфрут" data-label-en="Draenonfruit" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Сыр Горгонзола" data-en="Gorgonzola cheese">Сыр Горгонзола</label>
-    <select name="gorgonzola_cheese" class="qty" data-label-ru="Сыр Горгонзола" data-label-en="Gorgonzola cheese">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Мало" data-en="Few">Мало</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Креветки" data-en="Shrimp">Креветки</label>
+  <input type="number" name="Shrimp" class="qty" data-label-ru="Креветки" data-label-en="Shrimp" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Сыр тертый жюльен" data-en="Grated cheese julienne">Сыр тертый жюльен</label>
-    <select name="grated_julienne" class="qty" data-label-ru="Сыр тертый жюльен" data-label-en="Grated cheese julienne">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Кукуруза стафф" data-en="Corn staff">Кукуруза стафф</label>
+  <input type="number" name="Corn staff" class="qty" data-label-ru="Кукуруза стафф" data-label-en="Corn staff" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Сыр моцарелла крок" data-en="Mozzarella cheese croque">Сыр моцарелла крок</label>
-    <select name="mozzarella_croque" class="qty" data-label-ru="Сыр моцарелла крок" data-label-en="Mozzarella cheese croque">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Делать" data-en="to do">Делать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Кура работа" data-en="Kura rabota">Кура работа</label>
+  <input type="number" name="Kura rabota" class="qty" data-label-ru="Кура работа" data-label-en="Kura rabota" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <!-- Блоки с "0-8" -->
-  <div class="dish">
-    <label class="check-label" data-ru="Говядина тартар" data-en="Beef tartare">Говядина тартар</label>
-    <select name="beef_tartare" class="qty" data-label-ru="Говядина тартар" data-label-en="Beef tartare">
-      <option data-ru="1" data-en="1">1</option>
-      <option data-ru="2" data-en="2">2</option>
-      <option data-ru="3" data-en="3">3</option>
-      <option data-ru="4" data-en="4">4</option>
-      <option data-ru="5" data-en="5">5</option>
-      <option data-ru="6" data-en="6">6</option>
-      <option data-ru="7" data-en="7">7</option>
-      <option data-ru="8" data-en="8">8</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Кура стаф" data-en="Kura staff">Кура стаф</label>
+  <input type="number" name="Kura staff" class="qty" data-label-ru="Кура стаф" data-label-en="Kura staff" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <!-- Остальные позиции с 1–8 -->
-  <div class="dish"><label class="check-label" data-ru="Говядина сувид" data-en="Beef sous vide">Говядина сувид</label><select name="beef_sous_vide_frozen" class="qty" data-label-ru="Говядина сувид" data-label-en="Beef sous vide"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Манго" data-en="Mango">Манго</label>
+  <input type="number" name="Mango" class="qty" data-label-ru="Манго" data-label-en="Mango" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Фасоль" data-en="Beans">Фасоль</label><select name="beans" class="qty" data-label-ru="Фасоль" data-label-en="Beans"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Маракуйя" data-en="Passion fruit">Маракуйя</label>
+  <input type="number" name="Passion fruit" class="qty" data-label-ru="Маракуйя" data-label-en="Passion fruit" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Стейк форель" data-en="Trout steak">Стейк форель</label><select name="trout_steak_frozen" class="qty" data-label-ru="Стейк форель" data-label-en="Trout steak"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Овощи стаф" data-en="Vegetables staff">Овощи стаф</label>
+  <input type="number" name="Vegetables staff" class="qty" data-label-ru="Овощи стаф" data-label-en="Vegetables staff" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Утка" data-en="Duck">Утка</label><select name="duck" class="qty" data-label-ru="Утка" data-label-en="Duck"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Огурец" data-en="Cucumber">Огурец</label>
+  <input type="number" name="Cucumber" class="qty" data-label-ru="Огурец" data-label-en="Cucumber" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Креветки" data-en="Shrimp">Креветки</label><select name="shrimp" class="qty" data-label-ru="Креветки" data-label-en="Shrimp"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Осьминог" data-en="Octopus">Осьминог</label>
+  <input type="number" name="Octopus" class="qty" data-label-ru="Осьминог" data-label-en="Octopus" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Осьминог" data-en="Liver">Осьминог</label><select name="Octopus" class="qty" data-label-ru="Осьминог" data-label-en="Octopus"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
-  
-  <div class="dish"><label class="check-label" data-ru="Печень" data-en="Liver">Печень</label><select name="liver" class="qty" data-label-ru="Печень" data-label-en="Liver"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Печень сувид" data-en="Liver sous vide">Печень сувид</label>
+  <input type="number" name="Liver sous vide" class="qty" data-label-ru="Печень сувид" data-label-en="Liver sous vide" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Курица сувид" data-en="Chicken sous vide">Курица сувид</label><select name="chicken_sous_vide_frozen" class="qty" data-label-ru="Курица сувид" data-label-en="Chicken sous vide"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Печень сырая" data-en="Raw liver">Печень сырая</label>
+  <input type="number" name="Raw liver" class="qty" data-label-ru="Печень сырая" data-label-en="Raw liver" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Суп тыква" data-en="Pumpkin soup">Суп тыква</label><select name="pumpkin_soup" class="qty" data-label-ru="Суп тыква" data-label-en="Pumpkin soup"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Рататуй большой" data-en="Large ratatouille">Рататуй большой</label>
+  <input type="number" name="Large ratatouille" class="qty" data-label-ru="Рататуй большой" data-label-en="Large ratatouille" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Суп горошек" data-en="Pea soup">Суп горошек</label><select name="pea_soup" class="qty" data-label-ru="Суп горошек" data-label-en="Pea soup"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Рататуй прц." data-en="Ratatouille prc.">Рататуй прц.</label>
+  <input type="number" name="Ratatouille prc." class="qty" data-label-ru="Рататуй прц." data-label-en="Ratatouille prc." min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Рататуй" data-en="Ratatouille">Рататуй</label><select name="ratatouille" class="qty" data-label-ru="Рататуй" data-label-en="Ratatouille"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Редис" data-en="Radish">Редис</label>
+  <input type="number" name="Radish" class="qty" data-label-ru="Редис" data-label-en="Radish" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish"><label class="check-label" data-ru="Хлеб целый на бенедикт" data-en="Whole bread for benedict">Хлеб целый на бенедикт</label><select name="whole_benedict_bread" class="qty" data-label-ru="Хлеб целый на бенедикт" data-label-en="Whole bread for benedict"><option data-ru="0" data-en="0">0</option><option data-ru="1" data-en="1">1</option><option data-ru="2" data-en="2">2</option><option data-ru="3" data-en="3">3</option><option data-ru="4" data-en="4">4</option><option data-ru="5" data-en="5">5</option><option data-ru="6" data-en="6">6</option><option data-ru="7" data-en="7">7</option><option data-ru="8" data-en="8">8</option></select></div>
+<div class="dish">
+  <label class="check-label" data-ru="Риет" data-en="Riet">Риет</label>
+  <input type="number" name="Riet" class="qty" data-label-ru="Риет" data-label-en="Riet" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Гренки жюльен" data-en="Croutons julienne">Гренки жюльен</label>
-    <select name="croutons_julienne" class="qty" data-label-ru="Гренки жюльен" data-label-en="Croutons julienne">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Сделать" data-en="To do">Сделать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Рыба на риет" data-en="Riet fish">Рыба на риет</label>
+  <input type="number" name="Riet fish" class="qty" data-label-ru="Рыба на риет" data-label-en="Riet fish" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Ветчина" data-en="Ham">Ветчина</label>
-    <select name="ham_frozen" class="qty" data-label-ru="Ветчина" data-label-en="Ham">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Сделать" data-en="To do">Сделать</option>
-      <option data-ru="Заказать" data-en="To order">Заказать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Рыба пласт" data-en="Plaster fish">Рыба пласт</label>
+  <input type="number" name="Plaster fish" class="qty" data-label-ru="Рыба пласт" data-label-en="Plaster fish" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Вяленые томаты" data-en="Dried tomatoes">Вяленые томаты</label>
-    <select name="dried_tomatoes_frozen" class="qty" data-label-ru="Вяленые томаты" data-label-en="Dried tomatoes">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Сделать" data-en="To do">Сделать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Рыба соленая" data-en="Salted fish">Рыба соленая</label>
+  <input type="number" name="Salted fish" class="qty" data-label-ru="Рыба соленая" data-label-en="Salted fish" min="1" max="99" placeholder="Введите число">
+</div>
 
-  <div class="dish">
-    <label class="check-label" data-ru="Шпинат" data-en="Spinach">Шпинат</label>
-    <select name="spinach_frozen" class="qty" data-label-ru="Шпинат" data-label-en="Spinach">
-      <option data-ru="Есть" data-en="Have">Есть</option>
-      <option data-ru="Сделать" data-en="To do">Сделать</option>
-      <option data-ru="Заказать" data-en="To order">Заказать</option>
-    </select>
-  </div>
+<div class="dish">
+  <label class="check-label" data-ru="Рыба стейк" data-en="Steak fish">Рыба стейк</label>
+  <input type="number" name="Steak fish" class="qty" data-label-ru="Рыба стейк" data-label-en="Steak fish" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Салат(бокс)" data-en="Salad (box)">Салат(бокс)</label>
+  <input type="number" name="Salad (box)" class="qty" data-label-ru="Салат(бокс)" data-label-en="Salad (box)" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Свинина стаф" data-en="Staff pork">Свинина стаф</label>
+  <input type="number" name="Staff pork" class="qty" data-label-ru="Свинина стаф" data-label-en="Staff pork" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус биск" data-en="Bisque sauce">Соус биск</label>
+  <input type="number" name="Bisque sauce" class="qty" data-label-ru="Соус биск" data-label-en="Bisque sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус голландский" data-en="Dutch sauce">Соус голландский</label>
+  <input type="number" name="Dutch sauce" class="qty" data-label-ru="Соус голландский" data-label-en="Dutch sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус кремчиз" data-en="Cream cheese sauce">Соус кремчиз</label>
+  <input type="number" name="Cream cheese sauce" class="qty" data-label-ru="Соус кремчиз" data-label-en="Cream cheese sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус кура" data-en="Chicken sauce">Соус кура</label>
+  <input type="number" name="Chicken sauce" class="qty" data-label-ru="Соус кура" data-label-en="Chicken sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус песто" data-en="Pesto sauce">Соус песто</label>
+  <input type="number" name="Pesto sauce" class="qty" data-label-ru="Соус песто" data-label-en="Pesto sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус рыба" data-en="Fish sauce">Соус рыба</label>
+  <input type="number" name="Fish sauce" class="qty" data-label-ru="Соус рыба" data-label-en="Fish sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус тартар" data-en="Tartar sauce">Соус тартар</label>
+  <input type="number" name="Tartar sauce" class="qty" data-label-ru="Соус тартар" data-label-en="Tartar sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус томат вял" data-en="Dried tomato sauce">Соус томат вял</label>
+  <input type="number" name="Dried tomato sauce" class="qty" data-label-ru="Соус томат вял" data-label-en="Dried tomato sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Соус Шпинат" data-en="Spinach sauce">Соус Шпинат</label>
+  <input type="number" name="Spinach sauce" class="qty" data-label-ru="Соус Шпинат" data-label-en="Spinach sauce" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Суп брокколи большой" data-en="Large broccoli soup">Суп брокколи большой</label>
+  <input type="number" name="Large broccoli soup" class="qty" data-label-ru="Суп брокколи большой" data-label-en="Large broccoli soup" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Суп брокколи прц" data-en="Prc broccoli soup">Суп брокколи прц</label>
+  <input type="number" name="Prc broccoli soup" class="qty" data-label-ru="Суп брокколи прц" data-label-en="Prc broccoli soup" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Суп тыква большой" data-en="Large pumpkin soup">Суп тыква большой</label>
+  <input type="number" name="Large pumpkin soup" class="qty" data-label-ru="Суп тыква большой" data-label-en="Large pumpkin soup" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Суп тыква прц" data-en="Prc pumpkin soup">Суп тыква прц</label>
+  <input type="number" name="Prc pumpkin soup" class="qty" data-label-ru="Суп тыква прц" data-label-en="Prc pumpkin soup" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Сыр моцарелла" data-en="Mozzarella cheese">Сыр моцарелла</label>
+  <input type="number" name="Mozzarella cheese" class="qty" data-label-ru="Сыр моцарелла" data-label-en="Mozzarella cheese" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Сыр пармезан" data-en="Parmesan cheese">Сыр пармезан</label>
+  <input type="number" name="Parmesan cheese" class="qty" data-label-ru="Сыр пармезан" data-label-en="Parmesan cheese" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Сырники" data-en="Syrniki">Сырники</label>
+  <input type="number" name="Syrniki" class="qty" data-label-ru="Сырники" data-label-en="Syrniki" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Тофу" data-en="Tofu">Тофу</label>
+  <input type="number" name="Tofu" class="qty" data-label-ru="Тофу" data-label-en="Tofu" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Утка" data-en="Duck">Утка</label>
+  <input type="number" name="Duck" class="qty" data-label-ru="Утка" data-label-en="Duck" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Фасоль стаф" data-en="Staff beans">Фасоль стаф</label>
+  <input type="number" name="Staff beans" class="qty" data-label-ru="Фасоль стаф" data-label-en="Staff beans" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Фасоль(работа)" data-en="Beans (work)">Фасоль(работа)</label>
+  <input type="number" name="Beans (work)" class="qty" data-label-ru="Фасоль(работа)" data-label-en="Beans (work)" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Цукини" data-en="Zucchini">Цукини</label>
+  <input type="number" name="Zucchini" class="qty" data-label-ru="Цукини" data-label-en="Zucchini" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Черри работа" data-en="Cherry work">Черри работа</label>
+  <input type="number" name="Cherry work" class="qty" data-label-ru="Черри работа" data-label-en="Cherry work" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Черри стаф" data-en="Cherry staff">Черри стаф</label>
+  <input type="number" name="Cherry staff" class="qty" data-label-ru="Черри стаф" data-label-en="Cherry staff" min="1" max="99" placeholder="Введите число">
+</div>
+
+<div class="dish">
+  <label class="check-label" data-ru="Чеснок масло" data-en="Garlic oil">Чеснок масло</label>
+  <input type="number" name="Garlic oil" class="qty" data-label-ru="Чеснок масло" data-label-en="Garlic oil" min="1" max="99" placeholder="Введите число">
+</div>
 
   <div class="dish">
     <label class="check-label" data-ru="Комментарий" data-en="Comment">Комментарий</label>
