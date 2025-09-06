@@ -1,68 +1,20 @@
-// script.js — рабочая версия для всех разделов
-(() => {
+document.addEventListener("DOMContentLoaded", () => {
   const sections = [
-    { id: "breakfast", title: "Завтраки", json: "data/breakfast.json" },
-    { id: "soup", title: "Супы", json: "data/soup.json" },
-    { id: "salad", title: "Салаты", json: "data/salad-starter.json" },
-    { id: "main", title: "Основные блюда", json: "data/main.json" }
+    { btnSelector: '.section-btn[data-section="breakfast"]', panelId: 'breakfast-section', json: 'data/breakfast.json' },
+    { btnSelector: '.section-btn[data-section="soup"]', panelId: 'soup-section', json: 'data/soup.json' },
+    { btnSelector: '.section-btn[data-section="salad"]', panelId: 'salad-section', json: 'data/salad-starter.json' },
+    { btnSelector: '.section-btn[data-section="main"]', panelId: 'main-section', json: 'data/main.json' }
   ];
-
-  const DEBUG = true;
-
-  function log(msg, level="log") {
-    if (DEBUG) {
-      console[level](msg);
-      let dbg = document.getElementById("ttk-debug");
-      if (!dbg) {
-        dbg = document.createElement("pre");
-        dbg.id = "ttk-debug";
-        dbg.style.cssText = "position:fixed;right:10px;bottom:10px;max-width:420px;max-height:240px;overflow:auto;background:rgba(0,0,0,0.8);color:#fff;padding:8px;border-radius:6px;font-size:12px;z-index:9999;";
-        document.body.appendChild(dbg);
-      }
-      const time = new Date().toLocaleTimeString();
-      dbg.textContent += `\n[${time}] ${level.toUpperCase()}: ${msg}`;
-      dbg.scrollTop = dbg.scrollHeight;
-    }
-  }
 
   function el(tag, opts={}) {
     const e = document.createElement(tag);
     for (const [k,v] of Object.entries(opts)) {
-      if (k==="text") e.textContent = v;
-      else if (k==="html") e.innerHTML = v;
+      if (k === "text") e.textContent = v;
+      else if (k === "html") e.innerHTML = v;
       else e.setAttribute(k,v);
     }
     return e;
   }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    sections.forEach(section => {
-      const btn = document.querySelector(`.section-btn[data-section="${section.id}"]`);
-      const panel = document.getElementById(`${section.id}-section`);
-      if (!btn || !panel) {
-        log(`Пропущен раздел ${section.id}`, "error");
-        return;
-      }
-
-      btn.addEventListener("click", async () => {
-        panel.style.display = panel.style.display === "block" ? "none" : "block";
-
-        if (panel.innerHTML.trim() !== "") return; // уже загружено
-
-        log(`Загрузка ${section.title} из ${section.json}`);
-        try {
-          const res = await fetch(section.json + "?_=" + Date.now());
-          if (!res.ok) throw new Error(res.statusText);
-          const data = await res.json();
-          renderSection(panel, data);
-          log(`${section.title} загружены, элементов: ${data.length}`);
-        } catch(err) {
-          panel.innerHTML = `<div style="color:red;padding:6px;">Ошибка загрузки ${section.title}: ${err.message}</div>`;
-          log(`Ошибка загрузки ${section.title}: ${err.message}`, "error");
-        }
-      });
-    });
-  });
 
   function renderSection(panel, data) {
     panel.innerHTML = "";
@@ -133,4 +85,25 @@
       table.appendChild(tbody);
     });
   }
-})();
+
+  sections.forEach(section => {
+    const btn = document.querySelector(section.btnSelector);
+    const panel = document.getElementById(section.panelId);
+
+    if (!btn || !panel) return;
+
+    btn.addEventListener("click", async () => {
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+      if (panel.innerHTML.trim() !== "") return; // уже загружено
+
+      try {
+        const res = await fetch(section.json + "?_=" + Date.now());
+        if (!res.ok) throw new Error(res.statusText);
+        const data = await res.json();
+        renderSection(panel, data);
+      } catch(err) {
+        panel.innerHTML = `<div style="color:red;padding:6px;">Ошибка загрузки: ${err.message}</div>`;
+      }
+    });
+  });
+});
