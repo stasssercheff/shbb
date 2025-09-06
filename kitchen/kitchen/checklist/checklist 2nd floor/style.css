@@ -40,8 +40,13 @@ input:not([type="number"]):not([type="submit"]),
   box-sizing: border-box;
 }
 
-#contactHandle {
-  margin-top: 12px;
+.autodate {
+  font-size: 24px;
+  padding: 12px;
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #333;
 }
 
 select {
@@ -83,9 +88,10 @@ select {
   flex-wrap: wrap;
 }
 
-.dish select.qty {
-  width: 220px;
-  min-width: 260px;
+.dish select.qty,
+.dish input.qty {
+  width: 220px;       /* по ширине чуть меньше */
+  min-width: 220px;
   max-width: 100%;
   padding: 12px;
   font-size: 30px;
@@ -94,7 +100,7 @@ select {
   background: #fff;
   color: #333;
   text-align: center;
-  text-align-last: center;
+  text-align-last: center; /* для select */
   margin-top: 8px;
 }
 
@@ -166,15 +172,17 @@ button:hover {
   margin: 18px 0;
 }
 
-.autodate {
-  font-size: 24px;
-  padding: 12px;
-  background: #fdfdfd;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  color: #333;
-}
-
 textarea.comment {
   font-size: 16px !important; /* Отключает авто-зум на iOS */
+}
+
+/* Новое правило для input type number */
+input.qty::-webkit-inner-spin-button,
+input.qty::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.qty {
+  -moz-appearance: textfield; /* Firefox */
 }
