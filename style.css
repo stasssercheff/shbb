@@ -1,3 +1,4 @@
+/* ===== Reset & базовые стили ===== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -33,53 +34,104 @@ body {
     background-color: #c1b29a;
 }
 
+/* ===== Main container ===== */
 .main-container {
-    max-width: 500px;
+    max-width: 800px; /* шире, чтобы таблицы помещались */
     margin: 40px auto;
-    text-align: center;
+    text-align: left; /* важно, чтобы таблицы не центрировались */
     background-color: #fff;
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-h1#greeting {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
 .date-container {
     font-size: 14px;
     color: #666;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.buttons-container {
+/* ===== Секции и кнопки ===== */
+.sections-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    align-items: center;
+    gap: 15px;
 }
 
-.nav-btn {
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 250px;
+.section-btn {
     background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 18px;
     font-weight: 600;
-    font-size: 16px;
-    transition: 0.2s;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
 }
 
-.nav-btn:hover {
+.section-btn:hover {
     background-color: #c1b29a;
+}
+
+.section-panel {
+    display: none; /* скрыто по умолчанию */
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* ===== Таблицы блюд ===== */
+.table-container {
+    margin: 10px 0;
+    overflow-x: auto;
+}
+
+.dish-table {
+    width: 100%;
+    min-width: 400px; /* гарантирует нормальную ширину */
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 14px;
+    background: #fff;
+}
+
+.dish-table th,
+.dish-table td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.dish-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+.dish-process {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* ===== Изображения ===== */
+.dish-table img {
+    max-width: 120px;
+    height: auto;
+    display: block;
+}
+
+/* ===== Мобильная адаптивность ===== */
+@media (max-width: 600px) {
+    .main-container {
+        padding: 20px 10px;
+    }
+    .section-btn {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    .dish-table {
+        font-size: 12px;
+    }
 }
