@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = ["breakfast", "soup", "salad", "main"];
   sections.forEach(section => loadSection(section));
 
-  // Дата
   const dateEl = document.getElementById("current-date");
   const today = new Date();
   dateEl.textContent = today.toLocaleDateString("ru-RU", {
@@ -19,6 +18,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function switchLanguage(lang) {
+  currentLang = lang;
+
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    el.textContent = lang === "ru" ? el.dataset.ru : el.dataset.en;
+  });
+
+  document.querySelectorAll(".dish-btn").forEach(btn => {
+    const nameObj = JSON.parse(btn.dataset.name);
+    btn.textContent = nameObj[currentLang];
+  });
+
+  document.querySelectorAll(".dish-process").forEach(proc => {
+    const procObj = JSON.parse(proc.dataset.process);
+    proc.textContent = procObj[currentLang];
+  });
+
+  document.querySelectorAll(".dish-table").forEach(table => {
+    table.querySelectorAll("tbody tr").forEach((row, i) => {
+      const ingData = JSON.parse(row.children[1].dataset.ingredients || "{}");
+      if (ingData[currentLang]) row.children[1].textContent = ingData[currentLang];
+      row.children[0].textContent = String(i + 1); // номер как текст
+    });
+  });
+}
 
 function loadSection(section) {
   fetch(`data/${section}.json`)
@@ -42,36 +67,43 @@ function renderSection(section, data) {
     // Контейнер таблицы
     const wrapper = document.createElement("div");
     wrapper.className = "table-container";
+    wrapper.style.display = "none";
     container.appendChild(wrapper);
 
-    // Таблица
+    // Таблица блюда
     const table = document.createElement("table");
     table.className = "dish-table";
     wrapper.appendChild(table);
 
-    // Тело таблицы
     const tbody = document.createElement("tbody");
     const rowCount = dish.ingredients.length;
 
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement("tr");
 
+      // №
       const tdNum = document.createElement("td");
       tdNum.textContent = String(i + 1);
       tdNum.style.width = "40px";
       tr.appendChild(tdNum);
 
+      // Ингредиент
       const tdIng = document.createElement("td");
       tdIng.textContent = ing[currentLang];
+      tdIng.dataset.ingredients = JSON.stringify(ing);
+      tdIng.style.width = "auto";
       tr.appendChild(tdIng);
 
       if (i === 0) {
+        // Процесс
         const tdProcess = document.createElement("td");
         tdProcess.textContent = dish.process[currentLang];
+        tdProcess.dataset.process = JSON.stringify(dish.process);
         tdProcess.rowSpan = rowCount;
         tdProcess.style.width = "400px";
         tr.appendChild(tdProcess);
 
+        // Фото
         const tdPhoto = document.createElement("td");
         if (dish.photo) {
           const img = document.createElement("img");
@@ -90,9 +122,13 @@ function renderSection(section, data) {
 
     table.appendChild(tbody);
 
-    // Раскрытие таблицы
+    // Раскрытие таблицы по клику на название блюда
     btn.addEventListener("click", () => {
       wrapper.style.display = wrapper.style.display === "block" ? "none" : "block";
     });
   });
 }
+
+// Функции возврата
+function goHome() { location.href = "index.html"; }
+function goBack() { history.back(); }
