@@ -1,5 +1,33 @@
 let currentLang = "ru";
 
+// Переключение языка
+function switchLanguage(lang) {
+  currentLang = lang;
+
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    el.textContent = lang === "ru" ? el.dataset.ru : el.dataset.en;
+  });
+
+  document.querySelectorAll(".dish-btn").forEach(btn => {
+    const nameObj = JSON.parse(btn.dataset.name);
+    btn.textContent = nameObj[currentLang];
+  });
+
+  document.querySelectorAll(".dish-table").forEach(table => {
+    table.querySelectorAll("tbody tr").forEach((row, i) => {
+      const ingData = JSON.parse(row.children[1].dataset.ingredients || "{}");
+      if (ingData[currentLang]) row.children[1].textContent = ingData[currentLang];
+      row.children[0].textContent = String(i + 1);
+    });
+  });
+
+  document.querySelectorAll(".dish-process").forEach(proc => {
+    const procObj = JSON.parse(proc.dataset.process);
+    proc.textContent = procObj[currentLang];
+  });
+}
+
+// Загрузка разделов
 document.addEventListener("DOMContentLoaded", () => {
   const sections = ["breakfast", "soup", "salad", "main"];
   sections.forEach(section => loadSection(section));
@@ -14,50 +42,38 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".accordion").forEach(btn => {
     btn.addEventListener("click", () => {
       const panel = document.getElementById(`${btn.dataset.section}-section`);
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
+      // если панель пустая, подгрузим данные
+      if (!panel.dataset.loaded) {
+        loadSection(btn.dataset.section, () => {
+          panel.style.display = "block";
+        });
       } else {
-        panel.style.display = "block";
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
       }
     });
   });
 });
 
-function switchLanguage(lang) {
-  currentLang = lang;
+// Загрузка JSON и рендер
+function loadSection(section, callback) {
+  const container = document.getElementById(`${section}-section`);
+  if (container.dataset.loaded) {
+    if (callback) callback();
+    return;
+  }
 
-  document.querySelectorAll("[data-lang]").forEach(el => {
-    el.textContent = lang === "ru" ? el.dataset.ru : el.dataset.en;
-  });
-
-  document.querySelectorAll(".dish-btn").forEach(btn => {
-    const nameObj = JSON.parse(btn.dataset.name);
-    btn.textContent = nameObj[currentLang];
-  });
-
-  document.querySelectorAll(".dish-process").forEach(proc => {
-    const procObj = JSON.parse(proc.dataset.process);
-    proc.textContent = procObj[currentLang];
-  });
-
-  document.querySelectorAll(".dish-table").forEach(table => {
-    table.querySelectorAll("tbody tr").forEach((row, i) => {
-      const ingData = JSON.parse(row.children[1].dataset.ingredients || "{}");
-      if (ingData[currentLang]) row.children[1].textContent = ingData[currentLang];
-      row.children[0].textContent = String(i + 1);
-    });
-  });
-}
-
-function loadSection(section) {
   fetch(`data/${section}.json`)
     .then(res => res.json())
-    .then(data => renderSection(section, data))
+    .then(data => {
+      renderSection(container, data);
+      container.dataset.loaded = "true";
+      if (callback) callback();
+    })
     .catch(err => console.error(`Ошибка загрузки ${section}:`, err));
 }
 
-function renderSection(section, data) {
-  const container = document.getElementById(`${section}-section`);
+// Рендер блюд
+function renderSection(container, data) {
   container.innerHTML = "";
 
   data.forEach(dish => {
@@ -68,7 +84,7 @@ function renderSection(section, data) {
     btn.textContent = dish.name[currentLang];
     container.appendChild(btn);
 
-    // Контейнер таблицы (скрыт по умолчанию)
+    // Контейнер таблицы
     const wrapper = document.createElement("div");
     wrapper.className = "table-container";
     wrapper.style.display = "none";
@@ -85,13 +101,13 @@ function renderSection(section, data) {
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement("tr");
 
-      // №
+      // № как текст
       const tdNum = document.createElement("td");
       tdNum.textContent = String(i + 1);
       tdNum.style.width = "40px";
       tr.appendChild(tdNum);
 
-      // Ингредиент
+      // Ингредиент как текст
       const tdIng = document.createElement("td");
       tdIng.textContent = ing[currentLang];
       tdIng.dataset.ingredients = JSON.stringify(ing);
@@ -126,7 +142,7 @@ function renderSection(section, data) {
 
     table.appendChild(tbody);
 
-    // Клик по названию блюда — показать/скрыть таблицу
+    // Клик по блюду — раскрытие таблицы
     btn.addEventListener("click", () => {
       wrapper.style.display = wrapper.style.display === "block" ? "none" : "block";
     });
