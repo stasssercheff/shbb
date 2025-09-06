@@ -1,87 +1,104 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  console.log("✅ DOM загружен");
+let currentLang = 'ru';
 
-  const panel = document.getElementById("breakfast-section");
+const sections = [
+    { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfast.json" },
+    { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "data/soup.json" },
+    { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "data/salad.json" },
+    { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/main.json" }
+];
 
-  try {
-    const response = await fetch("data/breakfast.json?nocache=" + Date.now());
-    if (!response.ok) throw new Error("Ошибка HTTP " + response.status);
+// инициализация кнопок разделов
+function init() {
+    const container = document.getElementById("sections-container");
+    container.innerHTML = "";
 
-    const data = await response.json();
-    console.log("📦 Данные получены:", data);
+    sections.forEach(sec => {
+        const secBtn = document.createElement("button");
+        secBtn.className = "section-btn";
+        secBtn.textContent = sec.title[currentLang];
+        secBtn.onclick = () => loadSection(sec.id, sec.file);
+        container.appendChild(secBtn);
 
-    renderBreakfast(panel, data);
-  } catch (err) {
-    console.error("❌ Ошибка при загрузке JSON:", err);
-    panel.innerHTML = `<p style="color:red;">Ошибка: ${err.message}</p>`;
-  }
-});
-
-function renderBreakfast(panel, data) {
-  panel.innerHTML = "";
-
-  const table = document.createElement("table");
-  table.classList.add("dish-table");
-
-  // заголовок таблицы
-  const thead = document.createElement("thead");
-  thead.innerHTML = `
-    <tr>
-      <th>№</th>
-      <th>Наименование продукта</th>
-      <th>Количество</th>
-      <th>Технология</th>
-      <th>Фото</th>
-    </tr>`;
-  table.appendChild(thead);
-
-  const tbody = document.createElement("tbody");
-
-  data.forEach((dish) => {
-    dish.ingredients.forEach((ing, i) => {
-      const tr = document.createElement("tr");
-
-      // номер
-      const tdNum = document.createElement("td");
-      tdNum.textContent = String(i + 1);
-      tr.appendChild(tdNum);
-
-      // продукт
-      const tdIng = document.createElement("td");
-      tdIng.textContent = ing.ru || "";
-      tr.appendChild(tdIng);
-
-      // количество
-      const tdAmount = document.createElement("td");
-      tdAmount.textContent = ing.amount || "";
-      tr.appendChild(tdAmount);
-
-      // технология и фото только в первой строке
-      if (i === 0) {
-        const tdProcess = document.createElement("td");
-        tdProcess.textContent = dish.process?.ru || "";
-        tdProcess.rowSpan = dish.ingredients.length;
-        tr.appendChild(tdProcess);
-
-        const tdPhoto = document.createElement("td");
-        if (dish.photo) {
-          const img = document.createElement("img");
-          img.src = dish.photo;
-          img.alt = "Фото";
-          img.style.maxWidth = "120px";
-          img.style.display = "block";
-          tdPhoto.appendChild(img);
-        } else {
-          tdPhoto.textContent = "-";
-        }
-        tdPhoto.rowSpan = dish.ingredients.length;
-        tr.appendChild(tdPhoto);
-      }
-
-      tbody.appendChild(tr);
+        const secContent = document.createElement("div");
+        secContent.className = "section-content";
+        secContent.id = `section-${sec.id}`;
+        container.appendChild(secContent);
     });
-  });
-
-  table.appendChild(tbody);
-  panel.appendChild(table);
 }
+
+// загрузка конкретного раздела
+async function loadSection(sectionId, jsonFile) {
+    const content = document.getElementById(`section-${sectionId}`);
+
+    // закрыть все остальные разделы
+    document.querySelectorAll(".section-content").forEach(el => {
+        el.style.display = "none";
+        el.innerHTML = "";
+    });
+
+    try {
+        const response = await fetch(jsonFile);
+        if (!response.ok) throw new Error("Ошибка сети");
+        const dishes = await response.json();
+
+        content.style.display = "block";
+        content.innerHTML = ""; // очистка
+
+        dishes.forEach((dish, index) => {
+            const table = document.createElement('table');
+            table.classList.add('dish-table');
+
+            // Заголовок
+            const caption = document.createElement('caption');
+            caption.textContent = `${dish.name.ru} / ${dish.name.en}`;
+            table.appendChild(caption);
+
+            // Шапка
+            const thead = document.createElement('thead');
+            thead.innerHTML = `
+                <tr>
+                    <th>№</th>
+                    <th>${currentLang === 'ru' ? 'Ингредиент' : 'Ingredient'}</th>
+                    <th>${currentLang === 'ru' ? 'Шт/гр' : 'Qty'}</th>
+                    <th>${currentLang === 'ru' ? 'Описание' : 'Description'}</th>
+                    <th>${currentLang === 'ru' ? 'Фото' : 'Photo'}</th>
+                </tr>
+            `;
+            table.appendChild(thead);
+
+            // Тело
+            const tbody = document.createElement('tbody');
+            dish.ingredients.forEach((ing, i) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${ing[currentLang]}</td>
+                    <td>${ing.amount}</td>
+                    <td>${i === 0 ? dish.process[currentLang] : ''}</td>
+                    <td>${i === 0 && dish.photo ? `<img src="${dish.photo}" alt="photo" class="dish-photo">` : ''}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+            table.appendChild(tbody);
+
+            content.appendChild(table);
+        });
+
+    } catch (error) {
+        console.error("Ошибка загрузки:", error);
+        content.innerHTML = `<p style="color:red">Ошибка загрузки: ${error.message}</p>`;
+    }
+}
+
+// переключение языка
+function switchLanguage(lang) {
+    currentLang = lang;
+    init(); // перерисовать кнопки
+}
+
+// загрузка при старте
+document.addEventListener("DOMContentLoaded", () => {
+    init();
+    document.getElementById('lang-ru').addEventListener('click', () => switchLanguage('ru'));
+    document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+});
