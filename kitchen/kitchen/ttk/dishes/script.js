@@ -1,104 +1,127 @@
-let currentLang = 'ru';
-
-const sections = [
-    { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfast.json" },
-    { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "data/soup.json" },
-    { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "data/salad.json" },
-    { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/main.json" }
-];
-
-// инициализация кнопок разделов
-function init() {
-    const container = document.getElementById("sections-container");
-    container.innerHTML = "";
-
-    sections.forEach(sec => {
-        const secBtn = document.createElement("button");
-        secBtn.className = "section-btn";
-        secBtn.textContent = sec.title[currentLang];
-        secBtn.onclick = () => loadSection(sec.id, sec.file);
-        container.appendChild(secBtn);
-
-        const secContent = document.createElement("div");
-        secContent.className = "section-content";
-        secContent.id = `section-${sec.id}`;
-        container.appendChild(secContent);
-    });
-}
-
-// загрузка конкретного раздела
-async function loadSection(sectionId, jsonFile) {
-    const content = document.getElementById(`section-${sectionId}`);
-
-    // закрыть все остальные разделы
-    document.querySelectorAll(".section-content").forEach(el => {
-        el.style.display = "none";
-        el.innerHTML = "";
-    });
-
-    try {
-        const response = await fetch(jsonFile);
-        if (!response.ok) throw new Error("Ошибка сети");
-        const dishes = await response.json();
-
-        content.style.display = "block";
-        content.innerHTML = ""; // очистка
-
-        dishes.forEach((dish, index) => {
-            const table = document.createElement('table');
-            table.classList.add('dish-table');
-
-            // Заголовок
-            const caption = document.createElement('caption');
-            caption.textContent = `${dish.name.ru} / ${dish.name.en}`;
-            table.appendChild(caption);
-
-            // Шапка
-            const thead = document.createElement('thead');
-            thead.innerHTML = `
-                <tr>
-                    <th>№</th>
-                    <th>${currentLang === 'ru' ? 'Ингредиент' : 'Ingredient'}</th>
-                    <th>${currentLang === 'ru' ? 'Шт/гр' : 'Qty'}</th>
-                    <th>${currentLang === 'ru' ? 'Описание' : 'Description'}</th>
-                    <th>${currentLang === 'ru' ? 'Фото' : 'Photo'}</th>
-                </tr>
-            `;
-            table.appendChild(thead);
-
-            // Тело
-            const tbody = document.createElement('tbody');
-            dish.ingredients.forEach((ing, i) => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${i + 1}</td>
-                    <td>${ing[currentLang]}</td>
-                    <td>${ing.amount}</td>
-                    <td>${i === 0 ? dish.process[currentLang] : ''}</td>
-                    <td>${i === 0 && dish.photo ? `<img src="${dish.photo}" alt="photo" class="dish-photo">` : ''}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-            table.appendChild(tbody);
-
-            content.appendChild(table);
-        });
-
-    } catch (error) {
-        console.error("Ошибка загрузки:", error);
-        content.innerHTML = `<p style="color:red">Ошибка загрузки: ${error.message}</p>`;
-    }
-}
-
-// переключение языка
-function switchLanguage(lang) {
-    currentLang = lang;
-    init(); // перерисовать кнопки
-}
-
-// загрузка при старте
 document.addEventListener("DOMContentLoaded", () => {
-    init();
-    document.getElementById('lang-ru').addEventListener('click', () => switchLanguage('ru'));
-    document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+  console.log("✅ DOM загружен");
+
+  const sections = document.querySelectorAll(".nav-btn");
+
+  sections.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const section = btn.dataset.section;
+      console.log("🔘 Нажата кнопка:", section);
+
+      const panel = document.getElementById(section);
+      if (!panel) {
+        console.error("❌ Не найден panel для:", section);
+        return;
+      }
+
+      // переключение открытия/закрытия
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+        console.log("⬅️ Панель закрыта:", section);
+        return;
+      }
+
+      // спрячем все панели кроме текущей
+      document.querySelectorAll(".panel").forEach((p) => (p.style.display = "none"));
+      panel.style.display = "block";
+
+      // грузим JSON
+      try {
+        const response = await fetch(`data/${section}.json?nocache=${Date.now()}`);
+        console.log("📂 Загружаем:", `data/${section}.json`);
+
+        if (!response.ok) {
+          throw new Error(`Ошибка загрузки JSON (${response.status})`);
+        }
+
+        const data = await response.json();
+        console.log("📦 Данные получены:", data);
+
+        renderDishes(panel, data);
+      } catch (err) {
+        console.error("❌ Ошибка при загрузке/парсинге JSON:", err);
+        panel.innerHTML = `<p style="color:red;">Ошибка загрузки данных: ${err.message}</p>`;
+      }
+    });
+  });
+
+  function renderDishes(panel, data) {
+    console.log("🎨 Рисуем блюда...");
+
+    panel.innerHTML = ""; // очистим старое
+
+    data.forEach((dish, dishIndex) => {
+      console.log(`🍳 Блюдо ${dishIndex + 1}:`, dish.name?.ru);
+
+      // заголовок
+      const title = document.createElement("h3");
+      title.textContent = dish.name?.ru || "Без названия";
+      panel.appendChild(title);
+
+      // таблица
+      const table = document.createElement("table");
+      table.classList.add("dish-table");
+
+      const thead = document.createElement("thead");
+      thead.innerHTML = `
+        <tr>
+          <th>№</th>
+          <th>Наименование продукта</th>
+          <th>Количество</th>
+          <th>Технология</th>
+          <th>Фото</th>
+        </tr>`;
+      table.appendChild(thead);
+
+      const tbody = document.createElement("tbody");
+
+      if (dish.ingredients && dish.ingredients.length > 0) {
+        dish.ingredients.forEach((ing, i) => {
+          const tr = document.createElement("tr");
+
+          // номер
+          const tdNum = document.createElement("td");
+          tdNum.textContent = String(i + 1);
+          tr.appendChild(tdNum);
+
+          // продукт
+          const tdIng = document.createElement("td");
+          tdIng.textContent = ing.ru || "";
+          tr.appendChild(tdIng);
+
+          // количество
+          const tdAmount = document.createElement("td");
+          tdAmount.textContent = ing.amount || "";
+          tr.appendChild(tdAmount);
+
+          // технология (rowspan)
+          if (i === 0) {
+            const tdProcess = document.createElement("td");
+            tdProcess.textContent = dish.process?.ru || "";
+            tdProcess.rowSpan = dish.ingredients.length;
+            tr.appendChild(tdProcess);
+
+            const tdPhoto = document.createElement("td");
+            if (dish.photo) {
+              const img = document.createElement("img");
+              img.src = dish.photo;
+              img.alt = "Фото";
+              img.style.maxWidth = "120px";
+              img.style.display = "block";
+              tdPhoto.appendChild(img);
+            } else {
+              tdPhoto.textContent = "-";
+            }
+            tdPhoto.rowSpan = dish.ingredients.length;
+            tr.appendChild(tdPhoto);
+          }
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      table.appendChild(tbody);
+      panel.appendChild(table);
+    });
+  }
 });
