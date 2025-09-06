@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ DOM загружен");
 
-  const sections = document.querySelectorAll(".nav-btn");
+  // Кнопки разделов (accordion)
+  const sections = document.querySelectorAll(".accordion");
 
   sections.forEach((btn) => {
     btn.addEventListener("click", async () => {
       const section = btn.dataset.section;
       console.log("🔘 Нажата кнопка:", section);
 
-      const panel = document.getElementById(section);
+      const panel = document.getElementById(section + "-section");
       if (!panel) {
         console.error("❌ Не найден panel для:", section);
         return;
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Функция отрисовки
   function renderDishes(panel, data) {
     console.log("🎨 Рисуем блюда...");
 
@@ -94,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
           tdAmount.textContent = ing.amount || "";
           tr.appendChild(tdAmount);
 
-          // технология (rowspan)
+          // технология и фото — объединяем ячейки
           if (i === 0) {
             const tdProcess = document.createElement("td");
             tdProcess.textContent = dish.process?.ru || "";
