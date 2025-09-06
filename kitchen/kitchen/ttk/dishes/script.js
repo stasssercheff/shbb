@@ -1,14 +1,17 @@
-// script.js — надежная отладочная версия для "Завтраки"
+// script.js — рабочая версия для всех разделов
 (() => {
-  const DEBUG = true; // покажет лог на странице, если true
-  let breakfastLoaded = false;
-  let breakfastData = null;
+  const sections = [
+    { id: "breakfast", title: "Завтраки", json: "data/breakfast.json" },
+    { id: "soup", title: "Супы", json: "data/soup.json" },
+    { id: "salad", title: "Салаты", json: "data/salad-starter.json" },
+    { id: "main", title: "Основные блюда", json: "data/main.json" }
+  ];
 
-  // ---- helper: visible logger ----
-  function makeLogger() {
-    const logs = [];
-    const appendToDom = (msg, level = "log") => {
-      if (!DEBUG) return;
+  const DEBUG = true;
+
+  function log(msg, level="log") {
+    if (DEBUG) {
+      console[level](msg);
       let dbg = document.getElementById("ttk-debug");
       if (!dbg) {
         dbg = document.createElement("pre");
@@ -19,202 +22,115 @@
       const time = new Date().toLocaleTimeString();
       dbg.textContent += `\n[${time}] ${level.toUpperCase()}: ${msg}`;
       dbg.scrollTop = dbg.scrollHeight;
-    };
-
-    return {
-      log: (msg) => { console.log(msg); appendToDom(msg, "log"); },
-      error: (msg) => { console.error(msg); appendToDom(msg, "error"); }
-    };
+    }
   }
-  const logger = makeLogger();
 
-  // ---- utilities ----
-  function el(name, opts = {}) {
-    const e = document.createElement(name);
-    Object.entries(opts).forEach(([k, v]) => {
-      if (k === "text") e.textContent = v;
-      else if (k === "html") e.innerHTML = v;
-      else e.setAttribute(k, v);
-    });
+  function el(tag, opts={}) {
+    const e = document.createElement(tag);
+    for (const [k,v] of Object.entries(opts)) {
+      if (k==="text") e.textContent = v;
+      else if (k==="html") e.innerHTML = v;
+      else e.setAttribute(k,v);
+    }
     return e;
   }
 
-  // ---- main flow ----
   document.addEventListener("DOMContentLoaded", () => {
-    logger.log("DOM loaded");
-
-    // Найдём кнопку-завтраки: .accordion[data-section="breakfast"]
-    const breakfastBtn = document.querySelector('.accordion[data-section="breakfast"]');
-    if (!breakfastBtn) {
-      logger.error('Кнопка: .accordion[data-section="breakfast"] НЕ найдена в DOM. Убедись в разметке.');
-      return;
-    }
-
-    // Убедимся, что есть панель с id breakfast-section
-    const panelId = 'breakfast-section';
-    let panel = document.getElementById(panelId);
-    if (!panel) {
-      // если нет — создаём, чтобы гарантированно отрисовать
-      panel = el('div', { id: panelId, class: 'panel' });
-      breakfastBtn.insertAdjacentElement('afterend', panel);
-      logger.log(`Контейнер с id="${panelId}" не найден — создан автоматически.`);
-    }
-
-    // Навесим обработчик клика
-    breakfastBtn.addEventListener('click', async () => {
-      logger.log('Нажата кнопка "Завтраки"');
-      // toggle видимости панели
-      if (panel.style.display === 'block') {
-        panel.style.display = 'none';
-        logger.log('Панель скрыта');
+    sections.forEach(section => {
+      const btn = document.querySelector(`.section-btn[data-section="${section.id}"]`);
+      const panel = document.getElementById(`${section.id}-section`);
+      if (!btn || !panel) {
+        log(`Пропущен раздел ${section.id}`, "error");
         return;
       }
 
-      // показать панель
-      panel.style.display = 'block';
+      btn.addEventListener("click", async () => {
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
 
-      // если уже загружено — просто отрисовать / показать
-      if (breakfastLoaded && breakfastData) {
-        logger.log('Данные уже загружены — перерисовка');
-        renderAllBreakfasts(panel, breakfastData);
-        return;
-      }
+        if (panel.innerHTML.trim() !== "") return; // уже загружено
 
-      // загрузить JSON (с cache-bust)
-      const url = 'data/breakfast.json';
-      logger.log(`Запрос JSON: ${url}`);
-      try {
-        const resp = await fetch(url + '?_=' + Date.now());
-        if (!resp.ok) {
-          const msg = `Fetch error ${resp.status} ${resp.statusText} для ${url}`;
-          logger.error(msg);
-          panel.innerHTML = `<div style="color:red;padding:10px;">Ошибка загрузки: ${resp.status} ${resp.statusText}. Проверь путь: <code>${url}</code></div>`;
-          return;
+        log(`Загрузка ${section.title} из ${section.json}`);
+        try {
+          const res = await fetch(section.json + "?_=" + Date.now());
+          if (!res.ok) throw new Error(res.statusText);
+          const data = await res.json();
+          renderSection(panel, data);
+          log(`${section.title} загружены, элементов: ${data.length}`);
+        } catch(err) {
+          panel.innerHTML = `<div style="color:red;padding:6px;">Ошибка загрузки ${section.title}: ${err.message}</div>`;
+          log(`Ошибка загрузки ${section.title}: ${err.message}`, "error");
         }
-        const data = await resp.json();
-        breakfastLoaded = true;
-        breakfastData = data;
-        logger.log('JSON успешно загружен, элементов: ' + (Array.isArray(data) ? data.length : 'not array'));
-        renderAllBreakfasts(panel, data);
-      } catch (err) {
-        logger.error('Ошибка fetch/parsing: ' + (err && err.message ? err.message : err));
-        panel.innerHTML = `<div style="color:red;padding:10px;">Ошибка загрузки данных: ${err && err.message ? err.message : err}. Если открываешь файл по file:// — запусти локальный сервер (например: <code>python -m http.server</code>), или залей на GitHub Pages.</div>`;
-      }
+      });
     });
   });
 
-  // ---- render ----
-  function renderAllBreakfasts(container, data) {
-    container.innerHTML = ''; // очищаем
-    if (!Array.isArray(data)) {
-      container.innerHTML = `<div style="color:red">Ошибка: JSON не массив</div>`;
+  function renderSection(panel, data) {
+    panel.innerHTML = "";
+    if (!Array.isArray(data) || data.length === 0) {
+      panel.innerHTML = `<div style="color:#666;padding:6px;">Нет данных</div>`;
       return;
     }
 
-    data.forEach((dish, dishIndex) => {
-      // Title
-      const title = el('h3', { text: dish?.name?.ru || `Блюдо ${dishIndex + 1}` });
-      title.style.margin = '14px 0 6px';
-      container.appendChild(title);
+    data.forEach((dish, i) => {
+      const title = el("h3", { text: dish.name?.ru || `Блюдо ${i+1}` });
+      title.style.margin = '12px 0 6px';
+      panel.appendChild(title);
 
-      // Table wrapper
-      const wrapper = el('div', { class: 'table-container' });
-      container.appendChild(wrapper);
+      const wrapper = el("div", { class: "table-container" });
+      panel.appendChild(wrapper);
 
-      const table = el('table', { class: 'dish-table' });
+      const table = el("table", { class: "dish-table" });
       wrapper.appendChild(table);
 
-      // THEAD
-      const thead = el('thead');
+      const thead = el("thead");
       thead.innerHTML = `
         <tr>
-          <th style="width:48px;">№</th>
+          <th style="width:40px;">№</th>
           <th>Наименование продукта</th>
           <th style="width:100px;">Кол-во</th>
-          <th style="min-width:280px;">Технология</th>
+          <th style="min-width:250px;">Технология</th>
           <th style="width:140px;">Фото</th>
         </tr>`;
       table.appendChild(thead);
 
-      // TBODY
-      const tbody = el('tbody');
-      table.appendChild(tbody);
-
+      const tbody = el("tbody");
       const ingredients = Array.isArray(dish.ingredients) ? dish.ingredients : [];
+      const rowsCount = ingredients.length || 1;
 
-      // если нет ингредиентов — создаём одну строку-заглушку
-      const rowsCount = ingredients.length > 0 ? ingredients.length : 1;
-
-      for (let i = 0; i < rowsCount; i++) {
-        const tr = el('tr');
-        // №
-        const tdNum = el('td', { text: String(i + 1) });
-        tdNum.style.textAlign = 'center';
-        tr.appendChild(tdNum);
-
-        // Наименование
-        const ingText = ingredients[i] ? (ingredients[i].ru || '') : '-';
-        const tdIng = el('td', { text: ingText });
-        tdIng.style.whiteSpace = 'nowrap'; // не ломаем ширину, подпираем под содержимое
-        tr.appendChild(tdIng);
-
-        // Кол-во
-        const qtyText = ingredients[i] ? (String(ingredients[i].amount || '')) : '-';
-        const tdQty = el('td', { text: qtyText });
-        tdQty.style.textAlign = 'center';
-        tr.appendChild(tdQty);
-
-        // Технология (rowspan) — только в первой строке
-        if (i === 0) {
-          const procText = (dish.process && (dish.process.ru || '')) || '-';
-          const tdProc = el('td', { text: procText });
+      for (let j=0; j<rowsCount; j++) {
+        const tr = el("tr");
+        const ingText = ingredients[j]?.ru || '-';
+        const qtyText = ingredients[j]?.amount || '-';
+        tr.innerHTML = `
+          <td style="text-align:center;">${j+1}</td>
+          <td>${ingText}</td>
+          <td style="text-align:center;">${qtyText}</td>
+        `;
+        if (j===0) {
+          const tdProc = el("td", { text: dish.process?.ru || '-' });
           tdProc.rowSpan = rowsCount;
           tdProc.style.verticalAlign = 'top';
           tdProc.style.wordBreak = 'break-word';
           tr.appendChild(tdProc);
 
-          // Фото
-          const tdPhoto = el('td');
+          const tdPhoto = el("td");
           tdPhoto.rowSpan = rowsCount;
           tdPhoto.style.verticalAlign = 'top';
           if (dish.photo) {
-            const img = el('img');
+            const img = el("img");
             img.src = dish.photo;
             img.alt = dish.name?.ru || '';
-            img.style.maxWidth = '120px';
-            img.style.height = 'auto';
-            img.style.display = 'block';
+            img.style.maxWidth = "120px";
+            img.style.height = "auto";
+            img.style.display = "block";
             tdPhoto.appendChild(img);
-          } else {
-            tdPhoto.textContent = '-';
-          }
+          } else tdPhoto.textContent = "-";
           tr.appendChild(tdPhoto);
         }
-
         tbody.appendChild(tr);
-      } // end for ingredients
+      }
 
-      // after each table, small spacer
-      const hr = el('div');
-      hr.style.height = '6px';
-      container.appendChild(hr);
-    }); // end for dishes
-
-    // apply minimal table styles if missing
-    applyTableStylesOnce();
-  }
-
-  // minimal CSS injection to ensure visible borders (won't override your file)
-  let stylesInjected = false;
-  function applyTableStylesOnce() {
-    if (stylesInjected) return;
-    stylesInjected = true;
-    const s = document.createElement('style');
-    s.innerHTML = `
-      .dish-table { width:100%; border-collapse:collapse; margin:8px 0 16px; font-size:14px; }
-      .dish-table th, .dish-table td { border:1px solid #444; padding:6px 8px; text-align:left; vertical-align:top; }
-      .dish-table th { background:#f6f6f6; font-weight:600; }
-    `;
-    document.head.appendChild(s);
+      table.appendChild(tbody);
+    });
   }
 })();
