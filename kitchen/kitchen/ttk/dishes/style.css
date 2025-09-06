@@ -1,124 +1,95 @@
-
-
+/* Общие стили */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f6f8;
-  color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background-color: #f4f6f8; color: #333;
 }
 
 .page-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
-  gap: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .top-btn {
-  padding: 8px 16px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.2s;
-}
-.top-btn:hover {
-  background-color: #c1b29a;
+    padding: 8px 16px;
+    background-color: #d8cfc0;
+    border: none; border-radius: 6px;
+    cursor: pointer; font-weight: 600;
+    transition: 0.2s;
 }
 
+.top-btn:hover { background-color: #c1b29a; }
+
 .main-container {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
 .date-container {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-  text-align: center;
+    font-size:14px; color:#666;
+    margin-bottom:20px; text-align:center;
 }
 
-.sections-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+.sections-container { display:flex; flex-direction:column; gap:15px; }
 
-/* Кнопки разделов */
 .section-btn {
-  background-color: #d8cfc0;
-  padding: 15px 20px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  transition: background 0.2s;
+    background-color:#d8cfc0;
+    padding:15px 20px;
+    border-radius:8px;
+    font-size:18px; font-weight:600;
+    cursor:pointer; text-align:center;
+    transition:background 0.2s;
 }
-.section-btn:hover {
-  background-color: #c1b29a;
-}
+.section-btn:hover { background-color:#c1b29a; }
 
-.section-panel {
-  display: none;
-  margin-top: 10px;
-}
+.section-panel { display:none; margin-top:10px; }
 
-/* Кнопки блюд */
-.dish-btn {
-  display: block;
-  width: 100%;
-  background-color: #f1ede6;
-  border: none;
-  padding: 10px;
-  margin: 5px 0;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.dish-btn:hover {
-  background-color: #e0d7c8;
-}
-
-.table-container {
-  margin: 10px 0;
-  overflow-x: auto;
-}
+.table-container { margin:10px 0; overflow-x:auto; }
 
 .dish-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 10px 0;
-  font-size: 14px;
-  background: #fff;
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0;
+    font-size:14px;
+    background:#fff;
 }
-.dish-table th, .dish-table td {
-  border: 1px solid #ccc;
-  padding: 6px 8px;
-  text-align: left;
+.dish-table th, .dish-table td { border:1px solid #ccc; padding:6px 8px; text-align:left; vertical-align:top; }
+.dish-table th { background-color:#f9f9f9; font-weight:600; }
+
+.dish-photo img {
+    max-width: 60px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
-.dish-table th {
-  background-color: #f9f9f9;
-  font-weight: 600;
+.dish-photo img:hover {
+    transform: scale(1.1);
 }
 
-.dish-process {
-  margin-top: 10px;
-  font-size: 14px;
-  text-align: left;
+/* модальное окно фото */
+#photo-modal {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+#photo-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
 }
