@@ -58,23 +58,27 @@ body {
 .sections-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px; /* Расстояние между кнопками */
+  width: 250px; /* Можно подкорректировать под экран */
+  margin-left: 20px; /* Отступ от левого края */
 }
 
 .section-btn {
-  background-color: #d8cfc0;
-  padding: 12px 20px;
-  border-radius: 8px;
+  width: 100%; /* Кнопка занимает всю ширину контейнера */
+  text-align: center; /* Текст по центру */
+  padding: 10px 15px;
   font-size: 16px;
   font-weight: 600;
+  background-color: #4CAF50; /* Цвет фона кнопки */
+  color: white; /* Цвет текста */
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  text-align: center;
-  color: #333;
-  transition: background 0.2s, color 0.2s;
+  transition: background-color 0.3s;
 }
+
 .section-btn:hover {
-  background-color: #c1b29a;
-  color: #000;
+  background-color: #45a049; /* Цвет при наведении */
 }
 
 /* Панель раздела */
