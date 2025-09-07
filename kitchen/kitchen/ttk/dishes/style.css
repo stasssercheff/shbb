@@ -22,7 +22,7 @@ body {
 
 .top-btn, .lang-btn {
   padding: 8px 16px;
-  background-color: #d8cfc0;
+  background-color: #d8cfc0; /* как просили */
   color: #333;
   border: none;
   border-radius: 6px;
@@ -31,7 +31,6 @@ body {
   font-size: 14px;
   transition: 0.2s;
 }
-
 .top-btn:hover, .lang-btn:hover {
   background-color: #c1b29a;
 }
@@ -39,7 +38,11 @@ body {
 /* Основной контейнер */
 .main-container {
   width: 100%;
-  padding: 20px 10px; /* минимальные отступы по бокам */
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
   box-sizing: border-box;
 }
 
@@ -51,32 +54,28 @@ body {
   text-align: center;
 }
 
-/* Контейнер разделов (кнопки) */
+/* Разделы - кнопки */
 .sections-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* центрируем кнопки */
-  gap: 10px;           /* расстояние между кнопками */
-  width: 100%;         /* всегда на всю ширину */
-  margin: 0 auto;
+  align-items: center; /* по центру */
+  gap: 10px; /* расстояние между кнопками */
+  margin-bottom: 20px;
 }
 
-/* Кнопки разделов */
 .section-btn {
-  width: 250px;        /* фиксированная ширина кнопки */
-  max-width: 90%;      /* на маленьких экранах */
+  width: 220px; /* одинаковая ширина */
   text-align: center;
-  padding: 10px 15px;
+  padding: 12px 20px;
   font-size: 16px;
   font-weight: 600;
-  background-color: #d8cfc0; /* цвет как у навигационных сверху */
+  background-color: #d8cfc0; /* как кнопки навигации */
   color: #333;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
-
 .section-btn:hover {
   background-color: #c1b29a;
 }
@@ -84,26 +83,27 @@ body {
 /* Панель раздела */
 .section-panel {
   display: none;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden; /* скролл убран */
+  text-align: center; /* таблица по центру */
 }
 
-/* Таблица ингредиентов */
+/* Таблица блюд */
 .table-container {
   width: 100%;
-  max-width: 1200px;   /* ограничение на очень большие экраны */
-  margin: 0 auto;      /* центрируем таблицу */
-  overflow-x: hidden;  /* скролл убран */
+  overflow: hidden; /* скролл отключен */
+  display: flex;
+  justify-content: center;
 }
 
 .dish-table {
-  width: 90%;
+  width: 95%; /* почти вся ширина экрана */
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 10px; /* можно менять размер текста */
+  font-size: 14px; /* шрифт таблицы */
   background: #fff;
+  table-layout: fixed; /* равномерное распределение колонок */
 }
 
 .dish-table th, .dish-table td {
@@ -111,23 +111,7 @@ body {
   padding: 6px 8px;
   text-align: left;
   vertical-align: top;
-}
-
-/* Выравнивание столбцов */
-.dish-table th:nth-child(1), .dish-table td:nth-child(1) {
-  width: 8%;   /* номер */
-}
-.dish-table th:nth-child(2), .dish-table td:nth-child(2) {
-  width: 30%;  /* ингредиент */
-}
-.dish-table th:nth-child(3), .dish-table td:nth-child(3) {
-  width: 12%;  /* кол-во */
-}
-.dish-table th:nth-child(4), .dish-table td:nth-child(4) {
-  width: 40%;  /* описание */
-}
-.dish-table th:nth-child(5), .dish-table td:nth-child(5) {
-  width: 10%;  /* фото */
+  word-wrap: break-word;
 }
 
 .dish-table th {
@@ -135,20 +119,21 @@ body {
   font-weight: 600;
 }
 
-/* Фото блюда */
-.dish-photo img {
+.dish-table td:nth-child(1) { width: 5%; }   /* № */
+.dish-table td:nth-child(2) { width: 25%; }  /* Ингредиент */
+.dish-table td:nth-child(3) { width: 10%; }  /* Кол-во */
+.dish-table td:nth-child(4) { width: 50%; }  /* Описание */
+.dish-table td:nth-child(5) { width: 10%; }  /* Фото */
+
+.dish-table td img {
   max-width: 60px;
   height: auto;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-.dish-photo img:hover {
-  transform: scale(1.1);
 }
 
-.page-header .top-btn,
-.page-header .lang-btn {
-  font-family: 'Arial', sans-serif; /* здесь ставишь нужный шрифт */
-  font-size: 13px;                  /* размер текста */
-  font-weight: 600;                 /* жирность */
+/* Название блюда */
+.dish-table td[colspan="5"] {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: #f1f1f1;
 }
