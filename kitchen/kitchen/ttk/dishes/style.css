@@ -59,20 +59,19 @@ body {
 /* Разделы кнопок */
 .sections-container {
   display: flex;
-  justify-content: center; /* по центру экрана */
-  flex-wrap: wrap; /* если кнопок много, перенос на следующую строку */
+  flex-direction: column; /* один столбец */
+  align-items: center; /* по центру */
   gap: 10px;
   margin-bottom: 20px;
 }
 
 .section-btn {
-  min-width: 150px; /* одинаковая ширина */
-  max-width: 200px;
+  width: 200px; /* фиксированная ширина всех кнопок */
   text-align: center;
   padding: 10px 15px;
   font-size: 14px;
   font-weight: 600;
-  background-color: #d8cfc0; /* цвет как у навигационных кнопок */
+  background-color: #d8cfc0; /* как навигационные кнопки */
   color: #333;
   border: none;
   border-radius: 6px;
