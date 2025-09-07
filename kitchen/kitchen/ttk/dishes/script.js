@@ -8,9 +8,9 @@ const dataFiles = {
   main: 'data/main.json'
 };
 
-// Функция создания таблицы
+// Функция создания таблицы для раздела
 function createTable(sectionArray) {
-  if (!sectionArray || !Array.isArray(sectionArray)) return null;
+  if (!sectionArray) return document.createElement('div');
 
   const table = document.createElement('table');
   table.classList.add('dish-table');
@@ -30,18 +30,20 @@ function createTable(sectionArray) {
   // Тело таблицы
   const tbody = document.createElement('tbody');
 
-  sectionArray.forEach(dish => {
-    // --- Название блюда ---
+  sectionArray.forEach((dish, index) => {
+    // Название блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = 5;
     tdDish.style.fontWeight = '600';
-    tdDish.style.textAlign = 'center';
     tdDish.textContent = dish.name[currentLang];
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
-    // --- Ингредиенты + описание ---
+    // Ингредиенты и описание
+    const descText = dish.process[currentLang] || '';
+    const ingCount = dish.ingredients.length;
+
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
@@ -56,8 +58,8 @@ function createTable(sectionArray) {
 
       const tdDesc = document.createElement('td');
       if (i === 0) {
-        tdDesc.rowSpan = dish.ingredients.length;
-        tdDesc.textContent = dish.process[currentLang] || '';
+        tdDesc.textContent = descText;
+        tdDesc.rowSpan = ingCount; // объединяем ячейки
       }
 
       const tdPhoto = document.createElement('td');
@@ -67,13 +69,12 @@ function createTable(sectionArray) {
         img.alt = dish.name[currentLang];
         img.className = 'dish-photo';
         tdPhoto.appendChild(img);
-        tdPhoto.rowSpan = dish.ingredients.length;
       }
 
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
-      tr.appendChild(tdDesc);
+      if (i === 0) tr.appendChild(tdDesc);
       tr.appendChild(tdPhoto);
 
       tbody.appendChild(tr);
@@ -84,7 +85,7 @@ function createTable(sectionArray) {
   return table;
 }
 
-// Загрузка данных раздела
+// Загрузка данных для раздела
 async function loadSection(section) {
   const panel = document.getElementById(section);
 
@@ -96,6 +97,7 @@ async function loadSection(section) {
     }
   });
 
+  // Переключаем отображение текущей панели
   if (panel.style.display === 'block') {
     panel.style.display = 'none';
     panel.innerHTML = '';
@@ -112,8 +114,7 @@ async function loadSection(section) {
 
     const tblContainer = document.createElement('div');
     tblContainer.className = 'table-container';
-    const table = createTable(sectionData);
-    if (table) tblContainer.appendChild(table);
+    tblContainer.appendChild(createTable(sectionData));
     panel.appendChild(tblContainer);
 
   } catch (err) {
@@ -122,33 +123,36 @@ async function loadSection(section) {
   }
 }
 
-// Инициализация кнопок и переключателя языка
+// Инициализация кнопок и языкового переключателя
 document.addEventListener('DOMContentLoaded', () => {
+  // Дата
   document.getElementById('current-date').textContent = new Date().toLocaleDateString();
 
+  // Разделы
   document.querySelectorAll('.section-btn').forEach(btn => {
-    btn.addEventListener('click', () => loadSection(btn.dataset.section));
+    btn.addEventListener('click', () => {
+      const section = btn.dataset.section;
+      loadSection(section);
+    });
   });
 
+  // Языковой переключатель
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       currentLang = btn.dataset.lang;
-
       // Обновляем открытые панели
       document.querySelectorAll('.section-panel').forEach(panel => {
         if (panel.style.display === 'block') {
           const section = panel.id;
           panel.innerHTML = '';
+          const tblContainer = document.createElement('div');
+          tblContainer.className = 'table-container';
           fetch(dataFiles[section])
-            .then(resp => resp.json())
-            .then(sectionData => {
-              const tblContainer = document.createElement('div');
-              tblContainer.className = 'table-container';
-              const table = createTable(sectionData);
-              if (table) tblContainer.appendChild(table);
+            .then(res => res.json())
+            .then(data => {
+              tblContainer.appendChild(createTable(data));
               panel.appendChild(tblContainer);
-            })
-            .catch(err => console.error(err));
+            });
         }
       });
     });
