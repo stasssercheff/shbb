@@ -38,11 +38,14 @@ body {
 /* Основной контейнер */
 .main-container {
   width: 100%;
-  margin: 20px 0;
+  max-width: 100vw; /* не шире экрана */
+  margin: 20px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  overflow-x: hidden; /* горизонтальный скролл убран */
+  box-sizing: border-box;
 }
 
 /* Дата */
@@ -53,21 +56,23 @@ body {
   text-align: center;
 }
 
-/* Разделы */
+/* Разделы кнопок */
 .sections-container {
   display: flex;
-  justify-content: center; /* Центрируем кнопки */
-  flex-wrap: wrap;
-  gap: 10px; 
+  justify-content: center; /* по центру экрана */
+  flex-wrap: wrap; /* если кнопок много, перенос на следующую строку */
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 .section-btn {
-  min-width: 180px; /* Минимальная ширина кнопки */
-  padding: 12px 20px;
-  font-size: 16px;
+  min-width: 150px; /* одинаковая ширина */
+  max-width: 200px;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 14px;
   font-weight: 600;
-  background-color: #d8cfc0; /* Цвет как у верхних кнопок */
+  background-color: #d8cfc0; /* цвет как у навигационных кнопок */
   color: #333;
   border: none;
   border-radius: 6px;
@@ -82,21 +87,17 @@ body {
 /* Панель раздела */
 .section-panel {
   display: none;
-  width: 100%;
   margin-top: 10px;
-}
-
-/* Таблица ингредиентов */
-.table-container {
   width: 100%;
-  overflow: hidden; /* Скролл отключен */
+  overflow-x: hidden; /* горизонтального скролла нет */
 }
 
+/* Таблица блюд */
 .dish-table {
-  width: 100%;
+  width: 100%; /* на всю ширину контейнера */
   border-collapse: collapse;
-  font-size: 14px;
-  table-layout: fixed; /* Фиксированная ширина колонок */
+  font-size: 12px;
+  table-layout: fixed; /* столбцы равномерно распределяются */
   word-wrap: break-word;
 }
 
@@ -104,19 +105,8 @@ body {
   border: 1px solid #ccc;
   padding: 6px 8px;
   vertical-align: top;
+  text-align: left;
 }
-
-/* Фиксируем ширину столбцов */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { width: 5%; text-align: center; } /* № */
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { width: 25%; } /* Ингредиент */
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { width: 10%; text-align: center; } /* Кол-во */
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { width: 50%; } /* Описание */
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { width: 10%; text-align: center; } /* Фото */
 
 .dish-table th {
   background-color: #f9f9f9;
@@ -125,12 +115,11 @@ body {
 
 /* Фото блюда */
 .dish-photo img {
-  max-width: 60px;
+  max-width: 80px;
   height: auto;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
-
-/* Процесс приготовления */
-.dish-process {
-  font-size: 14px;
+.dish-photo img:hover {
+  transform: scale(1.1);
 }
