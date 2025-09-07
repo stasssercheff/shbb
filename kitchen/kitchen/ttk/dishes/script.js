@@ -1,68 +1,153 @@
-// tbody
-const tbody = document.createElement('tbody');
+let currentLang = 'ru';
 
-sectionArray.forEach(dish => {
-  const ingredients = Array.isArray(dish.ingredients) ? dish.ingredients : [];
-  const rowspan = ingredients.length || 1;
+// Пути к JSON-файлам
+const dataFiles = {
+  breakfast: 'data/breakfast.json',
+  soup: 'data/soup.json',
+  salad: 'data/salad.json',
+  main: 'data/main.json'
+};
 
-  // название блюда
-  const rowTitle = document.createElement('tr');
-  const tdTitle = document.createElement('td');
-  tdTitle.colSpan = 5;
-  tdTitle.style.fontWeight = '600';
-  tdTitle.textContent = dish.name?.ru || 'Без названия';
-  rowTitle.appendChild(tdTitle);
-  tbody.appendChild(rowTitle);
+// Хранение загруженных данных
+const dataCache = {};
 
-  if (ingredients.length === 0) {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>—</td><td>-</td><td>-</td><td>${dish.process?.ru || ''}</td><td>-</td>`;
-    tbody.appendChild(tr);
-  } else {
-    ingredients.forEach((ing, i) => {
+// Функция создания таблицы для раздела
+function createTable(sectionArray) {
+  const table = document.createElement('table');
+  table.classList.add('dish-table');
+
+  // Шапка таблицы
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Кол-во' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
+    .forEach(text => {
+      const th = document.createElement('th');
+      th.textContent = text;
+      headerRow.appendChild(th);
+    });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Тело таблицы
+  const tbody = document.createElement('tbody');
+
+  sectionArray.forEach((dish, index) => {
+    // Название блюда
+    const dishRow = document.createElement('tr');
+    const tdDish = document.createElement('td');
+    tdDish.colSpan = 5;
+    tdDish.style.fontWeight = '600';
+    tdDish.textContent = dish.name[currentLang];
+    dishRow.appendChild(tdDish);
+    tbody.appendChild(dishRow);
+
+    // Ингредиенты и описание
+    dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
       const tdNum = document.createElement('td');
-      tdNum.textContent = String(i + 1);
-      tdNum.style.textAlign = 'center';
-      tr.appendChild(tdNum);
+      tdNum.textContent = i + 1;
 
       const tdName = document.createElement('td');
-      tdName.textContent = ing.ru || '';
-      tr.appendChild(tdName);
+      tdName.textContent = ing[currentLang];
 
-      const tdAmt = document.createElement('td');
-      tdAmt.textContent = ing.amount || '';
-      tdAmt.style.textAlign = 'center';
-      tr.appendChild(tdAmt);
+      const tdAmount = document.createElement('td');
+      tdAmount.textContent = ing.amount || '';
 
-      // Технология — объединяем на все строки ингредиентов
-      if (i === 0) {
-        const tdProc = document.createElement('td');
-        tdProc.textContent = dish.process?.ru || '';
-        tdProc.rowSpan = rowspan;
-        tdProc.style.verticalAlign = 'top';
-        tr.appendChild(tdProc);
+      const tdDesc = document.createElement('td');
+      tdDesc.textContent = i === 0 ? (dish.process[currentLang] || '') : '';
 
-        const tdPhoto = document.createElement('td');
-        tdPhoto.rowSpan = rowspan;
-        tdPhoto.style.verticalAlign = 'top';
-        if (dish.photo) {
-          const img = document.createElement('img');
-          img.src = dish.photo;
-          img.alt = dish.name?.ru || '';
-          img.style.maxWidth = '70px';
-          img.style.height = 'auto';
-          img.style.cursor = 'pointer';
-          img.addEventListener('click', () => openPhotoModal(dish.photo));
-          tdPhoto.appendChild(img);
-        } else {
-          tdPhoto.textContent = '-';
-        }
-        tr.appendChild(tdPhoto);
+      const tdPhoto = document.createElement('td');
+      if (i === 0 && dish.photo) {
+        const img = document.createElement('img');
+        img.src = dish.photo;
+        img.alt = dish.name[currentLang];
+        img.className = 'dish-photo';
+        tdPhoto.appendChild(img);
       }
+
+      tr.appendChild(tdNum);
+      tr.appendChild(tdName);
+      tr.appendChild(tdAmount);
+      tr.appendChild(tdDesc);
+      tr.appendChild(tdPhoto);
 
       tbody.appendChild(tr);
     });
+  });
+
+  table.appendChild(tbody);
+  return table;
+}
+
+// Загрузка данных для раздела
+async function loadSection(section) {
+  const panel = document.getElementById(section);
+
+  // Закрыть все панели
+  document.querySelectorAll('.section-panel').forEach(p => {
+    if (p !== panel) {
+      p.style.display = 'none';
+      p.innerHTML = '';
+    }
+  });
+
+  // Переключаем отображение текущей панели
+  if (panel.style.display === 'block') {
+    panel.style.display = 'none';
+    panel.innerHTML = '';
+    return;
   }
+
+  panel.style.display = 'block';
+  panel.innerHTML = '';
+
+  try {
+    if (!dataCache[section]) {
+      const response = await fetch(dataFiles[section]);
+      if (!response.ok) throw new Error('Ошибка загрузки JSON: ' + section);
+      dataCache[section] = await response.json();
+    }
+
+    const tblContainer = document.createElement('div');
+    tblContainer.className = 'table-container';
+    tblContainer.appendChild(createTable(dataCache[section]));
+    panel.appendChild(tblContainer);
+
+  } catch (err) {
+    panel.innerHTML = `<p style="color:red">${err.message}</p>`;
+    console.error(err);
+  }
+}
+
+// Инициализация кнопок и языкового переключателя
+document.addEventListener('DOMContentLoaded', () => {
+  // Дата
+  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+  // Разделы
+  document.querySelectorAll('.section-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.dataset.section;
+      loadSection(section);
+    });
+  });
+
+  // Языковой переключатель
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang;
+      // Обновляем открытые панели
+      document.querySelectorAll('.section-panel').forEach(panel => {
+        if (panel.style.display === 'block') {
+          const section = panel.id;
+          panel.innerHTML = '';
+          const tblContainer = document.createElement('div');
+          tblContainer.className = 'table-container';
+          tblContainer.appendChild(createTable(dataCache[section]));
+          panel.appendChild(tblContainer);
+        }
+      });
+    });
+  });
 });
