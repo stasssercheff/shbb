@@ -1,18 +1,18 @@
 let currentLang = 'ru';
 
-// Пути к JSON-файлам
+// Пути к JSON
 const dataFiles = {
-  breakfast: 'data/breakfast.json', // сюда вставить путь к завтракам
-  soup: 'data/soup.json',           // сюда вставить путь к супам
-  salad: 'data/salad.json',         // сюда вставить путь к салатам
-  main: 'data/main.json'            // сюда вставить путь к основным блюдам
+  breakfast: 'data/breakfast.json',
+  soup: 'data/soup.json',
+  salad: 'data/salad.json',
+  main: 'data/main.json'
 };
 
-// Кэш для загруженных данных
+// Кэш данных
 const dataCache = {};
 
-// Создание таблицы блюд
-function createTable(dishes) {
+// Отображение таблицы
+function createTable(sectionArray) {
   const table = document.createElement('table');
   table.className = 'dish-table';
 
@@ -30,34 +30,45 @@ function createTable(dishes) {
 
   const tbody = document.createElement('tbody');
 
-  dishes.forEach(dish => {
+  sectionArray.forEach((dish, index) => {
     // Название блюда
-    const trTitle = document.createElement('tr');
-    const tdTitle = document.createElement('td');
-    tdTitle.colSpan = 5;
-    tdTitle.style.fontWeight = '600';
-    tdTitle.textContent = dish.name[currentLang];
-    trTitle.appendChild(tdTitle);
-    tbody.appendChild(trTitle);
+    const dishRow = document.createElement('tr');
+    const tdDish = document.createElement('td');
+    tdDish.colSpan = 5;
+    tdDish.style.fontWeight = '600';
+    tdDish.textContent = dish.name[currentLang];
+    dishRow.appendChild(tdDish);
+    tbody.appendChild(dishRow);
 
-    // Ингредиенты
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
+
       const tdNum = document.createElement('td');
       tdNum.textContent = i + 1;
+
       const tdName = document.createElement('td');
-      tdName.textContent = ing[currentLang];
+      tdName.textContent = ing[currentLang] || '';
+
       const tdAmount = document.createElement('td');
       tdAmount.textContent = ing.amount || '';
+
       const tdDesc = document.createElement('td');
       tdDesc.textContent = i === 0 ? dish.process[currentLang] || '' : '';
+
       const tdPhoto = document.createElement('td');
-      tdPhoto.innerHTML = i === 0 && dish.photo ? `<img src="${dish.photo}" class="dish-photo">` : '';
+      if (i === 0 && dish.photo) {
+        const img = document.createElement('img');
+        img.src = dish.photo;
+        img.className = 'dish-photo';
+        tdPhoto.appendChild(img);
+      }
+
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
       tr.appendChild(tdDesc);
       tr.appendChild(tdPhoto);
+
       tbody.appendChild(tr);
     });
   });
@@ -70,38 +81,43 @@ function createTable(dishes) {
 async function loadSection(section) {
   const panel = document.getElementById(`${section}-section`);
 
-  // если открыт — закрываем
+  // Если уже открыт, закрываем
   if (panel.style.display === 'block') {
     panel.style.display = 'none';
     panel.innerHTML = '';
     return;
   }
 
-  panel.style.display = 'block';
-  panel.innerHTML = 'Загрузка...';
+  // Скрыть все другие разделы
+  document.querySelectorAll('.section-panel').forEach(p => {
+    p.style.display = 'none';
+    p.innerHTML = '';
+  });
 
-  // Загружаем данные JSON, если не в кэше
+  // Получаем данные из кэша или JSON
   if (!dataCache[section]) {
     try {
-      const resp = await fetch(dataFiles[section]);
-      if (!resp.ok) throw new Error('Ошибка сети');
-      const json = await resp.json();
-      dataCache[section] = json;
+      const response = await fetch(dataFiles[section]);
+      if (!response.ok) throw new Error('Ошибка загрузки JSON');
+      dataCache[section] = await response.json();
     } catch (err) {
-      panel.innerHTML = `<p style="color:red">Ошибка загрузки: ${err.message}</p>`;
+      panel.innerHTML = `<p style="color:red">Ошибка: ${err.message}</p>`;
+      panel.style.display = 'block';
       return;
     }
   }
 
-  panel.innerHTML = '';
-  panel.appendChild(createTable(dataCache[section]));
+  const tableContainer = document.createElement('div');
+  tableContainer.className = 'table-container';
+  tableContainer.appendChild(createTable(dataCache[section]));
+  panel.appendChild(tableContainer);
+  panel.style.display = 'block';
 }
 
-// Назначаем клики на кнопки разделов
+// Инициализация кнопок
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const section = btn.dataset.section;
-    loadSection(section);
+    loadSection(btn.dataset.section);
   });
 });
 
@@ -109,11 +125,15 @@ document.querySelectorAll('.section-btn').forEach(btn => {
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     currentLang = btn.dataset.lang;
+    // обновляем открытые разделы
     document.querySelectorAll('.section-panel').forEach(panel => {
       if (panel.style.display === 'block') {
         const section = panel.id.replace('-section', '');
         panel.innerHTML = '';
-        panel.appendChild(createTable(dataCache[section]));
+        const tableContainer = document.createElement('div');
+        tableContainer.className = 'table-container';
+        tableContainer.appendChild(createTable(dataCache[section]));
+        panel.appendChild(tableContainer);
       }
     });
   });
