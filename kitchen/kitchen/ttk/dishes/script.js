@@ -1,6 +1,4 @@
 let currentLang = 'ru';
-
-// Пути к JSON
 const dataFiles = {
   breakfast: 'data/breakfast.json',
   soup: 'data/soup.json',
@@ -8,69 +6,42 @@ const dataFiles = {
   main: 'data/main.json'
 };
 
-// Функция создания таблицы
 function createTable(sectionArray) {
   const table = document.createElement('table');
   table.classList.add('dish-table');
 
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
-  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Кол-во' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
-    .forEach(text => {
-      const th = document.createElement('th');
-      th.textContent = text;
-      headerRow.appendChild(th);
-    });
+  ['№', currentLang==='ru'?'Ингредиент':'Ingredient', currentLang==='ru'?'Кол-во':'Amount', currentLang==='ru'?'Описание':'Description', currentLang==='ru'?'Фото':'Photo']
+    .forEach(text => { const th = document.createElement('th'); th.textContent=text; headerRow.appendChild(th); });
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
   const tbody = document.createElement('tbody');
 
-  sectionArray.forEach((dish, index) => {
-    // Название блюда
-    const dishRow = document.createElement('tr');
-    const tdDish = document.createElement('td');
-    tdDish.colSpan = 5;
-    tdDish.style.fontWeight = '600';
-    tdDish.textContent = dish.name[currentLang];
+  sectionArray.forEach(dish=>{
+    const dishRow=document.createElement('tr');
+    const tdDish=document.createElement('td');
+    tdDish.colSpan=5;
+    tdDish.style.fontWeight='600';
+    tdDish.textContent=dish.name[currentLang];
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
-    // Ингредиенты
-    dish.ingredients.forEach((ing, i) => {
-      const tr = document.createElement('tr');
+    dish.ingredients.forEach((ing,i)=>{
+      const tr=document.createElement('tr');
 
-      const tdNum = document.createElement('td');
-      tdNum.textContent = i + 1;
+      const tdNum=document.createElement('td'); tdNum.textContent=i+1;
+      const tdName=document.createElement('td'); tdName.textContent=ing[currentLang];
+      const tdAmount=document.createElement('td'); tdAmount.textContent=ing.amount||'';
 
-      const tdName = document.createElement('td');
-      tdName.textContent = ing[currentLang];
+      const tdDesc=document.createElement('td');
+      if(i===0){ tdDesc.textContent=dish.process[currentLang]||''; tdDesc.rowSpan=dish.ingredients.length; }
 
-      const tdAmount = document.createElement('td');
-      tdAmount.textContent = ing.amount || '';
+      const tdPhoto=document.createElement('td');
+      if(i===0 && dish.photo){ const img=document.createElement('img'); img.src=dish.photo; img.alt=dish.name[currentLang]; img.className='dish-photo'; tdPhoto.appendChild(img); tdPhoto.rowSpan=dish.ingredients.length; }
 
-      const tdDesc = document.createElement('td');
-      if (i === 0) {
-        tdDesc.textContent = dish.process[currentLang] || '';
-        tdDesc.rowSpan = dish.ingredients.length; // Объединяем строки
-      }
-
-      const tdPhoto = document.createElement('td');
-      if (i === 0 && dish.photo) {
-        const img = document.createElement('img');
-        img.src = dish.photo;
-        img.alt = dish.name[currentLang];
-        img.className = 'dish-photo';
-        tdPhoto.appendChild(img);
-        tdPhoto.rowSpan = dish.ingredients.length;
-      }
-
-      tr.appendChild(tdNum);
-      tr.appendChild(tdName);
-      tr.appendChild(tdAmount);
-      tr.appendChild(tdDesc);
-      tr.appendChild(tdPhoto);
-
+      tr.append(tdNum,tdName,tdAmount,tdDesc,tdPhoto);
       tbody.appendChild(tr);
     });
   });
@@ -79,70 +50,44 @@ function createTable(sectionArray) {
   return table;
 }
 
-// Загрузка раздела
-async function loadSection(section) {
-  const panel = document.getElementById(section);
-
-  // Закрыть все панели
-  document.querySelectorAll('.section-panel').forEach(p => {
-    if (p !== panel) {
-      p.style.display = 'none';
-      p.innerHTML = '';
-    }
+async function loadSection(section){
+  const panel=document.getElementById(section);
+  document.querySelectorAll('.section-panel').forEach(p=>{
+    if(p!==panel){ p.style.display='none'; p.innerHTML=''; }
   });
 
-  if (panel.style.display === 'block') {
-    panel.style.display = 'none';
-    panel.innerHTML = '';
-    return;
-  }
+  if(panel.style.display==='block'){ panel.style.display='none'; panel.innerHTML=''; return; }
 
-  panel.style.display = 'block';
-  panel.innerHTML = '';
+  panel.style.display='block'; panel.innerHTML='';
 
-  try {
-    const response = await fetch(dataFiles[section]);
-    if (!response.ok) throw new Error('Ошибка загрузки JSON: ' + section);
-    const sectionData = await response.json();
+  try{
+    const res=await fetch(dataFiles[section]);
+    if(!res.ok) throw new Error('Ошибка загрузки JSON: '+section);
+    const data=await res.json();
 
-    const tblContainer = document.createElement('div');
-    tblContainer.className = 'table-container';
-    tblContainer.appendChild(createTable(sectionData));
-    panel.appendChild(tblContainer);
-
-  } catch (err) {
-    panel.innerHTML = `<p style="color:red">${err.message}</p>`;
-    console.error(err);
-  }
+    const container=document.createElement('div');
+    container.className='table-container';
+    container.appendChild(createTable(data));
+    panel.appendChild(container);
+  }catch(err){ panel.innerHTML=`<p style="color:red">${err.message}</p>`; console.error(err); }
 }
 
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
-
-  document.querySelectorAll('.section-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      loadSection(btn.dataset.section);
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('current-date').textContent=new Date().toLocaleDateString();
+  document.querySelectorAll('.section-btn').forEach(btn=>btn.addEventListener('click',()=>loadSection(btn.dataset.section)));
+  document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>{
+    currentLang=btn.dataset.lang;
+    document.querySelectorAll('.section-panel').forEach(panel=>{
+      if(panel.style.display==='block'){
+        const section=panel.id;
+        panel.innerHTML='';
+        fetch(dataFiles[section]).then(r=>r.json()).then(data=>{
+          const container=document.createElement('div');
+          container.className='table-container';
+          container.appendChild(createTable(data));
+          panel.appendChild(container);
+        });
+      }
     });
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentLang = btn.dataset.lang;
-      document.querySelectorAll('.section-panel').forEach(panel => {
-        if (panel.style.display === 'block') {
-          const section = panel.id;
-          panel.innerHTML = '';
-          fetch(dataFiles[section])
-            .then(res => res.json())
-            .then(data => {
-              const tblContainer = document.createElement('div');
-              tblContainer.className = 'table-container';
-              tblContainer.appendChild(createTable(data));
-              panel.appendChild(tblContainer);
-            });
-        }
-      });
-    });
-  });
+  }));
 });
