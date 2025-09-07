@@ -145,3 +145,10 @@ body {
 .dish-photo img:hover {
   transform: scale(1.1);
 }
+
+.page-header .top-btn,
+.page-header .lang-btn {
+  font-family: 'Arial', sans-serif; /* здесь ставишь нужный шрифт */
+  font-size: 13px;                  /* размер текста */
+  font-weight: 600;                 /* жирность */
+}
