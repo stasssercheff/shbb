@@ -1,37 +1,49 @@
 let currentLang = 'ru';
 
-// Пути к JSON
-const dataFiles = {
+// Пути к файлам JSON
+const jsonFiles = {
   breakfast: 'data/breakfast.json',
   soup: 'data/soup.json',
   salad: 'data/salad.json',
   main: 'data/main.json'
 };
 
-// Кэш данных
-const dataCache = {};
+// Загрузка данных из JSON
+async function loadData(filePath) {
+  try {
+    const res = await fetch(filePath);
+    if (!res.ok) throw new Error(`Ошибка сети: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
 
-// Отображение таблицы
+// Создание таблицы для раздела
 function createTable(sectionArray) {
   const table = document.createElement('table');
   table.className = 'dish-table';
 
   const thead = document.createElement('thead');
-  thead.innerHTML = `
-    <tr>
-      <th>№</th>
-      <th>${currentLang === 'ru' ? 'Ингредиент' : 'Ingredient'}</th>
-      <th>${currentLang === 'ru' ? 'Шт/гр' : 'Qty'}</th>
-      <th>${currentLang === 'ru' ? 'Описание' : 'Description'}</th>
-      <th>${currentLang === 'ru' ? 'Фото' : 'Photo'}</th>
-    </tr>
-  `;
+  const headerRow = document.createElement('tr');
+  ['№', 'Ингредиент', 'Шт/гр', 'Описание', 'Фото'].forEach((txt, i) => {
+    const th = document.createElement('th');
+    if (currentLang === 'en') {
+      const enHeaders = ['No', 'Ingredient', 'Qty', 'Description', 'Photo'];
+      th.textContent = enHeaders[i];
+    } else {
+      th.textContent = txt;
+    }
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
   table.appendChild(thead);
 
   const tbody = document.createElement('tbody');
 
-  sectionArray.forEach((dish, index) => {
-    // Название блюда
+  sectionArray.forEach(dish => {
+    // строка с названием блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = 5;
@@ -42,19 +54,14 @@ function createTable(sectionArray) {
 
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
-
-      const tdNum = document.createElement('td');
-      tdNum.textContent = i + 1;
-
+      const tdNo = document.createElement('td');
+      tdNo.textContent = i + 1;
       const tdName = document.createElement('td');
-      tdName.textContent = ing[currentLang] || '';
-
+      tdName.textContent = ing[currentLang];
       const tdAmount = document.createElement('td');
       tdAmount.textContent = ing.amount || '';
-
       const tdDesc = document.createElement('td');
-      tdDesc.textContent = i === 0 ? dish.process[currentLang] || '' : '';
-
+      tdDesc.textContent = i === 0 ? dish.process[currentLang] : '';
       const tdPhoto = document.createElement('td');
       if (i === 0 && dish.photo) {
         const img = document.createElement('img');
@@ -63,12 +70,11 @@ function createTable(sectionArray) {
         tdPhoto.appendChild(img);
       }
 
-      tr.appendChild(tdNum);
+      tr.appendChild(tdNo);
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
       tr.appendChild(tdDesc);
       tr.appendChild(tdPhoto);
-
       tbody.appendChild(tr);
     });
   });
@@ -77,67 +83,56 @@ function createTable(sectionArray) {
   return table;
 }
 
-// Загрузка раздела
-async function loadSection(section) {
+// Обработчик клика по кнопке раздела
+async function openSection(btn) {
+  const section = btn.dataset.section;
   const panel = document.getElementById(`${section}-section`);
 
-  // Если уже открыт, закрываем
+  // если уже открыт — закрыть
   if (panel.style.display === 'block') {
     panel.style.display = 'none';
     panel.innerHTML = '';
     return;
   }
 
-  // Скрыть все другие разделы
+  // закрыть все остальные разделы
   document.querySelectorAll('.section-panel').forEach(p => {
     p.style.display = 'none';
     p.innerHTML = '';
   });
 
-  // Получаем данные из кэша или JSON
-  if (!dataCache[section]) {
-    try {
-      const response = await fetch(dataFiles[section]);
-      if (!response.ok) throw new Error('Ошибка загрузки JSON');
-      dataCache[section] = await response.json();
-    } catch (err) {
-      panel.innerHTML = `<p style="color:red">Ошибка: ${err.message}</p>`;
-      panel.style.display = 'block';
-      return;
-    }
-  }
-
+  // загрузка JSON и отображение
+  const data = await loadData(jsonFiles[section]);
+  panel.style.display = 'block';
   const tableContainer = document.createElement('div');
   tableContainer.className = 'table-container';
-  tableContainer.appendChild(createTable(dataCache[section]));
+  tableContainer.appendChild(createTable(data));
   panel.appendChild(tableContainer);
-  panel.style.display = 'block';
 }
 
-// Инициализация кнопок
-document.querySelectorAll('.section-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    loadSection(btn.dataset.section);
-  });
-});
-
 // Переключение языка
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    currentLang = btn.dataset.lang;
-    // обновляем открытые разделы
-    document.querySelectorAll('.section-panel').forEach(panel => {
-      if (panel.style.display === 'block') {
-        const section = panel.id.replace('-section', '');
-        panel.innerHTML = '';
-        const tableContainer = document.createElement('div');
-        tableContainer.className = 'table-container';
-        tableContainer.appendChild(createTable(dataCache[section]));
-        panel.appendChild(tableContainer);
-      }
-    });
+function switchLanguage(lang) {
+  currentLang = lang;
+  // обновляем открытые панели
+  document.querySelectorAll('.section-panel').forEach(panel => {
+    if (panel.style.display === 'block') {
+      const section = panel.id.replace('-section', '');
+      openSection({ dataset: { section } });
+    }
   });
-});
+}
 
-// Текущая дата
-document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.section-btn').forEach(btn => {
+    btn.addEventListener('click', () => openSection(btn));
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
+  });
+
+  // текущая дата
+  const dateEl = document.getElementById('current-date');
+  if (dateEl) dateEl.textContent = new Date().toLocaleDateString();
+});
