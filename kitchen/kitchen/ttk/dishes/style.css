@@ -1,3 +1,4 @@
+/* Основные настройки */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -6,6 +7,7 @@ body {
   color: #333;
 }
 
+/* Хедер с кнопками языка */
 .page-header {
   display: flex;
   justify-content: flex-end;
@@ -18,7 +20,7 @@ body {
   z-index: 10;
 }
 
-.top-btn {
+.top-btn, .lang-btn {
   padding: 8px 16px;
   background-color: #d8cfc0;
   color: #333;
@@ -29,19 +31,22 @@ body {
   font-size: 14px;
   transition: 0.2s;
 }
-.top-btn:hover {
+.top-btn:hover, .lang-btn:hover {
   background-color: #c1b29a;
 }
 
+/* Основной контейнер */
 .main-container {
-  max-width: 800px;
-  margin: 40px auto;
+  width: 100%;
+  margin: 20px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  overflow-x: auto; /* горизонтальный скролл если нужно */
 }
 
+/* Дата */
 .date-container {
   font-size: 14px;
   color: #666;
@@ -49,25 +54,27 @@ body {
   text-align: center;
 }
 
+/* Разделы */
 .sections-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Кнопки разделов */
 .section-btn {
   background-color: #d8cfc0;
-  padding: 15px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   text-align: center;
-  transition: background 0.2s;
+  color: #333;
+  transition: background 0.2s, color 0.2s;
 }
 .section-btn:hover {
   background-color: #c1b29a;
+  color: #000;
 }
 
 /* Панель раздела */
@@ -76,7 +83,7 @@ body {
   margin-top: 10px;
 }
 
-/* Кнопки блюд */
+/* Блюда */
 .dish-btn {
   display: block;
   width: 100%;
@@ -85,41 +92,49 @@ body {
   padding: 10px;
   margin: 5px 0;
   text-align: left;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 6px;
   cursor: pointer;
+  color: #333;
+  transition: background 0.2s, color 0.2s;
 }
 .dish-btn:hover {
   background-color: #e0d7c8;
+  color: #000;
 }
 
 /* Таблица ингредиентов */
 .table-container {
-  margin: 10px 0;
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
 }
 
 .dish-table {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 14px;
+  font-size: 12px; /* меньше шрифт */
   background: #fff;
 }
+
 .dish-table th, .dish-table td {
   border: 1px solid #ccc;
-  padding: 6px 8px;
+  padding: 4px 6px; /* меньше padding */
   text-align: left;
+  vertical-align: top;
 }
+
 .dish-table th {
   background-color: #f9f9f9;
   font-weight: 600;
+  font-size: 12px;
 }
 
 /* Процесс приготовления */
 .dish-process {
-  margin-top: 10px;
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;
 }
 
