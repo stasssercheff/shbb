@@ -38,7 +38,7 @@ body {
 /* Основной контейнер */
 .main-container {
   width: 100%;
-  margin: 20px auto;
+  margin: 20px 0;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -56,17 +56,14 @@ body {
 /* Разделы */
 .sections-container {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Центрируем кнопки */
+  justify-content: center; /* Центрируем кнопки */
+  flex-wrap: wrap;
   gap: 10px; 
-  width: 100%; /* Блок на всю ширину */
   margin-bottom: 20px;
 }
 
 .section-btn {
-  width: 300px; /* Можно подкорректировать под экран */
-  max-width: 90%; /* Адаптивно для маленьких экранов */
-  text-align: center;
+  min-width: 180px; /* Минимальная ширина кнопки */
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 600;
@@ -99,16 +96,27 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
-  table-layout: fixed; /* Чтобы колонки растягивались */
+  table-layout: fixed; /* Фиксированная ширина колонок */
   word-wrap: break-word;
 }
 
 .dish-table th, .dish-table td {
   border: 1px solid #ccc;
   padding: 6px 8px;
-  text-align: left;
   vertical-align: top;
 }
+
+/* Фиксируем ширину столбцов */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { width: 5%; text-align: center; } /* № */
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { width: 25%; } /* Ингредиент */
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { width: 10%; text-align: center; } /* Кол-во */
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { width: 50%; } /* Описание */
+.dish-table th:nth-child(5),
+.dish-table td:nth-child(5) { width: 10%; text-align: center; } /* Фото */
 
 .dish-table th {
   background-color: #f9f9f9;
