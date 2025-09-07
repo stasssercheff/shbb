@@ -56,24 +56,23 @@ body {
 /* Контейнер кнопок разделов */
 .sections-container {
   display: flex;
-  justify-content: center; /* центрируем блок кнопок */
-  gap: 15px;
-  flex-wrap: wrap; /* если экран узкий, кнопки переносится */
+  flex-direction: column; /* один столбец */
+  align-items: center; /* по центру */
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-/* Кнопки разделов */
 .section-btn {
-  min-width: 120px; /* минимальная ширина кнопки */
-  padding: 10px 20px;
-  font-size: 16px;
+  width: 200px; /* фиксированная ширина всех кнопок */
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 14px;
   font-weight: 600;
-  background-color: #d8cfc0; /* как верхние кнопки */
+  background-color: #d8cfc0; /* как навигационные кнопки */
   color: #333;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  text-align: center;
   transition: background-color 0.3s;
 }
 .section-btn:hover {
