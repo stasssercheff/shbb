@@ -1,6 +1,6 @@
 let currentLang = 'ru';
 
-// Пути к JSON-файлам
+// Пути к JSON
 const dataFiles = {
   breakfast: 'data/breakfast.json',
   soup: 'data/soup.json',
@@ -8,15 +8,11 @@ const dataFiles = {
   main: 'data/main.json'
 };
 
-// Хранение загруженных данных
-const dataCache = {};
-
-// Функция создания таблицы для раздела
+// Функция создания таблицы
 function createTable(sectionArray) {
   const table = document.createElement('table');
   table.classList.add('dish-table');
 
-  // Шапка таблицы
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
   ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Кол-во' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
@@ -28,7 +24,6 @@ function createTable(sectionArray) {
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
-  // Тело таблицы
   const tbody = document.createElement('tbody');
 
   sectionArray.forEach((dish, index) => {
@@ -41,7 +36,7 @@ function createTable(sectionArray) {
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
-    // Ингредиенты и описание
+    // Ингредиенты
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
@@ -55,7 +50,10 @@ function createTable(sectionArray) {
       tdAmount.textContent = ing.amount || '';
 
       const tdDesc = document.createElement('td');
-      tdDesc.textContent = i === 0 ? (dish.process[currentLang] || '') : '';
+      if (i === 0) {
+        tdDesc.textContent = dish.process[currentLang] || '';
+        tdDesc.rowSpan = dish.ingredients.length; // Объединяем строки
+      }
 
       const tdPhoto = document.createElement('td');
       if (i === 0 && dish.photo) {
@@ -64,6 +62,7 @@ function createTable(sectionArray) {
         img.alt = dish.name[currentLang];
         img.className = 'dish-photo';
         tdPhoto.appendChild(img);
+        tdPhoto.rowSpan = dish.ingredients.length;
       }
 
       tr.appendChild(tdNum);
@@ -80,7 +79,7 @@ function createTable(sectionArray) {
   return table;
 }
 
-// Загрузка данных для раздела
+// Загрузка раздела
 async function loadSection(section) {
   const panel = document.getElementById(section);
 
@@ -92,7 +91,6 @@ async function loadSection(section) {
     }
   });
 
-  // Переключаем отображение текущей панели
   if (panel.style.display === 'block') {
     panel.style.display = 'none';
     panel.innerHTML = '';
@@ -103,16 +101,13 @@ async function loadSection(section) {
   panel.innerHTML = '';
 
   try {
-    if (!dataCache[section]) {
-      const response = await fetch(dataFiles[section]);
-      if (!response.ok) throw new Error('Ошибка загрузки JSON: ' + section);
-      const sectionData = await response.json();
-      dataCache[section] = sectionData; // <--- важно!
-    }
+    const response = await fetch(dataFiles[section]);
+    if (!response.ok) throw new Error('Ошибка загрузки JSON: ' + section);
+    const sectionData = await response.json();
 
     const tblContainer = document.createElement('div');
     tblContainer.className = 'table-container';
-    tblContainer.appendChild(createTable(dataCache[section]));
+    tblContainer.appendChild(createTable(sectionData));
     panel.appendChild(tblContainer);
 
   } catch (err) {
@@ -121,32 +116,31 @@ async function loadSection(section) {
   }
 }
 
-// Инициализация кнопок и языкового переключателя
+// Инициализация
 document.addEventListener('DOMContentLoaded', () => {
-  // Дата
   document.getElementById('current-date').textContent = new Date().toLocaleDateString();
 
-  // Разделы
   document.querySelectorAll('.section-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const section = btn.dataset.section;
-      loadSection(section);
+      loadSection(btn.dataset.section);
     });
   });
 
-  // Языковой переключатель
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       currentLang = btn.dataset.lang;
-      // Обновляем открытые панели
       document.querySelectorAll('.section-panel').forEach(panel => {
         if (panel.style.display === 'block') {
           const section = panel.id;
           panel.innerHTML = '';
-          const tblContainer = document.createElement('div');
-          tblContainer.className = 'table-container';
-          tblContainer.appendChild(createTable(dataCache[section]));
-          panel.appendChild(tblContainer);
+          fetch(dataFiles[section])
+            .then(res => res.json())
+            .then(data => {
+              const tblContainer = document.createElement('div');
+              tblContainer.className = 'table-container';
+              tblContainer.appendChild(createTable(data));
+              panel.appendChild(tblContainer);
+            });
         }
       });
     });
