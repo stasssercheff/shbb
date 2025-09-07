@@ -1,94 +1,3 @@
-/* Основные настройки */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f6f8;
-  color: #333;
-}
-
-/* Хедер с кнопками языка */
-.page-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 20px;
-  gap: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.top-btn, .lang-btn {
-  padding: 8px 16px;
-  background-color: #d8cfc0; /* как просили */
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.2s;
-}
-.top-btn:hover, .lang-btn:hover {
-  background-color: #c1b29a;
-}
-
-/* Основной контейнер */
-.main-container {
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  box-sizing: border-box;
-}
-
-/* Дата */
-.date-container {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Разделы - кнопки */
-.sections-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* по центру */
-  gap: 10px; /* расстояние между кнопками */
-  margin-bottom: 20px;
-}
-
-.section-btn {
-  width: 220px; /* одинаковая ширина */
-  text-align: center;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: #d8cfc0; /* как кнопки навигации */
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.section-btn:hover {
-  background-color: #c1b29a;
-}
-
-/* Панель раздела */
-.section-panel {
-  display: none;
-  margin-top: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center; /* таблица по центру */
-}
-
 /* Таблица блюд */
 .table-container {
   width: 100%;
@@ -101,14 +10,14 @@ body {
   width: 95%; /* почти вся ширина экрана */
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 14px; /* шрифт таблицы */
+  font-size: 10px; /* шрифт ячеек */
   background: #fff;
-  table-layout: fixed; /* равномерное распределение колонок */
+  table-layout: fixed; /* фиксированное распределение колонок */
 }
 
 .dish-table th, .dish-table td {
   border: 1px solid #ccc;
-  padding: 6px 8px;
+  padding: 4px 6px;
   text-align: left;
   vertical-align: top;
   word-wrap: break-word;
@@ -117,23 +26,42 @@ body {
 .dish-table th {
   background-color: #f9f9f9;
   font-weight: 600;
+  font-size: 12px; /* шрифт шапки */
 }
 
-.dish-table td:nth-child(1) { width: 5%; }   /* № */
-.dish-table td:nth-child(2) { width: 25%; }  /* Ингредиент */
-.dish-table td:nth-child(3) { width: 10%; }  /* Кол-во */
-.dish-table td:nth-child(4) { width: 50%; }  /* Описание */
+.dish-table td:nth-child(1) { width: 8%; }   /* № */
+.dish-table td:nth-child(2) { width: 30%; }  /* Ингредиент */
+.dish-table td:nth-child(3) { width: 12%; }  /* Кол-во */
+.dish-table td:nth-child(4) { width: 40%; }  /* Описание */
 .dish-table td:nth-child(5) { width: 10%; }  /* Фото */
 
 .dish-table td img {
   max-width: 60px;
   height: auto;
+  cursor: pointer;
 }
 
 /* Название блюда */
 .dish-table td[colspan="5"] {
   text-align: center;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 12px;
   background-color: #f1f1f1;
+}
+
+/* Модальное окно для фото */
+#photo-modal {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#photo-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
 }
