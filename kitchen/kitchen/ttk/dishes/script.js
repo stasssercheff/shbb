@@ -106,7 +106,7 @@ async function loadSection(section) {
     if (!dataCache[section]) {
       const response = await fetch(dataFiles[section]);
       if (!response.ok) throw new Error('Ошибка загрузки JSON: ' + section);
-      dataCache[section] = await response.json();
+      const sectionData = await response.json();
     }
 
     const tblContainer = document.createElement('div');
