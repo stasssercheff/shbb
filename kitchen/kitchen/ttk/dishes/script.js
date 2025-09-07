@@ -8,20 +8,14 @@ const dataFiles = {
   main: 'data/main.json'
 };
 
-// Хранилище данных
 const data = {};
 
-// Загрузка данных из JSON
+// Загрузка JSON
 async function loadData(section) {
   if (!data[section]) {
-    try {
-      const res = await fetch(dataFiles[section]);
-      if (!res.ok) throw new Error('Ошибка загрузки JSON');
-      data[section] = await res.json();
-    } catch (err) {
-      console.error(err);
-      data[section] = [];
-    }
+    const res = await fetch(dataFiles[section]);
+    if (!res.ok) throw new Error('Ошибка загрузки JSON');
+    data[section] = await res.json();
   }
   return data[section];
 }
@@ -30,9 +24,9 @@ async function loadData(section) {
 function createTable(dishes) {
   const table = document.createElement('table');
   table.className = 'dish-table';
-  table.style.fontSize = '12px';
   table.style.width = '100%';
   table.style.tableLayout = 'fixed';
+  table.style.fontSize = '12px';
 
   const thead = document.createElement('thead');
   thead.innerHTML = `
@@ -48,7 +42,7 @@ function createTable(dishes) {
 
   const tbody = document.createElement('tbody');
 
-  dishes.forEach((dish, idx) => {
+  dishes.forEach(dish => {
     const headerRow = document.createElement('tr');
     const th = document.createElement('td');
     th.colSpan = 5;
@@ -74,23 +68,18 @@ function createTable(dishes) {
   return table;
 }
 
-// Обработчик кнопок разделов
+// Навешиваем обработчики на кнопки разделов
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', async () => {
     const section = btn.dataset.section;
     const panel = document.getElementById(`${section}-section`);
+    panel.innerHTML = ''; // очистка
+    panel.style.display = 'block'; // обязательно открываем
 
-    if (panel.style.display === 'block') {
-      panel.style.display = 'none';
-      panel.innerHTML = '';
-    } else {
-      panel.style.display = 'block';
-      panel.innerHTML = '';
-      const dishes = await loadData(section);
-      const tblContainer = document.createElement('div');
-      tblContainer.appendChild(createTable(dishes));
-      panel.appendChild(tblContainer);
-    }
+    const dishes = await loadData(section);
+    const tblContainer = document.createElement('div');
+    tblContainer.appendChild(createTable(dishes));
+    panel.appendChild(tblContainer);
   });
 });
 
@@ -98,7 +87,6 @@ document.querySelectorAll('.section-btn').forEach(btn => {
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     currentLang = btn.dataset.lang;
-    // обновляем открытые панели
     document.querySelectorAll('.section-panel').forEach(panel => {
       if (panel.style.display === 'block') {
         const section = panel.id.replace('-section', '');
