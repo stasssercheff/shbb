@@ -3,42 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ТТК Блюда</title>
+  <title>Страница выбора</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="page-header">
-    <button class="top-btn" onclick="goHome()">Главная</button>
-    <button class="top-btn" onclick="goBack()">Назад</button>
-    <button class="top-btn" onclick="switchLanguage('ru')">RU</button>
-    <button class="top-btn" onclick="switchLanguage('en')">EN</button>
-  </header>
 
-  <main class="main-container">
-    <div id="current-date" class="date-container"></div>
+<header class="page-header">
+  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+</header>
 
-    <div class="sections-container">
-      <div class="section">
-        <div class="section-btn" data-section="breakfast">Завтраки</div>
-        <div class="section-panel" id="breakfast-section"></div>
-      </div>
+<main class="main-container">
+  <!-- Лого -->
+  <img src="../logo.png" alt="Лого" class="logo">
 
-      <div class="section">
-        <div class="section-btn" data-section="soup">Супы</div>
-        <div class="section-panel" id="soup-section"></div>
-      </div>
+  <!-- Заголовок -->
+  <h1>Выберите подраздел</h1>
 
-      <div class="section">
-        <div class="section-btn" data-section="salad">Салаты</div>
-        <div class="section-panel" id="salad-section"></div>
-      </div>
+  <!-- Кнопки перехода -->
+  <div class="buttons-container">
+    <button class="nav-btn" onclick="location.href='ttk/index.html'">ТТК</button>
+    <button class="nav-btn" onclick="location.href='checklist/index.html'">Чеклисты</button>
+  </div>
+</main>
 
-      <div class="section">
-        <div class="section-btn" data-section="main">Основные блюда</div>
-        <div class="section-panel" id="main-section"></div>
-      </div>
-    </div>
-  </main>
 </body>
 </html>
