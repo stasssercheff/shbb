@@ -54,29 +54,32 @@ body {
 }
 
 /* Контейнер кнопок разделов */
+/* Контейнер кнопок */
 .sections-container {
   display: flex;
-  flex-direction: column; /* один столбец */
-  align-items: center; /* по центру */
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-direction: column; /* Строго вертикально */
+  align-items: center;    /* Центрируем по горизонтали */
+  width: 100%;            /* Занимает всю ширину экрана */
+  gap: 10px;              /* Расстояние между кнопками */
+  padding: 10px 0;        /* Отступ сверху и снизу */
 }
 
+/* Кнопки разделов */
 .section-btn {
-  width: 200px; /* фиксированная ширина всех кнопок */
+  width: 200px;           /* Можно подкорректировать ширину */
   text-align: center;
-  padding: 10px 15px;
-  font-size: 14px;
+  padding: 10px 20px;
+  font-size: 16px;
   font-weight: 600;
-  background-color: #d8cfc0; /* как навигационные кнопки */
+  background-color: #d8cfc0; /* Цвет как верхние навигационные кнопки */
   color: #333;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
 }
 .section-btn:hover {
-  background-color: #c1b29a;
+  background-color: #c1b29a; /* Наведение */
 }
 
 /* Панель раздела */
@@ -92,10 +95,10 @@ body {
 }
 
 .dish-table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 12px;
+  font-size: 10px;
   background: #fff;
   table-layout: fixed; /* фиксированная разметка столбцов */
 }
