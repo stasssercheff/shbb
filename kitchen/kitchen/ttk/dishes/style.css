@@ -59,26 +59,26 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px; /* Расстояние между кнопками */
-  width: 250px; /* Можно подкорректировать под экран */
-  margin-left: 20px; /* Отступ от левого края */
+  width: 250px; /* Ширина блока с кнопками */
+  margin: 0 auto; /* Центр по горизонтали */
 }
 
 .section-btn {
-  width: 100%; /* Кнопка занимает всю ширину контейнера */
+  width: 100%; /* Кнопка занимает всю ширину блока */
   text-align: center; /* Текст по центру */
-  padding: 10px 15px;
-  font-size: 16px;
+  padding: 8px 16px; /* Одинаково с верхними кнопками */
+  font-size: 14px;
   font-weight: 600;
-  background-color: #4CAF50; /* Цвет фона кнопки */
-  color: white; /* Цвет текста */
+  background-color: #d8cfc0; /* Цвет как у top-btn */
+  color: #333; /* Цвет текста */
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
 }
 
 .section-btn:hover {
-  background-color: #45a049; /* Цвет при наведении */
+  background-color: #c1b29a; /* Цвет при наведении как у top-btn */
 }
 
 /* Панель раздела */
