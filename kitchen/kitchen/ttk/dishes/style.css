@@ -66,11 +66,10 @@ body {
 .sections-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* кнопки слева */
   gap: 10px;
+  align-items: center;   /* ✅ центрируем кнопки */
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  margin: 0 auto;
   padding: 0 10px;
   box-sizing: border-box;
 }
