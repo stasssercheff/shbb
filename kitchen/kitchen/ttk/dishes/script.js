@@ -63,13 +63,14 @@ function createTable(sectionArray) {
       }
 
       const tdPhoto = document.createElement('td');
-      if (i === 0 && dish.photo) {
-        const img = document.createElement('img');
-        img.src = dish.photo;
-        img.alt = dish.name[currentLang];
-        img.className = 'dish-photo';
-        tdPhoto.appendChild(img);
-      }
+if (i === 0 && dish.photo) {
+  const img = document.createElement('img');
+  img.src = dish.photo;
+  img.alt = dish.name[currentLang];
+  img.className = 'dish-photo';
+  tdPhoto.appendChild(img);
+  tdPhoto.rowSpan = ingCount; // объединяем все строки столбца Фото
+}
 
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
