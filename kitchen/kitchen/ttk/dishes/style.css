@@ -127,12 +127,24 @@ body {
 }
 
 /* Ячейки таблицы */
+/* Ячейки таблицы */
 .dish-table td {
   border: 1px solid #ccc;
   padding: 4px 6px;
-  text-align: left; /* текст в ячейках слева */
+  text-align: left;
   vertical-align: top;
+  white-space: normal !important;  /* перенос строк разрешён */
+  word-break: break-word;          /* перенос длинных слов */
+  overflow: visible !important;    /* ничего не скрываем */
+  text-overflow: clip !important;  /* убираем многоточие "..." */
+}
+
+/* Ячейка с описанием (объединённая) */
+.dish-table td.description-cell {
+  vertical-align: top;
+  white-space: normal !important;
   word-break: break-word;
+  overflow: visible !important;
 }
 
 /* Ширина столбцов в процентах */
