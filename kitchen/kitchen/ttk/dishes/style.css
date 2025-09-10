@@ -67,9 +67,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;           /* всю ширину экрана */
-  align-items: center;    /* центрируем кнопки внутри контейнера */
-  padding: 0;
+  width: 100%;          /* ширина контейнера — вся страница */
+  align-items: center;   /* центрируем фиксированные кнопки */
+  padding: 0;           
   box-sizing: border-box;
 }
 
