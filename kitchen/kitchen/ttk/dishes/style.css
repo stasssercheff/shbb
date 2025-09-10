@@ -107,10 +107,10 @@ body {
 
 /* Таблица блюда */
 .dish-table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 10px; /* шрифт в ячейках */
+  font-size: 8px; /* шрифт в ячейках */
   background: #fff;
   table-layout: fixed; /* чтобы ширины столбцов соблюдались */
 }
@@ -123,7 +123,7 @@ body {
   vertical-align: middle;
   background-color: #f9f9f9;
   font-weight: 600;
-  font-size: 12px; /* шрифт в шапке */
+  font-size: 10px; /* шрифт в шапке */
 }
 
 /* Ячейки таблицы */
