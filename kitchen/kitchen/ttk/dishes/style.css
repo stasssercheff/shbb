@@ -115,26 +115,27 @@ body {
 .dish-table {
   border-collapse: collapse;
   margin: 0 auto; /* центрируем таблицу */
-  font-size: 10px; /* общий базовый размер текста */
+  font-size: 10px;
   background: #fff;
   table-layout: fixed;
+  width: 100%; /* таблица растягивается на весь контейнер */
 }
 
 /* Шапка таблицы */
 .dish-table th {
   border: 1px solid #ccc;
-  padding: 4px 6px;
+  padding: 4px; /* уменьшаем внутренние отступы для ширины */
   text-align: center;
   vertical-align: middle;
   background-color: #f9f9f9;
   font-weight: 600;
-  font-size: 12px; /* можно менять для шапки */
+  font-size: 12px;
 }
 
 /* Ячейки таблицы */
 .dish-table td {
   border: 1px solid #ccc;
-  padding: 4px 6px;
+  padding: 4px; /* уменьшаем padding, чтобы таблица шире */
   text-align: left;
   vertical-align: top;
   word-break: break-word;
