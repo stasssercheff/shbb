@@ -171,11 +171,17 @@ body {
 
 /* Фото блюда */
 .dish-photo img {
-  max-width: 60px;
+  max-width: 60px;       /* максимальная ширина */
+  max-height: 60px;      /* максимальная высота */
+  width: auto;
   height: auto;
+  display: block;
+  margin: 0 auto;        /* центрируем по горизонтали */
+  vertical-align: middle;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .dish-photo img:hover {
   transform: scale(1.1);
 }
