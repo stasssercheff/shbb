@@ -2,9 +2,10 @@
   {
     "name": { "ru": "Теплый салат с печенью", "en": "Warm Liver Salad" },
     "ingredients": [
-      { "ru": "ПФ Печень", "en": "Liver", "amount": "100" },
+      { "ru": "ПФ Печень", "en": "Liver", "amount": "150" },
       { "ru": "ПФ Клубника", "en": "Strawberry", "amount": "35" },
-      { "ru": "ПФ Салат микс", "en": "Mixed salad", "amount": "80" },
+      { "ru": "ПФ Салат микс", "en": "Mixed salad", "amount": "70" },
+      { "ru": "ПФ руккола", "en": "Rocket salad", "amount": "10" },
       { "ru": "ПФ Сегменты апельсина", "en": "Orange segments", "amount": "50" },
       { "ru": "ПФ цитрусовый соус", "en": "Citrus sauce", "amount": "15" },
       { "ru": "Соус бальзамик", "en": "Balsamic sauce", "amount": "15" },
