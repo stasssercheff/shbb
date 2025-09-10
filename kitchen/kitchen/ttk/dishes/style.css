@@ -19,8 +19,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  max-width: 1200px;   /* добавил ограничение ширины */
-  margin: 0 auto;      /* центрируем */
+  width: 100%;         /* растягиваем */
+  max-width: 1200px;   /* фикс ограничение */
+  margin: 0 auto;      /* по центру */
   overflow-x: hidden;  /* убираем горизонтальный скролл */
 }
 
@@ -42,13 +43,16 @@ body {
 
 /* Основной контейнер */
 .main-container {
-  max-width: 1200px;   /* синхронизировано с хедером */
+  width: 100%;
+  max-width: 1200px;   /* то же ограничение что у хедера */
   margin: 20px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
   overflow-x: hidden;  /* убираем горизонтальный скролл */
+  position: relative;
+  touch-action: pan-y; /* разрешаем только вертикальный свайп */
 }
 
 /* Дата */
