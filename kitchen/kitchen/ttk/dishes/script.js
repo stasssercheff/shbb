@@ -60,6 +60,7 @@ function createTable(sectionArray) {
       if (i === 0) {
         tdDesc.textContent = descText;
         tdDesc.rowSpan = ingCount; // объединяем ячейки
+        tdDesc.classList.add('description-cell'); // <--- вот это добавляем
       }
 
       const tdPhoto = document.createElement('td');
