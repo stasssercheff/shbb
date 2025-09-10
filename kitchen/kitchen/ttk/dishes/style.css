@@ -7,11 +7,11 @@ body {
   color: #333;
 }
 
-/* Хедер */
+/* Хедер с кнопками языка по центру */
 .page-header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Центрируем весь контент */
+  align-items: center;     /* Вертикальное выравнивание */
   padding: 10px 20px;
   gap: 10px;
   background-color: #fff;
@@ -19,10 +19,6 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-
-  width: 100%;       /* ✅ растягиваем под контейнер */
-  max-width: 100%;   /* ✅ убираем ограничение */
-  overflow-x: hidden; /* ✅ чтобы не было скролла */
 }
 
 /* Кнопки шапки */
@@ -41,7 +37,7 @@ body {
   background-color: #c1b29a;
 }
 
-/* Контейнер */
+/* Основной контейнер */
 .main-container {
   width: 100%;
   margin: 20px auto;
@@ -49,9 +45,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  overflow-x: hidden;   /* фиксируем горизонтальный скролл */
-  position: relative;
-  touch-action: pan-y;
+  overflow-x: hidden; /* Отключаем горизонтальный скролл */
 }
 
 /* Дата */
@@ -66,24 +60,24 @@ body {
 .sections-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: center;   /* ✅ центрируем кнопки */
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 10px;
+  gap: 10px; 
+  width: 100%; /* Всю ширину экрана */
+  max-width: 100%;
+  margin: 0 auto; /* Центрирование */
+  padding: 0 10px; /* Минимальные отступы */
   box-sizing: border-box;
 }
 
 /* Кнопки разделов */
 .section-btn {
-  width: 200px;
+  width: 200px; /* фиксированная ширина кнопки */
   max-width: 100%;
-  margin: 0;
+  margin: 0 auto; /* центрирование */
   text-align: center;
   padding: 10px 15px;
   font-size: 16px;
   font-weight: 600;
-  background-color: #d8cfc0;
+  background-color: #d8cfc0; /* цвет как кнопки шапки */
   color: #333;
   border: none;
   border-radius: 5px;
@@ -116,58 +110,47 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 10px;
+  font-size: 10px; /* шрифт в ячейках */
   background: #fff;
-  table-layout: auto; /* автоширина */
+  table-layout: fixed; /* чтобы ширины столбцов соблюдались */
 }
 
 /* Шапка таблицы */
 .dish-table th {
   border: 1px solid #ccc;
   padding: 4px 6px;
-  text-align: center;
+  text-align: center; /* текст в шапке по центру */
   vertical-align: middle;
   background-color: #f9f9f9;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 12px; /* шрифт в шапке */
 }
 
 /* Ячейки таблицы */
 .dish-table td {
   border: 1px solid #ccc;
   padding: 4px 6px;
-  text-align: left;
+  text-align: left; /* текст в ячейках слева */
   vertical-align: top;
   word-break: break-word;
-  white-space: normal;
-  overflow: visible;
 }
 
-/* Столбец с номерами */
-.dish-table td:nth-child(1) {
-  text-align: center;
-  vertical-align: middle;
-  font-weight: 600;
-}
+/* Ширина столбцов в процентах */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { width: 8%; }   /* № */
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { width: 30%; }  /* Ингредиент */
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { width: 12%; }  /* Количество */
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { width: 40%; }  /* Описание */
+.dish-table th:nth-child(5),
+.dish-table td:nth-child(5) { width: 10%; }  /* Фото */
 
-/* Ячейка с описанием */
+/* Процесс приготовления объединяем ячейки */
 .dish-table td.description-cell {
-  white-space: normal;
-  overflow: visible;
   vertical-align: top;
 }
-
-/* Ширина столбцов (примерные пропорции) */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { width: 8%; }
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { width: 30%; }
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { width: 12%; }
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { width: 40%; }
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { width: 10%; }
 
 /* Фото блюда */
 .dish-photo img {
@@ -195,4 +178,95 @@ body {
   max-width: 90%;
   max-height: 90%;
   border-radius: 8px;
+}
+
+
+
+
+
+let currentLang = 'ru';
+
+// Пути к JSON-файлам
+const dataFiles = {
+  breakfast: 'data/breakfast.json',
+  soup: 'data/soup.json',
+  salad: 'data/salad.json',
+  main: 'data/main.json'
+};
+
+// Функция создания таблицы для раздела
+function createTable(sectionArray) {
+  if (!sectionArray) return document.createElement('div');
+
+  const table = document.createElement('table');
+  table.classList.add('dish-table');
+
+  // Шапка таблицы
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Кол-во' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
+    .forEach(text => {
+      const th = document.createElement('th');
+      th.textContent = text;
+      headerRow.appendChild(th);
+    });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Тело таблицы
+  const tbody = document.createElement('tbody');
+
+  sectionArray.forEach((dish, index) => {
+    // Название блюда
+    const dishRow = document.createElement('tr');
+    const tdDish = document.createElement('td');
+    tdDish.colSpan = 5;
+    tdDish.style.fontWeight = '600';
+    tdDish.textContent = dish.name[currentLang];
+    dishRow.appendChild(tdDish);
+    tbody.appendChild(dishRow);
+
+    // Ингредиенты и описание
+    const descText = dish.process[currentLang] || '';
+    const ingCount = dish.ingredients.length;
+
+    dish.ingredients.forEach((ing, i) => {
+      const tr = document.createElement('tr');
+
+      const tdNum = document.createElement('td');
+      tdNum.textContent = i + 1;
+
+      const tdName = document.createElement('td');
+      tdName.textContent = ing[currentLang];
+
+      const tdAmount = document.createElement('td');
+      tdAmount.textContent = ing.amount || '';
+
+      const tdDesc = document.createElement('td');
+      if (i === 0) {
+        tdDesc.textContent = descText;
+        tdDesc.rowSpan = ingCount; // объединяем ячейки
+      }
+
+      const tdPhoto = document.createElement('td');
+      if (i === 0 && dish.photo) {
+        const img = document.createElement('img');
+        img.src = dish.photo;
+        img.alt = dish.name[currentLang];
+        img.className = 'dish-photo';
+        tdPhoto.appendChild(img);
+      }
+
+      tr.appendChild(tdNum);
+      tr.appendChild(tdName);
+      tr.appendChild(tdAmount);
+      if (i === 0) tr.appendChild(tdDesc);
+      tr.appendChild(tdPhoto);
+
+      tbody.appendChild(tr);
+    });
+  });
+
+  table.appendChild(tbody);
+  return table;
 }
