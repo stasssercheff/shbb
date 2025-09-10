@@ -171,15 +171,14 @@ body {
 
 /* Фото блюда */
 .dish-photo img {
-  max-width: 100%;       /* максимальная ширина */
-  max-height: 60px;      /* максимальная высота */
-  width: auto;
-  height: auto;
-  display: block;
-  margin: 0 auto;        /* центрируем по горизонтали */
-  vertical-align: middle;
+  display: block;           /* убираем inline-эффект */
+  width: 100%;              /* фото занимает всю ширину ячейки */
+  height: auto;             /* сохраняет пропорции */
+  max-width: 60px;          /* ограничение максимальной ширины, чтобы миниатюра не была огромной */
+  margin: auto;             /* центрируем по горизонтали */
   cursor: pointer;
   transition: transform 0.2s ease;
+  object-fit: contain;      /* сохраняет пропорции, если ячейка больше */
 }
 
 .dish-photo img:hover {
