@@ -60,7 +60,7 @@ function createTable(sectionArray) {
       if (i === 0) {
         tdDesc.textContent = descText;
         tdDesc.rowSpan = ingCount; // объединяем ячейки
-        tdDesc.classList.add('description-cell'); // <--- вот это добавляем
+        tdDesc.className = "description-cell"; // ✅ для стилей
       }
 
       const tdPhoto = document.createElement('td');
@@ -85,77 +85,3 @@ function createTable(sectionArray) {
   table.appendChild(tbody);
   return table;
 }
-
-// Загрузка данных для раздела
-async function loadSection(section) {
-  const panel = document.getElementById(section);
-
-  // Закрыть все панели
-  document.querySelectorAll('.section-panel').forEach(p => {
-    if (p !== panel) {
-      p.style.display = 'none';
-      p.innerHTML = '';
-    }
-  });
-
-  // Переключаем отображение текущей панели
-  if (panel.style.display === 'block') {
-    panel.style.display = 'none';
-    panel.innerHTML = '';
-    return;
-  }
-
-  panel.style.display = 'block';
-  panel.innerHTML = '';
-
-  try {
-    const response = await fetch(dataFiles[section]);
-    if (!response.ok) throw new Error('Ошибка загрузки JSON: ' + section);
-    const sectionData = await response.json();
-
-    const tblContainer = document.createElement('div');
-    tblContainer.className = 'table-container';
-    tblContainer.appendChild(createTable(sectionData));
-    panel.appendChild(tblContainer);
-
-  } catch (err) {
-    panel.innerHTML = `<p style="color:red">${err.message}</p>`;
-    console.error(err);
-  }
-}
-
-// Инициализация кнопок и языкового переключателя
-document.addEventListener('DOMContentLoaded', () => {
-  // Дата
-  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
-
-  // Разделы
-  document.querySelectorAll('.section-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const section = btn.dataset.section;
-      loadSection(section);
-    });
-  });
-
-  // Языковой переключатель
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentLang = btn.dataset.lang;
-      // Обновляем открытые панели
-      document.querySelectorAll('.section-panel').forEach(panel => {
-        if (panel.style.display === 'block') {
-          const section = panel.id;
-          panel.innerHTML = '';
-          const tblContainer = document.createElement('div');
-          tblContainer.className = 'table-container';
-          fetch(dataFiles[section])
-            .then(res => res.json())
-            .then(data => {
-              tblContainer.appendChild(createTable(data));
-              panel.appendChild(tblContainer);
-            });
-        }
-      });
-    });
-  });
-});
