@@ -2,7 +2,7 @@
   {
     "name": { "ru": "Теплый салат с печенью", "en": "Warm Liver Salad" },
     "ingredients": [
-      { "ru": "ПФ Печень", "en": "Liver", "amount": "150" },
+      { "ru": "ПФ Печень", "en": "Liver", "amount": "120" },
       { "ru": "ПФ Клубника", "en": "Strawberry", "amount": "35" },
       { "ru": "ПФ Салат микс", "en": "Mixed salad", "amount": "70" },
       { "ru": "ПФ руккола", "en": "Rocket salad", "amount": "10" },
@@ -55,7 +55,7 @@
   {
     "name": { "ru": "Теплый салат с осьминогом", "en": "Octopus Salad" },
     "ingredients": [
-      { "ru": "ПФ Осьминог", "en": "Prep octopus", "amount": "100" },
+      { "ru": "ПФ Осьминог", "en": "Prep octopus", "amount": "75" },
       { "ru": "ПФ стойун", "en": "Prep potatoes ctone", "amount": "35" },
       { "ru": "ПФ Салат микс", "en": "Mixed salad", "amount": "80" },
       { "ru": "Помидоры Черри темные", "en": "Dark Cherry", "amount": "50" },
