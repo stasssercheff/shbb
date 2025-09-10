@@ -7,77 +7,203 @@
 
 /* Общий контейнер страницы */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
   overflow-x: hidden; /* убираем горизонтальный скролл */
 }
 
-/* Хедер */
-header {
-  width: 100%;
-  background-color: #fff;
-  padding: 20px 0;
-  text-align: center; /* заголовок по центру */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Контейнер для кнопок разделов */
-.section-buttons {
+/* Хедер с кнопками языка по центру */
+.page-header {
   display: flex;
-  justify-content: center; /* центрируем кнопки по горизонтали */
-  flex-wrap: wrap;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-/* Стиль самих кнопок */
-.section-buttons button {
+  justify-content: center;
+  align-items: center;     
   padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+  gap: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Кнопки шапки */
+.top-btn, .lang-btn {
+  padding: 8px 16px;
+  background-color: #d8cfc0;
+  color: #333;
   border: none;
-  background-color: #3498db;
-  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.2s;
+}
+.top-btn:hover, .lang-btn:hover {
+  background-color: #c1b29a;
+}
+
+/* Основной контейнер */
+.main-container {
+  width: 100%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  overflow-x: hidden; /* убираем горизонтальный скролл */
+}
+
+/* Дата */
+.date-container {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Контейнер кнопок разделов */
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto; /* центрирование */
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Кнопки разделов — визуально как в старом CSS */
+.section-btn {
+  width: 200px;       /* фиксированная ширина */
+  max-width: 100%;
+  margin: 0 auto;     /* по центру */
+  text-align: center;
+  padding: 10px 15px; /* высота и внутренние отступы */
+  font-size: 16px;    /* размер текста кнопки */
+  font-weight: 600;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
   border-radius: 5px;
-  transition: background-color 0.2s;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.section-btn:hover {
+  background-color: #c1b29a;
 }
 
-.section-buttons button:hover {
-  background-color: #2980b9;
+/* Панель раздела */
+.section-panel {
+  display: none;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-/* Контейнер таблицы */
+/* Контейнер таблицы — без flex, центрируем через margin */
 .table-container {
   width: 100%;
-  overflow-x: auto; /* если таблица слишком широкая, появляется скролл внутри контейнера */
-  padding: 0 20px 20px 20px;
-  margin-bottom: 40px;
+  overflow-x: hidden; /* горизонтальный скролл убран */
+  margin-top: 10px;
+  text-align: center; /* центрирование содержимого */
 }
 
-/* Таблицы */
-table {
-  width: 100%;
+/* Таблица блюда */
+.dish-table {
   border-collapse: collapse;
-  background-color: #fff;
+  margin: 0 auto; /* центрируем таблицу */
+  font-size: 10px; /* общий базовый размер текста */
+  background: #fff;
+  table-layout: fixed;
 }
 
-th, td {
-  padding: 10px;
-  border: 1px solid #ddd;
+/* Шапка таблицы */
+.dish-table th {
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #f9f9f9;
+  font-weight: 600;
+  font-size: 12px; /* можно менять для шапки */
+}
+
+/* Ячейки таблицы */
+.dish-table td {
+  border: 1px solid #ccc;
+  padding: 4px 6px;
   text-align: left;
+  vertical-align: top;
+  word-break: break-word;
 }
 
-th {
-  background-color: #f0f0f0;
+/* Размер текста отдельно для каждого столбца */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { font-size: 12px; } /* № */
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { font-size: 14px; } /* Ингредиент */
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { font-size: 12px; } /* Количество */
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { font-size: 12px; } /* Описание */
+.dish-table th:nth-child(5),
+.dish-table td:nth-child(5) { font-size: 12px; } /* Фото */
+
+/* Ширина столбцов в процентах */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { width: 8%; }   /* № */
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { width: 30%; }  /* Ингредиент */
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { width: 12%; }  /* Количество */
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { width: 40%; }  /* Описание */
+.dish-table th:nth-child(5),
+.dish-table td:nth-child(5) { width: 10%; }  /* Фото */
+
+/* Процесс приготовления объединяем ячейки */
+.dish-table td.description-cell {
+  vertical-align: top;
+}
+
+/* Фото блюда */
+.dish-photo img {
+  max-width: 60px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.dish-photo img:hover {
+  transform: scale(1.1);
+}
+
+/* Модальное окно фото */
+#photo-modal {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#photo-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  .section-buttons button {
-    flex: 1 1 45%; /* кнопки растягиваются на маленьких экранах */
-  }
-  
-  table {
+  .section-btn {
+    width: 90%;  /* кнопки растягиваются на маленьких экранах */
     font-size: 14px;
+  }
+  .dish-table {
+    font-size: 10px;
   }
 }
