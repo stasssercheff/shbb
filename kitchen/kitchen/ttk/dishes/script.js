@@ -18,7 +18,7 @@ function createTable(sectionArray) {
   // Шапка таблицы
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
-  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Кол-во' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
+  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Гр/Шт' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
     .forEach(text => {
       const th = document.createElement('th');
       th.textContent = text;
