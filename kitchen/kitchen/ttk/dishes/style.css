@@ -11,7 +11,7 @@ body {
 .page-header {
   display: flex;
   justify-content: center; /* Центрируем весь контент */
-  align-items: center;     /* Вертикальное выравнивание */
+  align-items: center;     
   padding: 10px 20px;
   gap: 10px;
   background-color: #fff;
@@ -45,7 +45,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  overflow-x: hidden; /* Отключаем горизонтальный скролл */
+  overflow-x: hidden; /* убираем горизонтальный скролл */
 }
 
 /* Дата */
@@ -68,7 +68,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Кнопки разделов */
+/* Кнопки разделов — визуально как в старом CSS */
 .section-btn {
   width: 200px; /* фиксированная ширина кнопки */
   max-width: 100%;
@@ -77,7 +77,7 @@ body {
   padding: 10px 15px;
   font-size: 16px;
   font-weight: 600;
-  background-color: #d8cfc0; /* цвет как кнопки шапки */
+  background-color: #d8cfc0;
   color: #333;
   border: none;
   border-radius: 5px;
@@ -97,41 +97,39 @@ body {
   overflow-x: hidden;
 }
 
-/* Контейнер таблицы — центрирование */
+/* Контейнер таблицы — без flex, центрируем через margin */
 .table-container {
   width: 100%;
-  display: flex;
-  justify-content: center; /* центрируем таблицу */
-  overflow-x: hidden;      /* горизонтальный скролл убран */
+  overflow-x: hidden; /* горизонтальный скролл убран */
   margin-top: 10px;
+  text-align: center; /* центрирование содержимого */
 }
 
 /* Таблица блюда */
 .dish-table {
   border-collapse: collapse;
-  margin: 10px 0;
-  font-size: 10px; /* шрифт в ячейках по умолчанию */
+  margin: 0 auto; /* центрируем таблицу */
+  font-size: 10px;
   background: #fff;
-  table-layout: fixed; /* чтобы ширины столбцов соблюдались */
-  width: auto; /* таблица по центру через flex */
+  table-layout: fixed;
 }
 
 /* Шапка таблицы */
 .dish-table th {
   border: 1px solid #ccc;
   padding: 4px 6px;
-  text-align: center; /* текст в шапке по центру */
+  text-align: center;
   vertical-align: middle;
   background-color: #f9f9f9;
   font-weight: 600;
-  font-size: 12px; /* шрифт в шапке */
+  font-size: 12px;
 }
 
 /* Ячейки таблицы */
 .dish-table td {
   border: 1px solid #ccc;
   padding: 4px 6px;
-  text-align: left; /* текст в ячейках слева */
+  text-align: left;
   vertical-align: top;
   word-break: break-word;
 }
