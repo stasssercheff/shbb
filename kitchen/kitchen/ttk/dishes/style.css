@@ -7,7 +7,7 @@ body {
   color: #333;
 }
 
-/* Хедер с кнопками языка по центру */
+/* Хедер */
 .page-header {
   display: flex;
   justify-content: center;
@@ -19,10 +19,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  width: 100%;         /* растягиваем */
-  max-width: 1200px;   /* фикс ограничение */
-  margin: 0 auto;      /* по центру */
-  overflow-x: hidden;  /* убираем горизонтальный скролл */
+
+  width: 100%;       /* ✅ растягиваем под контейнер */
+  max-width: 100%;   /* ✅ убираем ограничение */
+  overflow-x: hidden; /* ✅ чтобы не было скролла */
 }
 
 /* Кнопки шапки */
@@ -41,18 +41,17 @@ body {
   background-color: #c1b29a;
 }
 
-/* Основной контейнер */
+/* Контейнер */
 .main-container {
   width: 100%;
-  max-width: 1200px;   /* то же ограничение что у хедера */
   margin: 20px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  overflow-x: hidden;  /* убираем горизонтальный скролл */
+  overflow-x: hidden;   /* фиксируем горизонтальный скролл */
   position: relative;
-  touch-action: pan-y; /* разрешаем только вертикальный свайп */
+  touch-action: pan-y;
 }
 
 /* Дата */
