@@ -19,6 +19,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  max-width: 1200px;   /* добавил ограничение ширины */
+  margin: 0 auto;      /* центрируем */
+  overflow-x: hidden;  /* убираем горизонтальный скролл */
 }
 
 /* Кнопки шапки */
@@ -39,15 +42,13 @@ body {
 
 /* Основной контейнер */
 .main-container {
-  width: 100%;
+  max-width: 1200px;   /* синхронизировано с хедером */
   margin: 20px auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  overflow-x: hidden;       /* убираем горизонтальный скролл */
-  position: relative;
-  touch-action: pan-y;      /* только вертикальный свайп */
+  overflow-x: hidden;  /* убираем горизонтальный скролл */
 }
 
 /* Дата */
