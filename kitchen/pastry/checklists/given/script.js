@@ -121,8 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // Комментарий
-      const nextBlock = section.nextElementSibling;
-      const commentField = nextBlock?.querySelector('textarea.comment');
+      const commentField = section.querySelector('textarea.comment');
       if (commentField && commentField.value.trim()) {
         sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
       }
