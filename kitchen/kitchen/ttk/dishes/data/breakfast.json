@@ -65,7 +65,7 @@
   {
     "name": { "ru": "КРОК МАДАМ", "en": "CROC MADAM" },
     "ingredients": [
-      { "ru": "Бриош", "en": "Brioche", "amount": "2/100" },
+      { "ru": "Бриош квадрат", "en": "Brioche slice", "amount": "2" },
       { "ru": "Масло сливочное", "en": "Butter", "amount": "40" },
       { "ru": "Моцарелла", "en": "Mozzarella", "amount": "100" },
       { "ru": "Окорок", "en": "Ham", "amount": "40" },
@@ -83,7 +83,7 @@
   {
     "name": { "ru": "ПЕНКЕЙКИ С ФРУКТАМИ", "en": "PANCAKES WITH FRUIT" },
     "ingredients": [
-      { "ru": "Пэнкейки", "en": "Pancakes", "amount": "2/200" },
+      { "ru": "ПФ Тесто пэнкейки", "en": "Prep Pancakes daugh", "amount": "200" },
       { "ru": "Манго", "en": "Mango", "amount": "70" },
       { "ru": "Клубника", "en": "Strawberry", "amount": "2-3" },
       { "ru": "Дрэгон фрут", "en": "Dragon fruit", "amount": "70" },
