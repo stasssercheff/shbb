@@ -65,7 +65,7 @@
   {
     "name": { "ru": "КРОК МАДАМ", "en": "CROC MADAM" },
     "ingredients": [
-      { "ru": "Бриош", "en": "Brioche", "amount": "2(100)" },
+      { "ru": "Бриош", "en": "Brioche", "amount": "2/100" },
       { "ru": "Масло сливочное", "en": "Butter", "amount": "40" },
       { "ru": "Моцарелла", "en": "Mozzarella", "amount": "100" },
       { "ru": "Окорок", "en": "Ham", "amount": "40" },
