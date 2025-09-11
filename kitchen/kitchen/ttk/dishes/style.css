@@ -170,15 +170,23 @@ body {
 }
 
 /* Фото блюда */
+/* Фото блюда */
+.dish-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;       /* фиксированная высота ячейки */
+}
+
 .dish-photo img {
-  display: block;           /* убираем inline-эффект */
-  width: 100%;              /* фото занимает всю ширину ячейки */
-  height: auto;             /* сохраняет пропорции */
-  max-width: 60px;          /* ограничение максимальной ширины, чтобы миниатюра не была огромной */
-  margin: auto;             /* центрируем по горизонтали */
+  max-width: 100%;    /* подстраивается под ширину столбца */
+  max-height: 100%;   /* не превышает высоту контейнера */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* сохраняет пропорции */
+  display: block;
   cursor: pointer;
   transition: transform 0.2s ease;
-  object-fit: contain;      /* сохраняет пропорции, если ячейка больше */
 }
 
 .dish-photo img:hover {
