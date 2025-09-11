@@ -1,89 +1,140 @@
-/* Контейнер кнопок разделов */
-.sections-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; 
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto; /* центрирование */
-  padding: 0 10px;
+/* Общий сброс */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* Кнопки разделов */
-.section-btn {
-  width: 200px; /* фиксированная ширина */
-  max-width: 100%;
-  margin: 0 auto; /* центрирование */
-  text-align: center;
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.section-btn:hover {
-  background-color: #c1b29a;
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  color: #222;
+  line-height: 1.4;
 }
 
-/* Панель раздела */
-.section-panel {
-  display: none;
-  margin-top: 10px;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Контейнер таблицы — центрирование */
-.table-container {
-  width: 100%;
+/* Шапка */
+.page-header {
   display: flex;
-  justify-content: center; /* центрируем таблицу */
-  overflow-x: hidden;      /* горизонтальный скролл убран */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+}
+
+.page-header .nav-btn {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.page-header .nav-btn:hover {
+  background: #777;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 5px;
+}
+
+.lang-btn {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  background: #666;
+}
+
+/* Основное */
+.main-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.date-container {
+  text-align: right;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Секции */
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Кнопки секций */
+.section-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.section-btn:hover {
+  background: #555;
+}
+
+/* Панель */
+.section-panel {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* Карточки рецептов */
+.recipe-card {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Заголовок рецепта */
+.recipe-card h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Таблицы */
+.recipe-table {
+  width: 100%;
+  border-collapse: collapse;
   margin-top: 10px;
 }
 
-/* Таблица блюда */
-.dish-table {
-  border-collapse: collapse;
-  margin: 10px 0;
-  background: #fff;
-  table-layout: fixed; /* чтобы ширины столбцов соблюдались */
-  width: auto; /* чтобы таблица не растягивалась на 100%, центрируем через flex */
-}
-
-/* Шапка таблицы */
-.dish-table th {
+.recipe-table th,
+.recipe-table td {
   border: 1px solid #ccc;
-  padding: 4px 6px;
+  padding: 6px 10px;
   text-align: center;
   vertical-align: middle;
-  background-color: #f9f9f9;
-  font-weight: 600;
 }
 
-/* Ячейки таблицы */
-.dish-table td {
-  border: 1px solid #ccc;
-  padding: 4px 6px;
-  text-align: left;
-  vertical-align: top;
-  word-break: break-word;
+.recipe-table th {
+  background: #f2f2f2;
 }
 
-/* Шрифт отдельно для каждого столбца */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { font-size: 12px; } /* № */
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { font-size: 14px; } /* Ингредиент */
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { font-size: 12px; } /* Количество */
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { font-size: 12px; } /* Описание */
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { font-size: 12px; } /* Фото */
+.recipe-table td[contenteditable="true"] {
+  background: #fff6b3;
+  cursor: text;
+}
