@@ -21,7 +21,7 @@ function createTable(sectionArray) {
 
   const tbody = document.createElement('tbody');
 
-  sectionArray.forEach((dish, index) => {
+  sectionArray.forEach(dish => {
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = 4;
@@ -30,8 +30,7 @@ function createTable(sectionArray) {
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
-    const keyIngredient = dish.key; // ключевое поле для перерасчета
-    const keyValue = dish.ingredients.find(ing => ing.key === keyIngredient)?.amount || 1;
+    const keyIngredient = dish.key;
 
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
@@ -43,16 +42,31 @@ function createTable(sectionArray) {
       tdName.textContent = ing[currentLang];
 
       const tdAmount = document.createElement('td');
+      tdAmount.dataset.base = ing.amount;
+
       if (ing.key === keyIngredient) {
-        const input = document.createElement('input');
-        input.type = 'number';
-        input.value = ing.amount;
-        input.className = 'key-input';
-        input.dataset.base = ing.amount;
-        tdAmount.appendChild(input);
+        tdAmount.contentEditable = true;
+        tdAmount.classList.add('highlight');
+        tdAmount.textContent = ing.amount;
+
+        tdAmount.addEventListener('input', () => {
+          const newVal = parseFloat(tdAmount.textContent) || 0;
+          const oldVal = parseFloat(tdAmount.dataset.base) || 1;
+          const factor = newVal / oldVal;
+
+          const trs = tdAmount.closest('table').querySelectorAll('tbody tr');
+          trs.forEach(r => {
+            const cell = r.cells[2];
+            if (cell && cell !== tdAmount) {
+              const base = parseFloat(cell.dataset.base) || 0;
+              cell.textContent = (base * factor).toFixed(1);
+            }
+          });
+
+          tdAmount.dataset.base = newVal;
+        });
       } else {
         tdAmount.textContent = ing.amount;
-        tdAmount.dataset.base = ing.amount;
       }
 
       const tdDesc = document.createElement('td');
@@ -89,24 +103,6 @@ async function loadSection() {
     tblContainer.className = 'table-container';
     tblContainer.appendChild(createTable(data));
     panel.appendChild(tblContainer);
-
-    // --- Перерасчет при изменении ключевого поля ---
-    tblContainer.addEventListener('input', e => {
-      if (!e.target.classList.contains('key-input')) return;
-
-      const newVal = parseFloat(e.target.value) || 0;
-      const oldVal = parseFloat(e.target.dataset.base) || 1;
-      const factor = newVal / oldVal;
-
-      const row = e.target.closest('tr');
-      const table = e.target.closest('table');
-
-      table.querySelectorAll('td[data-base]').forEach(td => {
-        td.textContent = (parseFloat(td.dataset.base) * factor).toFixed(1);
-      });
-
-      e.target.dataset.base = newVal;
-    });
 
   } catch (err) {
     panel.innerHTML = `<p style="color:red">${err.message}</p>`;
