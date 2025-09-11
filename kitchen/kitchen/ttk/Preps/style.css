@@ -1,117 +1,89 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f8f8f8;
-  color: #333;
-}
-
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  background: #444;
-  color: #fff;
-}
-
-.nav-btn {
-  padding: 10px 18px;
-  margin-right: 10px;
-  background: #666;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s;
-}
-
-.nav-btn:hover {
-  background: #888;
-}
-
-.lang-switcher {
-  display: flex;
-  gap: 6px;
-}
-
-.lang-btn {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #222;
-  color: #fff;
-  transition: background 0.3s;
-}
-
-.lang-btn:hover {
-  background: #555;
-}
-
-.main-container {
-  padding: 20px;
-}
-
+/* Контейнер кнопок разделов */
 .sections-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  gap: 10px; 
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto; /* центрирование */
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
+/* Кнопки разделов */
 .section-btn {
-  display: block;
-  width: 220px;
-  padding: 12px 20px;
+  width: 200px; /* фиксированная ширина */
+  max-width: 100%;
+  margin: 0 auto; /* центрирование */
+  text-align: center;
+  padding: 10px 15px;
   font-size: 16px;
   font-weight: 600;
+  background-color: #d8cfc0;
+  color: #333;
   border: none;
-  border-radius: 6px;
-  background: #444;
-  color: #fff;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
-  text-align: center;
+  transition: background-color 0.3s;
 }
-
 .section-btn:hover {
-  background: #666;
+  background-color: #c1b29a;
 }
 
+/* Панель раздела */
 .section-panel {
-  margin-top: 10px;
   display: none;
-}
-
-.table-container {
-  overflow-x: auto;
-  margin-top: 15px;
-}
-
-table {
+  margin-top: 10px;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Контейнер таблицы — центрирование */
+.table-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* центрируем таблицу */
+  overflow-x: hidden;      /* горизонтальный скролл убран */
+  margin-top: 10px;
+}
+
+/* Таблица блюда */
+.dish-table {
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin: 10px 0;
   background: #fff;
+  table-layout: fixed; /* чтобы ширины столбцов соблюдались */
+  width: auto; /* чтобы таблица не растягивалась на 100%, центрируем через flex */
 }
 
-th, td {
+/* Шапка таблицы */
+.dish-table th {
   border: 1px solid #ccc;
-  padding: 8px;
+  padding: 4px 6px;
   text-align: center;
-  font-size: 14px;
+  vertical-align: middle;
+  background-color: #f9f9f9;
+  font-weight: 600;
 }
 
-th {
-  background: #eee;
+/* Ячейки таблицы */
+.dish-table td {
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+  text-align: left;
+  vertical-align: top;
+  word-break: break-word;
 }
 
-td.key-cell {
-  background: #fff9c4; /* бледно-жёлтый */
-}
-
-td[contenteditable="true"] {
-  cursor: text;
-  background: #fffde7;
-}
+/* Шрифт отдельно для каждого столбца */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { font-size: 12px; } /* № */
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { font-size: 14px; } /* Ингредиент */
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { font-size: 12px; } /* Количество */
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { font-size: 12px; } /* Описание */
+.dish-table th:nth-child(5),
+.dish-table td:nth-child(5) { font-size: 12px; } /* Фото */
