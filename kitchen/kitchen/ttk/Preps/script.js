@@ -109,9 +109,9 @@ async function loadSection() {
     const data = await response.json();
 
     const tblContainer = document.createElement('div');
-    tblContainer.className = 'table-container';
-    tblContainer.appendChild(createTable(data));
-    panel.appendChild(tblContainer);
+tblContainer.className = 'table-container';
+tblContainer.appendChild(createTable(data.recipes));
+panel.appendChild(tblContainer);
 
   } catch (err) {
     panel.innerHTML = `<p style="color:red">${err.message}</p>`;
