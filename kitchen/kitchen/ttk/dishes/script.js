@@ -68,6 +68,13 @@ function createTable(sectionArray) {
         img.src = dish.photo;
         img.alt = dish.name[currentLang];
         img.className = 'dish-photo';
+
+        // --- кликабельность ---
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          window.open(dish.photo, '_blank');
+        });
+
         tdPhoto.appendChild(img);
         tdPhoto.rowSpan = ingCount;
       }
@@ -148,17 +155,6 @@ async function loadSection(section) {
     tblContainer.appendChild(createTable(sectionData));
     panel.appendChild(tblContainer);
 
-    // --- Кликабельность фото ---
-    const photoModal = createPhotoModal();
-    tblContainer.querySelectorAll('.dish-photo img').forEach(img => {
-      img.addEventListener('click', () => {
-        const modalImg = photoModal.querySelector('img');
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        photoModal.style.display = 'flex';
-      });
-    });
-
   } catch (err) {
     panel.innerHTML = `<p style="color:red">${err.message}</p>`;
     console.error(err);
@@ -190,17 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
               tblContainer.appendChild(createTable(data));
               panel.appendChild(tblContainer);
-
-              // --- Кликабельность фото после обновления языка ---
-              const photoModal = createPhotoModal();
-              tblContainer.querySelectorAll('.dish-photo img').forEach(img => {
-                img.addEventListener('click', () => {
-                  const modalImg = photoModal.querySelector('img');
-                  modalImg.src = img.src;
-                  modalImg.alt = img.alt;
-                  photoModal.style.display = 'flex';
-                });
-              });
             });
         }
       });
