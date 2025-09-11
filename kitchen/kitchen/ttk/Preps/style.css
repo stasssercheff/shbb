@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Хедер с кнопками языка по центру */
+/* Хедер с кнопками языка и навигации по центру */
 .page-header {
   display: flex;
   justify-content: center;
@@ -27,7 +27,6 @@ body {
   z-index: 10;
 }
 
-/* Кнопки шапки */
 /* Кнопки шапки и навигации */
 .top-btn, .lang-btn, .nav-btn {
   padding: 8px 16px;
@@ -90,7 +89,6 @@ body {
   vertical-align: middle;
   background-color: #f9f9f9;
   font-weight: 600;
-  font-size: 10px;
 }
 
 /* Ячейки таблицы */
@@ -113,27 +111,37 @@ body {
 
 /* Размер текста по столбцам */
 .dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { font-size: 8px; }
+.dish-table td:nth-child(1) { font-size: 8px; }   /* № */
 .dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { font-size: 8px; }
+.dish-table td:nth-child(2) { font-size: 8px; }   /* Ингредиент */
 .dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { font-size: 7px; }
+.dish-table td:nth-child(3) { font-size: 7px; }   /* Кол-во */
 .dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { font-size: 8px; }
+.dish-table td:nth-child(4) { font-size: 8px; }   /* Описание */
 .dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { font-size: 8px; }
+.dish-table td:nth-child(5) { font-size: 8px; }   /* Фото */
 
 /* Ширина столбцов в процентах */
 .dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { width: 5%; }
+.dish-table td:nth-child(1) { width: 5%; }   /* № */
 .dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { width: 28%; }
+.dish-table td:nth-child(2) { width: 28%; }  /* Ингредиент */
 .dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { width: 7%; }
+.dish-table td:nth-child(3) { width: 7%; }   /* Количество */
 .dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { width: 45%; }
+.dish-table td:nth-child(4) { width: 45%; }  /* Описание */
 .dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { width: 15%; }
+.dish-table td:nth-child(5) { width: 15%; }  /* Фото */
+
+/* Процесс приготовления объединяем ячейки */
+.dish-table td.description-cell {
+  vertical-align: top;
+}
+
+/* Подсветка ключевых ячеек */
+.highlight {
+  background-color: #fffacd;
+}
 
 /* Контейнер для фото в ячейке */
 .dish-photo {
@@ -170,15 +178,11 @@ body {
   align-items: center;
   z-index: 9999;
 }
+
 #photo-modal img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 8px;
-}
-
-/* Подсветка ключевой ячейки */
-.highlight {
-  background-color: #fffacd;
 }
 
 /* Адаптивность */
