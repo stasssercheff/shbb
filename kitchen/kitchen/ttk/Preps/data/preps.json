@@ -27,6 +27,18 @@
       ]
     },
     {
+                  "title": "СЫРНИКИ / SYRNIKI",
+      "key": "Яйцо(желток)",
+      "ingredients": [
+        { "№": 1, "Продукт": "Творог", "Ingredient": "Cottage cheese", "Шт/гр": "1000", "Описание": "Творог разбить миксером до мелкой вракции, смешать с манкой солью и сахором. убрать в холодиьгик на 30 минут. Полученную массы поделить на шарики по 45-50 гр. обвалять в муке и отжать через форму(кольцо. Обжарить с 2х сторон на растительном масле на малом огне до получения зоотистой корочки." },
+        { "№": 2, "Продукт": "Манка", "Ingredient": "Semolina", "Шт/гр": "100", "Описание": "" },
+        { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2", "Описание": "Description" },
+        { "№": 4, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "100", "Описание": "Beat the cottage cheese with a mixer until finely ground, mix with semolina, salt and sugar. Put in the refrigerator for 30 minutes. Divide the resulting mass into balls of 45-50 grams, roll in flour and squeeze through a mold (ring). Fry on both sides in vegetable oil over low heat until a crusty crust forms." },
+        { "№": 5, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "100", "Описание": "" }
+        { "№": 6, "Продукт": "Масло", "Ingredient": "Oil", "Шт/гр": "60", "Описание": "" }
+      ]
+    },
+    {
       "title": "ПФ СОУС КРЕМЧИЗ / PREP CREAMCHEESE",
       "key": "Сыр Кремчиз",
       "ingredients": [
