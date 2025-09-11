@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ТТК ПФ и СУ-ВИД</title>
+  <title>ТТК Блюда</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,17 +20,13 @@
 <main class="main-container">
   <div id="current-date" class="date-container"></div>
 
-  <div class="sections-container">
-    <!-- Кнопки для ПФ и СУ-ВИД -->
-    <div class="section-buttons">
-      <button class="section-btn" data-section="preps">ПФ</button>
-      <button class="section-btn" data-section="sv">СУ-ВИД</button>
-    </div>
-
-    <!-- Контейнеры для таблиц -->
-    <div class="section-panel" id="preps"></div>
-    <div class="section-panel" id="sv"></div>
+  <div class="section-buttons-container">
+    <button class="section-btn" data-section="preps">ПФ</button>
+    <button class="section-btn" data-section="sv">СУ-ВИД</button>
   </div>
+
+  <div class="section-panel" id="preps"></div>
+  <div class="section-panel" id="sv"></div>
 </main>
 
 <script src="script.js"></script>
