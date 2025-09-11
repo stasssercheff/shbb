@@ -72,8 +72,11 @@ function createTable(sectionArray) {
         // --- кликабельность ---
         img.style.cursor = 'pointer';
         img.addEventListener('click', () => {
-          window.open(dish.photo, '_blank');
-        });
+  const modalImg = photoModal.querySelector('img');
+  modalImg.src = img.src;
+  modalImg.alt = img.alt;
+  photoModal.style.display = 'flex';
+});
 
         tdPhoto.appendChild(img);
         tdPhoto.rowSpan = ingCount;
