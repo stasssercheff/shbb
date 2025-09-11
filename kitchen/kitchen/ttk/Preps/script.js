@@ -7,7 +7,10 @@ const dataFiles = {
 };
 
 // Ключевые столбцы для перерасчёта
-const keyColumns = ["Шт/гр", "Qty"];
+const key-cell {
+  background-color: #fff8c4;
+}
+
 
 // Функция загрузки данных
 async function loadData(section) {
