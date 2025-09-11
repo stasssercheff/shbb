@@ -55,6 +55,7 @@ body {
   gap: 10px;
 }
 
+/* Панели разделов */
 .section-panel {
   margin-top: 10px;
 }
@@ -64,22 +65,31 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  table-layout: fixed; /* фиксированная таблица для % ширин */
+  font-family: var(--table-font, Arial);
+  font-size: var(--table-font-size, 14px);
 }
 
+/* Заголовки и ячейки */
 .dish-table th, .dish-table td {
   border: 1px solid #ddd;
   padding: 6px 10px;
   text-align: left;
   vertical-align: top;
+  word-wrap: break-word;
 }
 
+/* Задаём ширину колонок в % */
+.dish-table th:nth-child(1), .dish-table td:nth-child(1) { width: 5%; }
+.dish-table th:nth-child(2), .dish-table td:nth-child(2) { width: 25%; }
+.dish-table th:nth-child(3), .dish-table td:nth-child(3) { width: 10%; }
+.dish-table th:nth-child(4), .dish-table td:nth-child(4) { width: 50%; }
+.dish-table th:nth-child(5), .dish-table td:nth-child(5) { width: 10%; }
+
+/* Заголовки */
 .dish-table th {
   background-color: #f0f0f0;
   font-weight: 600;
-}
-
-.dish-table td:first-child {
-  width: 30px;
 }
 
 .table-container {
@@ -87,7 +97,7 @@ body {
 }
 
 /* Подсветка ключевых ингредиентов */
-.dish-table td[style*="lightyellow"] {
+.dish-table td.key-ingredient {
   background-color: lightyellow;
 }
 
