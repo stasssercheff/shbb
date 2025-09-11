@@ -45,16 +45,19 @@ function createTable(sectionArray) {
       tdAmount.dataset.base = ing.amount;
 
       if (ing.key === keyIngredient) {
-        tdAmount.contentEditable = true;
-        tdAmount.classList.add('highlight');
-        tdAmount.textContent = ing.amount;
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.value = ing.amount;
+        input.classList.add('highlight');
+        input.dataset.base = ing.amount;
+        input.style.width = '60px';
 
-        tdAmount.addEventListener('input', () => {
-          const newVal = parseFloat(tdAmount.textContent) || 0;
-          const oldVal = parseFloat(tdAmount.dataset.base) || 1;
+        input.addEventListener('input', () => {
+          const newVal = parseFloat(input.value) || 0;
+          const oldVal = parseFloat(input.dataset.base) || 1;
           const factor = newVal / oldVal;
 
-          const trs = tdAmount.closest('table').querySelectorAll('tbody tr');
+          const trs = input.closest('table').querySelectorAll('tbody tr');
           trs.forEach(r => {
             const cell = r.cells[2];
             if (cell && cell !== tdAmount) {
@@ -63,8 +66,10 @@ function createTable(sectionArray) {
             }
           });
 
-          tdAmount.dataset.base = newVal;
+          input.dataset.base = newVal;
         });
+
+        tdAmount.appendChild(input);
       } else {
         tdAmount.textContent = ing.amount;
       }
