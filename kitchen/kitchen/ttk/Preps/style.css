@@ -28,7 +28,8 @@ body {
 }
 
 /* Кнопки шапки */
-.top-btn, .lang-btn {
+/* Кнопки шапки и навигации */
+.top-btn, .lang-btn, .nav-btn {
   padding: 8px 16px;
   background-color: #d8cfc0;
   color: #333;
@@ -39,7 +40,8 @@ body {
   font-size: 14px;
   transition: 0.2s;
 }
-.top-btn:hover, .lang-btn:hover {
+
+.top-btn:hover, .lang-btn:hover, .nav-btn:hover {
   background-color: #c1b29a;
 }
 
