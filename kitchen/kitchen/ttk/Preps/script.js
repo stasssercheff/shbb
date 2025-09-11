@@ -1,128 +1,153 @@
 let currentLang = 'ru';
 
-// Пути к JSON
 const dataFiles = {
   preps: 'data/preps.json',
   sv: 'data/sv.json'
 };
 
-// Загрузка JSON и рендер таблицы
-function loadSection(section) {
-  fetch(dataFiles[section])
-    .then(res => res.json())
-    .then(data => renderRecipes(data, section));
+let recipesCache = [];
+
+// --- Утилита ---
+function toNumber(v) {
+  const n = parseFloat(String(v).replace(',', '.'));
+  return Number.isFinite(n) ? n : 0;
 }
 
-function renderRecipes(data, section) {
+// --- Рендер рецептов ---
+function renderRecipes(recipes) {
   const container = document.getElementById('content');
   container.innerHTML = '';
+  recipesCache = JSON.parse(JSON.stringify(recipes));
 
-  data.recipes.forEach(recipe => {
-    // Заголовок
-    const title = document.createElement('h2');
-    title.textContent = recipe.title;
-    container.appendChild(title);
-
-    // Таблица
+  recipes.forEach((recipe, rIdx) => {
     const table = document.createElement('table');
-    table.classList.add('recipe-table');
+    table.className = 'recipe-table';
 
-    const headerRow = document.createElement('tr');
-    ['№', 'Продукт', 'Ingredient', 'Шт/гр', 'Описание'].forEach(h => {
-      const th = document.createElement('th');
-      th.textContent = h;
-      headerRow.appendChild(th);
-    });
-    table.appendChild(headerRow);
+    const thead = document.createElement('thead');
+    const rowHead = document.createElement('tr');
+    ['№', currentLang === 'ru' ? 'Продукт' : 'Product', 
+     currentLang === 'ru' ? 'Ingredient' : 'Ingredient', 
+     currentLang === 'ru' ? 'Шт/гр' : 'Amount', 
+     currentLang === 'ru' ? 'Описание' : 'Description']
+      .forEach(t => {
+        const th = document.createElement('th');
+        th.textContent = t;
+        rowHead.appendChild(th);
+      });
+    thead.appendChild(rowHead);
+    table.appendChild(thead);
 
-    // Найдём ключевой ингредиент
-    const keyName = recipe.key;
+    const tbody = document.createElement('tbody');
 
-    recipe.ingredients.forEach((ing, idx) => {
-      const row = document.createElement('tr');
+    // Название рецепта
+    const trTitle = document.createElement('tr');
+    const tdTitle = document.createElement('td');
+    tdTitle.colSpan = 5;
+    tdTitle.style.fontWeight = '700';
+    tdTitle.style.textAlign = 'center';
+    tdTitle.textContent = recipe.title || '';
+    trTitle.appendChild(tdTitle);
+    tbody.appendChild(trTitle);
+
+    const keyName = recipe.key?.trim() || '';
+
+    recipe.ingredients.forEach((ing, i) => {
+      const tr = document.createElement('tr');
 
       // №
       const tdNum = document.createElement('td');
-      tdNum.textContent = ing['№'];
-      row.appendChild(tdNum);
+      tdNum.textContent = ing['№'] || i + 1;
+      tr.appendChild(tdNum);
 
       // Продукт
-      const tdRu = document.createElement('td');
-      tdRu.textContent = ing['Продукт'];
-      row.appendChild(tdRu);
+      const tdProd = document.createElement('td');
+      tdProd.textContent = ing['Продукт'] || '';
+      tr.appendChild(tdProd);
 
       // Ingredient
-      const tdEn = document.createElement('td');
-      tdEn.textContent = ing['Ingredient'];
-      row.appendChild(tdEn);
+      const tdIng = document.createElement('td');
+      tdIng.textContent = ing['Ingredient'] || '';
+      tr.appendChild(tdIng);
 
-      // Шт/гр (пересчёт)
+      // Кол-во
       const tdAmount = document.createElement('td');
-
-      if (ing['Продукт'] === keyName) {
-        // Ключевой → input
+      let base = toNumber(ing['Шт/гр']);
+      if (String(ing['Продукт']).trim() === keyName) {
         const input = document.createElement('input');
         input.type = 'number';
-        input.value = ing['Шт/гр'];
-        input.dataset.index = idx;
-        input.classList.add('key-input');
-        input.addEventListener('input', e => recalc(recipe, idx, e.target.value, table));
-        tdAmount.appendChild(input);
-        row.classList.add('highlight');
-      } else {
-        tdAmount.textContent = ing['Шт/гр'];
-      }
+        input.value = Math.round(base);
+        input.className = 'key-input';
+        tdAmount.classList.add('highlight');
 
-      row.appendChild(tdAmount);
+        input.addEventListener('input', e => {
+          const newVal = toNumber(e.target.value);
+          if (newVal > 0) doRecalc(recipe, keyName, newVal, table);
+        });
+
+        tdAmount.appendChild(input);
+      } else {
+        tdAmount.textContent = Math.round(base);
+        tdAmount.classList.add('amount');
+        tdAmount.dataset.product = ing['Продукт'];
+      }
+      tr.appendChild(tdAmount);
 
       // Описание
       const tdDesc = document.createElement('td');
-      tdDesc.textContent = ing['Описание'];
-      row.appendChild(tdDesc);
+      tdDesc.textContent = ing['Описание'] || '';
+      tr.appendChild(tdDesc);
 
-      table.appendChild(row);
+      tbody.appendChild(tr);
     });
 
+    table.appendChild(tbody);
     container.appendChild(table);
   });
 }
 
-// Перерасчёт
-function recalc(recipe, keyIdx, newValue, table) {
-  const keyIng = recipe.ingredients[keyIdx];
-  const oldVal = parseFloat(keyIng['Шт/гр']);
-  const newVal = parseFloat(newValue);
-
-  if (isNaN(newVal) || newVal <= 0) return;
+// --- Перерасчёт ---
+function doRecalc(recipe, keyName, newVal, table) {
+  const keyIng = recipe.ingredients.find(ing => String(ing['Продукт']).trim() === keyName);
+  const oldVal = toNumber(keyIng['Шт/гр']);
+  if (!oldVal) return;
 
   const ratio = newVal / oldVal;
 
-  // Обновляем данные
-  recipe.ingredients.forEach((ing, idx) => {
-    if (idx === keyIdx) {
-      ing['Шт/гр'] = Math.round(newVal);
-    } else {
-      ing['Шт/гр'] = Math.round(parseFloat(ing['Шт/гр']) * ratio);
-    }
+  recipe.ingredients.forEach(ing => {
+    ing['Шт/гр'] = Math.round(toNumber(ing['Шт/гр']) * ratio);
   });
 
-  // Перерисовка таблицы
-  const section = table.parentElement;
-  section.innerHTML = '';
-  renderRecipes({ recipes: [recipe] });
+  // Перерисовать таблицу
+  renderRecipes(recipesCache);
 }
 
-// Переключение языка
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    currentLang = btn.dataset.lang;
-    // при необходимости можешь допилить перевод статичных заголовков
+// --- Загрузка ---
+async function loadSection(section) {
+  const container = document.getElementById('content');
+  container.innerHTML = '<p>Загрузка...</p>';
+
+  try {
+    const res = await fetch(dataFiles[section]);
+    const data = await res.json();
+    renderRecipes(data.recipes || []);
+  } catch (e) {
+    container.innerHTML = `<p style="color:red">Ошибка загрузки: ${e.message}</p>`;
+  }
+}
+
+// --- Инициализация ---
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+  document.getElementById('btn-preps').addEventListener('click', () => loadSection('preps'));
+  document.getElementById('btn-sv').addEventListener('click', () => loadSection('sv'));
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang;
+      renderRecipes(recipesCache);
+    });
   });
+
+  loadSection('preps'); // по умолчанию
 });
-
-// Кнопки разделов
-document.getElementById('btn-preps').addEventListener('click', () => loadSection('preps'));
-document.getElementById('btn-sv').addEventListener('click', () => loadSection('sv'));
-
-// Загружаем ПФы по умолчанию
-loadSection('preps');
