@@ -67,28 +67,32 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;          /* ширина контейнера — вся страница */
-  align-items: center;   /* центрируем фиксированные кнопки */
-  padding: 0;           
+  width: 100%;
+  align-items: center; /* все кнопки по центру */
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* Кнопки разделов — визуально как в старом CSS */
+/* Кнопки разделов — фиксированная ширина и одинаковый размер */
 .section-btn {
-  width: 200px;       /* фиксированная ширина */
-  max-width: 100%;
-  margin: 0 auto;     /* по центру */
+  width: 200px;            /* фиксированная ширина для всех кнопок */
+  min-width: 200px;        /* гарантируем одинаковый размер */
+  max-width: 200px;
   text-align: center;
-  padding: 10px 15px; /* высота и внутренние отступы */
-  font-size: 16px;    /* размер текста кнопки */
+  padding: 10px 15px;
+  font-size: 16px;
   font-weight: 600;
   background-color: #d8cfc0;
   color: #333;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;     /* текст не переносится */
+  overflow: hidden;        /* обрезаем длинный текст */
+  text-overflow: ellipsis; /* многоточие при обрезке */
   transition: background-color 0.3s;
 }
+
 .section-btn:hover {
   background-color: #c1b29a;
 }
