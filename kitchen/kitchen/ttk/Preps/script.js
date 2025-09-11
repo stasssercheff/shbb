@@ -2,15 +2,16 @@ let currentLang = 'ru';
 const dataFile = 'data/preps.json';
 
 // --- Функция создания таблицы карточки ---
-function createTable(sectionArray) {
-  if (!sectionArray || !Array.isArray(sectionArray)) return document.createElement('div');
+function createTable(recipes) {
+  if (!recipes) return document.createElement('div');
 
   const table = document.createElement('table');
   table.classList.add('dish-table');
 
-  // Заголовок таблицы
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
+
+  // Устанавливаем заголовки колонок для всех типов данных
   ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Гр/Шт' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description']
     .forEach(text => {
       const th = document.createElement('th');
@@ -22,65 +23,37 @@ function createTable(sectionArray) {
 
   const tbody = document.createElement('tbody');
 
-  sectionArray.forEach(dish => {
-    if (!dish || !dish.ingredients) return;
-
+  recipes.forEach(dish => {
     // Название блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = 4;
     tdDish.style.fontWeight = '600';
-    tdDish.textContent = dish.name?.[currentLang] || 'Без названия';
+    tdDish.textContent = dish.title || '';
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
-    const keyIngredient = dish.key; // ключевое поле
-
+    // Ингредиенты
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
       // №
       const tdNum = document.createElement('td');
-      tdNum.textContent = i + 1;
+      tdNum.textContent = ing['№'] || i + 1;
 
-      // Ингредиент
+      // Название
       const tdName = document.createElement('td');
-      tdName.textContent = ing?.[currentLang] || '';
+      tdName.textContent = ing[currentLang] || ing['Продукт'] || ing['Ingredient'] || '';
 
-      // Количество
+      // Кол-во
       const tdAmount = document.createElement('td');
-      tdAmount.dataset.base = ing?.amount || 0;
-
-      if (ing.key === keyIngredient) {
-        tdAmount.contentEditable = true;
-        tdAmount.classList.add('highlight');
-        tdAmount.textContent = ing.amount || 0;
-
-        tdAmount.addEventListener('input', () => {
-          const newVal = parseFloat(tdAmount.textContent) || 0;
-          const oldVal = parseFloat(tdAmount.dataset.base) || 1;
-          const factor = newVal / oldVal;
-
-          // Перерасчет всех остальных
-          const trs = tdAmount.closest('table').querySelectorAll('tbody tr');
-          trs.forEach(r => {
-            const cell = r.cells[2]; // третий столбец - количество
-            if (cell && cell !== tdAmount) {
-              const base = parseFloat(cell.dataset.base) || 0;
-              cell.textContent = (base * factor).toFixed(1);
-            }
-          });
-
-          tdAmount.dataset.base = newVal;
-        });
-      } else {
-        tdAmount.textContent = ing.amount || 0;
-      }
+      tdAmount.dataset.base = ing['Шт/гр'] || ing.amount || '';
+      tdAmount.textContent = tdAmount.dataset.base;
 
       // Описание
       const tdDesc = document.createElement('td');
       if (i === 0) {
-        tdDesc.textContent = dish.process?.[currentLang] || '';
+        tdDesc.textContent = ing['Описание'] || dish.process?.[currentLang] || '';
         tdDesc.rowSpan = dish.ingredients.length;
         tdDesc.className = 'description-cell';
       }
@@ -109,9 +82,9 @@ async function loadSection() {
     const data = await response.json();
 
     const tblContainer = document.createElement('div');
-tblContainer.className = 'table-container';
-tblContainer.appendChild(createTable(data.recipes));
-panel.appendChild(tblContainer);
+    tblContainer.className = 'table-container';
+    tblContainer.appendChild(createTable(data.recipes || data));
+    panel.appendChild(tblContainer);
 
   } catch (err) {
     panel.innerHTML = `<p style="color:red">${err.message}</p>`;
@@ -119,9 +92,10 @@ panel.appendChild(tblContainer);
   }
 }
 
-// --- Переключение языка и отображение даты ---
+// --- Переключение языка ---
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+  const dateEl = document.getElementById('current-date');
+  if (dateEl) dateEl.textContent = new Date().toLocaleDateString();
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
