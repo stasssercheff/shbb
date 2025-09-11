@@ -6,130 +6,144 @@ const dataFiles = {
   sv: 'data/sv.json'
 };
 
-// Создание таблицы
-function createTable(recipe) {
-  const table = document.createElement('table');
-  table.className = 'recipe-table';
+// --- Создание таблицы ---
+function createTable(sectionData) {
+  if (!sectionData || !sectionData.recipes) return document.createElement('div');
 
+  const table = document.createElement('table');
+  table.classList.add('dish-table');
+
+  // Шапка
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
-  const headers = ["№", "Продукт", "Ingredient", "Шт/гр", "Описание"];
-  headers.forEach(h => {
-    const th = document.createElement('th');
-    th.textContent = h;
-    headerRow.appendChild(th);
-  });
+
+  ['№', currentLang === 'ru' ? 'Продукт' : 'Ingredient', currentLang === 'ru' ? 'Шт/гр' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description']
+    .forEach(text => {
+      const th = document.createElement('th');
+      th.textContent = text;
+      headerRow.appendChild(th);
+    });
+
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
   const tbody = document.createElement('tbody');
-  let descriptionCell;
 
-  recipe.ingredients.forEach((ing, idx) => {
-    const row = document.createElement('tr');
+  sectionData.recipes.forEach(recipe => {
+    // Название рецепта
+    const titleRow = document.createElement('tr');
+    const tdTitle = document.createElement('td');
+    tdTitle.colSpan = 4;
+    tdTitle.style.fontWeight = '600';
+    tdTitle.textContent = recipe.title;
+    titleRow.appendChild(tdTitle);
+    tbody.appendChild(titleRow);
 
-    // Номер
-    const num = document.createElement('td');
-    num.textContent = ing["№"] || '';
-    row.appendChild(num);
+    const descText = recipe.ingredients.map(ing => ing['Описание'] || '').join('\n');
+    const keyIngredients = recipe.key ? [recipe.key] : [];
 
-    // Название RU / EN
-    const name = document.createElement('td');
-    name.textContent = ing["Продукт"] || '';
-    row.appendChild(name);
+    recipe.ingredients.forEach((ing, i) => {
+      const tr = document.createElement('tr');
 
-    const nameEn = document.createElement('td');
-    nameEn.textContent = ing["Ingredient"] || '';
-    row.appendChild(nameEn);
+      const tdNum = document.createElement('td');
+      tdNum.textContent = ing['№'] || '';
 
-    // Количество
-    const qty = document.createElement('td');
-    qty.textContent = ing["Шт/гр"] || '';
-    if (recipe.key && ing["Продукт"] === recipe.key) {
-      qty.contentEditable = true;
-      qty.style.backgroundColor = "#fff6b3"; // подсветка
-      qty.addEventListener('input', () => recalc(recipe, tbody, recipe.key, parseFloat(qty.textContent) || 0));
-    }
-    row.appendChild(qty);
+      const tdName = document.createElement('td');
+      tdName.textContent = currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
 
-    // Описание
-    if (idx === 0) {
-      descriptionCell = document.createElement('td');
-      descriptionCell.rowSpan = recipe.ingredients.length;
-      descriptionCell.textContent = ing["Описание"] || '';
-      row.appendChild(descriptionCell);
-    }
+      // Подсветка ключевых ингредиентов
+      if (keyIngredients.includes(ing['Продукт'])) tdName.style.backgroundColor = 'lightyellow';
 
-    tbody.appendChild(row);
+      const tdAmount = document.createElement('td');
+      // Округляем до целого
+      tdAmount.textContent = ing['Шт/гр'] ? Math.round(Number(ing['Шт/гр'])) : '';
+
+      // Описание в первом ряду рецепта
+      const tdDesc = document.createElement('td');
+      if (i === 0) {
+        tdDesc.textContent = descText;
+        tdDesc.rowSpan = recipe.ingredients.length;
+      }
+
+      tr.appendChild(tdNum);
+      tr.appendChild(tdName);
+      tr.appendChild(tdAmount);
+      if (i === 0) tr.appendChild(tdDesc);
+
+      tbody.appendChild(tr);
+    });
   });
 
   table.appendChild(tbody);
   return table;
 }
 
-// Перерасчет
-function recalc(recipe, tbody, keyName, newKeyValue) {
-  const keyIng = recipe.ingredients.find(ing => ing["Продукт"] === keyName);
-  if (!keyIng) return;
+// --- Загрузка раздела ---
+async function loadSection(section) {
+  const panel = document.getElementById(section);
 
-  const baseValue = parseFloat(keyIng["Шт/гр"]) || 1;
-  const coef = newKeyValue / baseValue;
-
-  [...tbody.rows].forEach((row, idx) => {
-    const ing = recipe.ingredients[idx];
-    if (ing["Продукт"] === keyName) return;
-    const cell = row.cells[3];
-    const baseQty = parseFloat(ing["Шт/гр"]);
-    if (!isNaN(baseQty)) {
-      cell.textContent = Math.round(baseQty * coef);
+  // Закрываем все остальные панели
+  document.querySelectorAll('.section-panel').forEach(p => {
+    if (p !== panel) {
+      p.style.display = 'none';
+      p.innerHTML = '';
     }
   });
-}
 
-// Отрисовка секций
-function renderSection(sectionId, recipes) {
-  const panel = document.getElementById(sectionId);
+  if (panel.style.display === 'block') {
+    panel.style.display = 'none';
+    panel.innerHTML = '';
+    return;
+  }
+
+  panel.style.display = 'block';
   panel.innerHTML = '';
 
-  recipes.forEach(recipe => {
-    const container = document.createElement('div');
-    container.className = 'recipe-card';
-
-    const title = document.createElement('h3');
-    title.textContent = recipe.title;
-    container.appendChild(title);
-
-    container.appendChild(createTable(recipe));
-    panel.appendChild(container);
-  });
-}
-
-// Загрузка данных
-async function loadSection(sectionId, filePath) {
   try {
-    const response = await fetch(filePath);
-    const data = await response.json();
-    renderSection(sectionId, data.recipes);
+    const response = await fetch(dataFiles[section]);
+    if (!response.ok) throw new Error('Ошибка загрузки JSON: ' + section);
+    const sectionData = await response.json();
+
+    const tblContainer = document.createElement('div');
+    tblContainer.className = 'table-container';
+    tblContainer.appendChild(createTable(sectionData));
+    panel.appendChild(tblContainer);
   } catch (err) {
-    console.error(`Ошибка загрузки ${filePath}:`, err);
+    panel.innerHTML = `<p style="color:red">${err.message}</p>`;
+    console.error(err);
   }
 }
 
-// Переключение языков
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    currentLang = btn.dataset.lang;
-    location.reload();
+// --- Инициализация ---
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+  // Кнопки секций
+  document.querySelectorAll('.section-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      loadSection(btn.dataset.section);
+    });
+  });
+
+  // Переключение языка
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang;
+      // Перерисуем открытые таблицы
+      document.querySelectorAll('.section-panel').forEach(panel => {
+        if (panel.style.display === 'block') {
+          const section = panel.id;
+          panel.innerHTML = '';
+          fetch(dataFiles[section])
+            .then(res => res.json())
+            .then(data => {
+              const tblContainer = document.createElement('div');
+              tblContainer.className = 'table-container';
+              tblContainer.appendChild(createTable(data));
+              panel.appendChild(tblContainer);
+            });
+        }
+      });
+    });
   });
 });
-
-// Кнопки секций
-document.querySelectorAll('.section-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const sectionId = btn.dataset.section;
-    loadSection(sectionId, dataFiles[sectionId]);
-  });
-});
-
-// Дата
-document.getElementById('current-date').textContent = new Date().toLocaleDateString();
