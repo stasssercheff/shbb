@@ -1,24 +1,15 @@
-/* Сброс базовых отступов и границ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Общий контейнер страницы */
+/* Общий стиль */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f8;
   color: #333;
-  overflow-x: hidden;
 }
 
-/* Хедер с кнопками языка и навигации по центру */
 .page-header {
   display: flex;
   justify-content: center;
-  align-items: center;     
-  padding: 10px 20px;
+  align-items: center;
+  padding: 12px 20px;
   gap: 10px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -27,167 +18,76 @@ body {
   z-index: 10;
 }
 
-/* Кнопки шапки и навигации */
-.top-btn, .lang-btn, .nav-btn {
-  padding: 8px 16px;
+.nav-btn, .lang-btn {
+  padding: 10px 20px;
   background-color: #d8cfc0;
   color: #333;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
-  transition: 0.2s;
+  font-size: 15px;
+  transition: background-color 0.2s;
 }
-
-.top-btn:hover, .lang-btn:hover, .nav-btn:hover {
+.nav-btn:hover, .lang-btn:hover {
   background-color: #c1b29a;
 }
 
-/* Основной контейнер */
-.main-container {
-  width: 100%;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  overflow-x: hidden;
+/* Центральные кнопки ПФы / Су-вид */
+.sections-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
 }
-
-/* Дата */
-.date-container {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-  text-align: center;
+.section-btn {
+  min-width: 160px;
 }
 
 /* Контейнер таблицы */
 .table-container {
   width: 100%;
-  overflow-x: hidden;
-  margin-top: 10px;
-  text-align: center;
+  overflow-x: auto;
 }
 
-/* Таблица блюда */
-.dish-table {
+/* Таблица */
+.recipe-table {
   border-collapse: collapse;
-  margin: 0 auto;
-  font-size: 10px;
+  margin: 0 auto 25px;
+  font-size: 13px;
   background: #fff;
   table-layout: fixed;
   width: 100%;
+  max-width: 1100px;
 }
 
-/* Шапка таблицы */
-.dish-table th {
+/* Заголовки */
+.recipe-table th {
   border: 1px solid #ccc;
-  padding: 4px;
-  text-align: center;
-  vertical-align: middle;
+  padding: 6px;
   background-color: #f9f9f9;
   font-weight: 600;
+  text-align: center;
 }
 
-/* Ячейки таблицы */
-.dish-table td {
+/* Ячейки */
+.recipe-table td {
   border: 1px solid #ccc;
-  padding-top: 3px;
-  padding-right: 3px;
-  padding-bottom: 3px;
-  text-align: left;
+  padding: 6px;
   vertical-align: top;
   word-break: break-word;
 }
 
-/* Индивидуальные отступы по столбцам */
-.dish-table td:nth-child(1) { padding-left: 4px; }
-.dish-table td:nth-child(2) { padding-left: 6px; }
-.dish-table td:nth-child(3) { padding-left: 4px; }
-.dish-table td:nth-child(4) { padding-left: 6px; }
-.dish-table td:nth-child(5) { padding-left: 0px; }
-
-/* Размер текста по столбцам */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { font-size: 8px; }   /* № */
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { font-size: 8px; }   /* Ингредиент */
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { font-size: 7px; }   /* Кол-во */
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { font-size: 8px; }   /* Описание */
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { font-size: 8px; }   /* Фото */
-
-/* Ширина столбцов в процентах */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { width: 5%; }   /* № */
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { width: 28%; }  /* Ингредиент */
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { width: 7%; }   /* Количество */
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { width: 45%; }  /* Описание */
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { width: 15%; }  /* Фото */
-
-/* Процесс приготовления объединяем ячейки */
-.dish-table td.description-cell {
-  vertical-align: top;
-}
-
-/* Подсветка ключевых ячеек */
+/* Подсветка ключа */
 .highlight {
   background-color: #fffacd;
 }
 
-/* Контейнер для фото в ячейке */
-.dish-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  overflow: hidden;
-}
-
-/* Миниатюра фото */
-.dish-photo img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  object-fit: contain;
-}
-
-.dish-photo img:hover {
-  transform: scale(1.1);
-}
-
-/* Модальное окно фото */
-#photo-modal {
-  display: none;
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-#photo-modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 8px;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .dish-table {
-    font-size: 10px;
-  }
+/* Инпут ключевой */
+.key-input {
+  width: 70px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  font-size: 13px;
 }
