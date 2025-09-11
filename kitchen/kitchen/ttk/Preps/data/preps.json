@@ -2,6 +2,7 @@
   "recipes": [
     {
       "title": "ТЕСТО ПЕНКЕЙКИ / PANCAKES DOUGH",
+      "key": "Яйцо"
       "ingredients": [
         { "№": 1, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "1", "Описание": "Смешать все в большой миске веником. НЕ блендером!!! Довести до однородной консистенции. Если необходимо пробить миксером." },
         { "№": 2, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "125", "Описание": "" },
@@ -9,11 +10,25 @@
         { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2", "Описание": "Description" },
         { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "25", "Описание": "Mix everything in a large bowl. With whisk. No blender!!!  Bring to a uniform consistency. If necessary, beat with a mixer." },
         { "№": 6, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "5", "Описание": "" },
-        { "№": 7, "Продукт": "Масло", "Ingredient": "Butter", "Шт/гр": "30", "Описание": "" }
+        { "№": 7, "Продукт": "Масло", "Ingredient": "Oil", "Шт/гр": "30", "Описание": "" }
+      ]
+    },
+    {
+            "title": "БРИОШ / BRIOCHE",
+      "key": "Яйцо(желток)"
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо(желток)", "Ingredient": "Egg (yolk)", "Шт/гр": "1", "Описание": "Замешать молоко, желтки, дрожжи, сахар и соль в емкости. Пробить блендером. Просеять муку в дежу/миску. Влить замес, замесить тесто. После получения однородной тугой массы ввести холодное нарубленое сливочное масло. Замесить тесто до однородной текстуры(не долго)и оставить вызревать до увеличения объема в 2 раза под пленкой.После увеличения теста, обмять и повторно оставить на вызревание. После очередного увеличения теста, обмять выложить в формы, накрыть, дать созреть.Выпекать при температуре 200 гр при конвекции 35 20 мин, после понизить температуру до 190, конвекцию до 25 и отпекать еще 40 минут. " },
+        { "№": 2, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "525", "Описание": "" },
+        { "№": 3, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "380", "Описание": "" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "8", "Описание": "Description" },
+        { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "45", "Описание": "Mix milk, yolks, yeast, sugar and salt in a container. Beat with a blender. Sift flour into a bowl. Pour in the mixture, knead the dough. After obtaining a homogeneous tight mass, add cold chopped butter. Knead the dough until a homogeneous texture (not long) and leave to mature until the volume doubles under the film. After the dough has increased, knead and leave to mature again. After the dough has increased again, knead, put it in molds, cover, let it mature. Bake at a temperature of 200 degrees with convection 35 for 20 minutes, then reduce the temperature to 190, convection to 25 and bake for another 40 minutes." },
+        { "№": 6, "Продукт": "дрожи", "Ingredient": "Yeast", "Шт/гр": "10", "Описание": "" },
+        { "№": 7, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "60", "Описание": "" }
       ]
     },
     {
       "title": "ПФ СОУС КРЕМЧИЗ / PREP CREAMCHEESE",
+      "key": "Сыр Кремчиз"
       "ingredients": [
         { "№": 1, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "300", "Описание": "Поместить кремчиз в миску и взбивать миксером до мягкого состояния. Ввести сливки и соль и взбивать миксером до состояния воздушной однородной массы. Place the cream cheese in a bowl and beat with a mixer until soft. Add the cream and salt and beat with a mixer until airy and smooth." },
         { "№": 2, "Продукт": "Сыр Кремчиз", "Ingredient": "Cheese Cream cheese", "Шт/гр": "200", "Описание": "" },
@@ -22,6 +37,7 @@
     },
     {
       "title": "ПФ СОУС НА ГОВЯДИНУ / PREP BEEF SAUCE",
+      "key": "ПФ Сыр Кремчиз"
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Сыр Кремчиз", "Ingredient": "Cream", "Шт/гр": "50", "Описание": "Смешать до однородного состояния в миске ложной. Mix until smooth in a mixing bowl." },
         { "№": 2, "Продукт": "ПФ вяленые томаты", "Ingredient": "Prep sun-dried tomatoes", "Шт/гр": "5", "Описание": "" }
@@ -29,8 +45,9 @@
     },
     {
       "title": "ПФ РИЕТ ИЗ ФОРЕЛИ",
+      "key": "ПФ Форель"
       "ingredients": [
-        { "№": 1, "Продукт": "Форель", "Ingredient": "Trout", "Шт/гр": "1000", "Описание": "Рыбу(без шкуры) с солью и тимьяном завакуумировать и отправить в сю-вид на 30 минут при 53 градусах. Далее дать остыть, взбить миксером, ввести мягкое сливочное масло, сливки, соль. Взбить миксером до однородного состояния. Fish (skinless) with salt and thyme vacuum and send to sous vide for 30 minutes at 53 degrees. Then let cool, beat with a mixer, add soft butter, cream, salt. Beat with a mixer until smooth." },
+        { "№": 1, "Продукт": "ПФ Форель", "Ingredient": "Prep Trout", "Шт/гр": "1000", "Описание": "Рыбу(без шкуры) с солью и тимьяном завакуумировать и отправить в сю-вид на 30 минут при 53 градусах. Далее дать остыть, взбить миксером, ввести мягкое сливочное масло, сливки, соль. Взбить миксером до однородного состояния. Fish (skinless) with salt and thyme vacuum and send to sous vide for 30 minutes at 53 degrees. Then let cool, beat with a mixer, add soft butter, cream, salt. Beat with a mixer until smooth." },
         { "№": 2, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "600", "Описание": "" },
         { "№": 3, "Продукт": "Силивки", "Ingredient": "Olives", "Шт/гр": "300", "Описание": "" },
         { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2", "Описание": "" }
@@ -38,6 +55,7 @@
     },
     {
       "title": "ПФ СОУС ТАРТАР",
+      "key": "Майонез"
       "ingredients": [
         { "№": 1, "Продукт": "Майонез", "Ingredient": "Mayonnaise", "Шт/гр": "180", "Описание": "Огурец натереть на мелкой терке и перерубить в мелкую фракцию. Каперс(на Тартар) смешать с огурцом и остальными ингридиентами до однородной массы. Grate the cucumber on a fine grater and chop into small fractions. Mix the capers (for Tartar) with the cucumber and the remaining ingredients until smooth." },
         { "№": 2, "Продукт": "Огурец маринованый", "Ingredient": "Pickled cucumber", "Шт/гр": "30", "Описание": "" },
@@ -48,6 +66,7 @@
     },
     {
       "title": "ПФ СОУС НА ФОРЕЛЬ(СТЕЙК) / SAUCE FOR TROUT (STEAK)",
+      "key": "Сливки"
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Сок маракуйя", "Ingredient": "Passion fruit juice", "Шт/гр": "50", "Описание": "Мякоть маракуйи пробить блендером и процедить через сито для получения чистого сока. Смешать сок, сливки, тимьян и сахар в сотейнике/кастрюле, довести до кипения, достать тимьян, влить воде смешанную с крахмалом. Кипятить 3-5 минут до загустения. Снять с огня. Punch the passion fruit pulp with a blender and strain through a sieve to obtain pure juice. Mix the juice, cream, thyme and sugar in a saucepan/pot, bring to a boil, remove the thyme, pour in water mixed with starch. Boil for 3-5 minutes until not liquid. Remove from heat." },
         { "№": 2, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "200", "Описание": "" },
@@ -59,6 +78,7 @@
     },
     {
       "title": "ПФ Форель СС / PREP SALTED TROUT",
+      "key": "Форель"
       "ingredients": [
         { "№": 1, "Продукт": "Форель", "Ingredient": "Trout", "Шт/гр": "100", "Описание": "Форель выложить в гастроемкость шкурой вних. Посыпать солью затем сахаром. Оставить на 5-8 часов. Place the trout in a gastronorm container skin side down. Sprinkle with salt then sugar. Leave for 5-8 hours." },
         { "№": 2, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "4", "Описание": "" },
@@ -67,6 +87,7 @@
     },
     {
       "title": "СОУС ЦИТРУСОВЫЙ(САЛАТ С ПЕЧЕНЬЮ) / CITRUS SAUCE (LIVER SALAD)",
+      "key": "Масло растительное"
       "ingredients": [
         { "№": 1, "Продукт": "Пф апельсин фреш", "Ingredient": "Pf orange fresh", "Шт/гр": "110", "Описание": "Апельсиновый фреш довести до кипения, остудить. Смешать все ингридиенты, венчиком довести до однородного состояния. Bring orange juice to a boil, cool. Mix all ingredients, whisk until smooth." },
         { "№": 2, "Продукт": "Масло растительное", "Ingredient": "Vegetable oil", "Шт/гр": "90", "Описание": "" },
@@ -76,6 +97,7 @@
     },
     {
       "title": "СОУС ВИНЕГРЕТ / VINAIGRETTE SAUCE",
+      "key": "Масло растительное"
       "ingredients": [
         { "№": 1, "Продукт": "Масло растительное", "Ingredient": "Vegetable oil", "Шт/гр": "200", "Описание": "Смешать все ингридиенты венчиком довести до однородного состояния. Mix all ingredients and whisk until smooth." },
         { "№": 2, "Продукт": "Соус бальзамик", "Ingredient": "Balsamic sauce", "Шт/гр": "30", "Описание": "" },
@@ -85,8 +107,9 @@
     },
     {
       "title": "СОУС ИЗ ПЕЧЕНОГО ПЕРЦА / BAKED BELL PEPPER SAUCE",
+      "key": "ПФ Перец болгарский"
       "ingredients": [
-        { "№": 1, "Продукт": "Перец болгарский", "Ingredient": "Bell pepper", "Шт/гр": "1250", "Описание": "Перец и лук очистить и нарезать на крупные куски. Помидоры разрезать и очистить от плодоносящей части. Смешать все ингридиенты кроме оливкового масла и выложить в гастроемкости дла запекания тонким слоем. Отправить запецаться на 60-80 минут при температуре 180 гр. С максимальной конвекцией. После запекания перебить все блендером с добавлением оливкового масла. Peel the pepper and onion and cut into large pieces. Cut the tomatoes and remove the fruiting part. Mix all the ingredients except the olive oil and place in a thin layer in a baking dish. Bake for 60 minutes at 180 degrees. After baking, beat everything with a blender and add olive oil." },
+        { "№": 1, "Продукт": "ПФ Перец болгарский", "Ingredient": "Prep Bell pepper", "Шт/гр": "1250", "Описание": "Перец и лук очистить и нарезать на крупные куски. Помидоры разрезать и очистить от плодоносящей части. Смешать все ингридиенты кроме оливкового масла и выложить в гастроемкости дла запекания тонким слоем. Отправить запецаться на 60-80 минут при температуре 180 гр. С максимальной конвекцией. После запекания перебить все блендером с добавлением оливкового масла. Peel the pepper and onion and cut into large pieces. Cut the tomatoes and remove the fruiting part. Mix all the ingredients except the olive oil and place in a thin layer in a baking dish. Bake for 60 minutes at 180 degrees. After baking, beat everything with a blender and add olive oil." },
         { "№": 2, "Продукт": "Помидор", "Ingredient": "Tomato", "Шт/гр": "415", "Описание": "" },
         { "№": 3, "Продукт": "Лук красный", "Ingredient": "Red onion", "Шт/гр": "480", "Описание": "" },
         { "№": 4, "Продукт": "Чесночное масло ПФ", "Ingredient": "PF garlic oil", "Шт/гр": "60", "Описание": "" },
@@ -98,6 +121,7 @@
     },
     {
       "title": "СОУС ГОЛЛАНДСКИЙ / HOLLANDAISE SAUCE",
+      "key": "Яйцо (желток)"
       "ingredients": [
         { "№": 1, "Продукт": "Яйцо (желток)", "Ingredient": "Egg (yolk)", "Шт/гр": "3", "Описание": "Смешать е ингридиенты в вакуумном пакете, запечатать пакет. Отправить в кипяченую воду на 30 мин. После немного остудить и перебить блендером до однородного состояния. Mix the ingredients in a vacuum bag, seal the bag. Place in boiled water for 30 minutes. Cool slightly and blend until smooth." },
         { "№": 2, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "40", "Описание": "" },
@@ -108,6 +132,7 @@
     },
     {
       "title": "ЗАМЕС ТУНЕЦ / TUNA MIX",
+      "key": "Тунец консерв."
       "ingredients": [
         { "№": 1, "Продукт": "Тунец консерв.", "Ingredient": "Tuna in can", "Шт/гр": "1", "Описание": "Тунец открыть, слить жидкость замешать с майонезом перетираю рыбу до мелкой фракции. Кукурузу открыть слить жидкость, добавить к тунцу. Салатный лист мелко перерубить, добавить в смесь, добавить соль и соус ворчестер, перемешать. Open the tuna, drain the liquid, mix with mayonnaise, grind the fish to a fine fraction. Open the corn, drain the liquid, add to the tuna. Finely chop the lettuce leaf, add to the mixture, add salt and Worcestershire sauce, mix." },
         { "№": 2, "Продукт": "Кукуруза консерв.", "Ingredient": "Corn in can", "Шт/гр": "1", "Описание": "" },
@@ -124,6 +149,9 @@
         { "№": 2, "Продукт": "Говядина", "Ingredient": "Beef", "Шт/гр": "150", "Температура С / Temperature C": "54", "Время мин / Time": "40" },
         { "№": 3, "Продукт": "Форель", "Ingredient": "Trout", "Шт/гр": "130", "Температура С / Temperature C": "52", "Время мин / Time": "35" },
         { "№": 4, "Продукт": "Печень", "Ingredient": "Liver", "Шт/гр": "140", "Температура С / Temperature C": "56", "Время мин / Time": "60" }
+        { "№": 5, "Продукт": "Осьминог", "Ingredient": "octopus", "Шт/гр": "1000", "Температура С / Temperature C": "85", "Время мин / Time": "600" }
+        { "№": 7, "Продукт": "Пашот", "Ingredient": "Poached egg", "Шт/гр": "30", "Температура С / Temperature C": "64", "Время мин / Time": "45" }
+        { "№": 4, "Продукт": "Свинина стафф", "Ingredient": "pork staff", "Шт/гр": "1000", "Температура С / Temperature C": "73", "Время мин / Time": "200" }
       ]
     }
 
