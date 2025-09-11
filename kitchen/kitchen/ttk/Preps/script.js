@@ -1,143 +1,129 @@
-let currentLang = localStorage.getItem('lang') || 'ru';
-const dataFile = 'data/preps.json'; // <-- путь к JSON
+let currentLang = 'ru';
+const dataFile = 'data/preps.json';
 
-// --- Создание карточки блюда ---
-function createCard(dish) {
-  const card = document.createElement('div');
-  card.className = 'dish-card';
+// --- Функция создания таблицы карточки ---
+function createTable(sectionArray) {
+  if (!sectionArray) return document.createElement('div');
 
-  // Название
-  const title = document.createElement('h3');
-  title.textContent = dish.name[currentLang];
-  card.appendChild(title);
+  const table = document.createElement('table');
+  table.classList.add('dish-table');
 
-  // Таблица ингредиентов
-  const ingTable = document.createElement('table');
-  ingTable.className = 'dish-table';
-
-  // Шапка таблицы
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
-  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Гр/Шт' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
+  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Гр/Шт' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description']
     .forEach(text => {
       const th = document.createElement('th');
       th.textContent = text;
       headerRow.appendChild(th);
     });
   thead.appendChild(headerRow);
-  ingTable.appendChild(thead);
+  table.appendChild(thead);
 
-  // Тело таблицы
   const tbody = document.createElement('tbody');
-  const ingCount = dish.ingredients.length;
-  const descText = dish.process[currentLang] || '';
 
-  dish.ingredients.forEach((ing, i) => {
-    const tr = document.createElement('tr');
+  sectionArray.forEach((dish, index) => {
+    const dishRow = document.createElement('tr');
+    const tdDish = document.createElement('td');
+    tdDish.colSpan = 4;
+    tdDish.style.fontWeight = '600';
+    tdDish.textContent = dish.name[currentLang];
+    dishRow.appendChild(tdDish);
+    tbody.appendChild(dishRow);
 
-    const tdNum = document.createElement('td');
-    tdNum.textContent = i + 1;
+    const keyIngredient = dish.key; // ключевое поле для перерасчета
+    const keyValue = dish.ingredients.find(ing => ing.key === keyIngredient)?.amount || 1;
 
-    const tdName = document.createElement('td');
-    tdName.textContent = ing[currentLang];
+    dish.ingredients.forEach((ing, i) => {
+      const tr = document.createElement('tr');
 
-    const tdAmount = document.createElement('td');
-    tdAmount.textContent = ing.amount || '';
+      const tdNum = document.createElement('td');
+      tdNum.textContent = i + 1;
 
-    const tdDesc = document.createElement('td');
-    if (i === 0) {
-      tdDesc.textContent = descText;
-      tdDesc.rowSpan = ingCount;
-      tdDesc.className = 'description-cell';
-    }
+      const tdName = document.createElement('td');
+      tdName.textContent = ing[currentLang];
 
-    const tdPhoto = document.createElement('td');
-    if (i === 0 && dish.photo) {
-      const img = document.createElement('img');
-      img.src = dish.photo;
-      img.alt = dish.name[currentLang];
-      img.className = 'dish-photo-img';
-      tdPhoto.appendChild(img);
-      tdPhoto.rowSpan = ingCount;
+      const tdAmount = document.createElement('td');
+      if (ing.key === keyIngredient) {
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.value = ing.amount;
+        input.className = 'key-input';
+        input.dataset.base = ing.amount;
+        tdAmount.appendChild(input);
+      } else {
+        tdAmount.textContent = ing.amount;
+        tdAmount.dataset.base = ing.amount;
+      }
 
-      // Кликабельное фото
-      img.addEventListener('click', () => {
-        const photoModal = document.getElementById('photo-modal');
-        const modalImg = photoModal.querySelector('img');
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        photoModal.style.display = 'flex';
-      });
-    }
+      const tdDesc = document.createElement('td');
+      if (i === 0) {
+        tdDesc.textContent = dish.process[currentLang] || '';
+        tdDesc.rowSpan = dish.ingredients.length;
+        tdDesc.className = 'description-cell';
+      }
 
-    tr.appendChild(tdNum);
-    tr.appendChild(tdName);
-    tr.appendChild(tdAmount);
-    if (i === 0) tr.appendChild(tdDesc);
-    tr.appendChild(tdPhoto);
+      tr.appendChild(tdNum);
+      tr.appendChild(tdName);
+      tr.appendChild(tdAmount);
+      if (i === 0) tr.appendChild(tdDesc);
 
-    tbody.appendChild(tr);
+      tbody.appendChild(tr);
+    });
   });
 
-  ingTable.appendChild(tbody);
-  card.appendChild(ingTable);
-
-  return card;
+  table.appendChild(tbody);
+  return table;
 }
 
-// --- Загрузка данных и отрисовка ---
-async function loadAllPreps() {
-  const container = document.querySelector('.sections-container');
-  container.innerHTML = ''; // очистка
+// --- Загрузка данных ---
+async function loadSection() {
+  const panel = document.querySelector('.sections-container');
+  panel.innerHTML = '';
 
   try {
     const response = await fetch(dataFile);
     if (!response.ok) throw new Error('Ошибка загрузки JSON');
     const data = await response.json();
 
-    data.forEach(dish => {
-      const card = createCard(dish);
-      container.appendChild(card);
+    const tblContainer = document.createElement('div');
+    tblContainer.className = 'table-container';
+    tblContainer.appendChild(createTable(data));
+    panel.appendChild(tblContainer);
+
+    // --- Перерасчет при изменении ключевого поля ---
+    tblContainer.addEventListener('input', e => {
+      if (!e.target.classList.contains('key-input')) return;
+
+      const newVal = parseFloat(e.target.value) || 0;
+      const oldVal = parseFloat(e.target.dataset.base) || 1;
+      const factor = newVal / oldVal;
+
+      const row = e.target.closest('tr');
+      const table = e.target.closest('table');
+
+      table.querySelectorAll('td[data-base]').forEach(td => {
+        td.textContent = (parseFloat(td.dataset.base) * factor).toFixed(1);
+      });
+
+      e.target.dataset.base = newVal;
     });
 
   } catch (err) {
+    panel.innerHTML = `<p style="color:red">${err.message}</p>`;
     console.error(err);
-    const errorDiv = document.createElement('div');
-    errorDiv.style.color = 'red';
-    errorDiv.textContent = err.message;
-    container.appendChild(errorDiv);
   }
 }
 
-// --- Модалка для фото ---
-function createPhotoModal() {
-  let modal = document.getElementById('photo-modal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'photo-modal';
-    const img = document.createElement('img');
-    modal.appendChild(img);
-    document.body.appendChild(modal);
-
-    modal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-  }
-}
-
-// --- Инициализация ---
+// --- Переключение языка ---
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('current-date').textContent = new Date().toLocaleDateString();
 
-  createPhotoModal();
-  loadAllPreps();
-
-  // Смена языка
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       currentLang = btn.dataset.lang;
-      localStorage.setItem('lang', currentLang);
-      loadAllPreps();
+      loadSection();
     });
   });
+
+  loadSection();
 });
