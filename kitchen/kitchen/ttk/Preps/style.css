@@ -1,114 +1,74 @@
-/* Общие стили страницы */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fff;
-  color: #333;
 }
 
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  background: #f5f5f5;
 }
 
-.nav-btn, .lang-btn, .section-btn {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  margin: 0 5px;
-  font-size: 14px;
+.nav-btn {
+  padding: 8px 15px;
+  margin-right: 5px;
+  background: white;
+  border: 1px solid #ccc;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s;
 }
 
-.nav-btn:hover, .lang-btn:hover, .section-btn:hover {
-  background-color: #0056b3;
-}
-
-.lang-switcher {
-  display: flex;
-  gap: 5px;
+.lang-switcher .lang-btn {
+  padding: 6px 12px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 .main-container {
   padding: 20px;
 }
 
-.date-container {
-  margin-bottom: 15px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-/* Центрируем кнопки ПФ и СУ-ВИД */
-.section-buttons {
+.section-buttons-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 15px;
-  gap: 10px;
 }
 
-/* Панели разделов */
+.section-buttons-container .section-btn {
+  width: 150px;
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #ccc;
+}
+
 .section-panel {
-  margin-top: 10px;
+  display: none;
+  margin-bottom: 30px;
+  overflow-x: auto;
 }
 
-/* Таблица */
 .dish-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  table-layout: fixed; /* фиксированная таблица для % ширин */
-  font-family: var(--table-font, Arial);
-  font-size: var(--table-font-size, 14px);
 }
 
-/* Заголовки и ячейки */
-.dish-table th, .dish-table td {
-  border: 1px solid #ddd;
-  padding: 6px 10px;
+.dish-table th,
+.dish-table td {
+  border: 1px solid #999;
+  padding: 5px;
   text-align: left;
-  vertical-align: top;
-  word-wrap: break-word;
 }
 
-/* Задаём ширину колонок в % */
-.dish-table th:nth-child(1), .dish-table td:nth-child(1) { width: 5%; }
-.dish-table th:nth-child(2), .dish-table td:nth-child(2) { width: 25%; }
-.dish-table th:nth-child(3), .dish-table td:nth-child(3) { width: 10%; }
-.dish-table th:nth-child(4), .dish-table td:nth-child(4) { width: 50%; }
-.dish-table th:nth-child(5), .dish-table td:nth-child(5) { width: 10%; }
-
-/* Заголовки */
-.dish-table th {
-  background-color: #f0f0f0;
-  font-weight: 600;
+.key-cell {
+  background-color: #fff3b0; /* бледно-желтая подсветка */
 }
 
-.table-container {
-  overflow-x: auto;
-}
-
-/* Подсветка ключевых ингредиентов */
-.dish-table td.key-ingredient {
-  background-color: lightyellow;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .nav-btn, .lang-btn, .section-btn {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  .dish-table th, .dish-table td {
-    padding: 4px 6px;
-  }
+.editable {
+  background-color: #ffffe0;
 }
