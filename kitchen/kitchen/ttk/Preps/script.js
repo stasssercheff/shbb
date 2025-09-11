@@ -1,116 +1,127 @@
 let currentLang = 'ru';
 
-// Пути к JSON
+// Пути к JSON-файлам
 const dataFiles = {
-  pf: 'preps.json',
+  preps: 'preps.json',
   sv: 'sv.json'
 };
 
-// Данные
-let tableData = {
-  pf: [],
-  sv: []
-};
+// Секция контейнеры
+const sectionsContainer = document.querySelector('.sections-container');
 
-// Загрузка данных
-async function loadData(type) {
-  try {
-    const response = await fetch(dataFiles[type]);
-    const data = await response.json();
-    tableData[type] = data.recipes; // предполагаем, что в JSON массив под recipes
-    renderTable(type);
-  } catch (err) {
-    console.error(`Ошибка загрузки ${type}:`, err);
-  }
-}
+// Создаем кнопки PF и Sous-Vide
+const pfBtn = document.createElement('button');
+pfBtn.textContent = 'PF';
+pfBtn.classList.add('section-btn');
+pfBtn.dataset.section = 'preps';
+sectionsContainer.appendChild(pfBtn);
 
-// Создание таблицы
-function renderTable(type) {
-  const panel = document.getElementById(type);
-  panel.innerHTML = '';
+const svBtn = document.createElement('button');
+svBtn.textContent = 'Sous-Vide';
+svBtn.classList.add('section-btn');
+svBtn.dataset.section = 'sv';
+sectionsContainer.appendChild(svBtn);
 
-  const container = document.createElement('div');
-  container.className = 'table-container';
+// Контейнеры для таблиц
+const pfPanel = document.createElement('div');
+pfPanel.classList.add('section-panel');
+pfPanel.id = 'preps';
+sectionsContainer.appendChild(pfPanel);
 
-  const table = document.createElement('table');
-  table.className = 'dish-table';
+const svPanel = document.createElement('div');
+svPanel.classList.add('section-panel');
+svPanel.id = 'sv';
+sectionsContainer.appendChild(svPanel);
 
-  // Заголовок
-  const thead = document.createElement('thead');
-  const headerRow = document.createElement('tr');
-  ['№', 'Ингредиент', 'Кол-во', 'Описание'].forEach(h => {
-    const th = document.createElement('th');
-    th.textContent = h;
-    headerRow.appendChild(th);
-  });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
-  // Тело таблицы
-  const tbody = document.createElement('tbody');
-
-  tableData[type].forEach((item, index) => {
-    const row = document.createElement('tr');
-
-    // №
-    const tdIndex = document.createElement('td');
-    tdIndex.textContent = index + 1;
-    row.appendChild(tdIndex);
-
-    // Ингредиент (редактируемый)
-    const tdIngredient = document.createElement('td');
-    tdIngredient.contentEditable = true;
-    tdIngredient.textContent = item.key || '';
-    tdIngredient.style.backgroundColor = '#fff8dc'; // подсветка
-    tdIngredient.addEventListener('input', () => {
-      item.key = tdIngredient.textContent;
-      recalcQuantity(item, type);
+// Функция переключения секций
+sectionsContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('section-btn')) {
+    const section = e.target.dataset.section;
+    document.querySelectorAll('.section-panel').forEach(panel => {
+      panel.style.display = panel.id === section ? 'block' : 'none';
     });
-    row.appendChild(tdIngredient);
-
-    // Количество
-    const tdQuantity = document.createElement('td');
-    tdQuantity.textContent = formatQuantity(item.quantity || 0);
-    row.appendChild(tdQuantity);
-
-    // Описание
-    const tdDesc = document.createElement('td');
-    tdDesc.textContent = item.description || '';
-    tdDesc.className = 'description-cell';
-    row.appendChild(tdDesc);
-
-    tbody.appendChild(row);
-  });
-
-  table.appendChild(tbody);
-  container.appendChild(table);
-  panel.appendChild(container);
-}
-
-// Пересчёт по ключевым ингредиентам
-function recalcQuantity(item, type) {
-  // Пример формулы перерасчета: оставляем количество целым числом
-  item.quantity = Math.round(item.quantity);
-  renderTable(type);
-}
-
-// Форматирование количества без десятичных
-function formatQuantity(q) {
-  return Math.round(q);
-}
-
-// Кнопки разделов
-document.querySelectorAll('.section-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const section = btn.dataset.section;
-    const panel = document.getElementById(section);
-    panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
-  });
+    if (section === 'preps') loadTable('preps', pfPanel);
+    if (section === 'sv') loadTable('sv', svPanel);
+  }
 });
 
-// Загрузка данных
-loadData('pf');
-loadData('sv');
+// Функция загрузки JSON и создания таблицы
+async function loadTable(type, container) {
+  container.innerHTML = ''; // очищаем
+  const response = await fetch(dataFiles[type]);
+  const data = await response.json();
 
-// Отображение даты
-document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+  data.recipes.forEach(recipe => {
+    const tableContainer = document.createElement('div');
+    tableContainer.classList.add('table-container');
+
+    const table = document.createElement('table');
+    table.classList.add('dish-table');
+
+    // Заголовок
+    const thead = document.createElement('thead');
+    const headRow = document.createElement('tr');
+    ['№', 'Ингредиент', 'Количество', 'Описание'].forEach(text => {
+      const th = document.createElement('th');
+      th.textContent = text;
+      headRow.appendChild(th);
+    });
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    // Тело таблицы
+    const tbody = document.createElement('tbody');
+
+    recipe.ingredients.forEach(ing => {
+      const row = document.createElement('tr');
+
+      // №
+      const tdNum = document.createElement('td');
+      tdNum.textContent = ing['№'];
+      row.appendChild(tdNum);
+
+      // Ингредиент
+      const tdIng = document.createElement('td');
+      tdIng.textContent = ing['Продукт'];
+      if (ing['key'] || ing['Key']) {
+        tdIng.setAttribute('contenteditable', 'true');
+        tdIng.style.backgroundColor = '#fff8dc'; // бледно-жёлтый
+      }
+      row.appendChild(tdIng);
+
+      // Количество
+      const tdQty = document.createElement('td');
+      tdQty.textContent = ing['Шт/гр'];
+      tdQty.setAttribute('contenteditable', 'true');
+      tdQty.addEventListener('input', () => recalc(tbody));
+      row.appendChild(tdQty);
+
+      // Описание
+      const tdDesc = document.createElement('td');
+      tdDesc.textContent = ing['Описание'];
+      tdDesc.classList.add('description-cell');
+      tdDesc.setAttribute('colspan', '1');
+      row.appendChild(tdDesc);
+
+      tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
+    container.appendChild(tableContainer);
+  });
+}
+
+// Функция перерасчета
+function recalc(tbody) {
+  tbody.querySelectorAll('tr').forEach(row => {
+    const qtyCell = row.children[2];
+    if (!isNaN(qtyCell.textContent)) {
+      let val = parseFloat(qtyCell.textContent);
+      qtyCell.textContent = Math.round(val); // убираем десятичные
+    }
+  });
+}
+
+// Изначально скрываем все панели
+document.querySelectorAll('.section-panel').forEach(panel => panel.style.display = 'none');
