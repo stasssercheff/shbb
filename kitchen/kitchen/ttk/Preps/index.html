@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ТТК ПФ и Су-вид</title>
+  <title>ПФ и СУ-ВИД</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,18 +19,16 @@
 
 <main class="main-container">
   <div id="current-date" class="date-container"></div>
-  <div class="sections-container">
-    <div class="section">
-      <button class="section-btn" data-section="preps">ПФ</button>
-      <div class="section-panel" id="preps"></div>
-    </div>
-    <div class="section">
-      <button class="section-btn" data-section="sv">Су-вид</button>
-      <div class="section-panel" id="sv"></div>
-    </div>
+
+  <div class="center-buttons">
+    <button class="section-btn" data-section="preps">ПФ</button>
+    <button class="section-btn" data-section="sv">СУ-ВИД</button>
   </div>
+
+  <div id="preps" class="section-panel"></div>
+  <div id="sv" class="section-panel"></div>
 </main>
 
-<script src="script.js"></script>
+<script src="prep.js"></script>
 </body>
 </html>
