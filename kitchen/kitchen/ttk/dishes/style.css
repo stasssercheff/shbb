@@ -146,7 +146,7 @@ body {
 
 /* Размер текста отдельно для каждого столбца */
 .dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { font-size: 10px; } /* № */
+.dish-table td:nth-child(1) { font-size: 8px; } /* № */
 .dish-table th:nth-child(2),
 .dish-table td:nth-child(2) { font-size: 8px; } /* Ингредиент */
 .dish-table th:nth-child(3),
