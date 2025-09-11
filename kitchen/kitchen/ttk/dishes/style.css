@@ -138,7 +138,7 @@ body {
 /* Ячейки таблицы */
 .dish-table td {
   border: 1px solid #ccc;
-  padding: 2px; /* уменьшаем padding, чтобы таблица шире */
+  padding: 3px; /* уменьшаем padding, чтобы таблица шире */
   text-align: left;
   vertical-align: top;
   word-break: break-word;
