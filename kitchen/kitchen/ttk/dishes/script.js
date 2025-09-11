@@ -97,7 +97,7 @@ function createPhotoModal() {
     document.body.appendChild(photoModal);
 
     Object.assign(photoModal.style, {
-      display: 'none',   // скрыта по умолчанию
+      display: 'none',
       position: 'fixed',
       top: '0',
       left: '0',
@@ -107,18 +107,18 @@ function createPhotoModal() {
       justifyContent: 'center',
       alignItems: 'center',
       zIndex: '9999',
+      cursor: 'pointer',
     });
 
-    // закрытие по клику
+    // Закрытие по клику
     photoModal.addEventListener('click', () => {
       photoModal.style.display = 'none';
     });
 
-    // чтобы фото было адаптивным
+    // Стили для фото внутри модалки
     modalImg.style.maxWidth = '90%';
     modalImg.style.maxHeight = '90%';
-    modalImg.style.objectFit = 'contain';
-    modalImg.style.cursor = 'pointer';
+    modalImg.style.boxShadow = '0 0 20px rgba(0,0,0,0.5)';
   }
   return photoModal;
 }
@@ -156,7 +156,8 @@ async function loadSection(section) {
 
     // --- Кликабельность фото ---
     const photoModal = createPhotoModal();
-    tblContainer.querySelectorAll('.dish-photo img').forEach(img => {
+    tblContainer.querySelectorAll('.dish-photo').forEach(img => {
+      img.style.cursor = 'pointer';
       img.addEventListener('click', () => {
         const modalImg = photoModal.querySelector('img');
         modalImg.src = img.src;
@@ -199,7 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
               // --- Кликабельность фото после обновления языка ---
               const photoModal = createPhotoModal();
-              tblContainer.querySelectorAll('.dish-photo img').forEach(img => {
+              tblContainer.querySelectorAll('.dish-photo').forEach(img => {
+                img.style.cursor = 'pointer';
                 img.addEventListener('click', () => {
                   const modalImg = photoModal.querySelector('img');
                   modalImg.src = img.src;
