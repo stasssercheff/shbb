@@ -173,25 +173,24 @@ body {
   vertical-align: top;
 }
 
-/* Фото блюда */
+/* Контейнер для фото в ячейке */
 .dish-photo {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;       /* фиксированная высота ячейки */
+  height: 60px;       /* высота ячейки */
+  overflow: hidden;   /* обрезаем лишнее, чтобы фото не вылазило */
 }
 
-/* Фото блюда */
+/* Миниатюра фото */
 .dish-photo img {
-  display: block;        /* убрать inline эффект */
-  max-width: 60px;       /* максимальная ширина миниатюры */
-  max-height: 60px;      /* максимальная высота миниатюры */
-  width: auto;           /* подстраивается под max-width */
+  max-width: 100%;       /* подстраивается под ширину столбца */
+  max-height: 100%;      /* не растягиваем по высоте */
+  width: auto;           /* сохраняем пропорции */
   height: auto;          /* сохраняем пропорции */
-  margin: auto;          /* центрируем по горизонтали */
-  cursor: pointer;
+  cursor: pointer;       /* кликабельность */
   transition: transform 0.2s ease;
-  object-fit: contain;   /* пропорции без обрезки */
+  object-fit: contain;   /* фото вписывается в ячейку без обрезки */
 }
 
 .dish-photo img:hover {
