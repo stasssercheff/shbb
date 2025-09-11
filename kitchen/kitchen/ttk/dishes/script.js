@@ -30,7 +30,7 @@ function createTable(sectionArray) {
   // Тело таблицы
   const tbody = document.createElement('tbody');
 
-  sectionArray.forEach((dish, index) => {
+  sectionArray.forEach((dish) => {
     // Название блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
@@ -86,9 +86,9 @@ function createTable(sectionArray) {
   return table;
 }
 
-// --- Создание модалки для фото (один раз) ---
+// --- Создание модалки для фото (один раз при загрузке страницы) ---
+let photoModal;
 function createPhotoModal() {
-  let photoModal = document.getElementById('photo-modal');
   if (!photoModal) {
     photoModal = document.createElement('div');
     photoModal.id = 'photo-modal';
@@ -97,7 +97,7 @@ function createPhotoModal() {
     document.body.appendChild(photoModal);
 
     Object.assign(photoModal.style, {
-      display: 'none',
+      display: 'none', // скрыта по умолчанию
       position: 'fixed',
       top: '0',
       left: '0',
@@ -149,13 +149,13 @@ async function loadSection(section) {
     panel.appendChild(tblContainer);
 
     // --- Кликабельность фото для всех новых изображений ---
-    const photoModal = createPhotoModal();
+    const modal = createPhotoModal();
     tblContainer.querySelectorAll('.dish-photo img').forEach(img => {
       img.addEventListener('click', () => {
-        const modalImg = photoModal.querySelector('img');
+        const modalImg = modal.querySelector('img');
         modalImg.src = img.src;
         modalImg.alt = img.alt;
-        photoModal.style.display = 'flex';
+        modal.style.display = 'flex';
       });
     });
 
@@ -192,16 +192,15 @@ document.addEventListener('DOMContentLoaded', () => {
               panel.appendChild(tblContainer);
 
               // --- Кликабельность фото после обновления языка ---
-              const photoModal = createPhotoModal();
+              const modal = createPhotoModal();
               tblContainer.querySelectorAll('.dish-photo img').forEach(img => {
                 img.addEventListener('click', () => {
-                  const modalImg = photoModal.querySelector('img');
+                  const modalImg = modal.querySelector('img');
                   modalImg.src = img.src;
                   modalImg.alt = img.alt;
-                  photoModal.style.display = 'flex';
+                  modal.style.display = 'flex';
                 });
               });
-
             });
         }
       });
