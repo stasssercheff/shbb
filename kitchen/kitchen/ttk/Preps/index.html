@@ -9,8 +9,8 @@
 <body>
 
 <header class="page-header">
-  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+  <button class="top-btn" onclick="location.href='index.html'">Главная</button>
+  <button class="top-btn" onclick="history.back()">Назад</button>
   <div class="lang-switcher">
     <button class="lang-btn" data-lang="ru">RU</button>
     <button class="lang-btn" data-lang="en">EN</button>
@@ -19,14 +19,24 @@
 
 <main class="main-container">
   <div id="current-date" class="date-container"></div>
-
-  <div class="section-buttons-container">
-    <button class="section-btn" data-section="preps">ПФ</button>
-    <button class="section-btn" data-section="sv">СУ-ВИД</button>
+  <div class="sections-container">
+    <div class="section">
+      <button class="section-btn" data-section="breakfast">Завтраки</button>
+      <div class="section-panel" id="breakfast"></div>
+    </div>
+    <div class="section">
+      <button class="section-btn" data-section="soup">Супы</button>
+      <div class="section-panel" id="soup"></div>
+    </div>
+    <div class="section">
+      <button class="section-btn" data-section="salad">Салаты</button>
+      <div class="section-panel" id="salad"></div>
+    </div>
+    <div class="section">
+      <button class="section-btn" data-section="main">Основные блюда</button>
+      <div class="section-panel" id="main"></div>
+    </div>
   </div>
-
-  <div class="section-panel" id="preps"></div>
-  <div class="section-panel" id="sv"></div>
 </main>
 
 <script src="script.js"></script>
