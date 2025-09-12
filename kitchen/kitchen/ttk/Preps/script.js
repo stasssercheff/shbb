@@ -32,7 +32,7 @@ fetch(dataFile)
 
 // Функция создания таблицы
 function createTable(sectionArray) {
-  const tableContainer = document.getElementById('tableContainer');
+const tableContainer = document.querySelector('.table-container');
   tableContainer.innerHTML = '';
 
   const table = document.createElement('table');
