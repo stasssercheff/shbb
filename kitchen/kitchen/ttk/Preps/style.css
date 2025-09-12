@@ -43,6 +43,33 @@ body {
   background-color: #c1b29a;
 }
 
+/* Контейнер для кнопок разделов (вертикально по центру) */
+.section-buttons {
+  display: flex;
+  flex-direction: column; /* вертикальное расположение */
+  align-items: center;    /* по центру */
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Кнопки разделов как в хэдере */
+.section-btn {
+  padding: 8px 16px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.2s;
+  width: 160px; /* чтобы кнопки были одинаковой ширины */
+  text-align: center;
+}
+.section-btn:hover {
+  background-color: #c1b29a;
+}
+
 /* Основной контейнер */
 .main-container {
   width: 100%;
