@@ -4,6 +4,7 @@
       "name": {
       "ru": "ТЕСТО ПЕНКЕЙКИ",
       "en": "PANCAKES DOUGH"
+      },       
       "key": "Яйцо",
       "ingredients": [
         { "№": 1, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "1" },
@@ -22,6 +23,7 @@
       "name": {
       "ru": "БРИОШ",
       "en": "BRIOCHE"
+      },
       "key": "Яйцо(желток)",
       "ingredients": [
         { "№": 1, "Продукт": "Яйцо(желток)", "Ingredient": "Egg (yolk)", "Шт/гр": "1" },
@@ -40,6 +42,7 @@
       "name": {
       "ru": "СЫРНИКИ",
       "en": "SYRNIKI"
+      },       
       "key": "Яйцо(желток)",
       "ingredients": [
         { "№": 1, "Продукт": "Творог", "Ingredient": "Cottage cheese", "Шт/гр": "1000" },
@@ -57,6 +60,7 @@
       "name": {
       "ru": "ПФ СОУС КРЕМЧИЗ",
       "en": "PREP CREAMCHEESE"
+      },       
       "key": "Сыр Кремчиз",
       "ingredients": [
         { "№": 1, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "300" },
@@ -71,7 +75,7 @@
       "name": {
       "ru": "ПФ СОУС НА ГОВЯДИНУ",
       "en": "PREP BEEF SAUCE"
-      "key": "ПФ Брокколи",
+      },     
       "key": "ПФ Сыр Кремчиз",
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Сыр Кремчиз", "Ingredient": "Cream", "Шт/гр": "50" },
@@ -85,6 +89,7 @@
       "name": {
       "ru": "РИЕТ ИЗ ФОРЕЛИ",
       "en": "TROUT RIETT"
+      },       
       "key": "ПФ Форель",
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Форель", "Ingredient": "Prep Trout", "Шт/гр": "1000" },
@@ -100,6 +105,7 @@
       "name": {
       "ru": "СОУС ТАРТАР",
       "en": "TARTARE SAUCE"
+      },       
       "key": "Майонез",
       "ingredients": [
         { "№": 1, "Продукт": "Майонез", "Ingredient": "Mayonnaise", "Шт/гр": "180" },
@@ -116,6 +122,7 @@
       "name": {
       "ru": "СОУС НА ФОРЕЛЬ(СТЕЙК)",
       "en": "SAUCE FOR TROUT(STEAK)"
+      },       
       "key": "Сливки",
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Сок маракуйя", "Ingredient": "Passion fruit juice", "Шт/гр": "50" },
@@ -133,6 +140,7 @@
       "name": {
       "ru": "ФОРЕЛЬ СОЛЕНАЯ",
       "en": "SALTED TROUT"
+      },       
       "key": "Форель",
       "ingredients": [
         { "№": 1, "Продукт": "Форель", "Ingredient": "Trout", "Шт/гр": "100" },
@@ -147,6 +155,7 @@
       "name": {
       "ru": "СОУС ЦИТРУСОВЫЙ(САЛАТ С ПЕЧЕНЬЮ)",
       "en": "CITRUS SAUCE (LIVER SALAD)"
+      },       
       "key": "Масло растительное",
       "ingredients": [
         { "№": 1, "Продукт": "Пф апельсин фреш", "Ingredient": "Pf orange fresh", "Шт/гр": "110" },
@@ -162,6 +171,7 @@
       "name": {
       "ru": "СОУС ВИНЕГРЕТ",
       "en": "VINAIGRETTE SAUCE"
+      },       
       "key": "Масло растительное",
       "ingredients": [
         { "№": 1, "Продукт": "Масло растительное", "Ingredient": "Vegetable oil", "Шт/гр": "200" },
@@ -177,6 +187,7 @@
       "name": {
       "ru": "СОУС ИЗ ПЕЧЕНОГО ПЕРЦА",
       "en": "BAKED BELL PEPPER SAUCE"
+      },       
       "key": "ПФ Перец болгарский",
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Перец болгарский", "Ingredient": "Prep Bell pepper", "Шт/гр": "1250" },
@@ -196,6 +207,7 @@
       "name": {
       "ru": "СОУС ГОЛЛАНДСКИЙ",
       "en": "HOLLANDAISE SAUCE"
+      },       
       "key": "Яйцо (желток)",
       "ingredients": [
         { "№": 1, "Продукт": "", "Ingredient": "Egg (yolk)", "Шт/гр": "3" },
@@ -212,6 +224,7 @@
       "name": {
       "ru": "ЗАМЕС ТУНЕЦ",
       "en": "TUNA MIX"
+      },       
       "key": "Тунец консерв.",
       "ingredients": [
         { "№": 1, "Продукт": "Тунец консерв.", "Ingredient": "Tuna in can", "Шт/гр": "1" },
@@ -229,6 +242,7 @@
       "name": {
       "ru": "СУП БРОККОЛИ",
       "en": "BROKKILI SOUP"
+      },       
       "key": "ПФ Брокколи",
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Брокколи", "Ingredient": "Prep Broccoli ", "Шт/гр": "1000" },
@@ -247,7 +261,8 @@
      "name": {
       "ru": "СУП ТЫКВА",
       "en": "PUMPKIN SOUP"
-      "key": "ПФ Брокколи",
+      },       
+      "key": "ПФ тыква",
       "ingredients": [
         { "№": 1, "Продукт": "ПФ тыква", "Ingredient": "Prep pumpkin", "Шт/гр": "1" },
         { "№": 2, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "1" },
