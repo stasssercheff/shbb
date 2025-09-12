@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Отправка сообщений ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const token = '8348920386:AAFlufZWkWqsH4-qoqSSHdmgcEM_s46Ke8Q';
+    const token = '8348920386:AAFlufZWkWqsH4-qoqSSHdmgcEM_s46Ke8Q;
     const chat_id = '-1002393080811';
 
     const sendMessage = (msg) => {
