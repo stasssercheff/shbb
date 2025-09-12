@@ -26,7 +26,7 @@ function createTable(sectionArray) {
     const tdDish = document.createElement('td');
     tdDish.colSpan = 4;
     tdDish.style.fontWeight = '600';
-    tdDish.textContent = dish.name[currentLang];
+    tdDish.textContent = dish.title; // <-- заменено name на title
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
@@ -39,15 +39,15 @@ function createTable(sectionArray) {
       tdNum.textContent = i + 1;
 
       const tdName = document.createElement('td');
-      tdName.textContent = ing[currentLang];
+      tdName.textContent = currentLang === 'ru' ? ing["Продукт"] : ing["Ingredient"];
 
       const tdAmount = document.createElement('td');
-      tdAmount.dataset.base = ing.amount;
+      tdAmount.dataset.base = ing["Шт/гр"];
 
-      if (ing.key === keyIngredient) {
+      if (ing["Продукт"] === keyIngredient) {
         tdAmount.contentEditable = true;
         tdAmount.classList.add('highlight');
-        tdAmount.textContent = ing.amount;
+        tdAmount.textContent = ing["Шт/гр"];
 
         tdAmount.addEventListener('input', () => {
           const newVal = parseFloat(tdAmount.textContent) || 0;
@@ -59,19 +59,21 @@ function createTable(sectionArray) {
             const cell = r.cells[2];
             if (cell && cell !== tdAmount) {
               const base = parseFloat(cell.dataset.base) || 0;
-              cell.textContent = (base * factor).toFixed(1);
+              if (!isNaN(base)) {
+                cell.textContent = Math.round(base * factor); // без десятичных
+              }
             }
           });
 
           tdAmount.dataset.base = newVal;
         });
       } else {
-        tdAmount.textContent = ing.amount;
+        tdAmount.textContent = ing["Шт/гр"];
       }
 
       const tdDesc = document.createElement('td');
       if (i === 0) {
-        tdDesc.textContent = dish.process[currentLang] || '';
+        tdDesc.textContent = dish.process ? (dish.process[currentLang] || '') : '';
         tdDesc.rowSpan = dish.ingredients.length;
         tdDesc.className = 'description-cell';
       }
@@ -101,7 +103,7 @@ async function loadSection() {
 
     const tblContainer = document.createElement('div');
     tblContainer.className = 'table-container';
-    tblContainer.appendChild(createTable(data));
+    tblContainer.appendChild(createTable(data.recipes)); // <-- исправлено
     panel.appendChild(tblContainer);
 
   } catch (err) {
