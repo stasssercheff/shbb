@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ТТК Блюда</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
 <header class="page-header">
-  <button class="top-btn" onclick="location.href='index.html'">Главная</button>
+  <button class="top-btn" onclick="location.href='../index.html'">Главная</button>
   <button class="top-btn" onclick="history.back()">Назад</button>
   <div class="lang-switcher">
     <button class="lang-btn" data-lang="ru">RU</button>
@@ -19,6 +20,7 @@
 
 <main class="main-container">
   <div id="current-date" class="date-container"></div>
+
   <div class="sections-container">
     <div class="section">
       <button class="section-btn" data-section="Preps">ПФ</button>
@@ -29,8 +31,10 @@
       <div class="section-panel" id="Sous-Vide"></div>
     </div>
   </div>
+
+  <!-- контейнер для таблицы -->
+  <div id="tableContainer"></div>
 </main>
 
-<script src="script.js"></script>
 </body>
 </html>
