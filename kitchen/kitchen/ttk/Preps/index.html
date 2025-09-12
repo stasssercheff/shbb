@@ -3,32 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ТТК Блюда</title>
+  <title>Страница выбора</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
 
-<header class="page-header">
-  <button class="top-btn" onclick="location.href='../index.html'">Главная</button>
-  <button class="top-btn" onclick="history.back()">Назад</button>
-  <div class="lang-switcher">
-    <button class="lang-btn" data-lang="ru">RU</button>
-    <button class="lang-btn" data-lang="en">EN</button>
+  <!-- Хедер -->
+  <header class="page-header">
+    <button class="lang-btn" onclick="setLanguage('ru')">RU</button>
+    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    <button class="lang-btn" onclick="setLanguage('vi')">VI</button>
+  </header>
+
+  <main class="main-container">
+    <!-- Лого -->
+    <img src="logo.png" alt="Лого" class="logo">
+
+    <!-- Заголовок -->
+    <h1>портал сотрудников</h1>
+
+    <!-- Кнопки перехода -->
+    <div class="buttons-container">
+      <button class="nav-btn" onclick="location.href='kitchen/index.html'">Кухня</button>
+      <button class="nav-btn" onclick="location.href='guest area/index.html'">Зал</button>
+    </div>
+
+    <!-- Кнопки разделов -->
+    <div class="section-buttons">
+      <button class="section-btn" data-section="Preps">ПФ</button>
+      <button class="section-btn" data-section="Sous-Vide">Су-Вид</button>
+    </div>
+
+    <!-- Контейнер для таблицы -->
+    <div class="table-container"></div>
+  </main>
+
+  <!-- Модалка для фото -->
+  <div id="photo-modal">
+    <img src="" alt="Фото">
   </div>
-</header>
-
-<main class="main-container">
-  <div id="current-date" class="date-container"></div>
-
-  <div class="section-buttons">
-  <button class="section-btn" data-section="Preps">ПФ</button>
-  <button class="section-btn" data-section="Sous-Vide">Су-Вид</button>
-</div>
-
-  <!-- контейнер для таблицы -->
-  <div id="tableContainer"></div>
-</main>
 
 </body>
 </html>
