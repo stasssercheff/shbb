@@ -1,32 +1,52 @@
 let currentLang = 'ru';
-const dataFile = 'data/preps.json';
 
-// --- Функция создания таблицы карточки ---
+// Пути к JSON-файлу
+const dataFile = 'data/recipes.json';
+
+// Загружаем JSON и строим кнопки разделов
+fetch(dataFile)
+  .then(response => response.json())
+  .then(data => {
+    const sectionButtons = document.getElementById('sectionButtons');
+    sectionButtons.innerHTML = '';
+
+    // создаём кнопки по ключам разделов
+    Object.keys(data).forEach(section => {
+      const btn = document.createElement('button');
+      btn.textContent = section.toUpperCase();
+      btn.addEventListener('click', () => {
+        createTable(data[section]);
+      });
+      sectionButtons.appendChild(btn);
+    });
+  });
+
+// Функция создания таблицы
 function createTable(sectionArray) {
-  if (!sectionArray) return document.createElement('div');
+  const tableContainer = document.getElementById('tableContainer');
+  tableContainer.innerHTML = '';
 
   const table = document.createElement('table');
-  table.classList.add('dish-table');
-
   const thead = document.createElement('thead');
-  const headerRow = document.createElement('tr');
-  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Гр/Шт' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description']
-    .forEach(text => {
-      const th = document.createElement('th');
-      th.textContent = text;
-      headerRow.appendChild(th);
-    });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
   const tbody = document.createElement('tbody');
 
+  // Заголовок таблицы
+  const headerRow = document.createElement('tr');
+  ['№', 'Продукт / Ingredient', 'Шт/гр', 'Описание'].forEach(h => {
+    const th = document.createElement('th');
+    th.textContent = h;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+
+  // Перебираем блюда
   sectionArray.forEach(dish => {
+    // строка с названием блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = 4;
     tdDish.style.fontWeight = '600';
-    tdDish.textContent = dish.title; // <-- заменено name на title
+    tdDish.textContent = dish.title?.[currentLang] || '';
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
@@ -39,15 +59,15 @@ function createTable(sectionArray) {
       tdNum.textContent = i + 1;
 
       const tdName = document.createElement('td');
-      tdName.textContent = currentLang === 'ru' ? ing["Продукт"] : ing["Ingredient"];
+      tdName.textContent = ing[currentLang] || ing['Продукт'] || ing['Ingredient'];
 
       const tdAmount = document.createElement('td');
-      tdAmount.dataset.base = ing["Шт/гр"];
+      tdAmount.dataset.base = ing['Шт/гр'];
 
-      if (ing["Продукт"] === keyIngredient) {
+      if (ing['Продукт'] === keyIngredient) {
         tdAmount.contentEditable = true;
         tdAmount.classList.add('highlight');
-        tdAmount.textContent = ing["Шт/гр"];
+        tdAmount.textContent = ing['Шт/гр'];
 
         tdAmount.addEventListener('input', () => {
           const newVal = parseFloat(tdAmount.textContent) || 0;
@@ -59,21 +79,18 @@ function createTable(sectionArray) {
             const cell = r.cells[2];
             if (cell && cell !== tdAmount) {
               const base = parseFloat(cell.dataset.base) || 0;
-              if (!isNaN(base)) {
-                cell.textContent = Math.round(base * factor); // без десятичных
-              }
+              cell.textContent = (base * factor).toFixed(1);
             }
           });
-
           tdAmount.dataset.base = newVal;
         });
       } else {
-        tdAmount.textContent = ing["Шт/гр"];
+        tdAmount.textContent = ing['Шт/гр'];
       }
 
       const tdDesc = document.createElement('td');
       if (i === 0) {
-        tdDesc.textContent = dish.process ? (dish.process[currentLang] || '') : '';
+        tdDesc.textContent = dish.process?.[currentLang] || '';
         tdDesc.rowSpan = dish.ingredients.length;
         tdDesc.className = 'description-cell';
       }
@@ -87,41 +104,7 @@ function createTable(sectionArray) {
     });
   });
 
+  table.appendChild(thead);
   table.appendChild(tbody);
-  return table;
+  tableContainer.appendChild(table);
 }
-
-// --- Загрузка данных ---
-async function loadSection() {
-  const panel = document.querySelector('.sections-container');
-  panel.innerHTML = '';
-
-  try {
-    const response = await fetch(dataFile);
-    if (!response.ok) throw new Error('Ошибка загрузки JSON');
-    const data = await response.json();
-
-    const tblContainer = document.createElement('div');
-    tblContainer.className = 'table-container';
-    tblContainer.appendChild(createTable(data.recipes)); // <-- исправлено
-    panel.appendChild(tblContainer);
-
-  } catch (err) {
-    panel.innerHTML = `<p style="color:red">${err.message}</p>`;
-    console.error(err);
-  }
-}
-
-// --- Переключение языка ---
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentLang = btn.dataset.lang;
-      loadSection();
-    });
-  });
-
-  loadSection();
-});
