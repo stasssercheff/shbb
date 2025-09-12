@@ -1,10 +1,34 @@
 let currentLang = 'ru';
 
-// Пути к JSON по разделам
-const dataFiles = {
-  Preps: 'data/preps.json',
-  'Sous-Vide': 'data/sous-vide.json'
-};
+// Пути к JSON-файлу
+const dataFile = 'data/recipes.json';
+
+// Загружаем JSON и инициализируем кнопки
+fetch(dataFile)
+  .then(response => response.json())
+  .then(data => {
+    // Находим все кнопки разделов
+    document.querySelectorAll('.section-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const section = btn.dataset.section;
+        if (data[section]) {
+          createTable(data[section]);
+        } else {
+          console.error(`Раздел ${section} не найден в JSON`);
+        }
+      });
+    });
+
+    // Вешаем переключение языка
+    document.querySelectorAll('.lang-btn').forEach(langBtn => {
+      langBtn.addEventListener('click', () => {
+        currentLang = langBtn.dataset.lang;
+        // по умолчанию обновим таблицу "ПФ", если загружена
+        if (data['Preps']) createTable(data['Preps']);
+      });
+    });
+  })
+  .catch(err => console.error('Ошибка загрузки JSON:', err));
 
 // Функция создания таблицы
 function createTable(sectionArray) {
@@ -17,9 +41,7 @@ function createTable(sectionArray) {
 
   // Заголовок таблицы
   const headerRow = document.createElement('tr');
-  ['№', currentLang === 'ru' ? 'Продукт' : 'Ingredient', 
-   currentLang === 'ru' ? 'Шт/гр' : 'Amount', 
-   currentLang === 'ru' ? 'Описание' : 'Description'].forEach(h => {
+  ['№', 'Продукт / Ingredient', 'Шт/гр', 'Описание'].forEach(h => {
     const th = document.createElement('th');
     th.textContent = h;
     headerRow.appendChild(th);
@@ -46,7 +68,10 @@ function createTable(sectionArray) {
       tdNum.textContent = i + 1;
 
       const tdName = document.createElement('td');
-      tdName.textContent = ing[currentLang] || ing['Продукт'] || ing['Ingredient'];
+      tdName.textContent =
+        currentLang === 'ru'
+          ? ing['Продукт']
+          : ing['Ingredient'];
 
       const tdAmount = document.createElement('td');
       tdAmount.dataset.base = ing['Шт/гр'];
@@ -95,46 +120,3 @@ function createTable(sectionArray) {
   table.appendChild(tbody);
   tableContainer.appendChild(table);
 }
-
-// Загрузка данных по разделу
-async function loadSection(section) {
-  const panel = document.getElementById(section);
-  panel.innerHTML = '<p>Загрузка...</p>';
-
-  try {
-    const response = await fetch(dataFiles[section]);
-    if (!response.ok) throw new Error('Ошибка загрузки JSON');
-    const data = await response.json();
-
-    const tableContainer = document.createElement('div');
-    tableContainer.id = 'tableContainer';
-    tableContainer.appendChild(createTable(data.recipes));
-    panel.innerHTML = '';
-    panel.appendChild(tableContainer);
-
-  } catch (err) {
-    panel.innerHTML = `<p style="color:red">${err.message}</p>`;
-    console.error(err);
-  }
-}
-
-// Переключение языка и запуск
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('current-date').textContent = new Date().toLocaleDateString();
-
-  // обработка кнопок разделов
-  document.querySelectorAll('.section-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      loadSection(btn.dataset.section);
-    });
-  });
-
-  // обработка кнопок языка
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentLang = btn.dataset.lang;
-      const activeSection = document.querySelector('.section-panel:not(:empty)');
-      if (activeSection) loadSection(activeSection.id);
-    });
-  });
-});
