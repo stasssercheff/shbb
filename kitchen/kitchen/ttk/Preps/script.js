@@ -3,29 +3,28 @@ let currentLang = 'ru';
 // Пути к JSON-файлу
 const dataFile = 'data/recipes.json';
 
-// Загружаем JSON и строим кнопки разделов
+// Загружаем JSON один раз
+let recipesData = {};
 fetch(dataFile)
   .then(response => response.json())
   .then(data => {
-    const sectionButtons = document.getElementById('sectionButtons');
-    sectionButtons.innerHTML = '';
+    recipesData = data;
 
-    // создаём кнопки по ключам разделов
-    Object.keys(data).forEach(section => {
-      const btn = document.createElement('button');
-      btn.textContent = section.toUpperCase();
+    // Вешаем обработчики на кнопки разделов
+    document.querySelectorAll('.section-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        createTable(data[section]);
+        const section = btn.dataset.section;
+        const panel = document.getElementById(section);
+        panel.innerHTML = '';
+        if (recipesData[section]) {
+          panel.appendChild(createTable(recipesData[section]));
+        }
       });
-      sectionButtons.appendChild(btn);
     });
   });
 
 // Функция создания таблицы
 function createTable(sectionArray) {
-  const tableContainer = document.getElementById('tableContainer');
-  tableContainer.innerHTML = '';
-
   const table = document.createElement('table');
   const thead = document.createElement('thead');
   const tbody = document.createElement('tbody');
@@ -106,5 +105,5 @@ function createTable(sectionArray) {
 
   table.appendChild(thead);
   table.appendChild(tbody);
-  tableContainer.appendChild(table);
+  return table;
 }
