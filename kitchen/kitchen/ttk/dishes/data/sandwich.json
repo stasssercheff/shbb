@@ -1,1 +1,31 @@
-soup brokkoli
+[
+  {
+    "name": { "ru": "СЕНДВИЧ С КУРОЙ", "en": "CHICKEN SANDWICH" },
+    "ingredients": [
+      { "ru": "Хлеб тостовый", "en": "Toast bread", "amount": "100" },
+      { "ru": "ПФ Куриная грудка", "en": "Prep Chicken breast", "amount": "120" },
+      { "ru": "ПФ Салат микс", "en": "Salad mix", "amount": "30" },
+      { "ru": "Огурец", "en": "Salad mix", "amount": "50" },
+      { "ru": "Помидоры Черри темные", "en": "Dark Cherry", "amount": "50" }
+      { "ru": "ПФ Соус Тартар", "en": "Tartar sauce", "amount": "30" },
+    ],
+    "process": {
+      "ru": "Смазать оба ломтика внутри соусом. На нижнюю часть выложить листья салата. Огурец порезать на тонкие слайсы, выложить поверх салата.Куру порезать на тонкие 5-6 слайсов под углом, выложить поверх огурца.Томаты Черри подрезать с краев, порезать на 4 кольца каждую, выложить на второй ломтик поверх соуса. накрыть вторым ломтиком хлеба чтобы томаты были поверх куры.Разрезать по диагонали от угла к углу напополам. Конверт подрезать чтобы скленены были только 2 грани.Завернуть в конверт и убрать в бокс. Подписать  бокс.",
+      "en": "Place the soup bag in hot water until fully heated. Knead the bag to avoid lumps. Pour the soup into a bowl. Pour the PF pesto sauce over the soup in the center. Spread the cream around in a thin stream in a spiral. Place microgreens on top of the pesto. Place pumpkin seeds on top of the cream.Take 2 slices of toast and spread with sauce.Put lettuce leaves on the bottom. Cut cucumber into thin slices, put on top of the salad.Cut chicken into 5-6 thin slices at an angle, put on top of the cucumber.Trim cherry tomatoes from the edges, cut into 4 rings each, put on the second slice on top of the sauce. Cover with a second slice of bread so that the tomatoes are on top of the chicken.Cut diagonally from corner to corner in half. Trim the envelope so that only 2 edges are glued.Wrap in an envelope and put in a box. Label the box."
+    },
+    "photo": "photos/soup pumpkin .png"
+  },
+  {
+    "name": { "ru": "Куп брокколи", "en": "Broccoli Soup" },
+    "ingredients": [
+      { "ru": "ПФ Суп брокколи", "en": "Prep broccoli Soup", "amount": "300" },
+      { "ru": "Сыр пармезан", "en": "Parmesan cheese", "amount": "20" },
+      { "ru": "Белая чиабатта", "en": "White ciabatta", "amount": "20" }
+    ],
+    "process": {
+      "ru": "Размороженный пакет с супом поместить в горячую воду до полного прогрева. Промять пакет для избегания комочков. Вылить суп в тарелку. Поверх супа тонкой струйкой по спирали вылить сливки, посыпать по периметру огрехом. В центр выложить микрозелень.",
+      "en": "Place the soup bag in hot water until fully heated. Knead the bag to avoid lumps. Pour the soup into a bowl. Pour the cream in a thin stream over the soup in a spiral, sprinkle around the perimeter. Place microgreens in the center."
+    },
+    "photo": "photos/soup brokkoli.png"
+  }
+]
