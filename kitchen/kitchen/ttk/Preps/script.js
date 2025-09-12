@@ -1,32 +1,39 @@
 let currentLang = 'ru';
-const dataFile = 'data/recipes.json';
 
-// --- Функция создания таблицы карточки ---
+// Пути к JSON по разделам
+const dataFiles = {
+  Preps: 'data/preps.json',
+  'Sous-Vide': 'data/sous-vide.json'
+};
+
+// Функция создания таблицы
 function createTable(sectionArray) {
-  if (!sectionArray) return document.createElement('div');
+  const tableContainer = document.getElementById('tableContainer');
+  tableContainer.innerHTML = '';
 
   const table = document.createElement('table');
-  table.classList.add('dish-table');
-
   const thead = document.createElement('thead');
-  const headerRow = document.createElement('tr');
-  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Гр/Шт' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description']
-    .forEach(text => {
-      const th = document.createElement('th');
-      th.textContent = text;
-      headerRow.appendChild(th);
-    });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
   const tbody = document.createElement('tbody');
 
+  // Заголовок таблицы
+  const headerRow = document.createElement('tr');
+  ['№', currentLang === 'ru' ? 'Продукт' : 'Ingredient', 
+   currentLang === 'ru' ? 'Шт/гр' : 'Amount', 
+   currentLang === 'ru' ? 'Описание' : 'Description'].forEach(h => {
+    const th = document.createElement('th');
+    th.textContent = h;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+
+  // Перебираем блюда
   sectionArray.forEach(dish => {
+    // строка с названием блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = 4;
     tdDish.style.fontWeight = '600';
-    tdDish.textContent = dish.title?.[currentLang] || '';
+    tdDish.textContent = dish.title || '';
     dishRow.appendChild(tdDish);
     tbody.appendChild(dishRow);
 
@@ -62,7 +69,6 @@ function createTable(sectionArray) {
               cell.textContent = (base * factor).toFixed(1);
             }
           });
-
           tdAmount.dataset.base = newVal;
         });
       } else {
@@ -85,24 +91,26 @@ function createTable(sectionArray) {
     });
   });
 
+  table.appendChild(thead);
   table.appendChild(tbody);
-  return table;
+  tableContainer.appendChild(table);
 }
 
-// --- Загрузка данных ---
-async function loadSection() {
-  const panel = document.querySelector('.sections-container');
-  panel.innerHTML = '';
+// Загрузка данных по разделу
+async function loadSection(section) {
+  const panel = document.getElementById(section);
+  panel.innerHTML = '<p>Загрузка...</p>';
 
   try {
-    const response = await fetch(dataFile);
+    const response = await fetch(dataFiles[section]);
     if (!response.ok) throw new Error('Ошибка загрузки JSON');
     const data = await response.json();
 
-    const tblContainer = document.createElement('div');
-    tblContainer.className = 'table-container';
-    tblContainer.appendChild(createTable(data));
-    panel.appendChild(tblContainer);
+    const tableContainer = document.createElement('div');
+    tableContainer.id = 'tableContainer';
+    tableContainer.appendChild(createTable(data.recipes));
+    panel.innerHTML = '';
+    panel.appendChild(tableContainer);
 
   } catch (err) {
     panel.innerHTML = `<p style="color:red">${err.message}</p>`;
@@ -110,16 +118,23 @@ async function loadSection() {
   }
 }
 
-// --- Переключение языка ---
+// Переключение языка и запуск
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('current-date').textContent = new Date().toLocaleDateString();
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
+  // обработка кнопок разделов
+  document.querySelectorAll('.section-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      currentLang = btn.dataset.lang;
-      loadSection();
+      loadSection(btn.dataset.section);
     });
   });
 
-  loadSection();
+  // обработка кнопок языка
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang;
+      const activeSection = document.querySelector('.section-panel:not(:empty)');
+      if (activeSection) loadSection(activeSection.id);
+    });
+  });
 });
