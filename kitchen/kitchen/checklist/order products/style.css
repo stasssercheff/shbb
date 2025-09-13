@@ -175,12 +175,18 @@ button:hover {
   color: #333;
 }
 
-/* === Отключение автозума на iOS для комментариев и полей ввода === */
+/* === Универсальные текстовые поля и комментарии (отключение автозума на iOS) === */
 textarea.comment,
 input[type="text"],
 input:not([type="number"]):not([type="submit"]) {
   font-size: 16px;             /* >=16px отключает зум Safari */
   -webkit-text-size-adjust: 100%;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
