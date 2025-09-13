@@ -132,14 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
+    // Отправка в Telegram через воркер
     const sendMessage = (msg) => {
       return fetch(worker_url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: msg })
+        body: JSON.stringify({ chat_id, text: msg })
       }).then(res => res.json());
     };
 
+    // Отправка email через Web3Forms
     const sendEmail = async (msg) => {
       try {
         const res = await fetch("https://api.web3forms.com/submit", {
@@ -149,8 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
             access_key: accessKey,
             subject: "ШББ ЗАКАЗ КУХНЯ",
             from_name: "Заказ продуктов_кухня",
-            message: msg,
-            to: emailTo
+            reply_to: "no-reply@shbb.com",
+            message: msg
           })
         }).then(r => r.json());
 
