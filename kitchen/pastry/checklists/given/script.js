@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const button = document.getElementById('sendToTelegram');
 if (button) {
   button.addEventListener('click', () => {
-    const chat_id = '-1002393080811'; // твой Telegram чат ID
+    const chat_id = '-1003076643701'; // твой Telegram чат ID
     const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
     const emailTo = 'stassserchef@gmail.com'; 
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
@@ -158,8 +158,8 @@ if (button) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "ШББ ЗАКАЗ КУХНЯ",
-            from_name: "Заказ продуктов_кухня",
+            subject: "Отдано",
+            from_name: "ШББ кондитерка",
             reply_to: "no-reply@shbb.com",
             message: msg
           })
