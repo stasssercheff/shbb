@@ -178,3 +178,45 @@ button:hover {
 textarea.comment {
   font-size: 16px !important; /* Отключает авто-зум на iOS */
 }
+
+/* === Универсальные комментарии === */
+textarea.comment {
+  font-size: 16px !important;   /* отключает авто-зум на iOS */
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.4;
+  padding: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  margin-bottom: 16px;
+}
+
+/* === Кнопки: единый цвет и отступы === */
+button, input[type="button"], input[type="submit"] {
+  width: 100%;
+  max-width: 250px;        /* ограничение ширины */
+  background-color: #d8cfc0; /* цвет основной страницы */
+  color: #333;
+  border: none;
+  padding: 18px;
+  font-size: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 12px;      /* отступ между кнопками */
+  display: block;
+  transition: 0.2s;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background-color: #c1b29a;
+}
+
+/* === Контейнер кнопок для правильного gap === */
+.buttons-container, .lang-switch {
+  display: flex;
+  flex-direction: column; /* если нужны вертикальные кнопки */
+  gap: 12px;              /* расстояние между кнопками */
+  align-items: center;
+}
