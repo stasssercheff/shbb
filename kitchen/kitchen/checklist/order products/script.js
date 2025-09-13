@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   button.addEventListener('click', () => {
     const chat_id = '-1002393080811'; // твой Telegram чат ID
     const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
-    const emailTo = 'твоя_почта@example.com'; // заменишь на нужный адрес
+    const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
     const sendMessage = (msg) => {
