@@ -120,11 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionContent += `• ${labelText}: ${value}\n`;
       });
 
-      // Комментарий
-      const commentField = section.querySelector('textarea.comment');
-      if (commentField && commentField.value.trim()) {
-        sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
-      }
+// Комментарий (лежит в следующем блоке)
+const nextBlock = section.nextElementSibling;
+const commentField = nextBlock?.querySelector('textarea.comment');
+if (commentField && commentField.value.trim()) {
+  sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+}
 
       if (sectionContent.trim()) {
         message += `🔸 <b>${title}</b>\n` + sectionContent + '\n';
