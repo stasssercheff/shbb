@@ -1,3 +1,4 @@
+
 // Функция возврата на главную страницу
 function goHome() {
     location.href = '/index.html';
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
-    let message = `🧾 <b>${lang === 'en' ? 'Wasted' : 'Списание'}</b>\n\n`;
+    let message = `🧾 <b>${lang === 'en' ? 'WASTED' : 'СПИСАНИЕ'}</b>\n\n`;
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
 
     const nameSelect = document.querySelector('select[name="chef"]');
@@ -127,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Кнопка отправки ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const chat_id = '-1003076643701'; // твой Telegram чат ID
+    const chat_id = '-1002393080811'; // твой Telegram чат ID
     const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
     const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
@@ -149,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "Списание",
-            from_name: "шбб_кондитерка",
+            subject: "СПИСАНИЕ",
+            from_name: "SHBB PASTRY",
             reply_to: "no-reply@shbb.com",
             message: msg
           })
@@ -182,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await sendAllParts(buildMessage('ru'));
         await sendAllParts(buildMessage('en'));
 
-        alert('✅ отправлено!');
+        alert('✅ ОТПРАВЛЕНО');
         localStorage.clear();
         clearForm();
       } catch (err) {
