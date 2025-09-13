@@ -175,18 +175,32 @@ button:hover {
   color: #333;
 }
 
-/* === Универсальные текстовые поля и комментарии (отключение автозума на iOS) === */
-textarea.comment,
-input[type="text"],
-input:not([type="number"]):not([type="submit"]) {
-  font-size: 16px;             /* >=16px отключает зум Safari */
+/* === Универсальные комментарии === */
+textarea.comment {
+  font-size: 16px !important;   /* отключает авто-зум на iOS */
   -webkit-text-size-adjust: 100%;
+  line-height: 1.4;
+  padding: 14px;
   width: 100%;
-  padding: 12px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-sizing: border-box;
   resize: vertical;
+  margin-bottom: 16px;
+}
+
+/* === Универсальные кнопки === */
+button, input[type="button"], input[type="submit"] {
+  background-color: #d8cfc0; /* единый цвет */
+  color: #333;
+  border: none;
+  padding: 18px;
+  font-size: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 12px;      /* отступ между кнопками */
+  display: block;
+  transition: 0.2s;
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
