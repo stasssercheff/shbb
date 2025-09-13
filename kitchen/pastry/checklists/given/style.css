@@ -1,181 +1,191 @@
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: Verdana, sans-serif;
-  background: #f5f5f5;
-  font-size: 36px;
+// Функция возврата на главную страницу
+function goHome() {
+    location.href = '/index.html';
 }
 
-.container {
-  max-width: 85%;
-  margin: 20px auto;
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+// Функция возврата на предыдущую страницу
+function goBack() {
+    history.back();
 }
 
-.input-block {
-  margin-bottom: 20px;
+// === Переключение языка ===
+function switchLanguage(lang) {
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('.section-title').forEach(title => {
+    if (title.dataset[lang]) title.textContent = title.dataset[lang];
+  });
+
+  document.querySelectorAll('.check-label').forEach(label => {
+    if (label.dataset[lang]) label.textContent = label.dataset[lang];
+  });
+
+  document.querySelectorAll('select').forEach(select => {
+    Array.from(select.options).forEach(option => {
+      if (option.value === '') option.textContent = '—';
+      else if (option.dataset[lang]) option.textContent = option.dataset[lang];
+    });
+  });
 }
 
-label,
-.check-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  font-size: 30px;
+// === Сохранение и восстановление данных формы ===
+function saveFormData() {
+  const data = {};
+  document.querySelectorAll('select').forEach(select => {
+    data[select.name || select.id] = select.value;
+  });
+  document.querySelectorAll('textarea.comment').forEach(textarea => {
+    data[textarea.name || textarea.id] = textarea.value;
+  });
+  localStorage.setItem('formData', JSON.stringify(data));
 }
 
-input[type="text"],
-textarea,
-input:not([type="number"]):not([type="submit"]),
-.autodate {
-  width: 100%;
-  padding: 14px;
-  font-size: 24px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
+function restoreFormData() {
+  const saved = localStorage.getItem('formData');
+  if (!saved) return;
+  const data = JSON.parse(saved);
+  document.querySelectorAll('select').forEach(select => {
+    if (data[select.name || select.id] !== undefined) select.value = data[select.name || select.id];
+  });
+  document.querySelectorAll('textarea.comment').forEach(textarea => {
+    if (data[textarea.name || textarea.id] !== undefined) textarea.value = data[textarea.name || textarea.id];
+  });
 }
 
-#contactHandle {
-  margin-top: 12px;
-}
+// === DOMContentLoaded ===
+document.addEventListener('DOMContentLoaded', () => {
+  const lang = document.documentElement.lang || 'ru';
 
-select {
-  appearance: none;
-  background: #fff;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 14px;
-  font-size: 24px;
-  box-sizing: border-box;
-  width: 100%;
-  margin-bottom: 16px;
-}
+  // Вставка пустой опции в каждый select.qty
+  document.querySelectorAll('select.qty').forEach(select => {
+    const hasEmpty = Array.from(select.options).some(opt => opt.value === '');
+    if (!hasEmpty) {
+      const emptyOption = document.createElement('option');
+      emptyOption.value = '';
+      emptyOption.dataset.ru = '—';
+      emptyOption.dataset.en = '—';
+      emptyOption.textContent = '—';
+      emptyOption.selected = true;
+      select.insertBefore(emptyOption, select.firstChild);
+    }
+  });
 
-.menu-section {
-  margin: 28px 0;
-  padding: 20px;
-  background: #f3f1ed;
-  border-radius: 14px;
-}
+  restoreFormData();
+  switchLanguage(lang);
 
-.section-title {
-  background: #e1ded9;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 42px;
-  margin-bottom: 20px;
-  text-align: center;
-}
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const formattedDate = `${day}/${month}`;
+  const dateDiv = document.getElementById('autodate');
+  if (dateDiv) dateDiv.textContent = formattedDate;
 
-.dish {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 12px 0;
-  font-size: 38px;
-  flex-wrap: wrap;
-}
+  document.querySelectorAll('select, textarea.comment').forEach(el => {
+    el.addEventListener('input', saveFormData);
+  });
 
-.dish select.qty {
-  width: 220px;
-  min-width: 260px;
-  max-width: 100%;
-  padding: 12px;
-  font-size: 30px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
-  color: #333;
-  text-align: center;
-  text-align-last: center;
-  margin-top: 8px;
-}
+  // === Функция сборки сообщения ===
+  const buildMessage = (lang) => {
+    let message = `🧾 <b>${lang === 'en' ? 'GIVEN' : 'ОТДАНО'}</b>\n\n`;
+    message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
 
-.dish select.qty option {
-  text-align: center;
-  font-size: 30px;
-}
+    const nameSelect = document.querySelector('select[name="chef"]');
+    const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
+    const name = selectedChef?.dataset[lang] || '—';
+    message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n\n`;
 
-textarea.comment {
-  resize: vertical;
-  min-height: 100px;
-  font-size: 24px;
-}
+    document.querySelectorAll('.menu-section').forEach(section => {
+      const sectionTitle = section.querySelector('.section-title');
+      const title = sectionTitle?.dataset[lang] || '';
+      let sectionContent = '';
 
-button {
-  width: 100%;
-  background: #444;
-  color: #fff;
-  border: none;
-  padding: 18px;
-  font-size: 38px;
-  border-radius: 10px;
-  cursor: pointer;
-}
+      section.querySelectorAll('.dish').forEach(dish => {
+        const select = dish.querySelector('select.qty');
+        const commentField = dish.querySelector('textarea.comment'); // теперь ищем в каждой "dish"
 
-button:hover {
-  background: #222;
-}
+        if (select && select.value) {
+          const label = dish.querySelector('label.check-label');
+          const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
+          const selectedOption = select.options[select.selectedIndex];
+          const value = selectedOption?.dataset[lang] || '—';
+          sectionContent += `• ${labelText}: ${value}\n`;
+        }
 
-.lang-switch {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-}
+        if (commentField && commentField.value.trim()) {
+          sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+        }
+      });
 
-.lang-switch button {
-  width: 50%;
-  font-size: 38px;
-  padding: 18px;
-}
+      if (sectionContent.trim()) {
+        message += `🔸 <b>${title}</b>\n` + sectionContent + '\n';
+      }
+    });
 
-.popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    return message;
+  };
 
-.popup.hidden {
-  display: none;
-}
+  // === Кнопка отправки ===
+  const button = document.getElementById('sendToTelegram');
+  button.addEventListener('click', () => {
+    const chat_id = '-1003076643701';
+    const worker_url = 'https://shbb1.stassser.workers.dev/';
+    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-.popup-content {
-  background: #fff;
-  padding: 24px;
-  border-radius: 14px;
-  max-width: 90%;
-  text-align: center;
-  font-size: 24px;
-}
+    const sendMessage = (msg) => {
+      return fetch(worker_url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id, text: msg })
+      }).then(res => res.json());
+    };
 
-.popup-content pre {
-  white-space: pre-line;
-  text-align: left;
-  font-size: 22px;
-  line-height: 1.4;
-  margin: 18px 0;
-}
+    const sendEmail = async (msg) => {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "ОТДАНО",
+            from_name: "SHBB PASTRY",
+            reply_to: "no-reply@shbb.com",
+            message: msg
+          })
+        }).then(r => r.json());
 
-.autodate {
-  font-size: 24px;
-  padding: 12px;
-  background: #fdfdfd;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  color: #333;
-}
+        if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
+      } catch (err) {
+        alert("Ошибка отправки email: " + err.message);
+      }
+    };
 
-textarea.comment {
-  font-size: 16px !important; /* Отключает авто-зум на iOS */
-}
+    const sendAllParts = async (text) => {
+      let start = 0;
+      while (start < text.length) {
+        const chunk = text.slice(start, start + 4000);
+        await sendMessage(chunk);
+        await sendEmail(chunk);
+        start += 4000;
+      }
+    };
+
+    const clearForm = () => {
+      document.querySelectorAll('select').forEach(select => select.value = '');
+      document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
+    };
+
+    (async () => {
+      try {
+        await sendAllParts(buildMessage('ru'));
+        await sendAllParts(buildMessage('en'));
+
+        alert('✅ ОТПРАВЛЕНО');
+        localStorage.clear();
+        clearForm();
+      } catch (err) {
+        alert('❌ Ошибка при отправке: ' + err.message);
+        console.error(err);
+      }
+    })();
+  });
+});
