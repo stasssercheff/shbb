@@ -193,11 +193,9 @@ textarea.comment {
   margin-bottom: 16px;
 }
 
-/* === Кнопки: единый цвет и отступы === */
+/* === Универсальные кнопки === */
 button, input[type="button"], input[type="submit"] {
-  width: 100%;
-  max-width: 250px;        /* ограничение ширины */
-  background-color: #d8cfc0; /* цвет основной страницы */
+  background-color: #d8cfc0; /* единый цвет */
   color: #333;
   border: none;
   padding: 18px;
@@ -213,10 +211,37 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background-color: #c1b29a;
 }
 
-/* === Контейнер кнопок для правильного gap === */
-.buttons-container, .lang-switch {
+/* === Хедер: два ряда кнопок === */
+.page-header {
   display: flex;
-  flex-direction: column; /* если нужны вертикальные кнопки */
-  gap: 12px;              /* расстояние между кнопками */
-  align-items: center;
+  flex-direction: column;
+  gap: 12px; /* расстояние между рядами */
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Первый ряд: выбор языка */
+.header-row.lang-switch {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%; /* отступ слева/справа */
+}
+
+.header-row.lang-switch button {
+  width: 40%;   /* каждая кнопка 40% */
+}
+
+/* Второй ряд: Назад и Главная */
+.header-row.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.header-row.nav-buttons button {
+  width: 40%;
 }
