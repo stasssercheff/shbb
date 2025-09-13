@@ -22,11 +22,8 @@ function switchLanguage(lang) {
 
   document.querySelectorAll('select').forEach(select => {
     Array.from(select.options).forEach(option => {
-      if (option.value === '') {
-        option.textContent = '—';
-      } else if (option.dataset[lang]) {
-        option.textContent = option.dataset[lang];
-      }
+      if (option.value === '') option.textContent = '—';
+      else if (option.dataset[lang]) option.textContent = option.dataset[lang];
     });
   });
 }
@@ -48,14 +45,10 @@ function restoreFormData() {
   if (!saved) return;
   const data = JSON.parse(saved);
   document.querySelectorAll('select').forEach(select => {
-    if (data[select.name || select.id] !== undefined) {
-      select.value = data[select.name || select.id];
-    }
+    if (data[select.name || select.id] !== undefined) select.value = data[select.name || select.id];
   });
   document.querySelectorAll('textarea.comment').forEach(textarea => {
-    if (data[textarea.name || textarea.id] !== undefined) {
-      textarea.value = data[textarea.name || textarea.id];
-    }
+    if (data[textarea.name || textarea.id] !== undefined) textarea.value = data[textarea.name || textarea.id];
   });
 }
 
@@ -63,6 +56,7 @@ function restoreFormData() {
 document.addEventListener('DOMContentLoaded', () => {
   const lang = document.documentElement.lang || 'ru';
 
+  // Вставка пустой опции в каждый select.qty
   document.querySelectorAll('select.qty').forEach(select => {
     const hasEmpty = Array.from(select.options).some(opt => opt.value === '');
     if (!hasEmpty) {
@@ -90,9 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('input', saveFormData);
   });
 
+  // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
     let message = `🧾 <b>${lang === 'en' ? 'Order list' : 'заказ продуктов'}</b>\n\n`;
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
+
     const nameSelect = document.querySelector('select[name="chef"]');
     const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
     const name = selectedChef?.dataset[lang] || '—';
@@ -111,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
         const selectedOption = select.options[select.selectedIndex];
         const value = selectedOption?.dataset[lang] || '—';
-
         sectionContent += `• ${labelText}: ${value}\n`;
       });
 
@@ -129,11 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return message;
   };
 
-  // === Отправка через Worker ===
+  // === Кнопка отправки ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const chat_id = '-1002393080811'; // твой chat_id
-    const worker_url = 'https://shbb1.stassser.workers.dev/'; // ссылка на Worker
+    const chat_id = '-1002393080811'; // твой Telegram чат ID
+    const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
+    const emailTo = 'твоя_почта@example.com'; // заменишь на нужный адрес
+    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
     const sendMessage = (msg) => {
       return fetch(worker_url, {
@@ -143,12 +140,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(res => res.json());
     };
 
+    const sendEmail = async (msg) => {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "Новый заказ Yummy",
+            from_name: "Yummy Food Form",
+            message: msg,
+            to: emailTo
+          })
+        }).then(r => r.json());
+
+        if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
+      } catch (err) {
+        alert("Ошибка отправки email: " + err.message);
+      }
+    };
+
     const sendAllParts = async (text) => {
       let start = 0;
       while (start < text.length) {
         const chunk = text.slice(start, start + 4000);
-        const res = await sendMessage(chunk);
-        if (!res.ok) throw new Error(res.description || 'Ошибка отправки');
+        await sendMessage(chunk);
+        await sendEmail(chunk);
         start += 4000;
       }
     };
