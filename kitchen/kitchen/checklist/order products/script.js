@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return fetch(worker_url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id, text: msg })
+        body: JSON.stringify({ text: msg })
       }).then(res => res.json());
     };
 
@@ -147,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "Новый заказ Yummy",
-            from_name: "Yummy Food Form",
+            subject: "ШББ ЗАКАЗ КУХНЯ",
+            from_name: "Заказ продуктов_кухня",
             message: msg,
             to: emailTo
           })
