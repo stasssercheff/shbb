@@ -1,4 +1,3 @@
-
 // Функция возврата на главную страницу
 function goHome() {
     location.href = '/index.html';
@@ -102,20 +101,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       section.querySelectorAll('.dish').forEach(dish => {
         const select = dish.querySelector('select.qty');
-        if (!select || !select.value) return;
+        const commentField = dish.querySelector('textarea.comment'); // теперь ищем в каждой "dish"
 
-        const label = dish.querySelector('label.check-label');
-        const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
-        const selectedOption = select.options[select.selectedIndex];
-        const value = selectedOption?.dataset[lang] || '—';
-        sectionContent += `• ${labelText}: ${value}\n`;
+        if (select && select.value) {
+          const label = dish.querySelector('label.check-label');
+          const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
+          const selectedOption = select.options[select.selectedIndex];
+          const value = selectedOption?.dataset[lang] || '—';
+          sectionContent += `• ${labelText}: ${value}\n`;
+        }
+
+        if (commentField && commentField.value.trim()) {
+          sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+        }
       });
-
-      const nextBlock = section.nextElementSibling;
-      const commentField = nextBlock?.querySelector('textarea.comment');
-      if (commentField && commentField.value.trim()) {
-        sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
-      }
 
       if (sectionContent.trim()) {
         message += `🔸 <b>${title}</b>\n` + sectionContent + '\n';
@@ -128,12 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Кнопка отправки ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const chat_id = '-1003076643701'; // твой Telegram чат ID
-    const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
-    const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
+    const chat_id = '-1003076643701';
+    const worker_url = 'https://shbb1.stassser.workers.dev/';
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-    // Отправка в Telegram через воркер
     const sendMessage = (msg) => {
       return fetch(worker_url, {
         method: 'POST',
@@ -142,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(res => res.json());
     };
 
-    // Отправка email через Web3Forms
     const sendEmail = async (msg) => {
       try {
         const res = await fetch("https://api.web3forms.com/submit", {
