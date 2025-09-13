@@ -181,8 +181,7 @@ textarea.comment {
 
 /* === Универсальные комментарии === */
 textarea.comment {
-  font-size: 16px !important;   /* отключает авто-зум на iOS */
-  -webkit-text-size-adjust: 100%;
+  font-size: 14px !important;   /* уменьшенный размер для отключения авто-зума */
   line-height: 1.4;
   padding: 14px;
   width: 100%;
