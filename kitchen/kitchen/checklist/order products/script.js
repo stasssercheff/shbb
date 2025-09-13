@@ -12,17 +12,14 @@ function goBack() {
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
 
-  // Заголовки разделов
   document.querySelectorAll('.section-title').forEach(title => {
     if (title.dataset[lang]) title.textContent = title.dataset[lang];
   });
 
-  // Метки
   document.querySelectorAll('.check-label').forEach(label => {
     if (label.dataset[lang]) label.textContent = label.dataset[lang];
   });
 
-  // Опции селекторов
   document.querySelectorAll('select').forEach(select => {
     Array.from(select.options).forEach(option => {
       if (option.value === '') {
@@ -66,7 +63,6 @@ function restoreFormData() {
 document.addEventListener('DOMContentLoaded', () => {
   const lang = document.documentElement.lang || 'ru';
 
-  // Вставка пустой опции в каждый select.qty
   document.querySelectorAll('select.qty').forEach(select => {
     const hasEmpty = Array.from(select.options).some(opt => opt.value === '');
     if (!hasEmpty) {
@@ -80,13 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Восстановление данных формы
   restoreFormData();
-
-  // Применить язык
   switchLanguage(lang);
 
-  // === Автозаполнение даты ===
   const today = new Date();
   const day = String(today.getDate()).padStart(2, '0');
   const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -94,25 +86,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const dateDiv = document.getElementById('autodate');
   if (dateDiv) dateDiv.textContent = formattedDate;
 
-  // === Автосохранение ===
   document.querySelectorAll('select, textarea.comment').forEach(el => {
     el.addEventListener('input', saveFormData);
   });
 
-  // === Функция сборки сообщения === (отправляет только выбранное)
   const buildMessage = (lang) => {
     let message = `🧾 <b>${lang === 'en' ? 'Order list' : 'заказ продуктов'}</b>\n\n`;
-
-    // Дата
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
-
-    // Имя
     const nameSelect = document.querySelector('select[name="chef"]');
     const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
     const name = selectedChef?.dataset[lang] || '—';
     message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n\n`;
 
-    // Разделы
     document.querySelectorAll('.menu-section').forEach(section => {
       const sectionTitle = section.querySelector('.section-title');
       const title = sectionTitle?.dataset[lang] || '';
@@ -144,11 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return message;
   };
 
-  // === Отправка сообщений через Worker ===
+  // === Отправка через Worker ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const chat_id = '-1002393080811'; // твой чат ID
-    const worker_url = 'https://shbb1.stassser.workers.dev/'; // ссылка на твой Worker
+    const chat_id = '-1002393080811'; // твой chat_id
+    const worker_url = 'https://shbb1.stassser.workers.dev/'; // ссылка на Worker
 
     const sendMessage = (msg) => {
       return fetch(worker_url, {
