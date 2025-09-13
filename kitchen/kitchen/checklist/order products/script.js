@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
-    let message = `🧾 <b>${lang === 'en' ? 'Order list' : 'заказ продуктов'}</b>\n\n`;
+    let message = `🧾 <b>${lang === 'en' ? 'ORDER' : 'ЗАКАЗ'}</b>\n\n`;
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
 
     const nameSelect = document.querySelector('select[name="chef"]');
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "Заказ продуктов",
+            subject: "ЗАКАЗ",
             from_name: "SHBB KITCHEN",
             reply_to: "no-reply@shbb.com",
             message: msg
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await sendAllParts(buildMessage('ru'));
         await sendAllParts(buildMessage('en'));
 
-        alert('✅ Чеклист отправлен!');
+        alert('✅ ОТПРАВЛЕНО');
         localStorage.clear();
         clearForm();
       } catch (err) {
