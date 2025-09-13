@@ -149,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "ШББ ЗАКАЗ КУХНЯ",
-            from_name: "Заказ продуктов_кухня",
+            subject: "отдано",
+            from_name: "шбб_кондитерка",
             reply_to: "no-reply@shbb.com",
             message: msg
           })
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await sendAllParts(buildMessage('ru'));
         await sendAllParts(buildMessage('en'));
 
-        alert('✅ Чеклист отправлен!');
+        alert('✅ отправлено!');
         localStorage.clear();
         clearForm();
       } catch (err) {
