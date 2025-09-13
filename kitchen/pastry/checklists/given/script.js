@@ -134,64 +134,64 @@ document.addEventListener('DOMContentLoaded', () => {
     return message;
   };
 
-  // === Отправка сообщений ===
-  const button = document.getElementById('sendToTelegram');
+// === Кнопка отправки ===
+const button = document.getElementById('sendToTelegram');
+if (button) {
   button.addEventListener('click', () => {
-    const token = '8348920386:AAFlufZWkWqsH4-qoqSSHdmgcEM_s46Ke8Q';
-    const chat_id = '-1003076643701';
+    const chat_id = '-1002393080811'; // твой Telegram чат ID
+    const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
+    const emailTo = 'stassserchef@gmail.com'; 
+    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
     const sendMessage = (msg) => {
-      return fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      return fetch(worker_url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id,
-          text: msg,
-          parse_mode: 'HTML'
-        })
+        body: JSON.stringify({ chat_id, text: msg })
       }).then(res => res.json());
     };
 
-    // Разделение длинного текста на части
+    const sendEmail = async (msg) => {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "ШББ ЗАКАЗ КУХНЯ",
+            from_name: "Заказ продуктов_кухня",
+            reply_to: "no-reply@shbb.com",
+            message: msg
+          })
+        }).then(r => r.json());
+
+        if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
+      } catch (err) {
+        alert("Ошибка отправки email: " + err.message);
+      }
+    };
+
     const sendAllParts = async (text) => {
       let start = 0;
       while (start < text.length) {
         const chunk = text.slice(start, start + 4000);
-        const res = await sendMessage(chunk);
-        if (!res.ok) throw new Error(res.description);
+        await sendMessage(chunk);
+        await sendEmail(chunk);
         start += 4000;
       }
     };
 
-    // Очистка формы
-    const clearForm = () => {
-      document.querySelectorAll('select').forEach(select => {
-        select.value = '';
-      });
-      document.querySelectorAll('textarea.comment').forEach(textarea => {
-        textarea.value = '';
-      });
-    };
-
     (async () => {
       try {
-        const checkbox = document.getElementById('sendBoth');
-        const mode = checkbox?.checked ? 'both' : 'ru';
-
-        if (mode === 'ru') {
-          await sendAllParts(buildMessage('ru'));
-        } else if (mode === 'both') {
-          await sendAllParts(buildMessage('ru'));
-          await sendAllParts(buildMessage(document.documentElement.lang));
-        }
+        await sendAllParts(buildMessage('ru'));
+        await sendAllParts(buildMessage('en'));
 
         alert('✅ Чеклист отправлен!');
         localStorage.clear();
-        clearForm();
       } catch (err) {
         alert('❌ Ошибка при отправке: ' + err.message);
         console.error(err);
       }
     })();
   });
-});
+}
