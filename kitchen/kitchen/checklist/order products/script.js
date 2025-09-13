@@ -149,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "ШББ ЗАКАЗ КУХНЯ",
-            from_name: "Заказ продуктов_кухня",
+            subject: "Заказ продуктов",
+            from_name: "SHBB KITCHEN",
             reply_to: "no-reply@shbb.com",
             message: msg
           })
