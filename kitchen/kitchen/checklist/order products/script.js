@@ -8,9 +8,6 @@ function goBack() {
     history.back();
 }
 
-
-
-
 // === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
@@ -148,48 +145,37 @@ document.addEventListener('DOMContentLoaded', () => {
     return message;
   };
 
-  // === Отправка сообщений ===
+  // === Отправка сообщений через Worker ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const token = '8348920386:AAFlufZWkWqsH4-qoqSSHdmgcEM_s46Ke8Q';
-    const chat_id = '-1002393080811';
+    const workerURL = 'https://shbb1.stassser.workers.dev/'; // твой Worker
+    const chat_id = '-1002393080811'; // группа, куда отправлять
 
     const sendMessage = (msg) => {
-      return fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      return fetch(workerURL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id,
-          text: msg,
-          parse_mode: 'HTML'
-        })
+        body: JSON.stringify({ chat_id, text: msg })
       }).then(res => res.json());
     };
 
-    // Разделение длинного текста на части и отправка
     const sendAllParts = async (text) => {
       let start = 0;
       while (start < text.length) {
         const chunk = text.slice(start, start + 4000);
         const res = await sendMessage(chunk);
-        if (!res.ok) throw new Error(res.description);
+        if (res.ok === false) throw new Error(res.description || 'Ошибка отправки');
         start += 4000;
       }
     };
 
-    // Функция очистки формы
     const clearForm = () => {
-      document.querySelectorAll('select').forEach(select => {
-        select.value = '';
-      });
-      document.querySelectorAll('textarea.comment').forEach(textarea => {
-        textarea.value = '';
-      });
+      document.querySelectorAll('select').forEach(select => select.value = '');
+      document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
     };
 
     (async () => {
       try {
-        // Отправляем по одному разу на каждый язык
         await sendAllParts(buildMessage('ru'));
         await sendAllParts(buildMessage('en'));
 
