@@ -207,11 +207,11 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background-color: #c1b29a;
 }
 
-/* === Хедер: два ряда кнопок === */
+/* === Хедер: два ряда === */
 .page-header {
   display: flex;
-  flex-direction: column;
-  gap: 12px; /* расстояние между рядами */
+  flex-direction: column; /* два ряда вертикально */
+  gap: 12px;              /* расстояние между рядами */
   padding: 10px 0;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -220,24 +220,21 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   z-index: 10;
 }
 
-/* Первый ряд: выбор языка */
-.header-row.lang-switch {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5%; /* отступ слева/справа */
-}
-
-.header-row.lang-switch button {
-  width: 40%;   /* каждая кнопка 40% */
-}
-
-/* Второй ряд: Назад и Главная */
+/* Оба ряда */
+.header-row.lang-switch,
 .header-row.nav-buttons {
   display: flex;
-  justify-content: space-between;
-  padding: 0 5%;
+  justify-content: space-between; /* кнопки равномерно по ряду */
+  padding: 0 5%;                  /* отступ слева/справа */
+  gap: 10px;                       /* промежуток между кнопками */
 }
 
+/* Кнопки */
+.header-row.lang-switch button,
 .header-row.nav-buttons button {
-  width: 40%;
+  flex: 1;               /* кнопка занимает доступное пространство */
+  max-width: 45%;        /* ограничение, чтобы не растягивалась слишком */
+  min-width: 80px;       /* чтобы на мобильных не была слишком маленькой */
+  padding: 8px 12px;     /* внутренние отступы кнопки */
+  box-sizing: border-box;
 }
