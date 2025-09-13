@@ -191,16 +191,17 @@ textarea.comment {
 
 /* === Универсальные кнопки === */
 button, input[type="button"], input[type="submit"] {
-  background-color: #d8cfc0; /* единый цвет */
+  background-color: #d8cfc0;
   color: #333;
   border: none;
   padding: 18px;
   font-size: 38px;
   border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 12px;      /* отступ между кнопками */
+  margin-bottom: 12px;
   display: block;
   transition: 0.2s;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
@@ -210,8 +211,8 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
 /* === Хедер: два ряда === */
 .page-header {
   display: flex;
-  flex-direction: column; /* два ряда вертикально */
-  gap: 12px;              /* расстояние между рядами */
+  flex-direction: column;
+  gap: 12px;
   padding: 10px 0;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -220,21 +221,22 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   z-index: 10;
 }
 
-/* Оба ряда */
-.header-row.lang-switch,
-.header-row.nav-buttons {
+/* Ряды внутри хедера */
+.lang-switch,
+.nav-buttons {
   display: flex;
-  justify-content: space-between; /* кнопки равномерно по ряду */
-  padding: 0 5%;                  /* отступ слева/справа */
-  gap: 10px;                       /* промежуток между кнопками */
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 10px;
 }
 
-/* Кнопки */
-.header-row.lang-switch button,
-.header-row.nav-buttons button {
-  flex: 1;               /* кнопка занимает доступное пространство */
-  max-width: 45%;        /* ограничение, чтобы не растягивалась слишком */
-  min-width: 80px;       /* чтобы на мобильных не была слишком маленькой */
-  padding: 8px 12px;     /* внутренние отступы кнопки */
+/* Кнопки внутри рядов */
+.lang-switch button,
+.nav-buttons button {
+  flex: 1;
+  max-width: 45%;
+  min-width: 80px;
+  padding: 8px 12px;
   box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
