@@ -1,25 +1,30 @@
+
+// Функция возврата на главную страницу
+function goHome() {
+    location.href = '/index.html';
+}
+
+// Функция возврата на предыдущую страницу
+function goBack() {
+    history.back();
+}
+
 // === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
 
-  // Заголовки разделов
   document.querySelectorAll('.section-title').forEach(title => {
     if (title.dataset[lang]) title.textContent = title.dataset[lang];
   });
 
-  // Метки
   document.querySelectorAll('.check-label').forEach(label => {
     if (label.dataset[lang]) label.textContent = label.dataset[lang];
   });
 
-  // Опции селекторов
   document.querySelectorAll('select').forEach(select => {
     Array.from(select.options).forEach(option => {
-      if (option.value === '') {
-        option.textContent = '—';
-      } else if (option.dataset[lang]) {
-        option.textContent = option.dataset[lang];
-      }
+      if (option.value === '') option.textContent = '—';
+      else if (option.dataset[lang]) option.textContent = option.dataset[lang];
     });
   });
 }
@@ -41,14 +46,10 @@ function restoreFormData() {
   if (!saved) return;
   const data = JSON.parse(saved);
   document.querySelectorAll('select').forEach(select => {
-    if (data[select.name || select.id] !== undefined) {
-      select.value = data[select.name || select.id];
-    }
+    if (data[select.name || select.id] !== undefined) select.value = data[select.name || select.id];
   });
   document.querySelectorAll('textarea.comment').forEach(textarea => {
-    if (data[textarea.name || textarea.id] !== undefined) {
-      textarea.value = data[textarea.name || textarea.id];
-    }
+    if (data[textarea.name || textarea.id] !== undefined) textarea.value = data[textarea.name || textarea.id];
   });
 }
 
@@ -70,13 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Восстановление данных формы
   restoreFormData();
-
-  // Применить язык
   switchLanguage(lang);
 
-  // === Автозаполнение даты ===
   const today = new Date();
   const day = String(today.getDate()).padStart(2, '0');
   const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -84,115 +81,111 @@ document.addEventListener('DOMContentLoaded', () => {
   const dateDiv = document.getElementById('autodate');
   if (dateDiv) dateDiv.textContent = formattedDate;
 
-  // === Автосохранение ===
   document.querySelectorAll('select, textarea.comment').forEach(el => {
     el.addEventListener('input', saveFormData);
   });
 
   // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
-    let message = `🧾 <b>${lang === 'en' ? 'Checklist' : 'Чеклист'}</b>\n\n`;
-
-    // Дата
+    let message = `🧾 <b>${lang === 'en' ? 'KITCKEN' : 'КУХНЯ'}</b>\n\n`;
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
 
-    // Имя
     const nameSelect = document.querySelector('select[name="chef"]');
     const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
     const name = selectedChef?.dataset[lang] || '—';
     message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n\n`;
 
-    // Разделы
     document.querySelectorAll('.menu-section').forEach(section => {
       const sectionTitle = section.querySelector('.section-title');
       const title = sectionTitle?.dataset[lang] || '';
-      message += `🔸 <b>${title}</b>\n`;
+      let sectionContent = '';
 
       section.querySelectorAll('.dish').forEach(dish => {
         const select = dish.querySelector('select.qty');
+        if (!select || !select.value) return;
+
         const label = dish.querySelector('label.check-label');
-
-        let labelText = '—';
-        let value = '—';
-
-        if (label) {
-          labelText = select?.dataset[`label${lang.toUpperCase()}`] || label.dataset[lang] || '—';
-        }
-
-        if (select) {
-          const selectedOption = select.options[select.selectedIndex];
-          value = selectedOption?.dataset[lang] || '—';
-        }
-
-        message += `• ${labelText}: ${value}\n`;
+        const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
+        const selectedOption = select.options[select.selectedIndex];
+        const value = selectedOption?.dataset[lang] || '—';
+        sectionContent += `• ${labelText}: ${value}\n`;
       });
 
-      // Комментарий
       const nextBlock = section.nextElementSibling;
       const commentField = nextBlock?.querySelector('textarea.comment');
       if (commentField && commentField.value.trim()) {
-        message += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+        sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
       }
 
-      message += `\n`;
+      if (sectionContent.trim()) {
+        message += `🔸 <b>${title}</b>\n` + sectionContent + '\n';
+      }
     });
 
     return message;
   };
 
-  // === Отправка сообщений ===
+  // === Кнопка отправки ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const token = '8348920386:AAFlufZWkWqsH4-qoqSSHdmgcEM_s46Ke8Q';
-    const chat_id = '-1002393080811';
+    const chat_id = '-1002393080811'; // твой Telegram чат ID
+    const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
+    const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
+    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
+    // Отправка в Telegram через воркер
     const sendMessage = (msg) => {
-      return fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      return fetch(worker_url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id,
-          text: msg,
-          parse_mode: 'HTML'
-        })
+        body: JSON.stringify({ chat_id, text: msg })
       }).then(res => res.json());
     };
 
-    // Разделяем на 2 языка
-    const messages = [buildMessage('ru'), buildMessage('en')];
+    // Отправка email через Web3Forms
+    const sendEmail = async (msg) => {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "КУХНЯ",
+            from_name: "SHBB KITCHEN",
+            reply_to: "no-reply@shbb.com",
+            message: msg
+          })
+        }).then(r => r.json());
 
-    // Разделение на части, если длиннее 4096 символов
+        if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
+      } catch (err) {
+        alert("Ошибка отправки email: " + err.message);
+      }
+    };
+
     const sendAllParts = async (text) => {
       let start = 0;
       while (start < text.length) {
         const chunk = text.slice(start, start + 4000);
-        const res = await sendMessage(chunk);
-        if (!res.ok) throw new Error(res.description);
+        await sendMessage(chunk);
+        await sendEmail(chunk);
         start += 4000;
       }
     };
 
-    // Функция очистки формы
     const clearForm = () => {
-      // Сброс всех селектов в пустое значение (выбирает первый пустой option)
-      document.querySelectorAll('select').forEach(select => {
-        select.value = '';
-      });
-
-      // Очистка всех textarea с классом comment
-      document.querySelectorAll('textarea.comment').forEach(textarea => {
-        textarea.value = '';
-      });
+      document.querySelectorAll('select').forEach(select => select.value = '');
+      document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
     };
 
     (async () => {
       try {
-        for (const msg of messages) {
-          await sendAllParts(msg);
-        }
-        alert('✅ Чеклист отправлен!');
-        localStorage.clear(); // сброс локального хранилища
-        clearForm();          // очистка формы визуально
+        await sendAllParts(buildMessage('ru'));
+        await sendAllParts(buildMessage('en'));
+
+        alert('✅ ОТПРАВЛЕНО');
+        localStorage.clear();
+        clearForm();
       } catch (err) {
         alert('❌ Ошибка при отправке: ' + err.message);
         console.error(err);
