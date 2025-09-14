@@ -7,32 +7,60 @@ body {
 }
 
 /* ==== ХЭДЕР ==== */
+.page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Ряды внутри хедера */
 .lang-switch,
 .nav-buttons {
     display: flex;
-    justify-content: flex-end; /* или space-between если хочешь распределение */
+    justify-content: flex-end;
     gap: 10px;
-    width: auto; /* убираем 100%, чтобы flex не растягивал */
+    width: 100%;
     padding: 0 5%;
 }
 
 /* Кнопки внутри рядов */
 .lang-switch button,
 .nav-buttons button {
-    flex: none; /* больше не растягиваем на всю ширину */
+    flex: 1; /* растягивает на всю доступную ширину ряда */
+    max-width: none;
     min-width: 80px;
     padding: 8px 12px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-sizing: border-box;
 }
 
-/* ==== КОНТЕЙНЕР ТАБЛИЦЫ ==== */
-.pf-table-container,
-.sv-table-container {
-    width: 100%;
-    max-width: 1000px; /* чтобы не слишком широкая */
-    margin: 20px auto;
-    padding: 0 var(--table-side-margin, 20px); /* отступы справа и слева */
-    overflow-x: auto;
-    box-sizing: border-box;
+.lang-switch button:hover,
+.nav-buttons button:hover {
+    background-color: #c1b29a;
+}
+
+/* ==== ОСНОВНОЙ КОНТЕЙНЕР ==== */
+.main-container {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
 .logo {
@@ -100,115 +128,38 @@ h1 {
 }
 
 /* ==== КОНТЕЙНЕР ТАБЛИЦЫ ==== */
-.pf-table-container,
-.sv-table-container {
-    width: calc(100% - var(--table-side-margin, 40px));
-    margin: 20px auto;
-    overflow-x: auto;
+.table-container {
+    width: calc(100% - var(--table-side-margin, 40px)); /* ширина с учетом отступов */
+    margin: 20px auto; /* отцентрировать контейнер по горизонтали */
+    overflow-x: auto; /* чтобы таблица не вылезала за экран */
     box-sizing: border-box;
 }
 
 /* ==== ТАБЛИЦА ==== */
-.pf-table,
-.sv-table {
+.dish-table {
     width: 100%;
-    max-width: 100%;
+    max-width: 100%; /* не превышает контейнер */
     border-collapse: collapse;
-    margin: 0 auto;
-    table-layout: fixed;
+    margin: 0 auto; /* центрируем таблицу */
+    table-layout: fixed; /* фиксированные колонки для ширины */
 }
 
-/* Шрифты по столбцам через CSS переменные */
-.pf-table th:nth-child(1), .pf-table td:nth-child(1) { width: 10%; font-size: var(--pf-font-1, 14px); }
-.pf-table th:nth-child(2), .pf-table td:nth-child(2) { width: 30%; font-size: var(--pf-font-2, 16px); }
-.pf-table th:nth-child(3), .pf-table td:nth-child(3) { width: 20%; font-size: var(--pf-font-3, 14px); }
-.pf-table th:nth-child(4), .pf-table td:nth-child(4) { width: 40%; font-size: var(--pf-font-4, 14px); }
-
-.sv-table th:nth-child(1), .sv-table td:nth-child(1) { width: 10%; font-size: var(--sv-font-1, 14px); }
-.sv-table th:nth-child(2), .sv-table td:nth-child(2) { width: 30%; font-size: var(--sv-font-2, 16px); }
-.sv-table th:nth-child(3), .sv-table td:nth-child(3) { width: 15%; font-size: var(--sv-font-3, 14px); }
-.sv-table th:nth-child(4), .sv-table td:nth-child(4) { width: 15%; font-size: var(--sv-font-4, 14px); }
-.sv-table th:nth-child(5), .sv-table td:nth-child(5) { width: 15%; font-size: var(--sv-font-5, 14px); }
-.sv-table th:nth-child(6), .sv-table td:nth-child(6) { width: 15%; font-size: var(--sv-font-6, 14px); }
-
-/* Общие стили для таблиц */
+/* Чтобы можно было менять ширину колонок и шрифт через CSS переменные */
 .dish-table th, .dish-table td {
     border: 1px solid #ccc;
     padding: 8px 10px;
     text-align: left;
-}
-.dish-table th { background-color: #f0f0f0; font-weight: 600; }
-.dish-table tr:nth-child(even) { background-color: #fafafa; }
-
-/* Подсветка ключевого ингредиента */
-.dish-table td.key-ingredient { background-color: #fff8b0; }
-
-/* === Универсальные кнопки (не хедер) === */
-.universal-btn, input[type="button"].universal-btn, input[type="submit"].universal-btn {
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  padding: 18px;
-  font-size: 38px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-bottom: 12px;
-  display: block;
-  transition: 0.2s;
-  -webkit-text-size-adjust: 100%;
+    font-size: var(--table-font-size, 14px); /* задается глобально или по колонке */
 }
 
-.universal-btn:hover,
-input[type="button"].universal-btn:hover,
-input[type="submit"].universal-btn:hover {
-  background-color: #c1b29a;
-}
-
-/* === Хедер: два ряда, кнопки как в разделах === */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 10px 0;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-/* Ряды внутри хедера */
-.lang-switch,
-.nav-buttons {
-  display: flex;
-  justify-content: flex-start;  /* кнопки слева */
-  gap: 12px;
-  padding: 0 5%;
-  margin-bottom: 12px;           /* отступ под кнопками */
-}
-
-/* Кнопки внутри рядов: стиль как у разделов */
-.lang-switch button,
-.nav-buttons button {
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  padding: 12px 20px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-  flex: none;      /* не растягиваем */
-  min-width: 80px;
-  box-sizing: border-box;
-}
-
-.lang-switch button:hover,
-.nav-buttons button:hover {
-  background-color: #c1b29a;
-}
-
-
-
-Вернул жто. Нудно просто поменять кнопки в хэдере. Еще дело. Нет названия в карточках
+/* Пример для ширины колонок через nth-child */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { width: 10%; }
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { width: 10%; }
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { width: 10%; }
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { width: 40%; }
+.dish-table th:nth-child(5),
+.dish-table td:nth-child(5) { width: 30%; }
