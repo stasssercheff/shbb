@@ -5,18 +5,6 @@ const dataFiles = {
   'Sous-Vide': 'data/sv.json'
 };
 
-// Настройки столбцов для каждого раздела
-const columnSettings = {
-  Preps: {
-    widths: ['10%','30%','20%','40%'],      // ширины столбцов
-    fonts: ['14px','16px','14px','14px']    // шрифты
-  },
-  'Sous-Vide': {
-    widths: ['10%','30%','15%','15%','15%','15%'],
-    fonts: ['14px','16px','14px','14px','14px','14px']
-  }
-};
-
 // Функция загрузки JSON
 function loadData(sectionName, callback) {
   fetch(dataFiles[sectionName])
@@ -61,21 +49,20 @@ function createTable(data, sectionName) {
   tableContainer.innerHTML = '';
 
   const table = document.createElement('table');
-  table.className = 'dish-table';
+  table.className = 'dish-table ' + (sectionName === 'Preps' ? 'pf-table' : 'sv-table');
 
   const thead = document.createElement('thead');
   const tbody = document.createElement('tbody');
 
-  const settings = columnSettings[sectionName];
-  const headers = sectionName === 'Preps' ? ['№','Продукт / Ingredient','Шт/гр','Описание'] : ['№','Продукт / Ingredient','Шт/гр','Темп °C','Время','Описание'];
+  const headers = sectionName === 'Preps' 
+    ? ['№','Продукт / Ingredient','Шт/гр','Описание'] 
+    : ['№','Продукт / Ingredient','Шт/гр','Темп °C','Время','Описание'];
 
   // Заголовок
   const headerRow = document.createElement('tr');
-  headers.forEach((h,i)=>{
+  headers.forEach(h => {
     const th = document.createElement('th');
     th.textContent = h;
-    th.style.width = settings.widths[i];
-    th.style.fontSize = settings.fonts[i];
     headerRow.appendChild(th);
   });
   thead.appendChild(headerRow);
@@ -94,15 +81,12 @@ function createTable(data, sectionName) {
 
       const tdNum = document.createElement('td');
       tdNum.textContent = i+1;
-      tdNum.style.fontSize = settings.fonts[0];
 
       const tdName = document.createElement('td');
       tdName.textContent = currentLang==='ru'?ing['Продукт']:ing['Ingredient'];
-      tdName.style.fontSize = settings.fonts[1];
 
       const tdAmount = document.createElement('td');
       tdAmount.textContent = ing['Шт/гр'];
-      tdAmount.style.fontSize = settings.fonts[2];
 
       // подсветка ключевого ингридиента и пересчет
       if(ing['Продукт'] === dish.key){
@@ -130,10 +114,9 @@ function createTable(data, sectionName) {
 
       // Остальные столбцы для Су-Вид
       const extraCols = sectionName==='Sous-Vide'? ['Температура С / Temperature C','Время мин / Time'] : [];
-      const tdExtras = extraCols.map((colName, idx)=>{
+      const tdExtras = extraCols.map(colName=>{
         const td = document.createElement('td');
         td.textContent = ing[colName] || '';
-        td.style.fontSize = settings.fonts[3+idx];
         return td;
       });
 
@@ -142,7 +125,6 @@ function createTable(data, sectionName) {
       if(i===0){
         tdDesc.textContent = dish.process?.[currentLang] || '';
         tdDesc.rowSpan = dish.ingredients.length;
-        tdDesc.style.fontSize = settings.fonts[settings.fonts.length-1];
       }
 
       tr.appendChild(tdNum);
