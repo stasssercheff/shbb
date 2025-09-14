@@ -183,23 +183,24 @@ body {
   }
 }
 
-/* === Универсальные кнопки для разделов === */
-.section-btn {
+/* === Универсальные кнопки === */
+button, input[type="button"], input[type="submit"] {
   background-color: #d8cfc0;
   color: #333;
   border: none;
-  padding: 18px;
-  font-size: 38px;
-  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 12px;
-  display: block;
+  margin-bottom: 10px;
+  display: inline-block;
   transition: 0.2s;
   -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
 
-.section-btn:hover {
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background-color: #c1b29a;
+}
 }
 
 /* === Хедер: два ряда === */
