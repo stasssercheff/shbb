@@ -1,5 +1,11 @@
-Вот ксс 
-Можешь подровнять но без отсебятины:
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #333;
+}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,34 +17,86 @@ body {
 
 /* === Хедер: два ряда === */
 .page-header {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 10px 0;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 /* Ряды внутри хедера */
 .lang-switch,
 .nav-buttons {
-  display: flex;
-  justify-content: flex-start; /* чтобы кнопки не растягивались по всей ширине */
-  gap: 10px;
-  padding: 0 5%;
+    display: flex;
+    gap: 10px;
+    padding: 0 5%;
+    justify-content: flex-start; /* кнопки не растягиваются */
 }
 
-/* Кнопки внутри рядов */
+/* Кнопки хедера (по стилю разделов) */
 .lang-switch button,
 .nav-buttons button {
-  flex: none;          /* не растягивать на всю ширину */
-  min-width: 80px;     /* минимальная ширина */
-  padding: 8px 12px;   /* аккуратный внутренний отступ */
-  font-size: 14px;     /* нормальный размер текста */
-  box-sizing: border-box;
+    padding: 12px 20px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.2s;
+    flex: none;
+    min-width: 80px;
+}
+
+.lang-switch button:hover,
+.nav-buttons button:hover {
+    background-color: #c1b29a;
+}
+
+/* ==== Контейнер таблицы ==== */
+.pf-table-container,
+.sv-table-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 10px auto 20px auto; /* сверху отступ под кнопкой, снизу общий */
+    padding: 0 20px;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+/* ==== Таблицы ==== */
+.pf-table,
+.sv-table {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.dish-table th, .dish-table td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.dish-table th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+.dish-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Подсветка ключевого ингредиента */
+.dish-table td.key-ingredient {
+    background-color: #fff8b0;
 }
 
 /* ==== КОНТЕЙНЕР ТАБЛИЦЫ ==== */
