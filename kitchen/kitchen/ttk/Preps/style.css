@@ -25,16 +25,17 @@ body {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    width: 100%;
     padding: 0 5%;
 }
 
 /* Кнопки внутри рядов */
 .lang-switch button,
 .nav-buttons button {
-    flex: 1;
-    max-width: 100px;
+    flex: 1; /* растягивает на всю доступную ширину ряда */
+    max-width: none;
     min-width: 80px;
-    padding: 6px 12px;
+    padding: 8px 12px;
     background-color: #d8cfc0;
     color: #333;
     border: none;
@@ -122,15 +123,6 @@ h1 {
 }
 
 /* Подсветка ключевого ингредиента */
-.dish-table td[contenteditable] {
+.dish-table td.key-ingredient {
     background-color: #fff8b0;
-}
-
-/* Универсальные кнопки (если будут в других местах) */
-button, input[type="button"], input[type="submit"] {
-    transition: 0.2s;
-}
-
-button:hover, input[type="button"]:hover, input[type="submit"]:hover {
-    filter: brightness(0.9);
 }
