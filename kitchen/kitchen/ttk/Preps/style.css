@@ -7,60 +7,32 @@ body {
 }
 
 /* ==== ХЭДЕР ==== */
-.page-header {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 10px 0;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-/* Ряды внутри хедера */
 .lang-switch,
 .nav-buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* или space-between если хочешь распределение */
     gap: 10px;
-    width: 100%;
+    width: auto; /* убираем 100%, чтобы flex не растягивал */
     padding: 0 5%;
 }
 
 /* Кнопки внутри рядов */
 .lang-switch button,
 .nav-buttons button {
-    flex: 1; /* растягивает на всю доступную ширину ряда */
-    max-width: none;
+    flex: none; /* больше не растягиваем на всю ширину */
     min-width: 80px;
     padding: 8px 12px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s;
+}
+
+/* ==== КОНТЕЙНЕР ТАБЛИЦЫ ==== */
+.pf-table-container,
+.sv-table-container {
+    width: 100%;
+    max-width: 1000px; /* чтобы не слишком широкая */
+    margin: 20px auto;
+    padding: 0 var(--table-side-margin, 20px); /* отступы справа и слева */
+    overflow-x: auto;
     box-sizing: border-box;
-}
-
-.lang-switch button:hover,
-.nav-buttons button:hover {
-    background-color: #c1b29a;
-}
-
-/* ==== ОСНОВНОЙ КОНТЕЙНЕР ==== */
-.main-container {
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
 .logo {
