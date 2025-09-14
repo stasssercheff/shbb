@@ -1,71 +1,65 @@
 let currentLang = 'ru';
+let currentData = null;
 
-// Пути к JSON-файлам
-const files = {
-  Preps: 'data/preps.json',
-  SousVide: 'data/sv.json'
+// Сопоставление кнопки → JSON-файл
+const sectionFiles = {
+  'Preps': 'data/preps.json',
+  'Sous-Vide': 'data/sv.json'
 };
 
-// --- Загрузка данных по кнопке раздела ---
+// Инициализация кнопок разделов
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const section = btn.dataset.section;
-    if (!files[section]) {
-      console.error(`Нет JSON для раздела ${section}`);
-      return;
-    }
+    const file = sectionFiles[section];
+    if (!file) return;
 
-    fetch(files[section])
-      .then(res => res.json())
+    fetch(file)
+      .then(response => response.json())
       .then(data => {
-        if (section === 'Preps') {
-          createPrepsTable(data);
-        } else if (section === 'SousVide') {
-          createSousVideTable(data);
-        }
+        currentData = data.recipes || [];
+        renderTable(currentData);
       })
       .catch(err => console.error('Ошибка загрузки JSON:', err));
   });
 });
 
-// --- Переключение языка ---
-document.querySelectorAll('.lang-btn').forEach(langBtn => {
-  langBtn.addEventListener('click', () => {
-    currentLang = langBtn.dataset.lang;
-  });
-});
+// Переключение языка
+function switchLanguage(lang) {
+  currentLang = lang;
+  if (currentData) renderTable(currentData);
+}
 
-// === Таблица ПФ с перерасчётом ===
-function createPrepsTable(sectionArray) {
-  const tableContainer = document.querySelector('.table-container');
-  tableContainer.innerHTML = '';
+// Функция создания таблицы
+function renderTable(data) {
+  const container = document.querySelector('.table-container');
+  container.innerHTML = '';
 
-  const table = document.createElement('table');
-  table.className = 'dish-table';
+  data.forEach(dish => {
+    const table = document.createElement('table');
+    table.className = 'dish-table';
 
-  const thead = document.createElement('thead');
-  const tbody = document.createElement('tbody');
-
-  // Заголовок
-  const headerRow = document.createElement('tr');
-  ['№', 'Продукт / Ingredient', 'Шт/гр', 'Описание'].forEach(h => {
-    const th = document.createElement('th');
-    th.textContent = h;
-    headerRow.appendChild(th);
-  });
-  thead.appendChild(headerRow);
-
-  // Перебор блюд
-  sectionArray.forEach(dish => {
-    // строка-название
+    // Заголовок блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = 4;
     tdDish.style.fontWeight = '600';
     tdDish.textContent = dish.title || '';
     dishRow.appendChild(tdDish);
-    tbody.appendChild(dishRow);
+    const thead = document.createElement('thead');
+    thead.appendChild(dishRow);
 
+    // Заголовки колонок
+    const headerRow = document.createElement('tr');
+    ['№', 'Продукт / Ingredient', 'Шт/гр', 'Описание'].forEach(h => {
+      const th = document.createElement('th');
+      th.textContent = h;
+      headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
     const keyIngredient = dish.key;
 
     dish.ingredients.forEach((ing, i) => {
@@ -75,8 +69,7 @@ function createPrepsTable(sectionArray) {
       tdNum.textContent = i + 1;
 
       const tdName = document.createElement('td');
-      tdName.textContent =
-        currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
+      tdName.textContent = currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
 
       const tdAmount = document.createElement('td');
       tdAmount.dataset.base = ing['Шт/гр'];
@@ -87,16 +80,17 @@ function createPrepsTable(sectionArray) {
         tdAmount.textContent = ing['Шт/гр'];
 
         tdAmount.addEventListener('input', () => {
-          const newVal = parseFloat(tdAmount.textContent) || 0;
-          const oldVal = parseFloat(tdAmount.dataset.base) || 1;
+          let newVal = parseInt(tdAmount.textContent) || 0;
+          const oldVal = parseInt(tdAmount.dataset.base) || 1;
           const factor = newVal / oldVal;
 
+          // Перерасчёт всех остальных ячеек
           const trs = tdAmount.closest('table').querySelectorAll('tbody tr');
           trs.forEach(r => {
             const cell = r.cells[2];
             if (cell && cell !== tdAmount) {
-              const base = parseFloat(cell.dataset.base) || 0;
-              if (base) cell.textContent = Math.round(base * factor);
+              const base = parseInt(cell.dataset.base) || 0;
+              cell.textContent = Math.round(base * factor);
             }
           });
           tdAmount.dataset.base = newVal;
@@ -119,45 +113,8 @@ function createPrepsTable(sectionArray) {
 
       tbody.appendChild(tr);
     });
+
+    table.appendChild(tbody);
+    container.appendChild(table);
   });
-
-  table.appendChild(thead);
-  table.appendChild(tbody);
-  tableContainer.appendChild(table);
-}
-
-// === Таблица Су-Вид ===
-function createSousVideTable(data) {
-  const tableContainer = document.querySelector('.table-container');
-  tableContainer.innerHTML = '';
-
-  let html = '<h2>Су-Вид / SOUS-VIDE</h2>';
-  html += `<table class="dish-table">
-    <thead>
-      <tr>
-        <th>№</th>
-        <th>Продукт / Ingredient</th>
-        <th>Шт/гр</th>
-        <th>Температура °C</th>
-        <th>Время (мин)</th>
-        <th>Описание</th>
-      </tr>
-    </thead>
-    <tbody>`;
-
-  data.recipes.forEach(recipe => {
-    recipe.ingredients.forEach(ing => {
-      html += `<tr>
-        <td>${ing['№'] || ''}</td>
-        <td>${ing['Продукт'] || ''}<br><em>${ing['Ingredient'] || ''}</em></td>
-        <td>${ing['Шт/гр'] || ''}</td>
-        <td>${ing['Температура С / Temperature C'] || ''}</td>
-        <td>${ing['Время мин / Time'] || ''}</td>
-        <td>${ing['Описание'] || ''}</td>
-      </tr>`;
-    });
-  });
-
-  html += '</tbody></table>';
-  tableContainer.innerHTML = html;
 }
