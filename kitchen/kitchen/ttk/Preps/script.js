@@ -5,82 +5,75 @@ const dataFiles = {
   'Sous-Vide': 'data/sv.json'
 };
 
-// Настройки столбцов для каждого раздела
-const columnSettings = {
-  Preps: {
-    widths: ['10%','30%','20%','40%'],      // ширины столбцов
-    fonts: ['14px','16px','14px','14px']    // шрифты
-  },
-  'Sous-Vide': {
-    widths: ['10%','30%','15%','15%','15%','15%'],
-    fonts: ['14px','16px','14px','14px','14px','14px']
-  }
-};
-
-// Функция загрузки JSON
-function loadData(sectionName, callback) {
-  fetch(dataFiles[sectionName])
-    .then(res => res.json())
-    .then(data => callback(data))
-    .catch(err => console.error(err));
-}
-
 // Переключение языка
 function switchLanguage(lang) {
   currentLang = lang;
-  const activeSection = document.querySelector('.section-btn.active');
-  if (activeSection) {
-    renderSection(activeSection.dataset.section);
-  }
+  document.querySelectorAll('.section-btn.active').forEach(btn=>{
+    renderSection(btn.dataset.section);
+  });
 }
 
-// Отображение/скрытие раздела
+// Рендер раздела (таблицы) под кнопкой
 function renderSection(sectionName) {
-  const container = document.querySelector('.table-container');
   const btn = document.querySelector(`.section-btn[data-section="${sectionName}"]`);
-  
-  // Деклассифицируем все кнопки
-  document.querySelectorAll('.section-btn').forEach(b=>b.classList.remove('active'));
+  const existingContainer = btn.nextElementSibling;
 
-  if (container.dataset.active === sectionName) {
-    // закрыть
-    container.innerHTML = '';
-    container.dataset.active = '';
+  // Если уже открыта — закрыть
+  if(existingContainer && existingContainer.classList.contains('table-container') && existingContainer.dataset.section===sectionName){
+    existingContainer.remove();
+    btn.classList.remove('active');
     return;
   }
 
-  btn.classList.add('active');
-  container.dataset.active = sectionName;
+  // Деклассифицируем все кнопки
+  document.querySelectorAll('.section-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.table-container').forEach(c=>c.remove());
 
-  loadData(sectionName, data => createTable(data, sectionName));
+  btn.classList.add('active');
+
+  // Создаем новый контейнер
+  const container = document.createElement('div');
+  container.className = 'table-container';
+  container.dataset.section = sectionName;
+  btn.insertAdjacentElement('afterend', container);
+
+  // Загружаем данные
+  fetch(dataFiles[sectionName])
+    .then(res=>res.json())
+    .then(data=>createTable(data, container, sectionName));
 }
 
 // Создание таблицы
-function createTable(data, sectionName) {
-  const tableContainer = document.querySelector('.table-container');
-  tableContainer.innerHTML = '';
+function createTable(data, container, sectionName){
+  container.innerHTML = '';
 
+  // Название карточки
+  const title = document.createElement('div');
+  title.className = 'table-title';
+  title.textContent = data.title || sectionName;
+  container.appendChild(title);
+
+  // Таблица
   const table = document.createElement('table');
-  table.className = 'dish-table';
+  table.className = 'dish-table ' + (sectionName==='Preps' ? 'pf-table' : 'sv-table');
 
   const thead = document.createElement('thead');
   const tbody = document.createElement('tbody');
 
-  const settings = columnSettings[sectionName];
-  const headers = sectionName === 'Preps' ? ['№','Продукт / Ingredient','Шт/гр','Описание'] : ['№','Продукт / Ingredient','Шт/гр','Темп °C','Время','Описание'];
+  const headers = sectionName==='Preps' 
+    ? ['№','Продукт / Ingredient','Шт/гр','Описание'] 
+    : ['№','Продукт / Ingredient','Шт/гр','Темп °C','Время','Описание'];
 
-  // Заголовок
   const headerRow = document.createElement('tr');
-  headers.forEach((h,i)=>{
+  headers.forEach(h=>{
     const th = document.createElement('th');
     th.textContent = h;
-    th.style.width = settings.widths[i];
-    th.style.fontSize = settings.fonts[i];
     headerRow.appendChild(th);
   });
   thead.appendChild(headerRow);
 
   data.recipes.forEach(dish=>{
+    // Название блюда в отдельной строке
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
     tdDish.colSpan = headers.length;
@@ -94,46 +87,41 @@ function createTable(data, sectionName) {
 
       const tdNum = document.createElement('td');
       tdNum.textContent = i+1;
-      tdNum.style.fontSize = settings.fonts[0];
 
       const tdName = document.createElement('td');
-      tdName.textContent = currentLang==='ru'?ing['Продукт']:ing['Ingredient'];
-      tdName.style.fontSize = settings.fonts[1];
+      tdName.textContent = currentLang==='ru' ? ing['Продукт'] : ing['Ingredient'];
 
       const tdAmount = document.createElement('td');
       tdAmount.textContent = ing['Шт/гр'];
-      tdAmount.style.fontSize = settings.fonts[2];
 
-      // подсветка ключевого ингридиента и пересчет
+      // Ключевой ингредиент: editable и перерасчет
       if(ing['Продукт'] === dish.key){
         tdAmount.contentEditable = true;
         tdAmount.classList.add('key-ingredient');
         tdAmount.dataset.base = ing['Шт/гр'];
 
         tdAmount.addEventListener('input', ()=>{
-          const newVal = Math.round(parseFloat(tdAmount.textContent) || 0);
-          const oldVal = parseFloat(tdAmount.dataset.base) || 1;
-          const factor = newVal/oldVal;
+          let val = parseFloat(tdAmount.textContent.replace(/\D/g,'')) || 0;
+          tdAmount.textContent = val; // фикс вставки цифр
+          const factor = val / (parseFloat(tdAmount.dataset.base)||1);
 
-          const trs = tdAmount.closest('table').querySelectorAll('tbody tr');
-          trs.forEach(r=>{
+          // Перерасчет только по tbody данной таблицы
+          tbody.querySelectorAll('tr').forEach(r=>{
             const cell = r.cells[2];
-            if(cell && cell!==tdAmount){
-              const base = parseFloat(cell.dataset.base) || 0;
+            if(cell && cell!==tdAmount && !cell.isHeader){
+              const base = parseFloat(cell.dataset.base) || parseFloat(cell.textContent)||0;
               cell.textContent = Math.round(base*factor);
             }
           });
-          tdAmount.dataset.base = newVal;
-          tdAmount.textContent = newVal;
+          tdAmount.dataset.base = val;
         });
       }
 
       // Остальные столбцы для Су-Вид
       const extraCols = sectionName==='Sous-Vide'? ['Температура С / Temperature C','Время мин / Time'] : [];
-      const tdExtras = extraCols.map((colName, idx)=>{
+      const tdExtras = extraCols.map(col=>{
         const td = document.createElement('td');
-        td.textContent = ing[colName] || '';
-        td.style.fontSize = settings.fonts[3+idx];
+        td.textContent = ing[col] || '';
         return td;
       });
 
@@ -142,7 +130,6 @@ function createTable(data, sectionName) {
       if(i===0){
         tdDesc.textContent = dish.process?.[currentLang] || '';
         tdDesc.rowSpan = dish.ingredients.length;
-        tdDesc.style.fontSize = settings.fonts[settings.fonts.length-1];
       }
 
       tr.appendChild(tdNum);
@@ -157,13 +144,10 @@ function createTable(data, sectionName) {
 
   table.appendChild(thead);
   table.appendChild(tbody);
-  tableContainer.appendChild(table);
+  container.appendChild(table);
 }
 
-// Инициализация кнопок
+// Инициализация кнопок разделов
 document.querySelectorAll('.section-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>renderSection(btn.dataset.section));
-});
-document.querySelectorAll('.lang-switch button').forEach(btn=>{
-  btn.addEventListener('click', ()=>switchLanguage(btn.textContent.toLowerCase()));
 });
