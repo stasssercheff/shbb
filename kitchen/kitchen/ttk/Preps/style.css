@@ -10,9 +10,8 @@ body {
 .page-header {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding: 10px 20px;
-    gap: 8px;
+    gap: 12px;
+    padding: 10px 0;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
@@ -20,26 +19,35 @@ body {
     z-index: 10;
 }
 
+/* Ряды внутри хедера */
 .lang-switch,
 .nav-buttons {
     display: flex;
+    justify-content: flex-end;
     gap: 10px;
+    padding: 0 5%;
 }
 
-/* Кнопки языка и навигации */
-.top-btn, .lang-btn {
+/* Кнопки внутри рядов */
+.lang-switch button,
+.nav-buttons button {
+    flex: 1;
+    max-width: 100px;
+    min-width: 80px;
     padding: 6px 12px;
     background-color: #d8cfc0;
     color: #333;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
     font-weight: 600;
     font-size: 14px;
+    cursor: pointer;
     transition: 0.2s;
+    box-sizing: border-box;
 }
 
-.top-btn:hover, .lang-btn:hover {
+.lang-switch button:hover,
+.nav-buttons button:hover {
     background-color: #c1b29a;
 }
 
@@ -111,4 +119,18 @@ h1 {
 
 .dish-table tr:nth-child(even) {
     background-color: #fafafa;
+}
+
+/* Подсветка ключевого ингредиента */
+.dish-table td[contenteditable] {
+    background-color: #fff8b0;
+}
+
+/* Универсальные кнопки (если будут в других местах) */
+button, input[type="button"], input[type="submit"] {
+    transition: 0.2s;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+    filter: brightness(0.9);
 }
