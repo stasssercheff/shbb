@@ -45,21 +45,19 @@ body {
 .pf-table-container,
 .sv-table-container {
     width: 100%;
-    max-width: 1000px; /* чтобы не слишком широкая */
+    max-width: 1000px;       /* ограничение ширины */
     margin: 20px auto;
-    padding: 0 var(--table-side-margin, 20px); /* отступы справа и слева */
+    padding: 0 20px;          /* отступы слева и справа */
     overflow-x: auto;
     box-sizing: border-box;
 }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.pf-table,
+.sv-table {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;           /* центрирование таблицы */
+    table-layout: fixed;       /* фиксированные колонки */
 }
 
 /* ==== КНОПКИ РАЗДЕЛОВ ==== */
