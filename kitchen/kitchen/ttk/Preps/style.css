@@ -1,6 +1,3 @@
-Вот ксс 
-Можешь подровнять но без отсебятины:
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -167,7 +164,7 @@ input[type="submit"].universal-btn:hover {
   background-color: #c1b29a;
 }
 
-/* === Хедер: два ряда === */
+/* === Хедер: два ряда, кнопки как в разделах === */
 .page-header {
   display: flex;
   flex-direction: column;
@@ -184,20 +181,32 @@ input[type="submit"].universal-btn:hover {
 .lang-switch,
 .nav-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;  /* кнопки слева */
+  gap: 12px;
   padding: 0 5%;
-  gap: 10px;
+  margin-bottom: 12px;           /* отступ под кнопками */
 }
 
-/* Кнопки внутри рядов */
+/* Кнопки внутри рядов: стиль как у разделов */
 .lang-switch button,
 .nav-buttons button {
-  flex: 1;
-  max-width: 45%;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+  flex: none;      /* не растягиваем */
   min-width: 80px;
-  padding: 8px 12px;
   box-sizing: border-box;
-  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+}
+
+.lang-switch button:hover,
+.nav-buttons button:hover {
+  background-color: #c1b29a;
 }
 
 
