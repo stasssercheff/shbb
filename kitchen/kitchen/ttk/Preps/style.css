@@ -10,8 +10,8 @@ body {
 .page-header {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 10px 0;
+  gap: 10px;
+  padding: 10px 5%;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -22,10 +22,10 @@ body {
 .lang-switch, .nav-buttons {
   display: flex;
   gap: 10px;
-  padding: 0 5%;
 }
 
-.lang-switch button, .nav-buttons button {
+.lang-switch button, .nav-buttons button,
+.section-btn {
   background-color: #d8cfc0;
   color: #333;
   border: none;
@@ -37,61 +37,38 @@ body {
   transition: 0.2s;
 }
 
-.lang-switch button:hover, .nav-buttons button:hover {
+.lang-switch button:hover,
+.nav-buttons button:hover,
+.section-btn:hover {
   background-color: #c1b29a;
 }
 
-/* === Кнопки разделов === */
+/* === Контейнер кнопок разделов === */
 .section-buttons {
   display: flex;
-  flex-direction: column;
   gap: 12px;
-  align-items: center;
+  justify-content: center;
   margin: 20px 0;
 }
 
-.section-btn {
-  padding: 12px 20px;
-  width: 100%;
-  max-width: 250px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.section-btn.active, .section-btn:hover {
-  background-color: #c1b29a;
-}
-
-/* === Контейнер таблицы === */
-.table-container {
-  width: 95%;
-  max-width: 1000px;
-  margin: 0 auto 30px auto;
-  padding: 10px;
-  background-color: #fff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-/* === Название карточки === */
-.table-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
 /* === Таблицы === */
+.table-container {
+  width: calc(100% - 40px);
+  margin: 0 auto 30px;
+  overflow-x: auto;
+}
+
+.recipe-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px 0 10px;
+}
+
+/* Общие стили для таблиц */
 .dish-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 10px;
+  table-layout: fixed;
 }
 
 .dish-table th, .dish-table td {
@@ -100,29 +77,29 @@ body {
   text-align: left;
 }
 
+/* ==== ПФ таблица: ширина и шрифт === */
+.pf-table th:nth-child(1), .pf-table td:nth-child(1) { width: 5%; font-size: 14px; }
+.pf-table th:nth-child(2), .pf-table td:nth-child(2) { width: 30%; font-size: 16px; }
+.pf-table th:nth-child(3), .pf-table td:nth-child(3) { width: 10%; font-size: 14px; }
+.pf-table th:nth-child(4), .pf-table td:nth-child(4) { width: 55%; font-size: 14px; }
+
+/* ==== Су-Вид таблица: ширина и шрифт === */
+.sv-table th:nth-child(1), .sv-table td:nth-child(1) { width: 5%; font-size: 14px; }
+.sv-table th:nth-child(2), .sv-table td:nth-child(2) { width: 25%; font-size: 16px; }
+.sv-table th:nth-child(3), .sv-table td:nth-child(3) { width: 10%; font-size: 14px; }
+.sv-table th:nth-child(4), .sv-table td:nth-child(4) { width: 15%; font-size: 14px; }
+.sv-table th:nth-child(5), .sv-table td:nth-child(5) { width: 15%; font-size: 14px; }
+.sv-table th:nth-child(6), .sv-table td:nth-child(6) { width: 30%; font-size: 14px; }
+
+/* Подсветка ключевого ингредиента */
+.key-ingredient {
+  background-color: #fff8b0;
+}
+
+/* Заголовки и строки */
 .dish-table th {
   background-color: #f0f0f0;
   font-weight: 600;
 }
 
-.dish-table tr:nth-child(even) {
-  background-color: #fafafa;
-}
-
-.dish-table td.key-ingredient {
-  background-color: #fff8b0;
-}
-
-/* === Настройка столбцов для ПФ === */
-.pf-table th:nth-child(1), .pf-table td:nth-child(1) { width: 10%; font-size: 14px; }
-.pf-table th:nth-child(2), .pf-table td:nth-child(2) { width: 30%; font-size: 16px; }
-.pf-table th:nth-child(3), .pf-table td:nth-child(3) { width: 20%; font-size: 14px; }
-.pf-table th:nth-child(4), .pf-table td:nth-child(4) { width: 40%; font-size: 14px; }
-
-/* === Настройка столбцов для Су-Вид === */
-.sv-table th:nth-child(1), .sv-table td:nth-child(1) { width: 10%; font-size: 14px; }
-.sv-table th:nth-child(2), .sv-table td:nth-child(2) { width: 30%; font-size: 16px; }
-.sv-table th:nth-child(3), .sv-table td:nth-child(3) { width: 15%; font-size: 14px; }
-.sv-table th:nth-child(4), .sv-table td:nth-child(4) { width: 15%; font-size: 14px; }
-.sv-table th:nth-child(5), .sv-table td:nth-child(5) { width: 15%; font-size: 14px; }
-.sv-table th:nth-child(6), .sv-table td:nth-child(6) { width: 15%; font-size: 14px; }
+.dish-table tr:nth-child
