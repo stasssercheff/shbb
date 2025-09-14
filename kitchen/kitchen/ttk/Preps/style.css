@@ -183,8 +183,8 @@ body {
   }
 }
 
-/* === Универсальные кнопки === */
-button, input[type="button"], input[type="submit"] {
+/* === Универсальные кнопки для разделов === */
+.section-btn {
   background-color: #d8cfc0;
   color: #333;
   border: none;
@@ -198,7 +198,7 @@ button, input[type="button"], input[type="submit"] {
   -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
 
-button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+.section-btn:hover {
   background-color: #c1b29a;
 }
 
@@ -224,13 +224,24 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   gap: 10px;
 }
 
-/* Кнопки внутри рядов */
+/* Кнопки внутри рядов (компактные) */
 .lang-switch button,
 .nav-buttons button {
   flex: 1;
   max-width: 45%;
   min-width: 80px;
   padding: 8px 12px;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #d8cfc0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  -webkit-text-size-adjust: 100%;
+}
+
+.lang-switch button:hover,
+.nav-buttons button:hover {
+  background-color: #c1b29a;
 }
