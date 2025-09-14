@@ -94,22 +94,28 @@ function createTable(data, sectionName) {
         tdAmount.classList.add('key-ingredient');
         tdAmount.dataset.base = ing['Шт/гр'];
 
-        tdAmount.addEventListener('input', ()=>{
-          const newVal = Math.round(parseFloat(tdAmount.textContent) || 0);
-          const oldVal = parseFloat(tdAmount.dataset.base) || 1;
-          const factor = newVal/oldVal;
+tdAmount.addEventListener('input', ()=>{
+  const newVal = Math.round(parseFloat(tdAmount.textContent) || 0);
+  const oldVal = parseFloat(tdAmount.dataset.base) || 1;
+  const factor = newVal / oldVal;
 
-          const trs = tdAmount.closest('table').querySelectorAll('tbody tr');
-          trs.forEach(r=>{
-            const cell = r.cells[2];
-            if(cell && cell!==tdAmount){
-              const base = parseFloat(cell.dataset.base) || 0;
-              cell.textContent = Math.round(base*factor);
-            }
-          });
-          tdAmount.dataset.base = newVal;
-          tdAmount.textContent = newVal;
-        });
+  // пересчёт только внутри текущего блюда
+  const ingredientRows = Array.from(tdAmount.closest('tbody').querySelectorAll('tr'))
+    .filter(tr => tr.cells.length > 2 && !tr.cells[0].colSpan); // исключаем строки с заголовком блюда
+
+  ingredientRows.forEach(r=>{
+    const cell = r.cells[2];
+    if(cell && cell !== tdAmount){
+      let base = parseFloat(cell.dataset.base);
+      if(!base) base = parseFloat(cell.textContent) || 0;
+      cell.dataset.base = base;
+      cell.textContent = Math.round(base * factor);
+    }
+  });
+
+  tdAmount.dataset.base = newVal;
+  tdAmount.textContent = newVal;
+});
       }
 
       // Остальные столбцы для Су-Вид
