@@ -126,3 +126,40 @@ h1 {
 .dish-table td.key-ingredient {
     background-color: #fff8b0;
 }
+
+/* ==== КОНТЕЙНЕР ТАБЛИЦЫ ==== */
+.table-container {
+    width: calc(100% - var(--table-side-margin, 40px)); /* ширина с учетом отступов */
+    margin: 20px auto; /* отцентрировать контейнер по горизонтали */
+    overflow-x: auto; /* чтобы таблица не вылезала за экран */
+    box-sizing: border-box;
+}
+
+/* ==== ТАБЛИЦА ==== */
+.dish-table {
+    width: 100%;
+    max-width: 100%; /* не превышает контейнер */
+    border-collapse: collapse;
+    margin: 0 auto; /* центрируем таблицу */
+    table-layout: fixed; /* фиксированные колонки для ширины */
+}
+
+/* Чтобы можно было менять ширину колонок и шрифт через CSS переменные */
+.dish-table th, .dish-table td {
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    text-align: left;
+    font-size: var(--table-font-size, 14px); /* задается глобально или по колонке */
+}
+
+/* Пример для ширины колонок через nth-child */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { width: 10%; }
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { width: 10%; }
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { width: 10%; }
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { width: 40%; }
+.dish-table th:nth-child(5),
+.dish-table td:nth-child(5) { width: 30%; }
