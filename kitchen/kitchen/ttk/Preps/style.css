@@ -143,8 +143,8 @@ h1 {
 /* Подсветка ключевого ингредиента */
 .dish-table td.key-ingredient { background-color: #fff8b0; }
 
-/* === Универсальные кнопки === */
-button, input[type="button"], input[type="submit"] {
+/* === Универсальные кнопки (не хедер) === */
+.universal-btn, input[type="button"].universal-btn, input[type="submit"].universal-btn {
   background-color: #d8cfc0;
   color: #333;
   border: none;
@@ -155,10 +155,12 @@ button, input[type="button"], input[type="submit"] {
   margin-bottom: 12px;
   display: block;
   transition: 0.2s;
-  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+  -webkit-text-size-adjust: 100%;
 }
 
-button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+.universal-btn:hover,
+input[type="button"].universal-btn:hover,
+input[type="submit"].universal-btn:hover {
   background-color: #c1b29a;
 }
 
