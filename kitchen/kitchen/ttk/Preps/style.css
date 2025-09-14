@@ -1,165 +1,128 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f8;
-    color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  color: #333;
 }
 
-/* ==== ХЭДЕР ==== */
+/* === Хедер === */
 .page-header {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 10px 0;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-/* Ряды внутри хедера */
-.lang-switch,
-.nav-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    width: 100%;
-    padding: 0 5%;
+.lang-switch, .nav-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 0 5%;
 }
 
-/* Кнопки внутри рядов */
-.lang-switch button,
-.nav-buttons button {
-    flex: 1; /* растягивает на всю доступную ширину ряда */
-    max-width: none;
-    min-width: 80px;
-    padding: 8px 12px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s;
-    box-sizing: border-box;
+.lang-switch button, .nav-buttons button {
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.lang-switch button:hover,
-.nav-buttons button:hover {
-    background-color: #c1b29a;
+.lang-switch button:hover, .nav-buttons button:hover {
+  background-color: #c1b29a;
 }
 
-/* ==== ОСНОВНОЙ КОНТЕЙНЕР ==== */
-.main-container {
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-}
-
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* ==== КНОПКИ РАЗДЕЛОВ ==== */
+/* === Кнопки разделов === */
 .section-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin: 20px 0;
 }
 
 .section-btn {
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 250px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    transition: 0.2s;
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 250px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.section-btn:hover {
-    background-color: #c1b29a;
+.section-btn.active, .section-btn:hover {
+  background-color: #c1b29a;
 }
 
-/* ==== ТАБЛИЦЫ ==== */
+/* === Контейнер таблицы === */
+.table-container {
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* === Название карточки === */
+.table-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* === Таблицы === */
 .dish-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
 .dish-table th, .dish-table td {
-    border: 1px solid #ccc;
-    padding: 8px 10px;
-    text-align: left;
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  text-align: left;
 }
 
 .dish-table th {
-    background-color: #f0f0f0;
-    font-weight: 600;
+  background-color: #f0f0f0;
+  font-weight: 600;
 }
 
 .dish-table tr:nth-child(even) {
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 
-/* Подсветка ключевого ингредиента */
 .dish-table td.key-ingredient {
-    background-color: #fff8b0;
+  background-color: #fff8b0;
 }
 
-/* ==== КОНТЕЙНЕР ТАБЛИЦЫ ==== */
-.table-container {
-    width: calc(100% - var(--table-side-margin, 40px)); /* ширина с учетом отступов */
-    margin: 20px auto; /* отцентрировать контейнер по горизонтали */
-    overflow-x: auto; /* чтобы таблица не вылезала за экран */
-    box-sizing: border-box;
-}
+/* === Настройка столбцов для ПФ === */
+.pf-table th:nth-child(1), .pf-table td:nth-child(1) { width: 10%; font-size: 14px; }
+.pf-table th:nth-child(2), .pf-table td:nth-child(2) { width: 30%; font-size: 16px; }
+.pf-table th:nth-child(3), .pf-table td:nth-child(3) { width: 20%; font-size: 14px; }
+.pf-table th:nth-child(4), .pf-table td:nth-child(4) { width: 40%; font-size: 14px; }
 
-/* ==== ТАБЛИЦА ==== */
-.dish-table {
-    width: 100%;
-    max-width: 100%; /* не превышает контейнер */
-    border-collapse: collapse;
-    margin: 0 auto; /* центрируем таблицу */
-    table-layout: fixed; /* фиксированные колонки для ширины */
-}
-
-/* Чтобы можно было менять ширину колонок и шрифт через CSS переменные */
-.dish-table th, .dish-table td {
-    border: 1px solid #ccc;
-    padding: 8px 10px;
-    text-align: left;
-    font-size: var(--table-font-size, 11px); /* задается глобально или по колонке */
-}
-
-/* Пример для ширины колонок через nth-child */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { width: 8%; }
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { width: 12%; }
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { width: 10%; }
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { width: 40%; }
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { width: 30%; }
+/* === Настройка столбцов для Су-Вид === */
+.sv-table th:nth-child(1), .sv-table td:nth-child(1) { width: 10%; font-size: 14px; }
+.sv-table th:nth-child(2), .sv-table td:nth-child(2) { width: 30%; font-size: 16px; }
+.sv-table th:nth-child(3), .sv-table td:nth-child(3) { width: 15%; font-size: 14px; }
+.sv-table th:nth-child(4), .sv-table td:nth-child(4) { width: 15%; font-size: 14px; }
+.sv-table th:nth-child(5), .sv-table td:nth-child(5) { width: 15%; font-size: 14px; }
+.sv-table th:nth-child(6), .sv-table td:nth-child(6) { width: 15%; font-size: 14px; }
