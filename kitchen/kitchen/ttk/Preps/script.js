@@ -1,127 +1,126 @@
 let currentLang = 'ru';
-let openSection = null; // Для отслеживания открытого раздела
 
-// Сопоставление кнопка → JSON
-const sectionFiles = {
-  'Preps': 'data/preps.json',
+// Пути к JSON
+const dataFiles = {
+  Preps: 'data/preps.json',
   'Sous-Vide': 'data/sv.json'
 };
 
-// Инициализация кнопок разделов
-document.querySelectorAll('.section-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const section = btn.dataset.section;
-    const file = sectionFiles[section];
-    if (!file) return;
+document.addEventListener('DOMContentLoaded', () => {
+  // Кнопки разделов
+  document.querySelectorAll('.section-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.dataset.section;
+      const container = document.querySelector('.table-container');
 
-    const container = document.querySelector('.table-container');
+      // Если уже открыта, закрываем
+      if (container.dataset.active === section) {
+        container.innerHTML = '';
+        container.dataset.active = '';
+        return;
+      }
 
-    // Закрываем раздел, если он уже открыт
-    if (openSection === section) {
-      container.innerHTML = '';
-      openSection = null;
-      return;
-    }
+      fetch(dataFiles[section])
+        .then(res => res.json())
+        .then(data => {
+          createTable(section, data);
+          container.dataset.active = section;
+        })
+        .catch(err => console.error('Ошибка загрузки JSON:', err));
+    });
+  });
 
-    fetch(file)
-      .then(res => res.json())
-      .then(data => {
-        openSection = section;
-        renderTable(data.recipes, section);
-      })
-      .catch(err => console.error('Ошибка загрузки JSON:', err));
+  // Кнопки языка
+  document.querySelectorAll('.lang-btn').forEach(langBtn => {
+    langBtn.addEventListener('click', () => {
+      currentLang = langBtn.dataset.lang;
+      const container = document.querySelector('.table-container');
+      if (container.dataset.active) {
+        // Перерисовываем текущий раздел
+        fetch(dataFiles[container.dataset.active])
+          .then(res => res.json())
+          .then(data => createTable(container.dataset.active, data))
+          .catch(err => console.error(err));
+      }
+    });
   });
 });
 
-// Переключение языка
-function switchLanguage(lang) {
-  currentLang = lang;
-  if (openSection) {
-    const file = sectionFiles[openSection];
-    fetch(file)
-      .then(res => res.json())
-      .then(data => renderTable(data.recipes, openSection))
-      .catch(err => console.error('Ошибка загрузки JSON:', err));
+function createTable(sectionName, sectionData) {
+  const tableContainer = document.querySelector('.table-container');
+  tableContainer.innerHTML = '';
+
+  const table = document.createElement('table');
+  table.className = 'dish-table';
+
+  const thead = document.createElement('thead');
+  const tbody = document.createElement('tbody');
+
+  let headers;
+  if (sectionName === 'Preps') {
+    headers = ['№', 'Продукт / Ingredient', 'Шт/гр', 'Описание'];
+  } else if (sectionName === 'Sous-Vide') {
+    headers = ['№', 'Продукт / Ingredient', 'Шт/гр', 'Температура °C', 'Время (мин)', 'Описание'];
   }
-}
 
-// Настройки отображения столбцов (ширина в %, шрифт)
-const columnSettings = {
-  '№': { width: '5%', font: 'bold 14px sans-serif' },
-  'Продукт / Ingredient': { width: '35%', font: '14px sans-serif' },
-  'Шт/гр': { width: '15%', font: '14px sans-serif' },
-  'Описание': { width: '45%', font: '14px sans-serif' }
-};
+  const headerRow = document.createElement('tr');
+  headers.forEach((h, idx) => {
+    const th = document.createElement('th');
+    th.textContent = h;
+    // ширина столбцов в %
+    if (sectionName === 'Preps') {
+      th.style.width = [10, 40, 20, 30][idx] + '%';
+    } else if (sectionName === 'Sous-Vide') {
+      th.style.width = [10, 30, 15, 15, 15, 15][idx] + '%';
+    }
+    // шрифт
+    th.style.fontSize = ['14px','16px','15px','14px','15px','14px'][idx] || '14px';
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
 
-// Функция создания таблицы
-function renderTable(data, section) {
-  const container = document.querySelector('.table-container');
-  container.innerHTML = '';
-
-  data.forEach(dish => {
-    const table = document.createElement('table');
-    table.className = 'dish-table';
-
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
-
-    // Заголовок блюда
+  sectionData.forEach(dish => {
+    // строка с названием блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
-    tdDish.colSpan = section === 'Sous-Vide' ? 3 : 4; // Су-Вид половина столбцов
+    tdDish.colSpan = headers.length;
     tdDish.style.fontWeight = '600';
     tdDish.textContent = dish.title || '';
     dishRow.appendChild(tdDish);
-    thead.appendChild(dishRow);
-
-    // Заголовки колонок
-    const headerRow = document.createElement('tr');
-    const headers = section === 'Sous-Vide' 
-      ? ['№', 'Продукт / Ingredient', 'Шт/гр'] 
-      : ['№', 'Продукт / Ingredient', 'Шт/гр', 'Описание'];
-
-    headers.forEach(h => {
-      const th = document.createElement('th');
-      th.textContent = h;
-      if (columnSettings[h]) {
-        th.style.width = columnSettings[h].width;
-        th.style.font = columnSettings[h].font;
-      }
-      headerRow.appendChild(th);
-    });
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
+    tbody.appendChild(dishRow);
 
     const keyIngredient = dish.key;
 
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
+      // №
       const tdNum = document.createElement('td');
       tdNum.textContent = i + 1;
-      tdNum.style.font = columnSettings['№'].font;
+      tdNum.style.fontSize = '14px';
 
+      // Название
       const tdName = document.createElement('td');
       tdName.textContent = currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
-      tdName.style.font = columnSettings['Продукт / Ingredient'].font;
+      tdName.style.fontSize = '16px';
 
+      // Кол-во
       const tdAmount = document.createElement('td');
       tdAmount.dataset.base = ing['Шт/гр'];
-      tdAmount.style.font = columnSettings['Шт/гр'].font;
+      tdAmount.style.fontSize = '15px';
 
-      // Подсветка ключевого ингредиента и перерасчёт
       if (ing['Продукт'] === keyIngredient) {
         tdAmount.contentEditable = true;
-        tdAmount.style.backgroundColor = '#fff8b0'; // бледно-желтый
+        tdAmount.classList.add('highlight');
+        tdAmount.style.backgroundColor = '#fff9c0'; // бледно-желтый
         tdAmount.textContent = ing['Шт/гр'];
 
         tdAmount.addEventListener('input', () => {
           let newVal = parseInt(tdAmount.textContent) || 0;
-          const oldVal = parseInt(tdAmount.dataset.base) || 1;
+          let oldVal = parseInt(tdAmount.dataset.base) || 1;
           const factor = newVal / oldVal;
 
-          const trs = tdAmount.closest('table').querySelectorAll('tbody tr');
-          trs.forEach(r => {
+          tdAmount.closest('table').querySelectorAll('tbody tr').forEach(r => {
             const cell = r.cells[2];
             if (cell && cell !== tdAmount) {
               const base = parseInt(cell.dataset.base) || 0;
@@ -134,25 +133,41 @@ function renderTable(data, section) {
         tdAmount.textContent = ing['Шт/гр'];
       }
 
+      // Температура и Время (для Су-Вид)
+      let tdTemp, tdTime;
+      if (sectionName === 'Sous-Vide') {
+        tdTemp = document.createElement('td');
+        tdTemp.textContent = ing['Температура С / Temperature C'] || '';
+        tdTemp.style.fontSize = '15px';
+
+        tdTime = document.createElement('td');
+        tdTime.textContent = ing['Время мин / Time'] || '';
+        tdTime.style.fontSize = '15px';
+      }
+
+      // Описание
+      const tdDesc = document.createElement('td');
+      if (i === 0) {
+        tdDesc.textContent = dish.process?.[currentLang] || '';
+        tdDesc.rowSpan = dish.ingredients.length;
+        tdDesc.className = 'description-cell';
+        tdDesc.style.fontSize = '14px';
+      }
+
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
-
-      if (section !== 'Sous-Vide') {
-        const tdDesc = document.createElement('td');
-        if (i === 0) {
-          tdDesc.textContent = dish.process?.[currentLang] || '';
-          tdDesc.rowSpan = dish.ingredients.length;
-          tdDesc.style.font = columnSettings['Описание'].font;
-          tdDesc.className = 'description-cell';
-        }
-        if (i === 0) tr.appendChild(tdDesc);
+      if (sectionName === 'Sous-Vide') {
+        tr.appendChild(tdTemp);
+        tr.appendChild(tdTime);
       }
+      if (i === 0) tr.appendChild(tdDesc);
 
       tbody.appendChild(tr);
     });
-
-    table.appendChild(tbody);
-    container.appendChild(table);
   });
+
+  table.appendChild(thead);
+  table.appendChild(tbody);
+  tableContainer.appendChild(table);
 }
