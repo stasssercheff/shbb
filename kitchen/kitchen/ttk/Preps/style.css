@@ -9,22 +9,36 @@ body {
     color: #333;
 }
 
-/* ==== ХЭДЕР ==== */
+/* === Хедер: два ряда === */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Ряды внутри хедера */
 .lang-switch,
 .nav-buttons {
-    display: flex;
-    justify-content: flex-end; /* или space-between если хочешь распределение */
-    gap: 10px;
-    width: auto; /* убираем 100%, чтобы flex не растягивал */
-    padding: 0 5%;
+  display: flex;
+  justify-content: flex-start; /* чтобы кнопки не растягивались по всей ширине */
+  gap: 10px;
+  padding: 0 5%;
 }
 
 /* Кнопки внутри рядов */
 .lang-switch button,
 .nav-buttons button {
-    flex: none; /* больше не растягиваем на всю ширину */
-    min-width: 80px;
-    padding: 8px 12px;
+  flex: none;          /* не растягивать на всю ширину */
+  min-width: 80px;     /* минимальная ширина */
+  padding: 8px 12px;   /* аккуратный внутренний отступ */
+  font-size: 14px;     /* нормальный размер текста */
+  box-sizing: border-box;
 }
 
 /* ==== КОНТЕЙНЕР ТАБЛИЦЫ ==== */
