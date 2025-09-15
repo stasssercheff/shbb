@@ -152,30 +152,37 @@ td:nth-child(5) {
   font-weight: 600;
 }
 
-/* Сетка для кнопок в хэдере */
-.header-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* две кнопки в строку */
-  gap: 10px;                      /* отступ между ними */
-  max-width: 500px;               /* ширина блока */
-  margin: 0 auto;                 /* по центру */
 }
 
-/* Кнопки в хэдере */
-.page-header .btn {
-  width: 100%;        /* растягиваем на всю ширину ячейки */
-  padding: 10px 0;    /* не слишком высокие */
-  border: none;       /* без рамки */
-  border-radius: 6px; /* лёгкое скругление */
-  background: #d6cbbd;
-  color: #333;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+/* === Хедер: два ряда === */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.page-header .btn:hover {
-  background: #333;
-  color: #fff;
+/* Ряды внутри хедера */
+.lang-switch,
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 10px;
+}
+
+/* Кнопки внутри рядов */
+.lang-switch button,
+.nav-buttons button {
+  flex: 1;
+  max-width: 45%;
+  min-width: 80px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
