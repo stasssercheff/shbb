@@ -1,66 +1,85 @@
 /* ==== Общие стили ==== */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #333;
 }
 
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 10px;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.lang-switch button,
-.nav-buttons button,
-.section-btn {
-  margin: 2px;
-  padding: 5px 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  cursor: pointer;
-  border-radius: 3px;
+/* ==== Кнопки верхнего блока ==== */
+.top-btn {
+    padding: 6px 12px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
-.lang-switch button.active,
-.nav-buttons button.active,
-.section-btn.active {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
+.top-btn:hover {
+    background-color: #c1b29a;
 }
 
 /* ==== Кнопки разделов ==== */
 .section-buttons {
-  display: flex;
-  justify-content: flex-start;
-  padding: 5px 10px;
-  gap: 5px;
-  border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    gap: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section-btn {
+    padding: 8px 16px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.section-btn:hover,
+.section-btn.active {
+    background-color: #c1b29a;
 }
 
 /* ==== Контейнер таблицы ==== */
 .table-container {
-  padding: 5px 10px;
-  margin: 0;
-  width: calc(100% - 20px); /* минимальные боковые отступы */
-  overflow: hidden; /* убираем скролл */
-  box-sizing: border-box;
+    padding: 5px 10px;
+    margin: 0;
+    width: calc(100% - 20px);
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* ==== Общие стили таблиц ==== */
 table {
-  border-collapse: collapse;
-  width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 4px 6px;
-  text-align: left;
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    text-align: left;
 }
 
 /* ==== ПФ таблица ==== */
@@ -79,6 +98,6 @@ th, td {
 
 /* ==== Ключевые ингредиенты ==== */
 .key-ingredient {
-  background-color: #fff9c4;
-  font-weight: bold;
+    background-color: #fff9c4;
+    font-weight: bold;
 }
