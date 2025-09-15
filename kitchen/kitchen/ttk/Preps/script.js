@@ -114,32 +114,47 @@ function createTable(data, sectionName, isLangSwitch) {
       tdAmount.dataset.base = ing['Шт/гр'];
       tdAmount.style.textAlign = 'center';
 
-      // Ключевой ингредиент
-      if(ing['Продукт'] === dish.key){
-        tdAmount.contentEditable = true;
-        tdAmount.classList.add('key-ingredient');
+// Ключевой ингредиент
+if (ing['Продукт'] === dish.key) {
+  tdAmount.contentEditable = true;
+  tdAmount.classList.add('key-ingredient');
 
-        tdAmount.addEventListener('input', e=>{
-          let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g,'')) || 0;
-          if(tdAmount.dataset.base==0) tdAmount.dataset.base = 1;
-          const factor = newVal / parseFloat(tdAmount.dataset.base);
+  // Сохраняем исходное значение
+  tdAmount.dataset.base = ing['Шт/гр'];
 
-          const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
-          rows.forEach(r=>{
-            const cell = r.cells[2];
-            if(cell && cell!==tdAmount){
-              let base = parseFloat(cell.dataset.base) || 0;
-              cell.textContent = Math.round(base*factor);
-            }
-          });
-          tdAmount.dataset.base = newVal;
-          tdAmount.textContent = newVal;
-        });
+  // Пересчет только после выхода из ячейки или Enter
+  function recalc() {
+    let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
+    if (!newVal) {
+      tdAmount.textContent = tdAmount.dataset.base; // возвращаем старое если пусто
+      return;
+    }
 
-        tdAmount.addEventListener('keydown', e=>{
-          e.stopPropagation();
-        });
+    const baseVal = parseFloat(tdAmount.dataset.base) || 1;
+    const factor = newVal / baseVal;
+
+    const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
+    rows.forEach(r => {
+      const cell = r.cells[2];
+      if (cell && cell !== tdAmount) {
+        let base = parseFloat(cell.dataset.base) || 0;
+        cell.textContent = Math.round(base * factor);
       }
+    });
+
+    tdAmount.dataset.base = newVal;
+    tdAmount.textContent = newVal; // фиксируем окончательное число
+  }
+
+  tdAmount.addEventListener('blur', recalc);
+
+  tdAmount.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      tdAmount.blur(); // запускаем recalc
+    }
+  });
+}
 
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
