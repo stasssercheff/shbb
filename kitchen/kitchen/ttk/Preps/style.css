@@ -152,49 +152,30 @@ td:nth-child(5) {
   font-weight: 600;
 }
 
-/* Сетка для хедера */
-.header-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 столбца */
-  grid-template-rows: auto auto;  /* 2 строки */
-  gap: 8px;                       /* расстояние между кнопками */
-  max-width: 400px;               /* ограничим, чтобы кнопки не растягивались на всю ширину */
-  margin: 0 auto;                 /* выравнивание по центру */
-}
-
-/* Универсальный стиль кнопок */
-.btn {
-  border: 2px solid #333;
-  border-radius: 6px;
-  background: #d6cbbd;   /* как на фото */
-  color: #333;
-  padding: 12px 0;       /* одинаковая высота */
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  width: 100%;           /* кнопки растягиваются в ячейке */
-  transition: background 0.2s, color 0.2s;
-}
-
-.btn:hover {
-  background: #333;
-  color: #fff;
-}
-
-.page-header {
-  padding: 10px;
-}
-
+/* Сетка для кнопок в хэдере */
 .header-grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* две кнопки в строку */
-  gap: 10px; /* отступ между ними */
+  gap: 10px;                      /* отступ между ними */
+  max-width: 500px;               /* ширина блока */
+  margin: 0 auto;                 /* по центру */
 }
 
+/* Кнопки в хэдере */
 .page-header .btn {
   width: 100%;        /* растягиваем на всю ширину ячейки */
-  padding: 12px 0;    /* не слишком высокая */
-  border: none;       /* убираем рамку */
-  border-radius: 6px; /* форма — квадратик со скруглением */
-  font-size: 16px;
+  padding: 10px 0;    /* не слишком высокие */
+  border: none;       /* без рамки */
+  border-radius: 6px; /* лёгкое скругление */
+  background: #d6cbbd;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.page-header .btn:hover {
+  background: #333;
+  color: #fff;
 }
