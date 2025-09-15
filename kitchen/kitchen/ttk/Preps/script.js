@@ -68,10 +68,10 @@ function createTable(data, sectionName) {
     const headers = sectionName === 'Preps'
       ? (currentLang === 'ru'
         ? ['#', 'Продукт', 'Гр/шт', 'Описание']
-        : ['#', 'Ingredient', 'Rg/Pcs', 'Description'])
+        : ['#', 'Ingredient', 'Gr/Pcs', 'Description'])
       : (currentLang === 'ru'
         ? ['#', 'Продукт', 'Гр/шт', 'Темп °C', 'Время', 'Описание']
-        : ['#', 'Ingredient', 'Rg/Pcs', 'Temp C', 'Time', 'Description']);
+        : ['#', 'Ingredient', 'Gr/Pcs', 'Temp C', 'Time', 'Description']);
 
     const trHead = document.createElement('tr');
     headers.forEach(h => {
