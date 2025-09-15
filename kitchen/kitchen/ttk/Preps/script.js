@@ -137,11 +137,27 @@ function createTable(data, sectionName) {
       }
 
       if (i === 0) {
-        const tdDesc = document.createElement('td');
-        tdDesc.textContent = dish.process?.[currentLang] || '';
-        tdDesc.rowSpan = dish.ingredients.length;
-        tr.appendChild(tdDesc);
-      }
+  const tdDesc = document.createElement('td');
+  let description = "";
+
+  if (sectionName === 'Preps') {
+    // В ПФ описания указываются прямо в ингредиентах
+    description = currentLang === 'ru'
+      ? ing['Описание'] || ''
+      : ing['Description'] || '';
+  } else if (sectionName === 'Sous-Vide') {
+    // В Sous-Vide логика defaultProcess + process
+    if (ing.process && ing.process[currentLang]) {
+      description = ing.process[currentLang];
+    } else if (dish.defaultProcess && dish.defaultProcess[currentLang]) {
+      description = dish.defaultProcess[currentLang];
+    }
+  }
+
+  tdDesc.textContent = description;
+  tdDesc.rowSpan = dish.ingredients.length;
+  tr.appendChild(tdDesc);
+}
 
       tbody.appendChild(tr);
     });
