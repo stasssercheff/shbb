@@ -18,101 +18,101 @@ function switchLanguage(lang) {
   currentLang = lang;
   const activeSection = document.querySelector('.section-btn.active');
   if (activeSection) {
-    renderSection(activeSection.dataset.section, true);
+    renderSection(activeSection.dataset.section, true); // true = смена языка
   }
 }
 
 // Отображение раздела
-function renderSection(sectionName, keepData=false) {
+function renderSection(sectionName, isLangSwitch = false) {
   const container = document.querySelector('.table-container');
   const btn = document.querySelector(`.section-btn[data-section="${sectionName}"]`);
   
   document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 
-  if (!keepData && container.dataset.active === sectionName) {
+  // Если это просто клик и таблица уже активна — скрываем
+  if (!isLangSwitch && container.dataset.active === sectionName) {
     container.innerHTML = '';
     container.dataset.active = '';
     return;
   }
 
-  btn.classList.add('active');
   container.dataset.active = sectionName;
 
-  loadData(sectionName, data => createTable(data, sectionName, keepData));
+  loadData(sectionName, data => createTable(data, sectionName, isLangSwitch));
 }
 
 // Создание таблицы
-function createTable(data, sectionName, keepData=false) {
+function createTable(data, sectionName, isLangSwitch) {
   const tableContainer = document.querySelector('.table-container');
-  if(!keepData) tableContainer.innerHTML = '';
+
+  // Для смены языка Preps просто меняем текст, без пересоздания таблицы
+  if (isLangSwitch && sectionName === 'Preps') {
+    const tables = tableContainer.querySelectorAll('.pf-table');
+    tables.forEach((table, tIndex) => {
+      const dish = data.recipes[tIndex];
+      const tbodyRows = table.querySelectorAll('tbody tr');
+      tbodyRows.forEach((row, i) => {
+        row.cells[1].textContent = currentLang === 'ru' ? dish.ingredients[i]['Продукт'] : dish.ingredients[i]['Ingredient'];
+        row.cells[2].textContent = dish.ingredients[i]['Шт/гр'];
+        if(i===0){
+          row.cells[row.cells.length-1].textContent = dish.process?.[currentLang] || '';
+        }
+      });
+      const theadCells = table.querySelectorAll('thead th');
+      const headers = currentLang === 'ru' ? ['#','Продукт','Гр/шт','Описание'] : ['#','Ingredient','Rg/Pcs','Description'];
+      theadCells.forEach((th, idx) => th.textContent = headers[idx]);
+    });
+    return;
+  }
+
+  // Для остальных (или полный ререндер)
+  tableContainer.innerHTML = '';
 
   data.recipes.forEach((dish, dishIndex) => {
-    let card;
-    if(!keepData){
-      card = document.createElement('div');
-      card.className = 'dish-card';
-      tableContainer.appendChild(card);
-    } else {
-      card = tableContainer.children[dishIndex];
-    }
+    const card = document.createElement('div');
+    card.className = 'dish-card';
 
     // Название карточки
-    let title;
-    if(!keepData){
-      title = document.createElement('div');
-      title.className = 'dish-title';
-      card.appendChild(title);
-    } else {
-      title = card.querySelector('.dish-title');
-    }
+    const title = document.createElement('div');
+    title.className = 'dish-title';
     title.textContent = currentLang==='ru' ? dish.name?.ru || dish.title : dish.name?.en || dish.title;
+    card.appendChild(title);
 
     // Таблица
-    let table;
-    if(!keepData){
-      table = document.createElement('table');
-      table.className = sectionName === 'Preps' ? 'pf-table' : 'sv-table';
-      card.appendChild(table);
-    } else {
-      table = card.querySelector('table');
-    }
+    const table = document.createElement('table');
+    table.className = sectionName === 'Preps' ? 'pf-table' : 'sv-table';
 
-    // Заголовки
-    if(!keepData){
-      const thead = document.createElement('thead');
-      const trHead = document.createElement('tr');
-      const headers = sectionName==='Preps'
-        ? (currentLang==='ru' ? ['#','Продукт','Гр/шт','Описание'] : ['#','Ingredient','Rg/Pcs','Description'])
-        : (currentLang==='ru' ? ['#','Продукт','Гр/шт','Темп °C','Время','Описание'] : ['#','Ingredient','Rg/Pcs','Temp C','Time','Description']);
-      headers.forEach(h=>{
-        const th = document.createElement('th');
-        th.textContent = h;
-        trHead.appendChild(th);
-      });
-      thead.appendChild(trHead);
-      if(!table.querySelector('thead')) table.appendChild(thead);
-    }
+    const thead = document.createElement('thead');
+    const tbody = document.createElement('tbody');
 
-    const tbody = table.querySelector('tbody') || document.createElement('tbody');
-    if(!keepData) tbody.innerHTML = '';
+    const headers = sectionName==='Preps'
+      ? (currentLang==='ru' ? ['#','Продукт','Гр/шт','Описание'] : ['#','Ingredient','Rg/Pcs','Description'])
+      : (currentLang==='ru' ? ['#','Продукт','Гр/шт','Темп °C','Время','Описание'] : ['#','Ingredient','Rg/Pcs','Temp C','Time','Description']);
 
+    const trHead = document.createElement('tr');
+    headers.forEach(h=>{
+      const th = document.createElement('th');
+      th.textContent = h;
+      trHead.appendChild(th);
+    });
+    thead.appendChild(trHead);
+
+    // Заполняем ингредиенты
     dish.ingredients.forEach((ing, i)=>{
-      let tr;
-      if(keepData){
-        tr = tbody.children[i] || document.createElement('tr');
-      } else {
-        tr = document.createElement('tr');
-      }
+      const tr = document.createElement('tr');
 
-      const tdNum = tr.children[0] || document.createElement('td');
+      const tdNum = document.createElement('td');
       tdNum.textContent = i+1;
 
-      const tdName = tr.children[1] || document.createElement('td');
+      const tdName = document.createElement('td');
       tdName.textContent = currentLang==='ru'?ing['Продукт']:ing['Ingredient'];
+      tdName.style.textAlign = 'left';
 
-      const tdAmount = tr.children[2] || document.createElement('td');
-      tdAmount.dataset.base = tdAmount.dataset.base || ing['Шт/гр'];
-      tdAmount.textContent = tdAmount.textContent || ing['Шт/гр'];
+      const tdAmount = document.createElement('td');
+      tdAmount.textContent = ing['Шт/гр'];
+      tdAmount.dataset.base = ing['Шт/гр'];
+      tdAmount.style.textAlign = 'center';
 
       // Ключевой ингредиент
       if(ing['Продукт'] === dish.key){
@@ -137,7 +137,7 @@ function createTable(data, sectionName, keepData=false) {
         });
 
         tdAmount.addEventListener('keydown', e=>{
-          e.stopPropagation(); 
+          e.stopPropagation();
         });
       }
 
@@ -146,25 +146,29 @@ function createTable(data, sectionName, keepData=false) {
       tr.appendChild(tdAmount);
 
       if(sectionName==='Sous-Vide'){
-        const tdTemp = tr.children[3] || document.createElement('td');
+        const tdTemp = document.createElement('td');
         tdTemp.textContent = ing['Температура С / Temperature C'] || '';
-        const tdTime = tr.children[4] || document.createElement('td');
+        const tdTime = document.createElement('td');
         tdTime.textContent = ing['Время мин / Time'] || '';
-        if(!tr.contains(tdTemp)) tr.appendChild(tdTemp);
-        if(!tr.contains(tdTime)) tr.appendChild(tdTime);
+        tr.appendChild(tdTemp);
+        tr.appendChild(tdTime);
       }
 
       if(i===0){
-        const tdDesc = tr.children[tr.children.length] || document.createElement('td');
+        const tdDesc = document.createElement('td');
         tdDesc.textContent = dish.process?.[currentLang] || '';
         tdDesc.rowSpan = dish.ingredients.length;
-        if(!tr.contains(tdDesc)) tr.appendChild(tdDesc);
+        tdDesc.style.textAlign = 'left';
+        tr.appendChild(tdDesc);
       }
 
-      if(!tbody.contains(tr)) tbody.appendChild(tr);
+      tbody.appendChild(tr);
     });
 
-    if(!table.contains(tbody)) table.appendChild(tbody);
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    card.appendChild(table);
+    tableContainer.appendChild(card);
   });
 }
 
