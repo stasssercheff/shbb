@@ -187,20 +187,14 @@ td:nth-child(5) {
 
 .header-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* две кнопки в строке */
-  gap: 10px;                      /* расстояние между ними */
+  grid-template-columns: 1fr 1fr; /* две кнопки в строку */
+  gap: 10px; /* отступ между ними */
 }
 
 .page-header .btn {
-  width: 100%;          /* кнопка растягивается на всю ячейку */
-  padding: 10px 0;      /* не слишком высокая */
+  width: 100%;        /* растягиваем на всю ширину ячейки */
+  padding: 12px 0;    /* не слишком высокая */
+  border: none;       /* убираем рамку */
+  border-radius: 6px; /* форма — квадратик со скруглением */
   font-size: 16px;
-  border: none;         /* убираем рамку */
-  border-radius: 6px;   /* скругление */
-  background-color: #f9f9f9; /* оставляем фон как есть */
-  cursor: pointer;
-}
-
-.page-header .btn:hover {
-  background-color: #f0f0f0; /* лёгкая подсветка */
 }
