@@ -5,7 +5,7 @@ const dataFiles = {
   'Sous-Vide': 'data/sv.json'
 };
 
-// Функция загрузки JSON
+// Загрузка JSON
 function loadData(sectionName, callback) {
   fetch(dataFiles[sectionName])
     .then(res => res.json())
@@ -16,32 +16,18 @@ function loadData(sectionName, callback) {
 // Переключение языка
 function switchLanguage(lang) {
   currentLang = lang;
-  document.querySelectorAll('.section-btn.active').forEach(btn=>{
-    renderSection(btn.dataset.section);
-  });
-}
-
-// Вставка курсора в конец contentEditable
-function placeCaretAtEnd(el) {
-  el.focus();
-  if (typeof window.getSelection != "undefined"
-      && typeof document.createRange != "undefined") {
-    const range = document.createRange();
-    range.selectNodeContents(el);
-    range.collapse(false); // конец
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
+  const activeSection = document.querySelector('.section-btn.active');
+  if (activeSection) {
+    renderSection(activeSection.dataset.section);
   }
 }
 
-// Отображение таблицы
+// Отображение раздела
 function renderSection(sectionName) {
   const container = document.querySelector('.table-container');
   const btn = document.querySelector(`.section-btn[data-section="${sectionName}"]`);
   
-  // Деклассифицируем все кнопки
-  document.querySelectorAll('.section-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
 
   if (container.dataset.active === sectionName) {
     container.innerHTML = '';
@@ -57,43 +43,44 @@ function renderSection(sectionName) {
 
 // Создание таблицы
 function createTable(data, sectionName) {
-  const container = document.querySelector('.table-container');
-  container.innerHTML = '';
+  const tableContainer = document.querySelector('.table-container');
+  tableContainer.innerHTML = '';
 
-  data.recipes.forEach(dish=>{
+  data.recipes.forEach((dish, dishIndex) => {
     const card = document.createElement('div');
     card.className = 'dish-card';
 
-    // Заголовок блюда
+    // Название карточки
     const title = document.createElement('div');
     title.className = 'dish-title';
-    title.textContent = dish.name ? dish.name[currentLang] : dish.title || '';
+    title.textContent = currentLang==='ru' ? dish.name?.ru || dish.title : dish.name?.en || dish.title;
     card.appendChild(title);
 
     // Таблица
     const table = document.createElement('table');
-    table.className = 'dish-table ' + (sectionName==='Preps'?'pf-table':'sv-table');
+    table.className = sectionName === 'Preps' ? 'pf-table' : 'sv-table';
 
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
     const headers = sectionName==='Preps'
-      ? ['№', 'Продукт / Ingredient', 'Шт/гр', 'Описание']
-      : ['№', 'Продукт / Ingredient', 'Шт/гр', 'Темп °C', 'Время', 'Описание'];
+      ? (currentLang==='ru' ? ['#','Продукт','Гр/шт','Описание'] : ['#','Ingredient','Rg/Pcs','Description'])
+      : (currentLang==='ru' ? ['#','Продукт','Гр/шт','Темп °C','Время','Описание'] : ['#','Ingredient','Rg/Pcs','Temp C','Time','Description']);
 
-    const headerRow = document.createElement('tr');
+    const trHead = document.createElement('tr');
     headers.forEach(h=>{
       const th = document.createElement('th');
       th.textContent = h;
-      headerRow.appendChild(th);
+      trHead.appendChild(th);
     });
-    thead.appendChild(headerRow);
+    thead.appendChild(trHead);
 
-    dish.ingredients.forEach((ing,i)=>{
+    // Заполняем ингредиенты
+    dish.ingredients.forEach((ing, i)=>{
       const tr = document.createElement('tr');
 
       const tdNum = document.createElement('td');
-      tdNum.textContent = ing['№'] || i+1;
+      tdNum.textContent = i+1;
 
       const tdName = document.createElement('td');
       tdName.textContent = currentLang==='ru'?ing['Продукт']:ing['Ingredient'];
@@ -102,25 +89,31 @@ function createTable(data, sectionName) {
       tdAmount.textContent = ing['Шт/гр'];
       tdAmount.dataset.base = ing['Шт/гр'];
 
+      // Ключевой ингредиент
       if(ing['Продукт'] === dish.key){
         tdAmount.contentEditable = true;
         tdAmount.classList.add('key-ingredient');
 
         tdAmount.addEventListener('input', e=>{
-          let val = parseFloat(e.target.textContent.replace(/[^\d.]/g,'')) || 0;
-          const oldVal = parseFloat(e.target.dataset.base) || 1;
-          e.target.dataset.base = val;
-          e.target.textContent = val;
-          placeCaretAtEnd(e.target); // курсор в конец
+          let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g,'')) || 0;
+          if(tdAmount.dataset.base==0) tdAmount.dataset.base = 1; // защита от деления на 0
+          const factor = newVal / parseFloat(tdAmount.dataset.base);
 
-          // Перерасчет остальных
-          tbody.querySelectorAll('tr').forEach(r=>{
+          const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
+          rows.forEach(r=>{
             const cell = r.cells[2];
-            if(cell && cell!==e.target){
-              const cbase = parseFloat(cell.dataset.base) || 0;
-              cell.textContent = Math.round(cbase * (val/oldVal));
+            if(cell && cell!==tdAmount){
+              let base = parseFloat(cell.dataset.base) || 0;
+              cell.textContent = Math.round(base*factor);
             }
           });
+          tdAmount.dataset.base = newVal;
+          tdAmount.textContent = newVal;
+        });
+
+        tdAmount.addEventListener('keydown', e=>{
+          // чтобы курсор не прыгал в начало
+          e.stopPropagation();
         });
       }
 
@@ -137,12 +130,12 @@ function createTable(data, sectionName) {
         tr.appendChild(tdTime);
       }
 
-      const tdDesc = document.createElement('td');
       if(i===0){
+        const tdDesc = document.createElement('td');
         tdDesc.textContent = dish.process?.[currentLang] || '';
         tdDesc.rowSpan = dish.ingredients.length;
+        tr.appendChild(tdDesc);
       }
-      if(i===0) tr.appendChild(tdDesc);
 
       tbody.appendChild(tr);
     });
@@ -150,7 +143,7 @@ function createTable(data, sectionName) {
     table.appendChild(thead);
     table.appendChild(tbody);
     card.appendChild(table);
-    container.appendChild(card);
+    tableContainer.appendChild(card);
   });
 }
 
