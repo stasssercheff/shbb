@@ -136,28 +136,35 @@ function createTable(data, sectionName) {
         tr.appendChild(tdTime);
       }
 
-      if (i === 0) {
-  const tdDesc = document.createElement('td');
-  let description = "";
+      // ==== Блок для описания ====
+      const tdDesc = document.createElement('td');
+      let description = "";
 
-  if (sectionName === 'Preps') {
-    // В ПФ описания указываются прямо в ингредиентах
-    description = currentLang === 'ru'
-      ? ing['Описание'] || ''
-      : ing['Description'] || '';
-  } else if (sectionName === 'Sous-Vide') {
-    // В Sous-Vide логика defaultProcess + process
-    if (ing.process && ing.process[currentLang]) {
-      description = ing.process[currentLang];
-    } else if (dish.defaultProcess && dish.defaultProcess[currentLang]) {
-      description = dish.defaultProcess[currentLang];
-    }
-  }
+      if (sectionName === 'Preps') {
+        // В ПФ описания указываются прямо в ингредиентах
+        description = currentLang === 'ru'
+          ? ing['Описание'] || ''
+          : ing['Description'] || '';
 
-  tdDesc.textContent = description;
-  tdDesc.rowSpan = dish.ingredients.length;
-  tr.appendChild(tdDesc);
-}
+        tdDesc.textContent = description;
+        tr.appendChild(tdDesc);
+
+      } else if (sectionName === 'Sous-Vide') {
+        // Для Sous-Vide
+        if (ing.process && ing.process[currentLang]) {
+          // индивидуальный процесс для ингредиента
+          description = ing.process[currentLang];
+          tdDesc.textContent = description;
+          tr.appendChild(tdDesc);
+        } else if (i === 0 && dish.defaultProcess && dish.defaultProcess[currentLang]) {
+          // общее описание — один раз с rowSpan
+          description = dish.defaultProcess[currentLang];
+          tdDesc.textContent = description;
+          tdDesc.rowSpan = dish.ingredients.length;
+          tr.appendChild(tdDesc);
+        }
+      }
+      // ==== конец блока ====
 
       tbody.appendChild(tr);
     });
