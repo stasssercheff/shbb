@@ -180,3 +180,22 @@ td:nth-child(5) {
   background: #333;
   color: #fff;
 }
+
+.section-btn {
+  border: none;              /* убираем рамку */
+  padding: 12px 24px;        /* делаем шире */
+  margin: 6px;               /* чуть расстояния между ними */
+  border-radius: 6px;        /* скругление как в макете */
+  background-color: #f0f0f0; /* мягкий фон */
+  cursor: pointer;
+  font-size: 16px;
+  min-width: 140px;          /* фиксированная ширина */
+}
+
+.section-btn:hover {
+  background-color: #e0e0e0; /* подсветка при наведении */
+}
+
+.section-btn.active {
+  background-color: #d0d0d0; /* активная */
+}
