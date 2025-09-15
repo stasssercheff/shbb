@@ -220,7 +220,7 @@
         "ru": "СОУС ГОЛЛАНДСКИЙ",
         "en": "HOLLANDAISE SAUCE"
       },
-      "key": "Яйцо (желток)",
+      "key": "Яйцо(желток)",
       "ingredients": [
         { "№": 1, "Продукт": "Яйцо(желток)", "Ingredient": "Egg (yolk)", "Шт/гр": "3" },
         { "№": 2, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "40" },
@@ -253,6 +253,43 @@
       }
     },
     {
+      "name": {
+        "ru": "КАША",
+        "en": "PORIDGE"
+      },
+      "key": "Пшенка",
+      "ingredients": [
+        { "№": 1, "Продукт": "Пшенка", "Ingredient": "Millet", "Шт/гр": "70" },
+        { "№": 2, "Продукт": "Рис", "Ingredient": "Rice", "Шт/гр": "70" },
+        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "33" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" },
+        { "№": 5, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "300" },
+        { "№": 6, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "550" }
+      ],
+      "process": {
+        "ru": "В кастрюлю поместить рис, пшено, соль, сахар и воду. На медленном огне при постоянном помешивании довести до кипения и выпаривания воды на 90%. Ввести молоко, варить при постоянном помешивании до состояния полужидкой каши. Снять с огня, накрыть крышкой оставить на 110-15 минут. Далее по пакетам по 300 гр.",
+        "en": ""Place rice, millet, salt, sugar and water in a saucepan. Bring to a boil over low heat with constant stirring and the water has evaporated by 90%. Add milk, cook with constant stirring until it becomes a semi-liquid porridge. Remove from heat, cover with a lid and leave for 110-15 minutes. Next in packages of 300 grams.""
+      }
+    },
+    {
+      "name": {
+        "ru": "ПАШТЕТ",
+        "en": "PATE"
+      },
+      "key": "ПФ Печень",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Печень", "Ingredient": "Prep Liver", "Шт/гр": "500" },
+        { "№": 2, "Продукт": "ПФ овощи стафф", "Ingredient": "PF vegetables staff", "Шт/гр": "150" },
+        { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "3" },
+        { "№": 5, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "100" },
+        { "№": 7, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "100" }
+      ],
+      "process": {
+        "ru": "Очищенную печень, смешать все ингридиенты, перебить блендером. Поместить в вакуумные пакеты(кратно 150 гр). Далее в сувид. Далее по банкам по 150 гр.",
+        "en": "Cleanув liver mix with all the ingredients, blend with a blender. Place in vacuum bags (in multiples of 150 g). Next up is sous vide. Next, in jars of 150 grams."
+      }
+    },
+{
       "name": {
         "ru": "СУП БРОККОЛИ",
         "en": "BROKKILI SOUP"
