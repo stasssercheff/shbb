@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (async () => {
       try {
         await sendAllParts(buildMessage('ru'));
-        await sendAllParts(buildMessage('en'));
+        // await sendAllParts(buildMessage('en')); //
 
         alert('✅ ОТПРАВЛЕНО');
         localStorage.clear();
