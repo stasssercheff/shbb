@@ -161,3 +161,75 @@ td:nth-child(5) {
   padding: 5px 10px;
   min-height: 200px;
 }
+
+/* PF таблица */
+.pf-table td:nth-child(1),
+.pf-table th:nth-child(1) {
+    font-size: 12px;       /* размер шрифта */
+    padding: 2px 4px;      /* внутренние отступы */
+    text-align: center;    /* центрируем */
+}
+
+.pf-table td:nth-child(2),
+.pf-table th:nth-child(2) {
+    font-size: 14px;
+    padding: 4px 6px;
+    text-align: left;
+}
+
+.pf-table td:nth-child(3),
+.pf-table th:nth-child(3) {
+    font-size: 13px;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.pf-table td:nth-child(4),
+.pf-table th:nth-child(4) {
+    font-size: 14px;
+    padding: 4px 8px;
+    text-align: left;
+}
+
+/* Sous-Vide таблица */
+.sv-table td:nth-child(1),
+.sv-table th:nth-child(1) {
+    font-size: 12px;
+    padding: 2px 4px;
+    text-align: center;
+}
+
+.sv-table td:nth-child(2),
+.sv-table th:nth-child(2) {
+    font-size: 14px;
+    padding: 4px 6px;
+    text-align: left;
+}
+
+.sv-table td:nth-child(3),
+.sv-table th:nth-child(3) {
+    font-size: 13px;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.sv-table td:nth-child(4),
+.sv-table th:nth-child(4) {
+    font-size: 13px;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.sv-table td:nth-child(5),
+.sv-table th:nth-child(5) {
+    font-size: 13px;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.sv-table td:nth-child(6),
+.sv-table th:nth-child(6) {
+    font-size: 14px;
+    padding: 4px 8px;
+    text-align: left;
+}
