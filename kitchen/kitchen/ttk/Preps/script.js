@@ -68,10 +68,10 @@ function createTable(data, sectionName) {
     const headers = sectionName === 'Preps'
       ? (currentLang === 'ru'
         ? ['#', 'Продукт', 'Гр/шт', 'Описание']
-        : ['#', 'Ingredient', 'Gr/Pcs', 'Description'])
+        : ['#', 'Ingredient', 'Gr/Pcs', 'process'])
       : (currentLang === 'ru'
         ? ['#', 'Продукт', 'Гр/шт', 'Темп °C', 'Время', 'Описание']
-        : ['#', 'Ingredient', 'Gr/Pcs', 'Temp C', 'Time', 'Description']);
+        : ['#', 'Ingredient', 'Gr/Pcs', 'Temp C', 'Time', 'process']);
 
     const trHead = document.createElement('tr');
     headers.forEach(h => {
@@ -127,36 +127,15 @@ function createTable(data, sectionName) {
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
 
-// ==== Блок для описания ====
+// ==== Блок для отображения process ====
 const tdDesc = document.createElement('td');
-let description = "";
 
-// --- Preps ---
-if (sectionName === 'Preps') {
-  if (i === 0) { // только первая строка
-    description = currentLang === 'ru'
-      ? dish.ingredients.map(ing => ing['Описание']).filter(Boolean).join('\n')
-      : dish.ingredients.map(ing => ing['Description']).filter(Boolean).join('\n');
-
-    tdDesc.textContent = description;
-    tdDesc.rowSpan = dish.ingredients.length;
-    tr.appendChild(tdDesc);
-  }
+if (i === 0) { // только первая строка ингредиентов
+  tdDesc.textContent = dish.process?.[currentLang] || "";
+  tdDesc.rowSpan = dish.ingredients.length;
+  tr.appendChild(tdDesc);
 }
-
-// --- Sous-Vide ---
-if (sectionName === 'Sous-Vide') {
-  if (ing.process && ing.process[currentLang]) {
-    description = ing.process[currentLang];
-    tdDesc.textContent = description;
-    tr.appendChild(tdDesc);
-  } else if (i === 0 && dish.defaultProcess && dish.defaultProcess[currentLang]) {
-    description = dish.defaultProcess[currentLang];
-    tdDesc.textContent = description;
-    tdDesc.rowSpan = dish.ingredients.length;
-    tr.appendChild(tdDesc);
-  }
-}
+// ==== конец блока ====
 // ==== конец блока ====
 
       tbody.appendChild(tr);
