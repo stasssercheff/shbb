@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отдано / Given</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+
+      <!-- Переключение языка -->
+      <div class="lang-switch">
+        <button onclick="switchLanguage('ru')">RU</button>
+        <button onclick="switchLanguage('en')">EN</button>
+      </div>
+
+<header class="page-header">
+  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+</header>
+
+      <!-- Дата -->
+<div class="input-block">
+  <label for="autodate" class="check-label" data-ru="Дата" data-en="Date">Дата</label>
+  <div id="autodate" class="autodate"></div>
+</div>
+
+      <!-- Имя -->
+      <div class="dish">
+        <label class="check-label" data-ru="Имя" data-en="Name">Имя</label>
+        <select name="chef" class="qty" data-label-ru="Имя" data-label-en="Name">
+          <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+          <option value="Daria" data-ru="Дарья" data-en="Daria">Дарья</option>
+          <option value="Alexandr" data-ru="Александр" data-en="Alexandr">Александр</option>
+          <option value="Worker" data-ru="Сотрудник" data-en="Worker">Сотрудник</option>
+        </select>
+      </div>
+
+
+    <!-- Раздел: Остатки -->
+<div class="menu-section">
+  <div class="section-title" data-ru="Остатки" data-en="Leftovers">Остатки</div>
+
+ <div class="dish">
+    <label class="check-label" data-ru="Булка с маком" data-en="Poppyseed bun">Булка с маком</label>
+    <select name="Poppyseed bun" class="qty" data-label-ru="Булка с маком" data-label-en="Poppyseed bun">
+      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+      <option data-ru="1" data-en="1">1</option>
+      <option data-ru="2" data-en="2">2</option>
+      <option data-ru="3" data-en="3">3</option>
+      <option data-ru="4" data-en="4">4</option>
+      <option data-ru="5" data-en="5">5</option>
+      <option data-ru="6" data-en="6">6</option>
+      <option data-ru="7" data-en="7">7</option>
+      <option data-ru="8" data-en="8">8</option>
+    </select>
+  </div>
+  
+ <div class="dish">
+    <label class="check-label" data-ru="Миссобон" data-en="Missobon">Миссобон</label>
+    <select name="Missobon" class="qty" data-label-ru="Миссобон" data-label-en="Missobon">
+      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+      <option data-ru="1" data-en="1">1</option>
+      <option data-ru="2" data-en="2">2</option>
+      <option data-ru="3" data-en="3">3</option>
+      <option data-ru="4" data-en="4">4</option>
+      <option data-ru="5" data-en="5">5</option>
+      <option data-ru="6" data-en="6">6</option>
+      <option data-ru="7" data-en="7">7</option>
+      <option data-ru="8" data-en="8">8</option
+    </select>
+  </div>
+   
+   <div class="dish">
+    <label class="check-label" data-ru="Кардамоновая булка" data-en="Cardamon bun">Кардамоновая булка</label>
+    <select name="Cardamon bun" class="qty" data-label-ru="Кардамоновая булка" data-label-en="Cardamon bun">
+      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+<option data-ru="1" data-en="1">1</option>
+      <option data-ru="2" data-en="2">2</option>
+      <option data-ru="3" data-en="3">3</option>
+      <option data-ru="4" data-en="4">4</option>
+      <option data-ru="5" data-en="5">5</option>
+      <option data-ru="6" data-en="6">6</option>
+      <option data-ru="7" data-en="7">7</option>
+      <option data-ru="8" data-en="8">8</option
+     </select>
+  </div>
+ 
+  <div class="dish">
+    <label class="check-label" data-ru="Бородинский" data-en="Borodinskiy">Бородинский</label>
+    <select name="Borodinskiy" class="qty" data-label-ru="Бородинский" data-label-en="Borodinskiy">
+      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+      <option data-ru="1" data-en="1">1</option>
+      <option data-ru="2" data-en="2">2</option>
+      <option data-ru="3" data-en="3">3</option>
+      <option data-ru="4" data-en="4">4</option>
+    </select>
+  </div>
+  
+   <div class="dish">
+    <label class="check-label" data-ru="Тарртин" data-en="Tartin">Тарртин</label>
+    <select name="Tartin" class="qty" data-label-ru="Тарртин" data-label-en="Tartin">
+      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+      <option data-ru="1" data-en="1">1</option>
+      <option data-ru="2" data-en="2">2</option>
+      <option data-ru="3" data-en="3">3</option>
+      <option data-ru="4" data-en="4">4</option>
+    </select>
+  </div>
+  
+  <div class="dish">
+    <label class="check-label" data-ru="Чиабатта темная" data-en="Country bread">Чиабатта темная</label>
+    <select name="Country bread" class="qty" data-label-ru="Чиабатта темная" data-label-en="Country bread">
+      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+      <option data-ru="1" data-en="1">1</option>
+      <option data-ru="2" data-en="2">2</option>
+      <option data-ru="3" data-en="3">3</option>
+      <option data-ru="4" data-en="4">4</option>
+    </select>
+  </div>
+  
+   <div class="dish">
+    <label class="check-label" data-ru="Чиабатта пшеничная" data-en="Ciabatta">Чиабатта пшеничная</label>
+    <select name="Ciabatta" class="qty" data-label-ru="Чиабатта пшеничная" data-label-en="Ciabatta">
+      <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
+      <option data-ru="1" data-en="1">1</option>
+      <option data-ru="2" data-en="2">2</option>
+      <option data-ru="3" data-en="3">3</option>
+      <option data-ru="4" data-en="4">4</option>
+    </select>
+  </div>
+  
+<div class="dish">
+    <label class="check-label" data-ru="Комментарий" data-en="Comment">Комментарий</label>
+    <textarea class="comment" rows="3" placeholder="..."></textarea>
+  </div>
+</div>
+
+      <!-- КНОПКА ОТПРАВКИ -->
+      <div class="submit-block" style="margin-top: 30px;">
+        <button id="sendToTelegram">ОТПРАВИТЬ</button>
+      </div>
+
+    </div> <!-- .container -->
+  </div>   <!-- .wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
