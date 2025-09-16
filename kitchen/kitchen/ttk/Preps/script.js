@@ -65,6 +65,7 @@ function createTable(data, sectionName) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
+    // Заголовки
     const headers = sectionName === 'Preps'
       ? (currentLang === 'ru'
         ? ['#', 'Продукт', 'Гр/шт', 'Описание']
@@ -95,48 +96,65 @@ function createTable(data, sectionName) {
       tdAmount.textContent = ing['Шт/гр'];
       tdAmount.dataset.base = ing['Шт/гр'];
 
-      // Ключевой ингредиент
-      if (ing['Продукт'] === dish.key) {
-        tdAmount.contentEditable = true;
-        tdAmount.classList.add('key-ingredient');
-
-        tdAmount.addEventListener('input', () => {
-          let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
-          if (parseFloat(tdAmount.dataset.base) === 0) tdAmount.dataset.base = 1;
-          const factor = newVal / parseFloat(tdAmount.dataset.base);
-
-          const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
-          rows.forEach(r => {
-            const cell = r.cells[2];
-            if (cell && cell !== tdAmount) {
-              let base = parseFloat(cell.dataset.base) || 0;
-              cell.textContent = Math.round(base * factor);
-            }
-          });
-        });
-
-        tdAmount.addEventListener('keydown', e => {
-          // Разрешаем только цифры и управление
-          if (!/[0-9]|Backspace|Delete|ArrowLeft|ArrowRight/.test(e.key)) {
-            e.preventDefault();
-          }
-        });
-      }
-
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
 
-// ==== Блок для отображения process ====
-const tdDesc = document.createElement('td');
+      // ==== Блок отображения process ====
+      const tdDesc = document.createElement('td');
 
-if (i === 0) { // только первая строка ингредиентов
-  tdDesc.textContent = dish.process?.[currentLang] || "";
-  tdDesc.rowSpan = dish.ingredients.length;
-  tr.appendChild(tdDesc);
-}
-// ==== конец блока ====
-// ==== конец блока ====
+      if (sectionName === 'Preps') {
+        if (i === 0) { // только первая строка ингредиентов
+          tdDesc.textContent = dish.process?.[currentLang] || "";
+          tdDesc.rowSpan = dish.ingredients.length;
+          tr.appendChild(tdDesc);
+        }
+
+        // Ключевой ингредиент с редактированием
+        if (ing['Продукт'] === dish.key) {
+          tdAmount.contentEditable = true;
+          tdAmount.classList.add('key-ingredient');
+
+          tdAmount.addEventListener('input', () => {
+            let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
+            if (parseFloat(tdAmount.dataset.base) === 0) tdAmount.dataset.base = 1;
+            const factor = newVal / parseFloat(tdAmount.dataset.base);
+
+            const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
+            rows.forEach(r => {
+              const cell = r.cells[2];
+              if (cell && cell !== tdAmount) {
+                let base = parseFloat(cell.dataset.base) || 0;
+                cell.textContent = Math.round(base * factor);
+              }
+            });
+          });
+
+          tdAmount.addEventListener('keydown', e => {
+            if (!/[0-9]|Backspace|Delete|ArrowLeft|ArrowRight/.test(e.key)) {
+              e.preventDefault();
+            }
+          });
+        }
+
+      } else if (sectionName === 'Sous-Vide') {
+        // Для сувид просто отображаем все поля
+        const tdTemp = document.createElement('td');
+        tdTemp.textContent = ing.Temp || ing['Темп'] || "";
+
+        const tdTime = document.createElement('td');
+        tdTime.textContent = ing.Time || ing['Время'] || "";
+
+        // Только первая строка для описания
+        if (i === 0) {
+          tdDesc.textContent = dish.process?.[currentLang] || "";
+          tdDesc.rowSpan = dish.ingredients.length;
+        }
+
+        tr.appendChild(tdTemp);
+        tr.appendChild(tdTime);
+        tr.appendChild(tdDesc);
+      }
 
       tbody.appendChild(tr);
     });
