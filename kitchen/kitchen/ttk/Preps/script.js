@@ -136,35 +136,37 @@ function createTable(data, sectionName) {
         tr.appendChild(tdTime);
       }
 
-      // ==== Блок для описания ====
-      const tdDesc = document.createElement('td');
-      let description = "";
+// ==== Блок для описания ====
+const tdDesc = document.createElement('td');
+let description = "";
 
-      if (sectionName === 'Preps') {
-        // В ПФ описания указываются прямо в ингредиентах
-        description = currentLang === 'ru'
-          ? ing['Описание'] || ''
-          : ing['Description'] || '';
+// --- Preps ---
+if (sectionName === 'Preps') {
+  if (i === 0) { // только первая строка
+    description = currentLang === 'ru'
+      ? dish.ingredients.map(ing => ing['Описание']).filter(Boolean).join('\n')
+      : dish.ingredients.map(ing => ing['Description']).filter(Boolean).join('\n');
 
-        tdDesc.textContent = description;
-        tr.appendChild(tdDesc);
+    tdDesc.textContent = description;
+    tdDesc.rowSpan = dish.ingredients.length;
+    tr.appendChild(tdDesc);
+  }
+}
 
-      } else if (sectionName === 'Sous-Vide') {
-        // Для Sous-Vide
-        if (ing.process && ing.process[currentLang]) {
-          // индивидуальный процесс для ингредиента
-          description = ing.process[currentLang];
-          tdDesc.textContent = description;
-          tr.appendChild(tdDesc);
-        } else if (i === 0 && dish.defaultProcess && dish.defaultProcess[currentLang]) {
-          // общее описание — один раз с rowSpan
-          description = dish.defaultProcess[currentLang];
-          tdDesc.textContent = description;
-          tdDesc.rowSpan = dish.ingredients.length;
-          tr.appendChild(tdDesc);
-        }
-      }
-      // ==== конец блока ====
+// --- Sous-Vide ---
+if (sectionName === 'Sous-Vide') {
+  if (ing.process && ing.process[currentLang]) {
+    description = ing.process[currentLang];
+    tdDesc.textContent = description;
+    tr.appendChild(tdDesc);
+  } else if (i === 0 && dish.defaultProcess && dish.defaultProcess[currentLang]) {
+    description = dish.defaultProcess[currentLang];
+    tdDesc.textContent = description;
+    tdDesc.rowSpan = dish.ingredients.length;
+    tr.appendChild(tdDesc);
+  }
+}
+// ==== конец блока ====
 
       tbody.appendChild(tr);
     });
