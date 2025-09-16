@@ -236,7 +236,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   flex: 1;
   max-width: 45%;
   min-width: 80px;
-  padding: 8px 12px;
+  padding: 10px 16px;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
