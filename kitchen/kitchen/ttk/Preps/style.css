@@ -186,7 +186,7 @@ td:nth-child(5) {
 
 .pf-table td:nth-child(4),
 .pf-table th:nth-child(4) {
-    font-size: 14px;
+    font-size: 12px;
     padding: 4px 8px;
     text-align: left;
 }
@@ -201,28 +201,28 @@ td:nth-child(5) {
 
 .sv-table td:nth-child(2),
 .sv-table th:nth-child(2) {
-    font-size: 14px;
+    font-size: 10px;
     padding: 4px 6px;
     text-align: left;
 }
 
 .sv-table td:nth-child(3),
 .sv-table th:nth-child(3) {
-    font-size: 13px;
+    font-size: 12px;
     padding: 3px 5px;
     text-align: center;
 }
 
 .sv-table td:nth-child(4),
 .sv-table th:nth-child(4) {
-    font-size: 13px;
+    font-size: 12px;
     padding: 3px 5px;
     text-align: center;
 }
 
 .sv-table td:nth-child(5),
 .sv-table th:nth-child(5) {
-    font-size: 13px;
+    font-size: 12px;
     padding: 3px 5px;
     text-align: center;
 }
