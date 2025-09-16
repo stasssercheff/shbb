@@ -127,15 +127,6 @@ function createTable(data, sectionName) {
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
 
-      if (sectionName === 'Sous-Vide') {
-        const tdTemp = document.createElement('td');
-        tdTemp.textContent = ing['Температура С / Temperature C'] || '';
-        const tdTime = document.createElement('td');
-        tdTime.textContent = ing['Время мин / Time'] || '';
-        tr.appendChild(tdTemp);
-        tr.appendChild(tdTime);
-      }
-
 // ==== Блок для описания ====
 const tdDesc = document.createElement('td');
 let description = "";
