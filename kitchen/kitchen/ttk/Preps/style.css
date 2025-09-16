@@ -229,7 +229,7 @@ td:nth-child(5) {
 
 .sv-table td:nth-child(6),
 .sv-table th:nth-child(6) {
-    font-size: 14px;
+    font-size: 10px;
     padding: 4px 8px;
     text-align: left;
 }
