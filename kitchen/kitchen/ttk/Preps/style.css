@@ -120,3 +120,19 @@ td:nth-child(5) {
 .nav-buttons button:hover {
   background-color: #c1b29a;
 }
+
+/* PF-таблица */
+.pf-table th:nth-child(4), .pf-table td:nth-child(4) {
+  width: 35%;           /* теперь в процентах */
+  font-size: 14px;      /* можно регулировать */
+  padding-right: 5px;   /* отступ справа */
+  word-break: break-word; /* перенос текста */
+}
+
+/* SV-таблица */
+.sv-table th:nth-child(6), .sv-table td:nth-child(6) {
+  width: 35%;           /* описание Sous-Vide */
+  font-size: 14px;
+  padding-right: 5px;
+  word-break: break-word;
+}
