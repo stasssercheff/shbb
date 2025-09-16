@@ -38,9 +38,14 @@ function renderSection(sectionName, toggle = true) {
   btn.classList.add('active');
   container.dataset.active = sectionName;
 
-  loadData(sectionName, data => createTable(data, sectionName));
+  loadData(sectionName, data => {
+    if (sectionName === 'Preps') {
+      createTable(data, sectionName); // PF
+    } else if (sectionName === 'Sous-Vide') {
+      renderSousVide(data);           // Su-Vide
+    }
+  });
 }
-
 // Создание таблицы
 function createTable(data, sectionName) {
   const tableContainer = document.querySelector('.table-container');
