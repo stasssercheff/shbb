@@ -1,94 +1,136 @@
-let currentLanguage = "ru";
 
-const sections = [
-  { id: "breakfasts", title: { ru: "Завтраки", en: "Breakfasts" }, file: "data/breakfast.json" },
-  { id: "soups", title: { ru: "Супы", en: "Soups" }, file: "data/soup.json" },
-  { id: "salads", title: { ru: "Салаты и закуски", en: "Salads & Snacks" }, file: "data/salad.json" },
-  { id: "mains", title: { ru: "Основные блюда", en: "Main Courses" }, file: "data/main.json" }
-];
+let currentLang = 'ru';
 
-function init() {
-  const container = document.getElementById("sections-container");
-  container.innerHTML = "";
+const dataFiles = {
+  Preps: 'data/preps.json'
+};
 
-  sections.forEach(sec => {
-    // кнопка раздела
-    const secBtn = document.createElement("button");
-    secBtn.className = "section-btn";
-    secBtn.textContent = sec.title[currentLanguage];
-    secBtn.onclick = () => toggleSection(sec.id, sec.file);
-    container.appendChild(secBtn);
-
-    // контейнер для блюд
-    const secContent = document.createElement("div");
-    secContent.className = "section-content";
-    secContent.id = `section-${sec.id}`;
-    container.appendChild(secContent);
-  });
+// Загрузка JSON
+function loadData(sectionName, callback) {
+  fetch(dataFiles[sectionName])
+    .then(res => res.json())
+    .then(data => callback(data))
+    .catch(err => console.error(err));
 }
 
-function toggleSection(sectionId, jsonFile) {
-  const content = document.getElementById(`section-${sectionId}`);
-
-  if (content.style.display === "flex") {
-    content.style.display = "none";
-    content.innerHTML = "";
-  } else {
-    // закрыть все остальные
-    document.querySelectorAll(".section-content").forEach(el => {
-      el.style.display = "none";
-      el.innerHTML = "";
-    });
-
-    // загрузить блюда
-    fetch(jsonFile)
-      .then(res => res.json())
-      .then(dishes => {
-        content.style.display = "flex";
-        content.style.flexDirection = "column";
-
-        dishes.forEach((dish, index) => {
-          // кнопка блюда
-          const dishBtn = document.createElement("button");
-          dishBtn.className = "dish-btn";
-          dishBtn.textContent = dish.name[currentLanguage];
-          dishBtn.onclick = () => toggleCard(sectionId, index, dish);
-          content.appendChild(dishBtn);
-
-          // карточка блюда
-          const card = document.createElement("div");
-          card.className = "card";
-          card.id = `card-${sectionId}-${index}`;
-          card.innerHTML = `
-            <h3>${dish.name[currentLanguage]}</h3>
-            <p><b>${currentLanguage === "ru" ? "Ингредиенты:" : "Ingredients:"}</b></p>
-            <ul>${dish.ingredients.map(ing => 
-              `<li>${ing[currentLanguage]} — ${ing.amount}</li>`).join("")}</ul>
-            <p><b>${currentLanguage === "ru" ? "Процесс:" : "Process:"}</b> ${dish.process[currentLanguage]}</p>
-            ${dish.photo ? `<img src="фото/${dish.photo}" alt="${dish.name[currentLanguage]}">` : ""}
-          `;
-          content.appendChild(card);
-        });
-      })
-      .catch(err => {
-        content.style.display = "block";
-        content.innerHTML = `<p style="color:red;">Ошибка загрузки: ${err}</p>`;
-      });
+// Переключение языка (не закрывает таблицу)
+function switchLanguage(lang) {
+  currentLang = lang;
+  const activeSection = document.querySelector('.section-btn.active');
+  if (activeSection) {
+    renderSection(activeSection.dataset.section, false);
   }
 }
 
-function toggleCard(sectionId, index) {
-  const card = document.getElementById(`card-${sectionId}-${index}`);
-  card.style.display = card.style.display === "block" ? "none" : "block";
+
+// Создание таблицы
+function createTable(data, sectionName) {
+  const tableContainer = document.querySelector('.table-container');
+  tableContainer.innerHTML = '';
+
+  data.recipes.forEach((dish) => {
+    const card = document.createElement('div');
+    card.className = 'dish-card';
+
+    // Название карточки
+    const title = document.createElement('div');
+    title.className = 'dish-title';
+    title.textContent = currentLang === 'ru'
+      ? dish.name?.ru || dish.title
+      : dish.name?.en || dish.title;
+    card.appendChild(title);
+
+   
+    // Заполняем ингредиенты
+    dish.ingredients.forEach((ing, i) => {
+      const tr = document.createElement('tr');
+
+      const tdNum = document.createElement('td');
+      tdNum.textContent = i + 1;
+
+      const tdName = document.createElement('td');
+      tdName.textContent = currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
+
+      const tdAmount = document.createElement('td');
+      tdAmount.textContent = ing['Шт/гр'];
+      tdAmount.dataset.base = ing['Шт/гр'];
+
+      // Ключевой ингредиент
+      if (ing['Продукт'] === dish.key) {
+        tdAmount.contentEditable = true;
+        tdAmount.classList.add('key-ingredient');
+
+        tdAmount.addEventListener('input', () => {
+          let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
+          if (parseFloat(tdAmount.dataset.base) === 0) tdAmount.dataset.base = 1;
+          const factor = newVal / parseFloat(tdAmount.dataset.base);
+
+          const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
+          rows.forEach(r => {
+            const cell = r.cells[2];
+            if (cell && cell !== tdAmount) {
+              let base = parseFloat(cell.dataset.base) || 0;
+              cell.textContent = Math.round(base * factor);
+            }
+          });
+        });
+
+        tdAmount.addEventListener('keydown', e => {
+          // Разрешаем только цифры и управление
+          if (!/[0-9]|Backspace|Delete|ArrowLeft|ArrowRight/.test(e.key)) {
+            e.preventDefault();
+          }
+        });
+      }
+
+      tr.appendChild(tdNum);
+      tr.appendChild(tdName);
+      tr.appendChild(tdAmount);
+      }
+
+      // ==== Блок для описания ====
+      const tdDesc = document.createElement('td');
+      let description = "";
+
+      if (sectionName === 'Preps') {
+        // В ПФ описания указываются прямо в ингредиентах
+        description = currentLang === 'ru'
+          ? ing['Описание'] || ''
+          : ing['Description'] || '';
+
+        tdDesc.textContent = description;
+        tr.appendChild(tdDesc);
+
+     
+      // ==== конец блока ====
+
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    card.appendChild(table);
+    tableContainer.appendChild(card);
+  });
 }
 
-function switchLanguage(lang) {
-  currentLanguage = lang;
-  init(); // перерисовать разделы
-}
-
+// Навигация
 function goHome() {
-  window.location.href = "index.html"; 
+  location.href = '/index.html';
+}
+function goBack() {
+  history.back();
 }
 
-document.addEventListener("DOMContentLoaded", init);
+// Инициализация кнопок
+document.querySelectorAll('.section-btn').forEach(btn => {
+  btn.addEventListener('click', () => renderSection(btn.dataset.section));
+});
+
+document.querySelectorAll('.lang-switch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    switchLanguage(btn.textContent.toLowerCase());
+  });
+});
