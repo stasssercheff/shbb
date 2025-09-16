@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buildMessage = (lang) => {
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
-    let message = `🧾 <b>${lang === 'en' ? 'CHECKLIST' : 'ЧЕКЛИСТ'}</b>\n\n`;
+    let message = `🧾 <b>${lang === 'en' ? 'TO DO LIST' : 'СПИСОК НА СЕГОДНЯ'}</b>\n\n`;
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${date}\n\n`;
 
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
