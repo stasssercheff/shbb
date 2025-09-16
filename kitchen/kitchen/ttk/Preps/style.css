@@ -144,3 +144,10 @@ td:nth-child(5) {
 .nav-buttons button:hover {
   background-color: #c1b29a;
 }
+
+.table-container {
+  max-width: 1200px;
+  margin: 10px auto;  /* объединяем с margin-top */
+  padding: 5px 10px;
+  min-height: 200px;
+}
