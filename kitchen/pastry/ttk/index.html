@@ -10,24 +10,37 @@
 <body>
 
 <header class="page-header">
-  <!-- Ряд переключения языка -->
+  <!-- Переключение языка -->
   <div class="lang-switch">
-    <button class="lang-btn" data-lang="ru">RU</button>
+    <button class="lang-btn active" data-lang="ru">RU</button>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
 
   <!-- Навигационные кнопки -->
   <div class="nav-buttons">
-    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-    <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+    <button class="nav-btn" onclick="goHome()">На главную</button>
+    <button class="nav-btn" onclick="goBack()">Назад</button>
   </div>
 </header>
 
+<main>
+  <!-- Контейнер для таблицы Preps -->
+  <div class="table-container"></div>
+</main>
 
- <main>
-    <!-- Контейнер для таблицы -->
-    <div class="table-container"></div>
-  </main>
+<script>
+  // Подключение переключения языка для кнопок
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const lang = btn.dataset.lang;
+        switchLanguage(lang);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
