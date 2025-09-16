@@ -1,0 +1,345 @@
+{
+  "recipes": [
+    {
+      "name": {
+        "ru": "ТЕСТО ПЕНКЕЙКИ",
+        "en": "PANCAKES DOUGH"
+      },
+      "key": "Яйцо",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "1" },
+        { "№": 2, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "125" },
+        { "№": 3, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "165" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
+        { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "25" },
+        { "№": 6, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "5" },
+        { "№": 7, "Продукт": "Масло", "Ingredient": "Oil", "Шт/гр": "30" }
+      ],
+      "process": {
+        "ru": "Смешать все кроме разрыхлителя в большой деже. НЕ блендером!!! Довести до однородной консистенции. Добавить разрыхлитель, перемешать на медленносй скорости в течение2-4 минут.",
+        "en": "Mix everything except baking powder in a large bowl. NOT a blender!!! Bring to a homogeneous consistency. Add baking powder, mix at low speed for 2-4 minutes."
+      }
+    },
+    {
+      "name": {
+        "ru": "БРИОШ",
+        "en": "BRIOCHE"
+      },
+      "key": "Яйцо(желток)",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо(желток)", "Ingredient": "Egg (yolk)", "Шт/гр": "1" },
+        { "№": 2, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "525" },
+        { "№": 3, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "380" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "8" },
+        { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "45" },
+        { "№": 6, "Продукт": "Дрожи", "Ingredient": "Yeast", "Шт/гр": "10" },
+        { "№": 7, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "60" }
+        { "№": 7, "Продукт": "Буханок", "Ingredient": "Loafs", "Шт/гр": "1" }
+      ],
+      "process": {
+        "ru": "Замешать молоко, желтки, дрожжи, сахар и соль в емкости. Пробить блендером. Просеять муку в дежу/миску. Влить замес, замесить тесто. После получения однородной тугой массы ввести холодное нарубленое сливочное масло. Замесить тесто до однородной текстуры(не долго)и оставить вызревать до увеличения объема в 2 раза под пленкой.После увеличения теста, обмять и повторно оставить на вызревание. После очередного увеличения теста, обмять выложить в формы, накрыть, дать созреть.Выпекать при температуре 200 гр при конвекции 35 20 мин, после понизить температуру до 190, конвекцию до 25 и отпекать еще 40 минут.",
+        "en": "Mix milk, yolks, yeast, sugar and salt in a container. Beat with a blender. Sift flour into a bowl. Pour in the mixture, knead the dough. After obtaining a homogeneous tight mass, add cold chopped butter. Knead the dough until a homogeneous texture (not long) and leave to mature until the volume doubles under the film. After the dough has increased, knead and leave to mature again. After the dough has increased again, knead, put it in molds, cover, let it mature. Bake at a temperature of 200 degrees with convection 35 for 20 minutes, then reduce the temperature to 190, convection to 25 and bake for another 40 minutes."
+      }
+    },
+    {
+      "name": {
+        "ru": "СЫРНИКИ",
+        "en": "SYRNIKI"
+      },
+      "key": "Творог",
+      "ingredients": [
+        { "№": 1, "Продукт": "Творог", "Ingredient": "Cottage cheese", "Шт/гр": "1000" },
+        { "№": 2, "Продукт": "Манка", "Ingredient": "Semolina", "Шт/гр": "100" },
+        { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2", "Описание": "" },
+        { "№": 4, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "100" },
+        { "№": 5, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "100" },
+        { "№": 6, "Продукт": "Масло", "Ingredient": "Oil", "Шт/гр": "60" }
+        { "№": 7, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "8" }
+      ],
+      "process": {
+        "ru": "Творог разбить миксером до мелкой вракции, смешать с манкой солью и сахором. убрать в холодиьгик на 30 минут. Полученную массы поделить на шарики по 45-50 гр. обвалять в муке и отжать через форму(кольцо. Обжарить с 2х сторон на растительном масле на малом огне до получения зоотистой корочки.",
+        "en": "Beat the cottage cheese with a mixer until finely ground, mix with semolina, salt and sugar. Put in the refrigerator for 30 minutes. Divide the resulting mass into balls of 45-50 grams, roll in flour and squeeze through a mold (ring). Fry on both sides in vegetable oil over low heat until a crusty crust forms."
+      }
+    },
+    {
+      "name": {
+        "ru": "ПФ СОУС КРЕМЧИЗ",
+        "en": "PREP CREAMCHEESE"
+      },
+      "key": "Сыр Кремчиз",
+      "ingredients": [
+        { "№": 1, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "300" },
+        { "№": 2, "Продукт": "Сыр Кремчиз", "Ingredient": "Cheese Cream cheese", "Шт/гр": "200" },
+        { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" }
+      ],
+      "process": {
+        "ru": "Поместить кремчиз в миску и взбивать миксером до мягкого состояния. Ввести сливки и соль и взбивать миксером до состояния воздушной однородной массы.",
+        "en": "Place the cream cheese in a bowl and beat with a mixer until soft. Add the cream and salt and beat with a mixer until airy and smooth."
+      }
+    },
+    {
+      "name": {
+        "ru": "ПФ СОУС НА ГОВЯДИНУ",
+        "en": "PREP BEEF SAUCE"
+      },
+      "key": "ПФ Сыр Кремчиз",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Сыр Кремчиз", "Ingredient": "Cream", "Шт/гр": "50" },
+        { "№": 2, "Продукт": "ПФ вяленые томаты", "Ingredient": "Prep sun-dried tomatoes", "Шт/гр": "5" }
+        { "№": 3, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "1" }
+
+      ],
+      "process": {
+        "ru": "Смешать до однородного состояния в миске ложной.",
+        "en": "Mix until smooth in a mixing bowl."
+      }
+    },
+    {
+      "name": {
+        "ru": "РИЕТ ИЗ ФОРЕЛИ",
+        "en": "TROUT RIETT"
+      },
+      "key": "ПФ Форель",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Форель", "Ingredient": "Prep Trout", "Шт/гр": "1000" },
+        { "№": 2, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "600" },
+        { "№": 3, "Продукт": "Силивки", "Ingredient": "Olives", "Шт/гр": "300" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" }
+        { "№": 7, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "38" }
+
+      ],
+      "process": {
+        "ru": "Рыбу(без шкуры) с солью и тимьяном завакуумировать и отправить в сю-вид на 30 минут при 53 градусах. Далее дать остыть, взбить миксером, ввести мягкое сливочное масло, сливки, соль. Взбить миксером до однородного состояния.",
+        "en": "Fish (skinless) with salt and thyme vacuum and send to sous vide for 30 minutes at 53 degrees. Then let cool, beat with a mixer, add soft butter, cream, salt. Beat with a mixer until smooth."
+      }
+    },
+    {
+      "name": {
+        "ru": "СОУС ТАРТАР",
+        "en": "TARTARE SAUCE"
+      },
+      "key": "Майонез",
+      "ingredients": [
+        { "№": 1, "Продукт": "Майонез", "Ingredient": "Mayonnaise", "Шт/гр": "180" },
+        { "№": 2, "Продукт": "Огурец маринованый", "Ingredient": "Pickled cucumber", "Шт/гр": "30" },
+        { "№": 3, "Продукт": "Каперсы", "Ingredient": "Capers", "Шт/гр": "10" },
+        { "№": 4, "Продукт": "Соус ворчестер", "Ingredient": "Worcester sauce", "Шт/гр": "5" },
+        { "№": 5, "Продукт": "Крем бальзамик", "Ingredient": "Balsamic cream", "Шт/гр": "3" }
+      ],
+      "process": {
+        "ru": "Огурец натереть на мелкой терке и перерубить в мелкую фракцию. Каперс(на Тартар) смешать с огурцом и остальными ингридиентами до однородной массы. Grate the cucumber on a fine grater and chop into small fractions. Mix the capers (for Tartar) with the cucumber and the remaining ingredients until smooth.",
+        "en": "Mix everything in a large bowl. With whisk. No blender!!!  Bring to a uniform consistency. If necessary, beat with a mixer."
+      }
+    },
+    {
+      "name": {
+        "ru": "СОУС НА ФОРЕЛЬ(СТЕЙК)",
+        "en": "SAUCE FOR TROUT(STEAK)"
+      },
+      "key": "Сливки",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Сок маракуйя", "Ingredient": "Passion fruit juice", "Шт/гр": "50" },
+        { "№": 2, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "200" },
+        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "15" },
+        { "№": 4, "Продукт": "Тимьян", "Ingredient": "Thyme", "Шт/гр": "1" },
+        { "№": 5, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "22" },
+        { "№": 6, "Продукт": "Крахмал", "Ingredient": "Corn starch", "Шт/гр": "8" }
+        { "№": 7, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "6" }
+
+      ],
+      "process": {
+        "ru": "Мякоть маракуйи пробить блендером и процедить через сито для получения чистого сока. Смешать сок, сливки, тимьян и сахар в сотейнике/кастрюле, довести до кипения, достать тимьян, влить воде смешанную с крахмалом. Кипятить 3-5 минут до загустения. Снять с огня.",
+        "en": "Punch the passion fruit pulp with a blender and strain through a sieve to obtain pure juice. Mix the juice, cream, thyme and sugar in a saucepan/pot, bring to a boil, remove the thyme, pour in water mixed with starch. Boil for 3-5 minutes until not liquid. Remove from heat."
+      }
+    },
+    {
+      "name": {
+        "ru": "ФОРЕЛЬ СОЛЕНАЯ",
+        "en": "SALTED TROUT"
+      },
+      "key": "Форель",
+      "ingredients": [
+        { "№": 1, "Продукт": "Форель", "Ingredient": "Trout", "Шт/гр": "100" },
+        { "№": 2, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "4" },
+        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "4" }
+      ],
+      "process": {
+        "ru": "Форель выложить в гастроемкость шкурой вних. Посыпать солью затем сахаром. Оставить на 5-8 часов.",
+        "en": "Place the trout in a gastronorm container skin side down. Sprinkle with salt then sugar. Leave for 5-8 hours."
+      }
+    },
+    {
+      "name": {
+        "ru": "СОУС ЦИТРУСОВЫЙ(САЛАТ С ПЕЧЕНЬЮ)",
+        "en": "CITRUS SAUCE (LIVER SALAD)"
+      },
+      "key": "Масло растительное",
+      "ingredients": [
+        { "№": 1, "Продукт": "Пф апельсин фреш", "Ingredient": "Pf orange fresh", "Шт/гр": "110" },
+        { "№": 2, "Продукт": "Масло растительное", "Ingredient": "Vegetable oil", "Шт/гр": "90" },
+        { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" },
+        { "№": 4, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "5" }
+      ],
+      "process": {
+        "ru": "Апельсиновый фреш довести до кипения, остудить. Смешать все ингридиенты, венчиком довести до однородного состояния.",
+        "en": "Bring orange juice to a boil, cool. Mix all ingredients, whisk until smooth."
+      }
+    },
+    {
+      "name": {
+        "ru": "СОУС ВИНЕГРЕТ",
+        "en": "VINAIGRETTE SAUCE"
+      },
+      "key": "Масло растительное",
+      "ingredients": [
+        { "№": 1, "Продукт": "Масло растительное", "Ingredient": "Vegetable oil", "Шт/гр": "500" },
+        { "№": 2, "Продукт": "Соус бальзамик", "Ingredient": "Balsamic sauce", "Шт/гр": "50" },
+        { "№": 3, "Продукт": "Уксус", "Ingredient": "Vinegar", "Шт/гр": "" },
+      ],
+      "process": {
+        "ru": "Смешать все ингридиенты венчиком довести до однородного состояния.",
+        "en": "Mix all ingredients and whisk until smooth."
+      }
+    },
+    {
+      "name": {
+        "ru": "СОУС ИЗ ПЕЧЕНОГО ПЕРЦА",
+        "en": "BAKED BELL PEPPER SAUCE"
+      },
+      "key": "ПФ Перец болгарский",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Перец болгарский", "Ingredient": "Prep Bell pepper", "Шт/гр": "1250" },
+        { "№": 2, "Продукт": "Помидор", "Ingredient": "Tomato", "Шт/гр": "415" },
+        { "№": 3, "Продукт": "Лук красный", "Ingredient": "Red onion", "Шт/гр": "480" },
+        { "№": 4, "Продукт": "Чесночное масло ПФ", "Ingredient": "PF garlic oil", "Шт/гр": "60" },
+        { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "10" },
+        { "№": 6, "Продукт": "Перец черный молотый", "Ingredient": "Ground black pepper", "Шт/гр": "3" },
+        { "№": 7, "Продукт": "Масло растительное", "Ingredient": "Vegetable oil", "Шт/гр": "30" },
+        { "№": 8, "Продукт": "Масло оливковое", "Ingredient": "Olive oil", "Шт/гр": "50" }
+      ],
+      "process": {
+        "ru": "Перец и лук очистить и нарезать на крупные куски. Помидоры разрезать и очистить от плодоносящей части. Смешать все ингридиенты кроме оливкового масла и выложить в гастроемкости дла запекания тонким слоем. Отправить запецаться на 60-80 минут при температуре 180 гр. С максимальной конвекцией. После запекания перебить все блендером с добавлением оливкового масла.",
+        "en": "Peel the pepper and onion and cut into large pieces. Cut the tomatoes and remove the fruiting part. Mix all the ingredients except the olive oil and place in a thin layer in a baking dish. Bake for 60 minutes at 180 degrees. After baking, beat everything with a blender and add olive oil."
+      }
+    },
+    {
+      "name": {
+        "ru": "СОУС ГОЛЛАНДСКИЙ",
+        "en": "HOLLANDAISE SAUCE"
+      },
+      "key": "Яйцо(желток)",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо(желток)", "Ingredient": "Egg (yolk)", "Шт/гр": "3" },
+        { "№": 2, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "40" },
+        { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" },
+        { "№": 4, "Продукт": "ПФ Сок лайма", "Ingredient": "PF Lime juice", "Шт/гр": "4" },
+        { "№": 5, "Продукт": "Вода(кипяченая)", "Ingredient": "Boiled wated", "Шт/гр": "20" }
+      ],
+      "process": {
+        "ru": "Смешать е ингридиенты в вакуумном пакете, запечатать пакет. Отправить в кипяченую воду на 30 мин. После немного остудить и перебить блендером до однородного состояния.",
+        "en": "Mix the ingredients in a vacuum bag, seal the bag. Place in boiled water for 30 minutes. Cool slightly and blend until smooth."
+      }
+    },
+    {
+      "name": {
+        "ru": "ЗАМЕС ТУНЕЦ",
+        "en": "TUNA MIX"
+      },
+      "key": "Тунец консерв.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Тунец консерв.", "Ingredient": "Tuna in can", "Шт/гр": "1" },
+        { "№": 2, "Продукт": "Кукуруза консерв.", "Ingredient": "Corn in can", "Шт/гр": "1" },
+        { "№": 3, "Продукт": "Майонез", "Ingredient": "Mayonnaise", "Шт/гр": "150" },
+        { "№": 4, "Продукт": "ПФ Салат микс", "Ingredient": "Salad mix", "Шт/гр": "40" },
+        { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" },
+        { "№": 6, "Продукт": "Соус ворчестер", "Ingredient": "Worcester sauce", "Шт/гр": "3" }
+        { "№": 7, "Продукт": "Сендвичей", "Ingredient": "Portions", "Шт/гр": "4" }
+      ],
+      "process": {
+        "ru": "Тунец открыть, слить жидкость замешать с майонезом перетираю рыбу до мелкой фракции. Кукурузу открыть слить жидкость, добавить к тунцу. Салатный лист мелко перерубить, добавить в смесь, добавить соль и соус ворчестер, перемешать. Должно получиться ровно 480 гр.",
+        "en": "Open the tuna, drain the liquid, mix with mayonnaise, grind the fish to a fine fraction. Open the corn, drain the liquid, add to the tuna. Finely chop the lettuce leaf, add to the mixture, add salt and Worcestershire sauce, mix. Total must be 480 gr."
+      }
+    },
+    {
+      "name": {
+        "ru": "КАША",
+        "en": "PORIDGE"
+      },
+      "key": "Пшенка",
+      "ingredients": [
+        { "№": 1, "Продукт": "Пшенка", "Ingredient": "Millet", "Шт/гр": "70" },
+        { "№": 2, "Продукт": "Рис", "Ingredient": "Rice", "Шт/гр": "70" },
+        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "33" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" },
+        { "№": 5, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "300" },
+        { "№": 6, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "550" }
+        { "№": 7, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "3,1" }
+      ],
+      "process": {
+        "ru": "В кастрюлю поместить рис, пшено, соль, сахар и воду. На медленном огне при постоянном помешивании довести до кипения и выпаривания воды на 90%. Ввести молоко, варить при постоянном помешивании до состояния полужидкой каши. Снять с огня, накрыть крышкой оставить на 110-15 минут. Далее по пакетам по 300 гр.",
+        "en": "Place rice, millet, salt, sugar and water in a saucepan. Bring to a boil over low heat with constant stirring and the water has evaporated by 90%. Add milk, cook with constant stirring until it becomes a semi-liquid porridge. Remove from heat, cover with a lid and leave for 110-15 minutes. Next in packages of 300 grams."
+      }
+    },
+    {
+      "name": {
+        "ru": "ПАШТЕТ",
+        "en": "PATE"
+      },
+      "key": "ПФ Печень",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Печень", "Ingredient": "Prep Liver", "Шт/гр": "545" },
+        { "№": 2, "Продукт": "ПФ овощи стафф", "Ingredient": "PF vegetables staff", "Шт/гр": "165" },
+        { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "3" },
+        { "№": 5, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "110" },
+        { "№": 7, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "110" }
+        { "№": 7, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "6" }
+      ],
+      "process": {
+        "ru": "Очищенную печень, смешать все ингридиенты, перебить блендером. Поместить в вакуумные пакеты(кратно 150 гр). Далее в сувид. Далее по банкам по 150 гр.Очищенную печень, смешать все ингридиенты, перебить блендером. Поместить в вакуумные пакеты(кратно 150 гр). Далее в сувид на 100 минут на 68 градусов.  Далее по банкам по 150 гр.",
+        "en": "Cleaned liver, mix all ingredients, puree in a blender. Place in vacuum bags (in multiples of 150 g). Then sous vide for 100 minutes at 68 degrees.  Next, in jars of 150 grams."
+      }
+    },
+{
+      "name": {
+        "ru": "СУП БРОККОЛИ",
+        "en": "BROKKILI SOUP"
+      },
+      "key": "ПФ Брокколи",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Брокколи", "Ingredient": "Prep Broccoli", "Шт/гр": "1000" },
+        { "№": 2, "Продукт": "ПФ Картофель", "Ingredient": "Prep potatoes", "Шт/гр": "300" },
+        { "№": 3, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "2000" },
+        { "№": 4, "Продукт": "ПФ Чесночное масло", "Ingredient": "Garlic oil", "Шт/гр": "15" },
+        { "№": 5, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "100" },
+        { "№": 6, "Продукт": "Краситель пищевой зел.", "Ingredient": "Food green coloring", "Шт/гр": "7" },
+        { "№": 7, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "5" }
+        { "№": 7, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "9" }
+      ],
+      "process": {
+        "ru": "Обжарить на медленном огне картофель с добавлением чесночного масла до мягкости. Поместить в кастрюлю,добавить воду и брокколи. Кипятить на медленном огне 1,5-2 часа. Далее ввести сливки довести до кипения, перебить блендером, добавить соль. Проверить на вкус.",
+        "en": "Fry the potatoes over low heat with garlic butter until soft. Place in a saucepan, add water and broccoli. Boil over low heat for 1.5-2 hours. Next, add the cream, bring to a boil, blend with a blender, add salt. Test the taste."
+      }
+    },
+    {
+      "name": {
+        "ru": "СУП ТЫКВА",
+        "en": "PUMPKIN SOUP"
+      },
+      "key": "ПФ тыква",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ тыква", "Ingredient": "Prep pumpkin", "Шт/гр": "3800" },
+        { "№": 2, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "300" },
+        { "№": 3, "Продукт": "Розмарин", "Ingredient": "Rosemary", "Шт/гр": "20" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "35" },
+        { "№": 5, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "2000" },
+        { "№": 6, "Продукт": "Сливки", "Ingredient": "Сливки", "Шт/гр": "1000" },
+        { "№": 7, "Продукт": "Соус ворчестер", "Ingredient": "Worcester sauce", "Шт/гр": "10" }
+        { "№": 7, "Продукт": "Порций", "Ingredient": "Portions", "Шт/гр": "21" }
+      ],
+      "process": {
+        "ru": "В кастрюлю поместить масло и розмарин, прогреть масло, достать розмарин, чтобы его не осталось в масле. Тыкву мелко нарезать, поместить в кастрюлю, жарить на медленном огне с добавлением меда. После размягчения  50-65 % тыквы добавить воду, кипятить на медленном огне 1 час. Далее ввести сливки довести до кипения, перебить блендером, добавить ворчетсер и соль. Проверить на вкус.",
+        "en": "Place the oil and rosemary in a saucepan, heat the oil, remove the rosemary so that it is not left in the oil. Finely chop the pumpkin, place in a saucepan, fry over low heat with the addition of honey. After softening 50-65% of the pumpkin, add water and simmer over low heat for 1 hour. Next, add the cream, bring to a boil, blend with a blender, add Worcester and salt. Test the taste."
+      }
+    }
+  ]
+}
