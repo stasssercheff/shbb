@@ -2,24 +2,24 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Отдано / Given</title>
+  <title>Списание/Наполнение / Spoiled/Given</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrapper">
     <div class="container">
 
-  <header class="page-header header-row">
-  <!-- Переключение языка -->
+<header class="page-header">
+  <!-- Ряд кнопок языка -->
   <div class="lang-switch">
     <button onclick="switchLanguage('ru')">RU</button>
     <button onclick="switchLanguage('en')">EN</button>
   </div>
 
-  <!-- Навигационные кнопки -->
+  <!-- Ряд навигационных кнопок -->
   <div class="nav-buttons">
-    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-    <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+    <button onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+    <button onclick="location.href='../index.html'">Назад</button>
   </div>
 </header>
 
@@ -29,7 +29,7 @@
   <div id="autodate" class="autodate"></div>
 </div>
 
-      <!-- Имя -->
+       <!-- Имя -->
       <div class="dish">
         <label class="check-label" data-ru="Имя" data-en="Name">Имя</label>
         <select name="chef" class="qty" data-label-ru="Имя" data-label-en="Name">
@@ -40,8 +40,7 @@
         </select>
       </div>
 
-
-    <!-- Раздел: Остатки -->
+ <!-- Раздел: Остатки -->
 <div class="menu-section">
   <div class="section-title" data-ru="Остатки" data-en="Leftovers">Остатки</div>
 
@@ -133,7 +132,7 @@
       <option data-ru="4" data-en="4">4</option>
     </select>
   </div>
-  
+
 <div class="dish">
     <label class="check-label" data-ru="Комментарий" data-en="Comment">Комментарий</label>
     <textarea class="comment" rows="3" placeholder="..."></textarea>
