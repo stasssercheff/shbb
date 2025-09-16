@@ -200,8 +200,11 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background-color: #c1b29a;
 }
 
-.wrapper, .container {
-  overflow-y: auto;
+.wrapper,
+.container {
+  height: auto;       /* подстраивается под содержимое */
+  max-height: none;   /* отменяем любые ограничения */
+  overflow: visible;  /* прокрутка будет страницы, а не контейнера */
 }
 
 /* === Хедер: два ряда === */
