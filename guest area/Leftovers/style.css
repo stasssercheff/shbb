@@ -8,10 +8,6 @@ html, body {
   font-size: 36px;
 }
 
-.hidden {
-  display: none;
-}
-
 .container {
   max-width: 85%;
   margin: 20px auto;
