@@ -1,1 +1,126 @@
-1
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Чеклист</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .checklist-item label {
+    margin-left: 8px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+  }
+</style>
+</head>
+<body>
+
+<h2>Чеклист</h2>
+
+<div id="checklist">
+  <!-- Генерация списка элементов -->
+  <div class="checklist-item"><input type="checkbox" id="item1" data-ru="Хлеб" data-en="Bread"><label for="item1">1. Хлеб</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item2" data-ru="Хлеб х 2" data-en="Bread x 2"><label for="item2">2. Хлеб х 2</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item3" data-ru="Голландский соус" data-en="Hollandaise sauce"><label for="item3">3. Голландский соус</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item4" data-ru="Соус тартар" data-en="Tartar sauce"><label for="item4">4. Соус тартар</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item5" data-ru="Соус кремчиз" data-en="Cream cheese sauce"><label for="item5">5. Соус кремчиз</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item6" data-ru="Соус винегрет" data-en="Vinaigrette sauce"><label for="item6">6. Соус винегрет</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item7" data-ru="Соус песто" data-en="Pesto sauce"><label for="item7">7. Соус песто</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item8" data-ru="Соус для рыбы" data-en="Fish sauce"><label for="item8">8. Соус для рыбы</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item9" data-ru="Соус на курицу" data-en="Chicken sauce"><label for="item9">9. Соус на курицу</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item10" data-ru="Соус вяленые томаты" data-en="Sun-dried tomato sauce"><label for="item10">10. Соус вяленые томаты</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item11" data-ru="Шпинат" data-en="Spinach"><label for="item11">11. Шпинат</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item12" data-ru="Риет форель" data-en="Trout rillettes"><label for="item12">12. Риет форель</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item13" data-ru="Паштет" data-en="Pâté"><label for="item13">13. Паштет</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item14" data-ru="Замес тунец" data-en="Tuna mix"><label for="item14">14. Замес тунец</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item15" data-ru="Нутелла" data-en="Nutella"><label for="item15">15. Нутелла</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item16" data-ru="Кура сувид работа" data-en="Chicken sous-vide work"><label for="item16">16. Кура сувид работа</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item17" data-ru="Кура сувид стафф" data-en="Chicken sous-vide staff"><label for="item17">17. Кура сувид стафф</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item18" data-ru="Рыба солить" data-en="Salt fish"><label for="item18">18. Рыба солить</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item19" data-ru="Рыба стейк" data-en="Fish steak"><label for="item19">19. Рыба стейк</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item20" data-ru="Говядина сувид" data-en="Beef sous-vide"><label for="item20">20. Говядина сувид</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item21" data-ru="Говядина сендвичи" data-en="Beef for sandwiches"><label for="item21">21. Говядина сендвичи</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item22" data-ru="Говядина тартар" data-en="Beef tartare"><label for="item22">22. Говядина тартар</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item23" data-ru="Печень" data-en="Liver"><label for="item23">23. Печень</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item24" data-ru="Осьминог" data-en="Octopus"><label for="item24">24. Осьминог</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item25" data-ru="Каша" data-en="Porridge"><label for="item25">25. Каша</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item26" data-ru="Суп тыква" data-en="Pumpkin soup"><label for="item26">26. Суп тыква</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item27" data-ru="Суп брокколи" data-en="Broccoli soup"><label for="item27">27. Суп брокколи</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item28" data-ru="Биск" data-en="Bisque"><label for="item28">28. Биск</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item29" data-ru="Овощи стафф" data-en="Stuffed vegetables"><label for="item29">29. Овощи стафф</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item30" data-ru="Фасоль" data-en="Beans"><label for="item30">30. Фасоль</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item31" data-ru="Яйца пошот" data-en="Poached eggs"><label for="item31">31. Яйца пошот</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item32" data-ru="Тесто блины" data-en="Pancake batter"><label for="item32">32. Тесто блины</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item33" data-ru="Свинина стафф" data-en="Stuffed pork"><label for="item33">33. Свинина стафф</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item34" data-ru="Паста" data-en="Pasta"><label for="item34">34. Паста</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item35" data-ru="Холодильники рабочие" data-en="Working fridges"><label for="item35">35. Холодильники рабочие</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item36" data-ru="Уборка" data-en="Cleaning"><label for="item36">36. Уборка</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item37" data-ru="Холодильники дефрост" data-en="Defrost fridges"><label for="item37">37. Холодильники дефрост</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item38" data-ru="Подсчитать остатки" data-en="Count leftovers"><label for="item38">38. Подсчитать остатки</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item39" data-ru="Сырники" data-en="Cheese pancakes"><label for="item39">39. Сырники</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item40" data-ru="Сыр на крок" data-en="Cheese for croque"><label for="item40">40. Сыр на крок</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item41" data-ru="Сыр тереть" data-en="Grate cheese"><label for="item41">41. Сыр тереть</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item42" data-ru="Бородинский нарезать" data-en="Slice Borodinsky bread"><label for="item42">42. Бородинский нарезать</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item43" data-ru="Чиабата нарезать" data-en="Slice ciabatta"><label for="item43">43. Чиабата нарезать</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item44" data-ru="Хлеб на сендвичи" data-en="Sandwich bread"><label for="item44">44. Хлеб на сендвичи</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item45" data-ru="Хлеб на Бенедикт" data-en="Benedict bread"><label for="item45">45. Хлеб на Бенедикт</label></div>
+  <div class="checklist-item"><input type="checkbox" id="item46" data-ru="Салаты перебрать" data-en="Sort salads"><label for="item46">46. Салаты перебрать</label></div>
+</div>
+
+<button id="sendBtn">Отправить / Send</button>
+
+<div id="result"></div>
+
+<script>
+document.getElementById('sendBtn').addEventListener('click', function() {
+    const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
+    const date = new Date().toLocaleString();
+    let selectedItems = [];
+
+    checklist.forEach(item => {
+        if (item.checked) {
+            selectedItems.push({
+                ru: item.dataset.ru,
+                en: item.dataset.en
+            });
+        }
+    });
+
+    if (selectedItems.length === 0) {
+        alert('Выберите хотя бы один пункт / Please select at least one item');
+        return;
+    }
+
+    let output = `<strong>Дата / Date:</strong> ${date}<br><br>`;
+    output += '<strong>Выбранные пункты / Selected items:</strong><ul>';
+    selectedItems.forEach((item, index) => {
+        output += `<li>${index + 1}. ${item.ru} / ${item.en}</li>`;
+    });
+    output += '</ul>';
+
+    document.getElementById('result').innerHTML = output;
+
+    // Здесь можно добавить отправку на сервер через fetch/ajax
+});
+</script>
+
+</body>
+</html>
