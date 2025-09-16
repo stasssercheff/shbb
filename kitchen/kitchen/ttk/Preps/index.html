@@ -9,12 +9,17 @@
 </head>
 <body>
 
-<header class="page-header">
-  <div class="header-grid">
-    <button class="btn" onclick="switchLanguage('ru')">RU</button>
-    <button class="btn" onclick="switchLanguage('en')">EN</button>
-    <button class="btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-    <button class="btn" onclick="location.href='../index.html'">Назад</button>
+<<header class="page-header">
+  <!-- Ряд переключения языка -->
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+
+  <!-- Навигационные кнопки -->
+  <div class="nav-buttons">
+    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+    <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
   </div>
 </header>
 
