@@ -65,7 +65,6 @@ function createTable(data, sectionName) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    // Заголовки
     const headers = sectionName === 'Preps'
       ? (currentLang === 'ru'
         ? ['#', 'Продукт', 'Гр/шт', 'Описание']
@@ -83,34 +82,21 @@ function createTable(data, sectionName) {
     thead.appendChild(trHead);
 
     // Заполняем ингредиенты
-    dish.ingredients.forEach((ing, i) => {
-      const tr = document.createElement('tr');
+    if(sectionName === 'Preps'){
+      dish.ingredients.forEach((ing, i) => {
+        const tr = document.createElement('tr');
 
-      const tdNum = document.createElement('td');
-      tdNum.textContent = i + 1;
+        const tdNum = document.createElement('td');
+        tdNum.textContent = i + 1;
 
-      const tdName = document.createElement('td');
-      tdName.textContent = currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
+        const tdName = document.createElement('td');
+        tdName.textContent = currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
 
-      const tdAmount = document.createElement('td');
-      tdAmount.textContent = ing['Шт/гр'];
-      tdAmount.dataset.base = ing['Шт/гр'];
+        const tdAmount = document.createElement('td');
+        tdAmount.textContent = ing['Шт/гр'];
+        tdAmount.dataset.base = ing['Шт/гр'];
 
-      tr.appendChild(tdNum);
-      tr.appendChild(tdName);
-      tr.appendChild(tdAmount);
-
-      // ==== Блок отображения process ====
-      const tdDesc = document.createElement('td');
-
-      if (sectionName === 'Preps') {
-        if (i === 0) { // только первая строка ингредиентов
-          tdDesc.textContent = dish.process?.[currentLang] || "";
-          tdDesc.rowSpan = dish.ingredients.length;
-          tr.appendChild(tdDesc);
-        }
-
-        // Ключевой ингредиент с редактированием
+        // Ключевой ингредиент для перерасчета
         if (ing['Продукт'] === dish.key) {
           tdAmount.contentEditable = true;
           tdAmount.classList.add('key-ingredient');
@@ -137,27 +123,62 @@ function createTable(data, sectionName) {
           });
         }
 
-      } else if (sectionName === 'Sous-Vide') {
-        // Для сувид просто отображаем все поля
-        const tdTemp = document.createElement('td');
-        tdTemp.textContent = ing.Temp || ing['Темп'] || "";
+        tr.appendChild(tdNum);
+        tr.appendChild(tdName);
+        tr.appendChild(tdAmount);
 
-        const tdTime = document.createElement('td');
-        tdTime.textContent = ing.Time || ing['Время'] || "";
-
-        // Только первая строка для описания
+        // Process
+        const tdDesc = document.createElement('td');
         if (i === 0) {
           tdDesc.textContent = dish.process?.[currentLang] || "";
           tdDesc.rowSpan = dish.ingredients.length;
+          tr.appendChild(tdDesc);
         }
 
+        tbody.appendChild(tr);
+      });
+    }
+
+    if(sectionName === 'Sous-Vide'){
+      // Каждая строка для Sous-Vide — отдельная строка таблицы
+      dish.processRows.forEach((p, idx) => {
+        const tr = document.createElement('tr');
+
+        const tdNum = document.createElement('td');
+        tdNum.textContent = idx + 1;
+
+        const tdName = document.createElement('td');
+        tdName.textContent = currentLang === 'ru' ? dish.products[idx]?.ru : dish.products[idx]?.en || "";
+
+        const tdAmount = document.createElement('td');
+        tdAmount.textContent = dish.weights[idx] || "";
+
+        const tdTemp = document.createElement('td');
+        tdTemp.textContent = dish.temps[idx] || "";
+
+        const tdTime = document.createElement('td');
+        tdTime.textContent = dish.times[idx] || "";
+
+        tr.appendChild(tdNum);
+        tr.appendChild(tdName);
+        tr.appendChild(tdAmount);
         tr.appendChild(tdTemp);
         tr.appendChild(tdTime);
-        tr.appendChild(tdDesc);
-      }
 
-      tbody.appendChild(tr);
-    });
+        // Process
+        const tdProcess = document.createElement('td');
+        if(idx === 0){
+          tdProcess.textContent = dish.processRows.slice(0,7).join('\n');
+          tdProcess.rowSpan = 7;
+          tr.appendChild(tdProcess);
+        } else if(idx >= 7){
+          tdProcess.textContent = dish.processRows[idx];
+          tr.appendChild(tdProcess);
+        }
+
+        tbody.appendChild(tr);
+      });
+    }
 
     table.appendChild(thead);
     table.appendChild(tbody);
@@ -167,18 +188,13 @@ function createTable(data, sectionName) {
 }
 
 // Навигация
-function goHome() {
-  location.href = '/index.html';
-}
-function goBack() {
-  history.back();
-}
+function goHome() { location.href = '/index.html'; }
+function goBack() { history.back(); }
 
 // Инициализация кнопок
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', () => renderSection(btn.dataset.section));
 });
-
 document.querySelectorAll('.lang-switch button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
