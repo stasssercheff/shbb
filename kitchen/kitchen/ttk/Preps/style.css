@@ -36,7 +36,6 @@ body {
   padding: 5px 10px;
   min-height: 200px;
 }
-
 .dish-card {
   margin-bottom: 30px;
 }
@@ -46,7 +45,6 @@ body {
   font-size: 20px;
   margin-bottom: 10px;
 }
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -57,68 +55,28 @@ th, td {
   font-size: 14px;
 }
 td {
-  text-align: left;   /* текст по левому краю */
+  text-align: left;
 }
 td:nth-child(1),
 td:nth-child(3),
 td:nth-child(4),
 td:nth-child(5) {
-  text-align: center; /* цифры по центру */
+  text-align: center;
 }
 
-/* PF TABLE - ширина, шрифт, отступ справа */
-.pf-table th:nth-child(1), .pf-table td:nth-child(1) {
-  width: 5%;
-  font-size: 14px;
-  padding-right: 5px;
-}
-.pf-table th:nth-child(2), .pf-table td:nth-child(2) {
-  width: 35%;
-  font-size: 14px;
-  padding-right: 10px;
-}
-.pf-table th:nth-child(3), .pf-table td:nth-child(3) {
-  width: 15%;
-  font-size: 14px;
-  padding-right: 10px;
-}
-.pf-table th:nth-child(4), .pf-table td:nth-child(4) {
-  width: 45%;
-  font-size: 14px;
-  padding-right: 10px;
-}
+/* PF Таблица */
+.pf-table th:nth-child(1), .pf-table td:nth-child(1) { width: 5%; font-size: 14px; }
+.pf-table th:nth-child(2), .pf-table td:nth-child(2) { width: 30%; font-size: 14px; }
+.pf-table th:nth-child(3), .pf-table td:nth-child(3) { width: 15%; font-size: 14px; text-align: center; }
+.pf-table th:nth-child(4), .pf-table td:nth-child(4) { width: 50%; font-size: 14px; padding-right: 10px; }
 
-/* SV TABLE - ширина, шрифт, отступ справа */
-.sv-table th:nth-child(1), .sv-table td:nth-child(1) {
-  width: 5%;
-  font-size: 14px;
-  padding-right: 5px;
-}
-.sv-table th:nth-child(2), .sv-table td:nth-child(2) {
-  width: 30%;
-  font-size: 14px;
-  padding-right: 10px;
-}
-.sv-table th:nth-child(3), .sv-table td:nth-child(3) {
-  width: 10%;
-  font-size: 14px;
-  padding-right: 5px;
-}
-.sv-table th:nth-child(4), .sv-table td:nth-child(4) {
-  width: 10%;
-  font-size: 14px;
-  padding-right: 5px;
-}
-.sv-table th:nth-child(5), .sv-table td:nth-child(5) {
-  width: 10%;
-  font-size: 14px;
-  padding-right: 5px;
-}
-.sv-table th:nth-child(6), .sv-table td:nth-child(6) {
-  width: 30%;
-  font-size: 14px;
-  padding-right: 10px;
-}
+/* SV Таблица */
+.sv-table th:nth-child(1), .sv-table td:nth-child(1) { width: 5%; font-size: 14px; }
+.sv-table th:nth-child(2), .sv-table td:nth-child(2) { width: 25%; font-size: 14px; }
+.sv-table th:nth-child(3), .sv-table td:nth-child(3) { width: 10%; font-size: 14px; text-align: center; }
+.sv-table th:nth-child(4), .sv-table td:nth-child(4) { width: 10%; font-size: 14px; text-align: center; }
+.sv-table th:nth-child(5), .sv-table td:nth-child(5) { width: 10%; font-size: 14px; text-align: center; }
+.sv-table th:nth-child(6), .sv-table td:nth-child(6) { width: 40%; font-size: 14px; padding-right: 10px; }
 
 /* Ключевой ингредиент */
 .key-ingredient {
@@ -129,7 +87,7 @@ td:nth-child(5) {
 /* Хедер — два ряда */
 .page-header {
   display: flex;
-  flex-direction: column; /* два ряда: язык и навигация */
+  flex-direction: column;
   gap: 10px;
   padding: 10px 5%;
   background-color: #fff;
@@ -138,21 +96,17 @@ td:nth-child(5) {
   top: 0;
   z-index: 10;
 }
-
-/* Ряды внутри хедера */
 .lang-switch,
 .nav-buttons {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
-
-/* Кнопки внутри рядов */
 .lang-switch button,
 .nav-buttons button {
-  flex: 1;               /* равная ширина */
-  max-width: 48%;        /* чтобы две кнопки помещались в ряд */
-  min-width: 100px;      /* минимальная ширина */
+  flex: 1;
+  max-width: 48%;
+  min-width: 100px;
   padding: 12px 0;
   font-size: 18px;
   border-radius: 8px;
