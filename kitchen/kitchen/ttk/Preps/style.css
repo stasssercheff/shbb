@@ -32,9 +32,11 @@ body {
 /* Таблицы */
 .table-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 5px 10px;
+  min-height: 200px;
 }
+
 .dish-card {
   margin-bottom: 30px;
 }
@@ -44,6 +46,7 @@ body {
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -63,38 +66,58 @@ td:nth-child(5) {
   text-align: center; /* цифры по центру */
 }
 
-/* Ширина колонок Preps */
+/* PF TABLE - ширина, шрифт, отступ справа */
 .pf-table th:nth-child(1), .pf-table td:nth-child(1) {
-  width: 40px;
+  width: 5%;
+  font-size: 14px;
+  padding-right: 5px;
 }
 .pf-table th:nth-child(2), .pf-table td:nth-child(2) {
-  width: 180px;
+  width: 35%;
+  font-size: 14px;
+  padding-right: 10px;
 }
 .pf-table th:nth-child(3), .pf-table td:nth-child(3) {
-  width: 80px;
+  width: 15%;
+  font-size: 14px;
+  padding-right: 10px;
 }
 .pf-table th:nth-child(4), .pf-table td:nth-child(4) {
-  width: 300px;
+  width: 45%;
+  font-size: 14px;
+  padding-right: 10px;
 }
 
-/* Ширина колонок Sous-Vide */
+/* SV TABLE - ширина, шрифт, отступ справа */
 .sv-table th:nth-child(1), .sv-table td:nth-child(1) {
-  width: 40px;
+  width: 5%;
+  font-size: 14px;
+  padding-right: 5px;
 }
 .sv-table th:nth-child(2), .sv-table td:nth-child(2) {
-  width: 180px;
+  width: 30%;
+  font-size: 14px;
+  padding-right: 10px;
 }
 .sv-table th:nth-child(3), .sv-table td:nth-child(3) {
-  width: 80px;
+  width: 10%;
+  font-size: 14px;
+  padding-right: 5px;
 }
 .sv-table th:nth-child(4), .sv-table td:nth-child(4) {
-  width: 80px;
+  width: 10%;
+  font-size: 14px;
+  padding-right: 5px;
 }
 .sv-table th:nth-child(5), .sv-table td:nth-child(5) {
-  width: 80px;
+  width: 10%;
+  font-size: 14px;
+  padding-right: 5px;
 }
 .sv-table th:nth-child(6), .sv-table td:nth-child(6) {
-  width: 300px;
+  width: 30%;
+  font-size: 14px;
+  padding-right: 10px;
 }
 
 /* Ключевой ингредиент */
@@ -139,15 +162,7 @@ td:nth-child(5) {
   color: #333;
   text-align: center;
 }
-
 .lang-switch button:hover,
 .nav-buttons button:hover {
   background-color: #c1b29a;
-}
-
-.table-container {
-  max-width: 1200px;
-  margin: 10px auto;  /* объединяем с margin-top */
-  padding: 5px 10px;
-  min-height: 200px;
 }
