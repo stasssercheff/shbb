@@ -6,34 +6,6 @@ body {
   color: #333;
 }
 
-/* Хэдер */
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-/* Кнопки "На главную" и "Назад" */
-.top-btn {
-  padding: 6px 12px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
-.top-btn:hover {
-  background-color: #c1b29a;
-}
-
 /* Кнопки разделов */
 .section-buttons {
   display: flex;
@@ -54,27 +26,6 @@ body {
 }
 .section-btn.active,
 .section-btn:hover {
-  background-color: #c1b29a;
-}
-
-/* Кнопки смены языка */
-.lang-switch {
-  display: flex;
-  gap: 10px;
-}
-.lang-switch button {
-  padding: 10px 20px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  transition: 0.2s;
-}
-.lang-switch button.active,
-.lang-switch button:hover {
   background-color: #c1b29a;
 }
 
@@ -152,18 +103,44 @@ td:nth-child(5) {
   font-weight: 600;
 }
 
-.lang-switch, .nav-buttons {
+/* Хедер — два ряда */
+.page-header {
   display: flex;
-  gap: 4%;
+  flex-direction: column; /* два ряда: язык и навигация */
+  gap: 10px;
+  padding: 10px 5%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.lang-switch button, .nav-buttons button {
-  flex: 1;
+/* Ряды внутри хедера */
+.lang-switch,
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Кнопки внутри рядов */
+.lang-switch button,
+.nav-buttons button {
+  flex: 1;               /* равная ширина */
+  max-width: 48%;        /* чтобы две кнопки помещались в ряд */
+  min-width: 100px;      /* минимальная ширина */
   padding: 12px 0;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
   background-color: #d8cfc0;
   color: #333;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
+  text-align: center;
+}
+
+.lang-switch button:hover,
+.nav-buttons button:hover {
+  background-color: #c1b29a;
 }
