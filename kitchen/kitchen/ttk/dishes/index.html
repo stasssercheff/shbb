@@ -9,11 +9,13 @@
 <body>
 
 <header class="page-header">
-  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
-  <div class="lang-switcher">
-    <button class="lang-btn" data-lang="ru">RU</button>
-    <button class="lang-btn" data-lang="en">EN</button>
+  <div class="lang-switch">
+    <button onclick="switchLanguage('ru')">RU</button>
+    <button onclick="switchLanguage('en')">EN</button>
+  </div>
+  <div class="nav-buttons">
+    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+    <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
   </div>
 </header>
 
