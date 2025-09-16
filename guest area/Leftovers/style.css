@@ -200,6 +200,10 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background-color: #c1b29a;
 }
 
+.wrapper, .container {
+  overflow-y: auto;
+}
+
 /* === Хедер: два ряда === */
 .page-header {
   display: flex;
