@@ -84,6 +84,7 @@ td:nth-child(5) {
   padding-right: 8px; 
   word-break: break-word;   
   white-space: pre-line;    
+    text-align: left; 
 }
 
 /* Ширина колонок Sous-Vide */
