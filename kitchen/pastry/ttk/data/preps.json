@@ -12,13 +12,30 @@
         { "№": 3, "Продукт": "Какао", "Ingredient": "Cocoa", "Шт/гр": "100" },
         { "№": 4, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "130" },
         { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "150" },
-        { "№": 6, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "70" },
-        { "№": 7, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "15" }
+        { "№": 6, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "70" }
       ],
       "process": {
         "ru": "Печенье перебить в крошку мелкую, смешать с какао. Остальные ингридиенты в сотейник и растворить помешивая ра медленном огне до однородности. растопить. Замешать хорошо (лучше лопаткой) остудить и разложить по формам по 50 гр.",
         "en": "Beat the cookies into fine crumbs and mix with cocoa. Place the remaining ingredients in a saucepan and stir over low heat until smooth. melt. Mix well (preferably with a spatula), cool and pour into 50g molds."
       }
     },
+    {
+      "name": {
+        "ru": "ЧИЗКЕЙК",
+        "en": "CHEESECAKE"
+      },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "1" },
+        { "№": 2, "Продукт": "Кремчиз", "Ingredient": "Creamcheese", "Шт/гр": "800" },
+        { "№": 3, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "4" },
+        { "№": 4, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "250" },
+        { "№": 5, "Продукт": "Сливки", "Ingredient": "Sugar", "Шт/гр": "500" },
+        { "№": 6, "Продукт": "Мука", "Ingredient": "Butter", "Шт/гр": "50" }
+      ],
+      "process": {
+        "ru": "Перебить миксером  кремчиз до не плотного состояния без комочков, перебить яйца с сахаром(можно блендером) ввести в кремчиз. Дальше ввести в смесь сливки на низкой скорости(все перемешать) дальше муку. Потом все блендером до однородной консистенции. Разлить по формам со стенками из пергаметы (выше формы в 2 раза) Выпекать 40 минут при температуре 210 гр.",
+        "en": "Beat the cookies into fine crumbs and mix with cocoa. Place the remaining ingredients in a saucepan and stir over low heat until smooth. melt. Mix well (preferably with a spatula), cool and pour into 50g molds.Beat the cream cheese with a mixer until it is not dense without lumps, beat the eggs with sugar (you can use a blender) and add them to the cream cheese. Next, add the cream into the mixture at low speed (mix everything), then add the flour. Then blend everything until smooth. Pour into molds with parchment walls (2 times higher than the mold). Bake for 40 minutes at a temperature of 210 degrees."
+      }
   ]
 }
