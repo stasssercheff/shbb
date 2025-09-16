@@ -180,7 +180,6 @@ textarea.comment {
   font-size: 16px !important; /* Отключает авто-зум на iOS */
 }
 
-
 /* === Универсальные кнопки === */
 button, input[type="button"], input[type="submit"] {
   background-color: #d8cfc0;
@@ -198,13 +197,6 @@ button, input[type="button"], input[type="submit"] {
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background-color: #c1b29a;
-}
-
-.wrapper,
-.container {
-  height: auto;       /* подстраивается под содержимое */
-  max-height: none;   /* отменяем любые ограничения */
-  overflow: visible;  /* прокрутка будет страницы, а не контейнера */
 }
 
 /* === Хедер: два ряда === */
@@ -235,6 +227,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   flex: 1;
   max-width: 45%;
   min-width: 80px;
-  padding: 12px 18px;
+  padding: 8px 12px;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+}
