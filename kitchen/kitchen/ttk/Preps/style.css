@@ -152,22 +152,54 @@ td:nth-child(5) {
   font-weight: 600;
 }
 
-/* === Хедер: кнопки "Назад" и "На главную" === */
-.nav-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4%;
-  justify-content: space-between;
-  padding: 0 5%;
+/* === Универсальные кнопки === */
+button, input[type="button"], input[type="submit"] {
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  padding: 18px;
+  font-size: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  display: block;
+  transition: 0.2s;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
 
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background-color: #c1b29a;
+}
+
+/* === Хедер: два ряда === */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Ряды внутри хедера */
+.lang-switch,
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 10px;
+}
+
+/* Кнопки внутри рядов */
+.lang-switch button,
 .nav-buttons button {
-  width: 48%;
-  font-size: 14px;
-  padding: 8px 0;
-  background-color: #d8cfc0; /* оставляем текущий фон */
-  border: none;
-  border-radius: 4px; /* слегка закругляем, чтобы не было квадратов */
-  cursor: pointer;
-  text-align: center;
+  flex: 1;
+  max-width: 45%;
+  min-width: 80px;
+  padding: 12px 18px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
