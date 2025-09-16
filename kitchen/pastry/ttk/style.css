@@ -7,29 +7,6 @@ body {
   color: #333;
 }
 
-/* Кнопки разделов */
-.section-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 15px 0;
-}
-.section-btn {
-  padding: 10px 20px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  transition: 0.2s;
-}
-.section-btn.active,
-.section-btn:hover {
-  background-color: #c1b29a;
-}
-
 /* Таблицы */
 .table-container {
   max-width: 1200px;
@@ -59,8 +36,7 @@ td {
 }
 td:nth-child(1),
 td:nth-child(3),
-td:nth-child(4),
-td:nth-child(5) {
+td:nth-child(4) {
   text-align: center; /* цифры по центру */
 }
 
