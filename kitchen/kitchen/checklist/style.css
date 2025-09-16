@@ -83,3 +83,36 @@ h1#greeting {
 .nav-btn:hover {
     background-color: #c1b29a;
 }
+
+/* === Хедер: два ряда === */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Ряды внутри хедера */
+.lang-switch,
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 10px;
+}
+
+/* Кнопки внутри рядов */
+.lang-switch button,
+.nav-buttons button {
+  flex: 1;
+  max-width: 45%;
+  min-width: 80px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+}
