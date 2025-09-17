@@ -61,7 +61,10 @@
       }      
     },
     {
-      "name": { "ru": "МЕДОВИК КРЕМ", "en": "HONEY CAKE CREAM" },
+      "name": { 
+        "ru": "МЕДОВИК КРЕМ", 
+        "en": "HONEY CAKE CREAM" 
+      },
       "key": "Торт шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Йогурт", "Ingredient": "Yogurt", "Шт/гр": "340" },
@@ -78,7 +81,10 @@
       }
     },
     {
-      "name": { "ru": "МЕДОВИК", "en": "HONEY CAKE" },
+      "name": { 
+        "ru": "МЕДОВИК", 
+        "en": "HONEY CAKE" 
+      },
       "key": "Торт шт.",
       "ingredients": [
         { "№": 1, "Продукт": "ПФ Коржи медовик", "Ingredient": "Prep cake layers", "Шт/гр": "600" },
@@ -92,7 +98,10 @@
       }
     },
     {
-      "name": { "ru": "ШОКОЛАДНЫЙ ТОРТ КОРЖЫ", "en": "CHOCOLATE CAKE DAUGH" },
+      "name": { 
+        "ru": "ШОКОЛАДНЫЙ ТОРТ КОРЖЫ", 
+        "en": "CHOCOLATE CAKE DAUGH" 
+      },
       "key": "Торт шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "220" },
@@ -112,7 +121,10 @@
       }
     },
     {
-      "name": { "ru": "ШОКОЛАДНЫЙ ТОРТ КРЕМ", "en": "CHOCOLATE CAKE CREAM" },
+      "name": { 
+        "ru": "ШОКОЛАДНЫЙ ТОРТ КРЕМ", 
+        "en": "CHOCOLATE CAKE CREAM" 
+      },
       "key": "Торт шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Йогурт", "Ingredient": "Yogurt", "Шт/гр": "247" },
@@ -130,7 +142,10 @@
       }
     },
     {
-      "name": { "ru": "ШОКОЛАДНЫЙ ТОРТ ГЛОССАЖ", "en": "CHOCOLATE CAKE GLOSSAGE" },
+      "name": { 
+        "ru": "ШОКОЛАДНЫЙ ТОРТ ГЛОССАЖ", 
+        "en": "CHOCOLATE CAKE GLOSSAGE" 
+      },
       "key": "Торт шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "2" },
@@ -148,7 +163,10 @@
       }
     },
     {
-      "name": { "ru": "ПЕЧЕНЬЕ С ШОКОЛАДОМ (80 ГР)", "en": "COOKIE WITH CHOCOLATE (80 GR)" },
+      "name": { 
+        "ru": "ПЕЧЕНЬЕ С ШОКОЛАДОМ (80 ГР)", 
+        "en": "COOKIE WITH CHOCOLATE (80 GR)" 
+      },
       "key": "Шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "9" },
@@ -171,7 +189,10 @@
     {
   "recipes": [
     {
-      "name": { "ru": "ПАВЛОВА БЕЗЕ (70 ГР)", "en": "PAVLOVA BASE (70 GR)" },
+      "name": { 
+        "ru": "ПАВЛОВА БЕЗЕ (70 ГР)", 
+        "en": "PAVLOVA BASE (70 GR)" 
+      },
       "key": "Шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "10" },
@@ -187,7 +208,10 @@
       }
     },
     {
-      "name": { "ru": "ПАВЛОВА КРЕМ", "en": "PAVLOVA CREAM" },
+      "name": { 
+        "ru": "ПАВЛОВА КРЕМ", 
+        "en": "PAVLOVA CREAM" 
+      },
       "key": "Шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "4" },
@@ -202,7 +226,10 @@
        }
     },
     {
-      "name": { "ru": "ПАВЛОВА", "en": "PAVLOVA" },
+      "name": { 
+        "ru": "ПАВЛОВА", 
+        "en": "PAVLOVA" 
+      },
       "key": "Шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "1" },
@@ -217,7 +244,10 @@
       }
     },
     {
-      "name": { "ru": "ВИШНЕВЫЙ КОНФИТЮР", "en": "CHERRY JAM" },
+      "name": { 
+        "ru": "ВИШНЕВЫЙ КОНФИТЮР", 
+        "en": "CHERRY JAM" 
+      },
       "key": "Количество",
       "ingredients": [
         { "№": 1, "Продукт": "Количество", "Ingredient": "Amount", "Шт/гр": "750" },
@@ -235,7 +265,10 @@
     {
   "recipes": [
     {
-      "name": { "ru": "ПЕЧЕНЬЕ КОМПЛИМЕНТ", "en": "COOKIE COMPLIMENT" },
+      "name": { 
+        "ru": "ПЕЧЕНЬЕ КОМПЛИМЕНТ", 
+        "en": "COOKIE COMPLIMENT" 
+      },
       "key": "Шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "100" },
@@ -252,7 +285,10 @@
       }
     },
     {
-      "name": { "ru": "СОЛЕНАЯ КАРАМЕЛЬ", "en": "SALTED CARAMEL" },
+      "name": { 
+        "ru": "СОЛЕНАЯ КАРАМЕЛЬ", 
+        "en": "SALTED CARAMEL" 
+      },
       "key": "Гр.",
       "ingredients": [
         { "№": 1, "Продукт": "Количество", "Ingredient": "Amount", "Шт/гр": "2700" },
@@ -268,9 +304,7 @@
         "en": "Caramelize the sugar, add glucose syrup, boil the hot cream, let cool to 55-40 degrees and add salt and butter."
       }
     },
-
-
-{
+    {
       "name": { 
         "ru": "СУХАЯ СМЕСЬ ЯБЛОЧНЫЙ ПИРОГ", 
         "en": "APPLE PIE DRY MIXTUTRE" 
@@ -286,7 +320,6 @@
         { "№": 7, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "180" },
         { "№": 7, "Продукт": "Сахар коричневый", "Ingredient": "Brown sugar", "Шт/гр": "180" },
         { "№": 7, "Продукт": "Миндальная мука", "Ingredient": "Almond flour", "Шт/гр": "180" }
-
       ],
       "process": {
         "ru": "Овсянку перебить блендером. Смешать все ингридиенты до однородной консистенции",
@@ -305,16 +338,13 @@
         { "№": 3, "Продукт": "Специя Корица", "Ingredient": "Spice Cinnamon", "Шт/гр": "1,2" },
         { "№": 4, "Продукт": "Специя Масала", "Ingredient": "Spice Masala", "Шт/гр": "1,9" },
         { "№": 5, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "12" },
-        { "№": 6, "Продукт": "Лимонная кислота", "Ingredient": "Citric acid", "Шт/гр": "1,2" },
+        { "№": 6, "Продукт": "Лимонная кислота", "Ingredient": "Citric acid", "Шт/гр": "1,2" }
       ],
       "process": {
          "ru": "Яблоки очистить от кожи и семян, натереть на терке, добавить специи и перемешать, сок от яблок не сливать.",
         "en": "Peel the apples from skin and seeds, grate them, add spices and mix, do not drain the juice from the apples."
       }
     },
-
-
-    
     {
       "name": { 
         "ru": "ЯБЛОЧНЫЙ ПИРОГ", 
