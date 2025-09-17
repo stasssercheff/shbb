@@ -59,6 +59,269 @@
         "ru": "В кастрюеи с толстым дном (использовать кастрюлю с высокими стенками) положить: мед, сахар, масло и проварить на среднем огне до карамельного яркого цвета, добавить соль, соду, лимонный сок и варить постоянно мешая, до карамельного яркого цвета. Массу аккуратно переложить в дежу миксера, дать немного остыть, установить насадку лопость, ввести яйца , муку смешанную замешать тесто, готовое тесто переложить в миску припудренную мукой, накрыть в контакт и убрать в холодильник минимум на 4 часа, лучше на ночь.",
         "en": "Take a boilingpan with a thick bottom (use a saucepan with high walls) put: honey, sugar, butter and cook over medium heat until bright caramel color, add salt, soda, lemon juice and cook constantly stirring until bright caramel color. Carefully transfer the mass into the mixer bowl, let it cool slightly, install the paddle attachment, add eggs, mixed flour, knead the dough, transfer the finished dough into a bowl powdered with flour, cover in contact and put in the refrigerator for at least 4 hours, preferably overnight."
       }
+      
+      {
+  "recipes": [
+    {
+      "name": { "ru": "КАРТОШКА", "en": "KARTOSHKA" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "15" },
+        { "№": 2, "Продукт": "Печенье мария", "Ingredient": "Cookies Maria", "Шт/гр": "300" },
+        { "№": 3, "Продукт": "Какао", "Ingredient": "Cocoa", "Шт/гр": "100" },
+        { "№": 4, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "130" },
+        { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "150" },
+        { "№": 6, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "70" }
+      ],
+      "process": {
+        "ru": "Печенье перебить в крошку мелкую, смешать с какао. Остальные ингридиенты в сотейник и растворить помешивая ра медленном огне до однородности. растопить. Замешать хорошо (лучше лопаткой) остудить и разложить по формам по 50 гр.",
+        "en": "Beat the cookies into fine crumbs and mix with cocoa. Place the remaining ingredients in a saucepan and stir over low heat until smooth. melt. Mix well (preferably with a spatula), cool and pour into 50g molds."
+      }
+    },
+    {
+      "name": { "ru": "ЧИЗКЕЙК", "en": "CHEESECAKE" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "1" },
+        { "№": 2, "Продукт": "Кремчиз", "Ingredient": "Creamcheese", "Шт/гр": "800" },
+        { "№": 3, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "4" },
+        { "№": 4, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "250" },
+        { "№": 5, "Продукт": "Сливки", "Ingredient": "Sugar", "Шт/гр": "500" },
+        { "№": 6, "Продукт": "Мука", "Ingredient": "Butter", "Шт/гр": "50" }
+      ],
+      "process": {
+        "ru": "Перебить миксером  кремчиз до не плотного состояния без комочков, перебить яйца с сахаром(можно блендером) ввести в кремчиз. Дальше ввести в смесь сливки на низкой скорости(все перемешать) дальше муку. Потом все блендером до однородной консистенции. Разлить по формам со стенками из пергаметы (выше формы в 2 раза) Выпекать 40 минут при температуре 210 гр.",
+        "en": "Beat the cream cheese with a mixer until it is not dense without lumps, beat the eggs with sugar (you can use a blender) and add them to the cream cheese. Next, add the cream into the mixture at low speed (mix everything), then add the flour. Then blend everything until smooth. Pour into molds with parchment walls (2 times higher than the mold). Bake for 40 minutes at a temperature of 210 degrees."
+      }
+    },
+    {
+      "name": { "ru": "МЕДОВИК КОРЖИ", "en": "HONEY CAKE DAUGH" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "2,75" },
+        { "№": 2, "Продукт": "Яйцо(вес)", "Ingredient": "Egg(weight)", "Шт/гр": "220" },
+        { "№": 3, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "260" },
+        { "№": 4, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "260" },
+        { "№": 5, "Продукт": "Сода пищевая", "Ingredient": "Baking soda", "Шт/гр": "20" },
+        { "№": 6, "Продукт": "ПФ Сок лайма", "Ingredient": "Prep Lime juice", "Шт/гр": "20" },
+        { "№": 7, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "3" },
+        { "№": 8, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "250" },
+        { "№": 9, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "640" }
+      ],
+      "process": {
+        "ru": "В кастрюеи с толстым дном (использовать кастрюлю с высокими стенками) положить: мед, сахар, масло и проварить на среднем огне до карамельного яркого цвета, добавить соль, соду, лимонный сок и варить постоянно мешая, до карамельного яркого цвета. Массу аккуратно переложить в дежу миксера, дать немного остыть, установить насадку лопость, ввести яйца , муку смешанную замешать тесто, готовое тесто переложить в миску припудренную мукой, накрыть в контакт и убрать в холодильник минимум на 4 часа, лучше на ночь.",
+        "en": "Take a boilingpan with a thick bottom (use a saucepan with high walls) put: honey, sugar, butter and cook over medium heat until bright caramel color, add salt, soda, lemon juice and cook constantly stirring until bright caramel color. Carefully transfer the mass into the mixer bowl, let it cool slightly, install the paddle attachment, add eggs, mixed flour, knead the dough, transfer the finished dough into a bowl powdered with flour, cover in contact and put in the refrigerator for at least 4 hours, preferably overnight."
+      }
+    },
+    {
+      "name": { "ru": "МЕДОВИК КРЕМ", "en": "HONEY CAKE CREAM" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Йогурт", "Ingredient": "Yogurt", "Шт/гр": "340", "Описание": "Из сахара сделать сахную пудру,положить в дежу миксера, добавить сыр,мед, ваниль и взбить до однородного состояния, далее добавить Йогурт, соединить, добавить сливки и окончательно взбить крем", "Description": "Make powdered sugar from sugar, put it in a mixer bowl, add cheese, honey, vanilla and beat until smooth, then add yogurt, combine, add cream and finally beat the cream" },
+        { "№": 2, "Продукт": "Сахар(пудра)", "Ingredient": "Sugar (powdered)", "Шт/гр": "95" },
+        { "№": 3, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "70" },
+        { "№": 4, "Продукт": "Сыр Кремчиз", "Ingredient": "Cheese Creamcheese", "Шт/гр": "232" },
+        { "№": 5, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "2" },
+        { "№": 6, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "275" },
+        { "№": 7, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "1" }
+      ],
+      "process": {
+        "ru": "Из сахара сделать сахную пудру, положить в дежу миксера, добавить сыр, мед, ваниль и взбить до однородного состояния, далее добавить Йогурт, соединить, добавить сливки и окончательно взбить крем",
+        "en": "Make powdered sugar from sugar, put it in a mixer bowl, add cheese, honey, vanilla and beat until smooth, then add yogurt, combine, add cream and finally beat the cream"
+      }
+    },
+    {
+      "name": { "ru": "МЕДОВИК", "en": "HONEY CAKE" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Коржи медовик", "Ingredient": "Prep cake layers", "Шт/гр": "600", "Описание": "6 коржей прослоить шоколадным кремом ( крем на 1 слой 165гр), последний корж промазать кремом и выровнять ( для сборки использовать круглую форму со сьемным дном, и бортовую ленту) . торт убрать в холодильник для пропитки на 12 часов, перед покрытием торта гласажжем , торт поставить в морозилку на 30 минут. готовый торт нарезать острым ножом на 10 частей (резать горячим ножом, для этого нож смочивать в кипятке и вытерать )" },
+        { "№": 2, "Продукт": "ПФ Крем медовик", "Ingredient": "Prep Cream honey cake", "Шт/гр": "1000" },
+        { "№": 3, "Продукт": "ПФ струшка коржей", "Ingredient": "Prep shreded cake layers", "Шт/гр": "50" },
+        { "№": 4, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "1" }
+      ]
+    },
+    {
+      "name": { "ru": "ШОКОЛАДНЫЙ ТОРТ КОРЖЫ", "en": "CHOCOLATE CAKE DAUGH" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "220", "Описание": "С кастрюли с толстым дном ( использовать кастрюлю с высокими стенками) положить: мед, сахар, масло и проварить на среднем огне до карамельного яркого цвета, добавить соль, соду, лимонный сок и варить постоянно мешая, до карамельного яркого цвета. Массу аккуратно переложить в дежу миксера, дать немного остыть, установить насадку лопость, ввести яйца , муку смешанную с какао ( смешать и просеять через сито что бы не было комков) и замешать тесто, готовое тесто переложить в миску припудренную мукой, накрыть в контакт и убрать в холодильник минимум на 4 часа, лучше на ночь.", "Description": "From a saucepan with a thick bottom (use a saucepan with high sides) put: honey, sugar, butter and cook over medium heat until bright caramel color, add salt, soda, lemon juice and cook constantly stirring until bright caramel color. Carefully transfer the mass into the mixer bowl, let it cool slightly, install the paddle attachment, add eggs, flour mixed with cocoa (mix and sift through a sieve so that there are no lumps) and knead the dough, transfer the finished dough into a bowl powdered with flour, cover in contact and put in the refrigerator for at least 4 hours, preferably overnight." },
+        { "№": 2, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "260" },
+        { "№": 3, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "260" },
+        { "№": 4, "Продукт": "Сода пищевая", "Ingredient": "Baking soda", "Шт/гр": "20" },
+        { "№": 5, "Продукт": "ПФ Сок лайма", "Ingredient": "PF Lime juice", "Шт/гр": "20" },
+        { "№": 6, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "3" },
+        { "№": 7, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "250" },
+        { "№": 8, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "640" },
+        { "№": 9, "Продукт": "Какао", "Ingredient": "Cocoa", "Шт/гр": "80" },
+        { "№": 10, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "2,9" }
+      ]
+    }
+
+
+{
+  "recipes": [
+    {
+      "name": { "ru": "ШОКОЛАДНЫЙ ТОРТ КОРЖЫ", "en": "CHOCOLATE CAKE DAUGH" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "220", "Описание": "С кастрюли с толстым дном (использовать кастрюлю с высокими стенками) положить: мед, сахар, масло и проварить на среднем огне до карамельного яркого цвета, добавить соль, соду, лимонный сок и варить постоянно мешая, до карамельного яркого цвета. Массу аккуратно переложить в дежу миксера, дать немного остыть, установить насадку лопость, ввести яйца, муку смешанную с какао (смешать и просеять через сито чтобы не было комков) и замешать тесто, готовое тесто переложить в миску припудренную мукой, накрыть в контакт и убрать в холодильник минимум на 4 часа, лучше на ночь.", "Description": "From a saucepan with a thick bottom (use a saucepan with high sides) put: honey, sugar, butter and cook over medium heat until bright caramel color, add salt, soda, lemon juice and cook constantly stirring until bright caramel color. Carefully transfer the mass into the mixer bowl, let it cool slightly, install the paddle attachment, add eggs, flour mixed with cocoa (mix and sift through a sieve so that there are no lumps) and knead the dough, transfer the finished dough into a bowl powdered with flour, cover in contact and put in the refrigerator for at least 4 hours, preferably overnight." },
+        { "№": 2, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "260" },
+        { "№": 3, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "260" },
+        { "№": 4, "Продукт": "Сода пищевая", "Ingredient": "Baking soda", "Шт/гр": "20" },
+        { "№": 5, "Продукт": "ПФ Сок лайма", "Ingredient": "PF Lime juice", "Шт/гр": "20" },
+        { "№": 6, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "3" },
+        { "№": 7, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "250" },
+        { "№": 8, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "640" },
+        { "№": 9, "Продукт": "Какао", "Ingredient": "Cocoa", "Шт/гр": "80" },
+        { "№": 10, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "2,9" }
+      ]
+    },
+    {
+      "name": { "ru": "ШОКОЛАДНЫЙ ТОРТ КРЕМ", "en": "CHOCOLATE CAKE CREAM" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Йогурт", "Ingredient": "Yogurt", "Шт/гр": "247", "Описание": "Из сахара сделать сахарную пудру, положить в дежу миксера, добавить сыр, мед, ваниль и взбить до однородного состояния, далее добавить сметану, соединить, добавить сливки, перемешать и ввести растопленный черный шоколад и окончательно взбить крем.", "Description": "Make powdered sugar from sugar, put it in a mixer bowl, add cheese, honey, vanilla and beat until smooth, then add sour cream, combine, add cream, stir and add melted dark chocolate and beat the cream completely." },
+        { "№": 2, "Продукт": "Сахар(пудра)", "Ingredient": "Sugar (powdered)", "Шт/гр": "69" },
+        { "№": 3, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "51" },
+        { "№": 4, "Продукт": "Сыр Кремчиз", "Ingredient": "Cheese Creamcheese", "Шт/гр": "169" },
+        { "№": 5, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "1" },
+        { "№": 6, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "200" },
+        { "№": 7, "Продукт": "Шоколад темный", "Ingredient": "Dark chocolate", "Шт/гр": "272" },
+        { "№": 8, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "1" }
+      ]
+    },
+    {
+      "name": { "ru": "ШОКОЛАДНЫЙ ТОРТ ГЛОССАЖ", "en": "CHOCOLATE CAKE GLOSSAGE" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Желатин листовой", "Ingredient": "Leaf gelatin", "Шт/гр": "20", "Описание": "Желатин замочить в воде. В сотейнике смешать порошок какао, сливки, сахар, ром, довести до кипения постоянно помешивая, добавить желатин и сливочное масло перемешать венчиком до однородного состояния, процедить через мелкое сито дать остыть до 42-45 градусов, использовать для покрытия тортов торт должен быть хорошо охлажден, торт подморожен, чтобы покрытие сразу легло ровно и застыло.", "Description": "Soak gelatin in water. In a saucepan, mix cocoa powder, cream, sugar, rum, bring to a boil, stirring constantly, add gelatin and butter, mix with a whisk until smooth, strain through a fine sieve, let cool to 42-45 degrees, use to cover cakes; the cake should be well cooled and semi-frozen so the coating lays evenly and sets." },
+        { "№": 2, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "389" },
+        { "№": 3, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "60" },
+        { "№": 4, "Продукт": "Какао", "Ingredient": "Cocoa", "Шт/гр": "140" },
+        { "№": 5, "Продукт": "Ром", "Ingredient": "Rum", "Шт/гр": "112" },
+        { "№": 6, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "317" },
+        { "№": 7, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "2" }
+      ]
+    },
+    {
+      "name": { "ru": "ПЕЧЕНЬЕ С ШОКОЛАДОМ (80 ГР)", "en": "COOKIE WITH CHOCOLATE (80 GR)" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо", "Ingredient": "Egg", "Шт/гр": "1", "Описание": "Масло взбить с сахаром до пышности. Вбить яйцо и мёд, перемешать. В другой миске соединить муку, разрыхлитель, соль, овсянку (предварительно перебить блендером чтобы была мелкая фракция). Смешать сухие и влажные ингредиенты, добавить кусочки шоколада, перемешать. Сформировать шарики по 80 г, выложить через кольцо. Выпекать при 175 °C, 10–15 минут — вынуть, когда центр ещё мягкий. Остудить на решётке.", "Description": "Beat butter with sugar until fluffy. Beat in egg and honey, mix. In another bowl, combine flour, baking powder, salt, oatmeal (pre-blender until fluffy). Mix dry and wet ingredients, add chocolate pieces, mix. Form 80 g balls, place through a ring. Bake at 175 °C for 10-15 minutes - remove when the center is still soft. Cool on a rack." },
+        { "№": 2, "Продукт": "Овсяные хлопья", "Ingredient": "Oatmeal", "Шт/гр": "150" },
+        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "70" },
+        { "№": 4, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "15" },
+        { "№": 5, "Продукт": "Маргарин", "Ingredient": "Margarine", "Шт/гр": "100" },
+        { "№": 6, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" },
+        { "№": 7, "Продукт": "Сахар коричневый", "Ingredient": "Brown sugar", "Шт/гр": "100" },
+        { "№": 8, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "120" },
+        { "№": 9, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "25" },
+        { "№": 10, "Продукт": "Шоколад", "Ingredient": "Chocolate", "Шт/гр": "90" }
+      ]
+    }
+    
+    {
+  "recipes": [
+    {
+      "name": { "ru": "ПАВЛОВА БЕЗЕ (70 ГР)", "en": "PAVLOVA BASE (70 GR)" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо(белок)", "Ingredient": "Egg (whites)", "Шт/гр": "12", "Описание": "Яичный белок взбить с сахарной пудрой(сахар предварительно помололось в пудру и просеять через сито), солью и лимонной кислотой, взбиваем 10-15 минут, в конце вводим кукурузный крахмал, полученную массу отсаживаем из кондитерского мешка с насадкой большая звезда, длинной 6 см (3-3,5 оборота), на растоянии друг от друга, ставим сушить в духовку при 75-80 градусах, 1,5-2,5 часа конвекция 20-35. Массу отсадить на противни застеленные силиконовым ковриком и отпекать в духовке при 75-80 градусах 1,5-2,5 часа, готовые безе хранить в сухом месте в плотно закрытом контейнере.", "Description": "Whip the egg white with powdered sugar (pre-ground the sugar into powder and sift through a sieve), salt, and citric acid, beat for 10-15 minutes, at the end add corn starch, drop the resulting mass from a pastry bag with a large star nozzle, 6 cm long (3-3.5 turns), at a distance from each other, put in the oven to dry at 75-80 degrees, 1.5-2.5 hours convection 20-35. Drop the mass onto baking sheets covered with a silicone mat and bake in the oven at 75-80 degrees for 1.5-2.5 hours, store the finished meringues in a dry place in a tightly closed container." },
+        { "№": 2, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "590" },
+        { "№": 3, "Продукт": "Крахмал", "Ingredient": "Starch", "Шт/гр": "80" },
+        { "№": 4, "Продукт": "Лимонная кислота", "Ingredient": "Citric acid", "Шт/гр": "2" },
+        { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "6" }
+      ]
+    },
+    {
+      "name": { "ru": "ПАВЛОВА КРЕМ", "en": "PAVLOVA CREAM" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "120", "Описание": "Миксером перебить кремчиз до мягкого состояния без комочков, ввести остальные ингредиенты, взбивать до плотного состояния. После убрать в бокс.", "Description": "Beat the cream cheese with a mixer until soft and lump-free, add the remaining ingredients, beat until thick. Then put it in the box." },
+        { "№": 2, "Продукт": "ПФ вишневый конфитюр", "Ingredient": "Prep cherry jam", "Шт/гр": "70" },
+        { "№": 3, "Продукт": "Кремчиз", "Ingredient": "Creamcheese", "Шт/гр": "50" },
+        { "№": 4, "Продукт": "Краситель пищевой зел.", "Ingredient": "Food coloring green", "Шт/гр": "1" }
+      ]
+    },
+    {
+      "name": { "ru": "ПАВЛОВА", "en": "PAVLOVA" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Павлова безе", "Ingredient": "Prep Pavlova meringue", "Шт/гр": "70", "Описание": "Готовое безе смазать растопленым шоколадом, отсадить крем через кондитерский мешок с розочкой, поместить по центру ягоду.", "Description": "Grease the finished meringue with melted chocolate, pipe the cream through a pastry bag with a rose, and place a berry in the center." },
+        { "№": 2, "Продукт": "ПФ вишневый крем", "Ingredient": "Prep cherry cream", "Шт/гр": "60" },
+        { "№": 3, "Продукт": "Шоколад белый", "Ingredient": "Chocolate white", "Шт/гр": "10" },
+        { "№": 4, "Продукт": "Черешня", "Ingredient": "Cherries", "Шт/гр": "10" }
+      ]
+    },
+    {
+      "name": { "ru": "ВИШНЕВЫЙ КОНФИТЮР", "en": "CHERRY JAM" },
+      "key": "Шт/гр",
+      "ingredients": [
+        { "№": 1, "Продукт": "Вишня С/М", "Ingredient": "Cherry frozen", "Шт/гр": "500", "Описание": "Поместить все ингредиенты кроме крахмала в кастрюлю, проварить, пробить блендером, добавить крахмал, пробить блендером. Дать немного остыть, расфасовать по вакуумным пакетам.", "Description": "Place all ingredients except starch in a saucepan, boil, blend, add starch, blend. Let cool slightly, pack into vacuum bags." },
+        { "№": 2, "Продукт": "Глюкоза", "Ingredient": "Glucose", "Шт/гр": "45" },
+        { "№": 3, "Продукт": "Лимонная кислота", "Ingredient": "Citric acid", "Шт/гр": "4" },
+        { "№": 4, "Продукт": "Крахмал", "Ingredient": "Starch", "Шт/гр": "30" },
+        { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "220" }
+      ]
+    }
+{
+  "recipes": [
+    {
+      "name": { "ru": "ПЕЧЕНЬЕ КОМПЛИМЕНТ", "en": "COOKIE COMPLIMENT" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Яйцо(вес)", "Ingredient": "Egg", "Шт/гр": "300", "Описание": "В дежу для миксера просеять муку, соду, и сахарную пудру, мелкую соль, добавить холодное сливочное масло и произвести замес теста до состояния крошки, далее ввести яичные желтки, замесить однородное песочное тесто, разделить на части, завернуть в пленку и убрать на холод на 30-40 минут.", "Description": "In a mixer bowl, sift flour, baking soda, and powdered sugar, add fine salt, cold butter and knead the dough until crumbly, then add egg yolks, knead a homogeneous shortcrust pastry, divide into portions, wrap in film and refrigerate for 30-40 minutes." },
+        { "№": 2, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "70" },
+        { "№": 3, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "250" },
+        { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "6" },
+        { "№": 5, "Продукт": "Сода пищевая", "Ingredient": "Baking soda", "Шт/гр": "5" },
+        { "№": 6, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "600" }
+      ]
+    },
+    {
+      "name": { "ru": "СОЛЕНАЯ КАРАМЕЛЬ", "en": "SALTED CARAMEL" },
+      "key": "Гр.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "2100", "Описание": "Сахар карамелизовать, добавить сироп глюкозы, и горячие сливки уварить, дать остыть до 55-40 градусов и ввести соль и сливочное масло.", "Description": "Caramelize the sugar, add glucose syrup, boil the hot cream, let cool to 55-40 degrees and add salt and butter." },
+        { "№": 2, "Продукт": "Глюкоза", "Ingredient": "Glucose", "Шт/гр": "765" },
+        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "450" },
+        { "№": 4, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "345" },
+        { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "24" },
+        { "№": 6, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "180" }
+      ]
+    },
+    {
+      "name": { "ru": "ЯБЛОЧНЫЙ ПИРОГ", "en": "APPLE PIE" },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ Мучная смесь яблочный", "Ingredient": "Prep Apple flour mixture", "Шт/гр": "600", "Описание": "В форму слоями выкладывать по очереди: мучная смесь-начинка по 6 слоев, сверху натереть масло. Далее поставить отпекаться при 180 градусах, конвекция 10, 80-95 минут. Далее ещё 15 минут с конвекцией 35, чтобы появилась красивая корочка.", "Description": "Put the following layers in the form: flour mixture-filling in 6 layers, grate butter on top. Then bake at 180 degrees, convection for 10, 80-95 minutes. Then another 15 minutes with convection for 35, so that a beautiful crust appears." },
+        { "№": 2, "Продукт": "ПФ начинка яблочный", "Ingredient": "Prep apple filling", "Шт/гр": "1100" },
+        { "№": 3, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "210" }
+      ]
+    },
+    {
+      "name": { "ru": "ЯБЛОЧНЫЙ ПИРОГ (ФИНАЛ)", "en": "APPLE PIE (FINAL)" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "ПФ яблочный пирог", "Ingredient": "Prep apple pie", "Шт/гр": "120", "Описание": "Нарезанный пирог обернуть оплеткой каждый кусок. Отсадить взбитую карамель через кондитерский мешок с розочкой. Сверху положить целый орех фундук.", "Description": "Wrap each piece of sliced pie with braid. Pipe whipped caramel through a pastry bag with a rose. Put a whole hazelnut on top." },
+        { "№": 2, "Продукт": "ПФ соленая карамель", "Ingredient": "Prep salted caramel", "Шт/гр": "35" },
+        { "№": 3, "Продукт": "Орех фундук", "Ingredient": "Hazelnut", "Шт/гр": "3" }
+      ]
+    },
+    {
+      "name": { "ru": "БРАУНИ", "en": "BROWNIE" },
+      "key": "Шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "156", "Описание": "Сливочное масло и черный шоколад растопить на водяной бане до однородного состояния, остудить до комнатной температуры. Яйцо взбить 15 минут с двумя видами сахара до густоты, снизить скорость и влить шоколадную смесь, добавить соль и ванильный экстракт, постепенно ввести муку (предварительно просеять), в конце ввести рубленный молочный шоколад, перемешать и разложить по формочкам, выпекать при температуре 180 градусов 15 минут (конвекция убавить на двойку), дать остыть и вытащить из форм и остудить полностью.", "Description": "Melt butter and dark chocolate in a water bath until smooth, cool to room temperature. Beat the egg for 15 minutes with two types of sugar until thick, reduce speed and pour in the chocolate mixture, add salt and vanilla extract, gradually add sifted flour, finally add chopped milk chocolate, mix and put into molds, bake at 180 degrees for 15 minutes, reduce convection, let cool and remove from molds completely." },
+        { "№": 2, "Продукт": "Шоколад темный", "Ingredient": "Dark chocolate", "Шт/гр": "400" },
+        { "№": 3, "Продукт": "Яйцо(вес)", "Ingredient": "Egg", "Шт/гр": "204" },
+        { "№": 4, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "240" },
+        { "№": 5, "Продукт": "Какао", "Ingredient": "Cocoa", "Шт/гр": "60" },
+        { "№": 6, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
+        { "№": 7, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "5" },
+        { "№": 8, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "125" },
+        { "№": 9, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "10" }
+      ]
     }
   ]
 }
