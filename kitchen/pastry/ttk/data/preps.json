@@ -37,6 +37,28 @@
         "ru": "Перебить миксером  кремчиз до не плотного состояния без комочков, перебить яйца с сахаром(можно блендером) ввести в кремчиз. Дальше ввести в смесь сливки на низкой скорости(все перемешать) дальше муку. Потом все блендером до однородной консистенции. Разлить по формам со стенками из пергаметы (выше формы в 2 раза) Выпекать 40 минут при температуре 210 гр.",
         "en": "Beat the cookies into fine crumbs and mix with cocoa. Place the remaining ingredients in a saucepan and stir over low heat until smooth. melt. Mix well (preferably with a spatula), cool and pour into 50g molds.Beat the cream cheese with a mixer until it is not dense without lumps, beat the eggs with sugar (you can use a blender) and add them to the cream cheese. Next, add the cream into the mixture at low speed (mix everything), then add the flour. Then blend everything until smooth. Pour into molds with parchment walls (2 times higher than the mold). Bake for 40 minutes at a temperature of 210 degrees."
       }
+    },
+    {
+      "name": {
+        "ru": "МЕДОВИК КОРЖИ",
+        "en": "HONEY CAKE DAUGH"
+      },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "2,75" },
+        { "№": 2, "Продукт": "Яйцо(вес)", "Ingredient": "Egg(weight)", "Шт/гр": "220" },
+        { "№": 3, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "260" },
+        { "№": 4, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "260" },
+        { "№": 5, "Продукт": "Сода пищевая", "Ingredient": "Baking soda", "Шт/гр": "20" },
+        { "№": 6, "Продукт": "ПФ Сок лайма", "Ingredient": "Prep Lime juice", "Шт/гр": "20" },
+        { "№": 7, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "3" },
+        { "№": 8, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "250" },
+        { "№": 9, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "640" }
+      ],
+      "process": {
+        "ru": "В кастрюеи с толстым дном (использовать кастрюлю с высокими стенками) положить: мед, сахар, масло и проварить на среднем огне до карамельного яркого цвета, добавить соль, соду, лимонный сок и варить постоянно мешая, до карамельного яркого цвета. Массу аккуратно переложить в дежу миксера, дать немного остыть, установить насадку лопость, ввести яйца , муку смешанную замешать тесто, готовое тесто переложить в миску припудренную мукой, накрыть в контакт и убрать в холодильник минимум на 4 часа, лучше на ночь.",
+        "en": "Take a boilingpan with a thick bottom (use a saucepan with high walls) put: honey, sugar, butter and cook over medium heat until bright caramel color, add salt, soda, lemon juice and cook constantly stirring until bright caramel color. Carefully transfer the mass into the mixer bowl, let it cool slightly, install the paddle attachment, add eggs, mixed flour, knead the dough, transfer the finished dough into a bowl powdered with flour, cover in contact and put in the refrigerator for at least 4 hours, preferably overnight."
+      }
     }
   ]
 }
