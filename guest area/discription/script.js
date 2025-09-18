@@ -18,12 +18,17 @@ function createTable(sectionArray) {
   // Шапка таблицы
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
-  ['№', currentLang === 'ru' ? 'Ингредиент' : 'Ingredient', currentLang === 'ru' ? 'Гр/Шт' : 'Amount', currentLang === 'ru' ? 'Описание' : 'Description', currentLang === 'ru' ? 'Фото' : 'Photo']
-    .forEach(text => {
-      const th = document.createElement('th');
-      th.textContent = text;
-      headerRow.appendChild(th);
-    });
+  [
+    currentLang === 'ru' ? 'Блюдо' : 'Dish',
+    currentLang === 'ru' ? 'Ингредиенты' : 'Ingredients',
+    currentLang === 'ru' ? 'Выход (гр.)' : 'Amount (g)',
+    currentLang === 'ru' ? 'Описание' : 'Description',
+    currentLang === 'ru' ? 'Фото' : 'Photo'
+  ].forEach(text => {
+    const th = document.createElement('th');
+    th.textContent = text;
+    headerRow.appendChild(th);
+  });
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
@@ -31,57 +36,50 @@ function createTable(sectionArray) {
   const tbody = document.createElement('tbody');
 
   sectionArray.forEach(dish => {
+    const tr = document.createElement('tr');
+
     // Название блюда
-    const dishRow = document.createElement('tr');
-    const tdDish = document.createElement('td');
-    tdDish.colSpan = 5;
-    tdDish.style.fontWeight = '600';
-    tdDish.textContent = dish.name[currentLang];
-    dishRow.appendChild(tdDish);
-    tbody.appendChild(dishRow);
+    const tdName = document.createElement('td');
+    tdName.textContent = dish.name[currentLang];
+    tdName.style.fontWeight = '600';
 
-    // Ингредиенты и описание
-    const descText = dish.process[currentLang] || '';
-    const ingCount = dish.ingredients.length;
-
-    dish.ingredients.forEach((ing, i) => {
-      const tr = document.createElement('tr');
-
-      const tdNum = document.createElement('td');
-      tdNum.textContent = i + 1;
-
-      const tdName = document.createElement('td');
-      tdName.textContent = ing[currentLang];
-
-      const tdAmount = document.createElement('td');
-      tdAmount.textContent = ing.amount || '';
-
-      const tdDesc = document.createElement('td');
-      if (i === 0) {
-        tdDesc.textContent = descText;
-        tdDesc.rowSpan = ingCount;
-      }
-
-      const tdPhoto = document.createElement('td');
-      if (i === 0 && dish.photo) {
-        const img = document.createElement('img');
-        img.src = dish.photo;
-        img.alt = dish.name[currentLang];
-        img.className = 'dish-photo';
-        img.style.width = '80px'; // миниатюра
-        img.style.cursor = 'pointer';
-        tdPhoto.appendChild(img);
-        tdPhoto.rowSpan = ingCount;
-      }
-
-      tr.appendChild(tdNum);
-      tr.appendChild(tdName);
-      tr.appendChild(tdAmount);
-      if (i === 0) tr.appendChild(tdDesc);
-      tr.appendChild(tdPhoto);
-
-      tbody.appendChild(tr);
+    // Ингредиенты (списком)
+    const tdIngr = document.createElement('td');
+    const ul = document.createElement('ul');
+    dish.ingredients.forEach(ing => {
+      const li = document.createElement('li');
+      li.textContent = ing[currentLang];
+      ul.appendChild(li);
     });
+    tdIngr.appendChild(ul);
+
+    // Amount (выход)
+    const tdAmount = document.createElement('td');
+    tdAmount.textContent = dish.amount || '';
+
+    // Описание
+    const tdDesc = document.createElement('td');
+    tdDesc.textContent = dish.process[currentLang] || '';
+
+    // Фото
+    const tdPhoto = document.createElement('td');
+    if (dish.photo) {
+      const img = document.createElement('img');
+      img.src = dish.photo;
+      img.alt = dish.name[currentLang];
+      img.className = 'dish-photo';
+      img.style.maxWidth = '120px';
+      img.style.cursor = 'pointer';
+      tdPhoto.appendChild(img);
+    }
+
+    tr.appendChild(tdName);
+    tr.appendChild(tdIngr);
+    tr.appendChild(tdAmount);
+    tr.appendChild(tdDesc);
+    tr.appendChild(tdPhoto);
+
+    tbody.appendChild(tr);
   });
 
   table.appendChild(tbody);
