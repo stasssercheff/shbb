@@ -13,13 +13,12 @@ body {
   overflow-x: hidden; /* убираем горизонтальный скролл */
 }
 
-/* Хедер с кнопками языка по центру */
+/* Хедер — два ряда */
 .page-header {
   display: flex;
-  justify-content: center;
-  align-items: center;     
-  padding: 10px 20px;
+  flex-direction: column;
   gap: 10px;
+  padding: 10px 5%;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -27,22 +26,42 @@ body {
   z-index: 10;
 }
 
-/* Кнопки шапки и навигации */
-.top-btn, .lang-btn, .nav-btn {
-  padding: 8px 16px;
-  background-color: #d8cfc0;
-  color: #333;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.2s;
+/* Ряды внутри хедера */
+.lang-switch,
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.top-btn:hover, .lang-btn:hover, .nav-btn:hover {
+/* Кнопки внутри рядов */
+.lang-switch button,
+.nav-buttons button {
+  flex: 1;
+  max-width: 48%;
+  min-width: 100px;
+  padding: 12px 0;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #d8cfc0;
+  color: #333;
+  text-align: center;
+}
+
+.lang-switch button:hover,
+.nav-buttons button:hover {
   background-color: #c1b29a;
 }
+
+.table-container {
+  max-width: 1200px;
+  margin: 10px auto;
+  padding: 5px 10px;
+  min-height: 200px;
+}
+
 /* Основной контейнер */
 .main-container {
   width: 100%;
