@@ -15,7 +15,7 @@
     "photo": "photos/soup pumpkin.png"
   },
   {
-    "name": { "ru": "Куп брокколи", "en": "Broccoli Soup" },
+    "name": { "ru": "Суп брокколи", "en": "Broccoli Soup" },
     "ingredients": [
       { "ru": "ПФ Суп брокколи", "en": "Prep broccoli Soup", "amount": "300" },
       { "ru": "Сыр пармезан", "en": "Parmesan cheese", "amount": "20" },
