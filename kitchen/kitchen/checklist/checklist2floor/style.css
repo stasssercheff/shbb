@@ -82,21 +82,25 @@ select {
   align-items: center;
   margin: 12px 0;
   font-size: 38px;
-  flex-wrap: wrap;
+  gap: 20px;        /* расстояние между названием и селектором */
 }
 
-/* Универсальные поля ввода и селекторы */
+.dish .check-label {
+  flex: 1;          /* название занимает всё место слева */
+  margin: 0;
+}
+
 input[type="number"],
 select.qty {
-  width: 100%;
-  min-height: 80px;      /* высота примерно как текст */
-  font-size: 36px;       /* размер текста как в списке */
-  padding: 16px 20px;    /* внутренние отступы для удобства */
+  flex: 0 0 120px;  /* фиксированная ширина под 3 цифры */
+  min-height: 80px;
+  font-size: 36px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
   text-align: center;
-  margin-top: 10px;
+  margin: 0;
 }
 
 /* Для селекторов — чтобы опции тоже были крупные */
