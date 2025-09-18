@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТТК Блюда</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="page-header">
+  <div class="lang-switch">
+    <button onclick="switchLanguage('ru')">RU</button>
+    <button onclick="switchLanguage('en')">EN</button>
+  </div>
+  <div class="nav-buttons">
+    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+    <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+  </div>
+</header>
+
+<main class="main-container">
+  <div id="current-date" class="date-container"></div>
+  <div class="sections-container">
+    <div class="section">
+      <button class="section-btn" data-section="breakfast">Блюда</button>
+      <div class="section-panel" id="breakfast"></div>
+    </div>
+    <div class="section">
+      <button class="section-btn" data-section="soup">Десерты</button>
+      <div class="section-panel" id="soup"></div>
+    </div>
+    <div class="section">
+      <button class="section-btn" data-section="salad">Хлеб</button>
+      <div class="section-panel" id="salad"></div>
+    </div>
+    <div class="section">
+      <button class="section-btn" data-section="main">Булки</button>
+      <div class="section-panel" id="main"></div>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
