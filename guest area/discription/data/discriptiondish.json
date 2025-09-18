@@ -58,11 +58,11 @@
       { "ru": "Помидор черри", "en": "Cherry tomato" },
       { "ru": "Микс салат", "en": "Salad mix" },
       { "ru": "Оливковое масло", "en": "Olive oil" },
-      { "ru": "Риет из форели (50 гр)", "en": "Trout riet (50g)" }
+      { "ru": "Риет из форели (50 гр)", "en": "Trout rillettes (50g)" }
     ],
     "amount": "540",
     "process": {
-      "ru": "В центре тарелки скрембол, по кругу выкладывается риет, тостовый хлеб и овощи на подложке из микса салатов.",
+      "ru": "В центре тарелки скрембл, по кругу выкладывается риет, тостовый хлеб и овощи на подложке из микса салатов.",
       "en": "Place the scramble in the center of the plate, surround with trout rillettes, toast, and vegetables on a bed of salad mix."
     },
     "photo": "kitchen/kitchen/ttk/dishes/photos/scramble.png"
@@ -85,398 +85,393 @@
       "en": "Place 2 slices of rye ciabatta on a plate. Spread tartar sauce on each slice, then add spinach. Top with lightly salted trout and a poached egg. Pour Hollandaise sauce over the egg. Serve with salad mix on the side and garnish sauce with microgreens."
     },
     "photo": "kitchen/kitchen/ttk/dishes/photos/benedict.png"
+  },
+  {
+    "name": { "ru": "Сырники", "en": "Syrniki" },
+    "ingredients": [
+      { "ru": "Сырники (3 шт.)", "en": "Syrniki (3 pcs)" },
+      { "ru": "Клубника", "en": "Strawberry" },
+      { "ru": "Йогурт", "en": "Yogurt" },
+      { "ru": "Мед", "en": "Honey" },
+      { "ru": "Соус вишневый", "en": "Cherry sauce" },
+      { "ru": "Мята", "en": "Mint" },
+      { "ru": "Сахарная пудра", "en": "Powdered sugar" }
+    ],
+    "amount": "290",
+    "process": {
+      "ru": "Сырники домашнего производства с клубникой, йогуртом, медом и ягодным соусом собственного производства.",
+      "en": "Homemade syrniki served with strawberries, yogurt, honey, and homemade berry sauce."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/syrniki.png"
+  },
+  {
+    "name": { "ru": "Глазунья с красной рыбой", "en": "Sunny Fried Egg with Red Fish" },
+    "ingredients": [
+      { "ru": "Глазунья (2 яйца)", "en": "Sunny fried eggs (2)" },
+      { "ru": "Руккола", "en": "Arugula" },
+      { "ru": "Огурец", "en": "Cucumber" },
+      { "ru": "Томат черри", "en": "Cherry tomato" },
+      { "ru": "Чиабатта", "en": "Ciabatta" },
+      { "ru": "Кремчиз", "en": "Cream cheese" },
+      { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)" }
+    ],
+    "amount": "270",
+    "process": {
+      "ru": "Глазунья из 2 яиц, руккола с огурцом, брускетта с кремчизом, томатами черри и форелью слабой соли.",
+      "en": "Two fried eggs served with arugula and cucumber, ciabatta with cream cheese, cherry tomatoes, and lightly salted trout."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/sunfried_eggs.png"
+  },
+  {
+    "name": { "ru": "Каша Дружба", "en": "Porridge Druzhba" },
+    "ingredients": [
+      { "ru": "Пшено", "en": "Millet" },
+      { "ru": "Рис", "en": "Rice" },
+      { "ru": "Молоко", "en": "Milk" },
+      { "ru": "Сахар", "en": "Sugar" },
+      { "ru": "Соль", "en": "Salt" },
+      { "ru": "Клубника", "en": "Strawberry" }
+    ],
+    "amount": "330",
+    "process": {
+      "ru": "Каша из риса и пшена на коровьем молоке с ягодами (клубника).",
+      "en": "Porridge made from rice and millet in cow's milk with strawberries."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/porridge.png"
+  },
+  {
+    "name": { "ru": "Овощной салат", "en": "Vegetable Salad" },
+    "ingredients": [
+      { "ru": "Огурец", "en": "Cucumber" },
+      { "ru": "Помидоры черри", "en": "Cherry tomatoes" },
+      { "ru": "Перец болгарский", "en": "Bell pepper" },
+      { "ru": "Редис", "en": "Radish" },
+      { "ru": "Соус на основе йогурта с укропом и чесноком", "en": "Yogurt-dill-garlic dressing" },
+      { "ru": "Микрозелень", "en": "Microgreens" }
+    ],
+    "amount": "220",
+    "process": {
+      "ru": "Все овощи нарезаются, замешиваются с соусом и выкладываются на тарелку. На украшение идет микрозелень.",
+      "en": "Chop all vegetables, mix with dressing, and place on a plate. Garnish with microgreens."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/vegetable_salad.png"
+  },
+  {
+    "name": { "ru": "Теплый салат с печенью", "en": "Warm Liver Salad" },
+    "ingredients": [
+      { "ru": "Печень (120 гр готовая)", "en": "Liver (120g cooked)" },
+      { "ru": "Клубника", "en": "Strawberry" },
+      { "ru": "Салат микс", "en": "Salad mix" },
+      { "ru": "Сегменты апельсина", "en": "Orange segments" },
+      { "ru": "Цитрусовая заправка", "en": "Citrus dressing" },
+      { "ru": "Соус бальзамик", "en": "Balsamic sauce" }
+    ],
+    "amount": "280",
+    "process": {
+      "ru": "В тарелку выкладывается микс салатов с рукколой. Поверх выкладываются нарезанные сегменты апельсина и свежая клубника. Далее салат поливается цитрусовой заправкой. Обжаренная печень глазируется соусом бальзамик и выкладывается в тарелку на листья салата. Сверху поливается соус бальзамик.",
+      "en": "Place salad mix with arugula on a plate. Top with orange segments and fresh strawberries. Pour citrus dressing over the salad. Pan-seared liver glazed with balsamic sauce is placed on the salad leaves. Drizzle balsamic sauce on top."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/liver_salad.png"
+  },
+  {
+    "name": { "ru": "Салат с осьминогом", "en": "Octopus Salad" },
+    "ingredients": [
+      { "ru": "Микс салатов", "en": "Salad mix" },
+      { "ru": "Томаты черри", "en": "Cherry tomatoes" },
+      { "ru": "Обжаренный картофель стоун", "en": "Stone-fried potatoes" },
+      { "ru": "Осьминог обжаренный", "en": "Fried octopus" },
+      { "ru": "Соус на основе не острого чили", "en": "Mild chili-based sauce" },
+      { "ru": "Бальзамический крем", "en": "Balsamic cream" }
+    ],
+    "amount": "280",
+    "process": {
+      "ru": "В тарелку выкладывается микс салатов. Поверх выкладываются нарезанные томаты черри, обжаренный картофель и осьминог, глазированный в соусе. Заправка на основе бальзамического крема.",
+      "en": "Place salad mix on a plate. Top with cherry tomatoes, fried potatoes, and octopus glazed in sauce. Dress with balsamic cream."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/octopus.png"
+  },
+  {
+    "name": { "ru": "Салат с креветками", "en": "Shrimp Prawns Salad" },
+    "ingredients": [
+      { "ru": "Руккола", "en": "Arugula" },
+      { "ru": "Креветки (80 гр. сырые)", "en": "Shrimps (80g raw)" },
+      { "ru": "Чеснок", "en": "Garlic" },
+      { "ru": "Пармезан", "en": "Parmesan" },
+      { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes" },
+      { "ru": "Бальзамик соус", "en": "Balsamic sauce" },
+      { "ru": "Соус винегрет", "en": "Vinaigrette" }
+    ],
+    "amount": "210",
+    "process": {
+      "ru": "Жареные с чесноком креветки на подушке из рукколы с добавлением темных черри томатов и пармезана. Подается под соусом винегрет и бальзамиком.",
+      "en": "Garlic-fried shrimps served on a bed of arugula with dark cherry tomatoes and Parmesan. Served with vinaigrette and balsamic sauce."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/prawn_salad.png"
+  },
+  {
+    "name": { "ru": "Тартар", "en": "Tartar" },
+    "ingredients": [
+      { "ru": "Говядина (100 гр.)", "en": "Beef (100g)" },
+      { "ru": "Каперс", "en": "Capers" },
+      { "ru": "Яйцо (желток)", "en": "Egg yolk" },
+      { "ru": "Оливковое масло", "en": "Olive oil" },
+      { "ru": "Специи", "en": "Spices" },
+      { "ru": "Сыр пармезан", "en": "Parmesan" },
+      { "ru": "Руккола", "en": "Arugula" },
+      { "ru": "Бородинский хлеб", "en": "Borodinsky bread" }
+    ],
+    "amount": "260",
+    "process": {
+      "ru": "Говядина замешивается со специями, пармезаном, каперсами и оливковым маслом. Выкладывается на тарелку, поверх идет желток куриного яйца. Декорируется рукколой и гренками из бородинского хлеба. Сверху посыпается пармезаном.",
+      "en": "Beef is mixed with spices, Parmesan, capers, and olive oil. Placed on a plate topped with egg yolk. Garnished with arugula and Borodinsky bread croutons. Sprinkle Parmesan on top."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/tartar.png"
+  },
+  {
+    "name": { "ru": "Жюльен", "en": "Julien" },
+    "ingredients": [
+      { "ru": "Шампиньоны", "en": "Mushrooms" },
+      { "ru": "Куриная грудка", "en": "Chicken breast" },
+      { "ru": "Сливки", "en": "Cream" },
+      { "ru": "Мука", "en": "Flour" },
+      { "ru": "Чиабатта", "en": "Ciabatta" },
+      { "ru": "Сыр моцарелла", "en": "Mozzarella" },
+      { "ru": "Сыр пармезан", "en": "Parmesan" }
+    ],
+    "amount": "150",
+    "process": {
+      "ru": "Жюльен на основе шампиньонов, сливок и куриной грудки подается под плавленной шапкой из пармезана с гренками из чиабатты. Присыпается сыром пармезан.",
+      "en": "Julien made from mushrooms, cream, and chicken breast served under a melted Parmesan topping with ciabatta croutons. Sprinkled with Parmesan cheese."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/julien.png"
+  },
+  {
+    "name": { "ru": "Тыквенный суп", "en": "Pumpkin Soup" },
+    "ingredients": [
+      { "ru": "Тыква", "en": "Pumpkin" },
+      { "ru": "Мед", "en": "Honey" },
+      { "ru": "Специи", "en": "Spices" },
+      { "ru": "Сливки", "en": "Cream" },
+      { "ru": "Тыквенные семечки", "en": "Pumpkin seeds" },
+      { "ru": "Соус песто (базилик, масло, чеснок)", "en": "Pesto sauce (basil, oil, garlic)" },
+      { "ru": "Микрозелень", "en": "Microgreens" }
+    ],
+    "amount": "310",
+    "process": {
+      "ru": "Тыквенный крем-суп украшается соусом песто, сливками, микрозеленью и тыквенными семечками.",
+      "en": "Pumpkin cream soup is decorated with pesto sauce, cream, microgreens, and pumpkin seeds."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/soup_pumpkin.png"
+  },
+  {
+    "name": { "ru": "Крем-суп брокколи", "en": "Broccoli Cream Soup" },
+    "ingredients": [
+      { "ru": "Брокколи", "en": "Broccoli" },
+      { "ru": "Сливки", "en": "Cream" },
+      { "ru": "Специи", "en": "Spices" },
+      { "ru": "Картофель", "en": "Potato" },
+      { "ru": "Гренка чиабатта", "en": "Ciabatta crouton" },
+      { "ru": "Пармезан", "en": "Parmesan" }
+    ],
+    "amount": "300",
+    "process": {
+      "ru": "Кремсуп из брокколи подается с пармезаном и гренкой из чиабатты, запеченной с пармезаном.",
+      "en": "Broccoli cream soup is served with Parmesan and a ciabatta crouton baked with Parmesan."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/soup_broccoli.png"
+  },
+  {
+    "name": { "ru": "Рататуй", "en": "Ratatouille" },
+    "ingredients": [
+      { "ru": "Баклажан", "en": "Eggplant" },
+      { "ru": "Цукини", "en": "Zucchini" },
+      { "ru": "Морковь", "en": "Carrot" },
+      { "ru": "Тыква", "en": "Pumpkin" },
+      { "ru": "Перец болгарский", "en": "Bell pepper" },
+      { "ru": "Соус песто (базилик, орех кешью, растительное масло)", "en": "Pesto sauce (basil, cashew, vegetable oil)" },
+      { "ru": "Сыр пармезан", "en": "Parmesan" },
+      { "ru": "Микрозелень", "en": "Microgreens" },
+      { "ru": "Хлеб бородинский", "en": "Borodinsky bread" }
+    ],
+    "amount": "270",
+    "process": {
+      "ru": "Овощи замешиваются с соусом песто. Выкладываются на тарелку, присыпаются пармезаном. Пармезан обжигается до состояния корочки. Декорируется гренками из бородинского хлеба и микрозеленью.",
+      "en": "Vegetables are mixed with pesto sauce, placed on a plate, and sprinkled with Parmesan. Parmesan is torched to form a crust. Garnished with Borodinsky bread croutons and microgreens."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/ratatouille.png"
+  },
+  {
+    "name": { "ru": "Куриная грудка гриль", "en": "Grilled Chicken Breast" },
+    "ingredients": [
+      { "ru": "Куриная грудка (125 гр готовая)", "en": "Chicken breast (125g cooked)" },
+      { "ru": "Цукини", "en": "Zucchini" },
+      { "ru": "Перец болгарский", "en": "Bell pepper" },
+      { "ru": "Помидоры черри", "en": "Cherry tomatoes" },
+      { "ru": "Соус из печеного болгарского перца", "en": "Roasted bell pepper sauce" },
+      { "ru": "Чеснок", "en": "Garlic" },
+      { "ru": "Розмарин", "en": "Rosemary" }
+    ],
+    "amount": "330",
+    "process": {
+      "ru": "Цукини нарезаются пластинками и готовятся на гриле. Куриная грудка обжаривается на гриле. В центр тарелки выкладывается соус из печеного болгарского перца. Сверху кладется цукини, а поверх грудки нарезанная куриная грудка. Декор - микрозелень.",
+      "en": "Zucchini sliced and grilled. Chicken breast grilled. Place roasted bell pepper sauce in the center of the plate, layer zucchini, then chicken slices on top. Decorate with microgreens."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/chicken.png"
+  },
+  {
+    "name": { "ru": "Паста с уткой и горгонзолой", "en": "Duck Pasta with Gorgonzola" },
+    "ingredients": [
+      { "ru": "Паста (лингвини)", "en": "Pasta (linguini)" },
+      { "ru": "Утка томленая", "en": "Braised duck" },
+      { "ru": "Сливки", "en": "Cream" },
+      { "ru": "Голубой сыр горгонзола", "en": "Gorgonzola blue cheese" },
+      { "ru": "Сыр пармезан", "en": "Parmesan" },
+      { "ru": "Микрозелень", "en": "Microgreens" }
+    ],
+    "amount": "330",
+    "process": {
+      "ru": "Томленая утка смешивается со сливками и голубым сыром горгонзола. Отваренная паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, декор - микрозелень.",
+      "en": "Braised duck mixed with cream and Gorgonzola cheese. Cooked pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and decorate with microgreens."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/pasta_duck.png"
+  },
+  {
+    "name": { "ru": "Паста с креветками", "en": "Pasta with Shrimps" },
+    "ingredients": [
+      { "ru": "Паста (лингвини)", "en": "Pasta (linguini)" },
+      { "ru": "Креветки", "en": "Shrimps" },
+      { "ru": "Масло сливочное", "en": "Butter" },
+      { "ru": "Специи", "en": "Spices" },
+      { "ru": "Чеснок", "en": "Garlic" },
+      { "ru": "Соус биск", "en": "Bisque sauce" },
+      { "ru": "Сыр пармезан", "en": "Parmesan" },
+      { "ru": "Тимьян", "en": "Thyme" }
+    ],
+    "amount": "270",
+    "process": {
+      "ru": "Обжаренные с чесноком креветки смешиваются с соусом биск и загущаются сливочным маслом. Паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, украшается ветками тимьяна.",
+      "en": "Garlic-fried shrimps mixed with bisque sauce and thickened with butter. Pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and garnish with thyme sprigs."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/pasta_shrimps.png"
+  },
+  {
+    "name": { "ru": "Стейк форели", "en": "Trout Steak" },
+    "ingredients": [
+      { "ru": "Форель (130 гр готовая)", "en": "Trout (130g cooked)" },
+      { "ru": "Молодая стручковая фасоль (60 гр)", "en": "Young green beans (60g)" },
+      { "ru": "Брокколи (40 гр)", "en": "Broccoli (40g)" },
+      { "ru": "Чеснок", "en": "Garlic" },
+      { "ru": "Маракуйевый соус", "en": "Passion fruit sauce" },
+      { "ru": "Тимьян", "en": "Thyme" }
+    ],
+    "amount": "270",
+    "process": {
+      "ru": "Молодая фасоль обжаривается с чесноком. Стейк форели обжаривается до колера. На тарелку выкладывается фасоль, поверх стейк. Сбоку поливается соусом, украшается веточкой тимьяна.",
+      "en": "Young beans sautéed with garlic. Trout steak pan-seared. Place beans on plate, top with trout. Drizzle sauce on the side and garnish with thyme."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/trout.png"
+  },
+  {
+    "name": { "ru": "Говядина с брокколи", "en": "Beef with Broccoli" },
+    "ingredients": [
+      { "ru": "Говядина (120 гр готовая)", "en": "Beef (120g cooked)" },
+      { "ru": "Брокколи (100 гр)", "en": "Broccoli (100g)" },
+      { "ru": "Перец черный молотый", "en": "Ground black pepper" },
+      { "ru": "Соус на основе сливочного сыра и вяленых томатов", "en": "Sauce with cream cheese and sun-dried tomatoes" }
+    ],
+    "amount": "250",
+    "process": {
+      "ru": "Говядина, приготовленная по технологии су-вид, обжаривается до получения колера. Брокколи отвариваются альденте. На тарелку выкладывается говядина, брокколи и соус. Посыпается черным молотым перцем.",
+      "en": "Beef cooked sous-vide is seared for color. Broccoli boiled al dente. Plate beef, broccoli, and sauce. Sprinkle with ground black pepper."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/beef.png"
+  },
+  {
+    "name": { "ru": "Токпокки", "en": "Tteobokki" },
+    "ingredients": [
+      { "ru": "Токпокки", "en": "Tteobokki" },
+      { "ru": "Курица", "en": "Chicken" },
+      { "ru": "Перец болгарский", "en": "Bell pepper" },
+      { "ru": "Молодая стручковая фасоль", "en": "Young green beans" },
+      { "ru": "Сливки", "en": "Cream" },
+      { "ru": "Перечный соус", "en": "Pepper sauce" },
+      { "ru": "Микрозелень", "en": "Microgreens" }
+    ],
+    "amount": "500",
+    "process": {
+      "ru": "Корейские макароны из рисовой муки обвариваются и тушатся в соусе из болгарского перца, молодой фасоли и куриной грудки. Основой соуса являются сливки и перечный соус. Декор — микрозелень.",
+      "en": "Korean rice noodles are boiled and simmered in a sauce of bell pepper, young beans, and chicken breast. Sauce base: cream and pepper sauce. Garnish with microgreens."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/tteobokki.png"
+  },
+  {
+    "name": { "ru": "Сэндвич с тунцом", "en": "Tuna Sandwich" },
+    "ingredients": [
+      { "ru": "Деревенский хлеб", "en": "Rustic bread" },
+      { "ru": "Консервированный тунец (60 гр)", "en": "Canned tuna (60g)" },
+      { "ru": "Кукуруза", "en": "Corn" },
+      { "ru": "Майонез", "en": "Mayonnaise" },
+      { "ru": "Соус Ворчестер", "en": "Worcester sauce" },
+      { "ru": "Салатный лист", "en": "Lettuce leaf" }
+    ],
+    "amount": "200",
+    "process": {
+      "ru": "Все ингредиенты начинки перемешиваются и выкладываются внутрь сэндвича.",
+      "en": "Mix all filling ingredients and place inside the sandwich."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/swtuna.png"
+  },
+  {
+    "name": { "ru": "Сэндвич с форелью", "en": "Trout Sandwich" },
+    "ingredients": [
+      { "ru": "Деревенский хлеб", "en": "Rustic bread" },
+      { "ru": "Огурец", "en": "Cucumber" },
+      { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)" },
+      { "ru": "Кремчиз", "en": "Cream cheese" },
+      { "ru": "Салат микс", "en": "Salad mix" }
+    ],
+    "amount": "230",
+    "process": {
+      "ru": "Сэндвич на основе ржаной чиабатты с добавлением кремчиза, огурца и форели слабой соли с прослойкой из салатного листа.",
+      "en": "Sandwich on rye ciabatta with cream cheese, cucumber, and lightly salted trout, layered with salad leaves."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/swtrout.png"
+  },
+  {
+    "name": { "ru": "Круассан с говядиной", "en": "Beef Croissant" },
+    "ingredients": [
+      { "ru": "Круассан", "en": "Croissant" },
+      { "ru": "Ростбиф из говядины (30 гр.)", "en": "Roast beef (30g)" },
+      { "ru": "Огурец", "en": "Cucumber" },
+      { "ru": "Салат микс", "en": "Salad mix" },
+      { "ru": "Каперс", "en": "Capers" },
+      { "ru": "Соленый огурец", "en": "Pickled cucumber" },
+      { "ru": "Майонез", "en": "Mayonnaise" }
+    ],
+    "amount": "250",
+    "process": {
+      "ru": "Круассан с добавлением соуса Тартар, огурца и ростбифа с прослойкой из салатного листа.",
+      "en": "Croissant with tartar sauce, cucumber, and roast beef layered with salad leaves."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/crbeef.png"
+  },
+  {
+    "name": { "ru": "Сэндвич с курой", "en": "Chicken Sandwich" },
+    "ingredients": [
+      { "ru": "Тостовый хлеб", "en": "Toast bread" },
+      { "ru": "Куриная грудка (55 гр.)", "en": "Chicken breast (55g)" },
+      { "ru": "Салат микс", "en": "Salad mix" },
+      { "ru": "Огурец", "en": "Cucumber" },
+      { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes" },
+      { "ru": "Каперс", "en": "Capers" },
+      { "ru": "Соленый огурец", "en": "Pickled cucumber" },
+      { "ru": "Майонез", "en": "Mayonnaise" }
+    ],
+    "amount": "250",
+    "process": {
+      "ru": "Сэндвич с куриной грудкой, тостовым хлебом, томатами черри, огурцом, салатным листом и соусом Тартар.",
+      "en": "Chicken sandwich with toast bread, dark cherry tomatoes, cucumber, salad leaves, and tartar sauce."
+    },
+    "photo": "kitchen/kitchen/ttk/dishes/photos/swchicken.png"
   }
 ]
-
-
-,
-{
-  "name": { "ru": "Сырники", "en": "Syrniki" },
-  "ingredients": [
-    { "ru": "Сырники (3 шт.)", "en": "Syrniki (3 pcs)" },
-    { "ru": "Клубника", "en": "Strawberry" },
-    { "ru": "Йогурт", "en": "Yogurt" },
-    { "ru": "Мед", "en": "Honey" },
-    { "ru": "Соус вишневый", "en": "Cherry sauce" },
-    { "ru": "Мята", "en": "Mint" },
-    { "ru": "Сахарная пудра", "en": "Powdered sugar" }
-  ],
-  "amount": "290",
-  "process": {
-    "ru": "Сырники домашнего производства с клубникой, йогуртом, медом и ягодным соусом собственного производства.",
-    "en": "Homemade syrniki served with strawberries, yogurt, honey, and homemade berry sauce."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/syrniki.png"
-},
-{
-  "name": { "ru": "Глазунья с красной рыбой", "en": "Sunny Fried Egg with Red Fish" },
-  "ingredients": [
-    { "ru": "Глазунья (2 яйца)", "en": "Sunny fried eggs (2)" },
-    { "ru": "Руккола", "en": "Arugula" },
-    { "ru": "Огурец", "en": "Cucumber" },
-    { "ru": "Томат черри", "en": "Cherry tomato" },
-    { "ru": "Чиабатта", "en": "Ciabatta" },
-    { "ru": "Кремчиз", "en": "Cream cheese" },
-    { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)" }
-  ],
-  "amount": "270",
-  "process": {
-    "ru": "Глазунья из 2 яиц, руккола с огурцом, брускетта с кремчизом, томатами черри и форелью слабой соли.",
-    "en": "Two fried eggs served with arugula and cucumber, ciabatta with cream cheese, cherry tomatoes, and lightly salted trout."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/sunfried eggs.png"
-},
-{
-  "name": { "ru": "Каша Дружба", "en": "Porridge Drugba" },
-  "ingredients": [
-    { "ru": "Пшено", "en": "Millet" },
-    { "ru": "Рис", "en": "Rice" },
-    { "ru": "Молоко", "en": "Milk" },
-    { "ru": "Сахар", "en": "Sugar" },
-    { "ru": "Соль", "en": "Salt" },
-    { "ru": "Клубника", "en": "Strawberry" }
-  ],
-  "amount": "330",
-  "process": {
-    "ru": "Каша из риса и пшена на коровьем молоке с ягодами (клубника).",
-    "en": "Porridge made from rice and millet in cow's milk with strawberries."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/poridge.png"
-},
-{
-  "name": { "ru": "Овощной салат", "en": "Vegetable Salad" },
-  "ingredients": [
-    { "ru": "Огурец", "en": "Cucumber" },
-    { "ru": "Помидоры черри", "en": "Cherry tomatoes" },
-    { "ru": "Перец болгарский", "en": "Bell pepper" },
-    { "ru": "Редис", "en": "Radish" },
-    { "ru": "Соус на основе йогурта с укропом и чесноком", "en": "Yogurt-dill-garlic dressing" },
-    { "ru": "Микрозелень", "en": "Microgreens" }
-  ],
-  "amount": "220",
-  "process": {
-    "ru": "Все овощи нарезаются, замешиваются с соусом и выкладываются на тарелку. На украшение идет микрозелень.",
-    "en": "Chop all vegetables, mix with dressing, and place on a plate. Garnish with microgreens."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/vegitable salad.png"
-},
-{
-  "name": { "ru": "Теплый салат с печенью", "en": "Warm Liver Salad" },
-  "ingredients": [
-    { "ru": "Печень (120 гр готовая)", "en": "Liver (120g cooked)" },
-    { "ru": "Клубника", "en": "Strawberry" },
-    { "ru": "Салат микс", "en": "Salad mix" },
-    { "ru": "Сегменты апельсина", "en": "Orange segments" },
-    { "ru": "Цитрусовая заправка", "en": "Citrus dressing" },
-    { "ru": "Соус бальзамик", "en": "Balsamic sauce" }
-  ],
-  "amount": "280",
-  "process": {
-    "ru": "В тарелку выкладывается микс салатов с рукколой. Поверх выкладываются нарезанные сегменты апельсина и свежая клубника. Далее салат поливается цитрусовой заправкой. Обжаренная печень глазируется соусом бальзамик и выкладывается в тарелку на листья салата. Сверху поливается соус бальзамик.",
-    "en": "Place salad mix with arugula on a plate. Top with orange segments and fresh strawberries. Pour citrus dressing over the salad. Pan-seared liver glazed with balsamic sauce is placed on the salad leaves. Drizzle balsamic sauce on top."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/liver salad.png"
-},
-{
-  "name": { "ru": "Салат с осьминогом", "en": "Octopus Salad" },
-  "ingredients": [
-    { "ru": "Микс салатов", "en": "Salad mix" },
-    { "ru": "Томаты черри", "en": "Cherry tomatoes" },
-    { "ru": "Обжаренный картофель стоун", "en": "Stone-fried potatoes" },
-    { "ru": "Осьминог обжаренный", "en": "Fried octopus" },
-    { "ru": "Соус на основе не острого чили", "en": "Mild chili-based sauce" },
-    { "ru": "Бальзамический крем", "en": "Balsamic cream" }
-  ],
-  "amount": "280",
-  "process": {
-    "ru": "В тарелку выкладывается микс салатов. Поверх выкладываются нарезанные томаты черри, обжаренный картофель и осьминог, глазированный в соусе. Заправка на основе бальзамического крема.",
-    "en": "Place salad mix on a plate. Top with cherry tomatoes, fried potatoes, and octopus glazed in sauce. Dress with balsamic cream."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/octopus.png"
-},
-{
-  "name": { "ru": "Салат с креветками", "en": "Shrimp Prawns Salad" },
-  "ingredients": [
-    { "ru": "Руккола", "en": "Arugula" },
-    { "ru": "Креветки (80 гр. сырые)", "en": "Shrimps (80g raw)" },
-    { "ru": "Чеснок", "en": "Garlic" },
-    { "ru": "Пармезан", "en": "Parmesan" },
-    { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes" },
-    { "ru": "Бальзамик соус", "en": "Balsamic sauce" },
-    { "ru": "Соус винегрет", "en": "Vinaigrette" }
-  ],
-  "amount": "210",
-  "process": {
-    "ru": "Жареные с чесноком креветки на подушке из рукколы с добавлением темных черри томатов и пармезана. Подается под соусом винегрет и бальзамиком.",
-    "en": "Garlic-fried shrimps served on a bed of arugula with dark cherry tomatoes and Parmesan. Served with vinaigrette and balsamic sauce."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/prawn salad.png"
-},
-{
-  "name": { "ru": "Тартар", "en": "Tartar" },
-  "ingredients": [
-    { "ru": "Говядина (100 гр.)", "en": "Beef (100g)" },
-    { "ru": "Каперс", "en": "Capers" },
-    { "ru": "Яйцо (желток)", "en": "Egg yolk" },
-    { "ru": "Оливковое масло", "en": "Olive oil" },
-    { "ru": "Специи", "en": "Spices" },
-    { "ru": "Сыр пармезан", "en": "Parmesan" },
-    { "ru": "Руккола", "en": "Arugula" },
-    { "ru": "Бородинский хлеб", "en": "Borodinsky bread" }
-  ],
-  "amount": "260",
-  "process": {
-    "ru": "Говядина замешивается со специями, пармезаном, каперсами и оливковым маслом. Выкладывается на тарелку, поверх идет желток куриного яйца. Декорируется рукколой и гренками из бородинского хлеба. Сверху посыпается пармезаном.",
-    "en": "Beef is mixed with spices, Parmesan, capers, and olive oil. Placed on a plate topped with egg yolk. Garnished with arugula and Borodinsky bread croutons. Sprinkle Parmesan on top."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/kitchen/kitchen/ttk/dishes/photos/tartar.png"
-},
-{
-  "name": { "ru": "Жюльен", "en": "Julien" },
-  "ingredients": [
-    { "ru": "Шампиньоны", "en": "Mushrooms" },
-    { "ru": "Куриная грудка", "en": "Chicken breast" },
-    { "ru": "Сливки", "en": "Cream" },
-    { "ru": "Мука", "en": "Flour" },
-    { "ru": "Чиабатта", "en": "Ciabatta" },
-    { "ru": "Сыр моцарелла", "en": "Mozzarella" },
-    { "ru": "Сыр пармезан", "en": "Parmesan" }
-  ],
-  "amount": "150",
-  "process": {
-    "ru": "Жюльен на основе шампиньонов, сливок и куриной грудки подается под плавленной шапкой из пармезана с гренками из чиабатты. Присыпается сыром пармезан.",
-    "en": "Julien made from mushrooms, cream, and chicken breast served under a melted Parmesan topping with ciabatta croutons. Sprinkled with Parmesan cheese."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/jouliene.png"
-},
-{
-  "name": { "ru": "Тыквенный суп", "en": "Pumpkin Soup" },
-  "ingredients": [
-    { "ru": "Тыква", "en": "Pumpkin" },
-    { "ru": "Мед", "en": "Honey" },
-    { "ru": "Специи", "en": "Spices" },
-    { "ru": "Сливки", "en": "Cream" },
-    { "ru": "Тыквенные семечки", "en": "Pumpkin seeds" },
-    { "ru": "Соус песто (базилик, масло, чеснок)", "en": "Pesto sauce (basil, oil, garlic)" },
-    { "ru": "Микрозелень", "en": "Microgreens" }
-  ],
-  "amount": "310",
-  "process": {
-    "ru": "Тыквенный крем-суп украшается соусом песто, сливками, микрозеленью и тыквенными семечками.",
-    "en": "Pumpkin cream soup is decorated with pesto sauce, cream, microgreens, and pumpkin seeds."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/soup pumpkin.png"
-},
-{
-  "name": { "ru": "Крем-суп брокколи", "en": "Broccoli Cream Soup" },
-  "ingredients": [
-    { "ru": "Брокколи", "en": "Broccoli" },
-    { "ru": "Сливки", "en": "Cream" },
-    { "ru": "Специи", "en": "Spices" },
-    { "ru": "Картофель", "en": "Potato" },
-    { "ru": "Гренка чиабатта", "en": "Ciabatta crouton" },
-    { "ru": "Пармезан", "en": "Parmesan" }
-  ],
-  "amount": "300",
-  "process": {
-    "ru": "Кремсуп из брокколи подается с пармезаном и гренкой из чиабатты, запеченной с пармезаном.",
-    "en": "Broccoli cream soup is served with Parmesan and a ciabatta crouton baked with Parmesan."
-  },
-  "photo": "photos/soup brokkoli.png"
-},
-{
-  "name": { "ru": "Рататуй", "en": "Ratatouille" },
-  "ingredients": [
-    { "ru": "Баклажан", "en": "Eggplant" },
-    { "ru": "Цукини", "en": "Zucchini" },
-    { "ru": "Морковь", "en": "Carrot" },
-    { "ru": "Тыква", "en": "Pumpkin" },
-    { "ru": "Перец болгарский", "en": "Bell pepper" },
-    { "ru": "Соус песто (базилик, орех кешью, растительное масло)", "en": "Pesto sauce (basil, cashew, vegetable oil)" },
-    { "ru": "Сыр пармезан", "en": "Parmesan" },
-    { "ru": "Микрозелень", "en": "Microgreens" },
-    { "ru": "Хлеб бородинский", "en": "Borodinsky bread" }
-  ],
-  "amount": "270",
-  "process": {
-    "ru": "Овощи замешиваются с соусом песто. Выкладываются на тарелку, присыпаются пармезаном. Пармезан обжигается до состояния корочки. Декорируется гренками из бородинского хлеба и микрозеленью.",
-    "en": "Vegetables are mixed with pesto sauce, placed on a plate, and sprinkled with Parmesan. Parmesan is torched to form a crust. Garnished with Borodinsky bread croutons and microgreens."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/retatoulle.png"
-},
-{
-  "name": { "ru": "Куриная грудка гриль", "en": "Grilled Chicken Breast" },
-  "ingredients": [
-    { "ru": "Куриная грудка (125 гр готовая)", "en": "Chicken breast (125g cooked)" },
-    { "ru": "Цукини", "en": "Zucchini" },
-    { "ru": "Перец болгарский", "en": "Bell pepper" },
-    { "ru": "Помидоры черри", "en": "Cherry tomatoes" },
-    { "ru": "Соус из печеного болгарского перца", "en": "Roasted bell pepper sauce" },
-    { "ru": "Чеснок", "en": "Garlic" },
-    { "ru": "Розмарин", "en": "Rosemary" }
-  ],
-  "amount": "330",
-  "process": {
-    "ru": "Цукини нарезаются пластинками и готовятся на гриле. Куриная грудка обжаривается на гриле. В центр тарелки выкладывается соус из печеного болгарского перца. Сверху кладется цукини, а поверх грудки нарезанная куриная грудка. Декор - микрозелень.",
-    "en": "Zucchini sliced and grilled. Chicken breast grilled. Place roasted bell pepper sauce in the center of the plate, layer zucchini, then chicken slices on top. Decorate with microgreens."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/chicken.png"
-},
-{
-  "name": { "ru": "Паста с уткой и горгонзолой", "en": "Duck Pasta with Gorgonzola" },
-  "ingredients": [
-    { "ru": "Паста (лингвини)", "en": "Pasta (linguini)" },
-    { "ru": "Утка томленая", "en": "Braised duck" },
-    { "ru": "Сливки", "en": "Cream" },
-    { "ru": "Голубой сыр горгонзола", "en": "Gorgonzola blue cheese" },
-    { "ru": "Сыр пармезан", "en": "Parmesan" },
-    { "ru": "Микрозелень", "en": "Microgreens" }
-  ],
-  "amount": "330",
-  "process": {
-    "ru": "Томленая утка смешивается со сливками и голубым сыром горгонзола. Отваренная паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, декор - микрозелень.",
-    "en": "Braised duck mixed with cream and Gorgonzola cheese. Cooked pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and decorate with microgreens."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/pasta duck.png"
-},
-{
-  "name": { "ru": "Паста с креветками", "en": "Pasta with Shrimps" },
-  "ingredients": [
-    { "ru": "Паста (лингвини)", "en": "Pasta (linguini)" },
-    { "ru": "Креветки", "en": "Shrimps" },
-    { "ru": "Масло сливочное", "en": "Butter" },
-    { "ru": "Специи", "en": "Spices" },
-    { "ru": "Чеснок", "en": "Garlic" },
-    { "ru": "Соус биск", "en": "Bisque sauce" },
-    { "ru": "Сыр пармезан", "en": "Parmesan" },
-    { "ru": "Тимьян", "en": "Thyme" }
-  ],
-  "amount": "270",
-  "process": {
-    "ru": "Обжаренные с чесноком креветки смешиваются с соусом биск и загущаются сливочным маслом. Паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, украшается ветками тимьяна.",
-    "en": "Garlic-fried shrimps mixed with bisque sauce and thickened with butter. Pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and garnish with thyme sprigs."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/pasta shimps.png"
-},
-{
-  "name": { "ru": "Стейк форели", "en": "Trout Steak" },
-  "ingredients": [
-    { "ru": "Форель (130 гр готовая)", "en": "Trout (130g cooked)" },
-    { "ru": "Молодая стручковая фасоль (60 гр)", "en": "Young green beans (60g)" },
-    { "ru": "Брокколи (40 гр)", "en": "Broccoli (40g)" },
-    { "ru": "Чеснок", "en": "Garlic" },
-    { "ru": "Маракуйевый соус", "en": "Passion fruit sauce" },
-    { "ru": "Тимьян", "en": "Thyme" }
-  ],
-  "amount": "270",
-  "process": {
-    "ru": "Молодая фасоль обжаривается с чесноком. Стейк форели обжаривается до колера. На тарелку выкладывается фасоль, поверх стейк. Сбоку поливается соусом, украшается веточкой тимьяна.",
-    "en": "Young beans sautéed with garlic. Trout steak pan-seared. Place beans on plate, top with trout. Drizzle sauce on the side and garnish with thyme."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/trout.png"
-},
-{
-  "name": { "ru": "Говядина с брокколи", "en": "Beef with Broccoli" },
-  "ingredients": [
-    { "ru": "Говядина (120 гр готовая)", "en": "Beef (120g cooked)" },
-    { "ru": "Брокколи (100 гр)", "en": "Broccoli (100g)" },
-    { "ru": "Перец черный молотый", "en": "Ground black pepper" },
-    { "ru": "Соус на основе сливочного сыра и вяленых томатов", "en": "Sauce with cream cheese and sun-dried tomatoes" }
-  ],
-  "amount": "250",
-  "process": {
-    "ru": "Говядина, приготовленная по технологии су-вид, обжаривается до получения колера. Брокколи отвариваются альденте. На тарелку выкладывается говядина, брокколи и соус. Посыпается черным молотым перцем.",
-    "en": "Beef cooked sous-vide is seared for color. Broccoli boiled al dente. Plate beef, broccoli, and sauce. Sprinkle with ground black pepper."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/beef.png"
-},
-{
-  "name": { "ru": "Токпокки", "en": "Tteobokki" },
-  "ingredients": [
-    { "ru": "Токпокки", "en": "Tteobokki" },
-    { "ru": "Курица", "en": "Chicken" },
-    { "ru": "Перец болгарский", "en": "Bell pepper" },
-    { "ru": "Молодая стручковая фасоль", "en": "Young green beans" },
-    { "ru": "Сливки", "en": "Cream" },
-    { "ru": "Перечный соус", "en": "Pepper sauce" },
-    { "ru": "Микрозелень", "en": "Microgreens" }
-  ],
-  "amount": "500",
-  "process": {
-    "ru": "Корейские макароны из рисовой муки обвариваются и тушатся в соусе из болгарского перца, молодой фасоли и куриной грудки. Основой соуса являются сливки и перечный соус. Декор — микрозелень.",
-    "en": "Korean rice noodles are boiled and simmered in a sauce of bell pepper, young beans, and chicken breast. Sauce base: cream and pepper sauce. Garnish with microgreens."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/tobbokki.png"
-},
-{
-  "name": { "ru": "Сэндвич с тунцом", "en": "Tuna Sandwich" },
-  "ingredients": [
-    { "ru": "Деревенский хлеб", "en": "Rustic bread" },
-    { "ru": "Консервированный тунец (60 гр)", "en": "Canned tuna (60g)" },
-    { "ru": "Кукуруза", "en": "Corn" },
-    { "ru": "Майонез", "en": "Mayonnaise" },
-    { "ru": "Соус Ворчестер", "en": "Worcester sauce" },
-    { "ru": "Салатный лист", "en": "Lettuce leaf" }
-  ],
-  "amount": "200",
-  "process": {
-    "ru": "Все ингредиенты начинки перемешиваются и выкладываются внутрь сэндвича.",
-    "en": "Mix all filling ingredients and place inside the sandwich."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/swtuna.png"
-},
-{
-  "name": { "ru": "Сэндвич с форелью", "en": "Trout Sandwich" },
-  "ingredients": [
-    { "ru": "Деревенский хлеб", "en": "Rustic bread" },
-    { "ru": "Огурец", "en": "Cucumber" },
-    { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)" },
-    { "ru": "Кремчиз", "en": "Cream cheese" },
-    { "ru": "Салат микс", "en": "Salad mix" }
-  ],
-  "amount": "230",
-  "process": {
-    "ru": "Сэндвич на основе ржаной чиабатты с добавлением кремчиза, огурца и форели слабой соли с прослойкой из салатного листа.",
-    "en": "Sandwich on rye ciabatta with cream cheese, cucumber, and lightly salted trout, layered with salad leaves."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/swtrout.png"
-},
-{
-  "name": { "ru": "Круассан с говядиной", "en": "Beef Croissant" },
-  "ingredients": [
-    { "ru": "Круассан", "en": "Croissant" },
-    { "ru": "Ростбиф из говядины (30 гр.)", "en": "Roast beef (30g)" },
-    { "ru": "Огурец", "en": "Cucumber" },
-    { "ru": "Салат микс", "en": "Salad mix" },
-    { "ru": "Каперс", "en": "Capers" },
-    { "ru": "Соленый огурец", "en": "Pickled cucumber" },
-    { "ru": "Майонез", "en": "Mayonnaise" }
-  ],
-  "amount": "250",
-  "process": {
-    "ru": "Круассан с добавлением соуса Тартар, огурца и ростбифа с прослойкой из салатного листа.",
-    "en": "Croissant with tartar sauce, cucumber, and roast beef layered with salad leaves."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/crbeef.png"
-},
-{
-  "name": { "ru": "Сэндвич с курой", "en": "Chicken Sandwich" },
-  "ingredients": [
-    { "ru": "Тостовый хлеб", "en": "Toast bread" },
-    { "ru": "Куриная грудка (55 гр.)", "en": "Chicken breast (55g)" },
-    { "ru": "Салат микс", "en": "Salad mix" },
-    { "ru": "Огурец", "en": "Cucumber" },
-    { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes" },
-    { "ru": "Каперс", "en": "Capers" },
-    { "ru": "Соленый огурец", "en": "Pickled cucumber" },
-    { "ru": "Майонез", "en": "Mayonnaise" }
-  ],
-  "amount": "250",
-  "process": {
-    "ru": "Сэндвич с куриной грудкой, тостовым хлебом, томатами черри, огурцом, салатным листом и соусом Тартар.",
-    "en": "Chicken sandwich with toast bread, dark cherry tomatoes, cucumber, salad leaves, and tartar sauce."
-  },
-  "photo": "kitchen/kitchen/ttk/dishes/photos/swchicken.png"
-},
-{
-
