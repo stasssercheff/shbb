@@ -90,9 +90,9 @@ select {
   margin: 0;
 }
 
-input[type="number"],
-select.qty {
-  flex: 0 0 250px;  /* фиксированная ширина под 3 цифры */
+/* только для числовых полей */
+input[type="number"] {
+  flex: 0 0 250px;   /* фиксированная ширина под 3 цифры */
   min-height: 80px;
   font-size: 36px;
   padding: 10px;
@@ -101,6 +101,29 @@ select.qty {
   box-sizing: border-box;
   text-align: center;
   margin: 0;
+
+  -moz-appearance: textfield; /* убираем стрелки в Firefox */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* для селекторов */
+select.qty {
+  flex: 0 0 250px;   /* тоже ширина под 3 цифры/текст */
+  min-height: 80px;
+  font-size: 36px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin: 0;
+
+  text-align: center;       /* влияет на список опций */
+  text-align-last: center;  /* центрирует выбранное значение */
 }
 
 /* Для селекторов — чтобы опции тоже были крупные */
