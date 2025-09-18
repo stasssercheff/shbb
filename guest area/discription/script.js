@@ -158,7 +158,7 @@ async function loadSection(section) {
 
     // --- Кликабельность фото ---
     const photoModal = createPhotoModal();
-    tblContainer.querySelectorAll('.dish-photo').forEach(img => {
+tblContainer.querySelectorAll('img.dish-photo').forEach(img => {
       img.style.cursor = 'pointer';
       img.addEventListener('click', () => {
         const modalImg = photoModal.querySelector('img');
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               // --- Кликабельность фото после обновления языка ---
               const photoModal = createPhotoModal();
-              tblContainer.querySelectorAll('.dish-photo').forEach(img => {
+                tblContainer.querySelectorAll('img.dish-photo').forEach(img => {
                 img.style.cursor = 'pointer';
                 img.addEventListener('click', () => {
                   const modalImg = photoModal.querySelector('img');
