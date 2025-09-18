@@ -1,18 +1,60 @@
 [
   {
-    "name": { "ru": "СЕНДВИЧ С КУРОЙ", "en": "CHICKEN SANDWICH" },
+    "name": { "ru": "СЕНДВИЧ С ТУНЦОМ", "en": "TUNA SANDWICH" },
     "ingredients": [
-      { "ru": "Хлеб тостовый", "en": "Toast bread", "amount": "100" },
-      { "ru": "ПФ Куриная грудка", "en": "Prep Chicken breast", "amount": "120" },
-      { "ru": "ПФ Салат микс", "en": "Salad mix", "amount": "30" },
-      { "ru": "Огурец", "en": "Salad mix", "amount": "50" },
-      { "ru": "Помидоры Черри темные", "en": "Dark Cherry", "amount": "50" }
-      { "ru": "ПФ Соус Тартар", "en": "Tartar sauce", "amount": "30" },
+      { "ru": "Деревенский хлеб", "en": "Country bread", "amount": "100" },
+      { "ru": "ПФ замес тунец", "en": "Tuna mix", "amount": "120" }
     ],
     "process": {
-      "ru": "Смазать оба ломтика внутри соусом. На нижнюю часть выложить листья салата. Огурец порезать на тонкие слайсы, выложить поверх салата.Куру порезать на тонкие 5-6 слайсов под углом, выложить поверх огурца.Томаты Черри подрезать с краев, порезать на 4 кольца каждую, выложить на второй ломтик поверх соуса. накрыть вторым ломтиком хлеба чтобы томаты были поверх куры.Разрезать по диагонали от угла к углу напополам. Конверт подрезать чтобы скленены были только 2 грани.Завернуть в конверт и убрать в бокс. Подписать  бокс.",
-      "en": "Place the soup bag in hot water until fully heated. Knead the bag to avoid lumps. Pour the soup into a bowl. Pour the PF pesto sauce over the soup in the center. Spread the cream around in a thin stream in a spiral. Place microgreens on top of the pesto. Place pumpkin seeds on top of the cream.Take 2 slices of toast and spread with sauce.Put lettuce leaves on the bottom. Cut cucumber into thin slices, put on top of the salad.Cut chicken into 5-6 thin slices at an angle, put on top of the cucumber.Trim cherry tomatoes from the edges, cut into 4 rings each, put on the second slice on top of the sauce. Cover with a second slice of bread so that the tomatoes are on top of the chicken.Cut diagonally from corner to corner in half. Trim the envelope so that only 2 edges are glued.Wrap in an envelope and put in a box. Label the box."
+      "ru": "Предварительно после заморозки нарезаный хлеб достать из морозилки, выложить смесь на один ломтик, накрыть вторым, завернуть в конверт и убрать в бокс. Подписать бокс.",
+      "en": "First, after freezing, take the sliced bread out of the freezer, put the mixture on one slice, cover with a second slice, wrap in an envelope and put in a box. Label the box."
     },
-    "photo": "photos/soup pumpkin .png"
+    "photo": null
+  },
+  {
+    "name": { "ru": "СЕНДВИЧ С ФОРЕЛЬЮ", "en": "TROUT SANDWICH" },
+    "ingredients": [
+      { "ru": "Деревенский хлеб", "en": "Country bread", "amount": "100" },
+      { "ru": "Огурец", "en": "Cucumber", "amount": "50" },
+      { "ru": "ПФ Форель С/С", "en": "Prep Salted trout", "amount": "40" },
+      { "ru": "ПФ кремчиз", "en": "Prep cream cheese", "amount": "35" },
+      { "ru": "ПФ Салат микс", "en": "Salad mix", "amount": "30" }
+    ],
+    "process": {
+      "ru": "Предварительно после заморозки нарезаный хлеб достать из морозилки. Смазать оба ломтика с внутренней части кремчизом (размазать ложкой). Выложить лист салата, поверх выложить рыбу. Поверх рыбы выложить слайсы огурца. Накрыть вторым ломтиком хлеба. Завернуть в конверт и убрать в бокс. Подписать бокс.",
+      "en": "First, remove the sliced bread from the freezer after freezing. Grease both slices on the inside with cream cheese (spread with a spoon). Put a leaf of lettuce, put the fish on top. Put cucumber slices on top of the fish. Cover with a second slice of bread. Wrap in an envelope and put in a box. Label the box."
+    },
+    "photo": null
+  },
+  {
+    "name": { "ru": "КРУАССАН С ГОЯДИНОЙ", "en": "BEEF CROISSANT" },
+    "ingredients": [
+      { "ru": "Круассан", "en": "Croissant", "amount": "1" },
+      { "ru": "ПФ Говядина", "en": "Beef", "amount": "25-30" },
+      { "ru": "Огурец", "en": "Cucumber", "amount": "50" },
+      { "ru": "ПФ Салат микс", "en": "Salad mix", "amount": "30" },
+      { "ru": "ПФ соус Тартар", "en": "Tartar sauce", "amount": "30" }
+    ],
+    "process": {
+      "ru": "Разрезать круассан  на 2 плоские части, смазать обе части внутри соусом. На нижнюю часть выложить листья салата. Огурец порезать на тонкие слайсы, выложить поверх салата. Говядину порезать на тонкие маленькие кусочки, выложить поверх огурца, накрыть вторым ломтиком хлеба. Разрезать по диагонали от угла к углу напополам. Конверт подрезать чтобы скленены были только 2 грани. Завернуть в конверт и убрать в бокс. Подписать бокс.",
+      "en": "Cut the Facaccia into 2 flat parts, grease both parts with sauce inside. Put lettuce leaves on the bottom part. Cut the cucumber into thin slices, put on top of the salad. Cut the beef into thin small pieces, put on top of the cucumber, cover with the second slice of bread. Cut diagonally from corner to corner in half. Trim the envelope so that only 2 edges are glued. Wrap in the envelope and put in the box. Label the box."
+    },
+    "photo": null
+  },
+  {
+    "name": { "ru": "СЕНДВИЧ С КУРОЙ(2)", "en": "CHICKEN SANDWICH(2)" },
+    "ingredients": [
+      { "ru": "Хлеб тостовый", "en": "Toast bread", "amount": "2 (100)" },
+      { "ru": "ПФ Куриная грудка", "en": "Prep Chicken breast", "amount": "1" },
+      { "ru": "ПФ Салат микс", "en": "Salad mix", "amount": "30" },
+      { "ru": "Огурец", "en": "Cucumber", "amount": "50" },
+      { "ru": "Помидоры Черри темные", "en": "Dark Cherry", "amount": "50" },
+      { "ru": "ПФ Соус Тартар", "en": "Tartar sauce", "amount": "30" }
+    ],
+    "process": {
+      "ru": "Смазать оба ломтика внутри соусом. На нижнюю часть выложить листья салата. Огурец порезать на тонкие слайсы, выложить поверх салата. Куру порезать на тонкие 5-6 слайсов под углом, выложить поверх огурца. Томаты Черри подрезать с краев, порезать на 4 кольца каждую, выложить на второй ломтик поверх соуса. Накрыть вторым ломтиком хлеба чтобы томаты были поверх куры. Разрезать по диагонали от угла к углу напополам. Конверт подрезать чтобы скленены были только 2 грани. Завернуть в конверт и убрать в бокс. Подписать бокс.",
+      "en": "Take 2 slices of toast and spread with sauce. Put lettuce leaves on the bottom. Cut cucumber into thin slices, put on top of the salad. Cut chicken into 5-6 thin slices at an angle, put on top of the cucumber. Trim cherry tomatoes from the edges, cut into 4 rings each, put on the second slice on top of the sauce. Cover with a second slice of bread so that the tomatoes are on top of the chicken. Cut diagonally from corner to corner in half. Trim the envelope so that only 2 edges are glued. Wrap in an envelope and put in a box. Label the box."
+    },
+    "photo": null
   }
 ]
