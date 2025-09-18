@@ -3,10 +3,7 @@ let currentLang = 'ru';
 
 // Пути к JSON-файлам
 const dataFiles = {
-  descriptiondish: 'data/descriptiondish.json',
-  descriptiondesert: 'data/descriptiondesert.json',
-  descriptionbread: 'data/descriptionbread.json',
-  descriptionbun: 'data/descriptionbun.json',
+  descriptiondish: 'data/descriptiondish.json'
 
 };
 
