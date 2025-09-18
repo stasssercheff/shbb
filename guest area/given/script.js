@@ -1,5 +1,3 @@
-
-
 // Функция возврата на главную страницу
 function goHome() {
     location.href = '/index.html';
@@ -101,19 +99,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const title = sectionTitle?.dataset[lang] || '';
       let sectionContent = '';
 
+      // перебираем все блюда в секции
       section.querySelectorAll('.dish').forEach(dish => {
         const select = dish.querySelector('select.qty');
-        if (!select || !select.value) return;
-
-        const label = dish.querySelector('label.check-label');
-        const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
-        const selectedOption = select.options[select.selectedIndex];
-        const value = selectedOption?.dataset[lang] || '—';
-        sectionContent += `• ${labelText}: ${value}\n`;
+        if (select && select.value) {
+          const label = dish.querySelector('label.check-label');
+          const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
+          const selectedOption = select.options[select.selectedIndex];
+          const value = selectedOption?.dataset[lang] || '—';
+          sectionContent += `• ${labelText}: ${value}\n`;
+        }
       });
 
-      const nextBlock = section.nextElementSibling;
-      const commentField = nextBlock?.querySelector('textarea.comment');
+      // комментарий теперь берём внутри секции, чтобы прикрепить к правильной секции
+      const commentField = section.querySelector('textarea.comment');
       if (commentField && commentField.value.trim()) {
         sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
       }
