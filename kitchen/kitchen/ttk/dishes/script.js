@@ -5,7 +5,7 @@ const dataFiles = {
   breakfast: 'data/breakfast.json',
   soup: 'data/soup.json',
   salad: 'data/salad.json',
-  main: 'data/main.json'
+  main: 'data/main.json',
   sw: 'data/sandwich.json'
 
 };
