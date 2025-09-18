@@ -1,3 +1,5 @@
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -83,7 +85,6 @@ select {
   flex-wrap: wrap;
 }
 
-/* Селекты количества */
 .dish select.qty {
   width: 220px;
   min-width: 260px;
@@ -104,46 +105,10 @@ select {
   font-size: 30px;
 }
 
-/* Числовые поля количества */
-input.qty {
-  width: 220px;
-  min-width: 260px;
-  max-width: 100%;
-  padding: 12px;
-  font-size: 30px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
-  color: #333;
-  text-align: center;
-  margin-top: 8px;
-  box-sizing: border-box;
-}
-
-input.qty::-webkit-outer-spin-button,
-input.qty::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input.qty[type=number] {
-  -moz-appearance: textfield; /* Firefox */
-}
-
-input.qty::placeholder {
-  text-align: center;
-  color: #aaa;
-}
-
 textarea.comment {
   resize: vertical;
   min-height: 100px;
   font-size: 24px;
-}
-
-/* Уменьшение зума на iOS */
-textarea.comment {
-  font-size: 16px !important;
 }
 
 button {
@@ -210,4 +175,70 @@ button:hover {
   border: 1px solid #ccc;
   border-radius: 8px;
   color: #333;
+}
+
+/* === Универсальные комментарии === */
+textarea.comment {
+  font-size: 16px !important;   /* отключает авто-зум на iOS */
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.4;
+  padding: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  margin-bottom: 16px;
+}
+
+/* === Универсальные кнопки === */
+button, input[type="button"], input[type="submit"] {
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  padding: 18px;
+  font-size: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  display: block;
+  transition: 0.2s;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background-color: #c1b29a;
+}
+
+/* === Хедер: два ряда === */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Ряды внутри хедера */
+.lang-switch,
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 10px;
+}
+
+/* Кнопки внутри рядов */
+.lang-switch button,
+.nav-buttons button {
+  flex: 1;
+  max-width: 45%;
+  min-width: 80px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
 }
