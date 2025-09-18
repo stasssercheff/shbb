@@ -85,24 +85,25 @@ select {
   flex-wrap: wrap;
 }
 
-.dish select.qty {
-  width: 220px;
-  min-width: 260px;
-  max-width: 100%;
-  padding: 12px;
-  font-size: 30px;
+/* Универсальные поля ввода и селекторы */
+input[type="number"],
+select.qty {
+  width: 100%;
+  min-height: 80px;      /* высота примерно как текст */
+  font-size: 36px;       /* размер текста как в списке */
+  padding: 16px 20px;    /* внутренние отступы для удобства */
   border: 1px solid #ccc;
-  border-radius: 8px;
-  background: #fff;
-  color: #333;
+  border-radius: 10px;
+  box-sizing: border-box;
   text-align: center;
-  text-align-last: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
-.dish select.qty option {
+/* Для селекторов — чтобы опции тоже были крупные */
+select.qty option {
+  font-size: 34px;
+  padding: 14px;
   text-align: center;
-  font-size: 30px;
 }
 
 textarea.comment {
