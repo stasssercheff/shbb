@@ -92,7 +92,7 @@ select {
 
 input[type="number"],
 select.qty {
-  flex: 0 0 120px;  /* фиксированная ширина под 3 цифры */
+  flex: 0 0 250px;  /* фиксированная ширина под 3 цифры */
   min-height: 80px;
   font-size: 36px;
   padding: 10px;
