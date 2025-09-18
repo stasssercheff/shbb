@@ -3,10 +3,10 @@ let currentLang = 'ru';
 
 // Пути к JSON-файлам
 const dataFiles = {
-  breakfast: 'data/descriptiondish.json',
-  soup: 'data/descriptiondesert.json',
-  salad: 'data/descriptionbread.json',
-  main: 'data/descriptionbun.json',
+  descriptiondish: 'data/descriptiondish.json',
+  descriptiondesert: 'data/descriptiondesert.json',
+  descriptionbread: 'data/descriptionbread.json',
+  descriptionbun: 'data/descriptionbun.json',
 
 };
 
