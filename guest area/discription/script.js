@@ -1,10 +1,11 @@
-
 let currentLang = 'ru';
 
 // Пути к JSON-файлам
 const dataFiles = {
-  descriptiondish: 'data/descriptiondish.json'
-
+  descriptiondish: 'data/descriptiondish.json',
+  descriptiondesert: 'data/descriptiondesert.json',
+  descriptionbread: 'data/descriptionbread.json',
+  descriptionbun: 'data/descriptionbun.json',
 };
 
 // Функция создания таблицы для раздела
@@ -29,7 +30,7 @@ function createTable(sectionArray) {
   // Тело таблицы
   const tbody = document.createElement('tbody');
 
-  sectionArray.forEach((dish, index) => {
+  sectionArray.forEach(dish => {
     // Название блюда
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
@@ -67,6 +68,8 @@ function createTable(sectionArray) {
         img.src = dish.photo;
         img.alt = dish.name[currentLang];
         img.className = 'dish-photo';
+        img.style.width = '80px'; // миниатюра
+        img.style.cursor = 'pointer';
         tdPhoto.appendChild(img);
         tdPhoto.rowSpan = ingCount;
       }
@@ -155,8 +158,7 @@ async function loadSection(section) {
 
     // --- Кликабельность фото ---
     const photoModal = createPhotoModal();
-tblContainer.querySelectorAll('img.dish-photo').forEach(img => {
-      img.style.cursor = 'pointer';
+    tblContainer.querySelectorAll('img.dish-photo').forEach(img => {
       img.addEventListener('click', () => {
         const modalImg = photoModal.querySelector('img');
         modalImg.src = img.src;
@@ -199,8 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               // --- Кликабельность фото после обновления языка ---
               const photoModal = createPhotoModal();
-                tblContainer.querySelectorAll('img.dish-photo').forEach(img => {
-                img.style.cursor = 'pointer';
+              tblContainer.querySelectorAll('img.dish-photo').forEach(img => {
                 img.addEventListener('click', () => {
                   const modalImg = photoModal.querySelector('img');
                   modalImg.src = img.src;
