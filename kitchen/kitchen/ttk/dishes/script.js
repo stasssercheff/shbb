@@ -6,7 +6,7 @@ const dataFiles = {
   soup: 'data/soup.json',
   salad: 'data/salad.json',
   main: 'data/main.json',
-  sw: 'data/sandwich.json'
+  sandwich: 'data/sandwich.json'
 
 };
 
