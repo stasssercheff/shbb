@@ -239,8 +239,8 @@ body {
 
 /* === Отступы таблицы от краёв экрана === */
 .table-container {
-  margin-left: 20px;  /* отступ слева */
-  margin-right: 20px; /* отступ справа */
+  margin-left: 10px;  /* отступ слева */
+  margin-right: 10px; /* отступ справа */
 }
 
 /* === Отступы для каждого столбца === */
@@ -255,6 +255,6 @@ body {
 
 /* === Отступы для строки с названием блюда === */
 .dish-table td.dish-name {
-  padding-left: 15px;  /* слева */
+  padding-left: 45px;  /* слева */
   padding-right: 15px; /* справа */
 }
