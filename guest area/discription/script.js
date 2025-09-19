@@ -16,7 +16,6 @@ function createTable(sectionArray) {
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
   [
-    currentLang === 'ru' ? 'Блюдо' : 'Dish',
     currentLang === 'ru' ? 'Ингредиенты' : 'Ingredients',
     currentLang === 'ru' ? 'Выход (гр.)' : 'Amount (g)',
     currentLang === 'ru' ? 'Описание' : 'Description',
@@ -33,12 +32,18 @@ function createTable(sectionArray) {
   const tbody = document.createElement('tbody');
 
   sectionArray.forEach(dish => {
-    const tr = document.createElement('tr');
-
-    // Название блюда
+    // Новая строка для названия блюда
+    const trName = document.createElement('tr');
     const tdName = document.createElement('td');
     tdName.textContent = dish.name[currentLang];
+    tdName.colSpan = 4; // объединяем все колонки
     tdName.style.fontWeight = '600';
+    tdName.style.textAlign = 'left';
+    trName.appendChild(tdName);
+    tbody.appendChild(trName);
+
+    // Строка с ингредиентами, количеством, описанием и фото
+    const tr = document.createElement('tr');
 
     // Ингредиенты
     const tdIngr = document.createElement('td');
@@ -70,7 +75,6 @@ function createTable(sectionArray) {
       tdPhoto.appendChild(img);
     }
 
-    tr.appendChild(tdName);
     tr.appendChild(tdIngr);
     tr.appendChild(tdAmount);
     tr.appendChild(tdDesc);
