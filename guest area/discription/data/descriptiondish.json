@@ -15,7 +15,7 @@
       "ru": "Тостовый хлеб обжаривается на сливочном масле с 2х сторон. На каждый из кусочков кладется сыр и на один из них на сыр кладется ветчина, далее все запекается до состояния сыра расплавленного. Собирается сендвич. Сверху кладется глазунья из 1 яйца. Разрезается напополам и выкладывается на тарелку. Украшается рукколой и томатами черри.",
       "en": "Toast bread is fried in butter on both sides. Cheese is placed on each slice, and on one slice, ham is placed on top of the cheese, then everything is baked until the cheese melts. The sandwich is assembled. A fried egg is placed on top. Cut in half and placed on a plate. Decorated with arugula and cherry tomatoes."
     },
-    "photo": ".../kitchen/kitchen/ttk/dishes/photos/crock.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/crock.png"
   },
   {
     "name": { "ru": "Панкейки с фруктами", "en": "Pancakes with Fruit" },
