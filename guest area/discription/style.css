@@ -235,3 +235,26 @@ body {
 .dish-table td:nth-child(3) { width: 45%; font-size: 10px; } /* Описание */
 .dish-table th:nth-child(4),
 .dish-table td:nth-child(4) { width: 15%; font-size: 8px; } /* Фото */
+
+
+/* === Отступы таблицы от краёв экрана === */
+.table-container {
+  margin-left: 20px;  /* отступ слева */
+  margin-right: 20px; /* отступ справа */
+}
+
+/* === Отступы для каждого столбца === */
+.dish-table td:nth-child(1),
+.dish-table th:nth-child(1) { padding-left: 10px; padding-right: 5px; }  /* Ингредиенты */
+.dish-table td:nth-child(2),
+.dish-table th:nth-child(2) { padding-left: 5px; padding-right: 5px; }   /* Выход */
+.dish-table td:nth-child(3),
+.dish-table th:nth-child(3) { padding-left: 8px; padding-right: 8px; }   /* Описание */
+.dish-table td:nth-child(4),
+.dish-table th:nth-child(4) { padding-left: 5px; padding-right: 5px; }   /* Фото */
+
+/* === Отступы для строки с названием блюда === */
+.dish-table td.dish-name {
+  padding-left: 15px;  /* слева */
+  padding-right: 15px; /* справа */
+}
