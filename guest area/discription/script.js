@@ -64,16 +64,22 @@ function createTable(sectionArray) {
     tdDesc.textContent = dish.process[currentLang] || '';
 
     // Фото
-    const tdPhoto = document.createElement('td');
-    if (dish.photo) {
-      const img = document.createElement('img');
-      img.src = dish.photo;
-      img.alt = dish.name[currentLang];
-      img.className = 'dish-photo';
-      img.style.maxWidth = '120px';
-      img.style.cursor = 'pointer';
-      tdPhoto.appendChild(img);
-    }
+// Фото
+const tdPhoto = document.createElement('td');
+if (dish.photo) {
+  const img = document.createElement('img');
+  
+  // Базовый путь к фото
+  const basePath = 'kitchen/kitchen/ttk/dishes/photos/'; // путь к папке с фото
+  img.src = basePath + dish.photo;  // dish.photo из JSON, например 'beef.png'
+  
+  img.alt = dish.name[currentLang];
+  img.className = 'dish-photo';
+  img.style.maxWidth = '120px';
+  img.style.cursor = 'pointer';
+  
+  tdPhoto.appendChild(img);
+}
 
     tr.appendChild(tdIngr);
     tr.appendChild(tdAmount);
