@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Кнопка отправки ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const chat_id = '-4871173223'; // твой Telegram чат ID
+    const chat_id = '-1002915693964'; // твой Telegram чат ID
     const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
     const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
