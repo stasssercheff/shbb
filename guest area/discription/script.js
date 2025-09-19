@@ -69,9 +69,8 @@ const tdPhoto = document.createElement('td');
 if (dish.photo) {
   const img = document.createElement('img');
 
-  // путь к папке с фото относительно HTML
-  const photoPath = 'kitchen/kitchen/ttk/dishes/photos/'; 
-  img.src = photoPath + dish.photo; // dish.photo из JSON, например "beef.png"
+  // Берём путь из JSON напрямую
+  img.src = dish.photo;
 
   img.alt = dish.name[currentLang];
   img.className = 'dish-photo';
