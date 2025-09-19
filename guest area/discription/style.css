@@ -228,10 +228,10 @@ body {
 
 /* === Блок для ручного управления шириной и шрифтом столбцов === */
 .dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { width: 30%; font-size: 12px; } /* Ингредиенты */
+.dish-table td:nth-child(1) { width: 30%; font-size: 10px; } /* Ингредиенты */
 .dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { width: 10%; font-size: 12px; } /* Выход */
+.dish-table td:nth-child(2) { width: 10%; font-size: 10px; } /* Выход */
 .dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { width: 40%; font-size: 12px; } /* Описание */
+.dish-table td:nth-child(3) { width: 45%; font-size: 10px; } /* Описание */
 .dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { width: 20%; font-size: 12px; } /* Фото */
+.dish-table td:nth-child(4) { width: 15%; font-size: 8px; } /* Фото */
