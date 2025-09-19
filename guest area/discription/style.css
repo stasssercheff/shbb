@@ -1,4 +1,3 @@
-
 /* Сброс базовых отступов и границ */
 * {
   margin: 0;
@@ -88,15 +87,15 @@ body {
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  align-items: center; /* все кнопки по центру */
+  align-items: center;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* Кнопки разделов — фиксированная ширина и одинаковый размер */
 .section-btn {
-  width: 200px;            /* фиксированная ширина для всех кнопок */
-  min-width: 200px;        /* гарантируем одинаковый размер */
+  width: 200px;
+  min-width: 200px;
   max-width: 200px;
   text-align: center;
   padding: 10px 15px;
@@ -107,9 +106,9 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  white-space: nowrap;     /* текст не переносится */
-  overflow: hidden;        /* обрезаем длинный текст */
-  text-overflow: ellipsis; /* многоточие при обрезке */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: background-color 0.3s;
 }
 
@@ -126,28 +125,28 @@ body {
   overflow-x: hidden;
 }
 
-/* Контейнер таблицы — без flex, центрируем через margin */
+/* Контейнер таблицы */
 .table-container {
   width: 100%;
-  overflow-x: hidden; /* горизонтальный скролл убран */
+  overflow-x: hidden;
   margin-top: 10px;
-  text-align: center; /* центрирование содержимого */
+  text-align: center;
 }
 
 /* Таблица блюда */
 .dish-table {
   border-collapse: collapse;
-  margin: 0 auto; /* центрируем таблицу */
+  margin: 0 auto;
   font-size: 10px;
   background: #fff;
   table-layout: fixed;
-  width: 100%; /* таблица растягивается на весь контейнер */
+  width: 100%;
 }
 
 /* Шапка таблицы */
 .dish-table th {
   border: 1px solid #ccc;
-  padding: 4px; /* уменьшаем внутренние отступы для ширины */
+  padding: 4px;
   text-align: center;
   vertical-align: middle;
   background-color: #f9f9f9;
@@ -156,51 +155,22 @@ body {
 }
 
 /* Ячейки таблицы */
-/* Ячейки таблицы с индивидуальным левым отступом */
 .dish-table td {
   border: 1px solid #ccc;
-  padding-top: 3px;    /* верхний */
-  padding-right: 3px;  /* правый */
-  padding-bottom: 3px; /* нижний */
+  padding-top: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
   text-align: left;
   vertical-align: top;
   word-break: break-word;
 }
 
-/* Индивидуальный левый отступ для каждого столбца */
-.dish-table td:nth-child(1) { padding-left: 4px; }   /* № */
-.dish-table td:nth-child(2) { padding-left: 6px; }   /* Ингредиент */
-.dish-table td:nth-child(3) { padding-left: 4px; }   /* Количество */
-.dish-table td:nth-child(4) { padding-left: 6px; }   /* Описание */
-.dish-table td:nth-child(5) { padding-left: 0px; }   /* Фото */
-
-/* Размер текста отдельно для каждого столбца */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { font-size: 8px; } /* № */
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { font-size: 8px; } /* Ингредиент */
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { font-size: 7px; } /* Количество */
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { font-size: 8px; } /* Описание */
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { font-size: 8px; } /* Фото */
-
-/* Ширина столбцов в процентах */
-.dish-table th:nth-child(1),
-.dish-table td:nth-child(1) { width: 5%; }   /* № */
-.dish-table th:nth-child(2),
-.dish-table td:nth-child(2) { width: 28%; }  /* Ингредиент */
-.dish-table th:nth-child(3),
-.dish-table td:nth-child(3) { width: 7%; }  /* Количество */
-.dish-table th:nth-child(4),
-.dish-table td:nth-child(4) { width: 45%; }  /* Описание */
-.dish-table th:nth-child(5),
-.dish-table td:nth-child(5) { width: 15%; }  /* Фото */
-
-/* Процесс приготовления объединяем ячейки */
-.dish-table td.description-cell {
-  vertical-align: top;
+/* Название блюда сверху */
+.dish-table td.dish-name {
+  text-align: center;   /* центрируем */
+  font-weight: 600;     /* жирный */
+  font-size: 14px;      /* шрифт названия блюда */
+  padding: 6px 0;       /* отступ сверху и снизу */
 }
 
 /* Контейнер для фото в ячейке */
@@ -208,19 +178,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;       /* высота ячейки */
-  overflow: hidden;   /* обрезаем лишнее, чтобы фото не вылазило */
+  height: 60px;
+  overflow: hidden;
 }
 
 /* Миниатюра фото */
 .dish-photo img {
-  max-width: 100%;       /* подстраивается под ширину столбца */
-  max-height: 100%;      /* не растягиваем по высоте */
-  width: auto;           /* сохраняем пропорции */
-  height: auto;          /* сохраняем пропорции */
-  cursor: pointer;       /* кликабельность */
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  cursor: pointer;
   transition: transform 0.2s ease;
-  object-fit: contain;   /* фото вписывается в ячейку без обрезки */
+  object-fit: contain;
 }
 
 .dish-photo img:hover {
@@ -238,6 +208,7 @@ body {
   align-items: center;
   z-index: 9999;
 }
+
 #photo-modal img {
   max-width: 90%;
   max-height: 90%;
@@ -247,10 +218,20 @@ body {
 /* Адаптивность */
 @media (max-width: 768px) {
   .section-btn {
-    width: 90%;  /* кнопки растягиваются на маленьких экранах */
+    width: 90%;
     font-size: 14px;
   }
   .dish-table {
     font-size: 10px;
   }
 }
+
+/* === Блок для ручного управления шириной и шрифтом столбцов === */
+.dish-table th:nth-child(1),
+.dish-table td:nth-child(1) { width: 30%; font-size: 12px; } /* Ингредиенты */
+.dish-table th:nth-child(2),
+.dish-table td:nth-child(2) { width: 10%; font-size: 12px; } /* Выход */
+.dish-table th:nth-child(3),
+.dish-table td:nth-child(3) { width: 40%; font-size: 12px; } /* Описание */
+.dish-table th:nth-child(4),
+.dish-table td:nth-child(4) { width: 20%; font-size: 12px; } /* Фото */
