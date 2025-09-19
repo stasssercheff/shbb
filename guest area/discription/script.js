@@ -17,7 +17,7 @@ function createTable(sectionArray) {
   const headerRow = document.createElement('tr');
   [
     currentLang === 'ru' ? 'Ингредиенты' : 'Ingredients',
-    currentLang === 'ru' ? 'Выход (гр.)' : 'Amount (g)',
+    currentLang === 'ru' ? 'Гр.' : 'Gr.',
     currentLang === 'ru' ? 'Описание' : 'Description',
     currentLang === 'ru' ? 'Фото' : 'Photo'
   ].forEach(text => {
