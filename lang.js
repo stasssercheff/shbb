@@ -32,7 +32,7 @@ const translations = {
     process: "Description",
     photo: "Photo",
     kitchen: "Kitchen",
-    guest_area: "Hall"
+    guest_area: "Guest area"
   },
   vi: {
     menu: "Thực đơn",
