@@ -1,31 +1,13 @@
-// lang.js — универсальный загрузчик переводов по фразам
+// lang.js — загрузчик переводов по фразам
 (async function () {
-  const tryPaths = [
-    '/lang.json',
-    './lang.json',
-    './lang/lang.json'
-  ];
-
+  const path = './lang.json'; // JSON в корне
   let translations = null;
 
-  async function fetchFirst(paths) {
-    for (const p of paths) {
-      try {
-        const res = await fetch(p, { cache: 'no-store' });
-        if (res && res.ok) {
-          const json = await res.json();
-          console.info('[lang.js] loaded translations from', p);
-          return json;
-        }
-      } catch (e) {
-        // ignore
-      }
-    }
-    throw new Error('[lang.js] could not load lang.json');
-  }
-
   try {
-    translations = await fetchFirst(tryPaths);
+    const res = await fetch(path, { cache: 'no-store' });
+    if (!res.ok) throw new Error('Не удалось загрузить lang.json');
+    translations = await res.json();
+    console.info('[lang.js] translations loaded', translations);
   } catch (err) {
     console.error(err);
     return;
@@ -39,26 +21,26 @@
   }
 
   function applyTranslations(lang) {
-    if (!lang) return;
+    if (!translations) return;
 
+    // Перевод элементов с data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       const value = translations[key] ? translations[key][lang] : null;
       if (value !== null && value !== undefined) {
-        if (el.tagName === 'TITLE') {
-          document.title = value;
-        } else {
-          el.textContent = value;
-        }
+        if (el.tagName === 'TITLE') document.title = value;
+        else el.textContent = value;
       }
     });
 
+    // Перевод placeholder
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
       const value = translations[key] ? translations[key][lang] : null;
       if (value !== null) el.setAttribute('placeholder', value);
     });
 
+    // Перевод title
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
       const key = el.getAttribute('data-i18n-title');
       const value = translations[key] ? translations[key][lang] : null;
@@ -89,6 +71,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Навесить обработчики на кнопки языка
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.lang;
@@ -96,6 +79,7 @@
       });
     });
 
+    // Применяем сохранённый язык при загрузке
     const initial = getSavedLang();
     applyTranslations(initial);
   });
