@@ -3,40 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница выбора</title>
+  <title data-i18n="page_title">Страница выбора</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <script src="lang.js" defer></script>
 </head>
 <body>
 
 <header class="page-header header-row">
   <!-- Переключение языка -->
   <div class="lang-switch">
-    <button onclick="switchLanguage('ru')">RU</button>
-    <button onclick="switchLanguage('en')">EN</button>
+    <button class="lang-btn" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="vi">VI</button>
   </div>
 
   <!-- Навигационные кнопки -->
   <div class="nav-buttons">
-    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-    <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
+    <button class="nav-btn" data-i18n="home" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
+    <button class="nav-btn" data-i18n="back" onclick="location.href='../index.html'">Назад</button>
   </div>
 </header>
 
 <main class="main-container">
   <!-- Лого -->
-  <img src="../logo.png" alt="Лого" class="logo">
+  <img src="logo.png" alt="Лого" class="logo">
 
   <!-- Заголовок -->
-  <h1>Выберите подраздел</h1>
+  <h1 data-i18n="greeting">Выберите подраздел</h1>
 
   <!-- Кнопки перехода -->
   <div class="buttons-container">
-    <button class="nav-btn" onclick="location.href='order products/index.html'">Заказ продуктов</button>
-    <button class="nav-btn" onclick="location.href='checklist kitchen/index.html'">Чеклист кухня</button>
-    <button class="nav-btn" onclick="location.href='checklist2floor/index.html'">Чеклист склад</button>
-    <button class="nav-btn" onclick="location.href='dry storage/index.html'">Чеклист сухой склад</button>
-    </div>
-   </main>
-  </body>
+    <button class="nav-btn" data-i18n="order" onclick="location.href='order products/index.html'">Заказ продуктов</button>
+    <button class="nav-btn" data-i18n="description" onclick="location.href='checklist kitchen/index.html'">Чеклист кухня</button>
+    <button class="nav-btn" data-i18n="menu" onclick="location.href='checklist2floor/index.html'">Чеклист склад</button>
+    <button class="nav-btn" data-i18n="ingredients" onclick="location.href='dry storage/index.html'">Чеклист сухой склад</button>
+  </div>
+</main>
+
+</body>
 </html>
