@@ -90,3 +90,14 @@ h1#greeting {
 .nav-btn:hover {
     background-color: #c1b29a;
 }
+
+
+/* Контейнер для кнопок "Назад" и "На главную" */
+.nav-header {
+  display: flex;
+  justify-content: center; /* можно заменить на space-between */
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
