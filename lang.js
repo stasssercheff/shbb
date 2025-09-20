@@ -1,12 +1,9 @@
-// lang.js — универсальный и устойчивый загрузчик переводов
+// lang.js — универсальный загрузчик переводов
 (async function () {
   const tryPaths = [
     '/lang.json',
-    '/lang/lang.json',
-    'lang.json',
     './lang.json',
-    './lang/lang.json',
-    '../lang.json'
+    './lang/lang.json'
   ];
 
   let translations = null;
@@ -24,31 +21,28 @@
         // ignore and try next
       }
     }
-    throw new Error('[lang.js] could not load lang.json from any known path');
+    throw new Error('[lang.js] could not load lang.json');
   }
 
   try {
     translations = await fetchFirst(tryPaths);
   } catch (err) {
     console.error(err);
-    return; // ничего не делаем дальше — нет переводов
+    return;
   }
 
   function getSavedLang() {
     const saved = localStorage.getItem('lang');
     if (saved && translations[saved]) return saved;
-    const nav = (navigator.language || navigator.userLanguage || '').slice(0, 2);
+    const nav = (navigator.language || '').slice(0, 2);
     if (nav && translations[nav]) return nav;
-    return Object.keys(translations)[0]; // первый доступный
+    return Object.keys(translations)[0];
   }
 
   function applyTranslations(lang) {
-    if (!translations[lang]) {
-      console.warn('[lang.js] no translations for', lang);
-      return;
-    }
+    if (!translations[lang]) return;
 
-    // Перевод обычного текста / title
+    // Перевод текста
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       const value = translations[lang][key];
@@ -59,10 +53,9 @@
           el.textContent = value;
         }
       }
-      // если перевода нет — оставляем существующий текст
     });
 
-    // Поддержка атрибутов (placeholder, title) через специальные атрибуты
+    // Перевод атрибутов
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
       const v = translations[lang][key];
@@ -74,7 +67,7 @@
       if (v !== undefined) el.setAttribute('title', v);
     });
 
-    // Дата: элементы с data-i18n="date" или #current-date
+    // Дата
     const locale = translations[lang].date_format || lang;
     const today = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -86,13 +79,11 @@
       }
     });
 
-    // Обновим атрибут lang у <html>
+    // Обновляем lang у <html>
     document.documentElement.lang = lang;
-
-    // Сохраняем выбор
     localStorage.setItem('lang', lang);
 
-    // Пометить активную кнопку и при наличии — обновить текст кнопок выбора языка
+    // Активная кнопка языка
     document.querySelectorAll('.lang-btn').forEach(btn => {
       const bLang = btn.dataset.lang;
       btn.classList.toggle('active', bLang === lang);
@@ -103,7 +94,6 @@
     });
   }
 
-  // Навесим обработчики и применим язык при загрузке DOM
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -115,5 +105,4 @@
     const initial = getSavedLang();
     applyTranslations(initial);
   });
-
 })();
