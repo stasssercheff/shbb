@@ -1,43 +1,49 @@
 let translations = {};
+let currentLang = "ru";
 
+// Загружаем JSON с переводами
 async function loadTranslations() {
-  const response = await fetch("lang.json");
-  translations = await response.json();
-}
+  try {
+    const response = await fetch("../lang.json"); // путь поправь, если нужно
+    translations = await response.json();
 
-async function setLanguage(lang) {
-  if (!translations[lang]) return;
-
-  // обновляем все элементы с data-i18n
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const translation = translations[lang][key];
-    if (translation) {
-      el.textContent = translation;
+    // Загружаем сохранённый язык из localStorage
+    const savedLang = localStorage.getItem("lang");
+    if (savedLang && translations[savedLang]) {
+      currentLang = savedLang;
     }
-  });
 
-  // обновляем дату
-  const dateEl = document.getElementById("current-date");
-  if (dateEl && translations[lang].date_format) {
-    const today = new Date();
-    dateEl.textContent = today.toLocaleDateString(translations[lang].date_format, {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
+    applyTranslations(currentLang);
+  } catch (error) {
+    console.error("Ошибка загрузки lang.json:", error);
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadTranslations();
-  setLanguage("ru");
+// Применяем перевод
+function applyTranslations(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
 
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
+  // Меняем lang у <html>
+  document.documentElement.setAttribute("lang", lang);
+  currentLang = lang;
+  localStorage.setItem("lang", lang); // сохраняем выбор
+}
+
+// Навешиваем обработчики на кнопки
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      const lang = btn.getAttribute("data-lang");
-      setLanguage(lang);
+      const lang = btn.dataset.lang;
+      if (lang) {
+        applyTranslations(lang);
+      }
     });
   });
+
+  loadTranslations();
 });
