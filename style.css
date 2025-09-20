@@ -19,7 +19,7 @@ body {
 }
 
 /* Кнопки языка */
-.lang-btn {
+.top-btn {
     padding: 6px 12px;
     background-color: #d8cfc0;  /* базовый цвет */
     color: #333;
@@ -30,7 +30,7 @@ body {
     transition: 0.2s;
 }
 
-.lang-btn:hover {
+.top-btn:hover {
     background-color: #c1b29a;  /* цвет при наведении */
 }
 
