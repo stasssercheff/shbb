@@ -19,18 +19,21 @@ body {
 }
 
 /* Кнопки языка */
-.top-btn {
-    padding: 6px 12px;
-    background-color: #d8cfc0;  /* базовый цвет */
+.lang-btn {
+padding: 12px 20px;
+    width: 100%;
+    max-width: 250px;
+    background-color: #d8cfc0;
     color: #333;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 16px;
     transition: 0.2s;
 }
 
-.top-btn:hover {
+.lang-btn:hover {
     background-color: #c1b29a;  /* цвет при наведении */
 }
 
