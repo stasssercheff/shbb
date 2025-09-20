@@ -5,30 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Страница выбора</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Подключаем основной скрипт -->
   <script src="script.js" defer></script>
+  <!-- Подключаем скрипт для перевода -->
+  <script src="lang.js" defer></script>
 </head>
 <body>
 
-  <div class="lang-switch">
-  <button class="lang-btn" data-lang="ru">RU</button>
-  <button class="lang-btn" data-lang="en">EN</button>
-  <button class="lang-btn" data-lang="vi">VI</button>
-</div>
-
-<main class="main-container">
-  <!-- Лого -->
-  <img src="logo.png" alt="Лого" class="logo">
-
-
-  <!-- Заголовок -->
-  <h1>портал сотрудников</h1>
-
-  <!-- Кнопки перехода -->
-  <div class="buttons-container">
-    <button class="nav-btn" data-i18n="kitchen" onclick="location.href='kitchen/index.html'">Кухня</button>
-    <button class="nav-btn" data-i18n="guest area" onclick="location.href='guest area/index.html'">Зал</button>
+  <!-- Шапка с кнопками языка -->
+  <header class="page-header">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
     </div>
-</main>
+  </header>
+
+  <main class="main-container">
+    <!-- Лого -->
+    <img src="logo.png" alt="Лого" class="logo">
+
+    <!-- Заголовок -->
+    <h1 id="greeting" data-i18n="greeting">Портал сотрудников</h1>
+
+    <!-- Дата -->
+    <div class="date-container" id="current-date"></div>
+
+    <!-- Кнопки перехода -->
+    <div class="buttons-container">
+      <button class="nav-btn" data-i18n="kitchen" onclick="location.href='kitchen/index.html'">Кухня</button>
+      <button class="nav-btn" data-i18n="guest area" onclick="location.href='guest area/index.html'">Зал</button>
+    </div>
+  </main>
 
 </body>
 </html>
