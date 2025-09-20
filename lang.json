@@ -1,68 +1,102 @@
 {
-  "ru": {
-    "greeting": "Портал сотрудников",
-    "page_title": "Страница выбора",
-    "menu": "Меню",
-    "description": "Описание блюд",
-    "send": "Отправить",
-    "back": "Назад",
-    "home": "На главную",
-    "date": "Дата",
-    "order": "Заказ",
-    "name": "Имя",
-    "comment": "Комментарий",
-    "ingredients": "Ингредиенты",
-    "amount": "Гр.",
-    "process": "Описание",
-    "photo": "Фото",
-    "kitchen": "Кухня",
-    "guest_area": "Зал",
-    "write_off_bread": "Списание хлеб/булки",
-    "given_bread": "Отдано хлеб/булки",
-    "date_format": "ru-RU"
+  "greeting": {
+    "ru": "Портал сотрудников",
+    "en": "Employee Portal",
+    "vi": "Cổng nhân viên"
   },
-  "en": {
-    "greeting": "Employee Portal",
-    "page_title": "Selection page",
-    "menu": "Menu",
-    "description": "Dish description",
-    "send": "Send",
-    "back": "Back",
-    "home": "Home",
-    "date": "Date",
-    "order": "Order",
-    "name": "Name",
-    "comment": "Comment",
-    "ingredients": "Ingredients",
-    "amount": "Gr.",
-    "process": "Description",
-    "photo": "Photo",
-    "kitchen": "Kitchen",
-    "guest_area": "Guest area",
-    "write_off_bread": "Write-off bread/buns",
-    "given_bread": "Given bread/buns",
-    "date_format": "en-US"
+  "page_title": {
+    "ru": "Страница выбора",
+    "en": "Selection page",
+    "vi": "Trang lựa chọn"
   },
-  "vi": {
-    "greeting": "Cổng nhân viên",
-    "page_title": "Trang lựa chọn",
-    "menu": "Thực đơn",
-    "description": "Mô tả món ăn",
-    "send": "Gửi",
-    "back": "Quay lại",
-    "home": "Trang chủ",
-    "date": "Ngày",
-    "order": "Đơn hàng",
-    "name": "Tên",
-    "comment": "Bình luận",
-    "ingredients": "Nguyên liệu",
-    "amount": "Gram",
-    "process": "Mô tả",
-    "photo": "Ảnh",
-    "kitchen": "Bếp",
-    "guest_area": "Khu vực khách",
-    "write_off_bread": "Ghi giảm bánh mì/bánh ngọt",
-    "given_bread": "Đã đưa bánh mì/bánh ngọt",
-    "date_format": "vi-VN"
+  "menu": {
+    "ru": "Меню",
+    "en": "Menu",
+    "vi": "Thực đơn"
+  },
+  "description": {
+    "ru": "Описание блюд",
+    "en": "Dish description",
+    "vi": "Mô tả món ăn"
+  },
+  "send": {
+    "ru": "Отправить",
+    "en": "Send",
+    "vi": "Gửi"
+  },
+  "back": {
+    "ru": "Назад",
+    "en": "Back",
+    "vi": "Quay lại"
+  },
+  "home": {
+    "ru": "На главную",
+    "en": "Home",
+    "vi": "Trang chủ"
+  },
+  "date": {
+    "ru": "Дата",
+    "en": "Date",
+    "vi": "Ngày"
+  },
+  "order": {
+    "ru": "Заказ",
+    "en": "Order",
+    "vi": "Đơn hàng"
+  },
+  "name": {
+    "ru": "Имя",
+    "en": "Name",
+    "vi": "Tên"
+  },
+  "comment": {
+    "ru": "Комментарий",
+    "en": "Comment",
+    "vi": "Bình luận"
+  },
+  "ingredients": {
+    "ru": "Ингредиенты",
+    "en": "Ingredients",
+    "vi": "Nguyên liệu"
+  },
+  "amount": {
+    "ru": "Гр.",
+    "en": "Gr.",
+    "vi": "Gram"
+  },
+  "process": {
+    "ru": "Описание",
+    "en": "Description",
+    "vi": "Mô tả"
+  },
+  "photo": {
+    "ru": "Фото",
+    "en": "Photo",
+    "vi": "Ảnh"
+  },
+  "kitchen": {
+    "ru": "Кухня",
+    "en": "Kitchen",
+    "vi": "Bếp"
+  },
+  "guest_area": {
+    "ru": "Зал",
+    "en": "Guest area",
+    "vi": "Khu vực khách"
+  },
+  "write_off_bread": {
+    "ru": "Списание хлеб/булки",
+    "en": "Write-off bread/buns",
+    "vi": "Ghi giảm bánh mì/bánh ngọt"
+  },
+  "given_bread": {
+    "ru": "Отдано хлеб/булки",
+    "en": "Given bread/buns",
+    "vi": "Đã đưa bánh mì/bánh ngọt"
+  },
+  "date_format": {
+    "ru": "ru-RU",
+    "en": "en-US",
+    "vi": "vi-VN"
   }
 }
