@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница выбора</title>
+  <title data-i18n="page_title">Страница выбора</title>
   <link rel="stylesheet" href="style.css">
   <!-- Подключаем основной скрипт -->
   <script src="script.js" defer></script>
@@ -19,26 +19,27 @@
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="vi">VI</button>
     </div>
+  </header>
 
-<header class="page-header">
-  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
-</header>
+  <header class="page-header">
+    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home">На главную</button>
+    <button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back">Назад</button>
+  </header>
 
-<main class="main-container">
-  <!-- Лого -->
-  <img src="logo.png" alt="Лого" class="logo">
+  <main class="main-container">
+    <!-- Лого -->
+    <img src="logo.png" alt="Лого" class="logo">
 
-  <!-- Заголовок -->
-  <h1>ЗАЛ</h1>
+    <!-- Заголовок -->
+    <h1 data-i18n="guest_area">ЗАЛ</h1>
 
-  <!-- Кнопки перехода -->
-  <div class="buttons-container">
-    <button class="nav-btn" onclick="location.href='discription/index.html'">ОПИСАНИЕ БЛЮД</button>
-    <button class="nav-btn" onclick="location.href='Leftovers/index.html'">СПИСАНИЕ ХЛЕБ/БУЛКИ</button>
-    <button class="nav-btn" onclick="location.href='given/index.html'">ОТДАНО ХЛЕБ/БУЛКИ</button>
+    <!-- Кнопки перехода -->
+    <div class="buttons-container">
+      <button class="nav-btn" onclick="location.href='discription/index.html'" data-i18n="description">ОПИСАНИЕ БЛЮД</button>
+      <button class="nav-btn" onclick="location.href='Leftovers/index.html'" data-i18n="write_off_bread">СПИСАНИЕ ХЛЕБ/БУЛКИ</button>
+      <button class="nav-btn" onclick="location.href='given/index.html'" data-i18n="given_bread">ОТДАНО ХЛЕБ/БУЛКИ</button>
     </div>
-</main>
+  </main>
 
 </body>
 </html>
