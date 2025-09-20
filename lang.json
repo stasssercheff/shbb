@@ -1,8 +1,9 @@
 {
   "ru": {
     "greeting": "Портал сотрудников",
+    "page_title": "Страница выбора",
     "menu": "Меню",
-    "description": "Описание блюда",
+    "description": "Описание блюд",
     "send": "Отправить",
     "back": "Назад",
     "home": "На главную",
@@ -16,10 +17,13 @@
     "photo": "Фото",
     "kitchen": "Кухня",
     "guest_area": "Зал",
+    "write_off_bread": "Списание хлеб/булки",
+    "given_bread": "Отдано хлеб/булки",
     "date_format": "ru-RU"
   },
   "en": {
     "greeting": "Employee Portal",
+    "page_title": "Selection page",
     "menu": "Menu",
     "description": "Dish description",
     "send": "Send",
@@ -35,10 +39,13 @@
     "photo": "Photo",
     "kitchen": "Kitchen",
     "guest_area": "Guest area",
+    "write_off_bread": "Write-off bread/buns",
+    "given_bread": "Given bread/buns",
     "date_format": "en-US"
   },
   "vi": {
     "greeting": "Cổng nhân viên",
+    "page_title": "Trang lựa chọn",
     "menu": "Thực đơn",
     "description": "Mô tả món ăn",
     "send": "Gửi",
@@ -54,6 +61,8 @@
     "photo": "Ảnh",
     "kitchen": "Bếp",
     "guest_area": "Khu vực khách",
+    "write_off_bread": "Ghi giảm bánh mì/bánh ngọt",
+    "given_bread": "Đã đưa bánh mì/bánh ngọt",
     "date_format": "vi-VN"
   }
 }
