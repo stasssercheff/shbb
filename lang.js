@@ -1,39 +1,43 @@
-async function loadLanguage(lang) {
-  try {
-    const response = await fetch(`lang/${lang}.json`);
-    const translations = await response.json();
+let translations = {};
 
-    // Применяем переводы
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (translations[key]) {
-        el.textContent = translations[key];
-      }
-    });
+async function loadTranslations() {
+  const response = await fetch("lang/translations.json");
+  translations = await response.json();
+}
 
-    // Дата
-    const dateEl = document.getElementById("current-date");
-    if (dateEl && translations.date_format) {
-      const today = new Date();
-      dateEl.textContent = today.toLocaleDateString(translations.date_format, {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      });
+async function setLanguage(lang) {
+  if (!translations[lang]) return;
+
+  // обновляем все элементы с data-i18n
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const translation = translations[lang][key];
+    if (translation) {
+      el.textContent = translation;
     }
-  } catch (err) {
-    console.error("Ошибка загрузки перевода:", err);
+  });
+
+  // обновляем дату
+  const dateEl = document.getElementById("current-date");
+  if (dateEl && translations[lang].date_format) {
+    const today = new Date();
+    dateEl.textContent = today.toLocaleDateString(translations[lang].date_format, {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
   }
 }
 
-// Обработчики кнопок
-document.querySelectorAll(".lang-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const lang = btn.getAttribute("data-lang");
-    loadLanguage(lang);
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadTranslations();
+  setLanguage("ru");
+
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("data-lang");
+      setLanguage(lang);
+    });
   });
 });
-
-// Язык по умолчанию
-loadLanguage("ru");
