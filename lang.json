@@ -1,5 +1,6 @@
 {
   "ru": {
+    "greeting": "Портал сотрудников",
     "menu": "Меню",
     "description": "Описание блюда",
     "send": "Отправить",
@@ -18,6 +19,7 @@
     "date_format": "ru-RU"
   },
   "en": {
+    "greeting": "Employee Portal",
     "menu": "Menu",
     "description": "Dish description",
     "send": "Send",
@@ -36,6 +38,7 @@
     "date_format": "en-US"
   },
   "vi": {
+    "greeting": "Cổng nhân viên",
     "menu": "Thực đơn",
     "description": "Mô tả món ăn",
     "send": "Gửi",
