@@ -13,7 +13,9 @@ const translations = {
     ingredients: "Ингредиенты",
     amount: "Гр.",
     process: "Описание",
-    photo: "Фото"
+    photo: "Фото",
+    kitchen: "Кухня",
+    guest_area: "Зал"
   },
   en: {
     menu: "Menu",
@@ -28,7 +30,9 @@ const translations = {
     ingredients: "Ingredients",
     amount: "Gr.",
     process: "Description",
-    photo: "Photo"
+    photo: "Photo",
+    kitchen: "Kitchen",
+    guest_area: "Hall"
   },
   vi: {
     menu: "Thực đơn",
@@ -43,31 +47,41 @@ const translations = {
     ingredients: "Nguyên liệu",
     amount: "Gram",
     process: "Mô tả",
-    photo: "Ảnh"
+    photo: "Ảnh",
+    kitchen: "Bếp",
+    guest_area: "Khu vực khách"
   }
 };
 
-// === Переключение языка ===
-function switchLanguage(lang) {
-  document.documentElement.lang = lang;
+// ===== ТЕКУЩИЙ ЯЗЫК =====
+let currentLang = localStorage.getItem("lang") || "ru";
+
+// ===== ПРИМЕНЕНИЕ ПЕРЕВОДА =====
+function applyTranslations() {
+  document.documentElement.lang = currentLang;
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
+    if (translations[currentLang][key]) {
+      el.textContent = translations[currentLang][key];
     }
   });
 }
 
-// === Вешаем события на кнопки ===
+// ===== СМЕНА ЯЗЫКА =====
+function switchLanguage(lang) {
+  if (!translations[lang]) return;
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+  applyTranslations();
+}
+
+// ===== ИНИЦИАЛИЗАЦИЯ =====
 document.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("lang") || "ru";
-  switchLanguage(lang);
+  applyTranslations();
 
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      const selectedLang = btn.getAttribute("data-lang");
-      localStorage.setItem("lang", selectedLang);
-      switchLanguage(selectedLang);
+      switchLanguage(btn.dataset.lang);
     });
   });
 });
