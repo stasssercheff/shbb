@@ -10,31 +10,31 @@
 </head>
 <body>
 
-  <!-- Шапка с кнопками языка -->
-  <header class="page-header">
-    <div class="lang-switch">
-      <button class="lang-btn" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="vi">VI</button>
-    </div>
-  </header>
+<header class="page-header">
+  <!-- Переключение языка -->
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="vi">VI</button>
+  </div>
+</header>
 
-  <main class="main-container">
-    <!-- Лого -->
-    <img src="logo.png" alt="Лого" class="logo">
+<main class="main-container">
+  <!-- Лого -->
+  <img src="logo.png" alt="Лого" class="logo">
 
-    <!-- Заголовок -->
-    <h1 id="greeting" data-i18n="greeting">Портал сотрудников</h1>
+  <!-- Заголовок -->
+  <h1 data-i18n="greeting">Портал сотрудников</h1>
 
-    <!-- Дата -->
-    <div class="date-container" id="current-date"></div>
+  <!-- Дата -->
+  <div class="date-container" id="current-date"></div>
 
-    <!-- Кнопки перехода -->
-    <div class="buttons-container">
-      <button class="nav-btn" data-i18n="kitchen" onclick="location.href='kitchen/index.html'">Кухня</button>
-      <button class="nav-btn" data-i18n="guest_area" onclick="location.href='guest area/index.html'">Зал</button>
-    </div>
-  </main>
+  <!-- Кнопки перехода -->
+  <div class="buttons-container">
+    <button class="nav-btn" data-i18n="kitchen" onclick="location.href='kitchen/index.html'">Кухня</button>
+    <button class="nav-btn" data-i18n="guest_area" onclick="location.href='guest area/index.html'">Зал</button>
+  </div>
+</main>
 
 </body>
 </html>
