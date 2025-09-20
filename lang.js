@@ -1,4 +1,4 @@
-// lang.js — универсальный загрузчик переводов
+// lang.js — универсальный загрузчик переводов по фразам
 (async function () {
   const tryPaths = [
     '/lang.json',
@@ -18,7 +18,7 @@
           return json;
         }
       } catch (e) {
-        // ignore and try next
+        // ignore
       }
     }
     throw new Error('[lang.js] could not load lang.json');
@@ -33,20 +33,18 @@
 
   function getSavedLang() {
     const saved = localStorage.getItem('lang');
-    if (saved && translations[saved]) return saved;
+    if (saved) return saved;
     const nav = (navigator.language || '').slice(0, 2);
-    if (nav && translations[nav]) return nav;
-    return Object.keys(translations)[0];
+    return nav || 'ru';
   }
 
   function applyTranslations(lang) {
-    if (!translations[lang]) return;
+    if (!lang) return;
 
-    // Перевод текста
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      const value = translations[lang][key];
-      if (value !== undefined && value !== null) {
+      const value = translations[key] ? translations[key][lang] : null;
+      if (value !== null && value !== undefined) {
         if (el.tagName === 'TITLE') {
           document.title = value;
         } else {
@@ -55,20 +53,20 @@
       }
     });
 
-    // Перевод атрибутов
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
-      const v = translations[lang][key];
-      if (v !== undefined) el.setAttribute('placeholder', v);
+      const value = translations[key] ? translations[key][lang] : null;
+      if (value !== null) el.setAttribute('placeholder', value);
     });
+
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
       const key = el.getAttribute('data-i18n-title');
-      const v = translations[lang][key];
-      if (v !== undefined) el.setAttribute('title', v);
+      const value = translations[key] ? translations[key][lang] : null;
+      if (value !== null) el.setAttribute('title', value);
     });
 
     // Дата
-    const locale = translations[lang].date_format || lang;
+    const locale = translations.date_format ? translations.date_format[lang] : lang;
     const today = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.querySelectorAll('[data-i18n="date"], #current-date').forEach(el => {
@@ -79,18 +77,14 @@
       }
     });
 
-    // Обновляем lang у <html>
+    // html lang
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
 
-    // Активная кнопка языка
+    // Кнопки выбора языка
     document.querySelectorAll('.lang-btn').forEach(btn => {
       const bLang = btn.dataset.lang;
       btn.classList.toggle('active', bLang === lang);
-      const labelKey = 'lang_' + (bLang || '');
-      if (translations[lang][labelKey]) {
-        btn.textContent = translations[lang][labelKey];
-      }
     });
   }
 
@@ -98,7 +92,7 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.lang;
-        if (lang && translations[lang]) applyTranslations(lang);
+        applyTranslations(lang);
       });
     });
 
