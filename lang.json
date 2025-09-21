@@ -159,5 +159,21 @@
   "ru": "Чек-лист",
   "en": "Check-list",
   "vi": "Danh sách kiểm tra"
- }
+ },
+{
+  "action_type": {
+    "ru": "Списание / выставлено",
+    "en": "Write off / Given",
+    "vi": "Ghi sổ / Đã giao"
+  },
+  "write_off": {
+    "ru": "Списано",
+    "en": "Write off",
+    "vi": "Ghi sổ"
+  },
+  "given": {
+    "ru": "Выставлено",
+    "en": "Given",
+    "vi": "Đã giao"
+  }
 }
