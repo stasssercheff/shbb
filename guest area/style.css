@@ -68,15 +68,22 @@ h1#greeting {
 
 .buttons-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* горизонтально */
+    flex-wrap: wrap;     /* чтобы при узком экране переносились */
     gap: 12px;
-    align-items: center;
+    justify-content: center; /* выравнивание по центру */
+}
+/* Контейнер для кнопок "Назад" и "На главную" */
+.nav-buttons {
+    display: flex;
+    justify-content: flex-start; /* или space-between, если хочешь растянуть по ширине */
+    gap: 10px;
+    margin-top: 10px; /* чтобы немного отступить от языка */
 }
 
+/* Кнопки навигации */
 .nav-btn {
     padding: 12px 20px;
-    width: 100%;
-    max-width: 250px;
     background-color: #d8cfc0;
     color: #333;
     border: none;
@@ -85,19 +92,11 @@ h1#greeting {
     font-weight: 600;
     font-size: 16px;
     transition: 0.2s;
+    text-align: center;
+    flex: 1; /* чтобы кнопки одинаковой ширины */
+    max-width: 150px; /* можно подкорректировать */
 }
 
 .nav-btn:hover {
     background-color: #c1b29a;
-}
-
-
-/* Контейнер для кнопок "Назад" и "На главную" */
-.nav-header {
-  display: flex;
-  justify-content: center; /* можно заменить на space-between */
-  gap: 10px;
-  padding: 10px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
