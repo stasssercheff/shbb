@@ -154,5 +154,10 @@
     "ru": "Чиабатта пшеничная",
     "en": "Ciabatta",
     "vi": "Bánh Ciabatta"
-  }
+  },
+  "cheklist": {
+  "ru": "Чек-лист",
+  "en": "Check-list",
+  "vi": "Danh sách kiểm tra"
+ }
 }
