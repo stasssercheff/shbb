@@ -1,13 +1,28 @@
-// lang.js — загрузчик переводов по фразам
+// lang.js — универсальный загрузчик переводов
 (async function () {
-  const path = './lang.json'; // JSON в корне
+  const jsonPaths = [
+    '/lang.json',   // пробует из корня
+    './lang.json',  // из текущей папки
+  ];
+
   let translations = null;
 
+  async function loadTranslations() {
+    for (const path of jsonPaths) {
+      try {
+        const res = await fetch(path, { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          console.info('[lang.js] translations loaded from', path);
+          return data;
+        }
+      } catch (e) { /* игнор */ }
+    }
+    throw new Error('[lang.js] could not load lang.json');
+  }
+
   try {
-    const res = await fetch(path, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Не удалось загрузить lang.json');
-    translations = await res.json();
-    console.info('[lang.js] translations loaded', translations);
+    translations = await loadTranslations();
   } catch (err) {
     console.error(err);
     return;
@@ -23,11 +38,11 @@
   function applyTranslations(lang) {
     if (!translations) return;
 
-    // Перевод элементов с data-i18n
+    // Перевод текста
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      const value = translations[key] ? translations[key][lang] : null;
-      if (value !== null && value !== undefined) {
+      const value = translations[key]?.[lang];
+      if (value !== undefined) {
         if (el.tagName === 'TITLE') document.title = value;
         else el.textContent = value;
       }
@@ -36,42 +51,41 @@
     // Перевод placeholder
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.getAttribute('data-i18n-placeholder');
-      const value = translations[key] ? translations[key][lang] : null;
-      if (value !== null) el.setAttribute('placeholder', value);
+      const value = translations[key]?.[lang];
+      if (value !== undefined) el.setAttribute('placeholder', value);
     });
 
     // Перевод title
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
       const key = el.getAttribute('data-i18n-title');
-      const value = translations[key] ? translations[key][lang] : null;
-      if (value !== null) el.setAttribute('title', value);
+      const value = translations[key]?.[lang];
+      if (value !== undefined) el.setAttribute('title', value);
     });
 
     // Дата
-    const locale = translations.date_format ? translations.date_format[lang] : lang;
+    const locale = translations.date_format?.[lang] || lang;
     const today = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.querySelectorAll('[data-i18n="date"], #current-date').forEach(el => {
+    document.querySelectorAll('#current-date, [data-i18n="date"]').forEach(el => {
       try {
         el.textContent = today.toLocaleDateString(locale, options);
-      } catch (e) {
+      } catch {
         el.textContent = today.toLocaleDateString();
       }
     });
 
-    // html lang
+    // Установка языка html
     document.documentElement.lang = lang;
     localStorage.setItem('lang', lang);
 
-    // Кнопки выбора языка
+    // Подсветка выбранной кнопки
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      const bLang = btn.dataset.lang;
-      btn.classList.toggle('active', bLang === lang);
+      btn.classList.toggle('active', btn.dataset.lang === lang);
     });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Навесить обработчики на кнопки языка
+    // Навешиваем обработчики на кнопки языка
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.lang;
@@ -79,8 +93,8 @@
       });
     });
 
-    // Применяем сохранённый язык при загрузке
-    const initial = getSavedLang();
-    applyTranslations(initial);
+    // Применяем сохраненный язык при загрузке
+    const initialLang = getSavedLang();
+    applyTranslations(initialLang);
   });
 })();
