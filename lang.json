@@ -62,7 +62,7 @@
   "amount": {
     "ru": "Гр.",
     "en": "Gr.",
-    "vi": "Gram"
+    "vi": "Gr."
   },
   "process": {
     "ru": "Описание",
@@ -98,5 +98,61 @@
     "ru": "ru-RU",
     "en": "en-US",
     "vi": "vi-VN"
+  },
+  {
+  "leftover_buns": {
+    "ru": "Остатки булки",
+    "en": "Leftovers buns",
+    "vi": "Bánh còn lại"
+  },
+  "leftover_bread": {
+    "ru": "Остатки хлеб",
+    "en": "Leftovers bread",
+    "vi": "Bánh mì còn lại"
+  },
+  "poppyseed_bun": {
+    "ru": "Булка с маком",
+    "en": "Poppyseed bun",
+    "vi": "Bánh mì hạt poppy"
+  },
+  "missobon": {
+    "ru": "Миссобон",
+    "en": "Missobon",
+    "vi": "Missobon"
+  },
+  "cardamon_bun": {
+    "ru": "Кардамоновая булка",
+    "en": "Cardamon bun",
+    "vi": "Bánh mì hạt cardamom"
+  },
+  "borodinskiy": {
+    "ru": "Бородинский",
+    "en": "Borodinskiy",
+    "vi": "Borodinskiy"
+  },
+  "borodinskiy_half": {
+    "ru": "Бородинский 1/2",
+    "en": "Borodinskiy 1/2",
+    "vi": "Borodinskiy 1/2"
+  },
+  "tartin": {
+    "ru": "Тарртин",
+    "en": "Tartin",
+    "vi": "Tartin"
+  },
+  "tartin_half": {
+    "ru": "Тарртин 1/2",
+    "en": "Tartin 1/2",
+    "vi": "Tartin 1/2"
+  },
+  "country_bread": {
+    "ru": "Чиабатта темная",
+    "en": "Country bread",
+    "vi": "Bánh mì đen"
+  },
+  "ciabatta": {
+    "ru": "Чиабатта пшеничная",
+    "en": "Ciabatta",
+    "vi": "Bánh Ciabatta"
   }
 }
