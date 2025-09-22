@@ -12,22 +12,23 @@ function goBack() {
 
 // === Переключение языка ===
 function switchLanguage(lang) {
-  document.documentElement.lang = lang;
+    document.documentElement.lang = lang;
+    localStorage.setItem('selectedLang', lang); // сохраняем выбор языка
 
-  document.querySelectorAll('.section-title').forEach(title => {
-    if (title.dataset[lang]) title.textContent = title.dataset[lang];
-  });
-
-  document.querySelectorAll('.check-label').forEach(label => {
-    if (label.dataset[lang]) label.textContent = label.dataset[lang];
-  });
-
-  document.querySelectorAll('select').forEach(select => {
-    Array.from(select.options).forEach(option => {
-      if (option.value === '') option.textContent = '—';
-      else if (option.dataset[lang]) option.textContent = option.dataset[lang];
+    document.querySelectorAll('.section-title').forEach(title => {
+        if (title.dataset[lang]) title.textContent = title.dataset[lang];
     });
-  });
+
+    document.querySelectorAll('.check-label').forEach(label => {
+        if (label.dataset[lang]) label.textContent = label.dataset[lang];
+    });
+
+    document.querySelectorAll('select').forEach(select => {
+        Array.from(select.options).forEach(option => {
+            if (option.value === '') option.textContent = '—';
+            else if (option.dataset[lang]) option.textContent = option.dataset[lang];
+        });
+    });
 }
 
 // === Сохранение и восстановление данных формы ===
