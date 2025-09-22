@@ -234,7 +234,6 @@
     "en": "Send",
     "vi": "Gửi"
   },
-  "tasks": {
     "task_outdoor_signs": {
       "ru": "Включить: 3 вывески и 2 вентилятора на улице",
       "en": "Turn on: 3 signs and 2 fans. Outside",
@@ -289,6 +288,5 @@
       "ru": "Отметить количество булок и хлеба в приложении",
       "en": "Mark the quantity of buns and bread in the app",
       "vi": "Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng"
-    }
   }
 }
