@@ -1,200 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Чеклист</title>
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Verdana, sans-serif;
-  background: #f5f5f5;
-  font-size: 36px;
-}
-
-.container {
-  max-width: 85%;
-  margin: 20px auto;
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-#checklist {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.checklist-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 36px;
-  padding: 12px 20px;
-  background: #fdfdfd;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.checklist-item label {
-  font-weight: 600;
-}
-
-.checklist-item input[type="checkbox"] {
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-}
-
-button#sendBtn {
-  width: 100%;
-  background-color: #444;
-  color: #fff;
-  border: none;
-  padding: 28px;
-  font-size: 42px;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-top: 24px;
-  transition: 0.2s;
-}
-
-button#sendBtn:hover {
-  background-color: #222;
-}
-
-#result {
-  margin-top: 24px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 32px;
-  white-space: pre-wrap;
-}
-</style>
+  <meta charset="UTF-8">
+  <title data-i18n="page_title">Чеклист</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-  <h2>Чеклист</h2>
+  <h2 data-i18n="checklist_title">Чеклист</h2>
 
   <div id="checklist">
-    <div class="checklist-item"><label for="item1">Хлеб</label><input type="checkbox" id="item1" data-ru="Хлеб" data-en="Bread"></div>
-    <div class="checklist-item"><label for="item2">Хлеб х 2</label><input type="checkbox" id="item2" data-ru="Хлеб х 2" data-en="Bread x 2"></div>
-    <div class="checklist-item"><label for="item3">Голландский соус</label><input type="checkbox" id="item3" data-ru="Голландский соус" data-en="Hollandaise sauce"></div>
-    <div class="checklist-item"><label for="item4">Соус тартар</label><input type="checkbox" id="item4" data-ru="Соус тартар" data-en="Tartar sauce"></div>
-    <div class="checklist-item"><label for="item5">Соус кремчиз</label><input type="checkbox" id="item5" data-ru="Соус кремчиз" data-en="Cream cheese sauce"></div>
-    <div class="checklist-item"><label for="item6">Соус винегрет</label><input type="checkbox" id="item6" data-ru="Соус винегрет" data-en="Vinaigrette sauce"></div>
-    <div class="checklist-item"><label for="item7">Соус песто</label><input type="checkbox" id="item7" data-ru="Соус песто" data-en="Pesto sauce"></div>
-    <div class="checklist-item"><label for="item8">Соус для рыбы</label><input type="checkbox" id="item8" data-ru="Соус для рыбы" data-en="Fish sauce"></div>
-    <div class="checklist-item"><label for="item9">Соус на курицу</label><input type="checkbox" id="item9" data-ru="Соус на курицу" data-en="Chicken sauce"></div>
-    <div class="checklist-item"><label for="item10">Соус вяленые томаты</label><input type="checkbox" id="item10" data-ru="Соус вяленые томаты" data-en="Sun-dried tomato sauce"></div>
-    <div class="checklist-item"><label for="item11">Шпинат</label><input type="checkbox" id="item11" data-ru="Шпинат" data-en="Spinach"></div>
-    <div class="checklist-item"><label for="item12">Риет форель</label><input type="checkbox" id="item12" data-ru="Риет форель" data-en="Trout rillettes"></div>
-    <div class="checklist-item"><label for="item13">Паштет</label><input type="checkbox" id="item13" data-ru="Паштет" data-en="Pâté"></div>
-    <div class="checklist-item"><label for="item14">Замес тунец</label><input type="checkbox" id="item14" data-ru="Замес тунец" data-en="Tuna mix"></div>
-    <div class="checklist-item"><label for="item15">Нутелла</label><input type="checkbox" id="item15" data-ru="Нутелла" data-en="Nutella"></div>
-    <div class="checklist-item"><label for="item16">Кура сувид работа</label><input type="checkbox" id="item16" data-ru="Кура сувид работа" data-en="Chicken sous-vide work"></div>
-    <div class="checklist-item"><label for="item17">Кура сувид стафф</label><input type="checkbox" id="item17" data-ru="Кура сувид стафф" data-en="Chicken sous-vide staff"></div>
-    <div class="checklist-item"><label for="item18">Рыба солить</label><input type="checkbox" id="item18" data-ru="Рыба солить" data-en="Salt fish"></div>
-    <div class="checklist-item"><label for="item19">Рыба стейк</label><input type="checkbox" id="item19" data-ru="Рыба стейк" data-en="Fish steak"></div>
-    <div class="checklist-item"><label for="item20">Говядина сувид</label><input type="checkbox" id="item20" data-ru="Говядина сувид" data-en="Beef sous-vide"></div>
-    <div class="checklist-item"><label for="item21">Говядина сендвичи</label><input type="checkbox" id="item21" data-ru="Говядина сендвичи" data-en="Beef for sandwiches"></div>
-    <div class="checklist-item"><label for="item22">Говядина тартар</label><input type="checkbox" id="item22" data-ru="Говядина тартар" data-en="Beef tartare"></div>
-    <div class="checklist-item"><label for="item23">Печень сувид</label><input type="checkbox" id="item23" data-ru="Печень" data-en="Liver"></div>
-    <div class="checklist-item"><label for="item24">Осьминог</label><input type="checkbox" id="item24" data-ru="Осьминог" data-en="Octopus"></div>
-    <div class="checklist-item"><label for="item25">Каша</label><input type="checkbox" id="item25" data-ru="Каша" data-en="Porridge"></div>
-    <div class="checklist-item"><label for="item26">Суп тыква варить</label><input type="checkbox" id="item26" data-ru="Суп тыква" data-en="Pumpkin soup"></div>
-    <div class="checklist-item"><label for="item27">Суп брокколи варить</label><input type="checkbox" id="item27" data-ru="Суп брокколи" data-en="Broccoli soup"></div>
-    <div class="checklist-item"><label for="item28">Биск</label><input type="checkbox" id="item28" data-ru="Биск" data-en="Bisque"></div>
-    <div class="checklist-item"><label for="item29">Овощи стафф</label><input type="checkbox" id="item29" data-ru="Овощи стафф" data-en="Stuffed vegetables"></div>
-    <div class="checklist-item"><label for="item30">Фасоль</label><input type="checkbox" id="item30" data-ru="Фасоль" data-en="Beans"></div>
-    <div class="checklist-item"><label for="item31">Яйца пошот</label><input type="checkbox" id="item31" data-ru="Яйца пошот" data-en="Poached eggs"></div>
-    <div class="checklist-item"><label for="item32">Тесто блины</label><input type="checkbox" id="item32" data-ru="Тесто блины" data-en="Pancake batter"></div>
-    <div class="checklist-item"><label for="item33">Свинина стафф</label><input type="checkbox" id="item33" data-ru="Свинина стафф" data-en="Stuffed pork"></div>
-    <div class="checklist-item"><label for="item34">Паста</label><input type="checkbox" id="item34" data-ru="Паста" data-en="Pasta"></div>
-    <div class="checklist-item"><label for="item35">Холодильники рабочие</label><input type="checkbox" id="item35" data-ru="Холодильники рабочие" data-en="Working fridges"></div>
-    <div class="checklist-item"><label for="item36">Уборка</label><input type="checkbox" id="item36" data-ru="Уборка" data-en="Cleaning"></div>
-    <div class="checklist-item"><label for="item37">Холодильники дефрост</label><input type="checkbox" id="item37" data-ru="Холодильники дефрост" data-en="Defrost fridges"></div>
-    <div class="checklist-item"><label for="item38">Подсчитать остатки</label><input type="checkbox" id="item38" data-ru="Подсчитать остатки" data-en="Count leftovers"></div>
-    <div class="checklist-item"><label for="item39">Сырники</label><input type="checkbox" id="item39" data-ru="Сырники" data-en="Cheese pancakes"></div>
-    <div class="checklist-item"><label for="item40">Сыр на крок</label><input type="checkbox" id="item40" data-ru="Сыр на крок" data-en="Cheese for croque"></div>
-    <div class="checklist-item"><label for="item41">Сыр тереть</label><input type="checkbox" id="item41" data-ru="Сыр тереть" data-en="Grate cheese"></div>
-    <div class="checklist-item"><label for="item42">Бородинский нарезать</label><input type="checkbox" id="item42" data-ru="Бородинский нарезать" data-en="Slice Borodinsky"></div>
-    <div class="checklist-item"><label for="item43">Чиабата нарезать</label><input type="checkbox" id="item43" data-ru="Чиабата нарезать" data-en="Slice Ciabatta"></div>
-    <div class="checklist-item"><label for="item44">Хлеб на сендвичи</label><input type="checkbox" id="item44" data-ru="Хлеб на сендвичи" data-en="Bread for sandwiches"></div>
-    <div class="checklist-item"><label for="item45">Хлеб на Бенедикт</label><input type="checkbox" id="item45" data-ru="Хлеб на Бенедикт" data-en="Bread for Benedict"></div>
-    <div class="checklist-item"><label for="item46">Салаты перебрать</label><input type="checkbox" id="item46" data-ru="Салаты перебрать" data-en="Sort salads"></div>
-    <div class="checklist-item"><label for="item26">Суп тыква фасовать фасовать</label><input type="checkbox" id="item26" data-ru="Суп тыква" data-en="Pumpkin soup"></div>
-    <div class="checklist-item"><label for="item27">Суп брокколи фасовать</label><input type="checkbox" id="item27" data-ru="Суп брокколи" data-en="Broccoli soup"></div>
+    <div class="checklist-item">
+      <label for="item1" data-i18n="item1">Скомпоновать все десерты на подложках. Пустые отнести на кухню</label>
+      <input type="checkbox" id="item1"
+        data-ru="Скомпоновать все десерты на подложках. Пустые отнести на кухню"
+        data-en="Group all desserts onto trays. Take the empty ones to the kitchen"
+        data-vi="Gom tất cả món tráng miệng lên khay. Đem các khay trống vào bếp">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item2" data-i18n="item2">Поставить десерты с бара внутрь витрины</label>
+      <input type="checkbox" id="item2"
+        data-ru="Поставить десерты с бара внутрь витрины"
+        data-en="If there's space, move desserts from the bar into the display case"
+        data-vi="Nếu còn chỗ, chuyển món tráng miệng từ quầy bar vào tủ trưng bày">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item3" data-i18n="item3">Отметить количество булок и хлеба в приложении</label>
+      <input type="checkbox" id="item3"
+        data-ru="Отметить количество булок и хлеба в приложении"
+        data-en="Mark quantity of buns and bread in the app"
+        data-vi="Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item4" data-i18n="item4">Достать все булочки и хлеба из стеклянной витрины. Отнести на кухню. Вымыть витрину без разводов</label>
+      <input type="checkbox" id="item4"
+        data-ru="Достать все булочки и хлеба из стеклянной витрины. Отнести на кухню. Вымыть витрину без разводов"
+        data-en="Take out all buns and bread from the glass display. Bring them to the kitchen. Clean the display without streaks"
+        data-vi="Lấy tất cả bánh mì tròn và bánh mì ra khỏi tủ kính. Đem vào bếp. Lau sạch tủ kính không để lại vết loang">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item5" data-i18n="item5">Перевернуть табличку открыто/закрыто</label>
+      <input type="checkbox" id="item5"
+        data-ru="Перевернуть табличку открыто/закрыто"
+        data-en="Flip the &quot;open/closed&quot; sign"
+        data-vi="Lật bảng &quot;mở/đóng&quot;">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item6" data-i18n="item6">Выключить свет в витрине. Проверить, плотно ли закрыты дверцы.</label>
+      <input type="checkbox" id="item6"
+        data-ru="Выключить свет в витрине. Проверить, плотно ли закрыты дверцы."
+        data-en="Turn off the display case light. Check that the doors are fully closed"
+        data-vi="Tắt đèn tủ trưng bày. Kiểm tra cửa đã đóng kín chưa">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item7" data-i18n="item7">Посчитать кассу. По образцу, заполнить отчёт. Закрыть смену и напечатать чек. Выйти из системы. Выключить планшет</label>
+      <input type="checkbox" id="item7"
+        data-ru="Посчитать кассу. По образцу, заполнить отчёт. Закрыть смену и напечатать чек. Выйти из системы. Выключить планшет"
+        data-en="Count the cash register. Fill in the report using the template. Close the shift and print the receipt. Log out of the system. Turn off the tablet"
+        data-vi="Đếm tiền trong máy tính tiền. Điền báo cáo theo mẫu. Đóng ca, in hóa đơn. Đăng xuất khỏi hệ thống. Tắt máy tính bảng">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item8" data-i18n="item8">Протереть все рабочие поверхности</label>
+      <input type="checkbox" id="item8"
+        data-ru="Протереть все рабочие поверхности"
+        data-en="Wipe down all work surfaces"
+        data-vi="Lau sạch tất cả bề mặt làm việc">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item9" data-i18n="item9">Выключить 2 колонки, 5 вентилятора, 2 кондиционера, 3 вывески на улице</label>
+      <input type="checkbox" id="item9"
+        data-ru="Выключить 2 колонки, 5 вентилятора, 2 кондиционера, 3 вывески на улице"
+        data-en="Turn off 2 speakers, 5 fans, 2 air conditioners, 3 outdoor signs"
+        data-vi="Tắt 2 loa, 5 quạt, 2 máy lạnh, 3 biển hiệu ngoài trời">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item10" data-i18n="item10">Окинуть взглядом помещение перед выходом. Вдруг что-то забыл</label>
+      <input type="checkbox" id="item10"
+        data-ru="Окинуть взглядом помещение перед выходом. Вдруг что-то забыл"
+        data-en="Glance around the space before leaving. In case something was forgotten"
+        data-vi="Quan sát không gian trước khi rời đi, phòng khi có gì bị quên">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item11" data-i18n="item11">Отключить везде свет</label>
+      <input type="checkbox" id="item11"
+        data-ru="Отключить везде свет"
+        data-en="Turn off all lights everywhere"
+        data-vi="Tắt tất cả đèn ở mọi khu vực">
+    </div>
   </div>
 
-  <button id="sendBtn">Отправить / Send</button>
-
+  <button id="sendBtn" data-i18n="send_button">Отправить / Send</button>
   <div id="result"></div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const chat_id = '-1002393080811'; // твой Telegram чат ID
-  const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
-
-  const buildMessage = (lang) => {
-    const today = new Date();
-    const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
-    let message = `🧾 <b>${lang==='en'?'CHECKLIST':'ЧЕКЛИСТ'}</b>\n\n`;
-    message += `📅 ${lang==='en'?'Date':'Дата'}: ${date}\n\n`;
-
-    const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
-    let selectedItems = [];
-    checklist.forEach((item, index) => {
-      if (item.checked) {
-        selectedItems.push(`${index + 1}. ${item.dataset.ru} / ${item.dataset.en}`);
-      }
-    });
-
-    if(selectedItems.length===0) return null;
-
-    message += selectedItems.join('\n');
-    return message;
-  };
-
-  const sendMessage = (msg) => {
-    return fetch(worker_url, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({chat_id,text:msg})
-    }).then(res=>res.json());
-  };
-
-  const button = document.getElementById('sendBtn');
-  button.addEventListener('click', async ()=>{
-    const msgRu = buildMessage('ru');
-    const msgEn = buildMessage('en');
-
-    if(!msgRu){
-      alert('Выберите хотя бы один пункт / Please select at least one item');
-      return;
-    }
-
-    try{
-      await sendMessage(msgRu);
-      await sendMessage(msgEn);
-      alert('✅ ОТПРАВЛЕНО');
-      document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb=>cb.checked=false);
-    }catch(err){
-      alert('❌ Ошибка при отправке: '+err.message);
-      console.error(err);
-    }
-  });
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
