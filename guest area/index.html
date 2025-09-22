@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title">Страница выбора</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Ваш локальный script.js остаётся (в нём добавим helper): -->
+  <!-- Локальный скрипт (ищет lang.json до 6 уровней вверх) -->
   <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Объединённый header -->
+  <!-- Хедер -->
   <header class="page-header">
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ru">RU</button>
@@ -18,8 +18,8 @@
       <button class="lang-btn" data-lang="vi">VI</button>
     </div>
     <div class="nav-buttons">
-      <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home">На главную</button>
-      <button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back">Назад</button>
+      <button class="nav-btn" onclick="goHome()" data-i18n="home">На главную</button>
+      <button class="nav-btn" onclick="goBack()" data-i18n="back">Назад</button>
     </div>
   </header>
 
@@ -31,13 +31,21 @@
     <h1 data-i18n="guest_area">ЗАЛ</h1>
 
     <!-- Дата -->
-    <div class="date-container" id="current-date" data-i18n="date"></div>
+    <div class="date-container">
+      <span id="current-date"></span>
+    </div>
 
     <!-- Кнопки перехода -->
     <div class="buttons-container">
-      <button class="nav-btn" onclick="location.href='discription/index.html'" data-i18n="description">ОПИСАНИЕ БЛЮД</button>
-      <button class="nav-btn" onclick="location.href='Leftovers/index.html'" data-i18n="write_off_bread">ВЕТРИНА ХЛЕБ/БУЛКИ</button>
-      <button class="nav-btn" onclick="location.href='cheklist/index.html'" data-i18n="cheklist">ЧЕК-ЛИСТ</button>
+      <button class="nav-btn" onclick="location.href='discription/index.html'" data-i18n="description">
+        ОПИСАНИЕ БЛЮД
+      </button>
+      <button class="nav-btn" onclick="location.href='Leftovers/index.html'" data-i18n="write_off_bread">
+        СПИСАНИЕ ХЛЕБ/БУЛКИ
+      </button>
+      <button class="nav-btn" onclick="location.href='cheklist/index.html'" data-i18n="cheklist">
+        ЧЕК-ЛИСТ
+      </button>
     </div>
   </main>
 
