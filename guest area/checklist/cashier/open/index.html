@@ -1,188 +1,164 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Чеклист</title>
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Verdana, sans-serif;
-  background: #f5f5f5;
-  font-size: 36px;
-}
-
-.container {
-  max-width: 85%;
-  margin: 20px auto;
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-#checklist {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.checklist-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 36px;
-  padding: 12px 20px;
-  background: #fdfdfd;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.checklist-item label {
-  font-weight: 600;
-}
-
-.checklist-item input[type="checkbox"] {
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-}
-
-button#sendBtn {
-  width: 100%;
-  background-color: #444;
-  color: #fff;
-  border: none;
-  padding: 28px;
-  font-size: 42px;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-top: 24px;
-  transition: 0.2s;
-}
-
-button#sendBtn:hover {
-  background-color: #222;
-}
-
-#result {
-  margin-top: 24px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 32px;
-  white-space: pre-wrap;
-}
-</style>
+  <meta charset="UTF-8">
+  <title data-i18n="page_title">Чеклист</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-  <h2>Чеклист</h2>
+  <h2 data-i18n="checklist_title">Чеклист</h2>
 
-<div id="checklist">
-  <div class="checklist-item">
-    <label for="item1">Включить: 3 вывески и 2 вентилятора на улице</label>
-    <input type="checkbox" id="item1"
-      data-ru="Включить: 3 вывески и 2 вентилятора на улице"
-      data-en="Turn on: 3 signs and 2 fans. Outside"
-      data-vi="Bật: 3 biển hiệu và 2 quạt. Bên ngoài">
+  <div id="checklist">
+
+    <div class="checklist-item">
+      <label for="item1" data-i18n="task_outdoor_signs"
+        data-ru="Включить: 3 вывески и 2 вентилятора на улице"
+        data-en="Turn on: 3 signs and 2 fans. Outside"
+        data-vi="Bật: 3 biển hiệu và 2 quạt. Bên ngoài">
+        Включить: 3 вывески и 2 вентилятора на улице
+      </label>
+      <input type="checkbox" id="item1"
+        data-ru="Включить: 3 вывески и 2 вентилятора на улице"
+        data-en="Turn on: 3 signs and 2 fans. Outside"
+        data-vi="Bật: 3 biển hiệu và 2 quạt. Bên ngoài">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item2" data-i18n="task_indoor_fans"
+        data-ru="Включить: 3 вентилятора, 2 кондиционера в помещении"
+        data-en="Turn on: 3 fans, 2 air conditioners. Inside"
+        data-vi="Bật: 3 quạt, 2 máy lạnh. Bên trong">
+        Включить: 3 вентилятора, 2 кондиционера в помещении
+      </label>
+      <input type="checkbox" id="item2"
+        data-ru="Включить: 3 вентилятора, 2 кондиционера в помещении"
+        data-en="Turn on: 3 fans, 2 air conditioners. Inside"
+        data-vi="Bật: 3 quạt, 2 máy lạnh. Bên trong">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item3" data-i18n="task_lights"
+        data-ru="Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой"
+        data-en="Turn on the lights in the main area and the area with the sofa. Floor lamp near the speaker"
+        data-vi="Bật đèn ở khu vực chính và khu vực có ghế sofa. Đèn sàn gần loa">
+        Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой
+      </label>
+      <input type="checkbox" id="item3"
+        data-ru="Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой"
+        data-en="Turn on the lights in the main area and the area with the sofa. Floor lamp near the speaker"
+        data-vi="Bật đèn ở khu vực chính và khu vực có ghế sofa. Đèn sàn gần loa">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item4" data-i18n="task_dessert_display"
+        data-ru="Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов"
+        data-en="Fill the dessert display. If it wasn’t cleaned in the evening, clean it in the morning"
+        data-vi="Lấp đầy tủ trưng bày món tráng miệng. Nếu tối hôm trước chưa được lau dọn, thì lau vào buổi sáng">
+        Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов
+      </label>
+      <input type="checkbox" id="item4"
+        data-ru="Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов"
+        data-en="Fill the dessert display. If it wasn’t cleaned in the evening, clean it in the morning"
+        data-vi="Lấp đầy tủ trưng bày món tráng miệng. Nếu tối hôm trước chưa được lau dọn, thì lau vào buổi sáng">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item5" data-i18n="task_cash_register"
+        data-ru="Кассовый аппарат. Войти в систему"
+        data-en="Cash register. Log into the system"
+        data-vi="Máy tính tiền. Đăng nhập vào hệ thống">
+        Кассовый аппарат. Войти в систему
+      </label>
+      <input type="checkbox" id="item5"
+        data-ru="Кассовый аппарат. Войти в систему"
+        data-en="Cash register. Log into the system"
+        data-vi="Máy tính tiền. Đăng nhập vào hệ thống">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item6" data-i18n="task_speakers"
+        data-ru="Включить обе колонки. Проверить, есть ли музыка"
+        data-en="Turn on both speakers. Check if music is playing"
+        data-vi="Bật cả hai loa. Kiểm tra xem nhạc có đang phát không">
+        Включить обе колонки. Проверить, есть ли музыка
+      </label>
+      <input type="checkbox" id="item6"
+        data-ru="Включить обе колонки. Проверить, есть ли музыка"
+        data-en="Turn on both speakers. Check if music is playing"
+        data-vi="Bật cả hai loa. Kiểm tra xem nhạc có đang phát không">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item7" data-i18n="task_takeaway"
+        data-ru="Подготовить всё необходимое для отдачи заказа с собой: приборы, пакеты, упаковка, трубочки, сахар, пакеты для Граба. Пополнить запасы, нанести печати"
+        data-en="Prepare everything needed for takeaway orders: utensils, bags, packaging, straws, sugar, Grab bags. Refill supplies and stamp the packaging"
+        data-vi="Chuẩn bị mọi thứ cần thiết cho đơn mang đi: dụng cụ, túi, hộp đóng gói, ống hút, đường, túi Grab. Bổ sung vật tư và đóng dấu bao bì">
+        Подготовить всё необходимое для отдачи заказа с собой
+      </label>
+      <input type="checkbox" id="item7"
+        data-ru="Подготовить всё необходимое для отдачи заказа с собой: приборы, пакеты, упаковка, трубочки, сахар, пакеты для Граба. Пополнить запасы, нанести печати"
+        data-en="Prepare everything needed for takeaway orders: utensils, bags, packaging, straws, sugar, Grab bags. Refill supplies and stamp the packaging"
+        data-vi="Chuẩn bị mọi thứ cần thiết cho đơn mang đi: dụng cụ, túi, hộp đóng gói, ống hút, đường, túi Grab. Bổ sung vật tư và đóng dấu bao bì">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item8" data-i18n="task_cookies"
+        data-ru="Проверить наличие печенья. Принести с кухни новое, если необходимо"
+        data-en="Check for cookies. Bring fresh ones from the kitchen if necessary"
+        data-vi="Kiểm tra bánh quy. Nếu cần, lấy bánh mới từ bếp ra">
+        Проверить наличие печенья
+      </label>
+      <input type="checkbox" id="item8"
+        data-ru="Проверить наличие печенья. Принести с кухни новое, если необходимо"
+        data-en="Check for cookies. Bring fresh ones from the kitchen if necessary"
+        data-vi="Kiểm tra bánh quy. Nếu cần, lấy bánh mới từ bếp ra">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item9" data-i18n="task_workspace"
+        data-ru="Подготовить своё рабочее пространство. Протереть всё влажной тряпкой. Разложить необходимые инструменты."
+        data-en="Prepare your workspace. Wipe everything with a damp cloth. Lay out the necessary tools"
+        data-vi="Chuẩn bị khu vực làm việc. Lau mọi thứ bằng khăn ẩm. Bày ra các dụng cụ cần thiết">
+        Подготовить своё рабочее пространство
+      </label>
+      <input type="checkbox" id="item9"
+        data-ru="Подготовить своё рабочее пространство. Протереть всё влажной тряпкой. Разложить необходимые инструменты."
+        data-en="Prepare your workspace. Wipe everything with a damp cloth. Lay out the necessary tools"
+        data-vi="Chuẩn bị khu vực làm việc. Lau mọi thứ bằng khăn ẩm. Bày ra các dụng cụ cần thiết">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item10" data-i18n="task_phone"
+        data-ru="Достать рабочий телефон, проверить его зарядку. Проверить дату на календаре."
+        data-en="Take out the work phone, check the battery. Check the date on the calendar"
+        data-vi="Lấy điện thoại công việc ra, kiểm tra pin. Kiểm tra ngày trên lịch">
+        Достать рабочий телефон
+      </label>
+      <input type="checkbox" id="item10"
+        data-ru="Достать рабочий телефон, проверить его зарядку. Проверить дату на календаре."
+        data-en="Take out the work phone, check the battery. Check the date on the calendar"
+        data-vi="Lấy điện thoại công việc ra, kiểm tra pin. Kiểm tra ngày trên lịch">
+    </div>
+
+    <div class="checklist-item">
+      <label for="item11" data-i18n="task_bread"
+        data-ru="Отметить количество булок и хлеба в приложении"
+        data-en="Mark the quantity of buns and bread in the app"
+        data-vi="Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng">
+        Отметить количество булок и хлеба
+      </label>
+      <input type="checkbox" id="item11"
+        data-ru="Отметить количество булок и хлеба в приложении"
+        data-en="Mark the quantity of buns and bread in the app"
+        data-vi="Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng">
+    </div>
+
   </div>
 
-  <div class="checklist-item">
-    <label for="item2">Включить: 3 вентилятора, 2 кондиционера в помещении</label>
-    <input type="checkbox" id="item2"
-      data-ru="Включить: 3 вентилятора, 2 кондиционера в помещении"
-      data-en="Turn on: 3 fans, 2 air conditioners. Inside"
-      data-vi="Bật: 3 quạt, 2 máy lạnh. Bên trong">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item3">Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой</label>
-    <input type="checkbox" id="item3"
-      data-ru="Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой"
-      data-en="Turn on the lights in the main area and the area with the sofa. Floor lamp near the speaker"
-      data-vi="Bật đèn ở khu vực chính và khu vực có ghế sofa. Đèn sàn gần loa">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item4">Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов</label>
-    <input type="checkbox" id="item4"
-      data-ru="Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов"
-      data-en="Fill the dessert display. If it wasn’t cleaned in the evening, clean it in the morning"
-      data-vi="Lấp đầy tủ trưng bày món tráng miệng. Nếu tối hôm trước chưa được lau dọn, thì lau vào buổi sáng">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item5">Кассовый аппарат. Войти в систему</label>
-    <input type="checkbox" id="item5"
-      data-ru="Кассовый аппарат. Войти в систему"
-      data-en="Cash register. Log into the system"
-      data-vi="Máy tính tiền. Đăng nhập vào hệ thống">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item6">Включить обе колонки. Проверить, есть ли музыка</label>
-    <input type="checkbox" id="item6"
-      data-ru="Включить обе колонки. Проверить, есть ли музыка"
-      data-en="Turn on both speakers. Check if music is playing"
-      data-vi="Bật cả hai loa. Kiểm tra xem nhạc có đang phát không">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item7">Подготовить всё необходимое для отдачи заказа с собой: приборы, пакеты, упаковка, трубочки, сахар, пакеты для Граба. Пополнить запасы, нанести печати</label>
-    <input type="checkbox" id="item7"
-      data-ru="Подготовить всё необходимое для отдачи заказа с собой: приборы, пакеты, упаковка, трубочки, сахар, пакеты для Граба. Пополнить запасы, нанести печати"
-      data-en="Prepare everything needed for takeaway orders: utensils, bags, packaging, straws, sugar, Grab bags. Refill supplies and stamp the packaging"
-      data-vi="Chuẩn bị mọi thứ cần thiết cho đơn mang đi: dụng cụ, túi, hộp đóng gói, ống hút, đường, túi Grab. Bổ sung vật tư và đóng dấu bao bì">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item8">Проверить наличие печенья. Принести с кухни новое, если необходимо</label>
-    <input type="checkbox" id="item8"
-      data-ru="Проверить наличие печенья. Принести с кухни новое, если необходимо"
-      data-en="Check for cookies. Bring fresh ones from the kitchen if necessary"
-      data-vi="Kiểm tra bánh quy. Nếu cần, lấy bánh mới từ bếp ra">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item9">Подготовить своё рабочее пространство. Протереть всё влажной тряпкой. Разложить необходимые инструменты.</label>
-    <input type="checkbox" id="item9"
-      data-ru="Подготовить своё рабочее пространство. Протереть всё влажной тряпкой. Разложить необходимые инструменты."
-      data-en="Prepare your workspace. Wipe everything with a damp cloth. Lay out the necessary tools"
-      data-vi="Chuẩn bị khu vực làm việc. Lau mọi thứ bằng khăn ẩm. Bày ra các dụng cụ cần thiết">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item10">Достать рабочий телефон, проверить его зарядку. Проверить дату на календаре.</label>
-    <input type="checkbox" id="item10"
-      data-ru="Достать рабочий телефон, проверить его зарядку. Проверить дату на календаре."
-      data-en="Take out the work phone, check the battery. Check the date on the calendar"
-      data-vi="Lấy điện thoại công việc ra, kiểm tra pin. Kiểm tra ngày trên lịch">
-  </div>
-
-  <div class="checklist-item">
-    <label for="item11">Отметить количество булок и хлеба в приложении</label>
-    <input type="checkbox" id="item11"
-      data-ru="Отметить количество булок и хлеба в приложении"
-      data-en="Mark the quantity of buns and bread in the app"
-      data-vi="Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng">
-  </div>
-</div>
-
-  <button id="sendBtn">Отправить / Send</button>
-
+  <button id="sendBtn" data-i18n="btn_send">Отправить / Send</button>
   <div id="result"></div>
 </div>
-
-
-  <!-- скрипты -->
-  <script src="lang.js" defer></script>
-  <script src="script.js" defer></script>
+<script src="script.js"></script>
 </body>
 </html>
