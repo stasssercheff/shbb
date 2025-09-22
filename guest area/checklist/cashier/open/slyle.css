@@ -5,17 +5,6 @@ body {
     padding: 0;
     background-color: #f4f6f8;
     color: #333;
-    font-size: 16px; /* базовый размер */
-}
-
-.container {
-    max-width: 90%;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 24px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-    box-sizing: border-box;
 }
 
 /* === Хедер === */
@@ -31,6 +20,7 @@ body {
 /* Кнопки языка */
 .lang-switch {
     display: flex;
+    width: 100%;
     gap: 10px;
     margin-bottom: 10px;
 }
@@ -53,9 +43,10 @@ body {
     background-color: #c1b29a;
 }
 
-/* Кнопки навигации */
+/* Навигационные кнопки */
 .nav-buttons {
     display: flex;
+    justify-content: flex-start;
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -71,6 +62,7 @@ body {
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
+    text-align: center;
     transition: 0.2s;
 }
 
@@ -78,67 +70,98 @@ body {
     background-color: #c1b29a;
 }
 
-
-
-.container {
-  max-width: 85%;
-  margin: 20px auto;
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+/* Основной контейнер */
+.main-container {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
+/* Дата */
+.date-container {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Имя */
+.dish {
+    margin-bottom: 20px;
+}
+
+.dish label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.dish select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Чеклист */
 #checklist {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .checklist-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 36px;
-  padding: 10px 14px;
-  background: #fdfdfd;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding: 12px 16px;
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .checklist-item label {
-  font-weight: 600;
+    font-weight: 500;
+    text-align: left;
 }
 
 .checklist-item input[type="checkbox"] {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 }
 
-button#sendBtn {
-  width: 100%;
-  background-color: #444;
-  color: #fff;
-  border: none;
-  padding: 22px;
-  font-size: 42px;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-top: 24px;
-  transition: 0.2s;
+/* Кнопка отправки */
+#sendBtn {
+    width: 100%;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    font-size: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: 0.2s;
 }
 
-button#sendBtn:hover {
-  background-color: #222;
+#sendBtn:hover {
+    background-color: #222;
 }
 
+/* Результат */
 #result {
-  margin-top: 24px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 32px;
-  white-space: pre-wrap;
+    margin-top: 24px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-size: 18px;
+    white-space: pre-wrap;
+    text-align: left;
 }
