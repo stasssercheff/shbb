@@ -99,7 +99,6 @@
     "en": "en-US",
     "vi": "vi-VN"
   },
-  {
   "leftover_buns": {
     "ru": "Остатки булки",
     "en": "Leftovers buns",
@@ -156,11 +155,10 @@
     "vi": "Bánh Ciabatta"
   },
   "cheklist": {
-  "ru": "Чек-лист",
-  "en": "Check-list",
-  "vi": "Danh sách kiểm tra"
- },
-{
+    "ru": "Чек-лист",
+    "en": "Check-list",
+    "vi": "Danh sách kiểm tra"
+  },
   "action_type": {
     "ru": "Списание / выставлено",
     "en": "Write off / Given",
