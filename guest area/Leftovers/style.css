@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   font-family: Verdana, sans-serif;
   background: #f5f5f5;
-  font-size: 18px; /* уменьшен для мобильного масштаба */
+  font-size: 16px; /* уменьшен для адекватного масштаба */
 }
 
 .container {
@@ -11,24 +11,24 @@ html, body {
   margin: 20px auto;
   background: #fff;
   border-radius: 12px;
-  padding: 20px;
+  padding: 16px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 .input-block, .dish {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 label, .check-label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 input[type="text"], textarea, select, .autodate {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -36,19 +36,19 @@ input[type="text"], textarea, select, .autodate {
 }
 
 .menu-section {
-  margin: 20px 0;
-  padding: 15px;
+  margin: 18px 0;
+  padding: 12px;
   background: #f3f1ed;
   border-radius: 12px;
 }
 
 .section-title {
   background: #e1ded9;
-  padding: 8px 10px;
+  padding: 6px 10px;
   border-radius: 10px;
   font-weight: 700;
-  font-size: 22px;
-  margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 12px;
   text-align: center;
 }
 
@@ -60,15 +60,15 @@ input[type="text"], textarea, select, .autodate {
 }
 
 .dish select.qty {
-  width: 120px;
-  min-width: 100px;
+  width: 100px;
+  min-width: 80px;
   max-width: 40%;
-  padding: 8px;
+  padding: 6px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 .dish select.qty option {
@@ -78,7 +78,7 @@ input[type="text"], textarea, select, .autodate {
 
 textarea.comment {
   resize: vertical;
-  min-height: 80px;
+  min-height: 60px;
   font-size: 14px;
 }
 
@@ -87,7 +87,7 @@ button {
   background: #444;
   color: #fff;
   border: none;
-  padding: 12px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 10px;
   cursor: pointer;
@@ -99,21 +99,21 @@ button:hover {
 
 .lang-switch {
   display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .lang-switch button {
   flex: 1;
-  font-size: 16px;
-  padding: 8px;
+  font-size: 14px;
+  padding: 6px;
 }
 
 .page-header {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 8px 0;
+  gap: 6px;
+  padding: 6px 0;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -125,33 +125,33 @@ button:hover {
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
-  gap: 6px;
+  gap: 4px;
 }
 
 .lang-switch button, .nav-buttons button {
   flex: 1;
   max-width: 45%;
-  min-width: 60px;
-  padding: 6px 8px;
+  min-width: 50px;
+  padding: 4px 6px;
   box-sizing: border-box;
 }
 
 @media (max-width: 600px) {
   html, body {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .section-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .dish select.qty {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   button {
     font-size: 14px;
-    padding: 10px;
+    padding: 8px;
   }
 }
