@@ -173,5 +173,135 @@
     "ru": "Выставлено",
     "en": "Given",
     "vi": "Đã giao"
+  },
+  "page_title_writeoff": {
+    "ru": "Списание / Наполнение",
+    "en": "Write-off / Stocking",
+    "vi": "Ghi sổ / Nhập hàng"
+  },
+  "home": {
+    "ru": "На главную",
+    "en": "Home",
+    "vi": "Trang chủ"
+  },
+  "back": {
+    "ru": "Назад",
+    "en": "Back",
+    "vi": "Quay lại"
+  },
+  "date": {
+    "ru": "Дата",
+    "en": "Date",
+    "vi": "Ngày"
+  },
+  "name": {
+    "ru": "Имя",
+    "en": "Name",
+    "vi": "Tên"
+  },
+  "select_choose": {
+    "ru": "— Выбрать —",
+    "en": "— Select —",
+    "vi": "— Chọn —"
+  },
+  "action_type": {
+    "ru": "Списание / выставлено",
+    "en": "Spoiled / Given",
+    "vi": "Hư / Phát"
+  },
+  "spoiled": {
+    "ru": "Списано",
+    "en": "Spoiled",
+    "vi": "Hư"
+  },
+  "given": {
+    "ru": "Выставлено",
+    "en": "Given",
+    "vi": "Phát"
+  },
+  "leftovers_buns": {
+    "ru": "Остатки булки",
+    "en": "Leftovers buns",
+    "vi": "Bánh thừa"
+  },
+  "poppyseed_bun": {
+    "ru": "Булка с маком",
+    "en": "Poppyseed bun",
+    "vi": "Bánh mè"
+  },
+  "missobon": {
+    "ru": "Миссобон",
+    "en": "Missobon",
+    "vi": "Missobon"
+  },
+  "cardamon_bun": {
+    "ru": "Кардамоновая булка",
+    "en": "Cardamon bun",
+    "vi": "Bánh hạt nhục đậu khấu"
+  },
+  "comment": {
+    "ru": "Комментарий",
+    "en": "Comment",
+    "vi": "Ghi chú"
+  },
+  "leftovers_bread": {
+    "ru": "Остатки хлеб",
+    "en": "Leftovers bread",
+    "vi": "Bánh mì thừa"
+  },
+  "borodinskiy": {
+    "ru": "Бородинский",
+    "en": "Borodinskiy",
+    "vi": "Borodinskiy"
+  },
+  "borodinskiy_half": {
+    "ru": "Бородинский 1/2",
+    "en": "Borodinskiy 1/2",
+    "vi": "Borodinskiy 1/2"
+  },
+  "tartin": {
+    "ru": "Тарртин",
+    "en": "Tartin",
+    "vi": "Tartin"
+  },
+  "tartin_half": {
+    "ru": "Тарртин 1/2",
+    "en": "Tartin 1/2",
+    "vi": "Tartin 1/2"
+  },
+  "country_bread": {
+    "ru": "Чиабатта темная",
+    "en": "Country bread",
+    "vi": "Bánh mì đen"
+  },
+  "ciabatta": {
+    "ru": "Чиабатта пшеничная",
+    "en": "Ciabatta",
+    "vi": "Bánh mì trắng"
+  },
+  "send": {
+    "ru": "ОТПРАВИТЬ",
+    "en": "SEND",
+    "vi": "GỬI"
+  },
+  "daria": {
+    "ru": "Дарья",
+    "en": "Daria",
+    "vi": "Daria"
+  },
+  "alexandr": {
+    "ru": "Александр",
+    "en": "Alexandr",
+    "vi": "Alexandr"
+  },
+  "sofya": {
+    "ru": "Софья",
+    "en": "Sofya",
+    "vi": "Sofya"
+  },
+  "stas": {
+    "ru": "Стас",
+    "en": "Stas",
+    "vi": "Stas"
   }
 }
