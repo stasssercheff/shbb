@@ -23,7 +23,7 @@ body {
 }
 
 .lang-btn {
-    flex: 1;  /* кнопки равномерно делят ширину */
+    flex: 1;
     padding: 12px 0;
     background-color: #d8cfc0;
     color: #333;
@@ -37,7 +37,7 @@ body {
 }
 
 .lang-btn:hover {
-    background-color: #c1b29a;  /* цвет при наведении */
+    background-color: #c1b29a;
 }
 
 .main-container {
@@ -88,5 +88,55 @@ h1#greeting {
 }
 
 .nav-btn:hover {
+    background-color: #c1b29a;
+}
+
+/* === Новый стиль для dish: селектор справа === */
+.dish {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+    gap: 12px;
+}
+
+.dish label {
+    flex: 1; /* название занимает свободное место */
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.dish select.qty {
+    width: 80px; /* компактный под цифры до 10 */
+    padding: 6px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+}
+
+textarea.comment {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+/* Общие кнопки */
+button, input[type="button"], input[type="submit"] {
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
     background-color: #c1b29a;
 }
