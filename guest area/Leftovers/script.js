@@ -116,120 +116,98 @@ document.addEventListener('DOMContentLoaded', () => {
         dateDiv.textContent = today.toLocaleDateString(locales[lang] || 'ru-RU', options);
     }
 
-    // Кнопка отправки
-    const button = document.getElementById('sendToTelegram');
-    if (button) {
-        button.addEventListener('click', async () => {
-            const chat_id = '-1002915693964';
-            const worker_url = 'https://shbb1.stassser.workers.dev/';
-            const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
+// Кнопка отправки
+const button = document.getElementById('sendToTelegram');
+if (button) {
+    button.addEventListener('click', async () => {
+        const chat_id = '-1002915693964';
+        const worker_url = 'https://shbb1.stassser.workers.dev/';
+        const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
+        const lang = document.documentElement.lang || 'ru'; // берем текущий язык
 
-            const buildMessage = (lang) => {
-                let message = `🧾 <b>${lang === 'en' ? 'LEFTOVER/GIVEN' : 'ОСТАТКИ/ВЫСТАЛЕНО'}</b>\n\n`;
+        const buildMessage = () => {
+            let message = `🧾 <b>${lang === 'en' ? 'LEFTOVER/GIVEN' : 'ОСТАТКИ/ВЫСТАЛЕНО'}</b>\n\n`;
 
-                const today = new Date();
-                const day = String(today.getDate()).padStart(2, '0');
-                const month = String(today.getMonth() + 1).padStart(2, '0');
-                message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${day}/${month}\n`;
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${day}/${month}\n`;
 
-                const nameSelect = document.querySelector('select[name="chef"]');
-                const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-                const name = selectedChef?.dataset[lang] || '—';
-                message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n`;
+            const nameSelect = document.querySelector('select[name="chef"]');
+            const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
+            const name = selectedChef?.dataset[lang] || selectedChef?.textContent || '—';
+            message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n`;
 
-                const actionSelect = document.querySelector('select[name="actionType"]');
-                if (actionSelect && actionSelect.value) {
-                    const selectedAction = actionSelect.options[actionSelect.selectedIndex];
-                    const actionText = selectedAction?.dataset[lang] || selectedAction.textContent;
-                    message += `${lang === 'en' ? '📌 Action' : '📌 Действие'}: ${actionText}\n`;
-                }
+            const actionSelect = document.querySelector('select[name="actionType"]');
+            if (actionSelect && actionSelect.value) {
+                const selectedAction = actionSelect.options[actionSelect.selectedIndex];
+                const actionText = selectedAction?.dataset[lang] || selectedAction.textContent;
+                message += `${lang === 'en' ? '📌 Action' : '📌 Действие'}: ${actionText}\n`;
+            }
 
-                message += '\n';
+            message += '\n';
 
-                document.querySelectorAll('.menu-section').forEach(section => {
-                    const sectionTitle = section.querySelector('.section-title');
-                    const title = sectionTitle?.dataset[lang] || '';
-                    let sectionContent = '';
+            document.querySelectorAll('.menu-section').forEach(section => {
+                const sectionTitle = section.querySelector('.section-title');
+                const title = sectionTitle?.dataset[lang] || sectionTitle?.textContent || '';
+                let sectionContent = '';
 
-                    section.querySelectorAll('.dish').forEach(dish => {
-                        const select = dish.querySelector('select.qty');
-                        if (!select || !select.value) return;
+                section.querySelectorAll('.dish').forEach(dish => {
+                    const select = dish.querySelector('select.qty');
+                    if (!select || !select.value) return;
 
-                        const label = dish.querySelector('label.check-label');
-                        const labelText = label?.dataset[lang] || '—';
-                        const selectedOption = select.options[select.selectedIndex];
-                        const value = selectedOption?.dataset[lang] || selectedOption.textContent;
-                        sectionContent += `• ${labelText}: ${value}\n`;
-                    });
-
-                    const commentField = section.querySelector('textarea.comment');
-                    if (commentField && commentField.value.trim()) {
-                        sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
-                    }
-
-                    if (sectionContent.trim()) {
-                        message += `🔸 <b>${title}</b>\n` + sectionContent + '\n';
-                    }
+                    const label = dish.querySelector('label.check-label');
+                    const labelText = label?.dataset[lang] || label?.textContent || '—';
+                    const selectedOption = select.options[select.selectedIndex];
+                    const value = selectedOption?.dataset[lang] || selectedOption.textContent || '—';
+                    sectionContent += `• ${labelText}: ${value}\n`;
                 });
 
-                return message;
-            };
+                const commentField = section.querySelector('textarea.comment');
+                if (commentField && commentField.value.trim()) {
+                    sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+                }
 
-            const sendMessage = (msg) => fetch(worker_url, {
+                if (sectionContent.trim()) {
+                    message += `🔸 <b>${title}</b>\n` + sectionContent + '\n';
+                }
+            });
+
+            return message;
+        };
+
+        const msg = buildMessage();
+
+        try {
+            // Отправляем 1 раз
+            await fetch(worker_url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id, text: msg })
-            }).then(res => res.json());
+            });
 
-            const sendEmail = async (msg) => {
-                try {
-                    const res = await fetch("https://api.web3forms.com/submit", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            access_key: accessKey,
-                            subject: "ОСТАТКИ/ВЫСТАЛЕНО",
-                            from_name: "SHBB PASTRY",
-                            reply_to: "no-reply@shbb.com",
-                            message: msg
-                        })
-                    }).then(r => r.json());
+            await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    subject: lang === 'en' ? "LEFTOVER/GIVEN" : "ОСТАТКИ/ВЫСТАЛЕНО",
+                    from_name: "SHBB PASTRY",
+                    reply_to: "no-reply@shbb.com",
+                    message: msg
+                })
+            });
 
-                    if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
-                } catch (err) {
-                    alert("Ошибка отправки email: " + err.message);
-                }
-            };
+            alert('✅ ОТПРАВЛЕНО');
 
-            const sendAllParts = async (text) => {
-                let start = 0;
-                while (start < text.length) {
-                    const chunk = text.slice(start, start + 4000);
-                    await sendMessage(chunk);
-                    await sendEmail(chunk);
-                    start += 4000;
-                }
-            };
+            // Очистка формы и localStorage
+            localStorage.removeItem('formData');
+            document.querySelectorAll('select').forEach(select => select.value = '');
+            document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
 
-            const clearForm = () => {
-                document.querySelectorAll('select').forEach(select => select.value = '');
-                document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
-            };
-
-            try {
-                await sendAllParts(buildMessage(lang));
-                alert('✅ ОТПРАВЛЕНО');
-                localStorage.removeItem('formData');
-                clearForm();
-            } catch (err) {
-                alert('❌ Ошибка при отправке: ' + err.message);
-                console.error(err);
-            }
-        });
-    }
-
-    // Переключение языка кнопками
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
+        } catch (err) {
+            alert('❌ Ошибка при отправке: ' + err.message);
+            console.error(err);
+        }
     });
-});
+}
