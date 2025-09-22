@@ -308,5 +308,10 @@
   "ru": "Чек-лист",
   "en": "Checklist",
   "vi": "Danh sách kiểm tra"
+ },
+"bread_buns": {
+  "ru": "Хлеб/Булки",
+  "en": "Bread/Buns",
+  "vi": "Bánh mì/Bánh ngọt"
  }
 }
