@@ -1,87 +1,88 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   font-family: Verdana, sans-serif;
   background: #f5f5f5;
-  font-size: 28px; /* уменьшен для мобильного */
+  font-size: 16px;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 90%;
-  margin: 20px auto;
+  max-width: 95%;
+  margin: 16px auto;
   background: #fff;
   border-radius: 12px;
-  padding: 24px; /* сохраняем стиль */
+  padding: 16px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
-label,
-.check-label {
-  font-weight: 600;
-  font-size: 24px;
+label, .check-label {
+  display: block;
   margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-input[type="text"],
-textarea,
-input:not([type="number"]):not([type="submit"]),
-.autodate {
+input[type="text"], textarea, .autodate {
   width: 100%;
-  padding: 14px;
-  font-size: 20px;
+  padding: 10px;
+  font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-sizing: border-box;
 }
 
+textarea.comment {
+  font-size: 14px;
+  min-height: 60px;
+  padding: 10px;
+  resize: vertical;
+}
+
 select {
-  appearance: none; /* оставляем стиль квадратным */
+  appearance: none;
   background: #fff;
   color: #333;
   border: 1px solid #ccc;
-  border-radius: 8px; /* сохраняем квадратный вид */
-  padding: 12px;
-  font-size: 20px;
-  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
   width: 100%;
-  margin-bottom: 16px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  text-align: center;
+  text-align-last: center;
 }
 
 .dish select.qty {
-  width: 200px; /* меньше, чтобы поместилось */
-  min-width: 200px;
+  width: 80px; /* компактно, для цифр до 10 */
+  min-width: 80px;
   max-width: 100%;
-  padding: 12px;
-  font-size: 20px;
-  border-radius: 8px; /* сохраняем квадратный вид */
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 8px;
   text-align: center;
   text-align-last: center;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .dish select.qty option {
   text-align: center;
-  font-size: 20px;
-}
-
-textarea.comment {
-  font-size: 18px;
-  padding: 12px;
-  min-height: 80px;
-  resize: vertical;
+  font-size: 14px;
 }
 
 button, input[type="button"], input[type="submit"] {
-  background-color: #d8cfc0; /* оригинальный цвет */
+  width: 100%;
+  background-color: #d8cfc0;
   color: #333;
   border: none;
-  padding: 18px;
-  font-size: 28px;
+  padding: 12px;
+  font-size: 16px;
   border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: block;
+  transition: 0.2s;
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
@@ -91,8 +92,8 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
 .page-header {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 10px 10%; /* отступы слева и справа */
+  gap: 8px;
+  padding: 10px 5%;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -100,17 +101,16 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   z-index: 10;
 }
 
-.lang-switch,
-.nav-buttons {
+.lang-switch, .nav-buttons {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px;
 }
 
-.lang-switch button,
-.nav-buttons button {
+.lang-switch button, .nav-buttons button {
   flex: 1;
   max-width: 45%;
-  min-width: 70px;
-  padding: 8px 12px;
+  min-width: 60px;
+  padding: 6px 8px;
+  font-size: 14px;
 }
