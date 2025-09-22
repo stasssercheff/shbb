@@ -1,28 +1,179 @@
-/* === Селекторы (dropdown) === */
+/* === Общие стили === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* === Хедер === */
+.page-header {
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Кнопки языка */
+.lang-switch {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.lang-btn {
+    flex: 1;
+    padding: 12px 0;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.lang-btn:hover {
+    background-color: #c1b29a;
+}
+
+/* Навигационные кнопки */
+.nav-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    flex: 1;
+    max-width: 150px;
+    padding: 12px 20px;
+    background-color: #d8cfc0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #c1b29a;
+}
+
+/* Основной контейнер */
+.main-container {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+/* Заголовок */
+h1 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/* Дата */
+.date-container {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Селекторы */
 .dish {
     margin-bottom: 20px;
-    text-align: left;
 }
 
 .dish label {
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
+    text-align: left;
 }
 
 .dish select {
     width: 100%;
-    padding: 14px 12px;      /* больше отступ для пальца */
-    font-size: 18px;          /* крупнее текст */
-    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
     border: 1px solid #ccc;
     cursor: pointer;
-    background-color: #fff;
-    appearance: none;          /* убираем стандартную стрелку, если нужно */
 }
 
-.dish select:focus {
-    border-color: #b29a7c;
-    outline: none;
-    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+/* Чеклист */
+#checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: flex-start; /* текст переносится сверху */
+    font-size: 16px;
+    padding: 10px 14px;
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.checklist-item label {
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.4;
+    flex: 1; /* текст занимает оставшееся пространство */
+}
+
+/* Чекбокс справа */
+.checklist-item input[type="checkbox"] {
+    margin-left: 10px;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+/* Кнопка отправки */
+#sendBtn {
+    width: 100%;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    font-size: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: 0.2s;
+}
+
+#sendBtn:hover {
+    background-color: #222;
+}
+
+/* Результат */
+#result {
+    margin-top: 24px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-size: 16px;
+    white-space: pre-wrap;
+    text-align: left;
 }
