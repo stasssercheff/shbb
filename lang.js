@@ -3,32 +3,33 @@ let translations = {};
 
 // Загружаем словарь из JSON
 async function loadTranslations() {
-  try {
-    // ищем lang.json в текущей или родительских папках (до 6 уровней вверх)
-    let paths = [
-      "./lang.json",
-      "../lang.json",
-      "../../lang.json",
-      "../../../lang.json",
-      "../../../../lang.json",
-      "../../../../../lang.json"
-    ];
+  let loaded = false;
+  let paths = [
+    "./lang.json",
+    "../lang.json",
+    "../../lang.json",
+    "../../../lang.json",
+    "../../../../lang.json",
+    "../../../../../lang.json"
+  ];
 
-    for (let path of paths) {
-      try {
-        const res = await fetch(path);
-        if (res.ok) {
-          translations = await res.json();
-          break;
-        }
-      } catch (e) {
-        // пропускаем неудачные пути
+  for (let path of paths) {
+    try {
+      const res = await fetch(path);
+      if (res.ok) {
+        translations = await res.json();
+        loaded = true;
+        break;
       }
+    } catch (e) {
+      // пропускаем неудачные пути
     }
+  }
 
+  if (loaded) {
     switchLanguage(currentLang);
-  } catch (err) {
-    console.error("Ошибка загрузки переводов:", err);
+  } else {
+    console.error("Не найден lang.json ни по одному пути");
   }
 }
 
@@ -47,7 +48,10 @@ function switchLanguage(lang) {
   const dateEl = document.getElementById("current-date");
   if (dateEl) {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    dateEl.textContent = new Date().toLocaleDateString(lang, options);
+    dateEl.textContent = new Date().toLocaleDateString(
+      translations.date_format?.[lang] || lang,
+      options
+    );
   }
 }
 
