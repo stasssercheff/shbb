@@ -22,7 +22,7 @@ function switchLanguage(lang) {
             else if (option.dataset[lang]) option.textContent = option.dataset[lang];
         });
 
-        // Перевод выбранной опции после восстановления формы
+        // Перевод выбранной опции
         const selected = select.options[select.selectedIndex];
         if (selected && selected.dataset[lang]) selected.textContent = selected.dataset[lang];
     });
@@ -71,14 +71,13 @@ function restoreFormData() {
 // DOMContentLoaded
 // ======================
 document.addEventListener('DOMContentLoaded', () => {
-    // Восстанавливаем язык
+    // Восстанавливаем язык из localStorage
     const lang = localStorage.getItem('selectedLang') || 'ru';
-    document.documentElement.lang = lang;
 
-    // Перевод страницы сразу
+    // Сразу применяем язык ко всей странице
     switchLanguage(lang);
 
-    // Добавление пустой опции в select
+    // Добавление пустой опции в select, если её нет
     document.querySelectorAll('select.qty').forEach(select => {
         const hasEmpty = Array.from(select.options).some(opt => opt.value === '');
         if (!hasEmpty) {
@@ -93,10 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Восстановление значений формы
+    // Восстановление данных формы
     restoreFormData();
 
-    // После восстановления формы снова переводим выбранные опции
+    // Перевод выбранных опций после восстановления формы
     document.querySelectorAll('select').forEach(select => {
         const selectedOption = select.options[select.selectedIndex];
         if (selectedOption && selectedOption.dataset[lang]) selectedOption.textContent = selectedOption.dataset[lang];
@@ -107,9 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('input', saveFormData);
     });
 
-    // ======================
     // Отображение текущей даты
-    // ======================
     const dateDiv = document.getElementById('autodate');
     if (dateDiv) {
         const today = new Date();
@@ -118,9 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dateDiv.textContent = today.toLocaleDateString(locales[lang] || 'ru-RU', options);
     }
 
-    // ======================
     // Кнопка отправки
-    // ======================
     const button = document.getElementById('sendToTelegram');
     if (button) {
         button.addEventListener('click', async () => {
@@ -232,9 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ======================
     // Переключение языка кнопками
-    // ======================
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
     });
