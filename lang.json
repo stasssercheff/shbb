@@ -348,5 +348,20 @@
     "ru": "Хлеб",
     "en": "Bread",
     "vi": "Bánh mì"
+},
+"barista": {
+  "ru": "Бариста",
+  "en": "Barista",
+  "vi": "Barista"
+},
+"cashier": {
+  "ru": "Кассир",
+  "en": "Cashier",
+  "vi": "Thu ngân"
+},
+"waiter": {
+  "ru": "Официант",
+  "en": "Waiter",
+  "vi": "Phục vụ"
 }
 }
