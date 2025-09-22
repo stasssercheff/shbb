@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title">Страница выбора</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Подключаем основной скрипт -->
+  <!-- Загрузить lang.js из корня — это ключ: -->
+  <script src="/lang.js" defer></script>
+  <!-- Ваш локальный script.js остаётся (в нём добавим helper): -->
   <script src="script.js" defer></script>
-  <!-- Подключаем скрипт для перевода -->
-  <script src="lang.js" defer></script>
 </head>
 <body>
 
@@ -31,6 +31,9 @@
 
     <!-- Заголовок -->
     <h1 data-i18n="guest_area">ЗАЛ</h1>
+
+    <!-- Дата -->
+    <div class="date-container" id="current-date" data-i18n="date"></div>
 
     <!-- Кнопки перехода -->
     <div class="buttons-container">
