@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
-    let message = `🧾 <b>${lang === 'en' ? 'LEFTOVERS BREAD' : 'ОСТАТКИ ХЛЕБ'}</b>\n\n`;
+    let message = `🧾 <b>${lang === 'en' ? 'LEFTOVER/GIVEN' : 'ОСТАТКИ/ВЫСТАЛВЕНО'}</b>\n\n`;
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
 
     const nameSelect = document.querySelector('select[name="chef"]');
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "ОСТАТКИ ХЛЕБ",
+            subject: "ОСТАТКИ/ВЫСТАЛВЕНО",
             from_name: "SHBB PASTRY",
             reply_to: "no-reply@shbb.com",
             message: msg
