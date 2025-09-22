@@ -91,10 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let message = `🧾 <b>${lang === 'en' ? 'LEFTOVER/GIVEN' : 'ОСТАТКИ/ВЫСТАЛВЕНО'}</b>\n\n`;
     message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
 
-    const nameSelect = document.querySelector('select[name="chef"]');
-    const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-    const name = selectedChef?.dataset[lang] || '—';
-    message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n\n`;
+const nameSelect = document.querySelector('select[name="chef"]');
+const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
+const name = selectedChef?.dataset[lang] || '—';
+message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n`;
+
+// 📌 Добавляем новый блок сразу следом
+const actionSelect = document.querySelector('select[name="actionType"]');
+if (actionSelect && actionSelect.value) {
+  const selectedAction = actionSelect.options[actionSelect.selectedIndex];
+  const actionText = selectedAction?.dataset[lang] || selectedAction.textContent;
+  message += `${lang === 'en' ? '📌 Action' : '📌 Действие'}: ${actionText}\n`;
+}
+
+message += '\n';
 
     document.querySelectorAll('.menu-section').forEach(section => {
       const sectionTitle = section.querySelector('.section-title');
