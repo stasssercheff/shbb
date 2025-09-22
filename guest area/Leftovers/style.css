@@ -1,137 +1,116 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f8;
-    color: #333;
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Verdana, sans-serif;
+  background: #f5f5f5;
+  font-size: 28px; /* уменьшен для мобильного */
 }
 
 .container {
-    max-width: 95%;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  max-width: 90%;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px; /* сохраняем стиль */
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
-.page-header {
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+label,
+.check-label {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 6px;
 }
 
-.lang-switch {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
+input[type="text"],
+textarea,
+input:not([type="number"]):not([type="submit"]),
+.autodate {
+  width: 100%;
+  padding: 14px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
-.lang-btn {
-    flex: 1;
-    padding: 12px 0;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    text-align: center;
-    transition: 0.2s;
-}
-
-.lang-btn:hover {
-    background-color: #c1b29a;
-}
-
-.nav-buttons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.nav-btn {
-    flex: 1;
-    max-width: 150px;
-    padding: 12px 20px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    transition: 0.2s;
-    text-align: center;
-}
-
-.nav-btn:hover {
-    background-color: #c1b29a;
-}
-
-/* === Дата, имя, селекторы и текст === */
-.input-block, .dish {
-    margin-bottom: 12px;
-    font-size: 18px; /* уменьшенный шрифт */
-}
-
-.dish {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
+select {
+  appearance: none; /* оставляем стиль квадратным */
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* сохраняем квадратный вид */
+  padding: 12px;
+  font-size: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 16px;
 }
 
 .dish select.qty {
-    width: 140px;
-    font-size: 16px;
-    padding: 6px 10px;
-    margin-top: 4px;
+  width: 200px; /* меньше, чтобы поместилось */
+  min-width: 200px;
+  max-width: 100%;
+  padding: 12px;
+  font-size: 20px;
+  border-radius: 8px; /* сохраняем квадратный вид */
+  text-align: center;
+  text-align-last: center;
+  margin-top: 6px;
+}
+
+.dish select.qty option {
+  text-align: center;
+  font-size: 20px;
 }
 
 textarea.comment {
-    width: 100%;
-    padding: 8px;
-    font-size: 16px;
+  font-size: 18px;
+  padding: 12px;
+  min-height: 80px;
+  resize: vertical;
 }
 
-/* === Секции меню === */
-.menu-section {
-    margin: 20px 0;
-    padding: 14px;
-    background: #f3f1ed;
-    border-radius: 10px;
+button, input[type="button"], input[type="submit"] {
+  background-color: #d8cfc0; /* оригинальный цвет */
+  color: #333;
+  border: none;
+  padding: 18px;
+  font-size: 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  display: block;
 }
 
-.section-title {
-    background: #e1ded9;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 22px;
-    margin-bottom: 12px;
-    text-align: center;
+button:hover, input[type="button"]:hover, input[type="submit"]:hover {
+  background-color: #c1b29a;
 }
 
-/* === Кнопка отправки === */
-button#sendToTelegram {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 10%; /* отступы слева и справа */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-button#sendToTelegram:hover {
-    background-color: #c1b29a;
+.lang-switch,
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lang-switch button,
+.nav-buttons button {
+  flex: 1;
+  max-width: 45%;
+  min-width: 70px;
+  padding: 8px 12px;
 }
