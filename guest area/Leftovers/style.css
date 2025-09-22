@@ -170,10 +170,13 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
 
 .section-title {
     background-color: #e1ded9;
-    padding: 4px 8px; /* уменьшено */
+    padding: 4px 8px;
     border-radius: 6px;
     font-weight: 700;
-    font-size: 16px; /* чуть крупнее для заголовков */
-    margin-bottom: 6px; /* уменьшено */
+    font-size: 16px;
+    margin-bottom: 6px;
     text-align: center;
+
+    min-height: 36px;      /* минимальная высота, чтобы блок был заметен */
+    line-height: 36px;     /* вертикальное центрирование текста */
 }
