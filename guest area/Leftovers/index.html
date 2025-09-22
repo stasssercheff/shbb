@@ -9,22 +9,18 @@
 </head>
 <body>
 
-  <div class="wrapper">
-    <div class="container">
-
-      <header class="page-header">
-        <!-- Ряд кнопок языка -->
-        <div class="lang-switch">
-          <button onclick="switchLanguage('ru')">RU</button>
-          <button onclick="switchLanguage('en')">EN</button>
-        </div>
-
-        <!-- Ряд навигационных кнопок -->
-        <div class="nav-buttons">
-          <button onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-          <button onclick="location.href='../index.html'">Назад</button>
-        </div>
-      </header>
+      <!-- Хедер -->
+  <header class="page-header">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goHome()" data-i18n="home"></button>
+      <button class="nav-btn" onclick="goBack()" data-i18n="back"></button>
+    </div>
+  </header>
 
       <!-- Дата -->
       <div class="input-block">
