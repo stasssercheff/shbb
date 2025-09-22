@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Страница выбора</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Локальный скрипт (ищет lang.json до 6 уровней вверх) -->
+  <script src="script.js" defer></script>
+</head>
+<body>
 
+  <!-- Хедер -->
+  <header class="page-header">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goHome()" data-i18n="home">На главную</button>
+      <button class="nav-btn" onclick="goBack()" data-i18n="back">Назад</button>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- Лого -->
+    <img src="logo.png" alt="Лого" class="logo">
+
+    <!-- Заголовок -->
+    <h1 data-i18n="guest_area">ЗАЛ</h1>
+
+    <!-- Дата -->
+    <div class="date-container">
+      <span id="current-date"></span>
+    </div>
+
+    <!-- Кнопки перехода -->
+    <div class="buttons-container">
+      <button class="nav-btn" onclick="location.href='barista/index.html'" data-i18n="Бариста">
+        ОПИСАНИЕ БЛЮД
+      </button>
+      <button class="nav-btn" onclick="location.href='cashier/index.html'" data-i18n="Кассир">
+        СПИСАНИЕ ХЛЕБ/БУЛКИ
+      </button>
+      <button class="nav-btn" onclick="location.href='waiter/index.html'" data-i18n="Официант">
+        ЧЕК-ЛИСТ
+      </button>
+    </div>
+  </main>
+
+</body>
+</html>
