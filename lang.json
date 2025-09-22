@@ -338,5 +338,15 @@
     "ru": "Закрытие",
     "en": "Closing",
     "vi": "Đóng cửa"
- }
+ },
+"buns": {
+    "ru": "Булки",
+    "en": "Buns",
+    "vi": "Bánh mì tròn"
+},
+"bread": {
+    "ru": "Хлеб",
+    "en": "Bread",
+    "vi": "Bánh mì"
+}
 }
