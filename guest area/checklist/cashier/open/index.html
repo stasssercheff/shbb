@@ -1,108 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="page_title"></title>
-  <link rel="stylesheet" href="style.css">
-  <script src="lang.js" defer></script>
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="page_title"></title>
+<link rel="stylesheet" href="style.css">
+<script src="lang.js" defer></script>
+<script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Хедер -->
-  <header class="page-header">
-    <div class="lang-switch">
-      <button class="lang-btn" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="vi">VI</button>
+<header class="page-header">
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="vi">VI</button>
+  </div>
+  <div class="nav-buttons">
+    <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
+    <button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
+  </div>
+</header>
+
+<main class="main-container">
+  <h1 data-i18n="guest_area"></h1>
+  <div class="date-container">
+    <span id="current-date"></span>
+  </div>
+
+  <div class="dish">
+    <label data-i18n="name"></label>
+    <select name="chef" class="qty">
+      <option value="Thai" data-i18n="Thai"></option>
+      <option value="Huyen" data-i18n="Huyen"></option>
+      <option value="Khiem" data-i18n="Khiem"></option>
+      <option value="Nhung" data-i18n="Nhung"></option>
+    </select>
+  </div>
+
+  <div id="checklist">
+    <div class="checklist-item">
+      <label for="item1" data-i18n="task_outdoor_signs"></label>
+      <input type="checkbox" id="item1">
     </div>
-    <div class="nav-buttons">
-      <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
-      <button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
+    <div class="checklist-item">
+      <label for="item2" data-i18n="task_indoor_fans"></label>
+      <input type="checkbox" id="item2">
     </div>
-  </header>
-
-  <main class="main-container">
-    <h1 data-i18n="guest_area"></h1>
-
-    <!-- Дата -->
-    <div class="date-container">
-      <span id="current-date"></span>
+    <div class="checklist-item">
+      <label for="item3" data-i18n="task_lights"></label>
+      <input type="checkbox" id="item3">
     </div>
-
-    <!-- Имя -->
-    <div class="dish">
-      <label data-i18n="name"></label>
-      <select name="chef" class="qty">
-        <option value="Thai" data-i18n="Thai">Thai</option>
-        <option value="Huyen" data-i18n="Huyen">Huyen</option>
-        <option value="Khiem" data-i18n="Khiem">Khiem</option>
-        <option value="Nhung" data-i18n="Nhung">Nhung</option>
-      </select>
+    <div class="checklist-item">
+      <label for="item4" data-i18n="task_dessert_display"></label>
+      <input type="checkbox" id="item4">
     </div>
-
-    <!-- Чеклист -->
-    <div id="checklist">
-      <div class="checklist-item">
-        <label for="item1" data-i18n="task_outdoor_signs"></label>
-        <input type="checkbox" id="item1">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item2" data-i18n="task_indoor_fans"></label>
-        <input type="checkbox" id="item2">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item3" data-i18n="task_lights"></label>
-        <input type="checkbox" id="item3">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item4" data-i18n="task_dessert_display"></label>
-        <input type="checkbox" id="item4">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item5" data-i18n="task_cash_register"></label>
-        <input type="checkbox" id="item5">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item6" data-i18n="task_speakers"></label>
-        <input type="checkbox" id="item6">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item7" data-i18n="task_takeaway"></label>
-        <input type="checkbox" id="item7">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item8" data-i18n="task_cookies"></label>
-        <input type="checkbox" id="item8">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item9" data-i18n="task_workspace"></label>
-        <input type="checkbox" id="item9">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item10" data-i18n="task_phone"></label>
-        <input type="checkbox" id="item10">
-      </div>
-
-      <div class="checklist-item">
-        <label for="item11" data-i18n="task_bread"></label>
-        <input type="checkbox" id="item11">
-      </div>
+    <div class="checklist-item">
+      <label for="item5" data-i18n="task_cash_register"></label>
+      <input type="checkbox" id="item5">
     </div>
+    <div class="checklist-item">
+      <label for="item6" data-i18n="task_speakers"></label>
+      <input type="checkbox" id="item6">
+    </div>
+    <div class="checklist-item">
+      <label for="item7" data-i18n="task_takeaway"></label>
+      <input type="checkbox" id="item7">
+    </div>
+    <div class="checklist-item">
+      <label for="item8" data-i18n="task_cookies"></label>
+      <input type="checkbox" id="item8">
+    </div>
+    <div class="checklist-item">
+      <label for="item9" data-i18n="task_workspace"></label>
+      <input type="checkbox" id="item9">
+    </div>
+    <div class="checklist-item">
+      <label for="item10" data-i18n="task_phone"></label>
+      <input type="checkbox" id="item10">
+    </div>
+    <div class="checklist-item">
+      <label for="item11" data-i18n="task_bread"></label>
+      <input type="checkbox" id="item11">
+    </div>
+  </div>
 
-    <button id="sendBtn" data-i18n="btn_send"></button>
-    <div id="result"></div>
-  </main>
+  <button id="sendBtn" data-i18n="btn_send"></button>
+  <div id="result"></div>
+</main>
 
 </body>
 </html>
