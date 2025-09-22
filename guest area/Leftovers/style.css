@@ -5,14 +5,14 @@ body {
     padding: 0;
     background-color: #f4f6f8;
     color: #333;
-    font-size: 16px; /* базовый размер */
+    font-size: 14px; /* компактный базовый размер */
 }
 
 .container {
     max-width: 90%;
-    margin: 20px auto;
+    margin: 10px auto; /* уменьшены отступы сверху/снизу */
     background-color: #fff;
-    padding: 24px;
+    padding: 12px; /* уменьшены внутренние отступы */
     border-radius: 10px;
     box-shadow: 0 3px 15px rgba(0,0,0,0.1);
     box-sizing: border-box;
@@ -44,7 +44,7 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     transition: 0.2s;
 }
@@ -57,20 +57,20 @@ body {
 .nav-buttons {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* уменьшено */
 }
 
 .nav-btn {
     flex: 1;
     max-width: 150px;
-    padding: 12px 20px;
+    padding: 10px 20px;
     background-color: #d8cfc0;
     color: #333;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     transition: 0.2s;
 }
 
@@ -80,14 +80,15 @@ body {
 
 /* === Контент === */
 .input-block {
-    margin-bottom: 16px;
+    margin-bottom: 8px; /* уменьшено */
 }
 
 label,
 .check-label {
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px; /* уменьшено */
     display: inline-block;
+    font-size: 13px;
 }
 
 /* === Блоки с названием и селектором === */
@@ -95,21 +96,21 @@ label,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: 6px; /* уменьшено */
     flex-wrap: wrap;
 }
 
 .dish label {
     flex: 1;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .dish select.qty {
-    flex: 0 0 80px; /* фиксированная ширина под цифры до 10 */
+    flex: 0 0 80px;
     padding: 6px;
-    font-size: 16px;
+    font-size: 13px;
     border: 1px solid #ccc;
-    border-radius: 6px; /* квадратный вид, одинаковый с кнопками */
+    border-radius: 6px;
     text-align: center;
     text-align-last: center;
     background: #fff;
@@ -118,9 +119,9 @@ label,
 /* === Текстовые поля === */
 textarea.comment {
     width: 100%;
-    min-height: 80px;
-    font-size: 16px;
-    padding: 8px;
+    min-height: 60px; /* чуть меньше */
+    font-size: 13px;
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 6px;
     resize: vertical;
@@ -135,7 +136,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 6px;
-    font-size: 16px;
+    font-size: 13px;
     box-sizing: border-box;
 }
 
@@ -144,14 +145,14 @@ button, input[type="button"], input[type="submit"] {
     background-color: #d8cfc0;
     color: #333;
     border: none;
-    padding: 12px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 14px;
     border-radius: 6px;
     cursor: pointer;
     display: block;
     width: 100%;
     max-width: 250px;
-    margin: 12px auto;
+    margin: 8px auto; /* уменьшено */
     transition: 0.2s;
 }
 
@@ -161,18 +162,18 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
 
 /* === Разделы меню === */
 .menu-section {
-    margin: 24px 0;
-    padding: 16px;
+    margin: 12px 0; /* уменьшено в 2 раза */
+    padding: 8px; /* уменьшено */
     background-color: #f9f7f2;
     border-radius: 8px;
 }
 
 .section-title {
     background-color: #e1ded9;
-    padding: 6px 12px;
+    padding: 4px 8px; /* уменьшено */
     border-radius: 6px;
     font-weight: 700;
-    font-size: 18px;
-    margin-bottom: 12px;
+    font-size: 16px; /* чуть крупнее для заголовков */
+    margin-bottom: 6px; /* уменьшено */
     text-align: center;
 }
