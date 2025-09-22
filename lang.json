@@ -288,5 +288,285 @@
       "ru": "Отметить количество булок и хлеба в приложении",
       "en": "Mark the quantity of buns and bread in the app",
       "vi": "Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng"
-  }
+    },
+  "turn_on_coffee_machine": {
+    "ru": "Включить кофемашину",
+    "en": "Turn on the coffee machine",
+    "vi": "Bật máy pha cà phê"
+     },
+    "check_coffee_supply": {
+    "ru": "Проверить наличие кофе",
+    "en": "Check the coffee supply",
+    "vi": "Kiểm tra nguồn cà phê"
+     },
+    "fill_and_turn_on_thermopot": {
+    "ru": "Налить полный термопот. Включить его",
+    "en": "Fill the thermopot completely. Turn it on",
+    "vi": "Đổ đầy bình giữ nhiệt. Bật nó lên"
+     },
+     "bring_ice_from_second_floor": {
+    "ru": "Принести лёд со второго этажа. Если его нет, сказать об этом кассиру",
+    "en": "Bring ice from the second floor. If there's none, tell the cashier",
+    "vi": "Mang đá từ tầng hai xuống. Nếu không có, báo cho nhân viên thu ngân"
+     },
+     "arrange_dishes_and_check_supplies": {
+    "ru": "Расставить всю посуду. Проверить наличие моющих принадлежностей",
+    "en": "Arrange all the dishes. Check for cleaning supplies",
+    "vi": "Sắp xếp tất cả bát đĩa. Kiểm tra dụng cụ vệ sinh"
+     },
+     "wipe_work_area": {
+    "ru": "Протереть свою рабочую зону",
+    "en": "Wipe down your work area",
+    "vi": "Lau sạch khu vực làm việc của bạn"
+     },
+     "prepare_workstation": {
+    "ru": "Подготовить всё необходимое для работы на рабочем месте (Весы, холдеры, пинчеры )",
+    "en": "Prepare everything needed for work at your station (scales, holders, pitchers)",
+    "vi": "Chuẩn bị mọi thứ cần thiết cho công việc tại quầy của bạn (cân, giá đỡ, bình đong)"
+     },
+     "check_refrigerators_and_restock": {
+    "ru": "Открыть и проверить оба холодильника. Наличие фруктов, молока и других продуктов. Если чего-то не хватает - принести со второго этажа или сказать кассиру",
+    "en": "Open and check both refrigerators. Check for fruits, milk, and other products. If anything is missing — bring it from the second floor or tell the cashier",
+    "vi": "Mở và kiểm tra cả hai tủ lạnh. Kiểm tra trái cây, sữa và các sản phẩm khác. Nếu thiếu, lấy từ tầng hai hoặc báo cho nhân viên thu ngân"
+     },
+     "check_and_restock_tea": {
+    "ru": "Проверить наличие чая, пополнить по мере необходимости",
+    "en": "Check the tea supply, restock as needed",
+    "vi": "Kiểm tra nguồn trà, bổ sung khi cần"
+     },
+     "slice_lemon_and_store": {
+    "ru": "Нарезать лимон и положить в контейнер",
+    "en": "Slice a lemon and place it in a container",
+    "vi": "Cắt lát chanh và đặt vào hộp đựng"
+   },
+  "wipe_syrups_and_counter": {
+    "ru": "Протереть все сиропы и стол под ними",
+    "en": "Wipe down all the syrup bottles and the counter underneath them",
+    "vi": "Lau sạch tất cả chai siro và mặt bàn bên dưới"
+   },
+    "wipe_bar_surface": {
+    "ru": "Протереть всю поверхность бара",
+    "en": "Wipe the entire bar surface",
+    "vi": "Lau toàn bộ bề mặt quầy bar"
+   },
+    "wash_equipment_with_detergent": {
+    "ru": "Промыть всё оборудование с моющим средством (Соковыжималкка, давилка для апельсинов, доски ...)",
+    "en": "Wash all equipment with detergent (juicer, orange press, cutting boards, etc.)",
+    "vi": "Rửa sạch tất cả thiết bị bằng nước rửa (máy ép, máy ép cam, thớt, v.v.)"
+   },
+    "clean_sink_and_throw_scraps": {
+    "ru": "Промыть раковину и вытряхнуть все остатки в мусорку",
+    "en": "Clean the sink and throw all scraps into the trash",
+    "vi": "Vệ sinh bồn rửa và bỏ tất cả rác vào thùng"
+   },
+    "dry_and_put_dishes_back": {
+    "ru": "Протереть насухо и расставить по своим местам всю посуду",
+    "en": "Dry all dishes and place them back in their spots",
+    "vi": "Lau khô toàn bộ chén đĩa và đặt lại đúng vị trí"
+   },
+    "rinse_bar_mats": {
+    "ru": "Промыть все коврики и развесить сушиться.",
+    "en": "Rinse all bar mats and hang them to dry",
+    "vi": "Xả sạch tất cả thảm bar và treo lên cho khô"
+   },
+    "turn_off_coffee_machine_1955": {
+    "ru": "Кофемашина отключается в 19:55. Не раньше. Стравить давление. Промыть кофемашину",
+    "en": "Turn off the coffee machine at 19:55 — not earlier. Release the pressure. Clean the machine",
+    "vi": "Tắt máy pha cà phê lúc 19:55 — không sớm hơn. Xả áp suất. Vệ sinh máy"
+   },
+   "take_out_trash_after_closing": {
+    "ru": "После закрытия, выкинуть мешок с мусором. Предварительно достав весь мусор вокруг мусорки. Засунуть новый пакет",
+    "en": "After closing, take out the trash bag. First, collect any trash around the bin. Insert a new bag",
+    "vi": "Sau khi đóng cửa, mang túi rác đi. Trước đó gom rác xung quanh thùng. Lót túi mới"
+   },
+    "wipe_all_surfaces": {
+    "ru": "Протереть за собой все поверхности от воды и пыли",
+    "en": "Wipe all surfaces after yourself to remove water and dust",
+    "vi": "Lau tất cả bề mặt sau khi làm việc để loại bỏ nước và bụi"
+   },
+    "turn_off_thermopot": {
+    "ru": "Отключить термопот.",
+    "en": "Turn off the thermopot",
+    "vi": "Tắt bình giữ nhiệt"
+   },
+    "take_dirty_cloths_to_kitchen": {
+    "ru": "Убрать все грязные тряпки на кухню",
+    "en": "Take all dirty cloths to the kitchen",
+    "vi": "Mang tất cả khăn bẩn vào bếp"
+  },
+  "water_outdoor_flowers": {
+    "ru": "Полить цветы на улице",
+    "en": "Water the flowers outside",
+    "vi": "Tưới hoa bên ngoài"
+},
+"check_front_cleanliness": {
+    "ru": "Убедиться, что на лице чисто. Нет бычков, салфеток и так далее на полу и в цветах",
+    "en": "Make sure the front area is clean — no cigarette butts, napkins, etc., on the ground or in the flower beds",
+    "vi": "Đảm bảo khu vực trước cửa sạch sẽ — không có đầu thuốc lá, khăn giấy, v.v. trên mặt đất hoặc trong các bồn hoa"
+},
+"arrange_outdoor_tables": {
+    "ru": "Расставить столы на улице. Чтобы они стояли ровно, у каждого стола должны стоять стулья.",
+    "en": "Arrange the outdoor tables — they must be straight, with chairs at each one",
+    "vi": "Sắp xếp bàn ngoài trời — bàn phải thẳng, ghế đặt đúng vị trí"
+},
+"wipe_all_tables": {
+    "ru": "Протереть все столы влажной тряпкой.",
+    "en": "Wipe all tables with a damp cloth",
+    "vi": "Lau tất cả các bàn bằng khăn ẩm"
+},
+"place_napkins_on_tables": {
+    "ru": "Расставить по столам салфетки.",
+    "en": "Place napkins on all tables",
+    "vi": "Đặt khăn giấy lên tất cả các bàn"
+},
+"clean_mirrors_and_entrance": {
+    "ru": "Очистить все зеркала специальным средством. Протереть входную дверь. Обе витрины со стороны гостей",
+    "en": "Clean all mirrors with special cleaner. Wipe the entrance door. Clean both guest-facing display windows",
+    "vi": "Lau sạch tất cả gương bằng dung dịch chuyên dụng. Lau cửa ra vào. Lau sạch cả hai cửa sổ trưng bày hướng về phía khách"
+},
+"check_toilet_supplies": {
+    "ru": "Туалет. Проверить наличие салфеток для рук, туалетной бумаги, наличие мыла. Пополнить запас.",
+    "en": "Toilet: Check for soap, hand towels, toilet paper. Refill if needed. If something is out — tell the cashier",
+    "vi": "Nhà vệ sinh: Kiểm tra xà phòng, khăn tay, giấy vệ sinh. Bổ sung khi cần. Nếu thiếu đồ gì — báo cho nhân viên thu ngân"
+},
+"check_sink_towels_and_supplies": {
+    "ru": "Проверить полотенца для рук у раковины. Накрутить новых. Проверить наличие расходников под раковиной. Пополнить запас.",
+    "en": "Check hand towels by the sink. Refill with new ones. Check supplies under the sink. Restock.",
+    "vi": "Kiểm tra khăn tay gần bồn rửa. Bổ sung khăn mới. Kiểm tra dụng cụ dưới bồn rửa. Bổ sung thêm"
+},
+"check_tables_chairs_cushions": {
+    "ru": "Проверить все столы, стулья, подушки, чтобы всё стояло/лежало ровно, выглядело красиво",
+    "en": "Check all tables, chairs, and cushions to make sure everything is straight, tidy, and looks nice",
+    "vi": "Kiểm tra tất cả bàn, ghế và đệm để đảm bảo mọi thứ thẳng hàng, gọn gàng và đẹp mắt"
+},
+"check_and_prepare_cutlery_supplies": {
+    "ru": "Проверить наличие тряпок, салфеток, вилок, ложек, полотенец для столовых приборов. Подготовить всё с запасом",
+    "en": "Check the supply of cloths, napkins, forks, spoons, and utensil towels. Prepare everything with extra in stock",
+    "vi": "Kiểm tra nguồn khăn vải, khăn giấy, nĩa, thìa và khăn lau dụng cụ. Chuẩn bị mọi thứ với dự phòng thêm"
+},
+"prepare_takeaway_cookies": {
+    "ru": "Подготовить печенье с собой",
+    "en": "Prepare takeaway cookies",
+    "vi": "Chuẩn bị bánh quy mang đi"
+},
+"prepare_and_wipe_workspace": {
+    "ru": "Подготовить своё рабочее пространство, протереть его",
+    "en": "Prepare your workspace, wipe it down",
+    "vi": "Chuẩn bị khu vực làm việc, lau sạch"
+  },
+  "empty_toilet_trash": {
+    "ru": "Убрать мусор в туалете. Застелить новый мусорный мешок.",
+    "en": "Take out the trash in the toilet. Put in a new trash bag",
+    "vi": "Đổ rác trong nhà vệ sinh. Lót túi rác mới"
+},
+"collect_napkin_holders": {
+    "ru": "Собрать салфетницы со всех столов и выставить их на баре",
+    "en": "Collect all napkin holders from the tables and place them on the bar",
+    "vi": "Thu gom tất cả hộp đựng khăn giấy từ các bàn và đặt lên quầy bar"
+},
+"empty_ashtrays": {
+    "ru": "Очистить все пепельницы и отдать их на бар",
+    "en": "Empty all ashtrays and bring them to the bar",
+    "vi": "Đổ sạch tất cả gạt tàn thuốc và mang vào quầy bar"
+},
+"empty_outdoor_trash": {
+    "ru": "Очистить мусорку на улице",
+    "en": "Empty the outdoor trash bin",
+    "vi": "Đổ rác ở thùng rác ngoài trời"
+},
+"mop_floors_with_detergent": {
+    "ru": "Вымыть полы с моющим средством.",
+    "en": "Mop the floors with detergent",
+    "vi": "Lau sàn bằng nước lau có chất tẩy"
+},
+"remove_discount_sign": {
+    "ru": "Убрать табличку со скидками",
+    "en": "Remove the discount sign",
+    "vi": "Gỡ biển giảm giá"
+ },
+  "check_outdoor_cleanliness": {
+    "ru": "Проверить чистоту летней зоны. Убрать мусор, протереть столы влажной тряпкой",
+    "en": "Check the cleanliness of the outdoor seating area. Remove any trash and wipe down the tables with a damp cloth.",
+    "vi": "Kiểm tra độ sạch khu vực chỗ ngồi ngoài trời. Dọn rác và lau bàn bằng khăn ẩm"
+},
+"place_napkins_and_ashtrays": {
+    "ru": "Расставить салфетницы и пепельницы по столам",
+    "en": "Place napkin holders and ashtrays on the tables.",
+    "vi": "Đặt giá khăn giấy và gạt tàn thuốc lên bàn"
+},
+"check_tables_and_chairs": {
+    "ru": "Проверить все столы, стулья, подушки, чтобы всё стояло/лежало ровно, выглядело красиво",
+    "en": "Check all tables, chairs, and cushions to make sure everything is straight, tidy, and looks nice",
+    "vi": "Kiểm tra tất cả bàn, ghế và đệm để đảm bảo mọi thứ thẳng hàng, gọn gàng và đẹp mắt"
+},
+"check_trash_bags": {
+    "ru": "Проверить наличие мусорных мешков в мусорках",
+    "en": "Check that there are trash bags in the bins.",
+    "vi": "Kiểm tra xem có túi rác trong thùng không"
+},
+"check_fridge_stock": {
+    "ru": "Проверить наполнение холодильника",
+    "en": "Check the fridge stock",
+    "vi": "Kiểm tra kho tủ lạnh"
+},
+"check_glasses_and_utensils": {
+    "ru": "Проверить наличие стаканов для воды, кружек, ложек и прочих приборов",
+    "en": "Check the availability of water glasses, mugs, spoons, and other utensils.",
+    "vi": "Kiểm tra sự có mặt của ly nước, cốc, thìa và các dụng cụ khác"
+},
+"prepare_all_consumables": {
+    "ru": "Подготовить все расходники: - салфетки - соль, сахар, мёд, сироп, печеьне - накрутить салфетки с приборами - упаковка с собой",
+    "en": "Prepare all consumables: - Napkins - Salt, sugar, honey, syrup, cookies - Roll napkins with cutlery - Takeaway packaging",
+    "vi": "Chuẩn bị tất cả vật phẩm tiêu hao: - Khăn giấy - Muối, đường, mật ong, siro, bánh quy - Cuộn khăn giấy với bộ dụng cụ ăn - Bao bì mang đi"
+},
+"fill_and_turn_on_thermopot": {
+    "ru": "Набрать и включить термопот",
+    "en": "Fill and turn on the thermopot.",
+    "vi": "Đổ đầy và bật bình giữ nhiệt"
+},
+"check_bathroom_supplies_floors_2_3": {
+    "ru": "Проверить наличие мыла, салфеток и туалетной бумаги на 2 и 3 этажах",
+    "en": "Check soap, napkins, and toilet paper on the 2nd and 3rd floors",
+    "vi": "Kiểm tra xà phòng, khăn giấy và giấy vệ sinh ở tầng 2 và tầng 3"
+ },
+  "empty_all_ashtrays": {
+    "ru": "Вытряхнуть все пепельницы в урну",
+    "en": "Empty all ashtrays into the trash bin.",
+    "vi": "Đổ hết tàn thuốc trong tất cả gạt tàn vào thùng rác"
+},
+"clear_and_wipe_tables": {
+    "ru": "Убрать всё со столов, протереть их",
+    "en": "Clear everything off the tables and wipe them down.",
+    "vi": "Dọn sạch mọi thứ trên bàn và lau bàn"
+},
+"clean_sink": {
+    "ru": "Очистить раковину",
+    "en": "Clean the sink.",
+    "vi": "Vệ sinh bồn rửa"
+},
+"turn_off_thermopot": {
+    "ru": "Выключить термопот",
+    "en": "Turn off the thermopot.",
+    "vi": "Tắt bình giữ nhiệt"
+},
+"take_out_all_trash": {
+    "ru": "Вытащить мусор из всех урн и отнести его вниз",
+    "en": "Take out the trash from all bins and bring it downstairs.",
+    "vi": "Đổ rác từ tất cả các thùng và mang xuống tầng dưới"
+},
+"mop_3rd_floor": {
+    "ru": "Помыть полы на 3 этаже. В летней зоне, в помещении",
+    "en": "Mop the floors on the 3rd floor, both in the outdoor area and indoors.",
+    "vi": "Lau sàn tầng 3, cả khu vực ngoài trời và trong nhà"
+},
+"turn_off_fans_and_lights": {
+    "ru": "Выключить все вентиляторы и свет",
+    "en": "Turn off all fans and lights.",
+    "vi": "Tắt tất cả quạt và đèn"
+},
+"clean_2nd_floor_and_staff_room": {
+    "ru": "Убраться на втором этаже. В стафф комнате.",
+    "en": "Clean the second floor, including the staff room",
+    "vi": "Dọn dẹp tầng 2, bao gồm cả phòng nhân viên"
+ }
 }
