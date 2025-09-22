@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title"></title>
   <link rel="stylesheet" href="style.css">
-  <script src="../../../lang.js" defer></script>
+  <script src="lang.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -17,183 +18,91 @@
       <button class="lang-btn" data-lang="vi">VI</button>
     </div>
     <div class="nav-buttons">
-<button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
-<button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
+      <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
+      <button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
     </div>
   </header>
 
   <main class="main-container">
-    
-
-    <!-- Заголовок -->
-    <h1 data-i18n="guest_area">Чеклист Кассир открытие</h1>
+    <h1 data-i18n="guest_area"></h1>
 
     <!-- Дата -->
     <div class="date-container">
       <span id="current-date"></span>
     </div>
 
-<!-- Имя -->
-  <div class="dish">
-    <label data-i18n="name"></label>
-    <select name="chef" class="qty">
-      <option value="Thai" data-i18n="Thai">Thai</option>
-      <option value="Huyen" data-i18n="Huyen">Huyen</option>
-      <option value="Khiem" data-i18n="Khiem">Khiem</option>
-      <option value="Nhung" data-i18n="Nhung">Nhung</option>
-    </select>
-  </div>
-
-  <div id="checklist">
-
-    <div class="checklist-item">
-      <label for="item1" data-i18n="task_outdoor_signs"
-        data-ru="Включить: 3 вывески и 2 вентилятора на улице"
-        data-en="Turn on: 3 signs and 2 fans. Outside"
-        data-vi="Bật: 3 biển hiệu và 2 quạt. Bên ngoài">
-        Включить: 3 вывески и 2 вентилятора на улице
-      </label>
-      <input type="checkbox" id="item1"
-        data-ru="Включить: 3 вывески и 2 вентилятора на улице"
-        data-en="Turn on: 3 signs and 2 fans. Outside"
-        data-vi="Bật: 3 biển hiệu và 2 quạt. Bên ngoài">
+    <!-- Имя -->
+    <div class="dish">
+      <label data-i18n="name"></label>
+      <select name="chef" class="qty">
+        <option value="Thai" data-i18n="Thai">Thai</option>
+        <option value="Huyen" data-i18n="Huyen">Huyen</option>
+        <option value="Khiem" data-i18n="Khiem">Khiem</option>
+        <option value="Nhung" data-i18n="Nhung">Nhung</option>
+      </select>
     </div>
 
-    <div class="checklist-item">
-      <label for="item2" data-i18n="task_indoor_fans"
-        data-ru="Включить: 3 вентилятора, 2 кондиционера в помещении"
-        data-en="Turn on: 3 fans, 2 air conditioners. Inside"
-        data-vi="Bật: 3 quạt, 2 máy lạnh. Bên trong">
-        Включить: 3 вентилятора, 2 кондиционера в помещении
-      </label>
-      <input type="checkbox" id="item2"
-        data-ru="Включить: 3 вентилятора, 2 кондиционера в помещении"
-        data-en="Turn on: 3 fans, 2 air conditioners. Inside"
-        data-vi="Bật: 3 quạt, 2 máy lạnh. Bên trong">
+    <!-- Чеклист -->
+    <div id="checklist">
+      <div class="checklist-item">
+        <label for="item1" data-i18n="task_outdoor_signs"></label>
+        <input type="checkbox" id="item1">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item2" data-i18n="task_indoor_fans"></label>
+        <input type="checkbox" id="item2">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item3" data-i18n="task_lights"></label>
+        <input type="checkbox" id="item3">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item4" data-i18n="task_dessert_display"></label>
+        <input type="checkbox" id="item4">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item5" data-i18n="task_cash_register"></label>
+        <input type="checkbox" id="item5">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item6" data-i18n="task_speakers"></label>
+        <input type="checkbox" id="item6">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item7" data-i18n="task_takeaway"></label>
+        <input type="checkbox" id="item7">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item8" data-i18n="task_cookies"></label>
+        <input type="checkbox" id="item8">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item9" data-i18n="task_workspace"></label>
+        <input type="checkbox" id="item9">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item10" data-i18n="task_phone"></label>
+        <input type="checkbox" id="item10">
+      </div>
+
+      <div class="checklist-item">
+        <label for="item11" data-i18n="task_bread"></label>
+        <input type="checkbox" id="item11">
+      </div>
     </div>
 
-    <div class="checklist-item">
-      <label for="item3" data-i18n="task_lights"
-        data-ru="Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой"
-        data-en="Turn on the lights in the main area and the area with the sofa. Floor lamp near the speaker"
-        data-vi="Bật đèn ở khu vực chính và khu vực có ghế sofa. Đèn sàn gần loa">
-        Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой
-      </label>
-      <input type="checkbox" id="item3"
-        data-ru="Включить свет в основном помещении и в помещении с диваном. Торшер рядом с колонкой"
-        data-en="Turn on the lights in the main area and the area with the sofa. Floor lamp near the speaker"
-        data-vi="Bật đèn ở khu vực chính và khu vực có ghế sofa. Đèn sàn gần loa">
-    </div>
+    <button id="sendBtn" data-i18n="btn_send"></button>
+    <div id="result"></div>
+  </main>
 
-    <div class="checklist-item">
-      <label for="item4" data-i18n="task_dessert_display"
-        data-ru="Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов"
-        data-en="Fill the dessert display. If it wasn’t cleaned in the evening, clean it in the morning"
-        data-vi="Lấp đầy tủ trưng bày món tráng miệng. Nếu tối hôm trước chưa được lau dọn, thì lau vào buổi sáng">
-        Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов
-      </label>
-      <input type="checkbox" id="item4"
-        data-ru="Помыть витрину. Заполнить витрину с десертами. Проверить соответствие ценников и десертов"
-        data-en="Fill the dessert display. If it wasn’t cleaned in the evening, clean it in the morning"
-        data-vi="Lấp đầy tủ trưng bày món tráng miệng. Nếu tối hôm trước chưa được lau dọn, thì lau vào buổi sáng">
-    </div>
-
-    <div class="checklist-item">
-      <label for="item5" data-i18n="task_cash_register"
-        data-ru="Кассовый аппарат. Войти в систему"
-        data-en="Cash register. Log into the system"
-        data-vi="Máy tính tiền. Đăng nhập vào hệ thống">
-        Кассовый аппарат. Войти в систему
-      </label>
-      <input type="checkbox" id="item5"
-        data-ru="Кассовый аппарат. Войти в систему"
-        data-en="Cash register. Log into the system"
-        data-vi="Máy tính tiền. Đăng nhập vào hệ thống">
-    </div>
-
-    <div class="checklist-item">
-      <label for="item6" data-i18n="task_speakers"
-        data-ru="Включить обе колонки. Проверить, есть ли музыка"
-        data-en="Turn on both speakers. Check if music is playing"
-        data-vi="Bật cả hai loa. Kiểm tra xem nhạc có đang phát không">
-        Включить обе колонки. Проверить, есть ли музыка
-      </label>
-      <input type="checkbox" id="item6"
-        data-ru="Включить обе колонки. Проверить, есть ли музыка"
-        data-en="Turn on both speakers. Check if music is playing"
-        data-vi="Bật cả hai loa. Kiểm tra xem nhạc có đang phát không">
-    </div>
-
-    <div class="checklist-item">
-      <label for="item7" data-i18n="task_takeaway"
-        data-ru="Подготовить всё необходимое для отдачи заказа с собой: приборы, пакеты, упаковка, трубочки, сахар, пакеты для Граба. Пополнить запасы, нанести печати"
-        data-en="Prepare everything needed for takeaway orders: utensils, bags, packaging, straws, sugar, Grab bags. Refill supplies and stamp the packaging"
-        data-vi="Chuẩn bị mọi thứ cần thiết cho đơn mang đi: dụng cụ, túi, hộp đóng gói, ống hút, đường, túi Grab. Bổ sung vật tư và đóng dấu bao bì">
-        Подготовить всё необходимое для отдачи заказа с собой
-      </label>
-      <input type="checkbox" id="item7"
-        data-ru="Подготовить всё необходимое для отдачи заказа с собой: приборы, пакеты, упаковка, трубочки, сахар, пакеты для Граба. Пополнить запасы, нанести печати"
-        data-en="Prepare everything needed for takeaway orders: utensils, bags, packaging, straws, sugar, Grab bags. Refill supplies and stamp the packaging"
-        data-vi="Chuẩn bị mọi thứ cần thiết cho đơn mang đi: dụng cụ, túi, hộp đóng gói, ống hút, đường, túi Grab. Bổ sung vật tư và đóng dấu bao bì">
-    </div>
-
-    <div class="checklist-item">
-      <label for="item8" data-i18n="task_cookies"
-        data-ru="Проверить наличие печенья. Принести с кухни новое, если необходимо"
-        data-en="Check for cookies. Bring fresh ones from the kitchen if necessary"
-        data-vi="Kiểm tra bánh quy. Nếu cần, lấy bánh mới từ bếp ra">
-        Проверить наличие печенья
-      </label>
-      <input type="checkbox" id="item8"
-        data-ru="Проверить наличие печенья. Принести с кухни новое, если необходимо"
-        data-en="Check for cookies. Bring fresh ones from the kitchen if necessary"
-        data-vi="Kiểm tra bánh quy. Nếu cần, lấy bánh mới từ bếp ra">
-    </div>
-
-    <div class="checklist-item">
-      <label for="item9" data-i18n="task_workspace"
-        data-ru="Подготовить своё рабочее пространство. Протереть всё влажной тряпкой. Разложить необходимые инструменты."
-        data-en="Prepare your workspace. Wipe everything with a damp cloth. Lay out the necessary tools"
-        data-vi="Chuẩn bị khu vực làm việc. Lau mọi thứ bằng khăn ẩm. Bày ra các dụng cụ cần thiết">
-        Подготовить своё рабочее пространство
-      </label>
-      <input type="checkbox" id="item9"
-        data-ru="Подготовить своё рабочее пространство. Протереть всё влажной тряпкой. Разложить необходимые инструменты."
-        data-en="Prepare your workspace. Wipe everything with a damp cloth. Lay out the necessary tools"
-        data-vi="Chuẩn bị khu vực làm việc. Lau mọi thứ bằng khăn ẩm. Bày ra các dụng cụ cần thiết">
-    </div>
-
-    <div class="checklist-item">
-      <label for="item10" data-i18n="task_phone"
-        data-ru="Достать рабочий телефон, проверить его зарядку. Проверить дату на календаре."
-        data-en="Take out the work phone, check the battery. Check the date on the calendar"
-        data-vi="Lấy điện thoại công việc ra, kiểm tra pin. Kiểm tra ngày trên lịch">
-        Достать рабочий телефон
-      </label>
-      <input type="checkbox" id="item10"
-        data-ru="Достать рабочий телефон, проверить его зарядку. Проверить дату на календаре."
-        data-en="Take out the work phone, check the battery. Check the date on the calendar"
-        data-vi="Lấy điện thoại công việc ra, kiểm tra pin. Kiểm tra ngày trên lịch">
-    </div>
-
-    <div class="checklist-item">
-      <label for="item11" data-i18n="task_bread"
-        data-ru="Отметить количество булок и хлеба в приложении"
-        data-en="Mark the quantity of buns and bread in the app"
-        data-vi="Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng">
-        Отметить количество булок и хлеба
-      </label>
-      <input type="checkbox" id="item11"
-        data-ru="Отметить количество булок и хлеба в приложении"
-        data-en="Mark the quantity of buns and bread in the app"
-        data-vi="Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng">
-    </div>
-
-  </div>
-
-  <button id="sendBtn" data-i18n="btn_send">Отправить / Send</button>
-  <div id="result"></div>
-</div>
-<script src="script.js"></script>
 </body>
 </html>
