@@ -1,17 +1,40 @@
-const translations = {
-  "greeting": { "ru": "Портал сотрудников", "en": "Employee Portal", "vi": "Cổng nhân viên" },
-  "page_title": { "ru": "Страница выбора", "en": "Selection page", "vi": "Trang lựa chọn" },
-  "date": { "ru": "Дата", "en": "Date", "vi": "Ngày" },
-  "kitchen": { "ru": "Кухня", "en": "Kitchen", "vi": "Bếp" },
-  "guest_area": { "ru": "Зал", "en": "Guest area", "vi": "Khu vực khách" }
-};
-
-// читаем сохранённый язык или по умолчанию ru
 let currentLang = localStorage.getItem("lang") || "ru";
+let translations = {};
+
+// Загружаем словарь из JSON
+async function loadTranslations() {
+  try {
+    // ищем lang.json в текущей или родительских папках (до 6 уровней вверх)
+    let paths = [
+      "./lang.json",
+      "../lang.json",
+      "../../lang.json",
+      "../../../lang.json",
+      "../../../../lang.json",
+      "../../../../../lang.json"
+    ];
+
+    for (let path of paths) {
+      try {
+        const res = await fetch(path);
+        if (res.ok) {
+          translations = await res.json();
+          break;
+        }
+      } catch (e) {
+        // пропускаем неудачные пути
+      }
+    }
+
+    switchLanguage(currentLang);
+  } catch (err) {
+    console.error("Ошибка загрузки переводов:", err);
+  }
+}
 
 function switchLanguage(lang) {
   currentLang = lang;
-  localStorage.setItem("lang", lang); // сохраняем выбор
+  localStorage.setItem("lang", lang);
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
@@ -28,12 +51,10 @@ function switchLanguage(lang) {
   }
 }
 
-// обработка кнопок выбора языка
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => switchLanguage(btn.dataset.lang));
   });
 
-  // показываем текущий язык по умолчанию или сохранённый
-  switchLanguage(currentLang);
+  loadTranslations();
 });
