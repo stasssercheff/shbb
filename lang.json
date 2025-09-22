@@ -5,9 +5,9 @@
     "vi": "Cổng nhân viên"
   },
   "page_title": {
-    "ru": "Страница выбора",
-    "en": "Selection page",
-    "vi": "Trang lựa chọn"
+    "ru": "Чеклист Кассир открытие",
+    "en": "Cashier Opening Checklist",
+    "vi": "Danh sách kiểm tra nhân viên thu ngân"
   },
   "menu": {
     "ru": "Меню",
@@ -20,9 +20,9 @@
     "vi": "Mô tả món ăn"
   },
   "send": {
-    "ru": "Отправить",
-    "en": "Send",
-    "vi": "Gửi"
+    "ru": "ОТПРАВИТЬ",
+    "en": "SEND",
+    "vi": "GỬI"
   },
   "back": {
     "ru": "Назад",
@@ -30,7 +30,7 @@
     "vi": "Quay lại"
   },
   "home": {
-    "ru": "На главную",
+    "ru": "Главная",
     "en": "Home",
     "vi": "Trang chủ"
   },
@@ -38,11 +38,6 @@
     "ru": "Дата",
     "en": "Date",
     "vi": "Ngày"
-  },
-  "order": {
-    "ru": "Заказ",
-    "en": "Order",
-    "vi": "Đơn hàng"
   },
   "name": {
     "ru": "Имя",
@@ -52,7 +47,7 @@
   "comment": {
     "ru": "Комментарий",
     "en": "Comment",
-    "vi": "Bình luận"
+    "vi": "Ghi chú"
   },
   "ingredients": {
     "ru": "Ингредиенты",
@@ -102,127 +97,12 @@
   "leftover_buns": {
     "ru": "Остатки булки",
     "en": "Leftovers buns",
-    "vi": "Bánh còn lại"
+    "vi": "Bánh thừa"
   },
   "leftover_bread": {
     "ru": "Остатки хлеб",
     "en": "Leftovers bread",
-    "vi": "Bánh mì còn lại"
-  },
-  "poppyseed_bun": {
-    "ru": "Булка с маком",
-    "en": "Poppyseed bun",
-    "vi": "Bánh mì hạt poppy"
-  },
-  "missobon": {
-    "ru": "Миссобон",
-    "en": "Missobon",
-    "vi": "Missobon"
-  },
-  "cardamon_bun": {
-    "ru": "Кардамоновая булка",
-    "en": "Cardamon bun",
-    "vi": "Bánh mì hạt cardamom"
-  },
-  "borodinskiy": {
-    "ru": "Бородинский",
-    "en": "Borodinskiy",
-    "vi": "Borodinskiy"
-  },
-  "borodinskiy_half": {
-    "ru": "Бородинский 1/2",
-    "en": "Borodinskiy 1/2",
-    "vi": "Borodinskiy 1/2"
-  },
-  "tartin": {
-    "ru": "Тарртин",
-    "en": "Tartin",
-    "vi": "Tartin"
-  },
-  "tartin_half": {
-    "ru": "Тарртин 1/2",
-    "en": "Tartin 1/2",
-    "vi": "Tartin 1/2"
-  },
-  "country_bread": {
-    "ru": "Чиабатта темная",
-    "en": "Country bread",
-    "vi": "Bánh mì đen"
-  },
-  "ciabatta": {
-    "ru": "Чиабатта пшеничная",
-    "en": "Ciabatta",
-    "vi": "Bánh Ciabatta"
-  },
-  "cheklist": {
-    "ru": "Чек-лист",
-    "en": "Check-list",
-    "vi": "Danh sách kiểm tra"
-  },
-  "action_type": {
-    "ru": "Списание / выставлено",
-    "en": "Write off / Given",
-    "vi": "Ghi sổ / Đã giao"
-  },
-  "write_off": {
-    "ru": "Списано",
-    "en": "Write off",
-    "vi": "Ghi sổ"
-  },
-  "given": {
-    "ru": "Выставлено",
-    "en": "Given",
-    "vi": "Đã giao"
-  },
-  "page_title_writeoff": {
-    "ru": "Списание / Наполнение",
-    "en": "Write-off / Stocking",
-    "vi": "Ghi sổ / Nhập hàng"
-  },
-  "home": {
-    "ru": "На главную",
-    "en": "Home",
-    "vi": "Trang chủ"
-  },
-  "back": {
-    "ru": "Назад",
-    "en": "Back",
-    "vi": "Quay lại"
-  },
-  "date": {
-    "ru": "Дата",
-    "en": "Date",
-    "vi": "Ngày"
-  },
-  "name": {
-    "ru": "Имя",
-    "en": "Name",
-    "vi": "Tên"
-  },
-  "select_choose": {
-    "ru": "— Выбрать —",
-    "en": "— Select —",
-    "vi": "— Chọn —"
-  },
-  "action_type": {
-    "ru": "Списание / выставлено",
-    "en": "Spoiled / Given",
-    "vi": "Hư / Phát"
-  },
-  "spoiled": {
-    "ru": "Списано",
-    "en": "Spoiled",
-    "vi": "Hư"
-  },
-  "given": {
-    "ru": "Выставлено",
-    "en": "Given",
-    "vi": "Phát"
-  },
-  "leftovers_buns": {
-    "ru": "Остатки булки",
-    "en": "Leftovers buns",
-    "vi": "Bánh thừa"
+    "vi": "Bánh mì thừa"
   },
   "poppyseed_bun": {
     "ru": "Булка с маком",
@@ -238,16 +118,6 @@
     "ru": "Кардамоновая булка",
     "en": "Cardamon bun",
     "vi": "Bánh hạt nhục đậu khấu"
-  },
-  "comment": {
-    "ru": "Комментарий",
-    "en": "Comment",
-    "vi": "Ghi chú"
-  },
-  "leftovers_bread": {
-    "ru": "Остатки хлеб",
-    "en": "Leftovers bread",
-    "vi": "Bánh mì thừa"
   },
   "borodinskiy": {
     "ru": "Бородинский",
@@ -279,10 +149,65 @@
     "en": "Ciabatta",
     "vi": "Bánh mì trắng"
   },
-  "send": {
-    "ru": "ОТПРАВИТЬ",
-    "en": "SEND",
-    "vi": "GỬI"
+  "checklist": {
+    "ru": "Чек-лист",
+    "en": "Checklist",
+    "vi": "Danh sách kiểm tra"
+  },
+  "action_type": {
+    "ru": "Списание / выставлено",
+    "en": "Spoiled / Given",
+    "vi": "Hư / Phát"
+  },
+  "spoiled": {
+    "ru": "Списано",
+    "en": "Spoiled",
+    "vi": "Hư"
+  },
+  "given": {
+    "ru": "Выставлено",
+    "en": "Given",
+    "vi": "Phát"
+  },
+  "bread/buns": {
+    "ru": "Хлеб/Булки",
+    "en": "Bread/Buns",
+    "vi": "Bánh mì/Bánh ngọt"
+  },
+  "cashier": {
+    "ru": "Кассир",
+    "en": "Cashier",
+    "vi": "Thu ngân"
+  },
+  "barista": {
+    "ru": "Бариста",
+    "en": "Barista",
+    "vi": "Barista"
+  },
+  "waiter": {
+    "ru": "Официант",
+    "en": "Waiter",
+    "vi": "Phục vụ"
+  },
+  "open": {
+    "ru": "Открытие",
+    "en": "Opening",
+    "vi": "Mở cửa"
+  },
+  "close": {
+    "ru": "Закрытие",
+    "en": "Closing",
+    "vi": "Đóng cửa"
+  },
+  "buns": {
+    "ru": "Булки",
+    "en": "Buns",
+    "vi": "Bánh mì tròn"
+  },
+  "bread": {
+    "ru": "Хлеб",
+    "en": "Bread",
+    "vi": "Bánh mì"
   },
   "daria": {
     "ru": "Дарья",
@@ -304,96 +229,10 @@
     "en": "Stas",
     "vi": "Stas"
   },
-  "checklist": {
-  "ru": "Чек-лист",
-  "en": "Checklist",
-  "vi": "Danh sách kiểm tra"
- },
-"bread/buns": {
-  "ru": "Хлеб/Булки",
-  "en": "Bread/Buns",
-  "vi": "Bánh mì/Bánh ngọt"
- },
-"cashier": {
-    "ru": "Кассир",
-    "en": "Cashier",
-    "vi": "Thu ngân"
-},
-"barista": {
-    "ru": "Бариста",
-    "en": "Barista",
-    "vi": "Barista"
-},
-"waiter": {
-    "ru": "Официант",
-    "en": "Waiter",
-    "vi": "Phục vụ"
-},
-"open": {
-    "ru": "Открытие",
-    "en": "Opening",
-    "vi": "Mở cửa"
-},
-"close": {
-    "ru": "Закрытие",
-    "en": "Closing",
-    "vi": "Đóng cửa"
- },
-"buns": {
-    "ru": "Булки",
-    "en": "Buns",
-    "vi": "Bánh mì tròn"
-},
-"bread": {
-    "ru": "Хлеб",
-    "en": "Bread",
-    "vi": "Bánh mì"
-},
-"barista": {
-  "ru": "Бариста",
-  "en": "Barista",
-  "vi": "Barista"
-},
-"cashier": {
-  "ru": "Кассир",
-  "en": "Cashier",
-  "vi": "Thu ngân"
-},
-"waiter": {
-  "ru": "Официант",
-  "en": "Waiter",
-  "vi": "Phục vụ"
-},
-{
-  "page_title": {
-    "ru": "Чеклист Кассир открытие",
-    "en": "Cashier Opening Checklist",
-    "vi": "Danh sách kiểm tra nhân viên thu ngân"
-  },
-  "guest_area": {
-    "ru": "Чеклист Кассир открытие",
-    "en": "Cashier Opening Checklist",
-    "vi": "Danh sách kiểm tra nhân viên thu ngân"
-  },
-  "name": {
-    "ru": "Имя",
-    "en": "Name",
-    "vi": "Tên"
-  },
   "btn_send": {
     "ru": "Отправить",
     "en": "Send",
     "vi": "Gửi"
-  },
-  "home": {
-    "ru": "Главная",
-    "en": "Home",
-    "vi": "Trang chủ"
-  },
-  "back": {
-    "ru": "Назад",
-    "en": "Back",
-    "vi": "Quay lại"
   },
   "tasks": {
     "task_outdoor_signs": {
@@ -451,4 +290,5 @@
       "en": "Mark the quantity of buns and bread in the app",
       "vi": "Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng"
     }
+  }
 }
