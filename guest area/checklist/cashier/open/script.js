@@ -1,63 +1,131 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const chat_id = '-1002915693964'; // твой Telegram чат ID
-  const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  color: #333;
+}
 
-  // <<< Здесь указываешь языки для отправки >>>
-  const sendLangs = ['ru', 'en', 'vi']; 
-  // Например: const sendLangs = ['ru','en'];  или ['vi']
+.page-header {
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-  const buildMessage = (lang) => {
-    const today = new Date();
-    const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
-    let message = `🧾 <b>${lang === 'en' ? 'CHECKLIST' : lang === 'vi' ? 'DANH SÁCH' : 'ЧЕКЛИСТ'}</b>\n\n`;
-    message += `📅 ${lang === 'en' ? 'Date' : lang === 'vi' ? 'Ngày' : 'Дата'}: ${date}\n\n`;
+.lang-switch {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
-    const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
-    let selectedItems = [];
-    checklist.forEach((item, index) => {
-      if (item.checked) {
-        selectedItems.push(`${index + 1}. ${item.dataset[lang]}`);
-      }
-    });
+.lang-btn {
+  flex: 1;
+  padding: 10px 0;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s;
+}
 
-    if (selectedItems.length === 0) return null;
+.lang-btn:hover {
+  background-color: #c1b29a;
+}
 
-    message += selectedItems.join('\n');
-    return message;
-  };
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
 
-  const sendMessage = (msg) => {
-    return fetch(worker_url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id, text: msg })
-    }).then(res => res.json());
-  };
+.nav-btn {
+  flex: 1;
+  max-width: 150px;
+  padding: 10px 15px;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s;
+}
 
-  const button = document.getElementById('sendBtn');
-  button.addEventListener('click', async () => {
-    let anySelected = false;
+.nav-btn:hover {
+  background-color: #c1b29a;
+}
 
-    try {
-      for (const lang of sendLangs) {
-        const msg = buildMessage(lang);
-        if (msg) {
-          anySelected = true;
-          await sendMessage(msg);
-        }
-      }
+.main-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
 
-      if (!anySelected) {
-        alert('Выберите хотя бы один пункт / Please select at least one item');
-        return;
-      }
+.date-container {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
 
-      alert('✅ ОТПРАВЛЕНО');
-      document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+#checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-    } catch (err) {
-      alert('❌ Ошибка при отправке: ' + err.message);
-      console.error(err);
-    }
-  });
-});
+.checklist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.checklist-item label {
+  font-weight: 500;
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+#sendBtn {
+  width: 100%;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.2s;
+}
+
+#sendBtn:hover {
+  background-color: #222;
+}
+
+#result {
+  margin-top: 15px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 14px;
+  white-space: pre-wrap;
+}
