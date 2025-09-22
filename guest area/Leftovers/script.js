@@ -3,7 +3,8 @@
 // ======================
 function switchLanguage(lang) {
     document.documentElement.lang = lang;
-    localStorage.setItem('selectedLang', lang);
+    // <-- изменено: единый ключ 'lang'
+    localStorage.setItem('lang', lang);
 
     // Перевод заголовков разделов
     document.querySelectorAll('.section-title').forEach(title => {
@@ -71,8 +72,8 @@ function restoreFormData() {
 // DOMContentLoaded
 // ======================
 document.addEventListener('DOMContentLoaded', () => {
-    // Восстанавливаем язык из localStorage
-    const lang = localStorage.getItem('selectedLang') || 'ru';
+    // <-- изменено: читаем единый ключ 'lang'
+    const lang = localStorage.getItem('lang') || 'ru';
 
     // Сразу применяем язык ко всей странице
     switchLanguage(lang);
