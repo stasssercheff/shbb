@@ -303,5 +303,10 @@
     "ru": "Стас",
     "en": "Stas",
     "vi": "Stas"
-  }
+  },
+  "checklist": {
+  "ru": "Чек-лист",
+  "en": "Checklist",
+  "vi": "Danh sách kiểm tra"
+ }
 }
