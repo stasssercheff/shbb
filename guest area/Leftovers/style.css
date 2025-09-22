@@ -1,11 +1,10 @@
-
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: Verdana, sans-serif;
   background: #f5f5f5;
-  font-size: 36px;
+  font-size: 22px; /* уменьшено для масштаба */
 }
 
 .container {
@@ -13,20 +12,20 @@ html, body {
   margin: 20px auto;
   background: #fff;
   border-radius: 12px;
-  padding: 24px;
+  padding: 16px; /* уменьшено */
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 .input-block {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 label,
 .check-label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 20px; /* уменьшено */
 }
 
 input[type="text"],
@@ -34,15 +33,11 @@ textarea,
 input:not([type="number"]):not([type="submit"]),
 .autodate {
   width: 100%;
-  padding: 14px;
-  font-size: 24px;
+  padding: 10px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-sizing: border-box;
-}
-
-#contactHandle {
-  margin-top: 12px;
 }
 
 select {
@@ -51,27 +46,27 @@ select {
   color: #333;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 14px;
-  font-size: 24px;
+  padding: 10px;
+  font-size: 16px;
   box-sizing: border-box;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .menu-section {
-  margin: 28px 0;
-  padding: 20px;
+  margin: 20px 0;
+  padding: 16px;
   background: #f3f1ed;
   border-radius: 14px;
 }
 
 .section-title {
   background: #e1ded9;
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 10px;
   font-weight: 700;
-  font-size: 42px;
-  margin-bottom: 20px;
+  font-size: 28px; /* уменьшено */
+  margin-bottom: 16px;
   text-align: center;
 }
 
@@ -79,35 +74,35 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 12px 0;
-  font-size: 38px;
+  margin: 10px 0;
+  font-size: 20px; /* уменьшено */
   flex-wrap: wrap;
 }
 
 .dish select.qty {
   width: 220px;
-  min-width: 260px;
+  min-width: 200px;
   max-width: 100%;
-  padding: 12px;
-  font-size: 30px;
+  padding: 8px;
+  font-size: 18px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background: #fff;
   color: #333;
   text-align: center;
   text-align-last: center;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .dish select.qty option {
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
 }
 
 textarea.comment {
   resize: vertical;
-  min-height: 100px;
-  font-size: 24px;
+  min-height: 80px;
+  font-size: 14px;
 }
 
 button {
@@ -115,8 +110,8 @@ button {
   background: #444;
   color: #fff;
   border: none;
-  padding: 18px;
-  font-size: 38px;
+  padding: 12px;
+  font-size: 24px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -127,16 +122,17 @@ button:hover {
 
 .lang-switch {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-bottom: 16px;
 }
 
 .lang-switch button {
   width: 50%;
-  font-size: 38px;
-  padding: 18px;
+  font-size: 20px;
+  padding: 12px;
 }
 
+/* Попап */
 .popup {
   position: fixed;
   inset: 0;
@@ -152,59 +148,55 @@ button:hover {
 
 .popup-content {
   background: #fff;
-  padding: 24px;
+  padding: 20px;
   border-radius: 14px;
   max-width: 90%;
   text-align: center;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .popup-content pre {
   white-space: pre-line;
   text-align: left;
-  font-size: 22px;
+  font-size: 14px;
   line-height: 1.4;
-  margin: 18px 0;
+  margin: 12px 0;
 }
 
 .autodate {
-  font-size: 24px;
-  padding: 12px;
+  font-size: 16px;
+  padding: 10px;
   background: #fdfdfd;
   border: 1px solid #ccc;
   border-radius: 8px;
   color: #333;
 }
 
-textarea.comment {
-  font-size: 16px !important; /* Отключает авто-зум на iOS */
-}
-
-/* === Универсальные кнопки === */
+/* Универсальные кнопки */
 button, input[type="button"], input[type="submit"] {
   background-color: #d8cfc0;
   color: #333;
   border: none;
-  padding: 18px;
-  font-size: 38px;
+  padding: 12px;
+  font-size: 24px;
   border-radius: 10px;
   cursor: pointer;
   margin-bottom: 12px;
   display: block;
   transition: 0.2s;
-  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+  -webkit-text-size-adjust: 100%;
 }
 
 button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   background-color: #c1b29a;
 }
 
-/* === Хедер: два ряда === */
+/* Хедер */
 .page-header {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 10px 0;
+  gap: 10px;
+  padding: 8px 0;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
@@ -212,22 +204,20 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
   z-index: 10;
 }
 
-/* Ряды внутри хедера */
 .lang-switch,
 .nav-buttons {
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
-  gap: 10px;
+  gap: 8px;
 }
 
-/* Кнопки внутри рядов */
 .lang-switch button,
 .nav-buttons button {
   flex: 1;
   max-width: 45%;
-  min-width: 80px;
-  padding: 8px 12px;
+  min-width: 70px;
+  padding: 8px 10px;
   box-sizing: border-box;
-  -webkit-text-size-adjust: 100%; /* отключает авто-зум на iOS */
+  -webkit-text-size-adjust: 100%;
 }
