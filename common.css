@@ -63,26 +63,18 @@ html, body {
 .buttons-container,
 .nav-buttons {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3%;
+    flex-direction: column; /* всегда столбик */
+    align-items: stretch;
+    gap: 10px;
     width: 100%;
     margin: 12px 0;
-}
-
-/* Вертикальный вариант (если нужно столбиком) */
-.buttons-container.vertical {
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
 }
 
 /* ========== ЕДИНЫЙ СТИЛЬ КНОПОК ========== */
 button,
 .nav-btn {
-    flex: 1 1 30%;
-    padding: 3% 2%;
+    width: 100%;
+    padding: 10px 12px;
     background-color: var(--accent);
     color: var(--text);
     border: none;
@@ -101,22 +93,15 @@ button:hover,
     transform: translateY(-1px);
 }
 
-/* 📱 Адаптив для телефонов */
+/* 📱 Адаптив для телефонов — чуть компактнее */
 @media (max-width: 480px) {
     button,
     .nav-btn {
-        flex: 1 1 45%; /* 2 кнопки в строку */
         font-size: 0.9rem;
-        padding: 4% 2%;
+        padding: 8px 10px;
     }
 }
 
-@media (max-width: 340px) {
-    button,
-    .nav-btn {
-        flex: 1 1 100%; /* на очень узких — одна в строку */
-    }
-}
 
 /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
 .main-container {
