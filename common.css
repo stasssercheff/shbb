@@ -24,7 +24,7 @@ html, body {
 /* ========== ХЕДЕР ========== */
 .page-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* ✅ всегда две строки: язык + навигация */
     gap: 10px;
     padding: 10px 20px;
     background-color: var(--card);
@@ -32,15 +32,6 @@ html, body {
     position: sticky;
     top: 0;
     z-index: 10;
-}
-
-/* На больших экранах язык и навигация в строку */
-@media (min-width: 640px) {
-    .page-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
 }
 
 /* ========== КНОПКИ ЯЗЫКА ========== */
@@ -97,7 +88,7 @@ html, body {
 
 /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
 .main-container {
-    max-width: 500px; /* дефолтная ширина, можно переопределить в style.css */
+    max-width: 500px;
     margin: 40px auto;
     text-align: center;
     background-color: var(--card);
