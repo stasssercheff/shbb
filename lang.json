@@ -229,22 +229,22 @@
     "en": "Stas",
     "vi": "Stas"
   },
-  "chef.thai": {
+  "thai": {
     "ru": "Тай",
     "en": "Thai",
     "vi": "Thai"
   },
-  "chef.huyen": {
+  "huyen": {
     "ru": "Хуен",
     "en": "Huyen",
     "vi": "Huyền"
   },
-  "chef.khiem": {
+  "khiem": {
     "ru": "Кхиэм",
     "en": "Khiem",
     "vi": "Khiêm"
   },
-  "chef.nhung": {
+  "nhung": {
     "ru": "Ньунг",
     "en": "Nhung",
     "vi": "Nhung"
@@ -253,6 +253,46 @@
     "ru": "Отправить",
     "en": "Send",
     "vi": "Gửi"
+  },
+  "croissant": {
+    "ru": "Круассан",
+    "en": "Croissant",
+    "vi": "Bánh sừng bò"
+  },
+  "croissant_almond": {
+    "ru": "Круассан миндальный",
+    "en": "Almond Croissant",
+    "vi": "Bánh sừng bò hạnh nhân"
+  },
+  "croissant_beef": {
+    "ru": "Круассан с говядиной",
+    "en": "Beef Croissant",
+    "vi": "Bánh sừng bò bò"
+  },
+  "croissant_duck": {
+    "ru": "Круассан с уткой",
+    "en": "Duck Croissant",
+    "vi": "Bánh sừng bò vịt"
+  },
+  "croissant_shrimp": {
+    "ru": "Круассан с креветками",
+    "en": "Shrimp Croissant",
+    "vi": "Bánh sừng bò tôm"
+  },
+  "sandwich_chicken": {
+    "ru": "Сендвич с курицей",
+    "en": "Chicken Sandwich",
+    "vi": "Bánh mì gà"
+  },
+  "sandwich_tuna": {
+    "ru": "Сендвич с тунцом",
+    "en": "Tuna Sandwich",
+    "vi": "Bánh mì cá ngừ"
+  },
+  "sandwich_trout": {
+    "ru": "Сендвич с форелью",
+    "en": "Trout Sandwich",
+    "vi": "Bánh mì cá hồi"
   },
     "task_outdoor_signs": {
       "ru": "Включить: 3 вывески и 2 вентилятора на улице",
