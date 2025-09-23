@@ -1,13 +1,6 @@
-/* === Общие стили === */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f8;
-    color: #333;
-    font-size: 14px; /* компактный базовый размер */
-}
+/* === Локальные стили для writeoff === */
 
+/* Контейнер этой страницы — оставляем уникальные размеры */
 .container {
     max-width: 90%;
     margin: 10px auto; /* уменьшены отступы сверху/снизу */
@@ -18,85 +11,12 @@ body {
     box-sizing: border-box;
 }
 
-/* === Хедер === */
-.page-header {
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-/* Кнопки языка */
-.lang-switch {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.lang-btn {
-    flex: 1;
-    padding: 12px 0;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    text-align: center;
-    transition: 0.2s;
-}
-
-.lang-btn:hover {
-    background-color: #c1b29a;
-}
-
-/* Кнопки навигации */
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px; /* уменьшено */
-}
-
-.nav-btn {
-    flex: 1;
-    max-width: 150px;
-    padding: 10px 20px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.2s;
-}
-
-.nav-btn:hover {
-    background-color: #c1b29a;
-}
-
-/* === Контент === */
-.input-block {
-    margin-bottom: 8px; /* уменьшено */
-}
-
-label,
-.check-label {
-    font-weight: 600;
-    margin-bottom: 4px; /* уменьшено */
-    display: inline-block;
-    font-size: 13px;
-}
-
-/* === Блоки с названием и селектором === */
+/* Блоки с названием и селектором */
 .dish {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 6px; /* уменьшено */
+    margin-bottom: 6px;
     flex-wrap: wrap;
 }
 
@@ -116,10 +36,10 @@ label,
     background: #fff;
 }
 
-/* === Текстовые поля === */
+/* Поля комментариев */
 textarea.comment {
     width: 100%;
-    min-height: 60px; /* чуть меньше */
+    min-height: 60px;
     font-size: 13px;
     padding: 6px;
     border: 1px solid #ccc;
@@ -128,7 +48,7 @@ textarea.comment {
     box-sizing: border-box;
 }
 
-/* === Селекторы === */
+/* Селекторы */
 select {
     appearance: none;
     background: #fff;
@@ -140,30 +60,10 @@ select {
     box-sizing: border-box;
 }
 
-/* === Кнопка отправки === */
-button, input[type="button"], input[type="submit"] {
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    max-width: 250px;
-    margin: 8px auto; /* уменьшено */
-    transition: 0.2s;
-}
-
-button:hover, input[type="button"]:hover, input[type="submit"]:hover {
-    background-color: #c1b29a;
-}
-
-/* === Разделы меню === */
+/* Блоки меню */
 .menu-section {
-    margin: 12px 0; /* уменьшено в 2 раза */
-    padding: 8px; /* уменьшено */
+    margin: 12px 0;
+    padding: 8px;
     background-color: #f9f7f2;
     border-radius: 8px;
 }
@@ -176,7 +76,6 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
     font-size: 16px;
     margin-bottom: 6px;
     text-align: center;
-
-    min-height: 36px;      /* минимальная высота, чтобы блок был заметен */
-    line-height: 36px;     /* вертикальное центрирование текста */
+    min-height: 36px;
+    line-height: 36px;
 }
