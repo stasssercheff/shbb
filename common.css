@@ -62,14 +62,14 @@ html, body {
 /* ========== КНОПКИ НАВИГАЦИИ ========== */
 .nav-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* ✅ центрируем весь блок */
     gap: 10px;
     width: 100%;
 }
 
 .nav-btn {
-    flex: 1;
-    max-width: 250px;
+    flex: 1; /* ✅ растягиваем каждую кнопку равномерно */
+    max-width: none; /* ✅ убираем ограничение в 250px */
     padding: 12px 20px;
     background-color: var(--accent);
     color: var(--text);
@@ -85,6 +85,7 @@ html, body {
 .nav-btn:hover {
     background-color: var(--accent-hover);
 }
+
 
 /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
 .main-container {
