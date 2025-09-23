@@ -4,35 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title">Страница выбора</title>
+
+  <!-- Общие стили -->
+  <link rel="stylesheet" href="../common.css">
+  <!-- Уникальные стили этой страницы -->
   <link rel="stylesheet" href="style.css">
+
   <script src="lang.js" defer></script>
 </head>
 <body>
 
 <header class="page-header">
-  <!-- Переключение языка -->
   <div class="lang-switch">
     <button class="lang-btn" data-lang="ru">RU</button>
     <button class="lang-btn" data-lang="en">EN</button>
     <button class="lang-btn" data-lang="vi">VI</button>
   </div>
+  <!-- Если будут кнопки навигации "Назад/Домой" -->
+  <!-- <div class="nav-buttons">
+    <button class="nav-btn" onclick="location.href='index.html'">Назад</button>
+    <button class="nav-btn" onclick="location.href='/'">На главную</button>
+  </div> -->
 </header>
 
 <main class="main-container">
-  <!-- Лого -->
   <img src="logo.png" alt="Лого" class="logo">
 
-  <!-- Заголовок -->
   <h1 data-i18n="greeting">Портал сотрудников</h1>
 
-  <!-- Дата -->
-<div class="date-container">
-  <span data-i18n="date">Дата</span>: 
-  <span id="current-date"></span>
-</div>
+  <div class="date-container">
+    <span data-i18n="date">Дата</span>:
+    <span id="current-date"></span>
+  </div>
 
-  <!-- Кнопки перехода -->
-  <div class="buttons-container">
+  <div class="nav-buttons">
     <button class="nav-btn" data-i18n="kitchen" onclick="location.href='kitchen/index.html'">Кухня</button>
     <button class="nav-btn" data-i18n="guest_area" onclick="location.href='guest area/index.html'">Зал</button>
   </div>
