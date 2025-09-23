@@ -143,3 +143,33 @@ button[type="submit"],
     max-width: 250px;
     margin: 12px auto;
 }
+/* === Единый стиль блока выбора имени (dish) === */
+.dish {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f7f2; /* как checklist-item */
+    padding: 6px 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    margin-bottom: 8px;
+}
+
+.dish label {
+    flex: 1;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.dish select.qty {
+    flex: 0 0 100px;
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    text-align: center;
+    text-align-last: center;
+    cursor: pointer;
+}
+
