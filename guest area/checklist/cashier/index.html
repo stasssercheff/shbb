@@ -4,29 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title"></title>
+
+  <!-- ✅ Подключаем общий CSS -->
+  <link rel="stylesheet" href="../../../common.css">
+  <!-- ✅ Локальный CSS (если нужен) -->
   <link rel="stylesheet" href="style.css">
+
   <script src="../../../lang.js" defer></script>
 </head>
 <body>
 
   <!-- Хедер -->
   <header class="page-header">
+    <!-- Кнопки языка -->
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ru">RU</button>
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="vi">VI</button>
     </div>
+
+    <!-- Кнопки навигации -->
     <div class="nav-buttons">
-<button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
-<button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
+      <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
+      <button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
     </div>
   </header>
 
   <main class="main-container">
-    
-
     <!-- Заголовок -->
-    <h1 data-i18n="cashier">cashier</h1>
+    <h1 data-i18n="cashier"></h1>
 
     <!-- Дата -->
     <div class="date-container">
@@ -35,12 +41,8 @@
 
     <!-- Кнопки перехода -->
     <div class="buttons-container">
-      <button class="nav-btn" onclick="location.href='open/index.html'" data-i18n="open">
-        Открытие
-      </button>
-      <button class="nav-btn" onclick="location.href='close/index.html'" data-i18n="close">
-        Закрытие
-      </button>
+      <button class="nav-btn" onclick="location.href='open/index.html'" data-i18n="open"></button>
+      <button class="nav-btn" onclick="location.href='close/index.html'" data-i18n="close"></button>
     </div>
   </main>
 
