@@ -114,6 +114,10 @@ button:hover,
     box-shadow: 0 3px 15px var(--shadow);
 }
 
+/* ========== ЛОГОТИП (универсальный) ========== */
+.logo-container {
+    display: flex
+
 /* ========== ПРОЧЕЕ ========== */
 .date-container {
     font-size: 14px;
