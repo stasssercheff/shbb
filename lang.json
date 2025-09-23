@@ -4,6 +4,16 @@
     "en": "Employee Portal",
     "vi": "Cổng nhân viên"
   },
+  "1stfloor": {
+  "ru": "1 этаж",
+  "en": "1st floor",
+  "vi": "Tầng 1"
+},
+"3rdfloor": {
+  "ru": "3 этаж",
+  "en": "3rd floor",
+  "vi": "Tầng 3"
+  },
   "page_title": {
     "ru": "Чеклист Кассир открытие",
     "en": "Cashier Opening Checklist",
