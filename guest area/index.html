@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title"></title>
 
-  <!-- ✅ Подключаем общий CSS и только потом локальный -->
-  <link rel="stylesheet" href="../common.css">
+  <!-- Подключаем общий CSS -->
+  <link rel="stylesheet" href="../../common.css">
   <link rel="stylesheet" href="style.css">
 
-  <!-- ✅ Глобальный скрипт перевода -->
-  <script src="../lang.js" defer></script>
+  <!-- Скрипт перевода -->
+  <script src="../../lang.js" defer></script>
 </head>
 <body>
 
-  <!-- ✅ Хедер теперь всегда одинаковый -->
   <header class="page-header">
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ru">RU</button>
@@ -28,28 +27,20 @@
   </header>
 
   <main class="main-container">
-    <!-- Лого -->
     <img src="logo.png" alt="Лого" class="logo">
+    <h1 data-i18n="some_page"></h1>
 
-    <!-- Заголовок -->
-    <h1 data-i18n="guest_area"></h1>
-
-    <!-- Дата -->
     <div class="date-container">
       <span data-i18n="date"></span>: <span id="current-date"></span>
     </div>
 
-    <!-- ✅ Заменили buttons-container на nav-buttons -->
+    <!-- Кнопки навигации -->
     <div class="nav-buttons">
-      <button class="nav-btn" onclick="location.href='discription/index.html'" data-i18n="description"></button>
-      <button class="nav-btn" onclick="location.href='Leftovers/index.html'" data-i18n="bread/buns"></button>
-      <button class="nav-btn" onclick="location.href='checklist/index.html'" data-i18n="checklist"></button>
+      <button class="nav-btn" onclick="location.href='page1.html'" data-i18n="page1"></button>
+      <button class="nav-btn" onclick="location.href='page2.html'" data-i18n="page2"></button>
+      <button class="nav-btn" onclick="location.href='page3.html'" data-i18n="page3"></button>
     </div>
   </main>
-
-  <script>
-    // Эти функции уже не нужны — кнопки перехода работают через location.href
-  </script>
 
 </body>
 </html>
