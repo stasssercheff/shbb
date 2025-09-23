@@ -1,93 +1,12 @@
+/* style.css — оставляем только уникальное */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f8;
-    color: #333;
-}
-
-.page-header {
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-/* Кнопки языка */
-.lang-switch {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-}
-
-.lang-btn {
-    flex: 1;  /* кнопки равномерно делят ширину */
-    padding: 12px 0;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    transition: 0.2s;
-    text-align: center;
-}
-
-.lang-btn:hover {
-    background-color: #c1b29a;  /* цвет при наведении */
-}
-
+/* Если на этой странице нужен другой размер контейнера */
 .main-container {
     max-width: 500px;
-    margin: 40px auto;
-    text-align: center;
-    background-color: #fff;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
 }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-h1#greeting {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.date-container {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.buttons-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-
-.nav-btn {
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 250px;
-    background-color: #d8cfc0;
-    color: #333;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    transition: 0.2s;
-}
-
-.nav-btn:hover {
-    background-color: #c1b29a;
+/* Если хочешь, чтобы кнопки "Назад / На главную" были прижаты влево,
+   а не по центру (common.css делает их центрированными) */
+.nav-buttons {
+    justify-content: flex-start;
 }
