@@ -643,5 +643,61 @@
     "ru": "Убраться на втором этаже. В стафф комнате.",
     "en": "Clean the second floor, including the staff room",
     "vi": "Dọn dẹp tầng 2, bao gồm cả phòng nhân viên"
- }
+ },
+  {
+  "item1": {
+    "ru": "Скомпоновать все десерты на подложках. Пустые отнести на кухню",
+    "en": "Group all desserts onto trays. Take the empty ones to the kitchen",
+    "vi": "Gom tất cả món tráng miệng lên khay. Đem các khay trống vào bếp"
+  },
+  "item2": {
+    "ru": "Поставить десерты с бара внутрь витрины",
+    "en": "If there's space, move desserts from the bar into the display case",
+    "vi": "Nếu còn chỗ, chuyển món tráng miệng từ quầy bar vào tủ trưng bày"
+  },
+  "item3": {
+    "ru": "Отметить количество булок и хлеба в приложении",
+    "en": "Mark quantity of buns and bread in the app",
+    "vi": "Đánh dấu số lượng bánh mì tròn và bánh mì trong ứng dụng"
+  },
+  "item4": {
+    "ru": "Достать все булочки и хлеба из стеклянной витрины. Отнести на кухню. Вымыть витрину без разводов",
+    "en": "Take out all buns and bread from the glass display. Bring them to the kitchen. Clean the display without streaks",
+    "vi": "Lấy tất cả bánh mì tròn và bánh mì ra khỏi tủ kính. Đem vào bếp. Lau sạch tủ kính không để lại vết loang"
+  },
+  "item5": {
+    "ru": "Перевернуть табличку открыто/закрыто",
+    "en": "Flip the \"open/closed\" sign",
+    "vi": "Lật bảng \"mở/đóng\""
+  },
+  "item6": {
+    "ru": "Выключить свет в витрине. Проверить, плотно ли закрыты дверцы.",
+    "en": "Turn off the display case light. Check that the doors are fully closed",
+    "vi": "Tắt đèn tủ trưng bày. Kiểm tra cửa đã đóng kín chưa"
+  },
+  "item7": {
+    "ru": "Посчитать кассу. По образцу, заполнить отчёт. Закрыть смену и напечатать чек. Выйти из системы. Выключить планшет",
+    "en": "Count the cash register. Fill in the report using the template. Close the shift and print the receipt. Log out of the system. Turn off the tablet",
+    "vi": "Đếm tiền trong máy tính tiền. Điền báo cáo theo mẫu. Đóng ca, in hóa đơn. Đăng xuất khỏi hệ thống. Tắt máy tính bảng"
+  },
+  "item8": {
+    "ru": "Протереть все рабочие поверхности",
+    "en": "Wipe down all work surfaces",
+    "vi": "Lau sạch tất cả bề mặt làm việc"
+  },
+  "item9": {
+    "ru": "Выключить 2 колонки, 5 вентилятора, 2 кондиционера, 3 вывески на улице",
+    "en": "Turn off 2 speakers, 5 fans, 2 air conditioners, 3 outdoor signs",
+    "vi": "Tắt 2 loa, 5 quạt, 2 máy lạnh, 3 biển hiệu ngoài trời"
+  },
+  "item10": {
+    "ru": "Окинуть взглядом помещение перед выходом. Вдруг что-то забыл",
+    "en": "Glance around the space before leaving. In case something was forgotten",
+    "vi": "Quan sát không gian trước khi rời đi, phòng khi có gì bị quên"
+  },
+  "item11": {
+    "ru": "Отключить везде свет",
+    "en": "Turn off all lights everywhere",
+    "vi": "Tắt tất cả đèn ở mọi khu vực"
+  }
 }
