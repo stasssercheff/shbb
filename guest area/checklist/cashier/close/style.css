@@ -1,183 +1,113 @@
-/* ========== Базовые настройки ========== */
-:root {
-  --bg: #f4f6f8;
-  --card: #ffffff;
-  --accent: #d8cfc0;
-  --accent-hover: #c1b29a;
-  --text: #333;
-  --muted: #666;
-  --shadow: rgba(0,0,0,0.1);
+/* === Локальные стили для guest_area === */
+
+.main-container {
+    max-width: 90%;
+    margin: 10px auto;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
 
-* { box-sizing: border-box; }
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  line-height: 1.4;
+/* Заголовок */
+h1[data-i18n] {
+    font-size: 18px;
+    text-align: center;
+    margin: 6px 0 10px;
 }
 
-/* ========== Хедер ========== */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px 16px;
-  background-color: var(--card);
-  box-shadow: 0 2px 6px var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 20;
+/* Дата */
+.date-container {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-/* группировка языка и навигации в строку на широких экранах */
-@media (min-width: 640px) {
-  .page-header {
-    flex-direction: row;
+/* Блок выбора сотрудника */
+.dish {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-  }
+    margin-bottom: 8px;
+    flex-wrap: wrap;
 }
 
-/* ========== Кнопки языка ========== */
-.lang-switch {
-  display: flex;
-  gap: 10px;
-  width: 100%;
+.dish label {
+    flex: 1;
+    font-size: 13px;
 }
 
-.lang-btn {
-  flex: 1;
-  padding: 10px 12px;
-  background-color: var(--accent);
-  color: var(--text);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background-color .15s ease, transform .08s;
-  text-align: center;
-}
-.lang-btn:hover { background-color: var(--accent-hover); }
-.lang-btn.active {
-  background-color: #fff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  transform: translateY(-1px);
+.dish select.qty {
+    flex: 0 0 80px;
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    text-align-last: center;
+    background: #fff;
 }
 
-/* ========== Навигационные кнопки ========== */
-.nav-buttons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-.nav-btn {
-  padding: 10px 14px;
-  background-color: var(--accent);
-  color: var(--text);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background-color .15s;
-  min-width: 90px;
-}
-.nav-btn:hover { background-color: var(--accent-hover); }
-
-/* ========== Основной контейнер ========== */
-/* Поддерживаем и .main-container и .container (чтобы не ломать разные страницы) */
-.main-container,
-.container {
-  max-width: 680px;
-  margin: 30px auto;
-  background: var(--card);
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-}
-
-/* ========== Заголовок и дата ========== */
-h1[data-i18n], h1 {
-  font-size: 20px;
-  margin: 0 0 10px;
-  text-align: left;
-}
-.date-container {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-
-/* ========== Чеклист ========== */
+/* Чеклист */
 #checklist {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .checklist-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 14px;
-  background: #fbfbfb;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f7f2;
+    padding: 6px 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
 
 .checklist-item label {
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--text);
-  margin-right: 12px;
-  flex: 1;
+    flex: 1;
+    font-size: 13px;
+    margin-right: 8px;
 }
 
 .checklist-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  accent-color: #333; /* modern browsers */
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #333;
 }
 
-/* ========== Кнопка отправки ========== */
+/* Кнопка отправки */
 #sendBtn {
-  width: 100%;
-  background-color: #444;
-  color: #fff;
-  border: none;
-  padding: 12px 16px;
-  font-size: 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 18px;
-  transition: background-color .12s ease, transform .06s;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: var(--accent);
+    color: var(--text);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.06s ease;
 }
-#sendBtn:hover { background-color: #2b2b2b; transform: translateY(-1px); }
 
-/* ========== Результат/Блоки ========== */
+#sendBtn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Результат */
 #result {
-  margin-top: 14px;
-  background: var(--card);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  font-size: 14px;
-  white-space: pre-wrap;
-}
-
-/* ========== Мобильные мелочи ========== */
-@media (max-width: 420px) {
-  .main-container, .container { margin: 18px; padding: 16px; }
-  .lang-btn, .nav-btn { font-size: 13px; padding: 8px 10px; }
-  h1 { font-size: 18px; }
-  .checklist-item label { font-size: 14px; }
+    margin-top: 10px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 6px;
+    font-size: 13px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    white-space: pre-wrap;
 }
