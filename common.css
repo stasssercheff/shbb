@@ -1,5 +1,4 @@
-/* ================== COMMON.CSS ================== */
-/* Базовые переменные */
+/* ========== БАЗОВЫЕ ПЕРЕМЕННЫЕ ========== */
 :root {
     --bg: #f4f6f8;
     --card: #ffffff;
@@ -10,10 +9,7 @@
     --shadow: rgba(0,0,0,0.1);
 }
 
-/* Сброс и базовая типографика */
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
     margin: 0;
@@ -25,12 +21,12 @@ html, body {
     line-height: 1.4;
 }
 
-/* ================== Хедер ================== */
+/* ========== ХЕДЕР ========== */
 .page-header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 12px 16px;
+    padding: 10px 20px;
     background-color: var(--card);
     box-shadow: 0 2px 5px var(--shadow);
     position: sticky;
@@ -38,7 +34,7 @@ html, body {
     z-index: 10;
 }
 
-/* На широких экранах — язык и навигация в одну линию */
+/* На больших экранах язык и навигация в строку */
 @media (min-width: 640px) {
     .page-header {
         flex-direction: row;
@@ -47,26 +43,24 @@ html, body {
     }
 }
 
-/* ================== Кнопки языка ================== */
+/* ========== КНОПКИ ЯЗЫКА ========== */
 .lang-switch {
     display: flex;
     width: 100%;
     gap: 10px;
-    max-width: 400px;
-    margin: 0 auto;
 }
 
 .lang-btn {
     flex: 1;
-    padding: 10px 0;
+    padding: 12px 0;
     background-color: var(--accent);
     color: var(--text);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 15px;
-    transition: background-color .2s, transform .08s;
+    font-size: 16px;
+    transition: 0.2s;
     text-align: center;
 }
 
@@ -74,24 +68,17 @@ html, body {
     background-color: var(--accent-hover);
 }
 
-.lang-btn.active {
-    background-color: #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    transform: translateY(-1px);
-}
-
-/* ================== Навигация ================== */
+/* ========== КНОПКИ НАВИГАЦИИ ========== */
 .nav-buttons {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
-    flex-wrap: wrap;
 }
 
 .nav-btn {
     flex: 1;
-    max-width: 200px;
+    max-width: 250px;
     padding: 12px 20px;
     background-color: var(--accent);
     color: var(--text);
@@ -100,7 +87,7 @@ html, body {
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
-    transition: background-color .2s;
+    transition: 0.2s;
     text-align: center;
 }
 
@@ -108,54 +95,35 @@ html, body {
     background-color: var(--accent-hover);
 }
 
-/* ================== Основной контейнер ================== */
-.main-container,
-.container {
-    max-width: 680px;
-    margin: 30px auto;
-    background: var(--card);
-    padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+/* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
+.main-container {
+    max-width: 500px; /* дефолтная ширина, можно переопределить в style.css */
+    margin: 40px auto;
     text-align: center;
+    background-color: var(--card);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px var(--shadow);
 }
 
-/* ================== Лого ================== */
+/* ========== ЛОГО ========== */
 .logo {
-    display: block;
-    max-width: 60%;
+    max-width: 120px;
+    width: 100%;
     height: auto;
-    margin: 0 auto 20px auto;
+    margin-bottom: 20px;
 }
 
-@media (max-width: 480px) {
-    .logo {
-        max-width: 80%;
-    }
-}
-
-/* ================== Заголовки и дата ================== */
-h1[data-i18n], h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
+/* ========== ПРОЧЕЕ ========== */
 .date-container {
     font-size: 14px;
     color: var(--muted);
     margin-bottom: 20px;
-    text-align: center;
 }
 
-/* ================== Контейнер кнопок ================== */
 .buttons-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
     align-items: center;
-}
-
-.buttons-container .nav-btn {
-    width: 100%;
-    max-width: 250px;
 }
