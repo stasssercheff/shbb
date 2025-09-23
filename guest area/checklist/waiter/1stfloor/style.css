@@ -1,1 +1,16 @@
+/* style.css — уникальные стили для этой страницы */
 
+/* Если нужна другая ширина контейнера */
+.main-container {
+  max-width: 500px;
+}
+
+/* Сами кнопки остаются из common.css, 
+   поэтому buttons-container можно переопределить,
+   если хотим горизонтальное расположение */
+.buttons-container {
+  display: flex;
+  flex-direction: column; /* кнопки в колонку */
+  gap: 12px;
+  align-items: center;
+}
