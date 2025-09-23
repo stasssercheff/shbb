@@ -55,6 +55,7 @@ h1[data-i18n] {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    text-align: left; /* ✅ весь текст внутри чеклиста влево */
 }
 
 .checklist-item {
