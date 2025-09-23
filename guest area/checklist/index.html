@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title"></title>
+
+  <!-- ✅ Подключаем общий CSS -->
+  <link rel="stylesheet" href="../../common.css">
+  <!-- ✅ Локальный CSS -->
   <link rel="stylesheet" href="style.css">
+
   <script src="../../lang.js" defer></script>
 </head>
 <body>
@@ -12,36 +17,28 @@
   <!-- Хедер -->
   <header class="page-header">
     <div class="lang-switch">
-  <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="ru">RU</button>
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="vi">VI</button>
     </div>
     <div class="nav-buttons">
-<button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
-<button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
+      <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'" data-i18n="home"></button>
+      <button class="nav-btn" onclick="location.href='../index.html'" data-i18n="back"></button>
     </div>
   </header>
 
-   <main class="main-container">
-    <!-- Заголовок -->
+  <main class="main-container">
     <h1 data-i18n="checklist">чек-лист</h1>
 
-    <!-- Дата -->
     <div class="date-container">
       <span id="current-date"></span>
     </div>
 
-    <!-- Кнопки перехода -->
+    <!-- Здесь используем .buttons-container, но кнопки остаются nav-btn -->
     <div class="buttons-container">
-      <button class="nav-btn" onclick="location.href='barista/index.html'" data-i18n="barista">
-        Бариста
-      </button>
-      <button class="nav-btn" onclick="location.href='cashier/index.html'" data-i18n="cashier">
-        Кассир
-      </button>
-      <button class="nav-btn" onclick="location.href='waiter/index.html'" data-i18n="waiter">
-        Официант
-      </button>
+      <button class="nav-btn" onclick="location.href='barista/index.html'" data-i18n="barista"></button>
+      <button class="nav-btn" onclick="location.href='cashier/index.html'" data-i18n="cashier"></button>
+      <button class="nav-btn" onclick="location.href='waiter/index.html'" data-i18n="waiter"></button>
     </div>
   </main>
 
