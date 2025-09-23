@@ -62,15 +62,15 @@ html, body {
 /* ========== КНОПКИ НАВИГАЦИИ ========== */
 .nav-buttons {
     display: flex;
-    justify-content: center; /* ✅ Центрируем кнопки */
+    justify-content: center;
     align-items: center;
     gap: 10px;
     width: 100%;
-    flex-wrap: wrap; /* ✅ Чтобы не ломались на узких экранах */
+    flex-wrap: wrap;
 }
 
 .nav-btn {
-    flex: 0 1 200px; /* ✅ фикс ширины: базовая 200px, можно ужать при нехватке места */
+    flex: 0 1 200px;
     max-width: 250px;
     min-width: 120px;
     padding: 12px 20px;
@@ -87,6 +87,15 @@ html, body {
 
 .nav-btn:hover {
     background-color: var(--accent-hover);
+}
+
+/* 📱 Адаптив для телефонов */
+@media (max-width: 480px) {
+    .nav-btn {
+        flex: 1 1 45%; /* две кнопки в ряд на телефоне */
+        font-size: 14px;
+        padding: 10px 12px;
+    }
 }
 
 /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
