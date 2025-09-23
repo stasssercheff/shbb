@@ -62,14 +62,17 @@ html, body {
 /* ========== КНОПКИ НАВИГАЦИИ ========== */
 .nav-buttons {
     display: flex;
-    justify-content: center; /* ✅ центрируем весь блок */
+    justify-content: center; /* ✅ Центрируем кнопки */
+    align-items: center;
     gap: 10px;
     width: 100%;
+    flex-wrap: wrap; /* ✅ Чтобы не ломались на узких экранах */
 }
 
 .nav-btn {
-    flex: 1; /* ✅ растягиваем каждую кнопку равномерно */
-    max-width: none; /* ✅ убираем ограничение в 250px */
+    flex: 1; /* ✅ Кнопки растягиваются равномерно */
+    max-width: 250px;
+    min-width: 120px;
     padding: 12px 20px;
     background-color: var(--accent);
     color: var(--text);
