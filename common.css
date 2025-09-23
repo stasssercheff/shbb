@@ -114,9 +114,20 @@ button:hover,
     box-shadow: 0 3px 15px var(--shadow);
 }
 
-/* ========== ЛОГОТИП (универсальный) ========== */
+/* === ЛОГОТИП === */
 .logo-container {
-    display: flex
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.logo {
+    max-width: 160px; /* безопасная ширина */
+    width: auto; /* чтобы не растягивалось на всю ширину */
+    height: auto;
+    object-fit: contain; /* чтобы не деформировалось */
+}
 
 /* ========== ПРОЧЕЕ ========== */
 .date-container {
