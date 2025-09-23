@@ -254,6 +254,11 @@
     "en": "Send",
     "vi": "Gửi"
   },
+   "sandwiches": {
+    "ru": "Сендвичи",
+    "en": "Sandwiches",
+    "vi": "Bánh mì"
+    }, 
   "croissant": {
     "ru": "Круассан",
     "en": "Croissant",
