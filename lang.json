@@ -229,6 +229,26 @@
     "en": "Stas",
     "vi": "Stas"
   },
+  "chef.thai": {
+    "ru": "Тай",
+    "en": "Thai",
+    "vi": "Thai"
+  },
+  "chef.huyen": {
+    "ru": "Хуен",
+    "en": "Huyen",
+    "vi": "Huyền"
+  },
+  "chef.khiem": {
+    "ru": "Кхиэм",
+    "en": "Khiem",
+    "vi": "Khiêm"
+  },
+  "chef.nhung": {
+    "ru": "Ньунг",
+    "en": "Nhung",
+    "vi": "Nhung"
+  },
   "btn_send": {
     "ru": "Отправить",
     "en": "Send",
