@@ -181,3 +181,33 @@ h1[data-i18n], h1 {
   h1 { font-size: 18px; }
   .checklist-item label { font-size: 14px; }
 }
+
+/* ========== Селектор имени ========== */
+.dish {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.dish label {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.dish select.qty {
+  min-width: 140px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: border-color .15s;
+}
+
+.dish select.qty:hover {
+  border-color: var(--accent-hover);
+}
