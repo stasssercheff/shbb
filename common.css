@@ -70,7 +70,7 @@ html, body {
 }
 
 .nav-btn {
-    flex: 1; /* ✅ Кнопки растягиваются равномерно */
+    flex: 0 1 200px; /* ✅ фикс ширины: базовая 200px, можно ужать при нехватке места */
     max-width: 250px;
     min-width: 120px;
     padding: 12px 20px;
@@ -88,7 +88,6 @@ html, body {
 .nav-btn:hover {
     background-color: var(--accent-hover);
 }
-
 
 /* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
 .main-container {
