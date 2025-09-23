@@ -1,4 +1,5 @@
-/* ========== БАЗА ========== */
+/* ================== COMMON.CSS ================== */
+/* Базовые переменные */
 :root {
     --bg: #f4f6f8;
     --card: #ffffff;
@@ -9,7 +10,11 @@
     --shadow: rgba(0,0,0,0.1);
 }
 
-* { box-sizing: border-box; }
+/* Сброс и базовая типографика */
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -20,7 +25,7 @@ html, body {
     line-height: 1.4;
 }
 
-/* ========== ХЕДЕР ========== */
+/* ================== Хедер ================== */
 .page-header {
     display: flex;
     flex-direction: column;
@@ -33,7 +38,7 @@ html, body {
     z-index: 10;
 }
 
-/* На широких экранах язык и навигация в одну линию */
+/* На широких экранах — язык и навигация в одну линию */
 @media (min-width: 640px) {
     .page-header {
         flex-direction: row;
@@ -42,12 +47,13 @@ html, body {
     }
 }
 
-/* ========== КНОПКИ ЯЗЫКА ========== */
+/* ================== Кнопки языка ================== */
 .lang-switch {
     display: flex;
-    flex: 1;
+    width: 100%;
     gap: 10px;
-    max-width: 300px;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .lang-btn {
@@ -60,23 +66,27 @@ html, body {
     cursor: pointer;
     font-weight: 600;
     font-size: 15px;
-    transition: 0.2s;
+    transition: background-color .2s, transform .08s;
     text-align: center;
 }
-.lang-btn:hover { background-color: var(--accent-hover); }
+
+.lang-btn:hover {
+    background-color: var(--accent-hover);
+}
+
 .lang-btn.active {
     background-color: #fff;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     transform: translateY(-1px);
 }
 
-/* ========== НАВИГАЦИЯ ========== */
+/* ================== Навигация ================== */
 .nav-buttons {
     display: flex;
-    flex: 1;
     justify-content: center;
     gap: 12px;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .nav-btn {
@@ -90,12 +100,15 @@ html, body {
     cursor: pointer;
     font-weight: 600;
     font-size: 16px;
-    transition: 0.2s;
+    transition: background-color .2s;
     text-align: center;
 }
-.nav-btn:hover { background-color: var(--accent-hover); }
 
-/* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
+.nav-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* ================== Основной контейнер ================== */
 .main-container,
 .container {
     max-width: 680px;
@@ -104,4 +117,45 @@ html, body {
     padding: 22px;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+/* ================== Лого ================== */
+.logo {
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: 0 auto 20px auto;
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 80%;
+    }
+}
+
+/* ================== Заголовки и дата ================== */
+h1[data-i18n], h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.date-container {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ================== Контейнер кнопок ================== */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.buttons-container .nav-btn {
+    width: 100%;
+    max-width: 250px;
 }
