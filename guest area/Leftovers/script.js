@@ -69,14 +69,19 @@ function restoreFormData() {
 }
 
 // ======================
+// ======================
 // DOMContentLoaded
 // ======================
 document.addEventListener('DOMContentLoaded', () => {
-    // <-- изменено: читаем единый ключ 'lang'
     const lang = localStorage.getItem('lang') || 'ru';
 
-    // Сразу применяем язык ко всей странице
-    switchLanguage(lang);
+    // ✅ Устанавливаем атрибут языка
+    document.documentElement.lang = lang;
+
+    // ✅ Вызываем глобальную функцию switchLanguage из lang.js
+    if (typeof switchLanguage === "function") {
+        switchLanguage(lang);
+    }
 
     // Добавление пустой опции в select, если её нет
     document.querySelectorAll('select.qty').forEach(select => {
