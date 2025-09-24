@@ -14,10 +14,45 @@
   "en": "3rd floor",
   "vi": "Tầng 3"
   },
-  "page_title": {
-    "ru": "Чеклист Кассир открытие",
-    "en": "Cashier Opening Checklist",
-    "vi": "Danh sách kiểm tra nhân viên thu ngân"
+  "barista_open": {
+    "ru": "Бариста — открытие",
+    "en": "Barista — open",
+    "vi": "Barista — mở"
+},
+"barista_close": {
+    "ru": "Бариста — закрытие",
+    "en": "Barista — close",
+    "vi": "Barista — đóng"
+},
+"waiter_open_1st": {
+    "ru": "Официант — открытие (1 этаж)",
+    "en": "Waiter — open (1st floor)",
+    "vi": "Phục vụ — mở (tầng 1)"
+},
+"waiter_close_1st": {
+    "ru": "Официант — закрытие (1 этаж)",
+    "en": "Waiter — close (1st floor)",
+    "vi": "Phục vụ — đóng (tầng 1)"
+},
+"waiter_open_3rd": {
+    "ru": "Официант — открытие (3 этаж)",
+    "en": "Waiter — open (3rd floor)",
+    "vi": "Phục vụ — mở (tầng 3)"
+},
+"waiter_close_3rd": {
+    "ru": "Официант — закрытие (3 этаж)",
+    "en": "Waiter — close (3rd floor)",
+    "vi": "Phục vụ — đóng (tầng 3)"
+},
+"cashier_open": {
+    "ru": "Кассир — открытие",
+    "en": "Cashier — open",
+    "vi": "Thu ngân — mở"
+},
+"cashier_close": {
+    "ru": "Кассир — закрытие",
+    "en": "Cashier — close",
+    "vi": "Thu ngân — đóng"
   },
   "menu": {
     "ru": "Меню",
