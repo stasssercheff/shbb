@@ -2,13 +2,13 @@
   {
     "name": { "ru": "Крок Мадам", "en": "Croc Madam" },
     "ingredients": [
-      { "ru": "Тостовый хлеб собственного производства", "en": "Homemade toast bread" },
-      { "ru": "Моцарелла (100 гр)", "en": "Mozzarella (100g)" },
-      { "ru": "Ветчина (40 гр.)", "en": "Ham (40g)" },
-      { "ru": "Сливочное масло", "en": "Butter" },
-      { "ru": "Руккола", "en": "Arugula" },
-      { "ru": "Яйцо", "en": "Egg" },
-      { "ru": "Черри", "en": "Cherry tomato" }
+      { "ru": "• Тостовый хлеб собственного производства", "en": "• Homemade toast bread" },
+      { "ru": "• Моцарелла (100 гр)", "en": "• Mozzarella (100g)" },
+      { "ru": "• Ветчина (40 гр.)", "en": "• Ham (40g)" },
+      { "ru": "• Сливочное масло", "en": "• Butter" },
+      { "ru": "• Руккола", "en": "• Arugula" },
+      { "ru": "• Яйцо", "en": "• Egg" },
+      { "ru": "• Черри", "en": "• Cherry tomato" }
     ],
     "amount": "400",
     "process": {
