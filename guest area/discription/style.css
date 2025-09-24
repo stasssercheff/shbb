@@ -13,53 +13,17 @@ body {
   overflow-x: hidden; /* убираем горизонтальный скролл */
 }
 
-/* Хедер — два ряда */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px 5%;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+/* --- Хедер и кнопки НЕ трогаем (есть в common.css) --- */
 
-/* Ряды внутри хедера */
-.lang-switch,
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* Кнопки внутри рядов */
-.lang-switch button,
-.nav-buttons button {
-  flex: 1;
-  max-width: 48%;
-  min-width: 100px;
-  padding: 12px 0;
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background-color: #d8cfc0;
-  color: #333;
-  text-align: center;
-}
-
-.lang-switch button:hover,
-.nav-buttons button:hover {
-  background-color: #c1b29a;
-}
-
+/* Контейнер таблицы */
 .table-container {
   max-width: 1200px;
   margin: 10px auto;
   padding: 5px 10px;
   min-height: 200px;
+  width: 100%;
+  overflow-x: hidden;
+  text-align: center;
 }
 
 /* Основной контейнер */
@@ -70,7 +34,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  overflow-x: hidden; /* убираем горизонтальный скролл */
+  overflow-x: hidden;
 }
 
 /* Дата */
@@ -125,14 +89,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Контейнер таблицы */
-.table-container {
-  width: 100%;
-  overflow-x: hidden;
-  margin-top: 10px;
-  text-align: center;
-}
-
 /* Таблица блюда */
 .dish-table {
   border-collapse: collapse;
@@ -167,10 +123,12 @@ body {
 
 /* Название блюда сверху */
 .dish-table td.dish-name {
-  text-align: center;   /* центрируем */
-  font-weight: 600;     /* жирный */
-  font-size: 14px;      /* шрифт названия блюда */
-  padding: 6px 0;       /* отступ сверху и снизу */
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 0;
+  padding-left: 45px;  /* отступ слева */
+  padding-right: 15px; /* справа */
 }
 
 /* Контейнер для фото в ячейке */
@@ -201,8 +159,10 @@ body {
 #photo-modal {
   display: none;
   position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
@@ -236,37 +196,24 @@ body {
 .dish-table th:nth-child(4),
 .dish-table td:nth-child(4) { width: 15%; font-size: 8px; } /* Фото */
 
-
-/* === Отступы таблицы от краёв экрана === */
-.table-container {
-  margin-left: 10px;  /* отступ слева */
-  margin-right: 10px; /* отступ справа */
-}
-
 /* === Отступы для каждого столбца === */
 .dish-table td:nth-child(1),
-.dish-table th:nth-child(1) { padding-left: 10px; padding-right: 5px; }  /* Ингредиенты */
+.dish-table th:nth-child(1) { padding-left: 10px; padding-right: 5px; }
 .dish-table td:nth-child(2),
-.dish-table th:nth-child(2) { padding-left: 5px; padding-right: 5px; }   /* Выход */
+.dish-table th:nth-child(2) { padding-left: 5px; padding-right: 5px; }
 .dish-table td:nth-child(3),
-.dish-table th:nth-child(3) { padding-left: 8px; padding-right: 8px; }   /* Описание */
+.dish-table th:nth-child(3) { padding-left: 8px; padding-right: 8px; }
 .dish-table td:nth-child(4),
-.dish-table th:nth-child(4) { padding-left: 5px; padding-right: 5px; }   /* Фото */
-
-/* === Отступы для строки с названием блюда === */
-.dish-table td.dish-name {
-  padding-left: 45px;  /* слева */
-  padding-right: 15px; /* справа */
-}
+.dish-table th:nth-child(4) { padding-left: 5px; padding-right: 5px; }
 
 /* Стили для списка ингредиентов */
 .ingredients-list {
-  list-style-type: disc;       /* обычные маркеры */
-  list-style-position: inside; /* маркер внутри ячейки */
+  list-style-type: disc;
+  list-style-position: inside;
   margin: 0;
-  padding-left: 0.5em;         /* небольшой отступ слева */
+  padding-left: 0.5em;
 }
 
 .ingredients-list li {
-  margin-bottom: 2px; /* чуть раздвинем строки */
+  margin-bottom: 2px;
 }
