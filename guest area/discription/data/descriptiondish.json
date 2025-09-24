@@ -369,7 +369,7 @@
       "ru": "Молодая фасоль обжаривается с чесноком. Стейк форели обжаривается до колера. На тарелку выкладывается фасоль, поверх стейк. Сбоку поливается соусом, украшается веточкой тимьяна.",
       "en": "Young beans sautéed with garlic. Trout steak pan-seared. Place beans on plate, top with trout. Drizzle sauce on the side and garnish with thyme."
     },
-    "photo": "kitc../../kitchenhen/kitchen/ttk/dishes/photos/trout.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/trout.png"
   },
   {
     "name": { "ru": "Говядина с брокколи", "en": "Beef with Broccoli" },
