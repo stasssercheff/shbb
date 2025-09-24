@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="checklist"></title>
 
-  <!-- ✅ Подключаем общий CSS -->
+  <!-- ✅ Подключаем общий перевод -->
+  <script src="../../lang.js" defer></script>
+    <!-- ✅ Подключаем общий CSS -->
   <link rel="stylesheet" href="../../common.css">
   <!-- ✅ Локальный CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <script src="../../lang.js" defer></script>
 </head>
 <body>
 
@@ -32,7 +33,7 @@
   <div class="sections-container">
     <div class="section">
       <!-- Здесь исправлен data-section на ключ из dataFiles -->
-      <button class="section-btn" data-section="descriptiondish">Блюда</button>
+<button class="section-btn" data-section="descriptiondish" data-i18n="dishes"></button>
       <div class="section-panel" id="descriptiondish"></div>
     </div>
   </div>
