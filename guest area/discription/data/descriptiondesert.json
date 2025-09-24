@@ -1,15 +1,13 @@
 [
   {
-    "name": {
-      "ru": "Чизкейк",
-      "en": "Cheesecake",
-      "vi": "Bánh phô mai"
-    },
-    "ingredients": {
-      "ru": "Кремчиз, Сливки, Яйцо, Сахар, Мука",
-      "en": "Cream cheese, Cream, Egg, Sugar, Flour",
-      "vi": "Phô mai kem, Kem, Trứng, Đường, Bột mì"
-    },
+    "name": { "ru": "Чизкейк", "en": "Cheesecake", "vi": "Bánh phô mai" },
+    "ingredients": [
+      { "ru": "Кремчиз", "en": "Cream cheese", "vi": "Phô mai kem" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" }
+    ],
     "process": {
       "ru": "Чизкейк, отпекаемый по технологии Сан-Себастьян",
       "en": "Cheesecake baked using San Sebastián method",
@@ -19,16 +17,15 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Медовик",
-      "en": "Honey Cake",
-      "vi": "Bánh mật ong"
-    },
-    "ingredients": {
-      "ru": "Мед, Мука, Яйцо, Сода, Кремчиз, Сахар",
-      "en": "Honey, Flour, Egg, Baking soda, Cream cheese, Sugar",
-      "vi": "Mật ong, Bột mì, Trứng, Muối nở, Phô mai kem, Đường"
-    },
+    "name": { "ru": "Медовик", "en": "Honey Cake", "vi": "Bánh mật ong" },
+    "ingredients": [
+      { "ru": "Мед", "en": "Honey", "vi": "Mật ong" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Сода", "en": "Baking soda", "vi": "Muối nở" },
+      { "ru": "Кремчиз", "en": "Cream cheese", "vi": "Phô mai kem" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" }
+    ],
     "process": {
       "ru": "Слоёный торт из медовых коржей и медово-сливочного крема",
       "en": "Layered cake made of honey sponge and honey-cream filling",
@@ -38,16 +35,16 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Шоколадный торт",
-      "en": "Chocolate Cake",
-      "vi": "Bánh sô cô la"
-    },
-    "ingredients": {
-      "ru": "Мед, Мука, Яйцо, Сода, Кремчиз, Сахар, Шоколад",
-      "en": "Honey, Flour, Egg, Baking soda, Cream cheese, Sugar, Chocolate",
-      "vi": "Mật ong, Bột mì, Trứng, Muối nở, Phô mai kem, Đường, Sô cô la"
-    },
+    "name": { "ru": "Шоколадный торт", "en": "Chocolate Cake", "vi": "Bánh sô cô la" },
+    "ingredients": [
+      { "ru": "Мед", "en": "Honey", "vi": "Mật ong" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Сода", "en": "Baking soda", "vi": "Muối nở" },
+      { "ru": "Кремчиз", "en": "Cream cheese", "vi": "Phô mai kem" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Шоколад", "en": "Chocolate", "vi": "Sô cô la" }
+    ],
     "process": {
       "ru": "Слоёный торт из шоколадных коржей и шоколадно-сливочного крема",
       "en": "Layered cake made of chocolate sponge and chocolate-cream filling",
@@ -57,16 +54,15 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Пирожное картошка",
-      "en": "Kartoshka Pastry",
-      "vi": "Bánh khoai tây Nga"
-    },
-    "ingredients": {
-      "ru": "Яйцо, Мука, Какао, Масло сливочное, Молоко, Сахар",
-      "en": "Egg, Flour, Cocoa, Butter, Milk, Sugar",
-      "vi": "Trứng, Bột mì, Ca cao, Bơ, Sữa, Đường"
-    },
+    "name": { "ru": "Пирожное картошка", "en": "Kartoshka Pastry", "vi": "Bánh khoai tây Nga" },
+    "ingredients": [
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Какао", "en": "Cocoa", "vi": "Ca cao" },
+      { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Молоко", "en": "Milk", "vi": "Sữa" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" }
+    ],
     "process": {
       "ru": "Традиционный русский шоколадный десерт из теста и шоколада",
       "en": "Traditional Russian chocolate dessert made of cake crumbs and cocoa",
@@ -76,16 +72,14 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Павлова",
-      "en": "Pavlova",
-      "vi": "Bánh Pavlova"
-    },
-    "ingredients": {
-      "ru": "Яйцо, Сливки, Вишня, Сахар, Шоколад",
-      "en": "Egg, Cream, Cherry, Sugar, Chocolate",
-      "vi": "Trứng, Kem, Anh đào, Đường, Sô cô la"
-    },
+    "name": { "ru": "Павлова", "en": "Pavlova", "vi": "Bánh Pavlova" },
+    "ingredients": [
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Вишня", "en": "Cherry", "vi": "Anh đào" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Шоколад", "en": "Chocolate", "vi": "Sô cô la" }
+    ],
     "process": {
       "ru": "Безе украшенное белым шоколадом, вишневым кремом и вишней",
       "en": "Meringue topped with white chocolate, cherry cream, and cherries",
@@ -95,16 +89,15 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Печенье с шоколадом",
-      "en": "Chocolate Chip Cookie",
-      "vi": "Bánh quy sô cô la"
-    },
-    "ingredients": {
-      "ru": "Мед, Мука, Овсяная мука, Шоколад, Яйцо, Сахар",
-      "en": "Honey, Flour, Oat flour, Chocolate, Egg, Sugar",
-      "vi": "Mật ong, Bột mì, Bột yến mạch, Sô cô la, Trứng, Đường"
-    },
+    "name": { "ru": "Печенье с шоколадом", "en": "Chocolate Chip Cookie", "vi": "Bánh quy sô cô la" },
+    "ingredients": [
+      { "ru": "Мед", "en": "Honey", "vi": "Mật ong" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Овсяная мука", "en": "Oat flour", "vi": "Bột yến mạch" },
+      { "ru": "Шоколад", "en": "Chocolate", "vi": "Sô cô la" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" }
+    ],
     "process": {
       "ru": "Овсяно-мучное печенье с тёмным шоколадом",
       "en": "Oatmeal and flour cookie with dark chocolate",
@@ -114,16 +107,14 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Брауни",
-      "en": "Brownie",
-      "vi": "Bánh Brownie"
-    },
-    "ingredients": {
-      "ru": "Масло сливочное, Шоколад, Яйцо, Сахар, Мука",
-      "en": "Butter, Chocolate, Egg, Sugar, Flour",
-      "vi": "Bơ, Sô cô la, Trứng, Đường, Bột mì"
-    },
+    "name": { "ru": "Брауни", "en": "Brownie", "vi": "Bánh Brownie" },
+    "ingredients": [
+      { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Шоколад", "en": "Chocolate", "vi": "Sô cô la" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" }
+    ],
     "process": {
       "ru": "Классический отпечной брауни",
       "en": "Classic baked brownie",
@@ -133,16 +124,16 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Яблочный пирог",
-      "en": "Apple Pie",
-      "vi": "Bánh táo"
-    },
-    "ingredients": {
-      "ru": "Мука, Яблоко, Масло сливочное, Сливки, Сахар, Корица, Фундук",
-      "en": "Flour, Apple, Butter, Cream, Sugar, Cinnamon, Hazelnut",
-      "vi": "Bột mì, Táo, Bơ, Kem, Đường, Quế, Hạt phỉ"
-    },
+    "name": { "ru": "Яблочный пирог", "en": "Apple Pie", "vi": "Bánh táo" },
+    "ingredients": [
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Яблоко", "en": "Apple", "vi": "Táo" },
+      { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Корица", "en": "Cinnamon", "vi": "Quế" },
+      { "ru": "Фундук", "en": "Hazelnut", "vi": "Hạt phỉ" }
+    ],
     "process": {
       "ru": "Слоёный яблочный пирог с солёной карамелью и фундуком",
       "en": "Layered apple pie topped with salted caramel and hazelnuts",
@@ -152,16 +143,16 @@
     "photo": ""
   },
   {
-    "name": {
-      "ru": "Вишнёвый тарт",
-      "en": "Cherry Tart",
-      "vi": "Bánh tart anh đào"
-    },
-    "ingredients": {
-      "ru": "Кремчиз, Сливки, Яйцо, Сахар, Мука, Вишня, Мак",
-      "en": "Cream cheese, Cream, Egg, Sugar, Flour, Cherry, Poppy seed",
-      "vi": "Phô mai kem, Kem, Trứng, Đường, Bột mì, Anh đào, Hạt anh túc"
-    },
+    "name": { "ru": "Вишнёвый тарт", "en": "Cherry Tart", "vi": "Bánh tart anh đào" },
+    "ingredients": [
+      { "ru": "Кремчиз", "en": "Cream cheese", "vi": "Phô mai kem" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Вишня", "en": "Cherry", "vi": "Anh đào" },
+      { "ru": "Мак", "en": "Poppy seed", "vi": "Hạt anh túc" }
+    ],
     "process": {
       "ru": "Вишнёво-сырная масса на тесте с маком, покрытая вишнёвым желе",
       "en": "Cherry and cream cheese filling on dough with poppy seeds, topped with cherry jelly",
