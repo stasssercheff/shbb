@@ -1,37 +1,37 @@
+// script.js
 document.addEventListener('DOMContentLoaded', () => {
   const chat_id = '-1002915693964';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const button = document.getElementById('sendBtn');
 
-  // Берём язык из глобальной переменной lang.js
-  const getCurrentLang = () => window.currentLang || localStorage.getItem('lang') || 'ru';
+  console.log('✅ Скрипт загружен, текущий язык:', window.currentLang);
 
   const buildMessage = () => {
-    const lang = getCurrentLang();
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
     let message = `🧾 <b>${
-      lang === 'en' ? 'Barista close' :
+      window.currentLang === 'en' ? 'Barista close' :
+      window.currentLang === 'vi' ? 'Barista đóng' :
       'Бариста закрытие'
     }</b>\n\n`;
 
     message += `📅 ${
-      lang === 'en' ? 'Date' :
+      window.currentLang === 'en' ? 'Date' :
+      window.currentLang === 'vi' ? 'Ngày' :
       'Дата'
     }: ${date}\n`;
 
-    // имя сотрудника
+    // 👤 Имя сотрудника
     const chefSelect = document.querySelector('select[name="chef"]');
     if (chefSelect) {
       const selectedOption = chefSelect.options[chefSelect.selectedIndex];
-      const name = selectedOption.textContent.trim();
-      if (name) {
-        message += `👤 ${name}\n\n`;
-      }
+      message += `👤 ${selectedOption.textContent.trim()}\n\n`;
+    } else {
+      message += `\n`;
     }
 
-    // чеклист
+    // ✅ Собираем чеклист
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
 
@@ -44,57 +44,59 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    if (!selectedItems.length) return null;
+    if (selectedItems.length === 0) return null;
+
     message += selectedItems.join('\n');
+    console.log('📤 Готовое сообщение:', message);
     return message;
   };
 
   const sendMessage = async (msg) => {
-    const response = await fetch(worker_url, {
+    console.log('🔄 Отправляем на Worker...');
+    const res = await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id,
-        text: msg,
-        parse_mode: "HTML"
-      })
+      body: JSON.stringify({ chat_id, text: msg, parse_mode: "HTML" })
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error ${response.status}`);
-    }
-
-    return response.json();
+    console.log('📥 Ответ от Worker:', res.status);
+    const data = await res.json();
+    console.log('📥 JSON:', data);
+    return data;
   };
 
   button.addEventListener('click', async () => {
-    const lang = getCurrentLang();
     const msg = buildMessage();
 
     if (!msg) {
       alert(
-        lang === 'en' ? 'Please select at least one item' :
-        lang === 'vi' ? 'Vui lòng chọn ít nhất một mục' :
+        window.currentLang === 'en' ? 'Please select at least one item' :
+        window.currentLang === 'vi' ? 'Vui lòng chọn ít nhất một mục' :
         'Выберите хотя бы один пункт'
       );
       return;
     }
 
     try {
-      await sendMessage(msg);
-      alert(
-        lang === 'en' ? '✅ SENT' :
-        lang === 'vi' ? '✅ ĐÃ GỬI' :
-        '✅ ОТПРАВЛЕНО'
-      );
+      const result = await sendMessage(msg);
+      if (result.ok) {
+        alert(
+          window.currentLang === 'en' ? '✅ SENT' :
+          window.currentLang === 'vi' ? '✅ ĐÃ GỬI' :
+          '✅ ОТПРАВЛЕНО'
+        );
+      } else {
+        alert('⚠️ Telegram ответил с ошибкой, смотри консоль');
+        console.error(result);
+      }
 
-      // сбрасываем чеклист
+      // Сбрасываем чеклист
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
     } catch (err) {
-      console.error('Ошибка отправки:', err);
+      console.error('❌ Ошибка отправки:', err);
       alert(
-        lang === 'en' ? `❌ Error: ${err.message}` :
-        lang === 'vi' ? `❌ Lỗi: ${err.message}` :
+        window.currentLang === 'en' ? `❌ Error: ${err.message}` :
+        window.currentLang === 'vi' ? `❌ Lỗi: ${err.message}` :
         `❌ Ошибка: ${err.message}`
       );
     }
