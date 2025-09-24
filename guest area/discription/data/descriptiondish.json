@@ -137,7 +137,7 @@
       "ru": "Каша из риса и пшена на коровьем молоке с ягодами (клубника).",
       "en": "Porridge made from rice and millet in cow's milk with strawberries."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/porridge.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/poridge.png"
   },
   {
     "name": { "ru": "Овощной салат", "en": "Vegetable Salad" },
@@ -154,7 +154,7 @@
       "ru": "Все овощи нарезаются, замешиваются с соусом и выкладываются на тарелку. На украшение идет микрозелень.",
       "en": "Chop all vegetables, mix with dressing, and place on a plate. Garnish with microgreens."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/vegetable_salad.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/vegitable salad.png"
   },
   {
     "name": { "ru": "Теплый салат с печенью", "en": "Warm Liver Salad" },
@@ -171,7 +171,7 @@
       "ru": "В тарелку выкладывается микс салатов с рукколой. Поверх выкладываются нарезанные сегменты апельсина и свежая клубника. Далее салат поливается цитрусовой заправкой. Обжаренная печень глазируется соусом бальзамик и выкладывается в тарелку на листья салата. Сверху поливается соус бальзамик.",
       "en": "Place salad mix with arugula on a plate. Top with orange segments and fresh strawberries. Pour citrus dressing over the salad. Pan-seared liver glazed with balsamic sauce is placed on the salad leaves. Drizzle balsamic sauce on top."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/liver_salad.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/liver salad.png"
   },
   {
     "name": { "ru": "Салат с осьминогом", "en": "Octopus Salad" },
@@ -206,7 +206,7 @@
       "ru": "Жареные с чесноком креветки на подушке из рукколы с добавлением темных черри томатов и пармезана. Подается под соусом винегрет и бальзамиком.",
       "en": "Garlic-fried shrimps served on a bed of arugula with dark cherry tomatoes and Parmesan. Served with vinaigrette and balsamic sauce."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/prawn_salad.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/prawn salad.png"
   },
   {
     "name": { "ru": "Тартар", "en": "Tartar" },
@@ -243,7 +243,7 @@
       "ru": "Жюльен на основе шампиньонов, сливок и куриной грудки подается под плавленной шапкой из пармезана с гренками из чиабатты. Присыпается сыром пармезан.",
       "en": "Julien made from mushrooms, cream, and chicken breast served under a melted Parmesan topping with ciabatta croutons. Sprinkled with Parmesan cheese."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/julien.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/jouliene.png"
   },
   {
     "name": { "ru": "Тыквенный суп", "en": "Pumpkin Soup" },
@@ -261,7 +261,7 @@
       "ru": "Тыквенный крем-суп украшается соусом песто, сливками, микрозеленью и тыквенными семечками.",
       "en": "Pumpkin cream soup is decorated with pesto sauce, cream, microgreens, and pumpkin seeds."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/soup_pumpkin.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/soup pumpkin.png"
   },
   {
     "name": { "ru": "Крем-суп брокколи", "en": "Broccoli Cream Soup" },
@@ -278,7 +278,7 @@
       "ru": "Кремсуп из брокколи подается с пармезаном и гренкой из чиабатты, запеченной с пармезаном.",
       "en": "Broccoli cream soup is served with Parmesan and a ciabatta crouton baked with Parmesan."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/soup_broccoli.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/soup brokkoli.png"
   },
   {
     "name": { "ru": "Рататуй", "en": "Ratatouille" },
@@ -298,7 +298,7 @@
       "ru": "Овощи замешиваются с соусом песто. Выкладываются на тарелку, присыпаются пармезаном. Пармезан обжигается до состояния корочки. Декорируется гренками из бородинского хлеба и микрозеленью.",
       "en": "Vegetables are mixed with pesto sauce, placed on a plate, and sprinkled with Parmesan. Parmesan is torched to form a crust. Garnished with Borodinsky bread croutons and microgreens."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/ratatouille.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/retatoulle.png"
   },
   {
     "name": { "ru": "Куриная грудка гриль", "en": "Grilled Chicken Breast" },
@@ -333,7 +333,7 @@
       "ru": "Томленая утка смешивается со сливками и голубым сыром горгонзола. Отваренная паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, декор - микрозелень.",
       "en": "Braised duck mixed with cream and Gorgonzola cheese. Cooked pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and decorate with microgreens."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/pasta_duck.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/pasta duck.png"
   },
   {
     "name": { "ru": "Паста с креветками", "en": "Pasta with Shrimps" },
@@ -352,7 +352,7 @@
       "ru": "Обжаренные с чесноком креветки смешиваются с соусом биск и загущаются сливочным маслом. Паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, украшается ветками тимьяна.",
       "en": "Garlic-fried shrimps mixed with bisque sauce and thickened with butter. Pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and garnish with thyme sprigs."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/pasta_shrimps.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/pasta shimps.png"
   },
   {
     "name": { "ru": "Стейк форели", "en": "Trout Steak" },
