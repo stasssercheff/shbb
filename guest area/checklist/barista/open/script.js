@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let message = `🧾 <b>${
       sendLang === 'en' ? 'Barista open. Done form 10:' :
-      sendLang === 'vi' ? 'Barista đóng' :
+      sendLang === 'vi' ? 'Barista mở' :
       'Бариста открытие. Выполнено из 10:'
     }</b>\n\n`;
 
