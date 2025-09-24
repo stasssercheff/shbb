@@ -1,4 +1,4 @@
-// Пути к JSON-файлам (пока только один)
+// Пути к JSON-файлам
 const dataFiles = {
   descriptiondish: 'data/descriptiondish.json',
 };
@@ -30,11 +30,11 @@ function createTable(sectionArray) {
   const tbody = document.createElement('tbody');
 
   sectionArray.forEach(dish => {
-    // Новая строка для названия блюда
+    // Название блюда
     const trName = document.createElement('tr');
     const tdName = document.createElement('td');
     tdName.textContent = dish.name[currentLang];
-    tdName.colSpan = 4; // объединяем все колонки
+    tdName.colSpan = 4;
     tdName.style.fontWeight = '600';
     tdName.style.textAlign = 'left';
     trName.appendChild(tdName);
@@ -46,7 +46,7 @@ function createTable(sectionArray) {
     // Ингредиенты
     const tdIngr = document.createElement('td');
     const ul = document.createElement('ul');
-    ul.className = 'ingredients-list'; // ✅ вот сюда
+    ul.className = 'ingredients-list';
     dish.ingredients.forEach(ing => {
       const li = document.createElement('li');
       li.textContent = ing[currentLang];
@@ -63,21 +63,16 @@ function createTable(sectionArray) {
     tdDesc.textContent = dish.process[currentLang] || '';
 
     // Фото
-// Фото
-const tdPhoto = document.createElement('td');
-if (dish.photo) {
-  const img = document.createElement('img');
-
-  // Берём путь из JSON напрямую
-  img.src = dish.photo;
-
-  img.alt = dish.name[currentLang];
-  img.className = 'dish-photo';
-  img.style.maxWidth = '120px';
-  img.style.cursor = 'pointer';
-
-  tdPhoto.appendChild(img);
-}
+    const tdPhoto = document.createElement('td');
+    if (dish.photo) {
+      const img = document.createElement('img');
+      img.src = dish.photo;
+      img.alt = dish.name[currentLang];
+      img.className = 'dish-photo';
+      img.style.maxWidth = '120px';
+      img.style.cursor = 'pointer';
+      tdPhoto.appendChild(img);
+    }
 
     tr.appendChild(tdIngr);
     tr.appendChild(tdAmount);
@@ -115,12 +110,10 @@ function createPhotoModal() {
       cursor: 'pointer',
     });
 
-    // Закрытие по клику
     photoModal.addEventListener('click', () => {
       photoModal.style.display = 'none';
     });
 
-    // Стили для фото внутри модалки
     modalImg.style.maxWidth = '90%';
     modalImg.style.maxHeight = '90%';
     modalImg.style.boxShadow = '0 0 20px rgba(0,0,0,0.5)';
@@ -132,7 +125,7 @@ function createPhotoModal() {
 async function loadSection(section) {
   const panel = document.getElementById(section);
 
-  // Закрыть другие панели
+  // Закрываем другие панели
   document.querySelectorAll('.section-panel').forEach(p => {
     if (p !== panel) {
       p.style.display = 'none';
@@ -180,37 +173,19 @@ async function loadSection(section) {
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.section-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const section = btn.dataset.section;
-      loadSection(section);
+      loadSection(btn.dataset.section);
     });
   });
 
+  // Перерисовка при смене языка
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      currentLang = btn.dataset.lang;
-      document.querySelectorAll('.section-panel').forEach(panel => {
-        if (panel.style.display === 'block') {
-          const section = panel.id;
-          panel.innerHTML = '';
-          const tblContainer = document.createElement('div');
-          tblContainer.className = 'table-container';
-          fetch(dataFiles[section])
-            .then(res => res.json())
-            .then(data => {
-              tblContainer.appendChild(createTable(data));
-              panel.appendChild(tblContainer);
-
-              const photoModal = createPhotoModal();
-              tblContainer.querySelectorAll('img.dish-photo').forEach(img => {
-                img.addEventListener('click', () => {
-                  const modalImg = photoModal.querySelector('img');
-                  modalImg.src = img.src;
-                  modalImg.alt = img.alt;
-                  photoModal.style.display = 'flex';
-                });
-              });
-            });
-        }
+      setTimeout(() => {
+        document.querySelectorAll('.section-panel').forEach(panel => {
+          if (panel.style.display === 'block') {
+            loadSection(panel.id); // заново грузим данные с учётом нового currentLang
+          }
+        });
       });
     });
   });
