@@ -1,1 +1,97 @@
-1
+[
+  {
+    "name": {
+      "ru": "Миссобон",
+      "en": "Missobon",
+      "vi": "Bánh mì Misso"
+    },
+    "ingredients": {
+      "ru": "Яйцо, Мука, Сливки, Миссо паста, Сахар, Шоколад, Масло сливочное",
+      "en": "Egg, Flour, Cream, Miso paste, Sugar, Chocolate, Butter",
+      "vi": "Trứng, Bột mì, Kem, Tương miso, Đường, Sô cô la, Bơ"
+    },
+    "process": {
+      "ru": "Булочка из теста бриош с добавлением сливочного крем и миссо пасты. Покрыта соленой карамелью. Присыпана шоколадной крошкой.",
+      "en": "Brioche bun with cream and miso paste. Topped with salted caramel and sprinkled with chocolate crumbs.",
+      "vi": "Bánh mì brioche với kem và tương miso. Phủ caramel mặn và rắc vụn sô cô la."
+    },
+    "amount": 160,
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "Булка с маком",
+      "en": "Poppy Seed Bun",
+      "vi": "Bánh mì hạt anh túc"
+    },
+    "ingredients": {
+      "ru": "Яйцо, Мука, Сахар, Мак, Масло сливочное",
+      "en": "Egg, Flour, Sugar, Poppy seed, Butter",
+      "vi": "Trứng, Bột mì, Đường, Hạt anh túc, Bơ"
+    },
+    "process": {
+      "ru": "Традиционная булочка с маком.",
+      "en": "Traditional poppy seed bun.",
+      "vi": "Bánh mì truyền thống với hạt anh túc."
+    },
+    "amount": 140,
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "Кардамоновая булка",
+      "en": "Cardamom Bun",
+      "vi": "Bánh mì thảo quả"
+    },
+    "ingredients": {
+      "ru": "Яйцо, Мука, Кардамон, Сахар, Масло сливочное",
+      "en": "Egg, Flour, Cardamom, Sugar, Butter",
+      "vi": "Trứng, Bột mì, Thảo quả, Đường, Bơ"
+    },
+    "process": {
+      "ru": "Булочка с кардомоновой прослойкой.",
+      "en": "Bun with cardamom filling.",
+      "vi": "Bánh mì nhân thảo quả."
+    },
+    "amount": 140,
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "Круассан миндальный",
+      "en": "Almond Croissant",
+      "vi": "Bánh sừng bò hạnh nhân"
+    },
+    "ingredients": {
+      "ru": "Мука, Яйцо, Сливки, Миндаль, Масло сливочное, Сахар",
+      "en": "Flour, Egg, Cream, Almond, Butter, Sugar",
+      "vi": "Bột mì, Trứng, Kem, Hạnh nhân, Bơ, Đường"
+    },
+    "process": {
+      "ru": "Классический круассан с добавлением миндального крема, украшенного миндальными лепестками.",
+      "en": "Classic croissant filled with almond cream and topped with almond flakes.",
+      "vi": "Bánh sừng bò nhân kem hạnh nhân, trang trí bằng lát hạnh nhân."
+    },
+    "amount": 70,
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "Круассан",
+      "en": "Croissant",
+      "vi": "Bánh sừng bò"
+    },
+    "ingredients": {
+      "ru": "Мука, Яйцо, Масло сливочное, Сахар, Соль",
+      "en": "Flour, Egg, Butter, Sugar, Salt",
+      "vi": "Bột mì, Trứng, Bơ, Đường, Muối"
+    },
+    "process": {
+      "ru": "Классический круассан.",
+      "en": "Classic croissant.",
+      "vi": "Bánh sừng bò truyền thống."
+    },
+    "amount": 130,
+    "photo": ""
+  }
+]
