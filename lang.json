@@ -9,6 +9,11 @@
   "en": "1st floor",
   "vi": "Tầng 1"
 },
+  "dishes": {
+    "ru": "Блюда",
+    "en": "Dishes",
+    "vi": "Món ăn"
+},
 "3rdfloor": {
   "ru": "3 этаж",
   "en": "3rd floor",
