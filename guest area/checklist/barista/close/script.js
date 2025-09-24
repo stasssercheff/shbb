@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
     let message = `🧾 <b>${
-      sendLang === 'en' ? 'TO DO LIST' :
-      sendLang === 'vi' ? 'DANH SÁCH CÔNG VIỆC' :
-      'СПИСОК НА СЕГОДНЯ'
+      sendLang === 'en' ? 'Barista close' :
+      sendLang === 'vi' ? 'Barista đóng' :
+      'Бариста закрытие'
     }</b>\n\n`;
 
     message += `📅 ${
