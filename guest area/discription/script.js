@@ -1,6 +1,9 @@
 // Пути к JSON-файлам
 const dataFiles = {
   descriptiondish: 'data/descriptiondish.json',
+  descriptiondesert: 'data/descriptiondesert.json',
+  descriptionbuns: 'data/descriptionbuns.json',
+  descriptionbread: 'data/descriptionbread.json',
 };
 
 // Функция создания таблицы для раздела
