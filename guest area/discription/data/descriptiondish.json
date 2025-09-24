@@ -1,476 +1,503 @@
 [
   {
-    "name": { "ru": "Крок Мадам", "en": "Croc Madam" },
+    "name": { "ru": "Крок Мадам", "en": "Croc Madam", "vi": "Bánh mì Croque Madame" },
     "ingredients": [
-      { "ru": "Тостовый хлеб собственного производства", "en": "Homemade toast bread" },
-      { "ru": "Моцарелла (100 гр)", "en": "Mozzarella (100g)" },
-      { "ru": "Ветчина (40 гр.)", "en": "Ham (40g)" },
-      { "ru": "Сливочное масло", "en": "Butter" },
-      { "ru": "Руккола", "en": "Arugula" },
-      { "ru": "Яйцо", "en": "Egg" },
-      { "ru": "Черри", "en": "Cherry tomato" }
+      { "ru": "Тостовый хлеб собственного производства", "en": "Homemade toast bread", "vi": "Bánh mì nướng tự làm" },
+      { "ru": "Моцарелла (100 гр)", "en": "Mozzarella (100g)", "vi": "Phô mai Mozzarella (100g)" },
+      { "ru": "Ветчина (40 гр.)", "en": "Ham (40g)", "vi": "Giăm bông (40g)" },
+      { "ru": "Сливочное масло", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Руккола", "en": "Arugula", "vi": "Rau arugula" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Черри", "en": "Cherry tomato", "vi": "Cà chua bi" }
     ],
     "amount": "400",
     "process": {
       "ru": "Тостовый хлеб обжаривается на сливочном масле с 2х сторон. На каждый из кусочков кладется сыр и на один из них на сыр кладется ветчина, далее все запекается до состояния сыра расплавленного. Собирается сендвич. Сверху кладется глазунья из 1 яйца. Разрезается напополам и выкладывается на тарелку. Украшается рукколой и томатами черри.",
-      "en": "Toast bread is fried in butter on both sides. Cheese is placed on each slice, and on one slice, ham is placed on top of the cheese, then everything is baked until the cheese melts. The sandwich is assembled. A fried egg is placed on top. Cut in half and placed on a plate. Decorated with arugula and cherry tomatoes."
+      "en": "Toast bread is fried in butter on both sides. Cheese is placed on each slice, and on one slice, ham is placed on top of the cheese, then everything is baked until the cheese melts. The sandwich is assembled. A fried egg is placed on top. Cut in half and placed on a plate. Decorated with arugula and cherry tomatoes.",
+      "vi": "Bánh mì được chiên với bơ hai mặt. Phô mai đặt lên mỗi lát, và trên một lát được đặt giăm bông lên phô mai, sau đó nướng cho đến khi phô mai tan chảy. Lắp ráp thành sandwich. Đặt một quả trứng ốp la lên trên. Cắt làm đôi và bày ra đĩa. Trang trí với rau arugula và cà chua bi."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/crock.png"
   },
   {
-    "name": { "ru": "Панкейки с фруктами", "en": "Pancakes with Fruit" },
+    "name": { "ru": "Панкейки с фруктами", "en": "Pancakes with Fruit", "vi": "Bánh pancake với trái cây" },
     "ingredients": [
-      { "ru": "Панкейки (яйцо, молоко, мука, соль, сахар, разрыхлитель)", "en": "Pancakes (egg, milk, flour, salt, sugar, baking powder)" },
-      { "ru": "Сахарная пудра", "en": "Powdered sugar" },
-      { "ru": "Фрукты (дрэгон фрут, манго, клубника, маракуйя)", "en": "Fruits (dragon fruit, mango, strawberry, passion fruit)" },
-      { "ru": "Соусы: Йогурт (не сладкий), Кленовый сироп, Нутелла", "en": "Sauces: Yogurt (unsweetened), Maple syrup, Nutella" }
+      { "ru": "Панкейки (яйцо, молоко, мука, соль, сахар, разрыхлитель)", "en": "Pancakes (egg, milk, flour, salt, sugar, baking powder)", "vi": "Bánh pancake (trứng, sữa, bột mì, muối, đường, bột nở)" },
+      { "ru": "Сахарная пудра", "en": "Powdered sugar", "vi": "Đường bột" },
+      { "ru": "Фрукты (дрэгон фрут, манго, клубника, маракуйя)", "en": "Fruits (dragon fruit, mango, strawberry, passion fruit)", "vi": "Trái cây (thanh long, xoài, dâu tây, chanh dây)" },
+      { "ru": "Соусы: Йогурт (не сладкий), Кленовый сироп, Нутелла", "en": "Sauces: Yogurt (unsweetened), Maple syrup, Nutella", "vi": "Nước sốt: Sữa chua (không đường), Si rô cây phong, Nutella" }
     ],
     "amount": "430",
     "process": {
       "ru": "Панкейки (2шт) выкладываются в центр тарелки, вокруг выкладываются фрукты. Посыпается сахарной пудрой. В отдельных соусниках соусы выносятся на подстановочной тарелке.",
-      "en": "Two pancakes are placed in the center of the plate, with fruits arranged around them. Sprinkle with powdered sugar. Sauces are served separately in sauce bowls on a tray."
+      "en": "Two pancakes are placed in the center of the plate, with fruits arranged around them. Sprinkle with powdered sugar. Sauces are served separately in sauce bowls on a tray.",
+      "vi": "Hai chiếc pancake được đặt ở giữa đĩa, xung quanh xếp trái cây. Rắc đường bột lên trên. Các loại nước sốt được phục vụ riêng trong chén nhỏ trên khay."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/pancakes.png"
   },
   {
-    "name": { "ru": "Йогурт боул", "en": "Yogurt Bowl" },
+    "name": { "ru": "Йогурт боул", "en": "Yogurt Bowl", "vi": "Tô sữa chua" },
     "ingredients": [
-      { "ru": "Йогурт (не сладкий)", "en": "Yogurt (unsweetened)" },
-      { "ru": "Мюсли", "en": "Muesli" },
-      { "ru": "Тыквенные семечки", "en": "Pumpkin seeds" },
-      { "ru": "Кокосовые чипсы", "en": "Coconut chips" },
-      { "ru": "Мята", "en": "Mint" },
-      { "ru": "Фрукты (дрэгон фрут, манго, клубника)", "en": "Fruits (dragon fruit, mango, strawberry)" }
+      { "ru": "Йогурт (не сладкий)", "en": "Yogurt (unsweetened)", "vi": "Sữa chua (không đường)" },
+      { "ru": "Мюсли", "en": "Muesli", "vi": "Ngũ cốc muesli" },
+      { "ru": "Тыквенные семечки", "en": "Pumpkin seeds", "vi": "Hạt bí" },
+      { "ru": "Кокосовые чипсы", "en": "Coconut chips", "vi": "Vụn dừa sấy" },
+      { "ru": "Мята", "en": "Mint", "vi": "Bạc hà" },
+      { "ru": "Фрукты (дрэгон фрут, манго, клубника)", "en": "Fruits (dragon fruit, mango, strawberry)", "vi": "Trái cây (thanh long, xoài, dâu tây)" }
     ],
     "amount": "350",
     "process": {
       "ru": "В тарелку выкладывается йогурт. Вдоль йогурта веером выложить нарезанные фрукты. Вдоль фруктов выкладываются мюсли. В оставшееся место заполняется тыквенными семечками. Поверх семян и мюслей идут кокосовые чипсы. Декорируется сублемированнуй клубникой и соцветием мяты.",
-      "en": "Place yogurt in a bowl. Arrange sliced fruits in a fan along the yogurt. Place muesli along the fruits. Fill the remaining space with pumpkin seeds. Sprinkle coconut chips over the seeds and muesli. Decorate with freeze-dried strawberries and a sprig of mint."
+      "en": "Place yogurt in a bowl. Arrange sliced fruits in a fan along the yogurt. Place muesli along the fruits. Fill the remaining space with pumpkin seeds. Sprinkle coconut chips over the seeds and muesli. Decorate with freeze-dried strawberries and a sprig of mint.",
+      "vi": "Cho sữa chua vào bát. Xếp trái cây cắt lát thành hình quạt dọc theo sữa chua. Thêm muesli dọc theo phần trái cây. Phần còn lại lấp đầy bằng hạt bí. Rắc vụn dừa sấy lên trên hạt và muesli. Trang trí với dâu sấy lạnh và một nhánh bạc hà."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/bowl.png"
   },
   {
-    "name": { "ru": "Скрэмбл", "en": "Scramble" },
+    "name": { "ru": "Скрэмбл", "en": "Scramble", "vi": "Trứng bác" },
     "ingredients": [
-      { "ru": "2 яйца (скрэмбл)", "en": "2 eggs (scramble)" },
-      { "ru": "Тостовый хлеб (2 треугольника)", "en": "Toast bread (2 triangles)" },
-      { "ru": "Свежий огурец", "en": "Fresh cucumber" },
-      { "ru": "Помидор черри", "en": "Cherry tomato" },
-      { "ru": "Микс салат", "en": "Salad mix" },
-      { "ru": "Оливковое масло", "en": "Olive oil" },
-      { "ru": "Риет из форели (50 гр)", "en": "Trout rillettes (50g)" }
+      { "ru": "2 яйца (скрэмбл)", "en": "2 eggs (scramble)", "vi": "2 quả trứng (trứng bác)" },
+      { "ru": "Тостовый хлеб (2 треугольника)", "en": "Toast bread (2 triangles)", "vi": "Bánh mì nướng (2 tam giác)" },
+      { "ru": "Свежий огурец", "en": "Fresh cucumber", "vi": "Dưa chuột tươi" },
+      { "ru": "Помидор черри", "en": "Cherry tomato", "vi": "Cà chua bi" },
+      { "ru": "Микс салат", "en": "Salad mix", "vi": "Hỗn hợp rau trộn" },
+      { "ru": "Оливковое масло", "en": "Olive oil", "vi": "Dầu ô liu" },
+      { "ru": "Риет из форели (50 гр)", "en": "Trout rillettes (50g)", "vi": "Rillettes cá trout (50g)" }
     ],
     "amount": "540",
     "process": {
       "ru": "В центре тарелки скрембл, по кругу выкладывается риет, тостовый хлеб и овощи на подложке из микса салатов.",
-      "en": "Place the scramble in the center of the plate, surround with trout rillettes, toast, and vegetables on a bed of salad mix."
+      "en": "Place the scramble in the center of the plate, surround with trout rillettes, toast, and vegetables on a bed of salad mix.",
+      "vi": "Đặt trứng bác ở giữa đĩa, xung quanh là rillettes cá trout, bánh mì nướng và rau củ trên nền hỗn hợp rau trộn."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/scramble.png"
   },
   {
-    "name": { "ru": "Яйца Бенедикт", "en": "Eggs Benedict" },
+    "name": { "ru": "Яйца Бенедикт", "en": "Eggs Benedict", "vi": "Trứng Benedict" },
     "ingredients": [
-      { "ru": "Пашот (2)", "en": "Poached eggs (2)" },
-      { "ru": "Соус тартар", "en": "Tartar sauce" },
-      { "ru": "Форель слабой соли (40 гр.)", "en": "Lightly salted trout (40g)" },
-      { "ru": "Соус Голландский", "en": "Hollandaise sauce" },
-      { "ru": "Шпинат", "en": "Spinach" },
-      { "ru": "Булочка бриош", "en": "Brioche bun" },
-      { "ru": "Микс салатов", "en": "Salad mix" },
-      { "ru": "Микрозелень", "en": "Microgreens" }
+      { "ru": "Пашот (2)", "en": "Poached eggs (2)", "vi": "Trứng poche (2 quả)" },
+      { "ru": "Соус тартар", "en": "Tartar sauce", "vi": "Sốt tartar" },
+      { "ru": "Форель слабой соли (40 гр.)", "en": "Lightly salted trout (40g)", "vi": "Cá trout muối nhạt (40g)" },
+      { "ru": "Соус Голландский", "en": "Hollandaise sauce", "vi": "Sốt Hollandaise" },
+      { "ru": "Шпинат", "en": "Spinach", "vi": "Rau bina" },
+      { "ru": "Булочка бриош", "en": "Brioche bun", "vi": "Bánh brioche" },
+      { "ru": "Микс салатов", "en": "Salad mix", "vi": "Hỗn hợp rau trộn" },
+      { "ru": "Микрозелень", "en": "Microgreens", "vi": "Rau mầm" }
     ],
     "amount": "370",
     "process": {
       "ru": "На тарелку выкладывается 2 ломтика ржаной чиабатты. На каждую половинку булочки мажется соус тартар, далее шпинат. Сверху кладется форель слабой соли и яйцо пашот. На яйцо поливается голландский соус. Сбоку кладется микс салатов. На соус идет микрозелень как украшение.",
-      "en": "Place 2 slices of rye ciabatta on a plate. Spread tartar sauce on each slice, then add spinach. Top with lightly salted trout and a poached egg. Pour Hollandaise sauce over the egg. Serve with salad mix on the side and garnish sauce with microgreens."
+      "en": "Place 2 slices of rye ciabatta on a plate. Spread tartar sauce on each slice, then add spinach. Top with lightly salted trout and a poached egg. Pour Hollandaise sauce over the egg. Serve with salad mix on the side and garnish sauce with microgreens.",
+      "vi": "Đặt 2 lát ciabatta lúa mạch đen lên đĩa. Phết sốt tartar lên mỗi lát, sau đó thêm rau bina. Bày cá trout muối nhạt lên trên và một quả trứng poche. Rưới sốt Hollandaise lên trứng. Phục vụ kèm hỗn hợp rau trộn ở bên và trang trí sốt bằng rau mầm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/benedict.png"
   },
   {
-    "name": { "ru": "Сырники", "en": "Syrniki" },
+    "name": { "ru": "Сырники", "en": "Syrniki", "vi": "Syrniki" },
     "ingredients": [
-      { "ru": "Сырники (3 шт.)", "en": "Syrniki (3 pcs)" },
-      { "ru": "Клубника", "en": "Strawberry" },
-      { "ru": "Йогурт", "en": "Yogurt" },
-      { "ru": "Мед", "en": "Honey" },
-      { "ru": "Соус вишневый", "en": "Cherry sauce" },
-      { "ru": "Мята", "en": "Mint" },
-      { "ru": "Сахарная пудра", "en": "Powdered sugar" }
+      { "ru": "Сырники (3 шт.)", "en": "Syrniki (3 pcs)", "vi": "Syrniki (3 cái)" },
+      { "ru": "Клубника", "en": "Strawberry", "vi": "Dâu tây" },
+      { "ru": "Йогурт", "en": "Yogurt", "vi": "Sữa chua" },
+      { "ru": "Мед", "en": "Honey", "vi": "Mật ong" },
+      { "ru": "Соус вишневый", "en": "Cherry sauce", "vi": "Sốt anh đào" },
+      { "ru": "Мята", "en": "Mint", "vi": "Bạc hà" },
+      { "ru": "Сахарная пудра", "en": "Powdered sugar", "vi": "Đường bột" }
     ],
     "amount": "290",
     "process": {
       "ru": "Сырники домашнего производства с клубникой, йогуртом, медом и ягодным соусом собственного производства.",
-      "en": "Homemade syrniki served with strawberries, yogurt, honey, and homemade berry sauce."
+      "en": "Homemade syrniki served with strawberries, yogurt, honey, and homemade berry sauce.",
+      "vi": "Syrniki tự làm phục vụ kèm dâu tây, sữa chua, mật ong và sốt trái mọng tự làm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/syrniki.png"
   },
   {
-    "name": { "ru": "Глазунья с красной рыбой", "en": "Sunny Fried Egg with Red Fish" },
+    "name": { "ru": "Глазунья с красной рыбой", "en": "Sunny Fried Egg with Red Fish", "vi": "Trứng ốp la với cá hồi muối" },
     "ingredients": [
-      { "ru": "Глазунья (2 яйца)", "en": "Sunny fried eggs (2)" },
-      { "ru": "Руккола", "en": "Arugula" },
-      { "ru": "Огурец", "en": "Cucumber" },
-      { "ru": "Томат черри", "en": "Cherry tomato" },
-      { "ru": "Чиабатта", "en": "Ciabatta" },
-      { "ru": "Кремчиз", "en": "Cream cheese" },
-      { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)" }
+      { "ru": "Глазунья (2 яйца)", "en": "Sunny fried eggs (2)", "vi": "Trứng ốp la (2 quả)" },
+      { "ru": "Руккола", "en": "Arugula", "vi": "Rau arugula" },
+      { "ru": "Огурец", "en": "Cucumber", "vi": "Dưa chuột" },
+      { "ru": "Томат черри", "en": "Cherry tomato", "vi": "Cà chua bi" },
+      { "ru": "Чиабатта", "en": "Ciabatta", "vi": "Bánh mì ciabatta" },
+      { "ru": "Кремчиз", "en": "Cream cheese", "vi": "Phô mai kem" },
+      { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)", "vi": "Cá trout muối nhạt (40g)" }
     ],
     "amount": "270",
     "process": {
       "ru": "Глазунья из 2 яиц, руккола с огурцом, брускетта с кремчизом, томатами черри и форелью слабой соли.",
-      "en": "Two fried eggs served with arugula and cucumber, ciabatta with cream cheese, cherry tomatoes, and lightly salted trout."
+      "en": "Two fried eggs served with arugula and cucumber, ciabatta with cream cheese, cherry tomatoes, and lightly salted trout.",
+      "vi": "Hai quả trứng ốp la phục vụ kèm rau arugula và dưa chuột, ciabatta với phô mai kem, cà chua bi và cá trout muối nhạt."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/sunfried eggs.png"
   },
   {
-    "name": { "ru": "Каша Дружба", "en": "Porridge Druzhba" },
+    "name": { "ru": "Каша Дружба", "en": "Porridge Druzhba", "vi": "Cháo Druzhba" },
     "ingredients": [
-      { "ru": "Пшено", "en": "Millet" },
-      { "ru": "Рис", "en": "Rice" },
-      { "ru": "Молоко", "en": "Milk" },
-      { "ru": "Сахар", "en": "Sugar" },
-      { "ru": "Соль", "en": "Salt" },
-      { "ru": "Клубника", "en": "Strawberry" }
+      { "ru": "Пшено", "en": "Millet", "vi": "Hạt kê" },
+      { "ru": "Рис", "en": "Rice", "vi": "Gạo" },
+      { "ru": "Молоко", "en": "Milk", "vi": "Sữa" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Соль", "en": "Salt", "vi": "Muối" },
+      { "ru": "Клубника", "en": "Strawberry", "vi": "Dâu tây" }
     ],
     "amount": "330",
     "process": {
       "ru": "Каша из риса и пшена на коровьем молоке с ягодами (клубника).",
-      "en": "Porridge made from rice and millet in cow's milk with strawberries."
+      "en": "Porridge made from rice and millet in cow's milk with strawberries.",
+      "vi": "Cháo làm từ gạo và hạt kê nấu với sữa bò, phục vụ kèm dâu tây."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/poridge.png"
   },
   {
-    "name": { "ru": "Овощной салат", "en": "Vegetable Salad" },
+    "name": { "ru": "Овощной салат", "en": "Vegetable Salad", "vi": "Salad rau củ" },
     "ingredients": [
-      { "ru": "Огурец", "en": "Cucumber" },
-      { "ru": "Помидоры черри", "en": "Cherry tomatoes" },
-      { "ru": "Перец болгарский", "en": "Bell pepper" },
-      { "ru": "Редис", "en": "Radish" },
-      { "ru": "Соус на основе йогурта с укропом и чесноком", "en": "Yogurt-dill-garlic dressing" },
-      { "ru": "Микрозелень", "en": "Microgreens" }
+      { "ru": "Огурец", "en": "Cucumber", "vi": "Dưa chuột" },
+      { "ru": "Помидоры черри", "en": "Cherry tomatoes", "vi": "Cà chua bi" },
+      { "ru": "Перец болгарский", "en": "Bell pepper", "vi": "Ớt chuông" },
+      { "ru": "Редис", "en": "Radish", "vi": "Củ cải" },
+      { "ru": "Соус на основе йогурта с укропом и чесноком", "en": "Yogurt-dill-garlic dressing", "vi": "Sốt sữa chua (thì là, tỏi)" },
+      { "ru": "Микрозелень", "en": "Microgreens", "vi": "Rau mầm" }
     ],
     "amount": "220",
     "process": {
       "ru": "Все овощи нарезаются, замешиваются с соусом и выкладываются на тарелку. На украшение идет микрозелень.",
-      "en": "Chop all vegetables, mix with dressing, and place on a plate. Garnish with microgreens."
+      "en": "Chop all vegetables, mix with dressing, and place on a plate. Garnish with microgreens.",
+      "vi": "Cắt tất cả rau củ, trộn với sốt và xếp lên đĩa. Trang trí bằng rau mầm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/vegitable salad.png"
   },
   {
-    "name": { "ru": "Теплый салат с печенью", "en": "Warm Liver Salad" },
+    "name": { "ru": "Теплый салат с печенью", "en": "Warm Liver Salad", "vi": "Salad ấm với gan" },
     "ingredients": [
-      { "ru": "Печень (120 гр готовая)", "en": "Liver (120g cooked)" },
-      { "ru": "Клубника", "en": "Strawberry" },
-      { "ru": "Салат микс", "en": "Salad mix" },
-      { "ru": "Сегменты апельсина", "en": "Orange segments" },
-      { "ru": "Цитрусовая заправка", "en": "Citrus dressing" },
-      { "ru": "Соус бальзамик", "en": "Balsamic sauce" }
+      { "ru": "Печень (120 гр готовая)", "en": "Liver (120g cooked)", "vi": "Gan (120g đã nấu)" },
+      { "ru": "Клубника", "en": "Strawberry", "vi": "Dâu tây" },
+      { "ru": "Салат микс", "en": "Salad mix", "vi": "Hỗn hợp rau trộn" },
+      { "ru": "Сегменты апельсина", "en": "Orange segments", "vi": "Lát cam" },
+      { "ru": "Цитрусовая заправка", "en": "Citrus dressing", "vi": "Sốt vị cam" },
+      { "ru": "Соус бальзамик", "en": "Balsamic sauce", "vi": "Sốt balsamic" }
     ],
     "amount": "280",
     "process": {
       "ru": "В тарелку выкладывается микс салатов с рукколой. Поверх выкладываются нарезанные сегменты апельсина и свежая клубника. Далее салат поливается цитрусовой заправкой. Обжаренная печень глазируется соусом бальзамик и выкладывается в тарелку на листья салата. Сверху поливается соус бальзамик.",
-      "en": "Place salad mix with arugula on a plate. Top with orange segments and fresh strawberries. Pour citrus dressing over the salad. Pan-seared liver glazed with balsamic sauce is placed on the salad leaves. Drizzle balsamic sauce on top."
+      "en": "Place salad mix with arugula on a plate. Top with orange segments and fresh strawberries. Pour citrus dressing over the salad. Pan-seared liver glazed with balsamic sauce is placed on the salad leaves. Drizzle balsamic sauce on top.",
+      "vi": "Xếp hỗn hợp rau trộn có arugula lên đĩa. Bày lát cam và dâu tây tươi lên trên. Rưới sốt vị cam lên salad. Gan áp chảo được phủ sốt balsamic và đặt lên lá salad. Rưới thêm sốt balsamic lên trên."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/liver salad.png"
   },
   {
-    "name": { "ru": "Салат с осьминогом", "en": "Octopus Salad" },
+    "name": { "ru": "Салат с осьминогом", "en": "Octopus Salad", "vi": "Salad bạch tuộc" },
     "ingredients": [
-      { "ru": "Микс салатов", "en": "Salad mix" },
-      { "ru": "Томаты черри", "en": "Cherry tomatoes" },
-      { "ru": "Обжаренный картофель стоун", "en": "Stone-fried potatoes" },
-      { "ru": "Осьминог обжаренный", "en": "Fried octopus" },
-      { "ru": "Соус на основе не острого чили", "en": "Mild chili-based sauce" },
-      { "ru": "Бальзамический крем", "en": "Balsamic cream" }
+      { "ru": "Микс салатов", "en": "Salad mix", "vi": "Hỗn hợp rau trộn" },
+      { "ru": "Томаты черри", "en": "Cherry tomatoes", "vi": "Cà chua bi" },
+      { "ru": "Обжаренный картофель стоун", "en": "Stone-fried potatoes", "vi": "Khoai tây chiên kiểu Stone" },
+      { "ru": "Осьминог обжаренный", "en": "Fried octopus", "vi": "Bạch tuộc chiên" },
+      { "ru": "Соус на основе не острого чили", "en": "Mild chili-based sauce", "vi": "Sốt ớt nhẹ" },
+      { "ru": "Бальзамический крем", "en": "Balsamic cream", "vi": "Kem balsamic" }
     ],
     "amount": "280",
     "process": {
       "ru": "В тарелку выкладывается микс салатов. Поверх выкладываются нарезанные томаты черри, обжаренный картофель и осьминог, глазированный в соусе. Заправка на основе бальзамического крема.",
-      "en": "Place salad mix on a plate. Top with cherry tomatoes, fried potatoes, and octopus glazed in sauce. Dress with balsamic cream."
+      "en": "Place salad mix on a plate. Top with cherry tomatoes, fried potatoes, and octopus glazed in sauce. Dress with balsamic cream.",
+      "vi": "Xếp hỗn hợp rau trộn lên đĩa. Bày cà chua bi, khoai tây chiên và bạch tuộc được phủ sốt lên trên. Trộn salad với kem balsamic."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/octopus.png"
   },
   {
-    "name": { "ru": "Салат с креветками", "en": "Shrimp Prawns Salad" },
+    "name": { "ru": "Салат с креветками", "en": "Shrimp Prawns Salad", "vi": "Salad tôm" },
     "ingredients": [
-      { "ru": "Руккола", "en": "Arugula" },
-      { "ru": "Креветки (80 гр. сырые)", "en": "Shrimps (80g raw)" },
-      { "ru": "Чеснок", "en": "Garlic" },
-      { "ru": "Пармезан", "en": "Parmesan" },
-      { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes" },
-      { "ru": "Бальзамик соус", "en": "Balsamic sauce" },
-      { "ru": "Соус винегрет", "en": "Vinaigrette" }
+      { "ru": "Руккола", "en": "Arugula", "vi": "Rau arugula" },
+      { "ru": "Креветки (80 гр. сырые)", "en": "Shrimps (80g raw)", "vi": "Tôm (80g sống)" },
+      { "ru": "Чеснок", "en": "Garlic", "vi": "Tỏi" },
+      { "ru": "Пармезан", "en": "Parmesan", "vi": "Phô mai Parmesan" },
+      { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes", "vi": "Cà chua bi màu sẫm" },
+      { "ru": "Бальзамик соус", "en": "Balsamic sauce", "vi": "Sốt balsamic" },
+      { "ru": "Соус винегрет", "en": "Vinaigrette", "vi": "Sốt vinaigrette" }
     ],
     "amount": "210",
     "process": {
       "ru": "Жареные с чесноком креветки на подушке из рукколы с добавлением темных черри томатов и пармезана. Подается под соусом винегрет и бальзамиком.",
-      "en": "Garlic-fried shrimps served on a bed of arugula with dark cherry tomatoes and Parmesan. Served with vinaigrette and balsamic sauce."
+      "en": "Garlic-fried shrimps served on a bed of arugula with dark cherry tomatoes and Parmesan. Served with vinaigrette and balsamic sauce.",
+      "vi": "Tôm chiên với tỏi đặt trên nền arugula, kèm cà chua bi màu sẫm và phô mai Parmesan. Phục vụ cùng sốt vinaigrette và sốt balsamic."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/prawn salad.png"
   },
   {
-    "name": { "ru": "Тартар", "en": "Tartar" },
+    "name": { "ru": "Тартар", "en": "Tartar", "vi": "Tartar" },
     "ingredients": [
-      { "ru": "Говядина (100 гр.)", "en": "Beef (100g)" },
-      { "ru": "Каперс", "en": "Capers" },
-      { "ru": "Яйцо (желток)", "en": "Egg yolk" },
-      { "ru": "Оливковое масло", "en": "Olive oil" },
-      { "ru": "Специи", "en": "Spices" },
-      { "ru": "Сыр пармезан", "en": "Parmesan" },
-      { "ru": "Руккола", "en": "Arugula" },
-      { "ru": "Бородинский хлеб", "en": "Borodinsky bread" }
+      { "ru": "Говядина (100 гр.)", "en": "Beef (100g)", "vi": "Thịt bò (100g)" },
+      { "ru": "Каперс", "en": "Capers", "vi": "Capers" },
+      { "ru": "Яйцо (желток)", "en": "Egg yolk", "vi": "Trứng (lòng đỏ)" },
+      { "ru": "Оливковое масло", "en": "Olive oil", "vi": "Dầu ô liu" },
+      { "ru": "Специи", "en": "Spices", "vi": "Gia vị" },
+      { "ru": "Сыр пармезан", "en": "Parmesan", "vi": "Phô mai Parmesan" },
+      { "ru": "Руккола", "en": "Arugula", "vi": "Rau arugula" },
+      { "ru": "Бородинский хлеб", "en": "Borodinsky bread", "vi": "Bánh Borodinsky" }
     ],
     "amount": "260",
     "process": {
       "ru": "Говядина замешивается со специями, пармезаном, каперсами и оливковым маслом. Выкладывается на тарелку, поверх идет желток куриного яйца. Декорируется рукколой и гренками из бородинского хлеба. Сверху посыпается пармезаном.",
-      "en": "Beef is mixed with spices, Parmesan, capers, and olive oil. Placed on a plate topped with egg yolk. Garnished with arugula and Borodinsky bread croutons. Sprinkle Parmesan on top."
+      "en": "Beef is mixed with spices, Parmesan, capers, and olive oil. Placed on a plate topped with egg yolk. Garnished with arugula and Borodinsky bread croutons. Sprinkle Parmesan on top.",
+      "vi": "Thịt bò trộn với gia vị, Parmesan, capers và dầu ô liu. Đặt lên đĩa và đặt lòng đỏ trứng gà lên trên. Trang trí với arugula và bánh Borodinsky nướng giòn. Rắc Parmesan lên trên."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/tartar.png"
   },
   {
-    "name": { "ru": "Жюльен", "en": "Julien" },
+    "name": { "ru": "Жюльен", "en": "Julien", "vi": "Món Julien (nấm và gà)" },
     "ingredients": [
-      { "ru": "Шампиньоны", "en": "Mushrooms" },
-      { "ru": "Куриная грудка", "en": "Chicken breast" },
-      { "ru": "Сливки", "en": "Cream" },
-      { "ru": "Мука", "en": "Flour" },
-      { "ru": "Чиабатта", "en": "Ciabatta" },
-      { "ru": "Сыр моцарелла", "en": "Mozzarella" },
-      { "ru": "Сыр пармезан", "en": "Parmesan" }
+      { "ru": "Шампиньоны", "en": "Mushrooms", "vi": "Nấm Champignon" },
+      { "ru": "Куриная грудка", "en": "Chicken breast", "vi": "Ức gà" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Чиабатта", "en": "Ciabatta", "vi": "Bánh mì ciabatta" },
+      { "ru": "Сыр моцарелла", "en": "Mozzarella", "vi": "Phô mai Mozzarella" },
+      { "ru": "Сыр пармезан", "en": "Parmesan", "vi": "Phô mai Parmesan" }
     ],
     "amount": "150",
     "process": {
       "ru": "Жюльен на основе шампиньонов, сливок и куриной грудки подается под плавленной шапкой из пармезана с гренками из чиабатты. Присыпается сыром пармезан.",
-      "en": "Julien made from mushrooms, cream, and chicken breast served under a melted Parmesan topping with ciabatta croutons. Sprinkled with Parmesan cheese."
+      "en": "Julien made from mushrooms, cream, and chicken breast served under a melted Parmesan topping with ciabatta croutons. Sprinkled with Parmesan cheese.",
+      "vi": "Julien làm từ nấm, kem và ức gà, phục vụ dưới lớp phủ Parmesan tan chảy kèm bánh mì ciabatta nướng giòn. Rắc phô mai Parmesan lên trên."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/jouliene.png"
   },
   {
-    "name": { "ru": "Тыквенный суп", "en": "Pumpkin Soup" },
+    "name": { "ru": "Тыквенный суп", "en": "Pumpkin Soup", "vi": "Súp bí ngô" },
     "ingredients": [
-      { "ru": "Тыква", "en": "Pumpkin" },
-      { "ru": "Мед", "en": "Honey" },
-      { "ru": "Специи", "en": "Spices" },
-      { "ru": "Сливки", "en": "Cream" },
-      { "ru": "Тыквенные семечки", "en": "Pumpkin seeds" },
-      { "ru": "Соус песто (базилик, масло, чеснок)", "en": "Pesto sauce (basil, oil, garlic)" },
-      { "ru": "Микрозелень", "en": "Microgreens" }
+      { "ru": "Тыква", "en": "Pumpkin", "vi": "Bí ngô" },
+      { "ru": "Мед", "en": "Honey", "vi": "Mật ong" },
+      { "ru": "Специи", "en": "Spices", "vi": "Gia vị" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Тыквенные семечки", "en": "Pumpkin seeds", "vi": "Hạt bí" },
+      { "ru": "Соус песто (базилик, масло, чеснок)", "en": "Pesto sauce (basil, oil, garlic)", "vi": "Sốt pesto (húng quế, dầu, tỏi)" },
+      { "ru": "Микрозелень", "en": "Microgreens", "vi": "Rau mầm" }
     ],
     "amount": "310",
     "process": {
       "ru": "Тыквенный крем-суп украшается соусом песто, сливками, микрозеленью и тыквенными семечками.",
-      "en": "Pumpkin cream soup is decorated with pesto sauce, cream, microgreens, and pumpkin seeds."
+      "en": "Pumpkin cream soup is decorated with pesto sauce, cream, microgreens, and pumpkin seeds.",
+      "vi": "Súp kem bí ngô được trang trí cùng sốt pesto, kem, rau mầm và hạt bí."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/soup pumpkin.png"
   },
   {
-    "name": { "ru": "Крем-суп брокколи", "en": "Broccoli Cream Soup" },
+    "name": { "ru": "Крем-суп брокколи", "en": "Broccoli Cream Soup", "vi": "Súp kem bông cải xanh" },
     "ingredients": [
-      { "ru": "Брокколи", "en": "Broccoli" },
-      { "ru": "Сливки", "en": "Cream" },
-      { "ru": "Специи", "en": "Spices" },
-      { "ru": "Картофель", "en": "Potato" },
-      { "ru": "Гренка чиабатта", "en": "Ciabatta crouton" },
-      { "ru": "Пармезан", "en": "Parmesan" }
+      { "ru": "Брокколи", "en": "Broccoli", "vi": "Bông cải xanh" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Специи", "en": "Spices", "vi": "Gia vị" },
+      { "ru": "Картофель", "en": "Potato", "vi": "Khoai tây" },
+      { "ru": "Гренка чиабатта", "en": "Ciabatta crouton", "vi": "Bánh mì ciabatta nướng giòn" },
+      { "ru": "Пармезан", "en": "Parmesan", "vi": "Phô mai Parmesan" }
     ],
     "amount": "300",
     "process": {
       "ru": "Кремсуп из брокколи подается с пармезаном и гренкой из чиабатты, запеченной с пармезаном.",
-      "en": "Broccoli cream soup is served with Parmesan and a ciabatta crouton baked with Parmesan."
+      "en": "Broccoli cream soup is served with Parmesan and a ciabatta crouton baked with Parmesan.",
+      "vi": "Súp kem bông cải phục vụ kèm phô mai Parmesan và bánh mì ciabatta nướng giòn phủ Parmesan."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/soup brokkoli.png"
   },
   {
-    "name": { "ru": "Рататуй", "en": "Ratatouille" },
+    "name": { "ru": "Рататуй", "en": "Ratatouille", "vi": "Ratatouille" },
     "ingredients": [
-      { "ru": "Баклажан", "en": "Eggplant" },
-      { "ru": "Цукини", "en": "Zucchini" },
-      { "ru": "Морковь", "en": "Carrot" },
-      { "ru": "Тыква", "en": "Pumpkin" },
-      { "ru": "Перец болгарский", "en": "Bell pepper" },
-      { "ru": "Соус песто (базилик, орех кешью, растительное масло)", "en": "Pesto sauce (basil, cashew, vegetable oil)" },
-      { "ru": "Сыр пармезан", "en": "Parmesan" },
-      { "ru": "Микрозелень", "en": "Microgreens" },
-      { "ru": "Хлеб бородинский", "en": "Borodinsky bread" }
+      { "ru": "Баклажан", "en": "Eggplant", "vi": "Cà tím" },
+      { "ru": "Цукини", "en": "Zucchini", "vi": "Bí ngòi (zucchini)" },
+      { "ru": "Морковь", "en": "Carrot", "vi": "Cà rốt" },
+      { "ru": "Тыква", "en": "Pumpkin", "vi": "Bí ngô" },
+      { "ru": "Перец болгарский", "en": "Bell pepper", "vi": "Ớt chuông" },
+      { "ru": "Соус песто (базилик, орех кешью, растительное масло)", "en": "Pesto sauce (basil, cashew, vegetable oil)", "vi": "Sốt pesto (húng quế, hạt điều, dầu thực vật)" },
+      { "ru": "Сыр пармезан", "en": "Parmesan", "vi": "Phô mai Parmesan" },
+      { "ru": "Микрозелень", "en": "Microgreens", "vi": "Rau mầm" },
+      { "ru": "Хлеб бородинский", "en": "Borodinsky bread", "vi": "Bánh Borodinsky" }
     ],
     "amount": "270",
     "process": {
       "ru": "Овощи замешиваются с соусом песто. Выкладываются на тарелку, присыпаются пармезаном. Пармезан обжигается до состояния корочки. Декорируется гренками из бородинского хлеба и микрозеленью.",
-      "en": "Vegetables are mixed with pesto sauce, placed on a plate, and sprinkled with Parmesan. Parmesan is torched to form a crust. Garnished with Borodinsky bread croutons and microgreens."
+      "en": "Vegetables are mixed with pesto sauce, placed on a plate, and sprinkled with Parmesan. Parmesan is torched to form a crust. Garnished with Borodinsky bread croutons and microgreens.",
+      "vi": "Rau củ trộn với sốt pesto. Xếp lên đĩa và rắc Parmesan. Parmesan được hơ cho đến khi có lớp vỏ giòn. Trang trí bằng bánh Borodinsky nướng giòn và rau mầm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/retatoulle.png"
   },
   {
-    "name": { "ru": "Куриная грудка гриль", "en": "Grilled Chicken Breast" },
+    "name": { "ru": "Куриная грудка гриль", "en": "Grilled Chicken Breast", "vi": "Ức gà nướng" },
     "ingredients": [
-      { "ru": "Куриная грудка (125 гр готовая)", "en": "Chicken breast (125g cooked)" },
-      { "ru": "Цукини", "en": "Zucchini" },
-      { "ru": "Перец болгарский", "en": "Bell pepper" },
-      { "ru": "Помидоры черри", "en": "Cherry tomatoes" },
-      { "ru": "Соус из печеного болгарского перца", "en": "Roasted bell pepper sauce" },
-      { "ru": "Чеснок", "en": "Garlic" },
-      { "ru": "Розмарин", "en": "Rosemary" }
+      { "ru": "Куриная грудка (125 гр готовая)", "en": "Chicken breast (125g cooked)", "vi": "Ức gà (125g đã nấu)" },
+      { "ru": "Цукини", "en": "Zucchini", "vi": "Bí ngòi" },
+      { "ru": "Перец болгарский", "en": "Bell pepper", "vi": "Ớt chuông" },
+      { "ru": "Помидоры черри", "en": "Cherry tomatoes", "vi": "Cà chua bi" },
+      { "ru": "Соус из печеного болгарского перца", "en": "Roasted bell pepper sauce", "vi": "Sốt từ ớt chuông nướng" },
+      { "ru": "Чеснок", "en": "Garlic", "vi": "Tỏi" },
+      { "ru": "Розмарин", "en": "Rosemary", "vi": "Hương thảo" }
     ],
     "amount": "330",
     "process": {
       "ru": "Цукини нарезаются пластинками и готовятся на гриле. Куриная грудка обжаривается на гриле. В центр тарелки выкладывается соус из печеного болгарского перца. Сверху кладется цукини, а поверх грудки нарезанная куриная грудка. Декор - микрозелень.",
-      "en": "Zucchini sliced and grilled. Chicken breast grilled. Place roasted bell pepper sauce in the center of the plate, layer zucchini, then chicken slices on top. Decorate with microgreens."
+      "en": "Zucchini sliced and grilled. Chicken breast grilled. Place roasted bell pepper sauce in the center of the plate, layer zucchini, then chicken slices on top. Decorate with microgreens.",
+      "vi": "Bí ngòi cắt lát và nướng. Ức gà nướng. Cho sốt ớt chuông nướng vào giữa đĩa, xếp bí ngòi, sau đó đặt lát ức gà lên trên. Trang trí bằng rau mầm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/chicken.png"
   },
   {
-    "name": { "ru": "Паста с уткой и горгонзолой", "en": "Duck Pasta with Gorgonzola" },
+    "name": { "ru": "Паста с уткой и горгонзолой", "en": "Duck Pasta with Gorgonzola", "vi": "Pasta vịt với phô mai Gorgonzola" },
     "ingredients": [
-      { "ru": "Паста (лингвини)", "en": "Pasta (linguini)" },
-      { "ru": "Утка томленая", "en": "Braised duck" },
-      { "ru": "Сливки", "en": "Cream" },
-      { "ru": "Голубой сыр горгонзола", "en": "Gorgonzola blue cheese" },
-      { "ru": "Сыр пармезан", "en": "Parmesan" },
-      { "ru": "Микрозелень", "en": "Microgreens" }
+      { "ru": "Паста (лингвини)", "en": "Pasta (linguini)", "vi": "Pasta (linguini)" },
+      { "ru": "Утка томленая", "en": "Braised duck", "vi": "Vịt hầm" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Голубой сыр горгонзола", "en": "Gorgonzola blue cheese", "vi": "Phô mai xanh Gorgonzola" },
+      { "ru": "Сыр пармезан", "en": "Parmesan", "vi": "Phô mai Parmesan" },
+      { "ru": "Микрозелень", "en": "Microgreens", "vi": "Rau mầm" }
     ],
     "amount": "330",
     "process": {
       "ru": "Томленая утка смешивается со сливками и голубым сыром горгонзола. Отваренная паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, декор - микрозелень.",
-      "en": "Braised duck mixed with cream and Gorgonzola cheese. Cooked pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and decorate with microgreens."
+      "en": "Braised duck mixed with cream and Gorgonzola cheese. Cooked pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and decorate with microgreens.",
+      "vi": "Vịt hầm trộn với kem và phô mai Gorgonzola. Pasta luộc al dente trộn với sốt và xếp ra đĩa. Rắc Parmesan và trang trí bằng rau mầm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/pasta duck.png"
   },
   {
-    "name": { "ru": "Паста с креветками", "en": "Pasta with Shrimps" },
+    "name": { "ru": "Паста с креветками", "en": "Pasta with Shrimps", "vi": "Pasta với tôm" },
     "ingredients": [
-      { "ru": "Паста (лингвини)", "en": "Pasta (linguini)" },
-      { "ru": "Креветки", "en": "Shrimps" },
-      { "ru": "Масло сливочное", "en": "Butter" },
-      { "ru": "Специи", "en": "Spices" },
-      { "ru": "Чеснок", "en": "Garlic" },
-      { "ru": "Соус биск", "en": "Bisque sauce" },
-      { "ru": "Сыр пармезан", "en": "Parmesan" },
-      { "ru": "Тимьян", "en": "Thyme" }
+      { "ru": "Паста (лингвини)", "en": "Pasta (linguini)", "vi": "Pasta (linguini)" },
+      { "ru": "Креветки", "en": "Shrimps", "vi": "Tôm" },
+      { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Специи", "en": "Spices", "vi": "Gia vị" },
+      { "ru": "Чеснок", "en": "Garlic", "vi": "Tỏi" },
+      { "ru": "Соус биск", "en": "Bisque sauce", "vi": "Sốt bisque" },
+      { "ru": "Сыр пармезан", "en": "Parmesan", "vi": "Phô mai Parmesan" },
+      { "ru": "Тимьян", "en": "Thyme", "vi": "Húng tây" }
     ],
     "amount": "270",
     "process": {
       "ru": "Обжаренные с чесноком креветки смешиваются с соусом биск и загущаются сливочным маслом. Паста альденте смешивается с соусом и выкладывается на тарелку. Посыпается пармезаном, украшается ветками тимьяна.",
-      "en": "Garlic-fried shrimps mixed with bisque sauce and thickened with butter. Pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and garnish with thyme sprigs."
+      "en": "Garlic-fried shrimps mixed with bisque sauce and thickened with butter. Pasta al dente mixed with sauce and plated. Sprinkle with Parmesan and garnish with thyme sprigs.",
+      "vi": "Tôm chiên với tỏi trộn cùng sốt bisque và làm đặc bằng bơ. Pasta al dente trộn với sốt và xếp ra đĩa. Rắc Parmesan và trang trí bằng cành húng tây."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/pasta shimps.png"
   },
   {
-    "name": { "ru": "Стейк форели", "en": "Trout Steak" },
+    "name": { "ru": "Стейк форели", "en": "Trout Steak", "vi": "Steak cá trout" },
     "ingredients": [
-      { "ru": "Форель (130 гр готовая)", "en": "Trout (130g cooked)" },
-      { "ru": "Молодая стручковая фасоль (60 гр)", "en": "Young green beans (60g)" },
-      { "ru": "Брокколи (40 гр)", "en": "Broccoli (40g)" },
-      { "ru": "Чеснок", "en": "Garlic" },
-      { "ru": "Маракуйевый соус", "en": "Passion fruit sauce" },
-      { "ru": "Тимьян", "en": "Thyme" }
+      { "ru": "Форель (130 гр готовая)", "en": "Trout (130g cooked)", "vi": "Cá trout (130g đã nấu)" },
+      { "ru": "Молодая стручковая фасоль (60 гр)", "en": "Young green beans (60g)", "vi": "Đậu que non (60g)" },
+      { "ru": "Брокколи (40 гр)", "en": "Broccoli (40g)", "vi": "Bông cải xanh (40g)" },
+      { "ru": "Чеснок", "en": "Garlic", "vi": "Tỏi" },
+      { "ru": "Маракуйевый соус", "en": "Passion fruit sauce", "vi": "Sốt chanh dây" },
+      { "ru": "Тимьян", "en": "Thyme", "vi": "Húng tây" }
     ],
     "amount": "270",
     "process": {
       "ru": "Молодая фасоль обжаривается с чесноком. Стейк форели обжаривается до колера. На тарелку выкладывается фасоль, поверх стейк. Сбоку поливается соусом, украшается веточкой тимьяна.",
-      "en": "Young beans sautéed with garlic. Trout steak pan-seared. Place beans on plate, top with trout. Drizzle sauce on the side and garnish with thyme."
+      "en": "Young beans sautéed with garlic. Trout steak pan-seared. Place beans on plate, top with trout. Drizzle sauce on the side and garnish with thyme.",
+      "vi": "Đậu que non xào với tỏi. Steak cá trout áp chảo đến màu vàng. Xếp đậu lên đĩa, đặt steak lên trên. Rưới sốt ở một bên và trang trí với cành húng tây."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/trout.png"
   },
   {
-    "name": { "ru": "Говядина с брокколи", "en": "Beef with Broccoli" },
+    "name": { "ru": "Говядина с брокколи", "en": "Beef with Broccoli", "vi": "Thịt bò với bông cải" },
     "ingredients": [
-      { "ru": "Говядина (120 гр готовая)", "en": "Beef (120g cooked)" },
-      { "ru": "Брокколи (100 гр)", "en": "Broccoli (100g)" },
-      { "ru": "Перец черный молотый", "en": "Ground black pepper" },
-      { "ru": "Соус на основе сливочного сыра и вяленых томатов", "en": "Sauce with cream cheese and sun-dried tomatoes" }
+      { "ru": "Говядина (120 гр готовая)", "en": "Beef (120g cooked)", "vi": "Thịt bò (120g đã nấu)" },
+      { "ru": "Брокколи (100 гр)", "en": "Broccoli (100g)", "vi": "Bông cải xanh (100g)" },
+      { "ru": "Перец черный молотый", "en": "Ground black pepper", "vi": "Tiêu đen xay" },
+      { "ru": "Соус на основе сливочного сыра и вяленых томатов", "en": "Sauce with cream cheese and sun-dried tomatoes", "vi": "Sốt làm từ phô mai kem và cà chua khô" }
     ],
     "amount": "250",
     "process": {
       "ru": "Говядина, приготовленная по технологии су-вид, обжаривается до получения колера. Брокколи отвариваются альденте. На тарелку выкладывается говядина, брокколи и соус. Посыпается черным молотым перцем.",
-      "en": "Beef cooked sous-vide is seared for color. Broccoli boiled al dente. Plate beef, broccoli, and sauce. Sprinkle with ground black pepper."
+      "en": "Beef cooked sous-vide is seared for color. Broccoli boiled al dente. Plate beef, broccoli, and sauce. Sprinkle with ground black pepper.",
+      "vi": "Thịt bò nấu bằng phương pháp sous-vide được áp chảo cho có màu. Bông cải luộc chín tới (al dente). Xếp thịt bò, bông cải và sốt lên đĩa. Rắc tiêu đen xay."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/beef.png"
   },
   {
-    "name": { "ru": "Токпокки", "en": "Tteobokki" },
+    "name": { "ru": "Токпокки", "en": "Tteobokki", "vi": "Tteobokki" },
     "ingredients": [
-      { "ru": "Токпокки", "en": "Tteobokki" },
-      { "ru": "Курица", "en": "Chicken" },
-      { "ru": "Перец болгарский", "en": "Bell pepper" },
-      { "ru": "Молодая стручковая фасоль", "en": "Young green beans" },
-      { "ru": "Сливки", "en": "Cream" },
-      { "ru": "Перечный соус", "en": "Pepper sauce" },
-      { "ru": "Микрозелень", "en": "Microgreens" }
+      { "ru": "Токпокки", "en": "Tteobokki", "vi": "Tteobokki" },
+      { "ru": "Курица", "en": "Chicken", "vi": "Gà" },
+      { "ru": "Перец болгарский", "en": "Bell pepper", "vi": "Ớt chuông" },
+      { "ru": "Молодая стручковая фасоль", "en": "Young green beans", "vi": "Đậu que non" },
+      { "ru": "Сливки", "en": "Cream", "vi": "Kem" },
+      { "ru": "Перечный соус", "en": "Pepper sauce", "vi": "Sốt tiêu" },
+      { "ru": "Микрозелень", "en": "Microgreens", "vi": "Rau mầm" }
     ],
     "amount": "500",
     "process": {
       "ru": "Корейские макароны из рисовой муки обвариваются и тушатся в соусе из болгарского перца, молодой фасоли и куриной грудки. Основой соуса являются сливки и перечный соус. Декор — микрозелень.",
-      "en": "Korean rice noodles are boiled and simmered in a sauce of bell pepper, young beans, and chicken breast. Sauce base: cream and pepper sauce. Garnish with microgreens."
+      "en": "Korean rice noodles are boiled and simmered in a sauce of bell pepper, young beans, and chicken breast. Sauce base: cream and pepper sauce. Garnish with microgreens.",
+      "vi": "Mì gạo Hàn Quốc được trụng và kho trong sốt làm từ ớt chuông, đậu que non và ức gà. Cơ sở sốt gồm kem và sốt tiêu. Trang trí bằng rau mầm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/tobbokki.png"
   },
   {
-    "name": { "ru": "Сэндвич с тунцом", "en": "Tuna Sandwich" },
+    "name": { "ru": "Сэндвич с тунцом", "en": "Tuna Sandwich", "vi": "Bánh mì kẹp cá ngừ" },
     "ingredients": [
-      { "ru": "Деревенский хлеб", "en": "Rustic bread" },
-      { "ru": "Консервированный тунец (60 гр)", "en": "Canned tuna (60g)" },
-      { "ru": "Кукуруза", "en": "Corn" },
-      { "ru": "Майонез", "en": "Mayonnaise" },
-      { "ru": "Соус Ворчестер", "en": "Worcester sauce" },
-      { "ru": "Салатный лист", "en": "Lettuce leaf" }
+      { "ru": "Деревенский хлеб", "en": "Rustic bread", "vi": "Bánh mì rustic" },
+      { "ru": "Консервированный тунец (60 гр)", "en": "Canned tuna (60g)", "vi": "Cá ngừ hộp (60g)" },
+      { "ru": "Кукуруза", "en": "Corn", "vi": "Ngô" },
+      { "ru": "Майонез", "en": "Mayonnaise", "vi": "Mayonnaise" },
+      { "ru": "Соус Ворчестер", "en": "Worcester sauce", "vi": "Sốt Worcestershire" },
+      { "ru": "Салатный лист", "en": "Lettuce leaf", "vi": "Lá xà lách" }
     ],
     "amount": "200",
     "process": {
       "ru": "Все ингредиенты начинки перемешиваются и выкладываются внутрь сэндвича.",
-      "en": "Mix all filling ingredients and place inside the sandwich."
+      "en": "Mix all filling ingredients and place inside the sandwich.",
+      "vi": "Trộn tất cả nguyên liệu nhân và cho vào bên trong bánh mì kẹp."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/swtuna.png"
   },
   {
-    "name": { "ru": "Сэндвич с форелью", "en": "Trout Sandwich" },
+    "name": { "ru": "Сэндвич с форелью", "en": "Trout Sandwich", "vi": "Bánh mì kẹp cá trout" },
     "ingredients": [
-      { "ru": "Деревенский хлеб", "en": "Rustic bread" },
-      { "ru": "Огурец", "en": "Cucumber" },
-      { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)" },
-      { "ru": "Кремчиз", "en": "Cream cheese" },
-      { "ru": "Салат микс", "en": "Salad mix" }
+      { "ru": "Деревенский хлеб", "en": "Rustic bread", "vi": "Bánh mì rustic" },
+      { "ru": "Огурец", "en": "Cucumber", "vi": "Dưa chuột" },
+      { "ru": "Форель слабой соли (40 гр)", "en": "Lightly salted trout (40g)", "vi": "Cá trout muối nhạt (40g)" },
+      { "ru": "Кремчиз", "en": "Cream cheese", "vi": "Phô mai kem" },
+      { "ru": "Салат микс", "en": "Salad mix", "vi": "Hỗn hợp rau trộn" }
     ],
     "amount": "230",
     "process": {
       "ru": "Сэндвич на основе ржаной чиабатты с добавлением кремчиза, огурца и форели слабой соли с прослойкой из салатного листа.",
-      "en": "Sandwich on rye ciabatta with cream cheese, cucumber, and lightly salted trout, layered with salad leaves."
+      "en": "Sandwich on rye ciabatta with cream cheese, cucumber, and lightly salted trout, layered with salad leaves.",
+      "vi": "Bánh mì kẹp trên nền ciabatta lúa mạch đen, thêm phô mai kem, dưa chuột và cá trout muối nhạt, xen kẽ với lá xà lách."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/swtrout.png"
   },
   {
-    "name": { "ru": "Круассан с говядиной", "en": "Beef Croissant" },
+    "name": { "ru": "Круассан с говядиной", "en": "Beef Croissant", "vi": "Croissant nhân thịt bò" },
     "ingredients": [
-      { "ru": "Круассан", "en": "Croissant" },
-      { "ru": "Ростбиф из говядины (30 гр.)", "en": "Roast beef (30g)" },
-      { "ru": "Огурец", "en": "Cucumber" },
-      { "ru": "Салат микс", "en": "Salad mix" },
-      { "ru": "Каперс", "en": "Capers" },
-      { "ru": "Соленый огурец", "en": "Pickled cucumber" },
-      { "ru": "Майонез", "en": "Mayonnaise" }
+      { "ru": "Круассан", "en": "Croissant", "vi": "Bánh croissant" },
+      { "ru": "Ростбиф из говядины (30 гр.)", "en": "Roast beef (30g)", "vi": "Thịt bò roast beef (30g)" },
+      { "ru": "Огурец", "en": "Cucumber", "vi": "Dưa chuột" },
+      { "ru": "Салат микс", "en": "Salad mix", "vi": "Hỗn hợp rau trộn" },
+      { "ru": "Каперс", "en": "Capers", "vi": "Capers" },
+      { "ru": "Соленый огурец", "en": "Pickled cucumber", "vi": "Dưa chuột muối" },
+      { "ru": "Майонез", "en": "Mayonnaise", "vi": "Mayonnaise" }
     ],
     "amount": "250",
     "process": {
       "ru": "Круассан с добавлением соуса Тартар, огурца и ростбифа с прослойкой из салатного листа.",
-      "en": "Croissant with tartar sauce, cucumber, and roast beef layered with salad leaves."
+      "en": "Croissant with tartar sauce, cucumber, and roast beef layered with salad leaves.",
+      "vi": "Croissant kèm sốt tartar, dưa chuột và thịt bò roast beef xen kẽ với lá xà lách."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/crbeef.png"
   },
   {
-    "name": { "ru": "Сэндвич с курой", "en": "Chicken Sandwich" },
+    "name": { "ru": "Сэндвич с курой", "en": "Chicken Sandwich", "vi": "Bánh mì kẹp gà" },
     "ingredients": [
-      { "ru": "Тостовый хлеб", "en": "Toast bread" },
-      { "ru": "Куриная грудка (55 гр.)", "en": "Chicken breast (55g)" },
-      { "ru": "Салат микс", "en": "Salad mix" },
-      { "ru": "Огурец", "en": "Cucumber" },
-      { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes" },
-      { "ru": "Каперс", "en": "Capers" },
-      { "ru": "Соленый огурец", "en": "Pickled cucumber" },
-      { "ru": "Майонез", "en": "Mayonnaise" }
+      { "ru": "Тостовый хлеб", "en": "Toast bread", "vi": "Bánh mì nướng" },
+      { "ru": "Куриная грудка (55 гр.)", "en": "Chicken breast (55g)", "vi": "Ức gà (55g)" },
+      { "ru": "Салат микс", "en": "Salad mix", "vi": "Hỗn hợp rau trộn" },
+      { "ru": "Огурец", "en": "Cucumber", "vi": "Dưa chuột" },
+      { "ru": "Помидоры черри темные", "en": "Dark cherry tomatoes", "vi": "Cà chua bi màu sẫm" },
+      { "ru": "Каперс", "en": "Capers", "vi": "Capers" },
+      { "ru": "Соленый огурец", "en": "Pickled cucumber", "vi": "Dưa chuột muối" },
+      { "ru": "Майонез", "en": "Mayonnaise", "vi": "Mayonnaise" }
     ],
     "amount": "250",
     "process": {
       "ru": "Сэндвич с куриной грудкой, тостовым хлебом, томатами черри, огурцом, салатным листом и соусом Тартар.",
-      "en": "Chicken sandwich with toast bread, dark cherry tomatoes, cucumber, salad leaves, and tartar sauce."
+      "en": "Chicken sandwich with toast bread, dark cherry tomatoes, cucumber, salad leaves, and tartar sauce.",
+      "vi": "Bánh mì kẹp gà với bánh mì nướng, cà chua bi màu sẫm, dưa chuột, lá xà lách và sốt tartar."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/swchicken.png"
   }
