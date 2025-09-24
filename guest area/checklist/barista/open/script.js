@@ -1,99 +1,101 @@
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("✅ DOM загружен, инициализация скрипта");
+
   const chat_id = '-1002915693964';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const button = document.getElementById('sendBtn');
 
-  // Берём язык из глобальной переменной lang.js
-  const getCurrentLang = () => window.currentLang || localStorage.getItem('lang') || 'ru';
+  if (!button) {
+    console.error("❌ Кнопка #sendBtn не найдена на странице!");
+    return;
+  }
+  console.log("✅ Кнопка найдена, навешиваем обработчик...");
+
+  let sendLang = localStorage.getItem('lang') || 'ru';
+  console.log("🌍 Текущий язык для отправки:", sendLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.dataset.lang;
+      if (selectedLang) {
+        sendLang = selectedLang;
+        localStorage.setItem('lang', selectedLang);
+        console.log("🔄 Язык изменён:", sendLang);
+      }
+    });
+  });
 
   const buildMessage = () => {
-    const lang = getCurrentLang();
+    console.log("🛠 Формируем сообщение...");
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
     let message = `🧾 <b>${
-      lang === 'en' ? 'Barista open' :
-      'Бариста открытие'
+      sendLang === 'en' ? 'Barista open. Done form 10:' :
+      sendLang === 'vi' ? 'Barista đóng' :
+      'Бариста открытие. Выполнено из 10:'
     }</b>\n\n`;
 
     message += `📅 ${
-      lang === 'en' ? 'Date' :
+      sendLang === 'en' ? 'Date' :
+      sendLang === 'vi' ? 'Ngày' :
       'Дата'
     }: ${date}\n`;
 
-    // имя сотрудника
     const chefSelect = document.querySelector('select[name="chef"]');
     if (chefSelect) {
       const selectedOption = chefSelect.options[chefSelect.selectedIndex];
-      const name = selectedOption.textContent.trim();
-      if (name) {
-        message += `👤 ${name}\n\n`;
-      }
+      message += `👤 ${selectedOption.textContent.trim()}\n\n`;
     }
 
-    // чеклист
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
-
     checklist.forEach((item, index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
-        if (label) {
-          selectedItems.push(`${index + 1}. ${label.textContent.trim()}`);
-        }
+        if (label) selectedItems.push(`${index + 1}. ${label.textContent.trim()}`);
       }
     });
 
-    if (!selectedItems.length) return null;
+    if (selectedItems.length === 0) {
+      console.warn("⚠️ Ничего не выбрано");
+      return null;
+    }
+
     message += selectedItems.join('\n');
+    console.log("📤 Готовое сообщение:", message);
     return message;
   };
 
   const sendMessage = async (msg) => {
-    const response = await fetch(worker_url, {
+    console.log("🔄 Отправляем на Worker...");
+    const res = await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id,
-        text: msg,
-        parse_mode: "HTML"
-      })
+      body: JSON.stringify({ chat_id, text: msg, parse_mode: "HTML" })
     });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error ${response.status}`);
-    }
-
-    return response.json();
+    console.log("📥 Ответ от Worker:", res.status);
+    const data = await res.json();
+    console.log("📥 JSON:", data);
+    return data;
   };
 
   button.addEventListener('click', async () => {
-    const lang = getCurrentLang();
+    console.log("👆 Кнопка нажата");
     const msg = buildMessage();
 
     if (!msg) {
-      alert(
-        lang === 'en' ? 'Please select at least one item' :
-        'Выберите хотя бы один пункт'
-      );
+      alert('Выберите хотя бы один пункт');
       return;
     }
 
     try {
       await sendMessage(msg);
-      alert(
-        lang === 'en' ? '✅ SENT' :
-        '✅ ОТПРАВЛЕНО'
-      );
-
-      // сбрасываем чеклист
+      alert('✅ ОТПРАВЛЕНО');
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
     } catch (err) {
-      console.error('Ошибка отправки:', err);
-      alert(
-        lang === 'en' ? `❌ Error: ${err.message}` :
-        `❌ Ошибка: ${err.message}`
-      );
+      console.error("❌ Ошибка при отправке:", err);
+      alert(`❌ Ошибка: ${err.message}`);
     }
   });
 });
