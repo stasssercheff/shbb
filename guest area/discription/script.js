@@ -1,5 +1,3 @@
-let currentLang = 'ru';
-
 // Пути к JSON-файлам (пока только один)
 const dataFiles = {
   descriptiondish: 'data/descriptiondish.json',
