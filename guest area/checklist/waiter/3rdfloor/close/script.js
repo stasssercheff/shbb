@@ -1,59 +1,101 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const chat_id = '-1002915693964'; // твой Telegram чат ID
-  const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
+  console.log("✅ DOM загружен, инициализация скрипта");
 
-  // === Кнопка отправки ===
+  const chat_id = '-1002915693964';
+  const worker_url = 'https://shbb1.stassser.workers.dev/';
   const button = document.getElementById('sendBtn');
 
-  const buildMessage = (lang) => {
+  if (!button) {
+    console.error("❌ Кнопка #sendBtn не найдена на странице!");
+    return;
+  }
+  console.log("✅ Кнопка найдена, навешиваем обработчик...");
+
+  let sendLang = localStorage.getItem('lang') || 'ru';
+  console.log("🌍 Текущий язык для отправки:", sendLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.dataset.lang;
+      if (selectedLang) {
+        sendLang = selectedLang;
+        localStorage.setItem('lang', selectedLang);
+        console.log("🔄 Язык изменён:", sendLang);
+      }
+    });
+  });
+
+  const buildMessage = () => {
+    console.log("🛠 Формируем сообщение...");
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
-    let message = `🧾 <b>${lang === 'en' ? 'TO DO LIST' : 'СПИСОК НА СЕГОДНЯ'}</b>\n\n`;
-    message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${date}\n\n`;
+
+    let message = `🧾 <b>${
+      sendLang === 'en' ? 'Waiter close 3rd floor. Done form 8:' :
+      sendLang === 'vi' ? 'Barista đóng' :
+      'Официант 3 этаж закрытие. Выполнено из 8:'
+    }</b>\n\n`;
+
+    message += `📅 ${
+      sendLang === 'en' ? 'Date' :
+      sendLang === 'vi' ? 'Ngày' :
+      'Дата'
+    }: ${date}\n`;
+
+    const chefSelect = document.querySelector('select[name="chef"]');
+    if (chefSelect) {
+      const selectedOption = chefSelect.options[chefSelect.selectedIndex];
+      message += `👤 ${selectedOption.textContent.trim()}\n\n`;
+    }
 
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
     checklist.forEach((item, index) => {
       if (item.checked) {
-        selectedItems.push(`${index + 1}. ${item.dataset.ru} / ${item.dataset.en}`);
+        const label = item.closest('.checklist-item')?.querySelector('label');
+        if (label) selectedItems.push(`${index + 1}. ${label.textContent.trim()}`);
       }
     });
 
     if (selectedItems.length === 0) {
-      return null; // ничего не выбрано
+      console.warn("⚠️ Ничего не выбрано");
+      return null;
     }
 
     message += selectedItems.join('\n');
+    console.log("📤 Готовое сообщение:", message);
     return message;
   };
 
-  const sendMessage = (msg) => {
-    return fetch(worker_url, {
+  const sendMessage = async (msg) => {
+    console.log("🔄 Отправляем на Worker...");
+    const res = await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id, text: msg })
-    }).then(res => res.json());
+      body: JSON.stringify({ chat_id, text: msg, parse_mode: "HTML" })
+    });
+    console.log("📥 Ответ от Worker:", res.status);
+    const data = await res.json();
+    console.log("📥 JSON:", data);
+    return data;
   };
 
   button.addEventListener('click', async () => {
-    const msgRu = buildMessage('ru');
-    const msgEn = buildMessage('en');
+    console.log("👆 Кнопка нажата");
+    const msg = buildMessage();
 
-    if (!msgRu) {
-      alert('Выберите хотя бы один пункт / Please select at least one item');
+    if (!msg) {
+      alert('Выберите хотя бы один пункт');
       return;
     }
 
     try {
-      await sendMessage(msgRu);
-      await sendMessage(msgEn);
+      await sendMessage(msg);
       alert('✅ ОТПРАВЛЕНО');
-
-      // Очистка чеклиста
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
     } catch (err) {
-      alert('❌ Ошибка при отправке: ' + err.message);
-      console.error(err);
+      console.error("❌ Ошибка при отправке:", err);
+      alert(`❌ Ошибка: ${err.message}`);
     }
   });
 });
