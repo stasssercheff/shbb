@@ -258,3 +258,15 @@ body {
   padding-left: 45px;  /* слева */
   padding-right: 15px; /* справа */
 }
+
+/* Стили для списка ингредиентов */
+.ingredients-list {
+  list-style-type: disc;       /* обычные маркеры */
+  list-style-position: inside; /* маркер внутри ячейки */
+  margin: 0;
+  padding-left: 0.5em;         /* небольшой отступ слева */
+}
+
+.ingredients-list li {
+  margin-bottom: 2px; /* чуть раздвинем строки */
+}
