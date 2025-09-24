@@ -3,46 +3,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const button = document.getElementById('sendBtn');
 
-  // === Централизованный язык ===
-  let sendLang = localStorage.getItem('appLang') || 'ru'; // по умолчанию русский
-
-  // === Отслеживаем переключение языка ===
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const selectedLang = btn.dataset.lang;
-      if (selectedLang) {
-        sendLang = selectedLang;
-        localStorage.setItem('appLang', selectedLang); // сохраним для всех страниц
-      }
-    });
-  });
+  // Берём язык из глобальной переменной lang.js
+  const getCurrentLang = () => window.currentLang || localStorage.getItem('lang') || 'ru';
 
   const buildMessage = () => {
+    const lang = getCurrentLang();
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
     let message = `🧾 <b>${
-      sendLang === 'en' ? 'TO DO LIST' :
-      sendLang === 'vi' ? 'DANH SÁCH CÔNG VIỆC' :
-      'СПИСОК НА СЕГОДНЯ'
+      lang === 'en' ? 'Barista close' :
+      'Бариста закрытие'
     }</b>\n\n`;
 
     message += `📅 ${
-      sendLang === 'en' ? 'Date' :
-      sendLang === 'vi' ? 'Ngày' :
+      lang === 'en' ? 'Date' :
       'Дата'
     }: ${date}\n`;
 
-    // Имя сотрудника
+    // имя сотрудника
     const chefSelect = document.querySelector('select[name="chef"]');
     if (chefSelect) {
       const selectedOption = chefSelect.options[chefSelect.selectedIndex];
-      message += `👤 ${selectedOption.textContent.trim()}\n\n`;
-    } else {
-      message += `\n`;
+      const name = selectedOption.textContent.trim();
+      if (name) {
+        message += `👤 ${name}\n\n`;
+      }
     }
 
-    // Отмеченные пункты
+    // чеклист
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
 
@@ -55,26 +44,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    if (selectedItems.length === 0) return null;
+    if (!selectedItems.length) return null;
     message += selectedItems.join('\n');
     return message;
   };
 
-  const sendMessage = (msg) => {
-    return fetch(worker_url, {
+  const sendMessage = async (msg) => {
+    const response = await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id, text: msg, parse_mode: "HTML" })
-    }).then(res => res.json());
+      body: JSON.stringify({
+        chat_id,
+        text: msg,
+        parse_mode: "HTML"
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+
+    return response.json();
   };
 
   button.addEventListener('click', async () => {
+    const lang = getCurrentLang();
     const msg = buildMessage();
 
     if (!msg) {
       alert(
-        sendLang === 'en' ? 'Please select at least one item' :
-        sendLang === 'vi' ? 'Vui lòng chọn ít nhất một mục' :
+        lang === 'en' ? 'Please select at least one item' :
+        lang === 'vi' ? 'Vui lòng chọn ít nhất một mục' :
         'Выберите хотя бы один пункт'
       );
       return;
@@ -83,20 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       await sendMessage(msg);
       alert(
-        sendLang === 'en' ? '✅ SENT' :
-        sendLang === 'vi' ? '✅ ĐÃ GỬI' :
+        lang === 'en' ? '✅ SENT' :
+        lang === 'vi' ? '✅ ĐÃ GỬI' :
         '✅ ОТПРАВЛЕНО'
       );
 
-      // Сбрасываем чеклист
+      // сбрасываем чеклист
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
     } catch (err) {
+      console.error('Ошибка отправки:', err);
       alert(
-        sendLang === 'en' ? `❌ Error: ${err.message}` :
-        sendLang === 'vi' ? `❌ Lỗi: ${err.message}` :
+        lang === 'en' ? `❌ Error: ${err.message}` :
+        lang === 'vi' ? `❌ Lỗi: ${err.message}` :
         `❌ Ошибка: ${err.message}`
       );
-      console.error(err);
     }
   });
 });
