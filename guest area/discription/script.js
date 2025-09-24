@@ -48,6 +48,7 @@ function createTable(sectionArray) {
     // Ингредиенты
     const tdIngr = document.createElement('td');
     const ul = document.createElement('ul');
+    ul.className = 'ingredients-list'; // ✅ вот сюда
     dish.ingredients.forEach(ing => {
       const li = document.createElement('li');
       li.textContent = ing[currentLang];
