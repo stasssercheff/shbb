@@ -120,7 +120,7 @@
       "ru": "Глазунья из 2 яиц, руккола с огурцом, брускетта с кремчизом, томатами черри и форелью слабой соли.",
       "en": "Two fried eggs served with arugula and cucumber, ciabatta with cream cheese, cherry tomatoes, and lightly salted trout."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/sunfried_eggs.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/sunfried eggs.png"
   },
   {
     "name": { "ru": "Каша Дружба", "en": "Porridge Druzhba" },
@@ -402,7 +402,7 @@
       "ru": "Корейские макароны из рисовой муки обвариваются и тушатся в соусе из болгарского перца, молодой фасоли и куриной грудки. Основой соуса являются сливки и перечный соус. Декор — микрозелень.",
       "en": "Korean rice noodles are boiled and simmered in a sauce of bell pepper, young beans, and chicken breast. Sauce base: cream and pepper sauce. Garnish with microgreens."
     },
-    "photo": "../../kitchen/kitchen/ttk/dishes/photos/tteobokki.png"
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/tobbokki.png"
   },
   {
     "name": { "ru": "Сэндвич с тунцом", "en": "Tuna Sandwich" },
