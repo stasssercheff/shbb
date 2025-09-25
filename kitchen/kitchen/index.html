@@ -6,24 +6,16 @@
   <title data-i18n="page_title_select"></title>
 
   <!-- Подключаем общий стиль -->
-  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="../../common.css">
   <link rel="stylesheet" href="style.css">
 
   <!-- Логика перевода -->
-  <script src="../lang.js" defer></script>
+  <script src="../../lang.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
   
-<!-- Блок проверки доступа -->
-<script>
-  const accessCode = "1234"; // 🔑 твой код
-  const userInput = prompt("Введите код доступа к странице:");
-  if (userInput !== accessCode) {
-    alert("Неверный код! Доступ запрещён.");
-    window.location.href = "http://stasssercheff.github.io/shbb/"; // редирект на главную
-  }
-</script>
+
 
 <header class="page-header">
   <!-- Переключатель языка -->
