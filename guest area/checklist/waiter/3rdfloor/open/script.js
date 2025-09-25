@@ -31,9 +31,9 @@ let sendLang = localStorage.getItem('sendLang') || 'ru';
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
     let message = `🧾 <b>${
-      sendLang === 'en' ? 'Waiter open 3rd floor. Done form 7:' :
-      sendLang === 'vi' ? 'Phục vụ mở (tầng 3) làm được trong 7' :
-      'Официант 3 этаж открытие. Выполнено из 7:'
+      sendLang === 'en' ? 'Waiter open 3rd floor. Done form 9:' :
+      sendLang === 'vi' ? 'Phục vụ mở (tầng 3) làm được trong 9' :
+      'Официант 3 этаж открытие. Выполнено из 9:'
     }</b>\n\n`;
 
     message += `📅 ${
