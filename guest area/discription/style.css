@@ -49,15 +49,19 @@ body {
 .sections-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
   gap: 30px;
   width: 100%;
-  align-items: center;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 /* Кнопки разделов — фиксированная ширина и одинаковый размер */
 .section-btn {
+  display: block; 
   width: 200px;
   min-width: 200px;
   max-width: 200px;
