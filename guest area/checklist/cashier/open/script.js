@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   console.log("✅ Кнопка найдена, навешиваем обработчик...");
 
-  let sendLang = localStorage.getItem('lang') || 'ru';
+let sendLang = localStorage.getItem('sendLang') || 'ru';
   console.log("🌍 Текущий язык для отправки:", sendLang);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
