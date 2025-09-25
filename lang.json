@@ -798,6 +798,16 @@
     "ru": "Кондитерка",
     "en": "Pastry",
     "vi": "Bánh ngọt"
+  },
+  "ttk": {
+    "ru": "ТТК",
+    "en": "TTK",
+    "vi": "TTK"
+  },
+  "checklists": {
+    "ru": "Чеклисты",
+    "en": "Checklists",
+    "vi": "Danh sách kiểm tra"
   }
 }
 
