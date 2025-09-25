@@ -136,28 +136,28 @@ body {
 }
 
 /* Контейнер для фото в ячейке */
-.dish-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  overflow: hidden;
+td.dish-photo {
+  text-align: center;       /* картинка по центру ячейки */
+  vertical-align: middle;   /* по центру по вертикали, если высота ячейки больше */
+  overflow: hidden;         /* ничего не выйдет за границы столбца */
 }
 
 /* Миниатюра фото */
-.dish-photo img {
-  max-width: 60%;
-  max-height: 60%;
-  width: auto;
-  height: auto;
+td.dish-photo img {
+  max-width: 100%;          /* не шире ячейки столбца */
+  max-height: 80px;         /* ограничение по высоте миниатюры */
+  height: auto;             /* авто-высота => сохраняем пропорции */
+  object-fit: contain;      /* картинка полностью видна, без обрезки */
+  display: block;           /* убираем лишние inline-отступы */
+  margin: 0 auto;           /* центрируем */
   cursor: pointer;
   transition: transform 0.2s ease;
-  object-fit: contain;
 }
 
-.dish-photo img:hover {
+td.dish-photo img:hover {
   transform: scale(1.1);
 }
+
 
 /* Модальное окно фото */
 #photo-modal {
