@@ -1,17 +1,17 @@
-// Отображение текущей даты
+// Показ даты (если она есть на странице)
 document.addEventListener("DOMContentLoaded", () => {
-    const dateEl = document.getElementById("current-date");
+  const dateEl = document.getElementById("current-date");
+  if (dateEl) {
     const today = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    dateEl.textContent = today.toLocaleDateString('ru-RU', options);
+    dateEl.textContent = today.toLocaleDateString(localStorage.getItem("lang") || "ru", options);
+  }
 });
 
-// Функция возврата на главную страницу
 function goHome() {
-    location.href = '/index.html';
+  location.href = "http://stasssercheff.github.io/shbb/";
 }
 
-// Функция возврата на предыдущую страницу
 function goBack() {
-    history.back();
+  history.back();
 }
