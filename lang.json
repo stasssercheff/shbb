@@ -793,5 +793,47 @@
     "ru": "Отключить везде свет",
     "en": "Turn off all lights everywhere",
     "vi": "Tắt tất cả đèn ở mọi khu vực"
+  },
+  "page_title": {
+    "ru": "Выбор подраздела",
+    "en": "Choose Section",
+    "vi": "Chọn phần"
+  },
+  "home": {
+    "ru": "На главную",
+    "en": "Home",
+    "vi": "Trang chủ"
+  },
+  "back": {
+    "ru": "Назад",
+    "en": "Back",
+    "vi": "Quay lại"
+  },
+  "choose_subsection": {
+    "ru": "Выберите подраздел",
+    "en": "Choose a subsection",
+    "vi": "Chọn tiểu mục"
+  },
+  "date": {
+    "ru": "Дата",
+    "en": "Date",
+    "vi": "Ngày"
+  },
+  "schedule": {
+    "ru": "График",
+    "en": "Schedule",
+    "vi": "Lịch"
+  },
+  "pastry": {
+    "ru": "Кондитерка",
+    "en": "Pastry",
+    "vi": "Bánh ngọt"
+  },
+  "kitchen": {
+    "ru": "Кухня",
+    "en": "Kitchen",
+    "vi": "Bếp"
   }
+}
+
 }
