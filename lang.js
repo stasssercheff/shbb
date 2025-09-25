@@ -1,4 +1,5 @@
 let currentLang = localStorage.getItem("lang") || "ru";
+let sendLang = localStorage.getItem("sendLang") || "ru"; // ✅ Язык отправки сообщений 
 let translations = {};
 
 // Загружаем словарь из JSON
@@ -36,6 +37,12 @@ async function loadTranslations() {
 function switchLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("lang", lang);
+
+  // ✅ При смене языка обновляем язык отправки
+  sendLang = lang;
+  localStorage.setItem("sendLang", lang);
+  console.log("📤 Язык отправки обновлён:", sendLang);
+
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
