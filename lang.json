@@ -828,6 +828,413 @@
     "ru": "Чеклист сухой склад",
     "en": "Dry storage checklist",
     "vi": "Danh sách kho khô"
+  },
+  "Maksim": {
+    "ru": "Максим",
+    "en": "Maksim",
+    "vi": "Maksim"
+  },
+  "Boris": {
+    "ru": "Борис",
+    "en": "Boris",
+    "vi": "Boris"
+  },
+  "Miguel": {
+    "ru": "Miguel",
+    "en": "Miguel",
+    "vi": "Miguel"
+  },
+  "Cheap market": {
+    "ru": "Дешевый рынок",
+    "en": "Cheap market",
+    "vi": "Chợ rẻ"
+  },
+  "Eggplant": {
+    "ru": "Баклажан",
+    "en": "Eggplant",
+    "vi": "Cà tím"
+  },
+  "Broccoli": {
+    "ru": "Брокколи",
+    "en": "Broccoli",
+    "vi": "Bông cải xanh"
+  },
+  "Dragon fruit": {
+    "ru": "Дрэгон фрут",
+    "en": "Dragon fruit",
+    "vi": "Thanh long"
+  },
+  "Potato stone": {
+    "ru": "Картофель стоун",
+    "en": "Potato stone",
+    "vi": "Khoai tây đá"
+  },
+  "Potatoes": {
+    "ru": "Картофель",
+    "en": "Potatoes",
+    "vi": "Khoai tây"
+  },
+  "Strawberry": {
+    "ru": "Клубника",
+    "en": "Strawberry",
+    "vi": "Dâu tây"
+  },
+  "Onion": {
+    "ru": "Лук",
+    "en": "Onion",
+    "vi": "Hành"
+  },
+  "Red onion": {
+    "ru": "Лук красный",
+    "en": "Red onion",
+    "vi": "Hành đỏ"
+  },
+  "Mango": {
+    "ru": "Манго",
+    "en": "Mango",
+    "vi": "Xoài"
+  },
+  "Passion fruit": {
+    "ru": "Маракуйя",
+    "en": "Passion fruit",
+    "vi": "Chanh dây"
+  },
+  "Minicorn staff": {
+    "ru": "Миникукуруза стаф",
+    "en": "Minicorn staff",
+    "vi": "Bắp non nhân viên"
+  },
+  "Carrot": {
+    "ru": "Морковь",
+    "en": "Carrot",
+    "vi": "Cà rốt"
+  },
+  "Mint": {
+    "ru": "Мята",
+    "en": "Mint",
+    "vi": "Bạc hà"
+  },
+  "Cucumber": {
+    "ru": "Огурец",
+    "en": "Cucumber",
+    "vi": "Dưa chuột"
+  },
+  "Bell pepper": {
+    "ru": "Перец болгарский",
+    "en": "Bell pepper",
+    "vi": "Ớt chuông"
+  },
+  "Bell pepper (ratatouille)": {
+    "ru": "Перец болгарский( рататуй)",
+    "en": "Bell pepper (ratatouille)",
+    "vi": "Ớt chuông (ratatouille)"
+  },
+  "Radish": {
+    "ru": "Редис",
+    "en": "Radish",
+    "vi": "Củ cải đỏ"
+  },
+  "Pumpkin": {
+    "ru": "Тыква",
+    "en": "Pumpkin",
+    "vi": "Bí đỏ"
+  },
+  "Staff beans": {
+    "ru": "Фасоль стафф",
+    "en": "Staff beans",
+    "vi": "Đậu nhân viên"
+  },
+  "Zucchini": {
+    "ru": "Цукини",
+    "en": "Zucchini",
+    "vi": "Bí ngòi"
+  },
+  "Cherry dark": {
+    "ru": "Черри темные",
+    "en": "Cherry dark",
+    "vi": "Cà chua bi đen"
+  },
+  "Cherry staff": {
+    "ru": "Черри стафф",
+    "en": "Cherry staff",
+    "vi": "Cà chua bi nhân viên"
+  },
+  "Garlic": {
+    "ru": "Чеснок",
+    "en": "Garlic",
+    "vi": "Tỏi"
+  },
+  "Metro": {
+    "ru": "Метро",
+    "en": "Metro",
+    "vi": "Metro"
+  },
+  "Basil": {
+    "ru": "Базилик",
+    "en": "Basil",
+    "vi": "Húng quế"
+  },
+  "Microgreens": {
+    "ru": "Микрозелень",
+    "en": "Microgreens",
+    "vi": "Rau mầm"
+  },
+  "Rosemary": {
+    "ru": "Розмарин",
+    "en": "Rosemary",
+    "vi": "Hương thảo"
+  },
+  "Rocket salad": {
+    "ru": "Руккола",
+    "en": "Rocket salad",
+    "vi": "Rau rocket"
+  },
+  "Thyme": {
+    "ru": "Тимьян",
+    "en": "Thyme",
+    "vi": "Xạ hương"
+  },
+  "Spinach": {
+    "ru": "Шпинат",
+    "en": "Spinach",
+    "vi": "Rau chân vịt"
+  },
+  "Lollo red": {
+    "ru": "Салат красный",
+    "en": "Lollo red",
+    "vi": "Xà lách đỏ"
+  },
+  "Lollo green": {
+    "ru": "Салат зеленый",
+    "en": "Lollo green",
+    "vi": "Xà lách xanh"
+  },
+  "Yogurt": {
+    "ru": "Йогурт",
+    "en": "Yogurt",
+    "vi": "Sữa chua"
+  },
+  "Eggs": {
+    "ru": "Яйцо",
+    "en": "Eggs",
+    "vi": "Trứng"
+  },
+  "Mayonnaise": {
+    "ru": "Майонез",
+    "en": "Mayonnaise",
+    "vi": "Sốt mayonnaise"
+  },
+  "Olive oil": {
+    "ru": "Масло оливковое",
+    "en": "Olive oil",
+    "vi": "Dầu ô liu"
+  },
+  "Vegetable oil": {
+    "ru": "Масло растительное",
+    "en": "Vegetable oil",
+    "vi": "Dầu thực vật"
+  },
+  "Honey": {
+    "ru": "Мед",
+    "en": "Honey",
+    "vi": "Mật ong"
+  },
+  "Milk": {
+    "ru": "Молоко",
+    "en": "Milk",
+    "vi": "Sữa"
+  },
+  "Nutella": {
+    "ru": "Нутелла",
+    "en": "Nutella",
+    "vi": "Nutella"
+  },
+  "Flour": {
+    "ru": "Мука",
+    "en": "Flour",
+    "vi": "Bột mì"
+  },
+  "Pasta": {
+    "ru": "Паста",
+    "en": "Pasta",
+    "vi": "Mì ống"
+  },
+  "Moonmilk": {
+    "ru": "Мунмилк",
+    "en": "Moonmilk",
+    "vi": "Sữa trăng"
+  },
+  "Pumpkin seeds": {
+    "ru": "Тыквеные семечки",
+    "en": "Pumpkin seeds",
+    "vi": "Hạt bí"
+  },
+  "Peanut": {
+    "ru": "Арахис",
+    "en": "Peanut",
+    "vi": "Đậu phộng"
+  },
+  "Order": {
+    "ru": "Заказать",
+    "en": "Order",
+    "vi": "Đặt hàng"
+  },
+  "Pickled cucumber": {
+    "ru": "Огурец маринованный",
+    "en": "Pickled cucumber",
+    "vi": "Dưa muối"
+  },
+  "Capers": {
+    "ru": "Каперсы",
+    "en": "Capers",
+    "vi": "Caper"
+  },
+  "Gorganzola": {
+    "ru": "Горганзола",
+    "en": "Gorganzola",
+    "vi": "Phô mai gorgonzola"
+  },
+  "Canned corn": {
+    "ru": "Кукуруза консервированная",
+    "en": "Canned corn",
+    "vi": "Ngô đóng hộp"
+  },
+  "Lottemart": {
+    "ru": "Лоттемарт",
+    "en": "Lottemart",
+    "vi": "Lottemart"
+  },
+  "Beans work": {
+    "ru": "Фасоль работа",
+    "en": "Beans work",
+    "vi": "Đậu làm việc"
+  },
+  "Teokbokki": {
+    "ru": "Токпокки",
+    "en": "Teokbokki",
+    "vi": "Tokbokki"
+  },
+  "Tuna canned": {
+    "ru": "Тунец консервированный",
+    "en": "Tuna canned",
+    "vi": "Cá ngừ đóng hộp"
+  },
+  "Coconut chips": {
+    "ru": "Кокосовые чипсы",
+    "en": "Coconut chips",
+    "vi": "Khoai tây dừa"
+  },
+  "Muesli": {
+    "ru": "Мюсли",
+    "en": "Muesli",
+    "vi": "Ngũ cốc Muesli"
+  },
+  "Pepper sauce": {
+    "ru": "Перечный соус",
+    "en": "Pepper sauce",
+    "vi": "Sốt tiêu"
+  },
+  "Hoisin sauce": {
+    "ru": "Соус хойсин",
+    "en": "Hoisin sauce",
+    "vi": "Sốt hoisin"
+  },
+  "Nemo": {
+    "ru": "Немо",
+    "en": "Nemo",
+    "vi": "Nemo"
+  },
+  "Butter": {
+    "ru": "Масло сливочное",
+    "en": "Butter",
+    "vi": "Bơ"
+  },
+  "Sublimated strawberries": {
+    "ru": "Клубника сублемированная",
+    "en": "Sublimated strawberries",
+    "vi": "Dâu sấy thăng hoa"
+  },
+  "Mozzarella": {
+    "ru": "Моцарелла",
+    "en": "Mozzarella",
+    "vi": "Phô mai mozzarella"
+  },
+  "Parmesan": {
+    "ru": "Пармезан",
+    "en": "Parmesan",
+    "vi": "Phô mai parmesan"
+  },
+  "Cream": {
+    "ru": "Сливки",
+    "en": "Cream",
+    "vi": "Kem tươi"
+  },
+  "Supliers": {
+    "ru": "Поставщики",
+    "en": "Suppliers",
+    "vi": "Nhà cung cấp"
+  },
+  "Beef": {
+    "ru": "Говядина",
+    "en": "Beef",
+    "vi": "Thịt bò"
+  },
+  "Shrimps": {
+    "ru": "Креветки",
+    "en": "Shrimps",
+    "vi": "Tôm"
+  },
+  "Chicken": {
+    "ru": "Курица",
+    "en": "Chicken",
+    "vi": "Gà"
+  },
+  "Octopus": {
+    "ru": "Осьминог",
+    "en": "Octopus",
+    "vi": "Bạch tuộc"
+  },
+  "Liver": {
+    "ru": "Печень",
+    "en": "Liver",
+    "vi": "Gan"
+  },
+  "Pork(staff)": {
+    "ru": "Свинина(стафф)",
+    "en": "Pork(staff)",
+    "vi": "Thịt heo (staff)"
+  },
+  "Duck": {
+    "ru": "Утка",
+    "en": "Duck",
+    "vi": "Vịt"
+  },
+  "Trout": {
+    "ru": "Форель",
+    "en": "Trout",
+    "vi": "Cá hồi trout"
+  },
+  "Balsamic": {
+    "ru": "Бальзамик",
+    "en": "Balsamic",
+    "vi": "Giấm balsamic"
+  },
+  "Worcester": {
+    "ru": "Ворчествер",
+    "en": "Worcester",
+    "vi": "Nước sốt Worcestershire"
+  },
+  "Maple syrup": {
+    "ru": "Кленовый сироп",
+    "en": "Maple syrup",
+    "vi": "Siro phong"
+  },
+  "Comment": {
+    "ru": "Комментарий",
+    "en": "Comment",
+    "vi": "Bình luận"
   }
+}
+
 }
 
