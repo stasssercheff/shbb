@@ -808,6 +808,26 @@
     "ru": "Чеклисты",
     "en": "Checklists",
     "vi": "Danh sách kiểm tra"
+    },
+  "order": {
+    "ru": "Заказ продуктов",
+    "en": "Order products",
+    "vi": "Đặt hàng"
+  },
+  "checklist_kitchen": {
+    "ru": "Чеклист кухня",
+    "en": "Kitchen checklist",
+    "vi": "Danh sách bếp"
+  },
+  "checklist_storage": {
+    "ru": "Чеклист склад",
+    "en": "Storage checklist",
+    "vi": "Danh sách kho"
+  },
+  "checklist_dry_storage": {
+    "ru": "Чеклист сухой склад",
+    "en": "Dry storage checklist",
+    "vi": "Danh sách kho khô"
   }
 }
 
