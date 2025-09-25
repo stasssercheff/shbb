@@ -689,11 +689,6 @@
     "en": "Prepare all consumables: - Napkins - Salt, sugar, honey, syrup, cookies - Roll napkins with cutlery - Takeaway packaging",
     "vi": "Chuẩn bị tất cả vật phẩm tiêu hao: - Khăn giấy - Muối, đường, mật ong, siro, bánh quy - Cuộn khăn giấy với bộ dụng cụ ăn - Bao bì mang đi"
 },
-"fill_and_turn_on_thermopot": {
-    "ru": "Набрать и включить термопот",
-    "en": "Fill and turn on the thermopot.",
-    "vi": "Đổ đầy và bật bình giữ nhiệt"
-},
 "check_bathroom_supplies_floors_2_3": {
     "ru": "Проверить наличие мыла, салфеток и туалетной бумаги на 2 и 3 этажах",
     "en": "Check soap, napkins, and toilet paper on the 2nd and 3rd floors",
@@ -713,11 +708,6 @@
     "ru": "Очистить раковину",
     "en": "Clean the sink.",
     "vi": "Vệ sinh bồn rửa"
-},
-"turn_off_thermopot": {
-    "ru": "Выключить термопот",
-    "en": "Turn off the thermopot.",
-    "vi": "Tắt bình giữ nhiệt"
 },
 "take_out_all_trash": {
     "ru": "Вытащить мусор из всех урн и отнести его вниз",
@@ -799,21 +789,6 @@
     "en": "Choose Section",
     "vi": "Chọn phần"
   },
-  "home": {
-    "ru": "На главную",
-    "en": "Home",
-    "vi": "Trang chủ"
-  },
-  "back": {
-    "ru": "Назад",
-    "en": "Back",
-    "vi": "Quay lại"
-  },
-  "date": {
-    "ru": "Дата",
-    "en": "Date",
-    "vi": "Ngày"
-  },
   "schedule": {
     "ru": "График",
     "en": "Schedule",
@@ -823,11 +798,6 @@
     "ru": "Кондитерка",
     "en": "Pastry",
     "vi": "Bánh ngọt"
-  },
-  "kitchen": {
-    "ru": "Кухня",
-    "en": "Kitchen",
-    "vi": "Bếp"
   }
 }
 
