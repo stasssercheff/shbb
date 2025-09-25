@@ -334,11 +334,6 @@
     "en": "Almond Croissant",
     "vi": "Bánh sừng bò hạnh nhân"
   },
-  "croissant_beef": {
-    "ru": "Круассан с говядиной",
-    "en": "Beef Croissant",
-    "vi": "Bánh sừng bò bò"
-  },
   "croissant_duck": {
     "ru": "Круассан с уткой",
     "en": "Duck Croissant",
@@ -349,21 +344,70 @@
     "en": "Shrimp Croissant",
     "vi": "Bánh sừng bò tôm"
   },
-  "sandwich_chicken": {
-    "ru": "Сендвич с курицей",
-    "en": "Chicken Sandwich",
-    "vi": "Bánh mì gà"
-  },
-  "sandwich_tuna": {
-    "ru": "Сендвич с тунцом",
-    "en": "Tuna Sandwich",
-    "vi": "Bánh mì cá ngừ"
-  },
-  "sandwich_trout": {
-    "ru": "Сендвич с форелью",
-    "en": "Trout Sandwich",
-    "vi": "Bánh mì cá hồi"
-  },
+ "croissant_beef": {
+  "ru": "Круассан с говядиной",
+  "en": "Beef Croissant",
+  "vi": "Bánh sừng bò bò"
+},
+"croissant_beef_today": {
+  "ru": "Круассан с говядиной сегодня",
+  "en": "Beef Croissant today",
+  "vi": "Bánh sừng bò bò hôm nay"
+},
+"croissant_beef_yesterday": {
+  "ru": "Круассан с говядиной вчера",
+  "en": "Beef Croissant yesterday",
+  "vi": "Bánh sừng bò bò hôm qua"
+},
+
+"sandwich_chicken": {
+  "ru": "Сендвич с курицей",
+  "en": "Chicken Sandwich",
+  "vi": "Bánh mì gà"
+},
+"sandwich_chicken_today": {
+  "ru": "Сендвич с курицей сегодня",
+  "en": "Chicken Sandwich today",
+  "vi": "Bánh mì gà hôm nay"
+},
+"sandwich_chicken_yesterday": {
+  "ru": "Сендвич с курицей вчера",
+  "en": "Chicken Sandwich yesterday",
+  "vi": "Bánh mì gà hôm qua"
+},
+
+"sandwich_tuna": {
+  "ru": "Сендвич с тунцом",
+  "en": "Tuna Sandwich",
+  "vi": "Bánh mì cá ngừ"
+},
+"sandwich_tuna_today": {
+  "ru": "Сендвич с тунцом сегодня",
+  "en": "Tuna Sandwich today",
+  "vi": "Bánh mì cá ngừ hôm nay"
+},
+"sandwich_tuna_yesterday": {
+  "ru": "Сендвич с тунцом вчера",
+  "en": "Tuna Sandwich yesterday",
+  "vi": "Bánh mì cá ngừ hôm qua"
+},
+
+"sandwich_trout": {
+  "ru": "Сендвич с форелью",
+  "en": "Trout Sandwich",
+  "vi": "Bánh mì cá hồi"
+},
+"sandwich_trout_today": {
+  "ru": "Сендвич с форелью сегодня",
+  "en": "Trout Sandwich today",
+  "vi": "Bánh mì cá hồi hôm nay"
+},
+"sandwich_trout_yesterday": {
+  "ru": "Сендвич с форелью вчера",
+  "en": "Trout Sandwich yesterday",
+  "vi": "Bánh mì cá hồi hôm qua"
+}
+
     "task_outdoor_signs": {
       "ru": "Включить: 3 вывески и 2 вентилятора на улице",
       "en": "Turn on: 3 signs and 2 fans. Outside",
