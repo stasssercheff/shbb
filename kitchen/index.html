@@ -3,41 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница выбора</title>
+  <title data-i18n="page_title"></title>
+
+  <!-- Подключаем общий стиль -->
+  <link rel="stylesheet" href="../common.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Логика перевода -->
+  <script src="../lang.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
-  
-  <!-- Блок проверки доступа -->
-<script>
-  const accessCode = "1234"; // задаёшь свой код
-  const userInput = prompt("Введите код доступа к странице:");
-  if (userInput !== accessCode) {
-    alert("Неверный код! Доступ запрещён.");
-    window.location.href = "http://stasssercheff.github.io/shbb/"; // редирект на главную
-  }
-</script>
 
-<header class="page-header">
-  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
-</header>
+  <header class="page-header">
+    <!-- Переключатель языка -->
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
 
-<main class="main-container">
-  <!-- Лого -->
-  <img src="../logo.png" alt="Лого" class="logo">
+    <!-- Кнопки навигации -->
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goHome()" data-i18n="home"></button>
+      <button class="nav-btn" onclick="goBack()" data-i18n="back"></button>
+    </div>
+  </header>
 
-  <!-- Заголовок -->
-  <h1>Выберите подраздел</h1>
+  <main class="main-container">
+    <!-- Лого -->
+    <img src="../logo.png" alt="Logo" class="logo">
 
-  <!-- Кнопки перехода -->
-  <div class="buttons-container">
-    <button class="nav-btn" onclick="location.href='schedule/schedule.html'">График</button>
-    <button class="nav-btn" onclick="location.href='pastry/index.html'">Кондитерка</button>
-    <button class="nav-btn" onclick="location.href='kitchen/index.html'">Кухня</button>
-  </div>
-</main>
+    <!-- Заголовок -->
+    <h1 data-i18n="choose_subsection"></h1>
+
+    <!-- Дата -->
+    <div class="date-container">
+      <span data-i18n="date"></span>: <span id="current-date"></span>
+    </div>
+
+    <!-- Кнопки перехода -->
+    <div class="buttons-container">
+      <button class="nav-btn" onclick="location.href='schedule/schedule.html'" data-i18n="schedule"></button>
+      <button class="nav-btn" onclick="location.href='pastry/index.html'" data-i18n="pastry"></button>
+      <button class="nav-btn" onclick="location.href='kitchen/index.html'" data-i18n="kitchen"></button>
+    </div>
+  </main>
 
 </body>
 </html>
