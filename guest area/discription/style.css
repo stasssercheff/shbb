@@ -209,11 +209,14 @@ body {
 /* Стили для списка ингредиентов */
 .ingredients-list {
   list-style-type: disc;
-  list-style-position: inside;
+  list-style-position: outside; /* ✅ выносит маркер за текст */
   margin: 0;
-  padding-left: 0.5em;
+  padding-left: 1.2em; /* ✅ увеличен отступ, чтобы маркер не прижимался */
+  display: block; /* ✅ гарантирует корректное позиционирование */
+  overflow: visible; /* ✅ исключает обрезку */
 }
 
 .ingredients-list li {
   margin-bottom: 2px;
 }
+
