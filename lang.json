@@ -809,11 +809,6 @@
     "en": "Back",
     "vi": "Quay lại"
   },
-  "choose_subsection": {
-    "ru": "Выберите подраздел",
-    "en": "Choose a subsection",
-    "vi": "Chọn tiểu mục"
-  },
   "date": {
     "ru": "Дата",
     "en": "Date",
@@ -836,4 +831,3 @@
   }
 }
 
-}
