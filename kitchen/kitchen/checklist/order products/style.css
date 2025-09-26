@@ -27,14 +27,37 @@
     line-height: 36px;
 }
 
-/* Переопределяем dish для этой страницы (если нужно компактнее) */
+/* Переопределяем dish для этой страницы (компактнее) */
 .dish {
     margin-bottom: 6px;
     padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff; /* чтобы отделить от секции */
+    border-radius: 6px;
 }
 
+/* Выравнивание наименований по левому краю */
+.dish label {
+    flex: 1;
+    text-align: left;
+    display: block;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+/* Селект остаётся справа, компактный */
 .dish select.qty {
     flex: 0 0 80px;
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    text-align-last: center;
+    background: #fff;
+    cursor: pointer;
 }
 
 /* Комментарии (уникальные для этой страницы) */
