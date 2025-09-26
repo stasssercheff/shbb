@@ -34,35 +34,18 @@
     <!-- Заголовок -->
     <h1 data-i18n="order"></h1>
 
-    <!-- Секция сотрудников -->
+   <!-- Секция сотрудников -->
 <div class="section-title" data-i18n="employees"></div>
 
 <div class="dish">
-  <label>
-    <input type="radio" name="employee" value="maksim" />
-    <span data-i18n="maksim"></span>
-  </label>
-</div>
-
-<div class="dish">
-  <label>
-    <input type="radio" name="employee" value="boris" />
-    <span data-i18n="boris"></span>
-  </label>
-</div>
-
-<div class="dish">
-  <label>
-    <input type="radio" name="employee" value="miguel" />
-    <span data-i18n="miguel"></span>
-  </label>
-</div>
-
-    <div class="dish">
-  <label>
-    <input type="radio" name="employee" value="stas" />
-    <span data-i18n="stas"></span>
-  </label>
+  <label for="employeeSelect" data-i18n="employee"></label>
+  <select id="employeeSelect" class="qty">
+    <option value="" selected>-</option>
+    <option value="maksim" data-i18n="maksim"></option>
+    <option value="boris" data-i18n="boris"></option>
+    <option value="miguel" data-i18n="miguel"></option>
+    <option value="stas" data-i18n="stas"></option>
+  </select>
 </div>
     
     <!-- Секция продуктов -->
