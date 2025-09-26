@@ -1,32 +1,10 @@
-
-// Функция возврата на главную страницу
+// === Функции возврата ===
 function goHome() {
-    location.href = '/index.html';
+  location.href = '/index.html';
 }
 
-// Функция возврата на предыдущую страницу
 function goBack() {
-    history.back();
-}
-
-// === Переключение языка ===
-function switchLanguage(lang) {
-  document.documentElement.lang = lang;
-
-  document.querySelectorAll('.section-title').forEach(title => {
-    if (title.dataset[lang]) title.textContent = title.dataset[lang];
-  });
-
-  document.querySelectorAll('.check-label').forEach(label => {
-    if (label.dataset[lang]) label.textContent = label.dataset[lang];
-  });
-
-  document.querySelectorAll('select').forEach(select => {
-    Array.from(select.options).forEach(option => {
-      if (option.value === '') option.textContent = '—';
-      else if (option.dataset[lang]) option.textContent = option.dataset[lang];
-    });
-  });
+  history.back();
 }
 
 // === Сохранение и восстановление данных формы ===
@@ -55,24 +33,7 @@ function restoreFormData() {
 
 // === DOMContentLoaded ===
 document.addEventListener('DOMContentLoaded', () => {
-  const lang = document.documentElement.lang || 'ru';
-
-  // Вставка пустой опции в каждый select.qty
-  document.querySelectorAll('select.qty').forEach(select => {
-    const hasEmpty = Array.from(select.options).some(opt => opt.value === '');
-    if (!hasEmpty) {
-      const emptyOption = document.createElement('option');
-      emptyOption.value = '';
-      emptyOption.dataset.ru = '—';
-      emptyOption.dataset.en = '—';
-      emptyOption.textContent = '—';
-      emptyOption.selected = true;
-      select.insertBefore(emptyOption, select.firstChild);
-    }
-  });
-
   restoreFormData();
-  switchLanguage(lang);
 
   const today = new Date();
   const day = String(today.getDate()).padStart(2, '0');
@@ -127,12 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Кнопка отправки ===
   const button = document.getElementById('sendToTelegram');
   button.addEventListener('click', () => {
-    const chat_id = '-1002393080811'; // твой Telegram чат ID
-    const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
-    const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
+    const chat_id = '-1002393080811';
+    const worker_url = 'https://shbb1.stassser.workers.dev/';
+    const emailTo = 'stassserchef@gmail.com';
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-    // Отправка в Telegram через воркер
     const sendMessage = (msg) => {
       return fetch(worker_url, {
         method: 'POST',
@@ -141,15 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(res => res.json());
     };
 
-    // Отправка email через Web3Forms
-    const sendEmail = async (msg) => {
+    const sendEmail = async (msg, lang) => {
       try {
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            subject: "ЗАКАЗ",
+            subject: lang === 'en' ? "ORDER" : "ЗАКАЗ",
             from_name: "SHBB KITCHEN",
             reply_to: "no-reply@shbb.com",
             message: msg
@@ -162,12 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    const sendAllParts = async (text) => {
+    const sendAllParts = async (text, lang) => {
       let start = 0;
       while (start < text.length) {
         const chunk = text.slice(start, start + 4000);
         await sendMessage(chunk);
-        await sendEmail(chunk);
+        await sendEmail(chunk, lang);
         start += 4000;
       }
     };
@@ -179,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     (async () => {
       try {
-        await sendAllParts(buildMessage('ru'));
-        await sendAllParts(buildMessage('en'));
+        await sendAllParts(buildMessage('ru'), 'ru');
+        await sendAllParts(buildMessage('en'), 'en');
 
         alert('✅ ОТПРАВЛЕНО');
         localStorage.clear();
