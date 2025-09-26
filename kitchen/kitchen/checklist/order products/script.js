@@ -45,21 +45,24 @@ function restoreFormData() {
 
 // === Генерация сообщения ===
 function buildMessage(lang, formattedDate) {
-  let message = `${lang === 'en' ? 'ORDER' : 'ЗАКАЗ'}\n\n`;
-  message += `${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
+  let message = `${translations['order']?.[lang] || (lang === 'en' ? 'ORDER' : 'ЗАКАЗ')}\n\n`;
+  message += `${translations['date']?.[lang] || (lang === 'en' ? 'Date' : 'Дата')}: ${formattedDate}\n`;
 
-  // Имя повара (берём select вне menu-section)
+  // Имя повара
   const nameSelect = document.querySelector('#employeeSelect');
   const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-  const name = selectedChef?.dataset[lang] || '-';
-  message += `${lang === 'en' ? 'Name' : 'Имя'}: ${name}\n\n`;
+  const nameKey = selectedChef?.dataset.i18n;
+  const name = nameKey ? translations[nameKey]?.[lang] : '-';
+  message += `${translations['name']?.[lang] || (lang === 'en' ? 'Name' : 'Имя')}: ${name || '-'}\n\n`;
 
   // Перебор всех menu-section (кроме первой, где имя)
   document.querySelectorAll('.menu-section').forEach((section, index) => {
     if (index === 0) return; // пропускаем блок с именем
 
     const sectionTitle = section.querySelector('.section-title');
-    const title = sectionTitle?.dataset[lang] || sectionTitle?.textContent || '';
+    const titleKey = sectionTitle?.dataset.i18n;
+    const title = titleKey ? translations[titleKey]?.[lang] : sectionTitle?.textContent || '';
+
     let sectionContent = '';
     let counter = 1;
 
@@ -68,16 +71,20 @@ function buildMessage(lang, formattedDate) {
       if (!select || !select.value) return;
 
       const label = dish.querySelector('label');
-      const labelText = label?.dataset[lang] || label?.textContent || '-';
+      const labelKey = label?.dataset.i18n;
+      const labelText = labelKey ? translations[labelKey]?.[lang] : label?.textContent || '-';
+
       const selectedOption = select.options[select.selectedIndex];
-      const value = selectedOption?.dataset[lang] || selectedOption?.textContent || '-';
+      const valueKey = selectedOption?.dataset.i18n;
+      const value = valueKey ? translations[valueKey]?.[lang] : selectedOption?.textContent || '-';
+
       sectionContent += `${counter}. ${labelText}: ${value}\n`;
       counter++;
     });
 
     const commentField = section.querySelector('textarea.comment');
     if (commentField && commentField.value.trim()) {
-      sectionContent += `${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+      sectionContent += `${translations['comment']?.[lang] || (lang === 'en' ? 'Comment' : 'Комментарий')}: ${commentField.value.trim()}\n`;
     }
 
     if (sectionContent.trim()) {
@@ -124,20 +131,17 @@ button.addEventListener('click', async () => {
   };
 
   try {
-    // Формируем дату
     const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const formattedDate = `${day}/${month}`;
+    const formattedDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
-    // Сначала русский, потом английский
+    // Формируем сообщения на RU и EN, независимо от языка интерфейса
     const messageRu = buildMessage('ru', formattedDate);
     const messageEn = buildMessage('en', formattedDate);
 
     await sendAllParts(messageRu);
     await sendAllParts(messageEn);
 
-    alert('✅ ОТПРАВЛЕНО');
+    alert('✅ ОТПРАВЛЕНО на RU и EN');
     localStorage.clear();
     document.querySelectorAll('select').forEach(select => select.value = '');
     document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
@@ -146,3 +150,6 @@ button.addEventListener('click', async () => {
     console.error(err);
   }
 });
+
+// Восстанавливаем сохраненные данные при загрузке
+document.addEventListener("DOMContentLoaded", restoreFormData);
