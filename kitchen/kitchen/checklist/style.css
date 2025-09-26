@@ -1,5 +1,6 @@
-/* Базовый стиль страницы берём из common.css, тут — только доп. стили */
+/* Локальные стили для страницы выбора */
 
+/* Контейнер с кнопками перехода — остаётся по центру */
 .buttons-container {
   display: flex;
   flex-direction: column;
@@ -7,6 +8,7 @@
   align-items: center;
 }
 
+/* Кнопки перехода — по центру, но не на всю ширину */
 .nav-btn {
   padding: 12px 20px;
   width: 100%;
@@ -23,4 +25,17 @@
 
 .nav-btn:hover {
   background-color: var(--accent-hover);
+}
+
+/* === ФИКС ХЕДЕРА === */
+.page-header .nav-buttons {
+  display: flex;
+  justify-content: center; /* ✅ центрируем */
+  gap: 10px;
+}
+
+.page-header .nav-buttons .nav-btn {
+  max-width: 150px; /* ✅ одинаковая ширина */
+  flex: 1;
+  text-align: center;
 }
