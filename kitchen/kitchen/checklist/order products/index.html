@@ -30,121 +30,500 @@
   </header>
 
   <main class="main-container">
-    <!-- Лого -->
-    <img src="logo.png" alt="Лого" class="logo">
-
+   
     <!-- Заголовок -->
-    <h1 data-i18n="checklist_kitchen"></h1>
+    <h1 data-i18n="order"></h1>
 
     <!-- Секция сотрудников -->
-    <div class="section-title" data-i18n="employees"></div>
-    <div class="dish"><label data-i18n="maksim" for="maksim"></label><select id="maksim" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="boris" for="boris"></label><select id="boris" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="miguel" for="miguel"></label><select id="miguel" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
+<div class="section-title" data-i18n="employees"></div>
 
+<div class="dish">
+  <label>
+    <input type="radio" name="employee" value="maksim" />
+    <span data-i18n="maksim"></span>
+  </label>
+</div>
+
+<div class="dish">
+  <label>
+    <input type="radio" name="employee" value="boris" />
+    <span data-i18n="boris"></span>
+  </label>
+</div>
+
+<div class="dish">
+  <label>
+    <input type="radio" name="employee" value="miguel" />
+    <span data-i18n="miguel"></span>
+  </label>
+</div>
+
+    <div class="dish">
+  <label>
+    <input type="radio" name="employee" value="stas" />
+    <span data-i18n="boris"></span>
+  </label>
+</div>
+    
     <!-- Секция продуктов -->
     <div class="section-title" data-i18n="cheap_market"></div>
 
-    <div class="dish"><label data-i18n="eggplant" for="eggplant"></label><select id="eggplant" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="broccoli" for="broccoli"></label><select id="broccoli" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="dragonfruit" for="dragonfruit"></label><select id="dragonfruit" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="potato_stone" for="potato_stone"></label><select id="potato_stone" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="potato" for="potato"></label><select id="potato" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="strawberry" for="strawberry"></label><select id="strawberry" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="onion" for="onion"></label><select id="onion" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="onion_red" for="onion_red"></label><select id="onion_red" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="mango" for="mango"></label><select id="mango" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="passionfruit" for="passionfruit"></label><select id="passionfruit" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="mini_corn_staff" for="mini_corn_staff"></label><select id="mini_corn_staff" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="carrot" for="carrot"></label><select id="carrot" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="mint" for="mint"></label><select id="mint" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="cucumber" for="cucumber"></label><select id="cucumber" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="bell_pepper" for="bell_pepper"></label><select id="bell_pepper" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="bell_pepper_rat" for="bell_pepper_rat"></label><select id="bell_pepper_rat" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="radish" for="radish"></label><select id="radish" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="pumpkin" for="pumpkin"></label><select id="pumpkin" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="beans_staff" for="beans_staff"></label><select id="beans_staff" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="zucchini" for="zucchini"></label><select id="zucchini" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="cherry_dark" for="cherry_dark"></label><select id="cherry_dark" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="cherry_staff" for="cherry_staff"></label><select id="cherry_staff" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="garlic" for="garlic"></label><select id="garlic" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
+    <div class="dish"><label data-i18n="eggplant" for="eggplant"></label>
+<select id="eggplant" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="broccoli" for="broccoli"></label>
+<select id="broccoli" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="dragonfruit" for="dragonfruit"></label>
+<select id="dragonfruit" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="potato_stone" for="potato_stone"></label>
+<select id="potato_stone" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="potato" for="potato"></label>
+<select id="potato" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="strawberry" for="strawberry"></label>
+<select id="strawberry" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="onion" for="onion"></label>
+<select id="onion" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="onion_red" for="onion_red"></label>
+<select id="onion_red" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="mango" for="mango"></label>
+<select id="mango" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="passionfruit" for="passionfruit"></label>
+<select id="passionfruit" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="mini_corn_staff" for="mini_corn_staff"></label>
+<select id="mini_corn_staff" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="carrot" for="carrot"></label>
+<select id="carrot" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="mint" for="mint"></label>
+<select id="mint" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="cucumber" for="cucumber"></label>
+<select id="cucumber" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="bell_pepper" for="bell_pepper"></label>
+<select id="bell_pepper" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="bell_pepper_rat" for="bell_pepper_rat"></label>
+<select id="bell_pepper_rat" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="radish" for="radish"></label>
+<select id="radish" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="pumpkin" for="pumpkin"></label>
+<select id="pumpkin" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="beans_staff" for="beans_staff"></label>
+<select id="beans_staff" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="zucchini" for="zucchini"></label>
+<select id="zucchini" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="cherry_dark" for="cherry_dark"></label>
+<select id="cherry_dark" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="cherry_staff" for="cherry_staff"></label>
+<select id="cherry_staff" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="garlic" for="garlic"></label>
+<select id="garlic" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
 
     <!-- Комментарий -->
     <div class="section-title" data-i18n="comment"></div>
     <textarea id="comment_cheap" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
     
     <!-- Секция Метро -->
-    <div class="section-title" data-i18n="metro"></div>
-    <div class="dish"><label data-i18n="basil" for="basil"></label><select id="basil" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="microgreens" for="microgreens"></label><select id="microgreens" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="rosemary" for="rosemary"></label><select id="rosemary" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="arugula" for="arugula"></label><select id="arugula" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="thyme" for="thyme"></label><select id="thyme" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="spinach" for="spinach"></label><select id="spinach" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="lettuce_red" for="lettuce_red"></label><select id="lettuce_red" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="lettuce_green" for="lettuce_green"></label><select id="lettuce_green" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="yogurt" for="yogurt"></label><select id="yogurt" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="egg" for="egg"></label><select id="egg" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="mayonnaise" for="mayonnaise"></label><select id="mayonnaise" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="olive_oil" for="olive_oil"></label><select id="olive_oil" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="vegetable_oil" for="vegetable_oil"></label><select id="vegetable_oil" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="honey" for="honey"></label><select id="honey" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="milk" for="milk"></label><select id="milk" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="nutella" for="nutella"></label><select id="nutella" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="flour" for="flour"></label><select id="flour" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="pasta" for="pasta"></label><select id="pasta" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="moonmilk" for="moonmilk"></label><select id="moonmilk" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="pumpkin_seeds" for="pumpkin_seeds"></label><select id="pumpkin_seeds" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="peanut" for="peanut"></label><select id="peanut" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="pickled_cucumber" for="pickled_cucumber"></label><select id="pickled_cucumber" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="capers" for="capers"></label><select id="capers" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="gorgonzola" for="gorgonzola"></label><select id="gorgonzola" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="corn_canned" for="corn_canned"></label><select id="corn_canned" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
+<div class="section-title" data-i18n="metro"></div>
 
-    <!-- Комментарий -->
-    <div class="section-title" data-i18n="comment"></div>
-    <textarea id="comment_metro" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
-    
-    <!-- Секция Лоттемарт -->
-    <div class="section-title" data-i18n="lottemart"></div>
-    <div class="dish"><label data-i18n="beans_work" for="beans_work"></label><select id="beans_work" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="tteokbokki" for="tteokbokki"></label><select id="tteokbokki" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="tuna_canned" for="tuna_canned"></label><select id="tuna_canned" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="coconut_chips" for="coconut_chips"></label><select id="coconut_chips" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="muesli" for="muesli"></label><select id="muesli" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="pepper_sauce" for="pepper_sauce"></label><select id="pepper_sauce" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="hoisin_sauce" for="hoisin_sauce"></label><select id="hoisin_sauce" class="qty"><option value="" selected>-</
+<div class="dish"><label data-i18n="basil" for="basil"></label>
+<select id="basil" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="microgreens" for="microgreens"></label>
+<select id="microgreens" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="rosemary" for="rosemary"></label>
+<select id="rosemary" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="arugula" for="arugula"></label>
+<select id="arugula" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="thyme" for="thyme"></label>
+<select id="thyme" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="spinach" for="spinach"></label>
+<select id="spinach" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="lettuce_red" for="lettuce_red"></label>
+<select id="lettuce_red" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="lettuce_green" for="lettuce_green"></label>
+<select id="lettuce_green" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="yogurt" for="yogurt"></label>
+<select id="yogurt" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="egg" for="egg"></label>
+<select id="egg" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="mayonnaise" for="mayonnaise"></label>
+<select id="mayonnaise" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="olive_oil" for="olive_oil"></label>
+<select id="olive_oil" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="vegetable_oil" for="vegetable_oil"></label>
+<select id="vegetable_oil" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="honey" for="honey"></label>
+<select id="honey" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="milk" for="milk"></label>
+<select id="milk" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="nutella" for="nutella"></label>
+<select id="nutella" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="flour" for="flour"></label>
+<select id="flour" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="pasta" for="pasta"></label>
+<select id="pasta" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<!-- Секция Мунмилк -->
+<div class="section-title" data-i18n="moonmilk"></div>
+
+<div class="dish"><label data-i18n="pumpkin_seeds" for="pumpkin_seeds"></label>
+<select id="pumpkin_seeds" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="peanut" for="peanut"></label>
+<select id="peanut" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="pickled_cucumber" for="pickled_cucumber"></label>
+<select id="pickled_cucumber" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="capers" for="capers"></label>
+<select id="capers" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="gorgonzola" for="gorgonzola"></label>
+<select id="gorgonzola" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="corn_canned" for="corn_canned"></label>
+<select id="corn_canned" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<!-- Комментарий -->
+<div class="section-title" data-i18n="comment"></div>
+<textarea id="comment_metro" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+
+<!-- Секция Лоттемарт -->
+<div class="section-title" data-i18n="lottemart"></div>
+
+<div class="dish"><label data-i18n="beans_work" for="beans_work"></label>
+<select id="beans_work" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="tteokbokki" for="tteokbokki"></label>
+<select id="tteokbokki" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="tuna_canned" for="tuna_canned"></label>
+<select id="tuna_canned" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="coconut_chips" for="coconut_chips"></label>
+<select id="coconut_chips" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="muesli" for="muesli"></label>
+<select id="muesli" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="pepper_sauce" for="pepper_sauce"></label>
+<select id="pepper_sauce" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="hoisin_sauce" for="hoisin_sauce"></label>
+<select id="hoisin_sauce" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
 
     <!-- Комментарий -->
     <div class="section-title" data-i18n="comment"></div>
     <textarea id="comment_lottemart" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
 
-    <!-- Секция Немо -->
-    <div class="section-title" data-i18n="nemo"></div>
-    <div class="dish"><label data-i18n="salmon" for="salmon"></label><select id="salmon" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="tuna_steak" for="tuna_steak"></label><select id="tuna_steak" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="octopus" for="octopus"></label><select id="octopus" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="squid" for="squid"></label><select id="squid" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="shrimp" for="shrimp"></label><select id="shrimp" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="mussel" for="mussel"></label><select id="mussel" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
+      <!-- Секция Немо -->
+<div class="section-title" data-i18n="nemo"></div>
 
-    <!-- Комментарий -->
-    <div class="section-title" data-i18n="comment"></div>
-    <textarea id="comment_nemo" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+<div class="dish"><label data-i18n="butter" for="butter"></label>
+<select id="butter" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
 
-    <!-- Секция Поставщики -->
-    <div class="section-title" data-i18n="suppliers"></div>
-    <div class="dish"><label data-i18n="duck_breast" for="duck_breast"></label><select id="duck_breast" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="duck_leg" for="duck_leg"></label><select id="duck_leg" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="duck_fat" for="duck_fat"></label><select id="duck_fat" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="veal" for="veal"></label><select id="veal" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="lamb" for="lamb"></label><select id="lamb" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="oxtail" for="oxtail"></label><select id="oxtail" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
-    <div class="dish"><label data-i18n="foie_gras" for="foie_gras"></label><select id="foie_gras" class="qty"><option value="" selected>-</option><option value="order" data-i18n="order"></option></select></div>
+<div class="dish"><label data-i18n="strawberry_freeze" for="strawberry_freeze"></label>
+<select id="strawberry_freeze" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
 
-    <!-- Комментарий -->
-    <div class="section-title" data-i18n="comment"></div>
-    <textarea id="comment_suppliers" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+<div class="dish"><label data-i18n="mozzarella" for="mozzarella"></label>
+<select id="mozzarella" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="parmesan" for="parmesan"></label>
+<select id="parmesan" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="cream" for="cream"></label>
+<select id="cream" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<!-- Комментарий -->
+<div class="section-title" data-i18n="comment"></div>
+<textarea id="comment_nemo" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+
+
+<!-- Секция Поставщики -->
+<div class="section-title" data-i18n="suppliers"></div>
+
+<div class="dish"><label data-i18n="beef" for="beef"></label>
+<select id="beef" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="shrimp" for="shrimp"></label>
+<select id="shrimp" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="chicken" for="chicken"></label>
+<select id="chicken" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="octopus" for="octopus"></label>
+<select id="octopus" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="liver" for="liver"></label>
+<select id="liver" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="pork_staff" for="pork_staff"></label>
+<select id="pork_staff" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="duck" for="duck"></label>
+<select id="duck" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="trout" for="trout"></label>
+<select id="trout" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="balsamic" for="balsamic"></label>
+<select id="balsamic" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="worcestershire" for="worcestershire"></label>
+<select id="worcestershire" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<div class="dish"><label data-i18n="maple_syrup" for="maple_syrup"></label>
+<select id="maple_syrup" class="qty">
+  <option value="" selected>-</option>
+  <option value="order" data-i18n="order"></option>
+</select></div>
+
+<!-- Комментарий -->
+<div class="section-title" data-i18n="comment"></div>
+<textarea id="comment_suppliers" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+
 
     <!-- Кнопка отправки -->
     <button id="send" data-i18n="send"></button>
