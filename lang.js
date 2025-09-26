@@ -44,12 +44,16 @@ function switchLanguage(lang) {
   console.log("📤 Язык отправки обновлён:", sendLang);
 
 
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[key] && translations[key][lang]) {
-      el.textContent = translations[key][lang];
+document.querySelectorAll("[data-i18n]").forEach(el => {
+  const key = el.dataset.i18n;
+  if (translations[key] && translations[key][lang]) {
+    if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
+      el.setAttribute("placeholder", translations[key][lang]);
+    } else {
+      el.innerHTML = translations[key][lang];
     }
-  });
+  }
+});
 
   // обновляем дату
   const dateEl = document.getElementById("current-date");
