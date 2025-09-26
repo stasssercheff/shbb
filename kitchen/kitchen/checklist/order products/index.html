@@ -34,6 +34,7 @@
     <!-- Заголовок -->
     <h1 data-i18n="order"></h1>
 
+    <div class="menu-section">
 <div class="dish">
   <label for="employeeSelect" data-i18n="name"></label>
   <select id="employeeSelect" name="chef" class="qty">
@@ -44,9 +45,10 @@
     <option value="stas" data-i18n="stas"></option>
   </select>
 </div>
-
+</div>
     
     <!-- Секция продуктов -->
+      <div class="menu-section">
     <div class="section-title" data-i18n="cheap_market"></div>
 
     <div class="dish"><label data-i18n="eggplant" for="eggplant"></label>
@@ -103,7 +105,7 @@
   <option value="order+" data-i18n="order+"></option>
 </select></div>
 
-<div class="dish"><label data-i18n="dragon_fruit" for="passionfruit"></label>
+<div class="dish"><label data-i18n="passionfruit" for="passionfruit"></label>
 <select id="passionfruit" class="qty">
   <option value="" selected>-</option>
   <option value="order+" data-i18n="order+"></option>
@@ -189,9 +191,12 @@
 
     <!-- Комментарий -->
     <div class="section-title" data-i18n="comment"></div>
-    <textarea id="comment_cheap" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
-    
+<textarea id="comment_cheap" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+</div>
+
+        
     <!-- Секция Метро -->
+        <div class="menu-section">
 <div class="section-title" data-i18n="metro"></div>
 
 <div class="dish"><label data-i18n="basil" for="basil"></label>
@@ -304,9 +309,12 @@
 
     <!-- Комментарий -->
 <div class="section-title" data-i18n="comment"></div>
-<textarea id="comment_suppliers" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+<textarea id="comment_metro" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+</div>
 
+          
 <!-- Секция Мунмилк -->
+          <div class="menu-section">
 <div class="section-title" data-i18n="moonmilk"></div>
 
 <div class="dish"><label data-i18n="pumpkin_seeds" for="pumpkin_seeds"></label>
@@ -347,9 +355,12 @@
 
 <!-- Комментарий -->
 <div class="section-title" data-i18n="comment"></div>
-<textarea id="comment_metro" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+<textarea id="comment_moonmilk" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+</div>
 
+            
 <!-- Секция Лоттемарт -->
+            <div class="menu-section">
 <div class="section-title" data-i18n="lottemart"></div>
 
 <div class="dish"><label data-i18n="beans_work" for="beans_work"></label>
@@ -396,9 +407,12 @@
 
     <!-- Комментарий -->
     <div class="section-title" data-i18n="comment"></div>
-    <textarea id="comment_lottemart" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+<textarea id="comment_lottemart" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+</div>
 
+              
       <!-- Секция Немо -->
+              <div class="menu-section">
 <div class="section-title" data-i18n="nemo"></div>
 
 <div class="dish"><label data-i18n="butter" for="butter"></label>
@@ -433,10 +447,13 @@
 
 <!-- Комментарий -->
 <div class="section-title" data-i18n="comment"></div>
-<textarea id="comment_nemo" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+<textarea id="comment_nemo" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+</div>
 
 
+                
 <!-- Секция Поставщики -->
+                <div class="menu-section">
 <div class="section-title" data-i18n="supliers"></div>
 
 <div class="dish"><label data-i18n="beef" for="beef"></label>
@@ -507,7 +524,8 @@
 
 <!-- Комментарий -->
 <div class="section-title" data-i18n="comment"></div>
-<textarea id="comment_suppliers" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+<textarea id="comment_supliers" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
+</div>
 
 
     <!-- Кнопка отправки -->
