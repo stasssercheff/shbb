@@ -112,3 +112,14 @@ h1[data-i18n] {
     box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     white-space: pre-wrap;
 }
+.checklist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* чтобы чекбокс выравнивался по верхней строке */
+  gap: 10px;
+}
+
+.checklist-item label {
+  flex: 1;        /* текст занимает всю ширину */
+  word-break: break-word; /* перенос слов, если очень длинные */
+}
