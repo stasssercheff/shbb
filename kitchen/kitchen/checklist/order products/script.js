@@ -36,108 +36,104 @@ function restoreFormData() {
 
 // === Генерация сообщения ===
 function buildMessage(lang, formattedDate) {
-  let message = `🧾 <b>${lang === 'en' ? 'ORDER' : 'ЗАКАЗ'}</b>\n\n`;
-  message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
+  let message = `${lang === 'en' ? 'ORDER' : 'ЗАКАЗ'}\n\n`;
+  message += `${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
 
-  // Имя повара
-  const nameSelect = document.querySelector('select[name="chef"]');
+  // Имя повара (берём select вне menu-section)
+  const nameSelect = document.querySelector('#employeeSelect');
   const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-  const name = selectedChef?.dataset[lang] || '—';
-  message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n\n`;
+  const name = selectedChef?.dataset[lang] || '-';
+  message += `${lang === 'en' ? 'Name' : 'Имя'}: ${name}\n\n`;
 
-  // Секции с блюдами
-  document.querySelectorAll('.menu-section').forEach(section => {
+  // Перебор всех menu-section (кроме первой, где имя)
+  document.querySelectorAll('.menu-section').forEach((section, index) => {
+    if (index === 0) return; // пропускаем блок с именем
+
     const sectionTitle = section.querySelector('.section-title');
-    const title = sectionTitle?.dataset[lang] || '';
+    const title = sectionTitle?.dataset[lang] || sectionTitle?.textContent || '';
     let sectionContent = '';
+    let counter = 1;
 
     section.querySelectorAll('.dish').forEach(dish => {
       const select = dish.querySelector('select.qty');
       if (!select || !select.value) return;
 
       const label = dish.querySelector('label');
-      const labelText = label?.dataset[lang] || label?.textContent || '—';
+      const labelText = label?.dataset[lang] || label?.textContent || '-';
       const selectedOption = select.options[select.selectedIndex];
-      const value = selectedOption?.dataset[lang] || selectedOption?.textContent || '—';
-      sectionContent += `• ${labelText}: ${value}\n`;
+      const value = selectedOption?.dataset[lang] || selectedOption?.textContent || '-';
+      sectionContent += `${counter}. ${labelText}: ${value}\n`;
+      counter++;
     });
 
     const commentField = section.querySelector('textarea.comment');
     if (commentField && commentField.value.trim()) {
-      sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+      sectionContent += `${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
     }
 
     if (sectionContent.trim()) {
-      message += `🔸 <b>${title}</b>\n${sectionContent}\n`;
+      message += `${title}\n${sectionContent}\n`;
     }
   });
 
-  return message;
+  return message.trim();
 }
 
-// === DOMContentLoaded ===
-document.addEventListener('DOMContentLoaded', () => {
-  restoreFormData();
+// === Кнопка отправки ===
+const button = document.getElementById('sendToTelegram');
+button.addEventListener('click', async () => {
+  const chat_id = '-1002393080811';
+  const worker_url = 'https://shbb1.stassser.workers.dev/';
+  const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-  // Автодата
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const formattedDate = `${day}/${month}`;
-  const dateDiv = document.getElementById('autodate');
-  if (dateDiv) dateDiv.textContent = formattedDate;
-
-  // Слушатели для сохранения
-  document.querySelectorAll('select, textarea.comment').forEach(el => {
-    el.addEventListener('input', saveFormData);
+  const sendMessage = (msg) => fetch(worker_url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id, text: msg })
   });
 
-  // === Кнопка отправки ===
-  const button = document.getElementById('sendToTelegram');
-  button.addEventListener('click', async () => {
-    const chat_id = '-1002393080811';
-    const worker_url = 'https://shbb1.stassser.workers.dev/';
-    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
+  const sendEmail = (msg) => fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      access_key: accessKey,
+      subject: "ЗАКАЗ",
+      from_name: "SHBB KITCHEN",
+      reply_to: "no-reply@shbb.com",
+      message: msg
+    })
+  });
 
-    const sendMessage = (msg) => fetch(worker_url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id, text: msg })
-    });
-
-    const sendEmail = (msg) => fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: "ЗАКАЗ",
-        from_name: "SHBB KITCHEN",
-        reply_to: "no-reply@shbb.com",
-        message: msg
-      })
-    });
-
-    const sendAllParts = async (text) => {
-      let start = 0;
-      while (start < text.length) {
-        const chunk = text.slice(start, start + 4000);
-        await sendMessage(chunk);
-        await sendEmail(chunk);
-        start += 4000;
-      }
-    };
-
-    try {
-      await sendAllParts(buildMessage('ru', formattedDate));
-      await sendAllParts(buildMessage('en', formattedDate));
-
-      alert('✅ ОТПРАВЛЕНО');
-      localStorage.clear();
-      document.querySelectorAll('select').forEach(select => select.value = '');
-      document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
-    } catch (err) {
-      alert('❌ Ошибка при отправке: ' + err.message);
-      console.error(err);
+  const sendAllParts = async (text) => {
+    let start = 0;
+    while (start < text.length) {
+      const chunk = text.slice(start, start + 4000);
+      await sendMessage(chunk);
+      await sendEmail(chunk);
+      start += 4000;
     }
-  });
+  };
+
+  try {
+    // Формируем дату
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const formattedDate = `${day}/${month}`;
+
+    // Сначала русский, потом английский
+    const messageRu = buildMessage('ru', formattedDate);
+    const messageEn = buildMessage('en', formattedDate);
+
+    await sendAllParts(messageRu);
+    await sendAllParts(messageEn);
+
+    alert('✅ ОТПРАВЛЕНО');
+    localStorage.clear();
+    document.querySelectorAll('select').forEach(select => select.value = '');
+    document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
+  } catch (err) {
+    alert('❌ Ошибка при отправке: ' + err.message);
+    console.error(err);
+  }
 });
