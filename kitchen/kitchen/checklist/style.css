@@ -30,12 +30,14 @@
 /* === ФИКС ХЕДЕРА === */
 .page-header .nav-buttons {
   display: flex;
-  justify-content: center; /* ✅ центрируем */
+  flex-direction: column; /* делаем как на других страницах */
+  align-items: stretch;
   gap: 10px;
+  width: 100%;
 }
 
 .page-header .nav-buttons .nav-btn {
-  max-width: 150px; /* ✅ одинаковая ширина */
-  flex: 1;
+  width: 100%;        /* растягиваем на всю ширину */
+  max-width: none;    /* убираем ограничение */
   text-align: center;
 }
