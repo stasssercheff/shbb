@@ -1109,10 +1109,10 @@
   "en": "Beans work",
   "vi": "Đậu làm việc"
 },
-"teokbokki": {
+"tteokbokki": {
   "ru": "Токпокки",
-  "en": "Teokbokki",
-  "vi": "Tokbokki"
+  "en": "tteokbokki",
+  "vi": "tteokbokki"
 },
 "tuna_canned": {
   "ru": "Тунец консервированный",
@@ -1219,7 +1219,7 @@
   "en": "Balsamic",
   "vi": "Giấm balsamic"
 },
-"worcester": {
+"worcestershire": {
   "ru": "Ворчествер",
   "en": "Worcester",
   "vi": "Nước sốt Worcestershire"
