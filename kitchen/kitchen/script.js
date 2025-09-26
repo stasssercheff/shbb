@@ -1,10 +1,18 @@
-// Функции навигации (оставляем для совместимости со всем сайтом)
+// ======================
+// Переходы по кнопкам
+// ======================
+
+// На главную
 function goHome() {
-    location.href = '/index.html';
+    location.href = "http://stasssercheff.github.io/shbb/";
 }
 
+// На уровень выше (одну папку вверх)
 function goBack() {
-    history.back();
+    const currentPath = window.location.pathname;
+    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+    window.location.href = upperPath + "/index.html";
 }
 
 // Обновление даты через lang.js (при загрузке страницы или смене языка)
