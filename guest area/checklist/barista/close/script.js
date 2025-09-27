@@ -9,29 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error("❌ Кнопка #sendBtn не найдена на странице!");
     return;
   }
-  console.log("✅ Кнопка найдена, навешиваем обработчик...");
 
-  // ✅ Берём язык отправки из глобальной переменной (установленной в sendConfig.js)
-  const sendLang = window.sendLang;
-  console.log("🌍 Язык отправки (глобальный):", sendLang);
+  // ✅ Берём массив языков из глобальной переменной
+  const sendLangs = window.sendLangs || ["ru"];
+  console.log("🌍 Языки отправки:", sendLangs);
 
-  // ✅ Больше не навешиваем обработчики на .lang-btn — они теперь управляют только интерфейсом,
-  // а не языком отправки!
-
-  const buildMessage = () => {
-    console.log("🛠 Формируем сообщение...");
+  const buildMessage = (lang) => {
+    console.log("🛠 Формируем сообщение для:", lang);
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
     let message = `🧾 <b>${
-      sendLang === 'en' ? 'Barista close. Done form 11:' :
-      sendLang === 'vi' ? 'Barista đóng làm được trong 11' :
+      lang === 'en' ? 'Barista close. Done form 11:' :
+      lang === 'vi' ? 'Barista đóng làm được trong 11' :
       'Бариста закрытие. Выполнено из 11:'
     }</b>\n\n`;
 
     message += `📅 ${
-      sendLang === 'en' ? 'Date' :
-      sendLang === 'vi' ? 'Ngày' :
+      lang === 'en' ? 'Date' :
+      lang === 'vi' ? 'Ngày' :
       'Дата'
     }: ${date}\n`;
 
@@ -50,41 +46,34 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    if (selectedItems.length === 0) {
-      console.warn("⚠️ Ничего не выбрано");
-      return null;
-    }
-
+    if (selectedItems.length === 0) return null;
     message += selectedItems.join('\n');
-    console.log("📤 Готовое сообщение:", message);
     return message;
   };
 
   const sendMessage = async (msg) => {
-    console.log("🔄 Отправляем на Worker...");
     const res = await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id, text: msg, parse_mode: "HTML" })
     });
-    console.log("📥 Ответ от Worker:", res.status);
-    const data = await res.json();
-    console.log("📥 JSON:", data);
-    return data;
+    return res.json();
   };
 
   button.addEventListener('click', async () => {
     console.log("👆 Кнопка нажата");
-    const msg = buildMessage();
-
-    if (!msg) {
-      alert('Выберите хотя бы один пункт');
-      return;
-    }
 
     try {
-      await sendMessage(msg);
-      alert(`✅ ОТПРАВЛЕНО (${sendLang.toUpperCase()})`);
+      for (const lang of sendLangs) {
+        const msg = buildMessage(lang);
+        if (!msg) {
+          alert('Выберите хотя бы один пункт');
+          return;
+        }
+        await sendMessage(msg);
+      }
+
+      alert(`✅ ОТПРАВЛЕНО на: ${sendLangs.join(", ").toUpperCase()}`);
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
     } catch (err) {
       console.error("❌ Ошибка при отправке:", err);
