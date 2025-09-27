@@ -102,6 +102,10 @@ button.addEventListener('click', async () => {
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
+  // ✅ Берём массив языков отправки из sendConfig.js по профилю страницы
+  const sendLangs = getSendLanguages(getCurrentProfile());
+  console.log("🌍 Профиль:", getCurrentProfile(), "Языки отправки:", sendLangs);
+
   const sendMessage = (msg) => fetch(worker_url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -134,14 +138,13 @@ button.addEventListener('click', async () => {
     const today = new Date();
     const formattedDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
-    // Формируем сообщения на RU и EN, независимо от языка интерфейса
-    const messageRu = buildMessage('ru', formattedDate);
-    const messageEn = buildMessage('en', formattedDate);
+    // ✅ Формируем и отправляем сообщения для всех языков из профиля
+    for (const lang of sendLangs) {
+      const message = buildMessage(lang, formattedDate);
+      await sendAllParts(message);
+    }
 
-    await sendAllParts(messageRu);
-    await sendAllParts(messageEn);
-
-    alert('✅ ОТПРАВЛЕНО на RU и EN');
+    alert(`✅ ОТПРАВЛЕНО на: ${sendLangs.join(", ").toUpperCase()}`);
     localStorage.clear();
     document.querySelectorAll('select').forEach(select => select.value = '');
     document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
