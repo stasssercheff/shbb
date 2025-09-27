@@ -38,11 +38,6 @@ function switchLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("lang", lang);
 
-  // ✅ При смене языка обновляем язык отправки
-  sendLang = lang;
-  localStorage.setItem("sendLang", lang);
-  console.log("📤 Язык отправки обновлён:", sendLang);
-
 
 document.querySelectorAll("[data-i18n]").forEach(el => {
   const key = el.dataset.i18n;
