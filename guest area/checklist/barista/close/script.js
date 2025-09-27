@@ -11,20 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   console.log("✅ Кнопка найдена, навешиваем обработчик...");
 
-// ✅ Теперь язык берём из sendConfig.js (по профилю страницы)
-let sendLang = getSendLanguages(getCurrentProfile())[0];
-console.log("🌍 Текущий язык отправки для профиля:", getCurrentProfile(), "=>", sendLang);
+  // ✅ Берём язык отправки из глобальной переменной (установленной в sendConfig.js)
+  const sendLang = window.sendLang;
+  console.log("🌍 Язык отправки (глобальный):", sendLang);
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const selectedLang = btn.dataset.lang;
-    if (selectedLang) {
-      sendLang = selectedLang;
-      setSendLanguages(getCurrentProfile(), [sendLang]); // ✅ сохраняем в sendProfiles
-      console.log("🔄 Язык отправки для профиля обновлён:", sendLang);
-    }
-  });
-});
+  // ✅ Больше не навешиваем обработчики на .lang-btn — они теперь управляют только интерфейсом,
+  // а не языком отправки!
 
   const buildMessage = () => {
     console.log("🛠 Формируем сообщение...");
@@ -92,7 +84,7 @@ console.log("🌍 Текущий язык отправки для профиля
 
     try {
       await sendMessage(msg);
-      alert('✅ ОТПРАВЛЕНО');
+      alert(`✅ ОТПРАВЛЕНО (${sendLang.toUpperCase()})`);
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
     } catch (err) {
       console.error("❌ Ошибка при отправке:", err);
