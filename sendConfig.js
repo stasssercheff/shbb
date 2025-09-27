@@ -66,3 +66,7 @@ function toggleLanguage(profile, lang) {
   }
   saveProfiles();
 }
+
+// ✅ Глобально сохраняем текущий язык отправки для доступа в любых локальных скриптах
+window.sendLang = getSendLanguages(getCurrentProfile())[0] || "ru";
+console.log("🌍 [sendConfig.js] Установлен глобальный sendLang:", window.sendLang);
