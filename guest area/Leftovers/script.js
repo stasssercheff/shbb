@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const button = document.getElementById('sendToTelegram');
 if (button) {
     button.addEventListener('click', async () => {
-        const chat_id = '-1002915693964';
+        const chat_id = '-1003117786571';
         const worker_url = 'https://shbb1.stassser.workers.dev/';
         const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
         const lang = document.documentElement.lang || 'ru'; // берем текущий язык
