@@ -7,7 +7,7 @@ try {
   sendProfiles = JSON.parse(localStorage.getItem("sendProfiles")) || {
     rest: ["ru"],     // ✅ все страницы без атрибута
     hall: ["en"],
-    kitchen: ["ru"],
+    kitchen: ["ru", "en"],
     pastry: ["ru"],
     extra1: ["ru"],   // запасной
     extra2: ["ru"],   // запасной
