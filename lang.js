@@ -1,5 +1,4 @@
 let currentLang = localStorage.getItem("lang") || "ru";
-let sendLang = localStorage.getItem("sendLang") || "ru"; // ✅ Язык отправки сообщений 
 let translations = {};
 
 // Загружаем словарь из JSON
@@ -36,19 +35,18 @@ async function loadTranslations() {
 
 function switchLanguage(lang) {
   currentLang = lang;
-  localStorage.setItem("lang", lang);
+  localStorage.setItem("lang", lang); // ✅ сохраняем только интерфейсный язык
 
-
-document.querySelectorAll("[data-i18n]").forEach(el => {
-  const key = el.dataset.i18n;
-  if (translations[key] && translations[key][lang]) {
-    if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
-      el.setAttribute("placeholder", translations[key][lang]);
-    } else {
-      el.innerHTML = translations[key][lang];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[key] && translations[key][lang]) {
+      if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
+        el.setAttribute("placeholder", translations[key][lang]);
+      } else {
+        el.innerHTML = translations[key][lang];
+      }
     }
-  }
-});
+  });
 
   // обновляем дату
   const dateEl = document.getElementById("current-date");
