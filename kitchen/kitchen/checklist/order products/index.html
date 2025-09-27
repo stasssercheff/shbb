@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="checklist_kitchen"></title>
 
-  <!-- Подключаем общий стиль -->
+  <!-- ✅ Подключаем общий CSS -->
   <link rel="stylesheet" href="../../../../common.css">
+    <!-- ✅ Локальный CSS -->
   <link rel="stylesheet" href="style.css">
 
   <!-- Логика перевода -->
   <script src="../../../../lang.js" defer></script>
+   <!-- ✅ Глобальные настройки языков отправки -->
+  <script src="../../../../sendConfig.js" defer></script>
   <script src="script.js" defer></script>
 </head>
-<body>
+<body data-profile="kitchen">
 
   <!-- Хедер с языками и кнопками -->
   <header class="page-header">
