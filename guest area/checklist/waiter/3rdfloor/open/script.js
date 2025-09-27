@@ -11,19 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   console.log("✅ Кнопка найдена, навешиваем обработчик...");
 
-let sendLang = localStorage.getItem('sendLang') || 'ru';
-  console.log("🌍 Текущий язык для отправки:", sendLang);
+// ✅ Теперь язык берём из sendConfig.js (по профилю страницы)
+let sendLang = getSendLanguages(getCurrentProfile())[0];
+console.log("🌍 Текущий язык отправки для профиля:", getCurrentProfile(), "=>", sendLang);
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const selectedLang = btn.dataset.lang;
-      if (selectedLang) {
-        sendLang = selectedLang;
-        localStorage.setItem('lang', selectedLang);
-        console.log("🔄 Язык изменён:", sendLang);
-      }
-    });
+
+ document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const selectedLang = btn.dataset.lang;
+    if (selectedLang) {
+      sendLang = selectedLang;
+      setSendLanguages(getCurrentProfile(), [sendLang]); // ✅ сохраняем в sendProfiles
+      console.log("🔄 Язык отправки для профиля обновлён:", sendLang);
+    }
   });
+});
 
   const buildMessage = () => {
     console.log("🛠 Формируем сообщение...");
