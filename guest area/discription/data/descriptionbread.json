@@ -50,10 +50,12 @@
     },
     "ingredients": [
       { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Гречневая мука", "en": "Buckwheat flour", "vi": "Bột kiều mạch" }
       { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
       { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
       { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
-      { "ru": "Соль", "en": "Salt", "vi": "Muối" }
+      { "ru": "Соль", "en": "Salt", "vi": "Muối" },
+      { "ru": "Семена подсолнечника", "en": "Sunflower seeds", "vi": "Hạt hướng dương" }
     ],
     "process": {
       "ru": "Хлеб в стиле тартин с добавлением гречичной муки.",
