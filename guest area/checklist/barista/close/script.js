@@ -10,15 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // ✅ Берём массив языков из глобальной переменной
-  const sendLangs = window.sendLangs || ["ru"];
+  // ✅ массив языков для отправки (берётся из sendConfig.js)
+  const sendLangs = window.sendLangs || [window.sendLang || "ru"];
   console.log("🌍 Языки отправки:", sendLangs);
 
   const buildMessage = (lang) => {
-    console.log("🛠 Формируем сообщение для:", lang);
+    console.log(`🛠 Формируем сообщение полностью на языке: ${lang}`);
+
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
+    // === Шапка сообщения ===
     let message = `🧾 <b>${
       lang === 'en' ? 'Barista close. Done form 11:' :
       lang === 'vi' ? 'Barista đóng làm được trong 11' :
@@ -31,18 +33,29 @@ document.addEventListener('DOMContentLoaded', () => {
       'Дата'
     }: ${date}\n`;
 
+    // === Кто заполнял ===
     const chefSelect = document.querySelector('select[name="chef"]');
     if (chefSelect) {
       const selectedOption = chefSelect.options[chefSelect.selectedIndex];
       message += `👤 ${selectedOption.textContent.trim()}\n\n`;
     }
 
+    // === Чеклист ===
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
+
     checklist.forEach((item, index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
-        if (label) selectedItems.push(`${index + 1}. ${label.textContent.trim()}`);
+        if (label) {
+          // 🟢 Тянем текст не из DOM, а из словаря по ключу data-i18n
+          const key = label.dataset.i18n;
+          const translated =
+            key && translations[key] && translations[key][lang]
+              ? translations[key][lang]
+              : label.textContent.trim(); // fallback если нет перевода
+          selectedItems.push(`${index + 1}. ${translated}`);
+        }
       }
     });
 
@@ -73,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await sendMessage(msg);
       }
 
-      alert(`✅ ОТПРАВЛЕНО на: ${sendLangs.join(", ").toUpperCase()}`);
+      alert(`✅ Отправлено на: ${sendLangs.join(", ").toUpperCase()}`);
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
     } catch (err) {
       console.error("❌ Ошибка при отправке:", err);
