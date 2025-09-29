@@ -14,6 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const sendLangs = window.sendLangs || [window.sendLang || "ru"];
   console.log("🌍 Языки отправки:", sendLangs);
 
+  // 🟢 словарь для шапки сообщений
+  const headerDict = {
+    title: {
+      ru: "Бариста закрытие. Выполнено из 11:",
+      en: "Barista close. Done from 11:",
+      vi: "Barista đóng làm được trong 11"
+    },
+    date: {
+      ru: "Дата",
+      en: "Date",
+      vi: "Ngày"
+    }
+  };
+
   const buildMessage = (lang) => {
     console.log(`🛠 Формируем сообщение полностью на языке: ${lang}`);
 
@@ -21,17 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
 
     // === Шапка сообщения ===
-    let message = `🧾 <b>${
-      lang === 'en' ? 'Barista close. Done form 11:' :
-      lang === 'vi' ? 'Barista đóng làm được trong 11' :
-      'Бариста закрытие. Выполнено из 11:'
-    }</b>\n\n`;
-
-    message += `📅 ${
-      lang === 'en' ? 'Date' :
-      lang === 'vi' ? 'Ngày' :
-      'Дата'
-    }: ${date}\n`;
+    let message = `🧾 <b>${headerDict.title[lang] || headerDict.title.ru}</b>\n\n`;
+    message += `📅 ${headerDict.date[lang] || headerDict.date.ru}: ${date}\n`;
 
     // === Кто заполнял ===
     const chefSelect = document.querySelector('select[name="chef"]');
@@ -48,12 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
         if (label) {
-          // 🟢 Тянем текст не из DOM, а из словаря по ключу data-i18n
           const key = label.dataset.i18n;
           const translated =
             key && translations[key] && translations[key][lang]
               ? translations[key][lang]
-              : label.textContent.trim(); // fallback если нет перевода
+              : label.textContent.trim();
           selectedItems.push(`${index + 1}. ${translated}`);
         }
       }
