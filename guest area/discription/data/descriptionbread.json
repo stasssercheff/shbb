@@ -1,1 +1,87 @@
-1
+[
+  {
+    "name": {
+      "ru": "Чиабатта",
+      "en": "Ciabatta",
+      "vi": "Bánh mì Ciabatta"
+    },
+    "ingredients": [
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Дрожжи", "en": "Yeast", "vi": "Men" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Соль", "en": "Salt", "vi": "Muối" }
+    ],
+    "process": {
+      "ru": "Классическая итальянская чиабатта на пшеничной муке.",
+      "en": "Classic Italian ciabatta made with wheat flour.",
+      "vi": "Bánh mì Ciabatta Ý cổ điển làm từ bột mì."
+    },
+    "amount": 200,
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "Бородинский",
+      "en": "Borodinsky Bread",
+      "vi": "Bánh mì Borodinsky"
+    },
+    "ingredients": [
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Соль", "en": "Salt", "vi": "Muối" },
+      { "ru": "Солод", "en": "Malt", "vi": "Mạch nha" },
+      { "ru": "Кориандр", "en": "Coriander", "vi": "Ngò" }
+    ],
+    "process": {
+      "ru": "Бородинский хлеб на солодовой закваске, присыпанный зернами кориандра.",
+      "en": "Borodinsky bread with malt starter, topped with coriander seeds.",
+      "vi": "Bánh mì Borodinsky với men mạch nha, phủ hạt ngò."
+    },
+    "amount": 400,
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "Гречичный тартин",
+      "en": "Buckwheat Tartine",
+      "vi": "Bánh mì Tartine kiều mạch"
+    },
+    "ingredients": [
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Соль", "en": "Salt", "vi": "Muối" }
+    ],
+    "process": {
+      "ru": "Хлеб в стиле тартин с добавлением гречичной муки.",
+      "en": "Tartine-style bread with buckwheat flour.",
+      "vi": "Bánh mì Tartine làm từ bột kiều mạch."
+    },
+    "amount": 480,
+    "photo": ""
+  },
+  {
+    "name": {
+      "ru": "Чемная чиабатта / Country Bread",
+      "en": "Country Bread",
+      "vi": "Bánh mì đồng quê"
+    },
+    "ingredients": [
+      { "ru": "Мука", "en": "Flour", "vi": "Bột mì" },
+      { "ru": "Яйцо", "en": "Egg", "vi": "Trứng" },
+      { "ru": "Масло сливочное", "en": "Butter", "vi": "Bơ" },
+      { "ru": "Сахар", "en": "Sugar", "vi": "Đường" },
+      { "ru": "Соль", "en": "Salt", "vi": "Muối" }
+    ],
+    "process": {
+      "ru": "Ремесленный хлеб в деревенском стиле с хрустящей корочкой.",
+      "en": "Rustic country-style artisan bread with a crispy crust.",
+      "vi": "Bánh mì nông thôn với vỏ giòn kiểu thủ công."
+    },
+    "amount": 400,
+    "photo": ""
+  }
+]
