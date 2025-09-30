@@ -1,32 +1,11 @@
-
 // Функция возврата на главную страницу
 function goHome() {
-    location.href = '/index.html';
+  location.href = '/index.html';
 }
 
 // Функция возврата на предыдущую страницу
 function goBack() {
-    history.back();
-}
-
-// === Переключение языка ===
-function switchLanguage(lang) {
-  document.documentElement.lang = lang;
-
-  document.querySelectorAll('.section-title').forEach(title => {
-    if (title.dataset[lang]) title.textContent = title.dataset[lang];
-  });
-
-  document.querySelectorAll('.check-label').forEach(label => {
-    if (label.dataset[lang]) label.textContent = label.dataset[lang];
-  });
-
-  document.querySelectorAll('select').forEach(select => {
-    Array.from(select.options).forEach(option => {
-      if (option.value === '') option.textContent = '—';
-      else if (option.dataset[lang]) option.textContent = option.dataset[lang];
-    });
-  });
+  history.back();
 }
 
 // === Сохранение и восстановление данных формы ===
@@ -46,16 +25,20 @@ function restoreFormData() {
   if (!saved) return;
   const data = JSON.parse(saved);
   document.querySelectorAll('select').forEach(select => {
-    if (data[select.name || select.id] !== undefined) select.value = data[select.name || select.id];
+    if (data[select.name || select.id] !== undefined) {
+      select.value = data[select.name || select.id];
+    }
   });
   document.querySelectorAll('textarea.comment').forEach(textarea => {
-    if (data[textarea.name || textarea.id] !== undefined) textarea.value = data[textarea.name || textarea.id];
+    if (data[textarea.name || textarea.id] !== undefined) {
+      textarea.value = data[textarea.name || textarea.id];
+    }
   });
 }
 
 // === DOMContentLoaded ===
 document.addEventListener('DOMContentLoaded', () => {
-  const lang = document.documentElement.lang || 'ru';
+  const lang = localStorage.getItem("lang") || "ru";
 
   // Вставка пустой опции в каждый select.qty
   document.querySelectorAll('select.qty').forEach(select => {
@@ -63,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!hasEmpty) {
       const emptyOption = document.createElement('option');
       emptyOption.value = '';
-      emptyOption.dataset.ru = '—';
-      emptyOption.dataset.en = '—';
       emptyOption.textContent = '—';
       emptyOption.selected = true;
       select.insertBefore(emptyOption, select.firstChild);
@@ -72,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   restoreFormData();
-  switchLanguage(lang);
 
   const today = new Date();
   const day = String(today.getDate()).padStart(2, '0');
@@ -92,12 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nameSelect = document.querySelector('select[name="chef"]');
     const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-    const name = selectedChef?.dataset[lang] || '—';
+    const nameKey = selectedChef?.dataset.i18n;
+    const name = nameKey ? translations[nameKey][lang] : '—';
     message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n\n`;
 
     document.querySelectorAll('.menu-section').forEach(section => {
       const sectionTitle = section.querySelector('.section-title');
-      const title = sectionTitle?.dataset[lang] || '';
+      const titleKey = sectionTitle?.dataset.i18n;
+      const title = titleKey ? translations[titleKey][lang] : '';
+
       let sectionContent = '';
 
       section.querySelectorAll('.dish').forEach(dish => {
@@ -105,9 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!select || !select.value) return;
 
         const label = dish.querySelector('label.check-label');
-        const labelText = select?.dataset[`label${lang.toUpperCase()}`] || label?.dataset[lang] || '—';
+        const labelKey = label?.dataset.i18n;
+        const labelText = labelKey ? translations[labelKey][lang] : '—';
+
         const selectedOption = select.options[select.selectedIndex];
-        const value = selectedOption?.dataset[lang] || '—';
+        const valueKey = selectedOption?.dataset.i18n;
+        const value = valueKey ? translations[valueKey][lang] : '—';
+
         sectionContent += `• ${labelText}: ${value}\n`;
       });
 
@@ -129,10 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
   button.addEventListener('click', () => {
     const chat_id = '-1002393080811'; // твой Telegram чат ID
     const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
-    const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
+    const emailTo = 'stassserchef@gmail.com';
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-    // Отправка в Telegram через воркер
     const sendMessage = (msg) => {
       return fetch(worker_url, {
         method: 'POST',
@@ -141,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(res => res.json());
     };
 
-    // Отправка email через Web3Forms
     const sendEmail = async (msg) => {
       try {
         const res = await fetch("https://api.web3forms.com/submit", {
