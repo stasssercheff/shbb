@@ -1,71 +1,59 @@
+// === script.js ===
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("✅ DOM загружен, инициализация скрипта");
-
   const chat_id = '-1002915693964';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const button = document.getElementById('sendBtn');
 
-  if (!button) {
-    console.error("❌ Кнопка #sendBtn не найдена на странице!");
-    return;
-  }
+  if (!button) return;
 
-  // ✅ массив языков для отправки (берётся из sendConfig.js)
-  const sendLangs = window.sendLangs || [window.sendLang || "ru"];
-  console.log("🌍 Языки отправки:", sendLangs);
-
-  // 🟢 словарь для шапки сообщений
   const headerDict = {
-    title: {
-      ru: "Бариста закрытие. Выполнено из 11:",
-      en: "Barista close. Done from 11:",
-      vi: "Barista đóng làm được trong 11"
+    title: { 
+      ru: "Бариста закрытие. Выполнено из 11:", 
+      en: "Barista close. Done from 11:", 
+      vi: "Barista đóng làm được trong 11:" 
     },
-    date: {
-      ru: "Дата",
-      en: "Date",
-      vi: "Ngày"
+    date: { 
+      ru: "Дата", 
+      en: "Date", 
+      vi: "Ngày" 
     }
   };
 
+  // Формируем сообщение на конкретном языке
   const buildMessage = (lang) => {
-    console.log(`🛠 Формируем сообщение полностью на языке: ${lang}`);
-
     const today = new Date();
-    const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
+    const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
 
-    // === Шапка сообщения ===
     let message = `🧾 <b>${headerDict.title[lang] || headerDict.title.ru}</b>\n\n`;
     message += `📅 ${headerDict.date[lang] || headerDict.date.ru}: ${date}\n`;
 
-    // === Кто заполнял ===
     const chefSelect = document.querySelector('select[name="chef"]');
     if (chefSelect) {
       const selectedOption = chefSelect.options[chefSelect.selectedIndex];
       message += `👤 ${selectedOption.textContent.trim()}\n\n`;
     }
 
-    // === Чеклист ===
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
-
     checklist.forEach((item, index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
         if (label) {
-          // 🟢 Используем словарь, если ключ есть
           const key = label.dataset.i18n;
-          const translated =
-            key && translations[key] && translations[key][lang]
-              ? translations[key][lang]
-              : label.textContent.trim(); // fallback если нет перевода
-          selectedItems.push(`${index + 1}. ${translated}`);
+          const translated = key && translations && translations[key] && translations[key][lang]
+            ? translations[key][lang]
+            : label.textContent.trim();
+          selectedItems.push(`${index+1}. ${translated}`);
         }
       }
     });
 
-    if (selectedItems.length === 0) return null;
-    message += selectedItems.join('\n');
+    if (selectedItems.length > 0) {
+      message += selectedItems.join('\n');
+    }
+
+    // Возвращаем сообщение даже если нет выбранных элементов,
+    // чтобы хотя бы шёл заголовок и дата (для каждого языка)
     return message;
   };
 
@@ -79,22 +67,32 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   button.addEventListener('click', async () => {
-    console.log("👆 Кнопка нажата");
-
     try {
+      // Берём текущий профиль страницы
+      const currentProfile = getCurrentProfile();
+      // Берём языки прямо из sendConfig.js, каждый раз динамически
+      const sendLangs = getSendLanguages(currentProfile);
+      console.log("🌍 Актуальные языки отправки:", sendLangs);
+
+      if (!sendLangs.length) return alert('⚠ Для текущего профиля нет выбранных языков');
+
+      // Отправка отдельного сообщения для каждого языка
+      let sentCount = 0;
       for (const lang of sendLangs) {
         const msg = buildMessage(lang);
-        if (!msg) {
-          alert('Выберите хотя бы один пункт');
-          return;
-        }
+        if (!msg) continue; // на всякий случай
         await sendMessage(msg);
+        sentCount++;
       }
 
-      alert(`✅ Отправлено на: ${sendLangs.join(", ").toUpperCase()}`);
-      document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+      if (sentCount > 0) {
+        alert(`✅ Отправлено сообщений: ${sentCount} (${sendLangs.join(", ").toUpperCase()})`);
+        document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+      } else {
+        alert('⚠ Нет элементов для отправки');
+      }
     } catch (err) {
-      console.error("❌ Ошибка при отправке:", err);
+      console.error(err);
       alert(`❌ Ошибка: ${err.message}`);
     }
   });
