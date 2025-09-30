@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // ✅ массив языков для отправки (берётся из sendConfig.js)
-  const sendLangs = window.sendLangs || [window.sendLang || "ru"];
+  // ✅ массив языков для отправки (берём из sendConfig.js)
+  const sendLangs = window.sendLangs.length ? window.sendLangs : ["ru"];
   console.log("🌍 Языки отправки:", sendLangs);
 
-  // 🟢 словарь для шапки сообщений
+  // 🟢 словарь шапки сообщений
   const headerDict = {
     title: {
       ru: "Бариста закрытие. Выполнено из 11:",
@@ -28,46 +28,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Строим сообщение полностью на одном языке
   const buildMessage = (lang) => {
     console.log(`🛠 Формируем сообщение полностью на языке: ${lang}`);
 
     const today = new Date();
-    const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
+    const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
 
-    // === Шапка сообщения ===
     let message = `🧾 <b>${headerDict.title[lang] || headerDict.title.ru}</b>\n\n`;
     message += `📅 ${headerDict.date[lang] || headerDict.date.ru}: ${date}\n`;
 
-    // === Кто заполнял ===
+    // Имя заполняющего
     const chefSelect = document.querySelector('select[name="chef"]');
     if (chefSelect) {
       const selectedOption = chefSelect.options[chefSelect.selectedIndex];
       message += `👤 ${selectedOption.textContent.trim()}\n\n`;
     }
 
-    // === Чеклист ===
+    // Чеклист
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
-    let selectedItems = [];
+    const selectedItems = [];
 
     checklist.forEach((item, index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
         if (label) {
           const key = label.dataset.i18n;
-          const translated =
-            key && translations[key] && translations[key][lang]
-              ? translations[key][lang]
-              : label.textContent.trim();
+          const translated = key && translations[key] && translations[key][lang]
+            ? translations[key][lang]
+            : label.textContent.trim();
           selectedItems.push(`${index + 1}. ${translated}`);
         }
       }
     });
 
-    if (selectedItems.length === 0) return null;
+    if (!selectedItems.length) return null;
     message += selectedItems.join('\n');
     return message;
   };
 
+  // Отправка сообщения на сервер (Telegram)
   const sendMessage = async (msg) => {
     const res = await fetch(worker_url, {
       method: 'POST',
@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return res.json();
   };
 
+  // Клик на кнопку отправки
   button.addEventListener('click', async () => {
     console.log("👆 Кнопка нажата");
 
