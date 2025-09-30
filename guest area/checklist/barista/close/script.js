@@ -1,4 +1,3 @@
-// === script.js ===
 document.addEventListener('DOMContentLoaded', () => {
   const chat_id = '-1002915693964';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
@@ -6,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!button) return;
 
+  // Берём языки только из sendConfig.js
   const sendLangs = window.sendLangs || ["ru"];
   console.log("🌍 Языки отправки:", sendLangs);
 
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buildMessage = (lang) => {
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
-    
+
     let message = `🧾 <b>${headerDict.title[lang] || headerDict.title.ru}</b>\n\n`;
     message += `📅 ${headerDict.date[lang] || headerDict.date.ru}: ${date}\n`;
 
