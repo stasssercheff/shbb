@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Функция формирования сообщения на конкретном языке
   const buildMessage = (lang) => {
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
-    checklist.forEach((item, index) => {
+    checklist.forEach((item,index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
         if (label) {
@@ -63,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   button.addEventListener('click', async () => {
     try {
-      // ✅ Берём актуальные языки каждый раз при клике
-      const currentProfile = getCurrentProfile(); // функция из sendConfig.js
-      const sendLangs = getSendLanguages(currentProfile);
+      // Берём актуальные языки для текущей страницы из sendConfig.js
+      const currentProfile = getCurrentProfile();
+      const sendLangs = getSendLanguages(currentProfile); // ВСЕГДА берём актуальные, не кэшированные
       console.log("🌍 Языки отправки:", sendLangs);
 
       for (const lang of sendLangs) {
@@ -76,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       alert(`✅ Отправлено на: ${sendLangs.join(", ").toUpperCase()}`);
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
-
     } catch (err) {
       console.error(err);
       alert(`❌ Ошибка: ${err.message}`);
