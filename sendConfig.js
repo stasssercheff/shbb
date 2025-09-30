@@ -4,7 +4,7 @@
 // Дефолтные профили и их языки
 const sendProfiles = {
   rest: ["ru"],
-  hall: ["en"],       // язык для hall
+  hall: ["ru"],       // язык для hall
   kitchen: ["ru", "en"],
   pastry: ["ru"],
   extra1: ["vi"],
