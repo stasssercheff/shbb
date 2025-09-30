@@ -1,14 +1,14 @@
 // === sendConfig.js ===
 // Глобальный файл для управления языками отправки сообщений без localStorage
 
-// Дефолтные профили
+// Дефолтные профили и их языки
 const sendProfiles = {
   rest: ["ru"],
-  hall: ["en"],       // <-- язык для hall
+  hall: ["vi"],       // язык для hall
   kitchen: ["ru", "en"],
   pastry: ["ru"],
   extra1: ["ru"],
-  extra2: ["vi"],
+  extra2: ["ru"],
   extra3: ["ru"]
 };
 
@@ -19,20 +19,18 @@ function getCurrentProfile() {
   return profile;
 }
 
-// Получаем массив языков для отправки по текущему профилю
+// Получаем языки для текущего профиля
 function getSendLanguages(profile) {
   const langs = sendProfiles[profile] || ["ru"];
   console.log(`🔍 getSendLanguages('${profile}') →`, langs);
   return langs;
 }
 
-// Каждый раз динамически берём языки для текущей страницы
-const currentProfile = getCurrentProfile();
-window.sendLangs = getSendLanguages(currentProfile);
-
+// Присваиваем глобально массив языков для отправки
+window.sendLangs = getSendLanguages(getCurrentProfile());
 console.log("🌍 window.sendLangs:", window.sendLangs);
 
-// Функции управления (не используют localStorage)
+// Вспомогательные функции управления (не используют localStorage)
 function setSendLanguages(profile, langs) {
   if (!Array.isArray(langs)) throw new Error("langs должен быть массивом");
   sendProfiles[profile] = langs.map(String);
