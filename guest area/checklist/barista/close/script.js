@@ -10,13 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     title: { 
       ru: "Бариста закрытие. Выполнено из 11:", 
       en: "Barista close. Done from 11:", 
-      vi: "Barista đóng làm được trong 11" },
+      vi: "Barista đóng làm được trong 11" 
+    },
     date: { 
       ru: "Дата", 
       en: "Date", 
-      vi: "Ngày" }
+      vi: "Ngày" 
+    }
   };
 
+  // Формируем сообщение на конкретном языке
   const buildMessage = (lang) => {
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
@@ -45,8 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    if (selectedItems.length === 0) return null;
-    message += selectedItems.join('\n');
+    if (selectedItems.length > 0) {
+      message += selectedItems.join('\n');
+    }
+
+    // Возвращаем сообщение даже если нет выбранных элементов,
+    // чтобы хотя бы шёл заголовок и дата (для каждого языка)
     return message;
   };
 
@@ -61,24 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   button.addEventListener('click', async () => {
     try {
-      // Берём актуальные языки прямо из sendConfig.js
+      // Берём текущий профиль страницы
       const currentProfile = getCurrentProfile();
+      // Берём языки прямо из sendConfig.js, каждый раз динамически
       const sendLangs = getSendLanguages(currentProfile);
       console.log("🌍 Актуальные языки отправки:", sendLangs);
 
-      let anySent = false;
+      if (!sendLangs.length) return alert('⚠ Для текущего профиля нет выбранных языков');
+
+      // Отправка отдельного сообщения для каждого языка
+      let sentCount = 0;
       for (const lang of sendLangs) {
         const msg = buildMessage(lang);
-        if (!msg) continue; // пропускаем язык без выбранных пунктов
+        if (!msg) continue; // на всякий случай
         await sendMessage(msg);
-        anySent = true;
+        sentCount++;
       }
 
-      if (anySent) {
-        alert(`✅ Отправлено на: ${sendLangs.join(", ").toUpperCase()}`);
+      if (sentCount > 0) {
+        alert(`✅ Отправлено сообщений: ${sentCount} (${sendLangs.join(", ").toUpperCase()})`);
         document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
       } else {
-        alert('⚠ Выберите хотя бы один пункт для отправки');
+        alert('⚠ Нет элементов для отправки');
       }
     } catch (err) {
       console.error(err);
