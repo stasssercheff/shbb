@@ -1,4 +1,3 @@
-// === script.js ===
 document.addEventListener('DOMContentLoaded', () => {
   const chat_id = '-1002915693964';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
@@ -7,22 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!button) return;
 
   const headerDict = {
-    title: {
-      ru: "Бариста закрытие. Выполнено из 11:",
-      en: "Barista close. Done from 11:",
-      vi: "Barista đóng làm được trong 11"
-    },
-    date: {
-      ru: "Дата",
-      en: "Date",
-      vi: "Ngày"
-    }
+    title: { ru: "Бариста закрытие. Выполнено из 11:", en: "Barista close. Done from 11:", vi: "Barista đóng làm được trong 11" },
+    date: { ru: "Дата", en: "Date", vi: "Ngày" }
   };
 
   const buildMessage = (lang) => {
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
-
     let message = `🧾 <b>${headerDict.title[lang] || headerDict.title.ru}</b>\n\n`;
     message += `📅 ${headerDict.date[lang] || headerDict.date.ru}: ${date}\n`;
 
@@ -39,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const label = item.closest('.checklist-item')?.querySelector('label');
         if (label) {
           const key = label.dataset.i18n;
-          const translated = key && translations && translations[key] && translations[key][lang]
-            ? translations[key][lang]
-            : label.textContent.trim();
+          const translated = key && translations && translations[key] && translations[key][lang] ? translations[key][lang] : label.textContent.trim();
           selectedItems.push(`${index+1}. ${translated}`);
         }
       }
@@ -63,9 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   button.addEventListener('click', async () => {
     try {
-      // каждый раз берём актуальные языки прямо из sendConfig.js
-      const currentProfile = getCurrentProfile(); // функция из sendConfig.js
-      const sendLangs = getSendLanguages(currentProfile); // функция из sendConfig.js
+      // 🔹 берем язык каждый раз динамически, прямо из sendConfig.js
+      const currentProfile = getCurrentProfile();
+      const sendLangs = getSendLanguages(currentProfile);
       console.log("🌍 Актуальные языки отправки:", sendLangs);
 
       for (const lang of sendLangs) {
