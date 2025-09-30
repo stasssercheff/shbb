@@ -1,10 +1,11 @@
 // === sendConfig.js ===
 // Глобальный файл для управления языками отправки сообщений
 
+// Загружаем профили из localStorage или создаём дефолтные
 let sendProfiles;
 try {
   sendProfiles = JSON.parse(localStorage.getItem("sendProfiles")) || {
-    rest: ["ru"],
+    rest: ["ru"],     
     hall: ["en"],
     kitchen: ["ru", "en"],
     pastry: ["ru"],
@@ -12,9 +13,9 @@ try {
     extra2: ["ru"],
     extra3: ["ru"]
   };
-  console.log("📦 [sendConfig.js] Загруженные профили из localStorage:", sendProfiles);
+  console.log("📦 sendProfiles после загрузки из localStorage:", sendProfiles);
 } catch (e) {
-  console.warn("⚠ Ошибка чтения sendProfiles, сбрасываю на дефолтные");
+  console.warn("⚠ Ошибка чтения sendProfiles, создаю дефолтные");
   sendProfiles = {
     rest: ["ru"],
     hall: ["en"],
@@ -30,10 +31,38 @@ try {
 // Сохраняем профили в localStorage
 function saveProfiles() {
   localStorage.setItem("sendProfiles", JSON.stringify(sendProfiles));
-  console.log("💾 [sendConfig.js] Сохранил sendProfiles:", sendProfiles);
+  console.log("💾 sendProfiles сохранены:", sendProfiles);
 }
 
-// Устанавливаем языки для конкретного профиля
+// Получаем текущий профиль страницы
+function getCurrentProfile() {
+  const profile = document.body.dataset.profile || "rest";
+  console.log("📄 Текущий профиль страницы:", profile);
+  return profile;
+}
+
+// Получаем языки для профиля
+function getSendLanguages(profile) {
+  const langs = sendProfiles[profile] || ["ru"];
+  console.log(`🔍 getSendLanguages('${profile}') →`, langs);
+  return langs;
+}
+
+// Устанавливаем массив языков отправки глобально
+const currentProfile = getCurrentProfile();
+window.sendLangs = getSendLanguages(currentProfile);
+
+// Исправляем старые записи, например для hall
+if (currentProfile === "hall" && window.sendLangs.includes("ru")) {
+  console.log("⚠ Старый язык 'ru' для hall исправляю на 'en'");
+  sendProfiles[currentProfile] = ["en"];
+  saveProfiles();
+  window.sendLangs = sendProfiles[currentProfile];
+}
+
+console.log("🌍 window.sendLangs:", window.sendLangs);
+
+// Остальные функции (setSendLanguages, toggleLanguage и т.д.)
 function setSendLanguages(profile, langs) {
   if (!Array.isArray(langs)) throw new Error("langs должен быть массивом");
   sendProfiles[profile] = langs.map(String);
@@ -41,26 +70,6 @@ function setSendLanguages(profile, langs) {
   saveProfiles();
 }
 
-// Получаем языки для конкретного профиля
-function getSendLanguages(profile) {
-  const langs = sendProfiles[profile] || ["ru"];
-  console.log(`🔍 getSendLanguages('${profile}') →`, langs);
-  return langs;
-}
-
-// Проверяем, выбран ли язык
-function isLanguageSelected(profile, lang) {
-  return (sendProfiles[profile] || []).includes(lang);
-}
-
-// Определяем профиль страницы (по атрибуту <body data-profile="...">)
-function getCurrentProfile() {
-  const profile = document.body.dataset.profile || "rest";
-  console.log("📄 Текущий профиль страницы:", profile);
-  return profile;
-}
-
-// Включение/выключение языка
 function toggleLanguage(profile, lang) {
   const langs = sendProfiles[profile] || [];
   if (langs.includes(lang)) {
@@ -73,6 +82,6 @@ function toggleLanguage(profile, lang) {
   saveProfiles();
 }
 
-// ✅ Глобально массив языков отправки
-window.sendLangs = getSendLanguages(getCurrentProfile());
-console.log("🌍 Установлены языки отправки:", window.sendLangs);
+function isLanguageSelected(profile, lang) {
+  return (sendProfiles[profile] || []).includes(lang);
+}
