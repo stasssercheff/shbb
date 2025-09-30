@@ -1,47 +1,31 @@
+// === script.js ===
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("✅ DOM загружен, инициализация скрипта");
-
   const chat_id = '-1002915693964';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const button = document.getElementById('sendBtn');
 
-  if (!button) {
-    console.error("❌ Кнопка #sendBtn не найдена на странице!");
-    return;
-  }
-  console.log("✅ Кнопка найдена, навешиваем обработчик...");
+  if (!button) return;
 
-// ✅ Теперь язык берём из sendConfig.js (по профилю страницы)
-let sendLang = getSendLanguages(getCurrentProfile())[0];
-console.log("🌍 Текущий язык отправки для профиля:", getCurrentProfile(), "=>", sendLang);
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const selectedLang = btn.dataset.lang;
-    if (selectedLang) {
-      sendLang = selectedLang;
-      setSendLanguages(getCurrentProfile(), [sendLang]); // ✅ сохраняем в sendProfiles
-      console.log("🔄 Язык отправки для профиля обновлён:", sendLang);
+  const headerDict = {
+    title: { 
+      ru: "Кассир открытие. Выполнено из 11:", 
+      en: "Cashier open. Done form 11:", 
+      vi: "Thu ngân mở làm được trong 11:" 
+    },
+    date: { 
+      ru: "Дата", 
+      en: "Date", 
+      vi: "Ngày" 
     }
-  });
-});
+  };
 
-  const buildMessage = () => {
-    console.log("🛠 Формируем сообщение...");
+  // Формируем сообщение на конкретном языке
+  const buildMessage = (lang) => {
     const today = new Date();
-    const date = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}`;
+    const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
 
-    let message = `🧾 <b>${
-      sendLang === 'en' ? 'Cashier open. Done form 11:' :
-      sendLang === 'vi' ? 'Thu ngân mở làm được trong 11' :
-      'Кассир открытие. Выполнено из 11:'
-    }</b>\n\n`;
-
-    message += `📅 ${
-      sendLang === 'en' ? 'Date' :
-      sendLang === 'vi' ? 'Ngày' :
-      'Дата'
-    }: ${date}\n`;
+    let message = `🧾 <b>${headerDict.title[lang] || headerDict.title.ru}</b>\n\n`;
+    message += `📅 ${headerDict.date[lang] || headerDict.date.ru}: ${date}\n`;
 
     const chefSelect = document.querySelector('select[name="chef"]');
     if (chefSelect) {
@@ -54,48 +38,61 @@ console.log("🌍 Текущий язык отправки для профиля
     checklist.forEach((item, index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
-        if (label) selectedItems.push(`${index + 1}. ${label.textContent.trim()}`);
+        if (label) {
+          const key = label.dataset.i18n;
+          const translated = key && translations && translations[key] && translations[key][lang]
+            ? translations[key][lang]
+            : label.textContent.trim();
+          selectedItems.push(`${index+1}. ${translated}`);
+        }
       }
     });
 
-    if (selectedItems.length === 0) {
-      console.warn("⚠️ Ничего не выбрано");
-      return null;
+    if (selectedItems.length > 0) {
+      message += selectedItems.join('\n');
     }
 
-    message += selectedItems.join('\n');
-    console.log("📤 Готовое сообщение:", message);
+    // Возвращаем сообщение даже если нет выбранных элементов,
+    // чтобы хотя бы шёл заголовок и дата (для каждого языка)
     return message;
   };
 
   const sendMessage = async (msg) => {
-    console.log("🔄 Отправляем на Worker...");
     const res = await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id, text: msg, parse_mode: "HTML" })
     });
-    console.log("📥 Ответ от Worker:", res.status);
-    const data = await res.json();
-    console.log("📥 JSON:", data);
-    return data;
+    return res.json();
   };
 
   button.addEventListener('click', async () => {
-    console.log("👆 Кнопка нажата");
-    const msg = buildMessage();
-
-    if (!msg) {
-      alert('Выберите хотя бы один пункт');
-      return;
-    }
-
     try {
-      await sendMessage(msg);
-      alert('✅ ОТПРАВЛЕНО');
-      document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+      // Берём текущий профиль страницы
+      const currentProfile = getCurrentProfile();
+      // Берём языки прямо из sendConfig.js, каждый раз динамически
+      const sendLangs = getSendLanguages(currentProfile);
+      console.log("🌍 Актуальные языки отправки:", sendLangs);
+
+      if (!sendLangs.length) return alert('⚠ Для текущего профиля нет выбранных языков');
+
+      // Отправка отдельного сообщения для каждого языка
+      let sentCount = 0;
+      for (const lang of sendLangs) {
+        const msg = buildMessage(lang);
+        if (!msg) continue; // на всякий случай
+        await sendMessage(msg);
+        sentCount++;
+      }
+
+      if (sentCount > 0) {
+        alert(`✅ Отправлено сообщений: ${sentCount} (${sendLangs.join(", ").toUpperCase()})`);
+        document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+      } else {
+        alert('⚠ Нет элементов для отправки');
+      }
     } catch (err) {
-      console.error("❌ Ошибка при отправке:", err);
+      console.error(err);
       alert(`❌ Ошибка: ${err.message}`);
     }
   });
