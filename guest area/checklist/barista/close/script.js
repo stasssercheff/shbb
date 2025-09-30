@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Формирование сообщения на конкретном языке
   const buildMessage = (lang) => {
     const today = new Date();
     const date = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}`;
@@ -35,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
-    checklist.forEach((item, index) => {
+    checklist.forEach((item,index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
         if (label) {
           const key = label.dataset.i18n;
-          const translated = key && translations[key] && translations[key][lang]
+          const translated = key && translations && translations[key] && translations[key][lang]
             ? translations[key][lang]
             : label.textContent.trim();
           selectedItems.push(`${index+1}. ${translated}`);
@@ -65,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
   button.addEventListener('click', async () => {
     try {
       // каждый раз берём актуальные языки прямо из sendConfig.js
-      const currentProfile = getCurrentProfile();
-      const sendLangs = getSendLanguages(currentProfile);
+      const currentProfile = getCurrentProfile(); // функция из sendConfig.js
+      const sendLangs = getSendLanguages(currentProfile); // функция из sendConfig.js
       console.log("🌍 Актуальные языки отправки:", sendLangs);
 
       for (const lang of sendLangs) {
