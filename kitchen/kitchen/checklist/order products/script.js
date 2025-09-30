@@ -8,28 +8,59 @@ function goBack() {
   history.back();
 }
 
+// === Переключение языка через словарь ===
+function switchLanguage(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem("lang", lang);
+
+  // Обновляем элементы с data-i18n
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[key] && translations[key][lang]) {
+      if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
+        el.setAttribute("placeholder", translations[key][lang]);
+      } else if (el.tagName === "TEXTAREA" && el.hasAttribute("placeholder")) {
+        el.setAttribute("placeholder", translations[key][lang]);
+      } else {
+        el.textContent = translations[key][lang];
+      }
+    }
+  });
+
+  // Обновляем опции select
+  document.querySelectorAll("select").forEach(select => {
+    Array.from(select.options).forEach(option => {
+      const key = option.dataset.i18n;
+      if (key && translations[key] && translations[key][lang]) {
+        option.textContent = translations[key][lang];
+      }
+      if (option.value === "") option.textContent = "—";
+    });
+  });
+}
+
 // === Сохранение и восстановление данных формы ===
 function saveFormData() {
   const data = {};
-  document.querySelectorAll('select').forEach(select => {
+  document.querySelectorAll("select").forEach(select => {
     data[select.name || select.id] = select.value;
   });
-  document.querySelectorAll('textarea.comment').forEach(textarea => {
+  document.querySelectorAll("textarea.comment").forEach(textarea => {
     data[textarea.name || textarea.id] = textarea.value;
   });
-  localStorage.setItem('formData', JSON.stringify(data));
+  localStorage.setItem("formData", JSON.stringify(data));
 }
 
 function restoreFormData() {
-  const saved = localStorage.getItem('formData');
+  const saved = localStorage.getItem("formData");
   if (!saved) return;
   const data = JSON.parse(saved);
-  document.querySelectorAll('select').forEach(select => {
+  document.querySelectorAll("select").forEach(select => {
     if (data[select.name || select.id] !== undefined) {
       select.value = data[select.name || select.id];
     }
   });
-  document.querySelectorAll('textarea.comment').forEach(textarea => {
+  document.querySelectorAll("textarea.comment").forEach(textarea => {
     if (data[textarea.name || textarea.id] !== undefined) {
       textarea.value = data[textarea.name || textarea.id];
     }
@@ -37,74 +68,87 @@ function restoreFormData() {
 }
 
 // === DOMContentLoaded ===
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const lang = localStorage.getItem("lang") || "ru";
 
-  // Вставка пустой опции в каждый select.qty
-  document.querySelectorAll('select.qty').forEach(select => {
-    const hasEmpty = Array.from(select.options).some(opt => opt.value === '');
+  // Вставляем пустую опцию в каждый select.qty (если её нет)
+  document.querySelectorAll("select.qty").forEach(select => {
+    const hasEmpty = Array.from(select.options).some(opt => opt.value === "");
     if (!hasEmpty) {
-      const emptyOption = document.createElement('option');
-      emptyOption.value = '';
-      emptyOption.textContent = '—';
+      const emptyOption = document.createElement("option");
+      emptyOption.value = "";
+      emptyOption.dataset.i18n = "empty"; // ключ из lang.json
+      emptyOption.textContent = "—";
       emptyOption.selected = true;
       select.insertBefore(emptyOption, select.firstChild);
     }
   });
 
   restoreFormData();
+  switchLanguage(lang);
 
+  // Автоподстановка даты
   const today = new Date();
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0");
   const formattedDate = `${day}/${month}`;
-  const dateDiv = document.getElementById('autodate');
+  const dateDiv = document.getElementById("autodate");
   if (dateDiv) dateDiv.textContent = formattedDate;
 
-  document.querySelectorAll('select, textarea.comment').forEach(el => {
-    el.addEventListener('input', saveFormData);
+  document.querySelectorAll("select, textarea.comment").forEach(el => {
+    el.addEventListener("input", saveFormData);
   });
 
   // === Функция сборки сообщения ===
-  const buildMessage = (lang) => {
-    let message = `🧾 <b>${lang === 'en' ? 'ORDER' : 'ЗАКАЗ'}</b>\n\n`;
-    message += `📅 ${lang === 'en' ? 'Date' : 'Дата'}: ${formattedDate}\n`;
+  const buildMessage = lang => {
+    let message = `🧾 <b>${
+      lang === "en" ? "ORDER" : "ЗАКАЗ"
+    }</b>\n\n`;
+    message += `📅 ${lang === "en" ? "Date" : "Дата"}: ${formattedDate}\n`;
 
     const nameSelect = document.querySelector('select[name="chef"]');
     const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-    const nameKey = selectedChef?.dataset.i18n;
-    const name = nameKey ? translations[nameKey][lang] : '—';
-    message += `${lang === 'en' ? '👨‍🍳 Name' : '👨‍🍳 Имя'}: ${name}\n\n`;
+    const name = selectedChef?.dataset.i18n
+      ? translations[selectedChef.dataset.i18n][lang]
+      : "—";
+    message += `${lang === "en" ? "👨‍🍳 Name" : "👨‍🍳 Имя"}: ${name}\n\n`;
 
-    document.querySelectorAll('.menu-section').forEach(section => {
-      const sectionTitle = section.querySelector('.section-title');
+    document.querySelectorAll(".menu-section").forEach(section => {
+      const sectionTitle = section.querySelector(".section-title");
       const titleKey = sectionTitle?.dataset.i18n;
-      const title = titleKey ? translations[titleKey][lang] : '';
+      const title =
+        translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
 
-      let sectionContent = '';
+      let sectionContent = "";
 
-      section.querySelectorAll('.dish').forEach(dish => {
-        const select = dish.querySelector('select.qty');
+      section.querySelectorAll(".dish").forEach(dish => {
+        const select = dish.querySelector("select.qty");
         if (!select || !select.value) return;
 
-        const label = dish.querySelector('label.check-label');
+        const label = dish.querySelector("label");
         const labelKey = label?.dataset.i18n;
-        const labelText = labelKey ? translations[labelKey][lang] : '—';
+        const labelText =
+          translations[labelKey]?.[lang] || label?.textContent || "—";
 
         const selectedOption = select.options[select.selectedIndex];
-        const valueKey = selectedOption?.dataset.i18n;
-        const value = valueKey ? translations[valueKey][lang] : '—';
+        const optionKey = selectedOption?.dataset.i18n;
+        const value =
+          (optionKey && translations[optionKey]?.[lang]) ||
+          selectedOption?.textContent ||
+          "—";
 
         sectionContent += `• ${labelText}: ${value}\n`;
       });
 
-      const commentField = section.querySelector('textarea.comment');
+      const commentField = section.querySelector("textarea.comment");
       if (commentField && commentField.value.trim()) {
-        sectionContent += `💬 ${lang === 'en' ? 'Comment' : 'Комментарий'}: ${commentField.value.trim()}\n`;
+        sectionContent += `💬 ${
+          lang === "en" ? "Comment" : "Комментарий"
+        }: ${commentField.value.trim()}\n`;
       }
 
       if (sectionContent.trim()) {
-        message += `🔸 <b>${title}</b>\n` + sectionContent + '\n';
+        message += `🔸 <b>${title}</b>\n` + sectionContent + "\n";
       }
     });
 
@@ -112,22 +156,23 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // === Кнопка отправки ===
-  const button = document.getElementById('sendToTelegram');
-  button.addEventListener('click', () => {
-    const chat_id = '-1002393080811'; // твой Telegram чат ID
-    const worker_url = 'https://shbb1.stassser.workers.dev/'; // твой Worker
-    const emailTo = 'stassserchef@gmail.com';
+  const button = document.getElementById("sendToTelegram");
+  button.addEventListener("click", () => {
+    const chat_id = "-1002393080811"; // твой Telegram чат ID
+    const worker_url = "https://shbb1.stassser.workers.dev/"; // твой Worker
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-    const sendMessage = (msg) => {
+    // Отправка в Telegram через воркер
+    const sendMessage = msg => {
       return fetch(worker_url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chat_id, text: msg })
       }).then(res => res.json());
     };
 
-    const sendEmail = async (msg) => {
+    // Отправка email через Web3Forms
+    const sendEmail = async msg => {
       try {
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
@@ -147,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    const sendAllParts = async (text) => {
+    const sendAllParts = async text => {
       let start = 0;
       while (start < text.length) {
         const chunk = text.slice(start, start + 4000);
@@ -158,20 +203,22 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const clearForm = () => {
-      document.querySelectorAll('select').forEach(select => select.value = '');
-      document.querySelectorAll('textarea.comment').forEach(textarea => textarea.value = '');
+      document.querySelectorAll("select").forEach(select => (select.value = ""));
+      document
+        .querySelectorAll("textarea.comment")
+        .forEach(textarea => (textarea.value = ""));
     };
 
     (async () => {
       try {
-        await sendAllParts(buildMessage('ru'));
-        await sendAllParts(buildMessage('en'));
+        await sendAllParts(buildMessage("ru"));
+        await sendAllParts(buildMessage("en"));
 
-        alert('✅ ОТПРАВЛЕНО');
+        alert("✅ ОТПРАВЛЕНО");
         localStorage.clear();
         clearForm();
       } catch (err) {
-        alert('❌ Ошибка при отправке: ' + err.message);
+        alert("❌ Ошибка при отправке: " + err.message);
         console.error(err);
       }
     })();
