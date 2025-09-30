@@ -1,13 +1,10 @@
+// === script.js ===
 document.addEventListener('DOMContentLoaded', () => {
   const chat_id = '-1002915693964';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const button = document.getElementById('sendBtn');
 
   if (!button) return;
-
-  // Берём языки только из sendConfig.js
-  const sendLangs = window.sendLangs || ["ru"];
-  console.log("🌍 Языки отправки:", sendLangs);
 
   const headerDict = {
     title: {
@@ -37,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
     let selectedItems = [];
-    checklist.forEach((item,index) => {
+    checklist.forEach((item, index) => {
       if (item.checked) {
         const label = item.closest('.checklist-item')?.querySelector('label');
         if (label) {
@@ -66,13 +63,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   button.addEventListener('click', async () => {
     try {
+      // ✅ Берём актуальные языки каждый раз при клике
+      const currentProfile = getCurrentProfile(); // функция из sendConfig.js
+      const sendLangs = getSendLanguages(currentProfile);
+      console.log("🌍 Языки отправки:", sendLangs);
+
       for (const lang of sendLangs) {
         const msg = buildMessage(lang);
         if (!msg) return alert('Выберите хотя бы один пункт');
         await sendMessage(msg);
       }
+
       alert(`✅ Отправлено на: ${sendLangs.join(", ").toUpperCase()}`);
       document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+
     } catch (err) {
       console.error(err);
       alert(`❌ Ошибка: ${err.message}`);
