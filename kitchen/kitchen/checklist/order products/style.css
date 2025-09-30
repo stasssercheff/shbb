@@ -1,8 +1,7 @@
-
 /* === Локальные стили для writeoff === */
 
-/* Контейнер этой страницы — оставляем уникальные размеры */
-.container {
+/* Контейнер этой страницы */
+.container.writeoff {
     max-width: 90%;
     margin: 10px auto; /* уменьшены отступы сверху/снизу */
     background-color: #fff;
@@ -28,13 +27,7 @@
 
 .dish select.qty {
     flex: 0 0 80px;
-    padding: 6px;
-    font-size: 13px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
     text-align: center;
-    text-align-last: center;
-    background: #fff;
 }
 
 /* Поля комментариев */
@@ -49,7 +42,7 @@ textarea.comment {
     box-sizing: border-box;
 }
 
-/* Селекторы */
+/* Общие стили для селекторов */
 select {
     appearance: none;
     background: #fff;
@@ -59,6 +52,11 @@ select {
     padding: 6px;
     font-size: 13px;
     box-sizing: border-box;
+}
+
+/* Центровка текста внутри опций */
+select option {
+    text-align: center;
 }
 
 /* Блоки меню */
