@@ -1473,5 +1473,10 @@
     "ru": "Суп брокколи фасовать",
     "en": "Broccoli soup pack",
     "vi": "Đóng gói súп bông cải xanh"
-  }
+  },
+  "checklist1": {
+    "ru": "Чеклист задач",
+    "en": "To-do list",
+    "vi": "Danh sách việc cần làm"
+ }
 }
