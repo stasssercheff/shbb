@@ -3,23 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница выбора</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
+  <title data-i18n="checklist_kitchen"></title>
 
-<header class="page-header">
-  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
-</header>
+  <!-- ✅ Подключаем общий CSS -->
+  <link rel="stylesheet" href="../../../common.css">
+    <!-- ✅ Локальный CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Логика перевода -->
+  <script src="../../../lang.js" defer></script>
+   <!-- ✅ Глобальные настройки языков отправки -->
+  <script src="../../../sendConfig.js" defer></script>
+  <script src="script.js" defer></script>
+
+
+  
+</head>
+<body data-profile="kitchen">
 
 <main class="main-container">
   <!-- Лого -->
   <img src="../logo.png" alt="Лого" class="logo">
 
   <!-- Заголовок -->
-  <h1>Выберите подраздел</h1>
+  <h1> data-i18n="ttk"</h1>
 
   <!-- Кнопки перехода -->
   <div class="buttons-container">
