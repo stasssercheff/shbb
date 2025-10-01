@@ -19,14 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-// Функция возврата на главную страницу
+// На главную
 function goHome() {
-  location.href = '/index.html';
+    location.href = "http://stasssercheff.github.io/shbb/";
 }
 
-// Функция возврата на предыдущую страницу
+// На уровень выше (одну папку вверх)
 function goBack() {
-  history.back();
+    const currentPath = window.location.pathname;
+    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+    window.location.href = upperPath + "/index.html";
 }
     
   // Формируем сообщение на конкретном языке
