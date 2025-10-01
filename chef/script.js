@@ -1,17 +1,37 @@
-// Отображение текущей даты
+
+// ======================
+// Отображение текущей даты с учётом языка
+// ======================
 document.addEventListener("DOMContentLoaded", () => {
     const dateEl = document.getElementById("current-date");
+    if (!dateEl) return; // если блока даты нет — пропускаем
+
     const today = new Date();
+    const savedLang = localStorage.getItem("lang") || "ru";
+
+    const locales = {
+        ru: "ru-RU",
+        en: "en-US",
+        vi: "vi-VN"
+    };
+
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    dateEl.textContent = today.toLocaleDateString('ru-RU', options);
+    dateEl.textContent = today.toLocaleDateString(locales[savedLang] || "ru-RU", options);
 });
 
-// Функция возврата на главную страницу
+// ======================
+// Переходы по кнопкам
+// ======================
+
+// На главную
 function goHome() {
-    location.href = '/index.html';
+    location.href = "http://stasssercheff.github.io/shbb/";
 }
 
-// Функция возврата на предыдущую страницу
+// На уровень выше (одну папку вверх)
 function goBack() {
-    history.back();
+    const currentPath = window.location.pathname;
+    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+    window.location.href = upperPath + "/index.html";
 }
