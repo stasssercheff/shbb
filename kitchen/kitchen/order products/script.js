@@ -8,15 +8,15 @@ function goBack() {
   history.back();
 }
 
-// Обновление даты через lang.js (при загрузке страницы или смене языка)
+// Обновление даты при загрузке страницы
 document.addEventListener("DOMContentLoaded", () => {
     const dateEl = document.getElementById("current-date");
     if (dateEl) {
-        // Берём текущий язык из localStorage, если есть
-        const lang = localStorage.getItem("lang") || "ru";
-        // Опции для формата даты
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        dateEl.textContent = new Date().toLocaleDateString(lang, options);
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        dateEl.textContent = `${day}.${month}.${year}`;
     }
 });
 
