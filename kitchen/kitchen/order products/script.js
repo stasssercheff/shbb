@@ -12,11 +12,11 @@ function goBack() {
 document.addEventListener("DOMContentLoaded", () => {
     const dateEl = document.getElementById("current-date");
     if (dateEl) {
-        const today = new Date();
-        const day = String(today.getDate()).padStart(2, "0");
-        const month = String(today.getMonth() + 1).padStart(2, "0");
-        const year = today.getFullYear();
-        dateEl.textContent = `${day}.${month}.${year}`;
+        // Берём текущий язык из localStorage, если есть
+        const lang = localStorage.getItem("lang") || "ru";
+        // Опции для формата даты
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        dateEl.textContent = new Date().toLocaleDateString(lang, options);
     }
 });
 
