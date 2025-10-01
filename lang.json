@@ -1238,5 +1238,241 @@
   "ru": "Творог",
   "en": "Cottage cheese",
   "vi": "Phô mai tươi"
- }
+ },
+  {
+  "bread_x2": {
+    "ru": "Хлеб х 2",
+    "en": "Bread x 2",
+    "vi": "Bánh mì x 2"
+  },
+  "hollandaise_sauce": {
+    "ru": "Голландский соус",
+    "en": "Hollandaise sauce",
+    "vi": "Sốt Hollandaise"
+  },
+  "tartar_sauce": {
+    "ru": "Соус тартар",
+    "en": "Tartar sauce",
+    "vi": "Sốt tartar"
+  },
+  "cream_cheese_sauce": {
+    "ru": "Соус кремчиз",
+    "en": "Cream cheese sauce",
+    "vi": "Sốt kem phô mai"
+  },
+  "vinaigrette_sauce": {
+    "ru": "Соус винегрет",
+    "en": "Vinaigrette sauce",
+    "vi": "Sốt vinaigrette"
+  },
+  "pesto_sauce": {
+    "ru": "Соус песто",
+    "en": "Pesto sauce",
+    "vi": "Sốt pesto"
+  },
+  "fish_sauce": {
+    "ru": "Соус для рыбы",
+    "en": "Fish sauce",
+    "vi": "Sốt cá"
+  },
+  "chicken_sauce": {
+    "ru": "Соус на курицу",
+    "en": "Chicken sauce",
+    "vi": "Sốt gà"
+  },
+  "sun_dried_tomato_sauce": {
+    "ru": "Соус вяленые томаты",
+    "en": "Sun-dried tomato sauce",
+    "vi": "Sốt cà chua khô"
+  },
+  "spinach": {
+    "ru": "Шпинат",
+    "en": "Spinach",
+    "vi": "Rau chân vịt"
+  },
+  "trout_rillettes": {
+    "ru": "Риет форель",
+    "en": "Trout rillettes",
+    "vi": "Rillettes cá hồi"
+  },
+  "pate": {
+    "ru": "Паштет",
+    "en": "Pâté",
+    "vi": "Pâté"
+  },
+  "tuna_mix": {
+    "ru": "Замес тунец",
+    "en": "Tuna mix",
+    "vi": "Hỗn hợp cá ngừ"
+  },
+  "nutella": {
+    "ru": "Нутелла",
+    "en": "Nutella",
+    "vi": "Nutella"
+  },
+  "chicken_sous_vide_work": {
+    "ru": "Кура сувид работа",
+    "en": "Chicken sous-vide work",
+    "vi": "Gà sous-vide công đoạn"
+  },
+  "chicken_sous_vide_staff": {
+    "ru": "Кура сувид стафф",
+    "en": "Chicken sous-vide staff",
+    "vi": "Gà sous-vide phần nhân"
+  },
+  "salt_fish": {
+    "ru": "Рыба солить",
+    "en": "Salt fish",
+    "vi": "Cá muối"
+  },
+  "fish_steak": {
+    "ru": "Рыба стейк",
+    "en": "Fish steak",
+    "vi": "Steak cá"
+  },
+  "beef_sous_vide": {
+    "ru": "Говядина сувид",
+    "en": "Beef sous-vide",
+    "vi": "Bò sous-vide"
+  },
+  "beef_for_sandwiches": {
+    "ru": "Говядина сендвичи",
+    "en": "Beef for sandwiches",
+    "vi": "Bò làm sandwich"
+  },
+  "beef_tartare": {
+    "ru": "Говядина тартар",
+    "en": "Beef tartare",
+    "vi": "Bò tartare"
+  },
+  "liver": {
+    "ru": "Печень сувид",
+    "en": "Liver",
+    "vi": "Gan"
+  },
+  "octopus": {
+    "ru": "Осьминог",
+    "en": "Octopus",
+    "vi": "Bạch tuộc"
+  },
+  "porridge": {
+    "ru": "Каша",
+    "en": "Porridge",
+    "vi": "Cháo"
+  },
+  "pumpkin_soup": {
+    "ru": "Суп тыква",
+    "en": "Pumpkin soup",
+    "vi": "Súp bí đỏ"
+  },
+  "broccoli_soup": {
+    "ru": "Суп брокколи",
+    "en": "Broccoli soup",
+    "vi": "Súp bông cải xanh"
+  },
+  "bisque": {
+    "ru": "Биск",
+    "en": "Bisque",
+    "vi": "Bisque"
+  },
+  "stuffed_vegetables": {
+    "ru": "Овощи стафф",
+    "en": "Stuffed vegetables",
+    "vi": "Rau nhồi"
+  },
+  "beans": {
+    "ru": "Фасоль",
+    "en": "Beans",
+    "vi": "Đậu"
+  },
+  "poached_eggs": {
+    "ru": "Яйца пошот",
+    "en": "Poached eggs",
+    "vi": "Trứng chần"
+  },
+  "pancake_batter": {
+    "ru": "Тесто блины",
+    "en": "Pancake batter",
+    "vi": "Bột bánh kếп"
+  },
+  "stuffed_pork": {
+    "ru": "Свинина стафф",
+    "en": "Stuffed pork",
+    "vi": "Thịt heo nhồi"
+  },
+  "pasta": {
+    "ru": "Паста",
+    "en": "Pasta",
+    "vi": "Mỳ ống"
+  },
+  "working_fridges": {
+    "ru": "Холодильники рабочие",
+    "en": "Working fridges",
+    "vi": "Tủ lạnh hoạt động"
+  },
+  "cleaning": {
+    "ru": "Уборка",
+    "en": "Cleaning",
+    "vi": "Dọn dẹp"
+  },
+  "defrost_fridges": {
+    "ru": "Холодильники дефрост",
+    "en": "Defrost fridges",
+    "vi": "Rã đông tủ lạnh"
+  },
+  "count_leftovers": {
+    "ru": "Подсчитать остатки",
+    "en": "Count leftovers",
+    "vi": "Đếm phần dư"
+  },
+  "cheese_pancakes": {
+    "ru": "Сырники",
+    "en": "Cheese pancakes",
+    "vi": "Bánh phô mai"
+  },
+  "cheese_for_croque": {
+    "ru": "Сыр на крок",
+    "en": "Cheese for croque",
+    "vi": "Phô mai cho croque"
+  },
+  "grate_cheese": {
+    "ru": "Сыр тереть",
+    "en": "Grate cheese",
+    "vi": "Bào phô mai"
+  },
+  "slice_borodinsky": {
+    "ru": "Бородинский нарезать",
+    "en": "Slice Borodinsky",
+    "vi": "Cắt Borodinsky"
+  },
+  "slice_ciabatta": {
+    "ru": "Чиабата нарезать",
+    "en": "Slice Ciabatta",
+    "vi": "Cắt Ciabatta"
+  },
+  "bread_for_sandwiches": {
+    "ru": "Хлеб на сендвичи",
+    "en": "Bread for sandwiches",
+    "vi": "Bánh mì làm sandwich"
+  },
+  "bread_for_benedict": {
+    "ru": "Хлеб на Бенедикт",
+    "en": "Bread for Benedict",
+    "vi": "Bánh mì làm Benedict"
+  },
+  "sort_salads": {
+    "ru": "Салаты перебрать",
+    "en": "Sort salads",
+    "vi": "Chọn salad"
+  },
+  "pumpkin_soup_pack": {
+    "ru": "Суп тыква фасовать фасовать",
+    "en": "Pumpkin soup pack",
+    "vi": "Đóng gói súp bí đỏ"
+  },
+  "broccoli_soup_pack": {
+    "ru": "Суп брокколи фасовать",
+    "en": "Broccoli soup pack",
+    "vi": "Đóng gói súп bông cải xanh"
+  }
 }
