@@ -12,12 +12,14 @@ function goBack() {
 document.addEventListener("DOMContentLoaded", () => {
     const dateEl = document.getElementById("current-date");
     if (dateEl) {
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        // Берём текущий язык из localStorage, если есть
-        const lang = localStorage.getItem("lang") || "ru";
-        dateEl.textContent = new Date().toLocaleDateString(lang, options);
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, "0");
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+        const year = today.getFullYear();
+        dateEl.textContent = `${day}.${month}.${year}`;
     }
 });
+
 
 // === Переключение языка через словарь ===
 function switchLanguage(lang) {
