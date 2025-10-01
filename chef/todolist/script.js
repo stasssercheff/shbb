@@ -1,4 +1,4 @@
-    // === script.js ===
+// === script.js ===
 document.addEventListener('DOMContentLoaded', () => {
   const chat_id = '-1002393080811';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
@@ -19,6 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+// Функция возврата на главную страницу
+function goHome() {
+  location.href = '/index.html';
+}
+
+// Функция возврата на предыдущую страницу
+function goBack() {
+  history.back();
+}
+    
   // Формируем сообщение на конкретном языке
   const buildMessage = (lang) => {
     const today = new Date();
