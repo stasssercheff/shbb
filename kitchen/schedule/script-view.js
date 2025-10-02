@@ -1,3 +1,17 @@
+// На главную
+function goHome() {
+    location.href = "http://stasssercheff.github.io/shbb/";
+}
+
+// На уровень выше (одну папку вверх)
+function goBack() {
+    const currentPath = window.location.pathname;
+    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+    window.location.href = upperPath + "/index.html";
+}
+
+
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpNWtZImdMKoOxbV6McfEXEB67ck7nzA1EcBXNOFdnDTK4o9gniAuz82paEdGAyRSlo6dFKO9zCyLP/pub?gid=0&single=true&output=csv";
 
 async function loadSchedule() {
