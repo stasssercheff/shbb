@@ -36,9 +36,9 @@ table {
 td {
   border: 1px solid #ccc;
   text-align: center;
-  padding: 4px 6px;
-  font-size: 12px;
-  min-width: 20px;
+  padding: 2px 3px;
+  font-size: 11px;
+  min-width: 18px;
 }
 
 /* Фиксируем весь первый столбец */
