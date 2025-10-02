@@ -18,8 +18,7 @@ document.getElementById("current-date").textContent = new Date().toLocaleDateStr
 async function loadSchedule() {
   const resp = await fetch(CSV_URL);
   const text = await resp.text();
-  const rows = text.trim().split("\n").map(r => r.split(";")); // <-- здесь разделитель ;
-
+  const rows = text.trim().split("\n").map(r => r.split(","));
   csvData = rows;
 
   const tableBody = document.getElementById("schedule").querySelector("tbody");
@@ -32,11 +31,11 @@ async function loadSchedule() {
       td.textContent = cell.trim();
 
       // Подсветка смен
-      if (rIdx > 1 && cIdx > 0) { 
-        if (cell === "1") td.classList.add("shift-1");
-        if (cell === "0") td.classList.add("shift-0");
-        if (cell === "VR") td.classList.add("shift-VR");
-        if (cell === "Б") td.classList.add("shift-Б");
+      if (rIdx > 1) { 
+        if (cell.trim() === "1") td.classList.add("shift-1");
+        if (cell.trim() === "0") td.classList.add("shift-0");
+        if (cell.trim() === "VR") td.classList.add("shift-VR");
+        if (cell.trim() === "Б") td.classList.add("shift-Б");
       }
 
       tr.appendChild(td);
@@ -49,13 +48,13 @@ async function loadSchedule() {
 function calculateSalary(periodStart, periodEnd) {
   const summary = {};
   for (let r = 2; r < csvData.length; r++) {
-    const dateParts = csvData[r][0].split(".");
+    const dateParts = csvData[r][0].trim().split(".");
     if (dateParts.length < 3) continue;
     const date = new Date(+dateParts[2], dateParts[1]-1, +dateParts[0]);
 
     if (date >= periodStart && date <= periodEnd) {
       for (let c = 1; c < csvData[r].length; c++) {
-        const worker = csvData[1][c].trim();
+        let worker = csvData[1][c].trim().replace(/\r/g, "");
         if (!employees[worker]) continue;
         const val = csvData[r][c].trim();
         if (val === "1") {
@@ -103,6 +102,11 @@ async function sendSalaryMessage() {
   const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
   const msg = document.getElementById("salarySummary").textContent;
+
+  if (!msg || msg.includes("Итого к выплате: 0")) {
+    alert('⚠️ Нет данных для выбранного периода.');
+    return;
+  }
 
   try {
     // Telegram
