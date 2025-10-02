@@ -64,8 +64,6 @@ table td:first-child {
 .shift-VR { background: #00ffff; }
 .shift-Б { background: #cce0ff; }
 
- min-width: 20px;
-
 /* Подсветка сегодняшнего дня */
 td.today {
   background-color: #ffeb99 !important; /* жёлтая подсветка */
