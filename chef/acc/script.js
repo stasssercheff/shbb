@@ -11,129 +11,89 @@ const employees = {
 
 let csvData = [];
 
+// Показываем текущую дату
 document.getElementById("current-date").textContent = new Date().toLocaleDateString("ru-RU");
 
+// Загружаем график из Google Sheets
 async function loadSchedule() {
   const resp = await fetch(CSV_URL);
   const text = await resp.text();
-  csvData = text.trim().split("\n").map(r => r.split(","));
-}
+  const rows = text.trim().split("\n").map(r => r.split(","));
+  csvData = rows;
 
-function getPeriodDates(periodVal) {
-  const now = new Date();
-  let start, end;
-  if (periodVal === "1-15") {
-    start = new Date(now.getFullYear(), now.getMonth(), 1);
-    end = new Date(now.getFullYear(), now.getMonth(), 15);
-  } else {
-    start = new Date(now.getFullYear(), now.getMonth(), 16);
-    end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-  }
-  return { start, end };
-}
+  const tableBody = document.getElementById("schedule").querySelector("tbody");
+  tableBody.innerHTML = "";
 
-function buildTable(periodStart, periodEnd) {
-  const header = document.getElementById("tableHeader");
-  const body = document.getElementById("tableBody");
-  header.innerHTML = "";
-  body.innerHTML = "";
-
-  if (!csvData.length) return;
-
-  // Заголовок
-  const dateHeader = document.createElement("th");
-  dateHeader.textContent = "Дата";
-  header.appendChild(dateHeader);
-
-  const workers = Object.keys(employees);
-  workers.forEach(w => {
-    const th = document.createElement("th");
-    th.textContent = w;
-    header.appendChild(th);
-  });
-
-  // Строки
-  for (let r = 2; r < csvData.length; r++) {
-    const dateParts = csvData[r][0].split(".");
-    if (dateParts.length < 3) continue;
-    const date = new Date(+dateParts[2], dateParts[1]-1, +dateParts[0]);
-    if (date < periodStart || date > periodEnd) continue;
-
+  rows.forEach((row, rIdx) => {
     const tr = document.createElement("tr");
-    const tdDate = document.createElement("td");
-    tdDate.textContent = csvData[r][0];
-    tr.appendChild(tdDate);
-
-    workers.forEach(w => {
+    row.forEach((cell, cIdx) => {
       const td = document.createElement("td");
-      const idx = csvData[1].indexOf(w);
-      const val = idx >= 0 ? csvData[r][idx].trim() : "";
-      td.textContent = val;
-      if (val === "1") td.classList.add("shift-1");
-      if (val === "0") td.classList.add("shift-0");
-      if (val === "VR") td.classList.add("shift-VR");
-      if (val === "Б") td.classList.add("shift-Б");
+      td.textContent = cell.trim();
+
+      if (rIdx > 1) { // данные смен
+        if (cell === "1") td.classList.add("shift-1");
+        if (cell === "0") td.classList.add("shift-0");
+        if (cell === "VR") td.classList.add("shift-VR");
+        if (cell === "Б") td.classList.add("shift-Б");
+      }
       tr.appendChild(td);
     });
-
-    body.appendChild(tr);
-  }
+    tableBody.appendChild(tr);
+  });
 }
 
-function calculateZA(periodStart, periodEnd) {
+// Рассчет зарплаты за выбранный период (прошедший)
+function calculateSalary(periodStart, periodEnd) {
   const summary = {};
-  const workers = Object.keys(employees);
-  workers.forEach(w => summary[w] = { shifts: 0, rate: employees[w].rate, total: 0 });
-
   for (let r = 2; r < csvData.length; r++) {
     const dateParts = csvData[r][0].split(".");
     if (dateParts.length < 3) continue;
     const date = new Date(+dateParts[2], dateParts[1]-1, +dateParts[0]);
-    if (date < periodStart || date > periodEnd) continue;
 
-    workers.forEach(w => {
-      const idx = csvData[1].indexOf(w);
-      if (idx < 0) return;
-      const val = csvData[r][idx].trim();
-      if (val === "1") {
-        summary[w].shifts += 1;
-        summary[w].total += employees[w].rate;
+    if (date >= periodStart && date <= periodEnd) {
+      for (let c = 1; c < csvData[r].length; c++) {
+        const worker = csvData[1][c].trim();
+        if (!employees[worker]) continue;
+        const val = csvData[r][c].trim();
+        if (val === "1") {
+          if (!summary[worker]) summary[worker] = { shifts: 0, rate: employees[worker].rate, total: 0 };
+          summary[worker].shifts++;
+          summary[worker].total += employees[worker].rate;
+        }
       }
-    });
+    }
   }
-
-  let msg = `ЗП за период ${periodStart.getDate()}.${periodStart.getMonth()+1} - ${periodEnd.getDate()}.${periodEnd.getMonth()+1}\n\n`;
-  let totalAll = 0;
-  workers.forEach(w => {
-    const s = summary[w];
-    msg += `${w} (${employees[w].position})\n`;
-    msg += `количество смен: ${s.shifts}\n`;
-    msg += `ставка: ${s.rate}\n`;
-    msg += `к выплате: ${s.total}\n\n`;
-    totalAll += s.total;
-  });
-  msg += `Итого к выплате: ${totalAll}`;
-  return msg;
+  return summary;
 }
 
-function showZA() {
-  const periodVal = document.getElementById("periodSelect").value;
-  const { start, end } = getPeriodDates(periodVal);
-  buildTable(start, end);
-  const msg = calculateZA(start, end);
-  document.getElementById("salarySummary").textContent = msg;
+// Формируем текст ЗА
+function formatSalaryMessage(periodStart, periodEnd, summary) {
+  let message = `ЗА за период ${String(periodStart.getDate()).padStart(2,'0')}.${String(periodStart.getMonth()+1).padStart(2,'0')} - ${String(periodEnd.getDate()).padStart(2,'0')}.${String(periodEnd.getMonth()+1).padStart(2,'0')}\n\n`;
+  let total = 0;
+  for (let worker in summary) {
+    const info = summary[worker];
+    message += `${worker} (${employees[worker].position})\n`;
+    message += `количество смен: ${info.shifts}\n`;
+    message += `ставка: ${info.rate}\n`;
+    message += `к выплате: ${info.total}\n\n`;
+    total += info.total;
+  }
+  message += `Итого к выплате: ${total}`;
+  return message;
 }
 
+// Генерация PNG через html2canvas
 function generateSalaryImage() {
-  const container = document.querySelector(".table-container");
+  const container = document.getElementById("schedule");
   html2canvas(container).then(canvas => {
     const link = document.createElement("a");
     link.href = canvas.toDataURL("image/png");
-    link.download = "salary.png";
+    link.download = "schedule.png";
     link.click();
   });
 }
 
+// Отправка Telegram + Email
 async function sendSalaryMessage() {
   const chat_id = '-1003149716465';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
@@ -142,14 +102,12 @@ async function sendSalaryMessage() {
   const msg = document.getElementById("salarySummary").textContent;
 
   try {
-    // Telegram
     await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id, text: msg })
     });
 
-    // Email через Web3Forms
     await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -162,11 +120,44 @@ async function sendSalaryMessage() {
       })
     });
 
-    alert('✅ Отправлено!');
+    alert('✅ ЗА отправлено!');
   } catch(err) {
     alert('❌ Ошибка отправки: ' + err.message);
     console.error(err);
   }
 }
 
-document.getElementById("
+// Определяем предыдущий период
+function getPreviousPeriod(periodVal) {
+  const now = new Date();
+  let start, end;
+
+  if (periodVal === "1-15") {
+    // предыдущий месяц 1-15
+    const prevMonth = new Date(now.getFullYear(), now.getMonth()-1, 1);
+    start = new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 1);
+    end = new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 15);
+  } else {
+    // предыдущий месяц 16-конец
+    const prevMonth = new Date(now.getFullYear(), now.getMonth()-1, 1);
+    start = new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 16);
+    end = new Date(prevMonth.getFullYear(), prevMonth.getMonth() +1, 0);
+  }
+  return [start, end];
+}
+
+// Обработчики кнопок
+document.addEventListener("DOMContentLoaded", () => {
+  loadSchedule();
+
+  document.getElementById("generateBtn").addEventListener("click", () => {
+    const periodVal = document.getElementById("periodSelect").value;
+    const [start, end] = getPreviousPeriod(periodVal);
+    const summary = calculateSalary(start, end);
+    const message = formatSalaryMessage(start, end, summary);
+    document.getElementById("salarySummary").textContent = message;
+  });
+
+  document.getElementById("downloadImageBtn").addEventListener("click", generateSalaryImage);
+  document.getElementById("sendSalaryToTelegram").addEventListener("click", sendSalaryMessage);
+});
