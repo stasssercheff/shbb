@@ -11,77 +11,121 @@ const employees = {
 
 let csvData = [];
 
-// Показ текущей даты
 document.getElementById("current-date").textContent = new Date().toLocaleDateString("ru-RU");
 
-// Загружаем CSV и отображаем график
 async function loadSchedule() {
   const resp = await fetch(CSV_URL);
   const text = await resp.text();
-  const rows = text.trim().split("\n").map(r => r.split(","));
-  csvData = rows;
-
-  const table = document.getElementById("schedule").querySelector("tbody");
-  table.innerHTML = "";
-
-  rows.forEach(row => {
-    const tr = document.createElement("tr");
-    row.forEach(cell => {
-      const td = document.createElement("td");
-      td.textContent = cell;
-      tr.appendChild(td);
-    });
-    table.appendChild(tr);
-  });
+  csvData = text.trim().split("\n").map(r => r.split(","));
 }
 
-// Рассчет зарплаты
-function calculateSalary(periodStart, periodEnd, selectedEmployees = null) {
-  const salarySummary = {};
+function getPeriodDates(periodVal) {
+  const now = new Date();
+  let start, end;
+  if (periodVal === "1-15") {
+    start = new Date(now.getFullYear(), now.getMonth(), 1);
+    end = new Date(now.getFullYear(), now.getMonth(), 15);
+  } else {
+    start = new Date(now.getFullYear(), now.getMonth(), 16);
+    end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+  }
+  return { start, end };
+}
+
+function buildTable(periodStart, periodEnd) {
+  const header = document.getElementById("tableHeader");
+  const body = document.getElementById("tableBody");
+  header.innerHTML = "";
+  body.innerHTML = "";
+
+  if (!csvData.length) return;
+
+  // Заголовок
+  const dateHeader = document.createElement("th");
+  dateHeader.textContent = "Дата";
+  header.appendChild(dateHeader);
+
+  const workers = Object.keys(employees);
+  workers.forEach(w => {
+    const th = document.createElement("th");
+    th.textContent = w;
+    header.appendChild(th);
+  });
+
+  // Строки
   for (let r = 2; r < csvData.length; r++) {
     const dateParts = csvData[r][0].split(".");
     if (dateParts.length < 3) continue;
     const date = new Date(+dateParts[2], dateParts[1]-1, +dateParts[0]);
+    if (date < periodStart || date > periodEnd) continue;
 
-    if (date >= periodStart && date <= periodEnd) {
-      for (let c = 1; c < csvData[r].length; c++) {
-        const worker = csvData[1][c].trim();
-        if (!employees[worker]) continue;
-        if (selectedEmployees && !selectedEmployees.includes(worker)) continue;
+    const tr = document.createElement("tr");
+    const tdDate = document.createElement("td");
+    tdDate.textContent = csvData[r][0];
+    tr.appendChild(tdDate);
 
-        const val = csvData[r][c].trim();
-        if (val === "1") {
-          if (!salarySummary[worker]) salarySummary[worker] = { shifts: 0, rate: employees[worker].rate, total: 0 };
-          salarySummary[worker].shifts += 1;
-          salarySummary[worker].total += employees[worker].rate;
-        }
+    workers.forEach(w => {
+      const td = document.createElement("td");
+      const idx = csvData[1].indexOf(w);
+      const val = idx >= 0 ? csvData[r][idx].trim() : "";
+      td.textContent = val;
+      if (val === "1") td.classList.add("shift-1");
+      if (val === "0") td.classList.add("shift-0");
+      if (val === "VR") td.classList.add("shift-VR");
+      if (val === "Б") td.classList.add("shift-Б");
+      tr.appendChild(td);
+    });
+
+    body.appendChild(tr);
+  }
+}
+
+function calculateZA(periodStart, periodEnd) {
+  const summary = {};
+  const workers = Object.keys(employees);
+  workers.forEach(w => summary[w] = { shifts: 0, rate: employees[w].rate, total: 0 });
+
+  for (let r = 2; r < csvData.length; r++) {
+    const dateParts = csvData[r][0].split(".");
+    if (dateParts.length < 3) continue;
+    const date = new Date(+dateParts[2], dateParts[1]-1, +dateParts[0]);
+    if (date < periodStart || date > periodEnd) continue;
+
+    workers.forEach(w => {
+      const idx = csvData[1].indexOf(w);
+      if (idx < 0) return;
+      const val = csvData[r][idx].trim();
+      if (val === "1") {
+        summary[w].shifts += 1;
+        summary[w].total += employees[w].rate;
       }
-    }
-  }
-  return salarySummary;
-}
-
-// Формируем текстовую сводку
-function formatSalaryMessage(periodStart, periodEnd, salarySummary) {
-  let message = `Период: ${periodStart.getDate()}-${periodStart.getMonth()+1} - ${periodEnd.getDate()}-${periodEnd.getMonth()+1}\n\n`;
-  let totalPayment = 0;
-
-  for (let worker in salarySummary) {
-    const info = salarySummary[worker];
-    message += `${worker} (${employees[worker].position})\n`;
-    message += `количество смен: ${info.shifts}\n`;
-    message += `ставка: ${info.rate}\n`;
-    message += `к выплате: ${info.total}\n\n`;
-    totalPayment += info.total;
+    });
   }
 
-  message += `Итого к выплате: ${totalPayment}`;
-  return message;
+  let msg = `ЗА за период ${periodStart.getDate()}.${periodStart.getMonth()+1} - ${periodEnd.getDate()}.${periodEnd.getMonth()+1}\n\n`;
+  let totalAll = 0;
+  workers.forEach(w => {
+    const s = summary[w];
+    msg += `${w} (${employees[w].position})\n`;
+    msg += `количество смен: ${s.shifts}\n`;
+    msg += `ставка: ${s.rate}\n`;
+    msg += `к выплате: ${s.total}\n\n`;
+    totalAll += s.total;
+  });
+  msg += `Итого к выплате: ${totalAll}`;
+  return msg;
 }
 
-// Генерация PNG через html2canvas
+function showZA() {
+  const periodVal = document.getElementById("periodSelect").value;
+  const { start, end } = getPeriodDates(periodVal);
+  buildTable(start, end);
+  const msg = calculateZA(start, end);
+  document.getElementById("salarySummary").textContent = msg;
+}
+
 function generateSalaryImage() {
-  const container = document.getElementById("salarySummary");
+  const container = document.querySelector(".table-container");
   html2canvas(container).then(canvas => {
     const link = document.createElement("a");
     link.href = canvas.toDataURL("image/png");
@@ -90,63 +134,39 @@ function generateSalaryImage() {
   });
 }
 
-// Отправка в Telegram и на email
 async function sendSalaryMessage() {
-  const chat_id = '-1003149716465'; // новый чат
+  const chat_id = '-1003149716465';
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
-    const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
-    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
-  
+
   const msg = document.getElementById("salarySummary").textContent;
 
   try {
     // Telegram
     await fetch(worker_url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id, text: msg })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id, text: msg })
     });
 
     // Email через Web3Forms
     await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            access_key: accessKey,
-            subject: "Сводка зарплаты",
-            from_name: "SHBB Payroll",
-            reply_to: "no-reply@shbb.com",
-            message: msg
-        })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        access_key: accessKey,
+        subject: "ЗА за период",
+        from_name: "SHBB Payroll",
+        reply_to: "no-reply@shbb.com",
+        message: msg
+      })
     });
 
-    alert('✅ Сводка отправлена!');
+    alert('✅ ЗА отправлено!');
   } catch(err) {
     alert('❌ Ошибка отправки: ' + err.message);
     console.error(err);
   }
 }
 
-// Обработчики кнопок
-document.getElementById("generateBtn").addEventListener("click", () => {
-  const periodVal = document.getElementById("periodSelect").value;
-  const now = new Date();
-  let periodStart, periodEnd;
-  if (periodVal === "1-15") {
-    periodStart = new Date(now.getFullYear(), now.getMonth(), 1);
-    periodEnd = new Date(now.getFullYear(), now.getMonth(), 15);
-  } else {
-    periodStart = new Date(now.getFullYear(), now.getMonth(), 16);
-    periodEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-  }
-
-  const salarySummary = calculateSalary(periodStart, periodEnd);
-  const message = formatSalaryMessage(periodStart, periodEnd, salarySummary);
-  document.getElementById("salarySummary").textContent = message;
-});
-
-document.getElementById("downloadImageBtn").addEventListener("click", generateSalaryImage);
-document.getElementById("sendSalaryToTelegram").addEventListener("click", sendSalaryMessage);
-
-loadSchedule();
+document.getElementById("
