@@ -16,21 +16,26 @@ document.addEventListener('DOMContentLoaded', () => {
       ru: "Дата", 
       en: "Date", 
       vi: "Ngày" 
+    },
+    comment: { 
+      ru: "Комментарий", 
+      en: "Comment", 
+      vi: "Ghi chú" 
     }
   };
 
-// На главную
-function goHome() {
-    location.href = "http://stasssercheff.github.io/shbb/";
-}
+  // На главную
+  function goHome() {
+      location.href = "http://stasssercheff.github.io/shbb/";
+  }
 
-// На уровень выше (одну папку вверх)
-function goBack() {
-    const currentPath = window.location.pathname;
-    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-    window.location.href = upperPath + "/index.html";
-}
+  // На уровень выше (одну папку вверх)
+  function goBack() {
+      const currentPath = window.location.pathname;
+      const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+      const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+      window.location.href = upperPath + "/index.html";
+  }
     
   // Формируем сообщение на конкретном языке
   const buildMessage = (lang) => {
@@ -65,8 +70,12 @@ function goBack() {
       message += selectedItems.join('\n');
     }
 
-    // Возвращаем сообщение даже если нет выбранных элементов,
-    // чтобы хотя бы шёл заголовок и дата (для каждого языка)
+    // === 🆕 Добавляем комментарий, если есть ===
+    const commentField = document.querySelector('textarea.comment');
+    if (commentField && commentField.value.trim() !== "") {
+      message += `\n\n💬 ${headerDict.comment[lang] || headerDict.comment.ru}:\n${commentField.value.trim()}`;
+    }
+
     return message;
   };
 
@@ -81,19 +90,16 @@ function goBack() {
 
   button.addEventListener('click', async () => {
     try {
-      // Берём текущий профиль страницы
       const currentProfile = getCurrentProfile();
-      // Берём языки прямо из sendConfig.js, каждый раз динамически
       const sendLangs = getSendLanguages(currentProfile);
       console.log("🌍 Актуальные языки отправки:", sendLangs);
 
       if (!sendLangs.length) return alert('⚠ Для текущего профиля нет выбранных языков');
 
-      // Отправка отдельного сообщения для каждого языка
       let sentCount = 0;
       for (const lang of sendLangs) {
         const msg = buildMessage(lang);
-        if (!msg) continue; // на всякий случай
+        if (!msg) continue;
         await sendMessage(msg);
         sentCount++;
       }
@@ -101,6 +107,8 @@ function goBack() {
       if (sentCount > 0) {
         alert(`✅ Отправлено сообщений: ${sentCount} (${sendLangs.join(", ").toUpperCase()})`);
         document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+        const commentField = document.querySelector('textarea.comment');
+        if (commentField) commentField.value = ""; // 🧹 чистим комментарий
       } else {
         alert('⚠ Нет элементов для отправки');
       }
