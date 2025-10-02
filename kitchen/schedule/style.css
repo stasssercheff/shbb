@@ -1,3 +1,19 @@
+.logo-container {
+    display: flex;
+    flex-direction: column; /* переносим в колонку */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+    text-align: center; /* чтобы текст центрировался */
+}
+
+.logo {
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 8px; /* отступ между логотипом и заголовком */
+}
+
+
 h1 {
   font-size: 20px;
   margin: 5px 0;
