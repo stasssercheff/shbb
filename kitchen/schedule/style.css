@@ -65,3 +65,10 @@ table td:first-child {
 .shift-Б { background: #cce0ff; }
 
  min-width: 20px;
+
+/* Подсветка сегодняшнего дня */
+td.today {
+  background-color: #ffeb99 !important; /* жёлтая подсветка */
+  font-weight: bold;
+  color: #000 !important;
+}
