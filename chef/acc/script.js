@@ -30,12 +30,14 @@ async function loadSchedule() {
       const td = document.createElement("td");
       td.textContent = cell.trim();
 
-      if (rIdx > 1) { // данные смен
+      // Подсветка смен
+      if (rIdx > 1) { 
         if (cell === "1") td.classList.add("shift-1");
         if (cell === "0") td.classList.add("shift-0");
         if (cell === "VR") td.classList.add("shift-VR");
         if (cell === "Б") td.classList.add("shift-Б");
       }
+
       tr.appendChild(td);
     });
     tableBody.appendChild(tr);
@@ -66,9 +68,9 @@ function calculateSalary(periodStart, periodEnd) {
   return summary;
 }
 
-// Формируем текст ЗА
+// Формируем текст ЗП
 function formatSalaryMessage(periodStart, periodEnd, summary) {
-  let message = `ЗА за период ${String(periodStart.getDate()).padStart(2,'0')}.${String(periodStart.getMonth()+1).padStart(2,'0')} - ${String(periodEnd.getDate()).padStart(2,'0')}.${String(periodEnd.getMonth()+1).padStart(2,'0')}\n\n`;
+  let message = `ЗП за период ${String(periodStart.getDate()).padStart(2,'0')}.${String(periodStart.getMonth()+1).padStart(2,'0')} - ${String(periodEnd.getDate()).padStart(2,'0')}.${String(periodEnd.getMonth()+1).padStart(2,'0')}\n\n`;
   let total = 0;
   for (let worker in summary) {
     const info = summary[worker];
@@ -82,10 +84,10 @@ function formatSalaryMessage(periodStart, periodEnd, summary) {
   return message;
 }
 
-// Генерация PNG через html2canvas
+// Генерация PNG через html2canvas (таблица графика)
 function generateSalaryImage() {
   const container = document.getElementById("schedule");
-  html2canvas(container).then(canvas => {
+  html2canvas(container, { scale: 2 }).then(canvas => {
     const link = document.createElement("a");
     link.href = canvas.toDataURL("image/png");
     link.download = "schedule.png";
@@ -102,12 +104,14 @@ async function sendSalaryMessage() {
   const msg = document.getElementById("salarySummary").textContent;
 
   try {
+    // Telegram
     await fetch(worker_url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id, text: msg })
     });
 
+    // Email через Web3Forms
     await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -133,12 +137,10 @@ function getPreviousPeriod(periodVal) {
   let start, end;
 
   if (periodVal === "1-15") {
-    // предыдущий месяц 1-15
     const prevMonth = new Date(now.getFullYear(), now.getMonth()-1, 1);
     start = new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 1);
     end = new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 15);
   } else {
-    // предыдущий месяц 16-конец
     const prevMonth = new Date(now.getFullYear(), now.getMonth()-1, 1);
     start = new Date(prevMonth.getFullYear(), prevMonth.getMonth(), 16);
     end = new Date(prevMonth.getFullYear(), prevMonth.getMonth() +1, 0);
