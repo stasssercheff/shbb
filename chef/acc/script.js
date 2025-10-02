@@ -4,7 +4,7 @@ const employees = {
   "Стас": { position: "Шеф", rate: 1300 },
   "Максим": { position: "Повар", rate: 650 },
   "Борис": { position: "Повар", rate: 600 },
-  "Повар": { position: "Повар", rate: 600 }, // пустые имена
+  "Повар (без имени)": { position: "Повар", rate: 600 },
   "Ирина": { position: "Кондитер", rate: 650 },
   "Тимофей": { position: "Кондитер", rate: 650 }
 };
@@ -48,19 +48,16 @@ async function loadSchedule() {
 function calculateSalary(periodStart, periodEnd) {
   const summary = {};
   for (let r = 2; r < csvData.length; r++) {
-    const row = csvData[r].map(cell => cell.replace(/\r/g,'').trim());
-    const dateParts = row[0].split(".");
+    const dateParts = csvData[r][0].split(".");
     if (dateParts.length < 3) continue;
     const date = new Date(+dateParts[2], dateParts[1]-1, +dateParts[0]);
 
     if (date >= periodStart && date <= periodEnd) {
-      for (let c = 1; c < row.length; c++) {
-        let worker = csvData[1][c].replace(/\r/g,'').trim();
-        if (!worker) worker = "Повар"; // пустое имя → Повар
-
+      for (let c = 1; c < csvData[r].length; c++) {
+        const worker = csvData[1][c].trim();
         if (!employees[worker]) continue;
-
-        if (row[c] === "1") {
+        const val = csvData[r][c].trim();
+        if (val === "1") {
           if (!summary[worker]) summary[worker] = { shifts: 0, rate: employees[worker].rate, total: 0 };
           summary[worker].shifts++;
           summary[worker].total += employees[worker].rate;
@@ -87,8 +84,8 @@ function formatSalaryMessage(periodStart, periodEnd, summary) {
   return message;
 }
 
-// Генерация PNG через html2canvas (таблица графика)
-function generateSalaryImage() {
+// Генерация PNG через html2canvas (только таблица графика)
+function generateScheduleImage() {
   const container = document.getElementById("schedule");
   html2canvas(container, { scale: 2 }).then(canvas => {
     const link = document.createElement("a");
@@ -155,12 +152,4 @@ function getPreviousPeriod(periodVal) {
 document.addEventListener("DOMContentLoaded", () => {
   loadSchedule();
 
-  document.getElementById("generateBtn").addEventListener("click", () => {
-    const periodVal = document.getElementById("periodSelect").value;
-    const [start, end] = getPreviousPeriod(periodVal);
-    const summary = calculateSalary(start, end);
-    const message = formatSalaryMessage(start, end, summary);
-    document.getElementById("salarySummary").textContent = message;
-  });
-
-                          
+  document.getElementById("generateBtn"
