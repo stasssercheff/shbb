@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>График</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title"></title>
+
+  <!-- Подключаем общий стиль -->
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Логика перевода -->
+  <script src="../lang.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
+  
+  <header class="page-header">
+    <!-- Переключатель языка -->
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
 
-<header class="page-header">
-  <button class="nav-btn" onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-  <button class="nav-btn" onclick="location.href='../index.html'">Назад</button>
-</header>
+    <!-- Кнопки навигации -->
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goHome()" data-i18n="home"></button>
+      <button class="nav-btn" onclick="goBack()" data-i18n="back"></button>
+    </div>
+  </header>
+
 
 <div class="logo-container">
   <img src="../logo.png" alt="Лого" class="logo">
