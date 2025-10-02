@@ -29,21 +29,7 @@ html, body {
     padding: 10px 20px;
     background-color: var(--card);
     box-shadow: 0 2px 5px var(--shadow);
-    position: fixed;   /* фиксируем всегда */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;      /* выше таблицы */
 }
-
-/* чтобы таблица и остальной контент не заезжали под хэдер */
-body {
-    padding-top: 100px; /* подгони под реальную высоту хэдера */
-}
-
-
-
-
 
 /* ========== КНОПКИ ЯЗЫКА ========== */
 .lang-switch {
@@ -154,6 +140,7 @@ button[type="submit"],
     max-width: 250px;
     margin: 12px auto;
 }
+
 /* === Единый стиль блока выбора имени (dish) === */
 .dish {
     display: flex;
@@ -183,4 +170,3 @@ button[type="submit"],
     text-align-last: center;
     cursor: pointer;
 }
-
