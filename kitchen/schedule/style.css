@@ -68,5 +68,5 @@ table td:first-child {
 td.today {
   background-color: #ffeb99 !important; /* жёлтая подсветка */
   font-weight: bold;
-  color: #000 !important;
+  color: #0fe !important;
 }
