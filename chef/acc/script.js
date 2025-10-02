@@ -4,7 +4,7 @@ const employees = {
   "Стас": { position: "Шеф", rate: 1300 },
   "Максим": { position: "Повар", rate: 650 },
   "Борис": { position: "Повар", rate: 600 },
-  "Повар (без имени)": { position: "Повар", rate: 600 },
+  "Повар": { position: "Повар", rate: 600 }, // пустые имена
   "Ирина": { position: "Кондитер", rate: 650 },
   "Тимофей": { position: "Кондитер", rate: 650 }
 };
@@ -32,10 +32,10 @@ async function loadSchedule() {
 
       // Подсветка смен
       if (rIdx > 1) { 
-        if (cell.trim() === "1") td.classList.add("shift-1");
-        if (cell.trim() === "0") td.classList.add("shift-0");
-        if (cell.trim() === "VR") td.classList.add("shift-VR");
-        if (cell.trim() === "Б") td.classList.add("shift-Б");
+        if (cell === "1") td.classList.add("shift-1");
+        if (cell === "0") td.classList.add("shift-0");
+        if (cell === "VR") td.classList.add("shift-VR");
+        if (cell === "Б") td.classList.add("shift-Б");
       }
 
       tr.appendChild(td);
@@ -48,16 +48,19 @@ async function loadSchedule() {
 function calculateSalary(periodStart, periodEnd) {
   const summary = {};
   for (let r = 2; r < csvData.length; r++) {
-    const dateParts = csvData[r][0].trim().split(".");
+    const row = csvData[r].map(cell => cell.replace(/\r/g,'').trim());
+    const dateParts = row[0].split(".");
     if (dateParts.length < 3) continue;
     const date = new Date(+dateParts[2], dateParts[1]-1, +dateParts[0]);
 
     if (date >= periodStart && date <= periodEnd) {
-      for (let c = 1; c < csvData[r].length; c++) {
-        let worker = csvData[1][c].trim().replace(/\r/g, "");
+      for (let c = 1; c < row.length; c++) {
+        let worker = csvData[1][c].replace(/\r/g,'').trim();
+        if (!worker) worker = "Повар"; // пустое имя → Повар
+
         if (!employees[worker]) continue;
-        const val = csvData[r][c].trim();
-        if (val === "1") {
+
+        if (row[c] === "1") {
           if (!summary[worker]) summary[worker] = { shifts: 0, rate: employees[worker].rate, total: 0 };
           summary[worker].shifts++;
           summary[worker].total += employees[worker].rate;
@@ -102,11 +105,6 @@ async function sendSalaryMessage() {
   const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
   const msg = document.getElementById("salarySummary").textContent;
-
-  if (!msg || msg.includes("Итого к выплате: 0")) {
-    alert('⚠️ Нет данных для выбранного периода.');
-    return;
-  }
 
   try {
     // Telegram
@@ -165,6 +163,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("salarySummary").textContent = message;
   });
 
-  document.getElementById("downloadImageBtn").addEventListener("click", generateSalaryImage);
-  document.getElementById("sendSalaryToTelegram").addEventListener("click", sendSalaryMessage);
-});
+                          
