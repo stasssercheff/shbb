@@ -397,6 +397,29 @@
         "ru": "Сливочное масло и черный шоколад растопить на водяной бане до однородного состояния, остудить до комнатной температуры. Яйцо взбить 15 минут , с двумя видами сахара до густоты( сахар белый и коричневый) снизить скорость и влить шоколадную смесь , добавить соль и ванильный экстракт, постепенно ввести муку( предварительно просеять), в конце ввести рубленный молочный шоколад перемешать и разложить по формочкам, выпекать при температуре 180 градусов 15 минут ( конвекция убавить на двойку) дать остыть и вытащить из форм и остудить полностью.",
         "en": "Melt butter and dark chocolate in a water bath until smooth, cool to room temperature. Beat the egg for 15 minutes, with two types of sugar until thick (white and brown sugar), reduce the speed and pour in the chocolate mixture, add salt and vanilla extract, gradually add flour (pre-sift), at the end add chopped milk chocolate, mix and put into molds, bake at 180 degrees for 15 minutes (reduce convection to two), let cool and remove from the molds and cool completely."
       }
+    },
+     {
+      "name": { 
+        "ru": "БРАУНИ НОВЫЙ", 
+        "en": "BROWNIE NEW" 
+      },
+      "key": "Торт шт.",
+      "ingredients": [
+        { "№": 1, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "1" },
+        { "№": 2, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "136" },
+        { "№": 3, "Продукт": "Шоколад темный", "Ingredient": "Dark chocolate", "Шт/гр": "160" },
+        { "№": 4, "Продукт": "Яйцо(вес)", "Ingredient": "Egg", "Шт/гр": "160" },
+        { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "160" },
+        { "№": 6, "Продукт": "Какао", "Ingredient": "Cocoa", "Шт/гр": "60" },
+        { "№": 7, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
+        { "№": 8, "Продукт": "Сода", "Ingredient": "Baking soda", "Шт/гр": "2" },
+        { "№": 9, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "80" },
+        { "№": 10, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "6" }
+      ],
+      "process": {
+        "ru": "Масло и шоколад растопить и остудить до комнатной температуры.  Смешать все сухие ингридиенты в миске (мука, какао, разрыхлитель, сода). Яйца взбить до пышной пены. Аккуратно на минимальных оборотах миксера или лопаткой вмешать сухие ингридиенты. Шоколадно-масляную массу аккуратно ввести в тесто. Разлить по 755г по формам 18х18. Отпекать при 170 градусах, конвекции 20 около 30-40 минут. Визуально брауни поднимается и не оседает, а шпажка после проверки теста остается сухой.",
+        "en": "Melt the butter and chocolate, then let cool to room temperature. Mix all the dry ingredients in a bowl (flour, cocoa powder, baking powder, baking soda). Beat the eggs until light and fluffy. Carefully fold in the dry ingredients using a spatula or at low speed with a mixer. Gently incorporate the chocolate–butter mixture into the batter. Pour about 755 g of batter into 18×18 cm pans. Bake at 170°C with convection for about 30–40 minutes. Visually, the brownies should rise without collapsing, and a skewer inserted into the center should come"
+      }
     }
   ]
 }
