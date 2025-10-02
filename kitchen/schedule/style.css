@@ -36,9 +36,9 @@ table {
 td {
   border: 1px solid #ccc;
   text-align: center;
-  padding: 4px 5px;
+  padding: 3px 4px;
   font-size: 12px;
-  min-width: 20px;
+  min-width: 19px;
 }
 
 /* Фиксируем весь первый столбец */
@@ -64,3 +64,4 @@ table td:first-child {
 .shift-VR { background: #00ffff; }
 .shift-Б { background: #cce0ff; }
 
+ min-width: 20px;
