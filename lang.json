@@ -1478,5 +1478,10 @@
     "ru": "Чеклист задач",
     "en": "To-do list",
     "vi": "Danh sách việc cần làm"
+ },
+  "Chefportal": {
+  "ru": "Портал Шефа",
+  "en": "Chef's Portal",
+  "vi": "Cổng thông tin của Bếp trưởng"
  }
 }
