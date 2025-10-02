@@ -113,14 +113,14 @@ async function sendSalaryMessage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         access_key: accessKey,
-        subject: "ЗА за период",
+        subject: "ЗП за период",
         from_name: "SHBB Payroll",
         reply_to: "no-reply@shbb.com",
         message: msg
       })
     });
 
-    alert('✅ ЗА отправлено!');
+    alert('✅ ЗП отправлено!');
   } catch(err) {
     alert('❌ Ошибка отправки: ' + err.message);
     console.error(err);
