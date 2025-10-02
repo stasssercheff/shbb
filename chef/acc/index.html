@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-profile="kitchen">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Зарплатный портал</title>
 
-  <!-- Общий стиль -->
-  <link rel="stylesheet" href="../../common.css">
+  <link rel="stylesheet" href="../common.css">
   <link rel="stylesheet" href="style.css">
 
-  <!-- Скрипт перевода -->
-  <script src="../../lang.js" defer></script>
-  <script src="../../sendConfig.js" defer></script>
+  <script src="../sendConfig.js" defer></script>
 </head>
-<body data-profile="kitchen">
+<body>
 
   <header class="page-header">
     <div class="lang-switch">
@@ -28,31 +25,28 @@
   </header>
 
   <div class="date-container">
-    <span>Сегодня:</span> <span id="current-date"></span>
+    Дата: <span id="current-date"></span>
+  </div>
+
+  <div class="table-container">
+    <table id="schedule">
+      <tbody></tbody>
+    </table>
   </div>
 
   <div class="controls">
     <label for="periodSelect">Выберите период:</label>
     <select id="periodSelect">
-      <option value="1-15">1–15</option>
-      <option value="16-end">16–конец месяца</option>
+      <option value="1-15">1-15</option>
+      <option value="16-end">16-конец месяца</option>
     </select>
-    <button id="generateBtn">Показать ЗА</button>
+    <button id="generateBtn">Сформировать ЗА</button>
     <button id="downloadImageBtn">Скачать PNG</button>
     <button id="sendSalaryToTelegram">Отправить</button>
   </div>
 
-  <div class="table-container">
-    <table id="salaryTable">
-      <thead><tr id="tableHeader"></tr></thead>
-      <tbody id="tableBody"></tbody>
-    </table>
-  </div>
-
   <div id="salarySummary" class="salary-summary"></div>
 
-  <!-- html2canvas для генерации PNG -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
