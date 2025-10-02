@@ -102,7 +102,7 @@ function calculateZA(periodStart, periodEnd) {
     });
   }
 
-  let msg = `ЗА за период ${periodStart.getDate()}.${periodStart.getMonth()+1} - ${periodEnd.getDate()}.${periodEnd.getMonth()+1}\n\n`;
+  let msg = `ЗП за период ${periodStart.getDate()}.${periodStart.getMonth()+1} - ${periodEnd.getDate()}.${periodEnd.getMonth()+1}\n\n`;
   let totalAll = 0;
   workers.forEach(w => {
     const s = summary[w];
@@ -162,7 +162,7 @@ async function sendSalaryMessage() {
       })
     });
 
-    alert('✅ ЗА отправлено!');
+    alert('✅ Отправлено!');
   } catch(err) {
     alert('❌ Ошибка отправки: ' + err.message);
     console.error(err);
