@@ -24,15 +24,26 @@ html, body {
 /* ========== ХЕДЕР ========== */
 .page-header {
     display: flex;
-    flex-direction: column; /* всегда две строки: язык + навигация */
+    flex-direction: column;
     gap: 10px;
     padding: 10px 20px;
     background-color: var(--card);
     box-shadow: 0 2px 5px var(--shadow);
-    position: sticky;
+    position: fixed;   /* фиксируем всегда */
     top: 0;
-    z-index: 10;
+    left: 0;
+    right: 0;
+    z-index: 100;      /* выше таблицы */
 }
+
+/* чтобы таблица и остальной контент не заезжали под хэдер */
+body {
+    padding-top: 100px; /* подгони под реальную высоту хэдера */
+}
+
+
+
+
 
 /* ========== КНОПКИ ЯЗЫКА ========== */
 .lang-switch {
