@@ -95,7 +95,9 @@ async function sendSalaryMessage() {
   const chat_id = '-1003149716465'; // новый чат
   const worker_url = 'https://shbb1.stassser.workers.dev/';
   const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
-
+    const emailTo = 'stassserchef@gmail.com'; // заменишь на нужный адрес
+    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
+  
   const msg = document.getElementById("salarySummary").textContent;
 
   try {
