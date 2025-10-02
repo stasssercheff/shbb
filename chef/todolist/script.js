@@ -51,20 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
       message += `👤 ${selectedOption.textContent.trim()}\n\n`;
     }
 
-    const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
-    let selectedItems = [];
-    checklist.forEach((item, index) => {
-      if (item.checked) {
-        const label = item.closest('.checklist-item')?.querySelector('label');
-        if (label) {
-          const key = label.dataset.i18n;
-          const translated = key && translations && translations[key] && translations[key][lang]
-            ? translations[key][lang]
-            : label.textContent.trim();
-          selectedItems.push(`${index+1}. ${translated}`);
-        }
-      }
-    });
+   const checklist = document.querySelectorAll('#checklist input[type="checkbox"]');
+let selectedItems = [];
+let counter = 1; // 🆕 счётчик для нумерации
+checklist.forEach((item) => {
+  if (item.checked) {
+    const label = item.closest('.checklist-item')?.querySelector('label');
+    if (label) {
+      const key = label.dataset.i18n;
+      const translated = key && translations && translations[key] && translations[key][lang]
+        ? translations[key][lang]
+        : label.textContent.trim();
+      selectedItems.push(`${counter}. ${translated}`);
+      counter++; // увеличиваем только когда реально добавили
+    }
+  }
+});
+
 
     if (selectedItems.length > 0) {
       message += selectedItems.join('\n');
