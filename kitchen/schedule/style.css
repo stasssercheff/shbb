@@ -30,7 +30,7 @@ h1 {
 table {
   border-collapse: collapse;
   width: 100%;
-  min-width: 1040px;
+  min-width: 900px;
 }
 
 td {
@@ -63,6 +63,22 @@ table td:first-child {
 .shift-0 { background: #fff7a6; }
 .shift-VR { background: #00ffff; }
 .shift-Б { background: #cce0ff; }
+
+/* ========== АДАПТИВ ДЛЯ ТАБЛИЦЫ ГРАФИКА ========== */
+@media (max-width: 480px) {
+  .schedule {
+    min-width: unset;        /* убираем фикс */
+    width: 100%;             /* растягиваем под экран */
+    table-layout: fixed;     /* фиксируем ширину */
+    font-size: 10px;         /* уменьшаем текст */
+  }
+
+  .schedule td {
+    padding: 2px 3px;        /* плотнее */
+    min-width: auto;
+  }
+}
+
 
 /* Подсветка сегодняшнего дня */
 .today {
