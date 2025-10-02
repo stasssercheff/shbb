@@ -15,6 +15,16 @@
 </head>
 <body>
 
+<!-- Блок проверки доступа -->
+<script>
+  const accessCode = "112211"; // задаёшь свой код
+  const userInput = prompt("Введите код доступа к странице:");
+  if (userInput !== accessCode) {
+    alert("Неверный код! Доступ запрещён.");
+    window.location.href = "http://stasssercheff.github.io/shbb/"; // редирект на главную
+  }
+</script>
+  
   <header class="page-header">
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ru">RU</button>
