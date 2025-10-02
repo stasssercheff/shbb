@@ -64,23 +64,3 @@ table td:first-child {
 .shift-VR { background: #00ffff; }
 .shift-Б { background: #cce0ff; }
 
-/* ========== АДАПТИВ ДЛЯ ТАБЛИЦЫ ГРАФИКА ========== */
-@media (max-width: 480px) {
-  .schedule {
-    min-width: unset;        /* убираем фикс */
-    width: 100%;             /* растягиваем под экран */
-    table-layout: fixed;     /* фиксируем ширину */
-    font-size: 10px;         /* уменьшаем текст */
-  }
-
-  .schedule td {
-    padding: 2px 3px;        /* плотнее */
-    min-width: auto;
-  }
-}
-
-
-/* Подсветка сегодняшнего дня */
-.today {
-  background-color: #cce0ff !important;
-}
