@@ -18,7 +18,8 @@ document.getElementById("current-date").textContent = new Date().toLocaleDateStr
 async function loadSchedule() {
   const resp = await fetch(CSV_URL);
   const text = await resp.text();
-  const rows = text.trim().split("\n").map(r => r.split(","));
+  const rows = text.trim().split("\n").map(r => r.split(";")); // <-- здесь разделитель ;
+
   csvData = rows;
 
   const tableBody = document.getElementById("schedule").querySelector("tbody");
@@ -31,7 +32,7 @@ async function loadSchedule() {
       td.textContent = cell.trim();
 
       // Подсветка смен
-      if (rIdx > 1) { 
+      if (rIdx > 1 && cIdx > 0) { 
         if (cell === "1") td.classList.add("shift-1");
         if (cell === "0") td.classList.add("shift-0");
         if (cell === "VR") td.classList.add("shift-VR");
