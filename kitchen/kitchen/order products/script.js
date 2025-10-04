@@ -1,35 +1,32 @@
-// На главную
+// === Навигация ===
 function goHome() {
-    location.href = "http://stasssercheff.github.io/shbb/";
+  location.href = "http://stasssercheff.github.io/shbb/";
 }
 
-// На уровень выше (одну папку вверх)
 function goBack() {
-    const currentPath = window.location.pathname;
-    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-    window.location.href = upperPath + "/index.html";
+  const currentPath = window.location.pathname;
+  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+  window.location.href = upperPath + "/index.html";
 }
 
-// Обновление даты при загрузке страницы
+// === Автоподстановка даты ===
 document.addEventListener("DOMContentLoaded", () => {
-    const dateEl = document.getElementById("current-date");
-    if (dateEl) {
-        const today = new Date();
-        const day = String(today.getDate()).padStart(2, '0');
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const year = today.getFullYear();
-        dateEl.textContent = `${day}.${month}.${year}`;
-    }
+  const dateEl = document.getElementById("current-date");
+  if (dateEl) {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    dateEl.textContent = `${day}.${month}.${year}`;
+  }
 });
 
-
-// === Переключение языка через словарь ===
+// === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
   localStorage.setItem("lang", lang);
 
-  // Обновляем элементы с data-i18n
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
     if (translations[key] && translations[key][lang]) {
@@ -55,7 +52,7 @@ function switchLanguage(lang) {
   });
 }
 
-// === Сохранение и восстановление данных формы ===
+// === Сохранение/восстановление данных формы ===
 function saveFormData() {
   const data = {};
   document.querySelectorAll("select").forEach(select => {
@@ -87,13 +84,13 @@ function restoreFormData() {
 document.addEventListener("DOMContentLoaded", () => {
   const lang = localStorage.getItem("lang") || "ru";
 
-  // Вставляем пустую опцию в каждый select.qty (если её нет)
+  // Пустая опция для select.qty
   document.querySelectorAll("select.qty").forEach(select => {
     const hasEmpty = Array.from(select.options).some(opt => opt.value === "");
     if (!hasEmpty) {
       const emptyOption = document.createElement("option");
       emptyOption.value = "";
-      emptyOption.dataset.i18n = "empty"; // ключ из lang.json
+      emptyOption.dataset.i18n = "empty";
       emptyOption.textContent = "—";
       emptyOption.selected = true;
       select.insertBefore(emptyOption, select.firstChild);
@@ -103,13 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
   restoreFormData();
   switchLanguage(lang);
 
-  // Автоподстановка даты
   const today = new Date();
   const day = String(today.getDate()).padStart(2, "0");
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const formattedDate = `${day}/${month}`;
-  const dateDiv = document.getElementById("autodate");
-  if (dateDiv) dateDiv.textContent = formattedDate;
 
   document.querySelectorAll("select, textarea.comment").forEach(el => {
     el.addEventListener("input", saveFormData);
@@ -117,9 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Функция сборки сообщения ===
   const buildMessage = lang => {
-    let message = `🧾 <b>${
-      lang === "en" ? "ORDER" : "ЗАКАЗ"
-    }</b>\n\n`;
+    let message = `🧾 <b>${lang === "en" ? "PRODUCT ORDER" : "ЗАКАЗ ПРОДУКТОВ"}</b>\n\n`;
     message += `📅 ${lang === "en" ? "Date" : "Дата"}: ${formattedDate}\n`;
 
     const nameSelect = document.querySelector('select[name="chef"]');
@@ -132,39 +124,31 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".menu-section").forEach(section => {
       const sectionTitle = section.querySelector(".section-title");
       const titleKey = sectionTitle?.dataset.i18n;
-      const title =
-        translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
+      const title = translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
 
       let sectionContent = "";
-
       section.querySelectorAll(".dish").forEach(dish => {
         const select = dish.querySelector("select.qty");
         if (!select || !select.value) return;
 
         const label = dish.querySelector("label");
         const labelKey = label?.dataset.i18n;
-        const labelText =
-          translations[labelKey]?.[lang] || label?.textContent || "—";
+        const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
 
         const selectedOption = select.options[select.selectedIndex];
         const optionKey = selectedOption?.dataset.i18n;
-        const value =
-          (optionKey && translations[optionKey]?.[lang]) ||
-          selectedOption?.textContent ||
-          "—";
+        const value = (optionKey && translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
 
         sectionContent += `• ${labelText}: ${value}\n`;
       });
 
       const commentField = section.querySelector("textarea.comment");
       if (commentField && commentField.value.trim()) {
-        sectionContent += `💬 ${
-          lang === "en" ? "Comment" : "Комментарий"
-        }: ${commentField.value.trim()}\n`;
+        sectionContent += `💬 ${lang === "en" ? "Comment" : "Комментарий"}: ${commentField.value.trim()}\n`;
       }
 
       if (sectionContent.trim()) {
-        message += `🔸 <b>${title}</b>\n` + sectionContent + "\n";
+        message += `🔸 <b>${title}</b>\n${sectionContent}\n`;
       }
     });
 
@@ -173,21 +157,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Кнопка отправки ===
   const button = document.getElementById("sendToTelegram");
-  button.addEventListener("click", () => {
+  button.addEventListener("click", async () => {
     const chat_id = "-1002393080811"; // твой Telegram чат ID
-    const worker_url = "https://shbb1.stassser.workers.dev/"; // твой Worker
+    const worker_url = "https://shbb1.stassser.workers.dev/";
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-    // Отправка в Telegram через воркер
-    const sendMessage = msg => {
-      return fetch(worker_url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id, text: msg })
-      }).then(res => res.json());
-    };
+    const sendMessage = msg => fetch(worker_url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id, text: msg })
+    }).then(res => res.json());
 
-    // Отправка email через Web3Forms
     const sendEmail = async msg => {
       try {
         const res = await fetch("https://api.web3forms.com/submit", {
@@ -220,23 +200,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const clearForm = () => {
       document.querySelectorAll("select").forEach(select => (select.value = ""));
-      document
-        .querySelectorAll("textarea.comment")
-        .forEach(textarea => (textarea.value = ""));
+      document.querySelectorAll("textarea.comment").forEach(textarea => (textarea.value = ""));
     };
 
-    (async () => {
-      try {
-        await sendAllParts(buildMessage("ru"));
-        await sendAllParts(buildMessage("en"));
-
-        alert("✅ ОТПРАВЛЕНО");
-        localStorage.clear();
-        clearForm();
-      } catch (err) {
-        alert("❌ Ошибка при отправке: " + err.message);
-        console.error(err);
+    try {
+      // ✅ Используем языки из sendConfig.js
+      for (const lang of window.sendLangs) {
+        const msg = buildMessage(lang);
+        await sendAllParts(msg);
       }
-    })();
+
+      alert("✅ ОТПРАВЛЕНО");
+      localStorage.clear();
+      clearForm();
+    } catch (err) {
+      alert("❌ Ошибка при отправке: " + err.message);
+      console.error(err);
+    }
   });
 });
