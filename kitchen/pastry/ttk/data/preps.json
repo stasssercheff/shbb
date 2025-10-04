@@ -268,16 +268,16 @@
       "key": "Шт.",
       "ingredients": [
         { "№": 1, "Продукт": "Шт.", "Ingredient": "Pcs", "Шт/гр": "100" },
-        { "№": 2, "Продукт": "Яйцо(вес)", "Ingredient": "Egg", "Шт/гр": "300" },
-        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "70" },
+        { "№": 2, "Продукт": "Яйцо(желток)", "Ingredient": "Egg yolks", "Шт/гр": "144" },
+        { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "130" },
         { "№": 4, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "250" },
         { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "6" },
         { "№": 6, "Продукт": "Сода пищевая", "Ingredient": "Baking soda", "Шт/гр": "5" },
         { "№": 7, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "600" }
       ],
       "process": {
-         "ru": "В дежу для миксера просеять муку, соду, и сахарную пудру, мелкую соль, добавить холодное сливочное масло и произвести замес теста до состояния крошки, далее ввести яичные желтки, замесить однородное песочное тесто, разделить на части, завернуть в пленку и убрать на холод на 30-40 минут.",
-        "en": "In a mixer bowl, sift flour, baking soda, and powdered sugar, add fine salt, cold butter and knead the dough until crumbly, then add egg yolks, knead a homogeneous shortcrust pastry, divide into portions, wrap in film and refrigerate for 30-40 minutes."
+         "ru": "В дежу для миксера просеять муку, соду, и сахарную пудру, мелкую соль, добавить холодное сливочное масло и произвести замес теста до состояния крошки, далее ввести яичные желтки, замесить однородное песочное тесто, разделить на части, завернуть в пленку и убрать на холод на 30-40 минут. Отпекать при 200 градусах 15-20 минут",
+        "en": "In a mixer bowl, sift flour, baking soda, and powdered sugar, add fine salt, cold butter and knead the dough until crumbly, then add egg yolks, knead a homogeneous shortcrust pastry, divide into portions, wrap in film and refrigerate for 30-40 minutes. Bake at 200 degrees for 15-20 minutes"
       }
     },
     {
@@ -420,6 +420,92 @@
         "ru": "Масло и шоколад растопить и остудить до комнатной температуры.  Смешать все сухие ингридиенты в миске (мука, какао, разрыхлитель, сода). Яйца взбить до пышной пены. Аккуратно на минимальных оборотах миксера или лопаткой вмешать сухие ингридиенты. Шоколадно-масляную массу аккуратно ввести в тесто. Разлить по 755г по формам 18х18. Отпекать при 170 градусах, конвекции 20 около 30-40 минут. Визуально брауни поднимается и не оседает, а шпажка после проверки теста остается сухой.",
         "en": "Melt the butter and chocolate, then let cool to room temperature. Mix all the dry ingredients in a bowl (flour, cocoa powder, baking powder, baking soda). Beat the eggs until light and fluffy. Carefully fold in the dry ingredients using a spatula or at low speed with a mixer. Gently incorporate the chocolate–butter mixture into the batter. Pour about 755 g of batter into 18×18 cm pans. Bake at 170°C with convection for about 30–40 minutes. Visually, the brownies should rise without collapsing, and a skewer inserted into the center should come"
       }
-    }
+    },
+    {
+  "name": { 
+    "ru": "ПФ КРЕМ МИНДАЛЬНЫЙ", 
+    "en": "ALMOND CREAM PF" 
+  },
+  "key": "Количество",
+  "ingredients": [
+    { "№": 1, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "800" },
+    { "№": 2, "Продукт": "Миндальная мука", "Ingredient": "Almond flour", "Шт/гр": "100" },
+    { "№": 3, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "100" },
+    { "№": 4, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "8" },
+    { "№": 5, "Продукт": "Смесь для заварного", "Ingredient": "Custard mix", "Шт/гр": "100" },
+    { "№": 6, "Продукт": "Количество", "Ingredient": "Amount", "Шт/гр": "1100" }
+  ],
+  "process": {
+    "ru": "Смешать все ингредиенты, взбить миксером до однородной консистенции.",
+    "en": "Combine all ingredients and whip with a mixer until smooth and homogeneous."
+  }
+},
+    {
+  "name": { 
+    "ru": "ПФ ДИПЛОМАТ", 
+    "en": "DIPLOMAT PF" 
+  },
+  "key": "Крем шт.",
+  "ingredients": [
+    { "№": 1, "Продукт": "Яйцо (желток)", "Ingredient": "Egg yolk", "Шт/гр": "635" },
+    { "№": 2, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "82" },
+    { "№": 3, "Продукт": "Крахмал кукурузный", "Ingredient": "Corn starch", "Шт/гр": "41" },
+    { "№": 4, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "82" },
+    { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1.5" },
+    { "№": 6, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "406" },
+    { "№": 7, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "2" },
+    { "№": 8, "Продукт": "Сыр Кремчиз", "Ingredient": "Cream cheese", "Шт/гр": "86" },
+    { "№": 9, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "1335.5" }
+  ],
+  "process": {
+    "ru": "Отделить белки от желтков — использовать только желтки. Желтки растереть с сахаром, солью и крахмалом. Отдельно разогреть молоко и довести до кипения, затем влить его в яично-сахарную смесь. Перелить обратно в сотейник и проварить крем до загустения, постоянно помешивая, чтобы избежать пригорания. Снять с огня, добавить ваниль, сливочное масло и крем-сыр (комнатной температуры). Переложить в емкость, накрыть пленкой в контакт и убрать в холодильник для стабилизации на 4–5 часов (лучше 12).",
+    "en": "Separate the whites from the yolks — use only yolks. Mix yolks with sugar, salt, and corn starch. In a separate pan, heat the milk to boiling, then pour it into the yolk-sugar mixture. Return the mixture to the saucepan and cook until thickened, stirring constantly to prevent burning. Remove from heat and add vanilla, butter, and cream cheese (at room temperature). Transfer to a container, cover with plastic wrap in contact, and refrigerate for 4–5 hours (preferably 12) to stabilize."
+  }
+},
+{
+  "name": { 
+    "ru": "ПФ ПЕЧЕНЬЕ МАДЛЕН", 
+    "en": "PF MADELEINE COOKIES" 
+  },
+  "key": "Печенье шт.",
+  "ingredients": [
+    { "№": 1, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "140" },
+    { "№": 2, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "5" },
+    { "№": 3, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "1" },
+    { "№": 4, "Продукт": "Яйцо (вес)", "Ingredient": "Egg (weight)", "Шт/гр": "120" },
+    { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "110" },
+    { "№": 6, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "90" },
+    { "№": 7, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "2" },
+    { "№": 8, "Продукт": "ПФ вишневый конфитюр", "Ingredient": "Cherry confit PF", "Шт/гр": "150" },
+    { "№": 9, "Продукт": "Шоколад темный", "Ingredient": "Dark chocolate", "Шт/гр": "240" },
+    { "№": 10, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "618" }
+  ],
+  "process": {
+    "ru": "В глубокой чаше соедините сахар и яйца, перемешайте венчиком, не взбивая. Добавьте растопленное сливочное масло. Введите сухие ингредиенты (муку, разрыхлитель, соль) и перемешайте до однородности. Переложите тесто в кондитерский мешок и уберите в холодильник на 1–1,5 часа. Отсадите по 15 г теста в каждую форму. Выпекайте при 220°C (конвекция 25) около 10 минут. Остудите на решетке. Насадкой сделайте отверстие и залейте 2–3 г вишнёвого конфитюра.\n\nТемперирование: растопите 200 г тёмного шоколада до 45°C. Добавьте 20% от массы (40 г) и перемешайте до однородности. При желании добавьте краситель. Остудите до рабочей температуры 28–30°C. В форму налейте 10 г шоколада и положите охлаждённое печенье, слегка вдавив. Уберите в холодильник или морозильную камеру до застывания шоколада.\n\nХранение: готовые и задекорированные печенья хранить в морозильной камере (в герметичном контейнере) до 3 недель или в холодильнике до 5 суток.",
+    "en": "In a large bowl, combine sugar and eggs, stirring with a whisk without whipping. Add melted butter. Add dry ingredients (flour, baking powder, salt) and mix until smooth. Transfer the dough into a piping bag and chill for 1–1.5 hours. Pipe 15 g of batter into each mold. Bake at 220°C (convection 25) for about 10 minutes. Cool on a rack. Use a nozzle to make a hole and fill with 2–3 g of cherry confit.\n\nTempering: Melt 200 g of dark chocolate to 45°C. Add 20% (40 g) and stir until smooth. Optionally, add coloring. Cool to 28–30°C working temperature. Pour 10 g of chocolate into each mold and place a chilled cookie on top, pressing gently. Chill or freeze until chocolate is set.\n\nStorage: Store decorated cookies in an airtight container in the freezer for up to 3 weeks, or in the refrigerator for up to 5 days."
+  }
+},
+{
+  "name": { 
+    "ru": "ПФ ОСНОВА ЧЕРРИТАРТ", 
+    "en": "PF CHERRYTART BASE" 
+  },
+  "key": "Тарт шт.",
+  "ingredients": [
+    { "№": 1, "Продукт": "Сахар (пудра)", "Ingredient": "Powdered sugar", "Шт/гр": "41" },
+    { "№": 2, "Продукт": "Мак", "Ingredient": "Poppy seeds", "Шт/гр": "12" },
+    { "№": 3, "Продукт": "Мука миндальная", "Ingredient": "Almond flour", "Шт/гр": "25" },
+    { "№": 4, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "165" },
+    { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
+    { "№": 6, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "75" },
+    { "№": 7, "Продукт": "Яйцо (желток)", "Ingredient": "Egg yolk", "Шт/гр": "36" },
+    { "№": 8, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "7" },
+    { "№": 9, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "363" }
+  ],
+  "process": {
+    "ru": "Сухие ингредиенты смешать с маслом в крошку в дежe, используя насадку 'лопатка'. Добавить желтки и замесить однородное тесто (не вымешивать долго). Раскатать пласт толщиной 5 мм и выпекать при 180°C (конвекция 15) до золотистого цвета.",
+    "en": "Mix the dry ingredients with butter into crumbs in a bowl using a paddle attachment. Add the egg yolks and knead into a smooth dough (do not overmix). Roll out into a 5 mm thick sheet and bake at 180°C (convection 15) until golden brown."
+  }
+}
   ]
 }
