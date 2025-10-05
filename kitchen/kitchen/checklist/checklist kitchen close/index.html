@@ -3,59 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="kitchen_close" data-i18n="kitchen_close"></title>
+  <title data-i18n="kitchen_close">Закрытие кухни</title>
 
-  <!-- ✅ Подключаем общий CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="../../../../common.css">
-    <!-- ✅ Локальный CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Логика перевода -->
+  <!-- JS -->
   <script src="../../../../lang.js" defer></script>
-   <!-- ✅ Глобальные настройки языков отправки -->
   <script src="../../../../sendConfig.js" defer></script>
   <script src="script.js" defer></script>
-
-
-  
 </head>
 <body data-profile="kitchen">
 
-  <!-- Хедер с языками и кнопками -->
-  <header class="page-header">
-    <div class="lang-switch">
-      <button class="lang-btn" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="vi">VI</button>
-    </div>
+<header class="page-header">
+  <div class="lang-switch">
+    <button class="lang-btn" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="vi">VI</button>
+  </div>
+  <div class="nav-buttons">
+    <button class="nav-btn" data-i18n="home" onclick="goHome()"></button>
+    <button class="nav-btn" data-i18n="back" onclick="goBack()"></button>
+  </div>
+</header>
 
-    <div class="nav-buttons">
-      <button class="nav-btn" data-i18n="home" onclick="goHome()"></button>
-      <button class="nav-btn" data-i18n="back" onclick="goBack()"></button>
-    </div>
-  </header>
-  
-  <main class="main-container">
+<main class="main-container">
 
-       <div class="date-container">
+  <div class="date-container">
     <span data-i18n="date">Дата</span>:
     <span id="current-date"></span>
   </div>
-    
-    <!-- Заголовок -->
-    <h1 data-i18n="kitchen_close"></h1>
 
-<div class="dish">
-  <label for="employeeSelect" data-i18n="name"></label>
-  <select id="employeeSelect" name="chef" class="qty">
-    <option value="" selected>-</option>
-    <option value="maksim" data-i18n="maksim"></option>
-    <option value="boris" data-i18n="boris"></option>
-    <option value="miguel" data-i18n="miguel"></option>
-    <option value="stas" data-i18n="stas"></option>
-  </select>
-</div>
-    
+  <h1 data-i18n="kitchen_close"></h1>
+
+  <div class="dish">
+    <label for="employeeSelect" data-i18n="name"></label>
+    <select id="employeeSelect" name="chef" class="qty">
+      <option value="" selected>—</option>
+      <option value="maksim" data-i18n="maksim"></option>
+      <option value="boris" data-i18n="boris"></option>
+      <option value="miguel" data-i18n="miguel"></option>
+      <option value="stas" data-i18n="stas"></option>
+    </select>
+  </div>   
     
     <section class="checklist-section">
   <div class="section-title" data-i18n="equipment_section">Оборудование</div>
@@ -1097,8 +1088,9 @@
 </section>
 
 
-    <!-- Кнопка отправки -->
-<button id="sendToTelegram" data-i18n="send"></button>
-  </main>
+  <button id="sendToTelegram" data-i18n="send">Отправить</button>
+</main>
+
 </body>
 </html>
+
