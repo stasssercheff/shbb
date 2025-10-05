@@ -2108,5 +2108,25 @@
   "ru": "Шпинат (замороженный)",
   "en": "Spinach (frozen)",
   "vi": "Rau chân vịt (đông lạnh)"
-}
+},
+  "washed": {
+  "ru": "Помыто",
+  "en": "Washed",
+  "vi": "Đã rửa"
+},
+"turned_off": {
+  "ru": "Выключено",
+  "en": "Turned off",
+  "vi": "Tắt"
+},
+"turned_on": {
+  "ru": "Включено",
+  "en": "Turned on",
+  "vi": "Bật"
+},
+"cleaned": {
+  "ru": "Убрано",
+  "en": "Cleaned",
+  "vi": "Đã dọn"
+ }
 }
