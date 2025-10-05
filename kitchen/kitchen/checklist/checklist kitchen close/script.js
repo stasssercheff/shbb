@@ -13,22 +13,31 @@ function goBack() {
 // === Переключение языка через lang.json ===
 async function switchLanguage(lang) {
   try {
-    const response = await fetch("lang.json"); // если lang.json в той же папке
+    const response = await fetch("lang.json"); // lang.json в той же папке
     const translations = await response.json();
 
     document.documentElement.lang = lang;
 
-    // Все элементы с атрибутом data-i18n
     document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
+      const key = el.dataset.i18n;
       if (translations[key] && translations[key][lang]) {
-        el.textContent = translations[key][lang];
+        if (el.tagName === "INPUT") {
+          if (el.type === "submit" || el.type === "button") {
+            el.value = translations[key][lang];
+          } else if (el.hasAttribute("placeholder")) {
+            el.setAttribute("placeholder", translations[key][lang]);
+          }
+        } else if (el.hasAttribute("placeholder")) {
+          el.setAttribute("placeholder", translations[key][lang]);
+        } else {
+          el.textContent = translations[key][lang];
+        }
       }
     });
 
     // Для <option> внутри select
     document.querySelectorAll("select option[data-i18n]").forEach((opt) => {
-      const key = opt.getAttribute("data-i18n");
+      const key = opt.dataset.i18n;
       if (translations[key] && translations[key][lang]) {
         opt.textContent = translations[key][lang];
       }
@@ -208,4 +217,9 @@ document.addEventListener("DOMContentLoaded", () => {
       })();
     });
   }
+
+  // === Кнопки переключения языка ===
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => switchLanguage(btn.dataset.lang));
+  });
 });
