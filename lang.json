@@ -1483,5 +1483,15 @@
   "ru": "Портал Шефа",
   "en": "Chef's Portal",
   "vi": "Cổng thông tin của Bếp trưởng"
+ },
+  "kitchen_open": {
+  "ru": "Кухня открытие",
+  "en": "Kitchen Opening",
+  "vi": "Bếp mở cửa"
+},
+"kitchen_close": {
+  "ru": "Кухня закрытие",
+  "en": "Kitchen Closing",
+  "vi": "Bếp đóng cửa"
  }
 }
