@@ -1493,5 +1493,620 @@
   "ru": "Кухня закрытие",
   "en": "Kitchen Closing",
   "vi": "Bếp đóng cửa"
- }
+ },
+  "powdered_sugar": {
+  "ru": "Сахарная пудра",
+  "en": "Powdered sugar",
+  "vi": "Đường bột"
+},
+"muesli": {
+  "ru": "Мюсли",
+  "en": "Muesli",
+  "vi": "Ngũ cốc muesli"
+},
+"pepper_sauce": {
+  "ru": "Перечный соус",
+  "en": "Pepper sauce",
+  "vi": "Nước sốt tiêu"
+},
+"coconut_chips": {
+  "ru": "Кокосовые чипсы",
+  "en": "Coconut chips",
+  "vi": "Mảnh dừa sấy"
+},
+"honey": {
+  "ru": "Мёд",
+  "en": "Honey",
+  "vi": "Mật ong"
+},
+"maple_syrup": {
+  "ru": "Клёновый сироп",
+  "en": "Maple syrup",
+  "vi": "Siro cây phong"
+},
+"scramble_sauce": {
+  "ru": "Соус на скрэмбл",
+  "en": "Scramble sauce",
+  "vi": "Nước sốt trứng"
+},
+"nutella": {
+  "ru": "Нутелла",
+  "en": "Nutella",
+  "vi": "Sô-cô-la Nutella"
+},
+"balsamic": {
+  "ru": "Бальзамик",
+  "en": "Balsamic",
+  "vi": "Giấm balsamic"
+},
+"teokbokki": {
+  "ru": "Токпокки",
+  "en": "Tteokbokki",
+  "vi": "Bánh gạo cay"
+},
+"pasta_portion": {
+  "ru": "Паста порционно",
+  "en": "Pasta (portioned)",
+  "vi": "Mì Ý chia phần"
+},
+"sweet_chili": {
+  "ru": "Сладкий чили",
+  "en": "Sweet chili",
+  "vi": "Tương ớt ngọt"
+},
+"cooking_oil": {
+  "ru": "Масло",
+  "en": "Cooking oil",
+  "vi": "Dầu ăn"
+},
+"garlic_oil": {
+  "ru": "Чесночное масло",
+  "en": "Garlic oil",
+  "vi": "Dầu tỏi"
+},
+"olive_oil": {
+  "ru": "Оливковое масло",
+  "en": "Olive oil",
+  "vi": "Dầu ô liu"
+},
+"salt": {
+  "ru": "Соль",
+  "en": "Salt",
+  "vi": "Muối"
+},
+"sugar": {
+  "ru": "Сахар",
+  "en": "Sugar",
+  "vi": "Đường"
+},
+"pepper": {
+  "ru": "Перец",
+  "en": "Pepper",
+  "vi": "Tiêu"
+},
+"peanut": {
+  "ru": "Арахис",
+  "en": "Peanut",
+  "vi": "Đậu phộng"
+},
+"pumpkin_seeds": {
+  "ru": "Тыквенные семечки",
+  "en": "Pumpkin seeds",
+  "vi": "Hạt bí"
+},
+  "bolitor": {
+  "ru": "Болитор",
+  "en": "Bolitor",
+  "vi": "Nồi luộc"
+},
+"Extractor": {
+  "ru": "Вытяжка",
+  "en": "Extractor hood",
+  "vi": "Máy hút mùi"
+},
+"stove": {
+  "ru": "Плита",
+  "en": "Stove",
+  "vi": "Bếp nấu"
+},
+"tables": {
+  "ru": "Столы",
+  "en": "Tables",
+  "vi": "Bàn"
+},
+"under_table_shelf": {
+  "ru": "Порядок под столом (полка)",
+  "en": "Under-table shelf order",
+  "vi": "Kệ dưới bàn"
+},
+"tuna_kneading": {
+  "ru": "Замес тунец",
+  "en": "Tuna mix",
+  "vi": "Trộn cá ngừ"
+},
+"berry_sauce": {
+  "ru": "Соус ягодный",
+  "en": "Berry sauce",
+  "vi": "Nước sốt trái cây mọng"
+},
+"pesto": {
+  "ru": "Песто",
+  "en": "Pesto",
+  "vi": "Sốt pesto"
+},
+"yogurt": {
+  "ru": "Йогурт",
+  "en": "Yogurt",
+  "vi": "Sữa chua"
+},
+"worchester": {
+  "ru": "Ворчестер",
+  "en": "Worcester sauce",
+  "vi": "Nước sốt Worcester"
+},
+"bisque": {
+  "ru": "Биск",
+  "en": "Bisque",
+  "vi": "Súp bisque"
+},
+"brioche_bread_sliced": {
+  "ru": "Хлеб бриош (нарезка)",
+  "en": "Brioche bread (sliced)",
+  "vi": "Bánh mì brioche (cắt lát)"
+},
+"benedict_bread": {
+  "ru": "Хлеб бенедикт",
+  "en": "Benedict bread",
+  "vi": "Bánh mì Benedict"
+},
+"mint": {
+  "ru": "Мята",
+  "en": "Mint",
+  "vi": "Bạc hà"
+},
+"microgreen": {
+  "ru": "Микрогрин",
+  "en": "Microgreen",
+  "vi": "Rau mầm"
+},
+"rosemary": {
+  "ru": "Розмарин",
+  "en": "Rosemary",
+  "vi": "Hương thảo"
+},
+"thyme": {
+  "ru": "Тимьян",
+  "en": "Thyme",
+  "vi": "Cỏ xạ hương"
+},
+"eggs_raw": {
+  "ru": "Яйца (сырые)",
+  "en": "Eggs (raw)",
+  "vi": "Trứng sống"
+},
+"eggs_poached": {
+  "ru": "Яйца (пашот)",
+  "en": "Eggs (poached)",
+  "vi": "Trứng poch"
+},
+"syrniki": {
+  "ru": "Сырники",
+  "en": "Syrniki (curd pancakes)",
+  "vi": "Bánh phô mai chiên (Syrniki)"
+},
+"pancake_dough": {
+  "ru": "Тесто блины",
+  "en": "Pancake dough",
+  "vi": "Bột bánh kếp"
+},
+"mango_sliced": {
+  "ru": "Манго (нарезка)",
+  "en": "Mango (sliced)",
+  "vi": "Xoài (cắt lát)"
+},
+"dragon_sliced": {
+  "ru": "Дрэгон (нарезка)",
+  "en": "Dragon fruit (sliced)",
+  "vi": "Thanh long (cắt lát)"
+},
+"strawberry": {
+  "ru": "Клубника",
+  "en": "Strawberry",
+  "vi": "Dâu tây"
+},
+"mozzarella_croque": {
+  "ru": "Сыр моцарелла крок",
+  "en": "Mozzarella (croque)",
+  "vi": "Phô mai mozzarella (croque)"
+},
+"ham": {
+  "ru": "Ветчина",
+  "en": "Ham",
+  "vi": "Giăm bông"
+},
+"cherry_work": {
+  "ru": "Черри работа",
+  "en": "Cherry (for work)",
+  "vi": "Cà chua bi (sử dụng)"
+},
+"riet": {
+  "ru": "Риет",
+  "en": "Rillettes",
+  "vi": "Thịt hầm nghiền (rillettes)"
+},
+"salted_fish": {
+  "ru": "Соленая рыба",
+  "en": "Salted fish",
+  "vi": "Cá muối"
+},
+"capers": {
+  "ru": "Каперсы",
+  "en": "Capers",
+  "vi": "Nụ bạch hoa"
+},
+"cucumber": {
+  "ru": "Огурец",
+  "en": "Cucumber",
+  "vi": "Dưa leo"
+},
+"pepper_fridge": {
+  "ru": "Перец",
+  "en": "Pepper (fridge)",
+  "vi": "Ớt chuông (tủ lạnh)"
+},
+"radish": {
+  "ru": "Редис",
+  "en": "Radish",
+  "vi": "Củ cải đỏ"
+},
+"broccoli": {
+  "ru": "Брокколи",
+  "en": "Broccoli",
+  "vi": "Bông cải xanh"
+},
+"zucchini": {
+  "ru": "Цуккини",
+  "en": "Zucchini",
+  "vi": "Bí ngòi"
+},
+"cream_cheese": {
+  "ru": "Кремчиз",
+  "en": "Cream cheese",
+  "vi": "Phô mai kem"
+},
+"sun_dried_tomatoes": {
+  "ru": "Вяленые томаты",
+  "en": "Sun-dried tomatoes",
+  "vi": "Cà chua sấy khô"
+},
+"holland_sauce_2": {
+  "ru": "Голландский соус",
+  "en": "Hollandaise sauce",
+  "vi": "Nước sốt Hollandaise"
+},
+"spinach_2": {
+  "ru": "Шпинат",
+  "en": "Spinach",
+  "vi": "Rau chân vịt"
+},
+"tartar_sauce_2": {
+  "ru": "Тартар соус",
+  "en": "Tartar sauce",
+  "vi": "Sốt tartar"
+},
+"fish_sauce_2": {
+  "ru": "Соус на рыбу",
+  "en": "Fish sauce",
+  "vi": "Nước mắm"
+},
+"chicken_sauce_2": {
+  "ru": "Соус на куру",
+  "en": "Chicken sauce",
+  "vi": "Nước sốt gà"
+},
+"chicken_sous_vide_2": {
+  "ru": "Курица сувид",
+  "en": "Chicken sous-vide",
+  "vi": "Gà nấu sous-vide"
+},
+"beef_sous_vide_2": {
+  "ru": "Говядина сувид",
+  "en": "Beef sous-vide",
+  "vi": "Bò nấu sous-vide"
+},
+"trout_steak_2": {
+  "ru": "Стейк форель",
+  "en": "Trout steak",
+  "vi": "Cá hồi vân áp chảo"
+},
+"liver_2": {
+  "ru": "Печень",
+  "en": "Liver",
+  "vi": "Gan"
+},
+"arugula": {
+  "ru": "Руккола",
+  "en": "Arugula",
+  "vi": "Rau rocket"
+},
+"parmezan": {
+  "ru": "Пармезан",
+  "en": "Parmesan",
+  "vi": "Phô mai Parmesan"
+},
+"mixed_salad": {
+  "ru": "Микс салат",
+  "en": "Mixed salad",
+  "vi": "Xà lách trộn"
+},
+"mango_whole": {
+  "ru": "Манго (целый)",
+  "en": "Mango (whole)",
+  "vi": "Xoài (nguyên quả)"
+},
+"dragon_whole": {
+  "ru": "Дрэгон (целый)",
+  "en": "Dragon fruit (whole)",
+  "vi": "Thanh long (nguyên quả)"
+},
+"passion_fruit": {
+  "ru": "Маракуйя",
+  "en": "Passion fruit",
+  "vi": "Chanh dây"
+},
+"brioche_defrost": {
+  "ru": "Хлеб бриош (дефрост)",
+  "en": "Brioche bread (defrosted)",
+  "vi": "Bánh mì brioche (rã đông)"
+},
+"staff_meat_tofu_defrost": {
+  "ru": "Стаф мясо/тофу дефрост",
+  "en": "Staff meat/tofu (defrost)",
+  "vi": "Thịt/đậu phụ nhân viên (rã đông)"
+},
+"staff_vegetables_defrost": {
+  "ru": "Стаф овощи дефрост",
+  "en": "Staff vegetables (defrost)",
+  "vi": "Rau nhân viên (rã đông)"
+},
+"freezer_section": {
+  "ru": "Морозильник (кухня)",
+  "en": "Freezer (kitchen)",
+  "vi": "Tủ đông (bếp)"
+},
+"freezer_cheesecakes": {
+  "ru": "Сырники",
+  "en": "Cheesecakes",
+  "vi": "Bánh phô mai chiên"
+},
+"croutons_tartare": {
+  "ru": "Гренки тартар",
+  "en": "Croutons tartare",
+  "vi": "Bánh mì nướng tartare"
+},
+"bread_sandwiches": {
+  "ru": "Хлеб сендвичи",
+  "en": "Bread sandwiches",
+  "vi": "Bánh mì sandwich"
+},
+"gorgonzola_cheese": {
+  "ru": "Сыр Горгонзола",
+  "en": "Gorgonzola cheese",
+  "vi": "Phô mai Gorgonzola"
+},
+"grated_julienne": {
+  "ru": "Сыр тертый жюльен",
+  "en": "Grated cheese julienne",
+  "vi": "Phô mai bào sợi julienne"
+},
+"mozzarella_croque": {
+  "ru": "Сыр моцарелла крок",
+  "en": "Mozzarella cheese croque",
+  "vi": "Phô mai mozzarella croque"
+},
+"beef_tartare": {
+  "ru": "Говядина тартар",
+  "en": "Beef tartare",
+  "vi": "Thịt bò tartare"
+},
+"beef_sous_vide_frozen": {
+  "ru": "Говядина сувид (замороженная)",
+  "en": "Beef sous vide (frozen)",
+  "vi": "Thịt bò sous-vide (đông lạnh)"
+},
+"beans": {
+  "ru": "Фасоль",
+  "en": "Beans",
+  "vi": "Đậu"
+},
+"trout_steak_frozen": {
+  "ru": "Стейк форель (замороженный)",
+  "en": "Trout steak (frozen)",
+  "vi": "Cá hồi vân áp chảo (đông lạnh)"
+},
+"duck": {
+  "ru": "Утка",
+  "en": "Duck",
+  "vi": "Vịt"
+},
+"shrimp": {
+  "ru": "Креветки",
+  "en": "Shrimp",
+  "vi": "Tôm"
+},
+"octopus": {
+  "ru": "Осьминог",
+  "en": "Octopus",
+  "vi": "Bạch tuộc"
+},
+"liver": {
+  "ru": "Печень",
+  "en": "Liver",
+  "vi": "Gan"
+},
+"chicken_sous_vide_frozen": {
+  "ru": "Курица сувид (замороженная)",
+  "en": "Chicken sous vide (frozen)",
+  "vi": "Gà sous-vide (đông lạnh)"
+},
+"pumpkin_soup": {
+  "ru": "Суп тыква",
+  "en": "Pumpkin soup",
+  "vi": "Súp bí đỏ"
+},
+"pea_soup": {
+  "ru": "Суп горошек",
+  "en": "Pea soup",
+  "vi": "Súp đậu Hà Lan"
+},
+"ratatouille": {
+  "ru": "Рататуй",
+  "en": "Ratatouille",
+  "vi": "Món rau hầm Ratatouille"
+},
+"whole_benedict_bread": {
+  "ru": "Хлеб целый на бенедикт",
+  "en": "Whole bread for benedict",
+  "vi": "Bánh mì nguyên ổ cho benedict"
+},
+"croutons_julienne": {
+  "ru": "Гренки жюльен",
+  "en": "Croutons julienne",
+  "vi": "Bánh mì nướng julienne"
+},
+"ham_frozen": {
+  "ru": "Ветчина (замороженная)",
+  "en": "Ham (frozen)",
+  "vi": "Giăm bông (đông lạnh)"
+},
+"dried_tomatoes_frozen": {
+  "ru": "Вяленые томаты (замороженные)",
+  "en": "Dried tomatoes (frozen)",
+  "vi": "Cà chua sấy khô (đông lạnh)"
+},
+"spinach_frozen": {
+  "ru": "Шпинат (замороженный)",
+  "en": "Spinach (frozen)",
+  "vi": "Rau chân vịt (đông lạnh)"
+},
+"freezer_section": {
+  "ru": "Морозильник (кухня)",
+  "en": "Freezer (kitchen)",
+  "vi": "Tủ đông (bếp)"
+},
+"freezer_cheesecakes": {
+  "ru": "Сырники",
+  "en": "Cheesecakes",
+  "vi": "Bánh phô mai chiên"
+},
+"croutons_tartare": {
+  "ru": "Гренки тартар",
+  "en": "Croutons tartare",
+  "vi": "Bánh mì nướng tartare"
+},
+"bread_sandwiches": {
+  "ru": "Хлеб сендвичи",
+  "en": "Bread sandwiches",
+  "vi": "Bánh mì sandwich"
+},
+"gorgonzola_cheese": {
+  "ru": "Сыр Горгонзола",
+  "en": "Gorgonzola cheese",
+  "vi": "Phô mai Gorgonzola"
+},
+"grated_julienne": {
+  "ru": "Сыр тертый жюльен",
+  "en": "Grated cheese julienne",
+  "vi": "Phô mai bào sợi julienne"
+},
+"mozzarella_croque": {
+  "ru": "Сыр моцарелла крок",
+  "en": "Mozzarella cheese croque",
+  "vi": "Phô mai mozzarella croque"
+},
+"beef_tartare": {
+  "ru": "Говядина тартар",
+  "en": "Beef tartare",
+  "vi": "Thịt bò tartare"
+},
+"beef_sous_vide_frozen": {
+  "ru": "Говядина сувид (замороженная)",
+  "en": "Beef sous vide (frozen)",
+  "vi": "Thịt bò sous-vide (đông lạnh)"
+},
+"beans": {
+  "ru": "Фасоль",
+  "en": "Beans",
+  "vi": "Đậu"
+},
+"trout_steak_frozen": {
+  "ru": "Стейк форель (замороженный)",
+  "en": "Trout steak (frozen)",
+  "vi": "Cá hồi vân áp chảo (đông lạnh)"
+},
+"duck": {
+  "ru": "Утка",
+  "en": "Duck",
+  "vi": "Vịt"
+},
+"shrimp": {
+  "ru": "Креветки",
+  "en": "Shrimp",
+  "vi": "Tôm"
+},
+"octopus": {
+  "ru": "Осьминог",
+  "en": "Octopus",
+  "vi": "Bạch tuộc"
+},
+"liver": {
+  "ru": "Печень",
+  "en": "Liver",
+  "vi": "Gan"
+},
+"chicken_sous_vide_frozen": {
+  "ru": "Курица сувид (замороженная)",
+  "en": "Chicken sous vide (frozen)",
+  "vi": "Gà sous-vide (đông lạnh)"
+},
+"pumpkin_soup": {
+  "ru": "Суп тыква",
+  "en": "Pumpkin soup",
+  "vi": "Súp bí đỏ"
+},
+"pea_soup": {
+  "ru": "Суп горошек",
+  "en": "Pea soup",
+  "vi": "Súp đậu Hà Lan"
+},
+"ratatouille": {
+  "ru": "Рататуй",
+  "en": "Ratatouille",
+  "vi": "Món rau hầm Ratatouille"
+},
+"whole_benedict_bread": {
+  "ru": "Хлеб целый на бенедикт",
+  "en": "Whole bread for benedict",
+  "vi": "Bánh mì nguyên ổ cho benedict"
+},
+"croutons_julienne": {
+  "ru": "Гренки жюльен",
+  "en": "Croutons julienne",
+  "vi": "Bánh mì nướng julienne"
+},
+"ham_frozen": {
+  "ru": "Ветчина (замороженная)",
+  "en": "Ham (frozen)",
+  "vi": "Giăm bông (đông lạnh)"
+},
+"dried_tomatoes_frozen": {
+  "ru": "Вяленые томаты (замороженные)",
+  "en": "Dried tomatoes (frozen)",
+  "vi": "Cà chua sấy khô (đông lạnh)"
+},
+"spinach_frozen": {
+  "ru": "Шпинат (замороженный)",
+  "en": "Spinach (frozen)",
+  "vi": "Rau chân vịt (đông lạnh)"
+}
 }
