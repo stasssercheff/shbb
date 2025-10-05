@@ -506,6 +506,31 @@
     "ru": "Сухие ингредиенты смешать с маслом в крошку в дежe, используя насадку 'лопатка'. Добавить желтки и замесить однородное тесто (не вымешивать долго). Раскатать пласт толщиной 5 мм и выпекать при 180°C (конвекция 15) до золотистого цвета.",
     "en": "Mix the dry ingredients with butter into crumbs in a bowl using a paddle attachment. Add the egg yolks and knead into a smooth dough (do not overmix). Roll out into a 5 mm thick sheet and bake at 180°C (convection 15) until golden brown."
   }
-}
+},
+    {
+  "name": { 
+    "ru": "Печенье (пряник)", 
+    "en": "Gingerbread Cookie" 
+  },
+  "key": "Печенье шт.",
+  "ingredients": [
+    { "№": 1, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "135" },
+    { "№": 2, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "6" },
+    { "№": 3, "Продукт": "Мед", "Ingredient": "Honey", "Шт/гр": "112" },
+    { "№": 4, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "165" },
+    { "№": 5, "Продукт": "Яйцо (вес)", "Ingredient": "Egg", "Шт/гр": "104" },
+    { "№": 6, "Продукт": "Специя Корица", "Ingredient": "Cinnamon", "Шт/гр": "5" },
+    { "№": 7, "Продукт": "Специя мускатный орех", "Ingredient": "Nutmeg", "Шт/гр": "5" },
+    { "№": 8, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "15" },
+    { "№": 9, "Продукт": "Крахмал кукурузный", "Ingredient": "Cornstarch", "Шт/гр": "60" },
+    { "№": 10, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "440" },
+    { "№": 11, "Продукт": "Сода пищевая", "Ingredient": "Baking soda", "Шт/гр": "10" },
+    { "№": 12, "Продукт": "Печенье шт.", "Ingredient": "Pcs", "Шт/гр": "16" }
+  ],
+  "process": {
+    "ru": "Муку, крахмал и соду соединить и просеять. Добавить специи: корицу, мускатный орех и перемешать. Все остальные ингредиенты (масло, соль, мед, сахар, яйца) взбить в миксере до кремообразной консистенции. Ввести мучную смесь и замесить тесто. Тесто положить в холодильник на 1 час. Распорционировать по 100 г, раскатать и сформовать пресс-формой (если требуется, нанести оттиск), вырезать формочкой (готовая заготовка 65 г). Выложить заготовки на противень и выпекать 10–15 минут при 200°C. Готовым печеньям дать полностью остыть, убрать в холодильник в бокс.",
+    "en": "Sift together flour, cornstarch, and baking soda. Add spices: cinnamon and nutmeg, and mix. Beat the remaining ingredients (butter, salt, honey, sugar, eggs) in a mixer until creamy. Add the flour mixture and knead the dough. Refrigerate the dough for 1 hour. Portion into 100 g pieces, roll out, and shape with a press (if desired, imprint pattern), cut with a cookie cutter (final piece 65 g). Place on a baking sheet and bake for 10–15 minutes at 200°C. Allow the cookies to cool completely, then store in the fridge in a container."
+  }
+}   
   ]
 }
