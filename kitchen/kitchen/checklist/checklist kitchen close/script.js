@@ -32,7 +32,15 @@ function switchLanguage(lang) {
   // Перевод опций select
   document.querySelectorAll("select").forEach(select => {
     Array.from(select.options).forEach(option => {
-      const key = option.dataset.i18n;
+      let key = option.dataset.i18n;
+
+      // ЗАМЕНА have -> order+
+      if (key === "have") {
+        key = "order+";
+        option.dataset.i18n = key;
+        option.value = "order+";
+      }
+
       if (key && translations[key] && translations[key][lang]) {
         option.textContent = translations[key][lang];
       }
