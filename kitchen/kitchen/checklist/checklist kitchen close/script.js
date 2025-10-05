@@ -13,13 +13,13 @@ function goBack() {
 // === Переключение языка через lang.json ===
 async function switchLanguage(lang) {
   try {
-    const response = await fetch("lang.json"); // lang.json в той же папке
+    const response = await fetch("lang.json");
     const translations = await response.json();
 
     document.documentElement.lang = lang;
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.dataset.i18n;
+      const key = el.getAttribute("data-i18n");
       if (translations[key] && translations[key][lang]) {
         if (el.tagName === "INPUT") {
           if (el.type === "submit" || el.type === "button") {
@@ -35,9 +35,8 @@ async function switchLanguage(lang) {
       }
     });
 
-    // Для <option> внутри select
     document.querySelectorAll("select option[data-i18n]").forEach((opt) => {
-      const key = opt.dataset.i18n;
+      const key = opt.getAttribute("data-i18n");
       if (translations[key] && translations[key][lang]) {
         opt.textContent = translations[key][lang];
       }
@@ -78,7 +77,6 @@ function restoreFormData() {
 document.addEventListener("DOMContentLoaded", () => {
   const lang = document.documentElement.lang || "ru";
 
-  // Добавляем дефолтный пункт “–” в каждый select.qty
   document.querySelectorAll("select.qty").forEach((select) => {
     const hasEmpty = Array.from(select.options).some(
       (opt) => opt.value === ""
@@ -95,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
   restoreFormData();
   switchLanguage(lang);
 
-  // === Установка даты ===
   const today = new Date();
   const day = String(today.getDate()).padStart(2, "0");
   const month = String(today.getMonth() + 1).padStart(2, "0");
@@ -103,12 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const dateDiv = document.getElementById("autodate") || document.getElementById("current-date");
   if (dateDiv) dateDiv.textContent = formattedDate;
 
-  // === Автосохранение изменений ===
   document.querySelectorAll("select, textarea.comment").forEach((el) => {
     el.addEventListener("input", saveFormData);
   });
 
-  // === Функция сборки сообщения ===
   const buildMessage = (lang) => {
     let message = `🧾 <b>${lang === "en" ? "KITCHEN-CLOSE" : "КУХНЯ-ЗАКРЫТИЕ"}</b>\n\n`;
     message += `📅 ${lang === "en" ? "Date" : "Дата"}: ${formattedDate}\n`;
@@ -151,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return message;
   };
 
-  // === Кнопка отправки ===
   const button = document.getElementById("sendToTelegram");
   if (button) {
     button.addEventListener("click", () => {
@@ -218,7 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Кнопки переключения языка ===
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => switchLanguage(btn.dataset.lang));
   });
