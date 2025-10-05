@@ -40,7 +40,7 @@
   <div class="dish">
     <label for="employeeSelect" data-i18n="name"></label>
     <select id="employeeSelect" name="chef" class="qty">
-      <option value="" selected>—</option>
+      <option value="-" selected>—</option>
       <option value="maksim" data-i18n="maksim"></option>
       <option value="boris" data-i18n="boris"></option>
       <option value="miguel" data-i18n="miguel"></option>
@@ -109,7 +109,6 @@
   <!-- Комментарий -->
   <div class="section-title" data-i18n="comment"></div>
   <textarea id="comment_equipment" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
-</div>
 </section>
 
 
@@ -294,7 +293,6 @@
   <!-- Комментарий -->
   <div class="section-title" data-i18n="comment"></div>
   <textarea id="comment_workingspace" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
-</div>
 </section>
 
 
@@ -770,7 +768,6 @@
   <!-- Комментарий -->
   <div class="section-title" data-i18n="comment"></div>
   <textarea id="comment_fridge" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
-</div>
 </section>
 
 
@@ -1084,11 +1081,10 @@
   <!-- Комментарий -->
   <div class="section-title" data-i18n="comment"></div>
   <textarea id="comment_freezer" class="comment" rows="3" data-i18n="comment_placeholder" placeholder=""></textarea>
-</div>
 </section>
 
 
-  <button id="sendToTelegram" data-i18n="send">Отправить</button>
+<button type="button" id="sendToTelegram" data-i18n="send">Отправить</button>
 </main>
 
 </body>
