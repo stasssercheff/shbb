@@ -10,6 +10,10 @@ function goBack() {
     const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
     const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
     window.location.href = upperPath + "/index.html";
+}
+
+
+    
 // === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
