@@ -1,221 +1,179 @@
-// === Навигация ===
-function goHome() {
-  location.href = "http://stasssercheff.github.io/shbb/";
+/* ========== БАЗОВЫЕ ПЕРЕМЕННЫЕ ========== */
+:root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --accent: #d8cfc0;
+    --accent-hover: #c1b29a;
+    --text: #333;
+    --muted: #666;
+    --shadow: rgba(0,0,0,0.1);
 }
 
-function goBack() {
-  const currentPath = window.location.pathname;
-  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-  window.location.href = upperPath + "/index.html";
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
-// === Автоподстановка даты ===
-document.addEventListener("DOMContentLoaded", () => {
-  const dateEl = document.getElementById("current-date");
-  if (dateEl) {
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-    dateEl.textContent = `${day}.${month}.${year}`;
-  }
-});
-
-// === Переключение языка ===
-function switchLanguage(lang) {
-  document.documentElement.lang = lang;
-  localStorage.setItem("lang", lang);
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[key] && translations[key][lang]) {
-      if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", translations[key][lang]);
-      } else if (el.tagName === "TEXTAREA" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", translations[key][lang]);
-      } else {
-        el.textContent = translations[key][lang];
-      }
-    }
-  });
-
-  // Обновляем опции select
-  document.querySelectorAll("select").forEach(select => {
-    Array.from(select.options).forEach(option => {
-      const key = option.dataset.i18n;
-      if (key && translations[key] && translations[key][lang]) {
-        option.textContent = translations[key][lang];
-      }
-      if (option.value === "") option.textContent = "—";
-    });
-  });
+/* ========== ХЕДЕР ========== */
+.page-header {
+    display: flex;
+    flex-direction: column; /* всегда две строки: язык + навигация */
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: var(--card);
+    box-shadow: 0 2px 5px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-// === Сохранение/восстановление данных формы ===
-function saveFormData() {
-  const data = {};
-  document.querySelectorAll("select").forEach(select => {
-    data[select.name || select.id] = select.value;
-  });
-  document.querySelectorAll("textarea.comment").forEach(textarea => {
-    data[textarea.name || textarea.id] = textarea.value;
-  });
-  localStorage.setItem("formData", JSON.stringify(data));
+/* ========== КНОПКИ ЯЗЫКА ========== */
+.lang-switch {
+    display: flex;
+    width: 100%;
+    gap: 10px;
 }
 
-function restoreFormData() {
-  const saved = localStorage.getItem("formData");
-  if (!saved) return;
-  const data = JSON.parse(saved);
-  document.querySelectorAll("select").forEach(select => {
-    if (data[select.name || select.id] !== undefined) {
-      select.value = data[select.name || select.id];
-    }
-  });
-  document.querySelectorAll("textarea.comment").forEach(textarea => {
-    if (data[textarea.name || textarea.id] !== undefined) {
-      textarea.value = data[textarea.name || textarea.id];
-    }
-  });
+.lang-btn {
+    flex: 1;
+    padding: 12px 0;
+    background-color: var(--accent);
+    color: var(--text);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.2s;
+    text-align: center;
 }
 
-// === DOMContentLoaded ===
-document.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("lang") || "ru";
+.lang-btn:hover {
+    background-color: var(--accent-hover);
+}
 
-  // Пустая опция для select.qty
-  document.querySelectorAll("select.qty").forEach(select => {
-    const hasEmpty = Array.from(select.options).some(opt => opt.value === "");
-    if (!hasEmpty) {
-      const emptyOption = document.createElement("option");
-      emptyOption.value = "";
-      emptyOption.dataset.i18n = "empty";
-      emptyOption.textContent = "—";
-      emptyOption.selected = true;
-      select.insertBefore(emptyOption, select.firstChild);
+/* ========== УНИВЕРСАЛЬНЫЕ КОНТЕЙНЕРЫ КНОПОК ========== */
+.buttons-container,
+.nav-buttons {
+    display: flex;
+    flex-direction: column; /* всегда столбик */
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    margin: 12px 0;
+}
+
+/* ========== ЕДИНЫЙ СТИЛЬ КНОПОК ========== */
+button,
+.nav-btn {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--accent);
+    color: var(--text);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.06s ease;
+    box-sizing: border-box;
+}
+
+button:hover,
+.nav-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* 📱 Адаптив для телефонов — чуть компактнее */
+@media (max-width: 480px) {
+    button,
+    .nav-btn {
+        font-size: 0.9rem;
+        padding: 8px 10px;
     }
-  });
+}
 
-  restoreFormData();
-  switchLanguage(lang);
 
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, "0");
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const formattedDate = `${day}/${month}`;
+/* ========== ОСНОВНОЙ КОНТЕЙНЕР ========== */
+.main-container {
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+    background-color: var(--card);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px var(--shadow);
+}
 
-  document.querySelectorAll("select, textarea.comment").forEach(el => {
-    el.addEventListener("input", saveFormData);
-  });
+/* === ЛОГОТИП === */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
 
-  // === Функция сборки сообщения ===
-  const buildMessage = lang => {
-    let message = `🧾 <b>${lang === "en" ? "PRODUCT ORDER" : "ЗАКАЗ ПРОДУКТОВ"}</b>\n\n`;
-    message += `📅 ${lang === "en" ? "Date" : "Дата"}: ${formattedDate}\n`;
+.logo {
+    max-width: 160px; /* безопасная ширина */
+    width: auto; /* чтобы не растягивалось на всю ширину */
+    height: auto;
+    object-fit: contain; /* чтобы не деформировалось */
+}
 
-    const nameSelect = document.querySelector('select[name="chef"]');
-    const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-    const name = selectedChef?.dataset.i18n
-      ? translations[selectedChef.dataset.i18n][lang]
-      : "—";
-    message += `${lang === "en" ? "👨‍🍳 Name" : "👨‍🍳 Имя"}: ${name}\n\n`;
+/* ========== ПРОЧЕЕ ========== */
+.date-container {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
 
-    document.querySelectorAll(".menu-section").forEach(section => {
-      const sectionTitle = section.querySelector(".section-title");
-      const titleKey = sectionTitle?.dataset.i18n;
-      const title = translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
+/* === Кнопки отправки (теперь они тоже используют общий стиль) === */
+button[type="submit"],
+#sendBtn,
+#sendToTelegram {
+    max-width: 250px;
+    margin: 12px auto;
+}
 
-      let sectionContent = "";
-      section.querySelectorAll(".dish").forEach(dish => {
-        const select = dish.querySelector("select.qty");
-        if (!select || !select.value) return;
+/* === Единый стиль блока выбора продукта (dish) === */
+.dish {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f7f2; /* как checklist-item */
+    padding: 6px 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    margin-bottom: 8px;
+}
 
-        const label = dish.querySelector("label");
-        const labelKey = label?.dataset.i18n;
-        const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
+.dish label {
+    flex: 1;               /* занимает доступное пространство */
+    font-size: 13px;
+    margin-right: 8px;
+    text-align: left;      /* ✅ текст всегда по левому краю */
+    white-space: nowrap;   /* не переносить */
+    overflow: hidden;      /* обрезка при переполнении */
+    text-overflow: ellipsis; /* троеточие если не влазит */
+}
 
-        const selectedOption = select.options[select.selectedIndex];
-        const optionKey = selectedOption?.dataset.i18n;
-        const value = (optionKey && translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
-
-        sectionContent += `• ${labelText}: ${value}\n`;
-      });
-
-      const commentField = section.querySelector("textarea.comment");
-      if (commentField && commentField.value.trim()) {
-        sectionContent += `💬 ${lang === "en" ? "Comment" : "Комментарий"}: ${commentField.value.trim()}\n`;
-      }
-
-      if (sectionContent.trim()) {
-        message += `🔸 <b>${title}</b>\n${sectionContent}\n`;
-      }
-    });
-
-    return message;
-  };
-
-  // === Кнопка отправки ===
-  const button = document.getElementById("sendToTelegram");
-  button.addEventListener("click", async () => {
-    const chat_id = "-1002393080811"; // твой Telegram чат ID
-    const worker_url = "https://shbb1.stassser.workers.dev/";
-    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
-
-    const sendMessage = msg => fetch(worker_url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id, text: msg })
-    }).then(res => res.json());
-
-    const sendEmail = async msg => {
-      try {
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            access_key: accessKey,
-            subject: "ЗАКАЗ ПРОДУКТОВ",
-            from_name: "SHBB KITCHEN",
-            reply_to: "no-reply@shbb.com",
-            message: msg
-          })
-        }).then(r => r.json());
-
-        if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
-      } catch (err) {
-        alert("Ошибка отправки email: " + err.message);
-      }
-    };
-
-    const sendAllParts = async text => {
-      let start = 0;
-      while (start < text.length) {
-        const chunk = text.slice(start, start + 4000);
-        await sendMessage(chunk);
-        await sendEmail(chunk);
-        start += 4000;
-      }
-    };
-
-    const clearForm = () => {
-      document.querySelectorAll("select").forEach(select => (select.value = ""));
-      document.querySelectorAll("textarea.comment").forEach(textarea => (textarea.value = ""));
-    };
-
-    try {
-      // ✅ Используем языки из sendConfig.js
-      for (const lang of window.sendLangs) {
-        const msg = buildMessage(lang);
-        await sendAllParts(msg);
-      }
-
-      alert("✅ ОТПРАВЛЕНО");
-      localStorage.clear();
-      clearForm();
-    } catch (err) {
-      alert("❌ Ошибка при отправке: " + err.message);
-      console.error(err);
-    }
-  });
-});
+.dish select.qty {
+    flex: 0 0 100px;
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    text-align: center;
+    text-align-last: center;
+    cursor: pointer;
+}
