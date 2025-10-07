@@ -1,7 +1,5 @@
-// === Убираем let, чтобы не конфликтовать с lang.js ===
-if (typeof currentLang === 'undefined') {
-  var currentLang = 'ru';
-}
+window.currentLang = window.currentLang || 'ru';
+
 
 const dataFiles = {
   Preps: 'data/preps.json',
