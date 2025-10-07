@@ -211,3 +211,17 @@ td:nth-child(5) {
   overflow-x: auto;
 }
 
+/* Центровка заголовка и даты */
+h1[data-i18n="preps"],
+.date-container {
+  text-align: center;
+  width: 100%;
+}
+
+.date-container {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+
