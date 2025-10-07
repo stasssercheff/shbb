@@ -300,6 +300,25 @@
       }
     },
 {
+  "name": {
+    "ru": "ПФ Биск из креветок",
+    "en": "Shrimp Bisque PF"
+  },
+  "key": "Количество",
+  "ingredients": [
+    { "№": 1, "Продукт": "Шелуха креветок", "Ingredient": "Shrimp shells", "Шт/гр": "5000" },
+    { "№": 2, "Продукт": "ПФ овощи", "Ingredient": "Vegetable PF", "Шт/гр": "1000" },
+    { "№": 3, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "9000" },
+    { "№": 4, "Продукт": "Масло растительное", "Ingredient": "Vegetable oil", "Шт/гр": "100" },
+    { "№": 5, "Продукт": "ПФ Чесночное масло", "Ingredient": "Garlic oil PF", "Шт/гр": "100" },
+    { "№": 6, "Продукт": "Количество", "Ingredient": "Total", "Шт/гр": "5000" }
+  ],
+  "process": {
+    "ru": "Готовую смесь овощей (морковь с луком) заложить в кастрюлю и поджарить на растительном масле. На этапе полуготовности овощей в кастрюлю погрузить промытые шелуху и голову от креветок. Жарить до покраснения. Далее залить водой. Когда 50% воды выкипела, пробить погружным блендером и процедить через сито, отжимая всю влагу. Полученную жидкость выпаривать до получения нужного объема.",
+    "en": "Place the prepared vegetable mix (carrot with onion) into a pot and fry in vegetable oil. At the semi-cooked stage, add the washed shrimp shells and heads. Fry until reddish. Then add water. When 50% of the water has evaporated, blend with an immersion blender and strain through a sieve, squeezing out all the liquid. Reduce the resulting liquid until the desired volume is achieved."
+  } 
+},
+{
       "name": {
         "ru": "СУП БРОККОЛИ",
         "en": "BROKKILI SOUP"
