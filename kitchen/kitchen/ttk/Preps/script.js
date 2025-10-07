@@ -1,4 +1,7 @@
-let currentLang = 'ru';
+// === Убираем let, чтобы не конфликтовать с lang.js ===
+if (typeof currentLang === 'undefined') {
+  var currentLang = 'ru';
+}
 
 const dataFiles = {
   Preps: 'data/preps.json',
@@ -46,6 +49,7 @@ function renderSection(sectionName, toggle = true) {
     }
   });
 }
+
 // Создание таблицы
 function createTable(data, sectionName) {
   const tableContainer = document.querySelector('.table-container');
@@ -121,7 +125,6 @@ function createTable(data, sectionName) {
         });
 
         tdAmount.addEventListener('keydown', e => {
-          // Разрешаем только цифры и управление
           if (!/[0-9]|Backspace|Delete|ArrowLeft|ArrowRight/.test(e.key)) {
             e.preventDefault();
           }
@@ -132,15 +135,13 @@ function createTable(data, sectionName) {
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
 
-// ==== Блок для отображения process ====
-const tdDesc = document.createElement('td');
-
-if (i === 0) { // только первая строка ингредиентов
-  tdDesc.textContent = dish.process?.[currentLang] || "";
-  tdDesc.rowSpan = dish.ingredients.length;
-  tr.appendChild(tdDesc);
-}
-// ==== конец блока ====
+      // ==== Описание процесса (один раз на блюдо) ====
+      if (i === 0) {
+        const tdDesc = document.createElement('td');
+        tdDesc.textContent = dish.process?.[currentLang] || '';
+        tdDesc.rowSpan = dish.ingredients.length;
+        tr.appendChild(tdDesc);
+      }
 
       tbody.appendChild(tr);
     });
@@ -152,7 +153,7 @@ if (i === 0) { // только первая строка ингредиенто�
   });
 }
 
-// ==== Новый блок для СУ-ВИД ====
+// ==== Блок для Sous-Vide ====
 function renderSousVide(data) {
   const tableContainer = document.querySelector('.table-container');
   tableContainer.innerHTML = '';
@@ -163,7 +164,7 @@ function renderSousVide(data) {
 
     const title = document.createElement('div');
     title.className = 'dish-title';
-    title.textContent = currentLang === 'ru' ? dish.title : dish.title; // можно добавить переводы
+    title.textContent = currentLang === 'ru' ? dish.title : dish.title;
     card.appendChild(title);
 
     const table = document.createElement('table');
@@ -184,7 +185,6 @@ function renderSousVide(data) {
     });
     thead.appendChild(trHead);
 
-    // Генерируем строки
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
@@ -204,8 +204,6 @@ function renderSousVide(data) {
       tdTime.textContent = ing['Время мин / Time'] || '';
 
       const tdProcess = document.createElement('td');
-
-      // Проверяем какой процесс применить по диапазону
       const proc = dish.process.find(p => i + 1 >= p.range[0] && i + 1 <= p.range[1]);
       tdProcess.textContent = proc ? proc[currentLang] : '';
 
@@ -225,9 +223,8 @@ function renderSousVide(data) {
     tableContainer.appendChild(card);
   });
 }
-// ==== Конец блока СУ-ВИД ====
 
-// Навигация
+// ==== Навигация ====
 function goHome() {
   location.href = '/index.html';
 }
@@ -235,7 +232,7 @@ function goBack() {
   history.back();
 }
 
-// Инициализация кнопок
+// ==== Инициализация кнопок ====
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', () => renderSection(btn.dataset.section));
 });
