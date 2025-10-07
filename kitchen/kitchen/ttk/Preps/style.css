@@ -223,5 +223,24 @@ h1[data-i18n="preps"],
   color: #666;
   margin-bottom: 20px;
 }
+:root {
+  --accent: #d8cfc0;
+  --accent-hover: #c1b29a;
+  --text: #333;
+}
+
+/* Перестраховка для навигационных кнопок */
+.page-header button,
+.page-header .nav-btn {
+  color: var(--text) !important;
+  background-color: var(--accent) !important;
+  font-weight: 600;
+  border: none;
+}
+
+.page-header button:hover,
+.page-header .nav-btn:hover {
+  background-color: var(--accent-hover) !important;
+}
 
 
