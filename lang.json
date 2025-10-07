@@ -9,6 +9,11 @@
   "en": "1st floor",
   "vi": "Tầng 1"
 },
+"preps": {
+  "ru": "Заготовки",
+  "en": "Preps",
+  "vi": "Chuẩn bị"
+},  
   "dishes": {
     "ru": "Блюда",
     "en": "Dishes",
