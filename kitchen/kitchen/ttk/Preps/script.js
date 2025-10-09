@@ -15,8 +15,8 @@ function goBack() {
 
 // ==== Пути к данным ====
 const dataFiles = {
-  'Preps': 'data/preps.json',
-  'Sous-Vide': 'data/sv.json'
+  'Preps': './data/preps.json',
+  'Sous-Vide': './data/sv.json'
 };
 
 // ==== Загрузка JSON ====
