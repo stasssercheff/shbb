@@ -3,6 +3,16 @@
     "ru": "Портал сотрудников",
     "en": "Employee Portal",
     "vi": "Cổng nhân viên"
+   },
+  "preps": {
+    "ru": "Заготовки",
+    "en": "Preps",
+    "vi": "Chuẩn bị"
+  },
+  "Sous-Vide": {
+    "ru": "Су-вид",
+    "en": "Sous-Vide",
+    "vi": "Sous-Vide"
   },
   "1stfloor": {
   "ru": "1 этаж",
