@@ -248,12 +248,3 @@ document.querySelectorAll('.lang-switch button').forEach(btn => {
   });
 });
 
-// === Принудительное обновление текста кнопок навигации после загрузки ===
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (typeof translations !== 'undefined' && translations[key] && translations[key][currentLang]) {
-      el.textContent = translations[key][currentLang];
-    }
-  });
-});
