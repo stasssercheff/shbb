@@ -1,5 +1,20 @@
 let currentLang = 'ru';
 
+// ==== Навигация ====
+
+// На главную
+function goHome() {
+  location.href = "https://stasssercheff.github.io/shbb/";
+}
+
+// На уровень выше (одну папку вверх)
+function goBack() {
+  const currentPath = window.location.pathname;
+  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+  window.location.href = upperPath + "/index.html";
+}
+
 // Пути к JSON-файлам
 const dataFiles = {
   breakfast: 'data/breakfast.json',
