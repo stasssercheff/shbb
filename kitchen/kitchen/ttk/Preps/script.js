@@ -21,8 +21,19 @@ const dataFiles = {
 
 // ==== Загрузка JSON ====
 function loadData(sectionName, callback) {
-  fetch(dataFiles[sectionName])
-    .then(res => res.json())
+  const path = dataFiles[sectionName];
+  const fullPath = new URL(path, window.location.href).href;
+
+  console.log('=== loadData ===');
+  console.log('sectionName:', sectionName);
+  console.log('relative path:', path);
+  console.log('resolved path:', fullPath);
+
+  fetch(fullPath)
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    })
     .then(data => callback(data))
     .catch(err => console.error(`Ошибка загрузки ${sectionName}:`, err));
 }
