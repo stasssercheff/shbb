@@ -231,7 +231,7 @@ function goHome() {
 // Функция возврата на предыдущую страницу
 function goBack() {
     location.href = '/index.html';
-}
+
 }
 
 // ==== Инициализация кнопок ====
