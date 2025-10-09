@@ -223,11 +223,15 @@ function renderSousVide(data) {
 }
 
 // ==== Навигация ====
+// Функция возврата на главную страницу
 function goHome() {
-  location.href = '/index.html';
+    location.href = "http://stasssercheff.github.io/shbb/";
 }
+
+// Функция возврата на предыдущую страницу
 function goBack() {
-  history.back();
+    location.href = '/index.html';
+}
 }
 
 // ==== Инициализация кнопок ====
