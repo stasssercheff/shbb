@@ -1,4 +1,5 @@
-window.currentLang = window.currentLang || 'ru';
+let currentLang = localStorage.getItem("lang") || "ru"; // оставляем локальную переменную, не window
+let translations = {};
 
 // ==== Навигация ====
 function goHome() {
@@ -6,10 +7,7 @@ function goHome() {
 }
 
 function goBack() {
-  const currentPath = window.location.pathname;
-  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-  window.location.href = upperPath + "/index.html";
+  history.back(); // ✅ упрощено, теперь всегда работает
 }
 
 // ==== Данные JSON ====
@@ -23,16 +21,20 @@ function loadData(sectionName, callback) {
   fetch(dataFiles[sectionName])
     .then(res => res.json())
     .then(data => callback(data))
-    .catch(err => console.error(err));
+    .catch(err => console.error("Ошибка загрузки JSON:", err));
 }
 
 // ==== Переключение языка ====
 function switchLanguage(lang) {
   currentLang = lang;
+  localStorage.setItem("lang", lang);
+
+  // если активен раздел — перерисовать
   const activeSection = document.querySelector('.section-btn.active');
   if (activeSection) {
     renderSection(activeSection.dataset.section, false);
   }
+
   updateNavButtons();
 }
 
@@ -40,6 +42,7 @@ function switchLanguage(lang) {
 function renderSection(sectionName, toggle = true) {
   const container = document.querySelector('.table-container');
   const btn = document.querySelector(`.section-btn[data-section="${sectionName}"]`);
+  if (!btn) return;
 
   document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
 
@@ -108,6 +111,7 @@ function createTable(data, sectionName) {
       tdAmount.textContent = ing['Шт/гр'];
       tdAmount.dataset.base = ing['Шт/гр'];
 
+      // Ключевой ингредиент
       if (ing['Продукт'] === dish.key) {
         tdAmount.contentEditable = true;
         tdAmount.classList.add('key-ingredient');
@@ -136,6 +140,7 @@ function createTable(data, sectionName) {
       tr.appendChild(tdName);
       tr.appendChild(tdAmount);
 
+      // Описание только в первой строке
       if (i === 0) {
         const tdDesc = document.createElement('td');
         tdDesc.textContent = dish.process?.[currentLang] || '';
@@ -209,7 +214,7 @@ function renderSousVide(data) {
 function updateNavButtons() {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if (translations && translations[key] && translations[key][currentLang]) {
+    if (translations[key] && translations[key][currentLang]) {
       el.textContent = translations[key][currentLang];
     }
   });
@@ -217,11 +222,12 @@ function updateNavButtons() {
 
 // ==== Инициализация ====
 document.addEventListener("DOMContentLoaded", () => {
-  // навешиваем события только когда DOM готов
+  // кнопки разделов
   document.querySelectorAll('.section-btn').forEach(btn => {
     btn.addEventListener('click', () => renderSection(btn.dataset.section));
   });
 
+  // кнопки переключения языка
   document.querySelectorAll('.lang-switch button').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
@@ -230,5 +236,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  updateNavButtons();
+  updateNavButtons(); // обновляем текст хедера
 });
