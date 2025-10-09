@@ -54,7 +54,7 @@ function createTable(data) {
   const container = document.querySelector('.table-container');
   container.innerHTML = '';
 
-  data.recipes.forEach(dish => {
+(data.recipes || data).forEach(dish => {
     const card = document.createElement('div');
     card.className = 'dish-card';
 
