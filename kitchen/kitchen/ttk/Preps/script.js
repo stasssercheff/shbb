@@ -22,18 +22,9 @@ const dataFiles = {
 // ==== Загрузка JSON ====
 function loadData(sectionName, callback) {
   const path = dataFiles[sectionName];
-  const fullPath = new URL(path, window.location.href).href;
-
-  console.log('=== loadData ===');
-  console.log('sectionName:', sectionName);
-  console.log('relative path:', path);
-  console.log('resolved path:', fullPath);
-
-  fetch(fullPath)
-    .then(res => {
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.json();
-    })
+  console.log('Загружаем:', path);
+  fetch(path)
+    .then(res => res.json())
     .then(data => callback(data))
     .catch(err => console.error(`Ошибка загрузки ${sectionName}:`, err));
 }
@@ -65,7 +56,7 @@ function createTable(data) {
   const container = document.querySelector('.table-container');
   container.innerHTML = '';
 
-(data.recipes || data).forEach(dish => {
+  (data.recipes || data).forEach(dish => {
     const card = document.createElement('div');
     card.className = 'dish-card';
 
