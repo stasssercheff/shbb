@@ -15,16 +15,25 @@ function goBack() {
 
 // ==== Пути к данным ====
 const dataFiles = {
-  'Preps': './data/preps.json',
-  'Sous-Vide': './data/sv.json'
+  'Preps': 'data/preps.json',
+  'Sous-Vide': 'data/sv.json'
 };
 
 // ==== Загрузка JSON ====
 function loadData(sectionName, callback) {
-  const path = dataFiles[sectionName];
-  console.log('Загружаем:', path);
+  const relativePath = dataFiles[sectionName];
 
-  fetch(path)
+  // Строим абсолютный путь к JSON
+  const baseUrl = window.location.origin + window.location.pathname;
+  const currentFolder = baseUrl.substring(0, baseUrl.lastIndexOf("/") + 1);
+  const fullPath = new URL(relativePath, currentFolder).href;
+
+  console.log('=== loadData ===');
+  console.log('sectionName:', sectionName);
+  console.log('relativePath:', relativePath);
+  console.log('fullPath:', fullPath);
+
+  fetch(fullPath)
     .then(res => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return res.json();
@@ -205,6 +214,5 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener('click', () => renderSection(btn.dataset.section));
   });
 
-  // загружаем перевод
   if (typeof updateI18nText === "function") updateI18nText();
 });
