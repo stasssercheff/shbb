@@ -1,27 +1,10 @@
-
 window.currentLang = window.currentLang || 'ru';
 
-// ==== Навигация ====
 
-// На главную
-function goHome() {
-  location.href = "https://stasssercheff.github.io/shbb/";
-}
-
-// На уровень выше (одну папку вверх)
-function goBack() {
-  const currentPath = window.location.pathname;
-  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-  window.location.href = upperPath + "/index.html";
-}
-
-// ==== Данные JSON ====
 const dataFiles = {
   Preps: 'data/preps.json',
   'Sous-Vide': 'data/sv.json'
 };
-
 
 // Загрузка JSON
 function loadData(sectionName, callback) {
@@ -239,6 +222,14 @@ function renderSousVide(data) {
   });
 }
 
+// ==== Навигация ====
+function goHome() {
+  location.href = '/index.html';
+}
+function goBack() {
+  history.back();
+}
+
 // ==== Инициализация кнопок ====
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', () => renderSection(btn.dataset.section));
@@ -251,23 +242,3 @@ document.querySelectorAll('.lang-switch button').forEach(btn => {
     switchLanguage(btn.textContent.toLowerCase());
   });
 });
-
-// ==== Обновление текста навигационных кнопок ====
-function updateNavButtons() {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (translations && translations[key] && translations[key][currentLang]) {
-      el.textContent = translations[key][currentLang];
-    }
-  });
-}
-
-// Обновляем сразу после загрузки страницы
-document.addEventListener("DOMContentLoaded", updateNavButtons);
-
-// Переопределяем switchLanguage, чтобы обновляло и кнопки
-const originalSwitchLanguage = switchLanguage;
-switchLanguage = function(lang) {
-  originalSwitchLanguage(lang);
-  updateNavButtons();
-};
