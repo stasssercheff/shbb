@@ -1,21 +1,18 @@
 window.currentLang = window.currentLang || 'ru';
 
-// ==== Данные JSON ====
-const dataFiles = {
-  'Preps': 'data/preps.json',
-  'Sous-Vide': 'data/sv.json'
-};
-
-// ==== Навигация ====
+// ==== Навигация (твой рабочий вариант, не трогаем) ====
 function goHome() {
   location.href = "https://stasssercheff.github.io/shbb/";
 }
 function goBack() {
-  const currentPath = window.location.pathname;
-  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-  window.location.href = upperPath + "/index.html";
+  history.back();
 }
+
+// ==== Пути к данным ====
+const dataFiles = {
+  'Preps': 'data/preps.json',
+  'Sous-Vide': 'data/sv.json'
+};
 
 // ==== Загрузка JSON ====
 function loadData(sectionName, callback) {
@@ -28,9 +25,10 @@ function loadData(sectionName, callback) {
 // ==== Переключение языка ====
 function switchLanguage(lang) {
   currentLang = lang;
+  updateI18nText();
+
   const activeSection = document.querySelector('.section-btn.active');
   if (activeSection) renderSection(activeSection.dataset.section, false);
-  updateI18nText();
 }
 
 // ==== Отображение раздела ====
@@ -50,13 +48,13 @@ function renderSection(sectionName, toggle = true) {
   container.dataset.active = sectionName;
 
   loadData(sectionName, data => {
-    if (sectionName === 'Preps') createTable(data, sectionName);
+    if (sectionName === 'Preps') createTable(data);
     else if (sectionName === 'Sous-Vide') renderSousVide(data);
   });
 }
 
-// ==== Создание таблицы Preps ====
-function createTable(data, sectionName) {
+// ==== Таблица Preps ====
+function createTable(data) {
   const container = document.querySelector('.table-container');
   container.innerHTML = '';
 
@@ -73,6 +71,7 @@ function createTable(data, sectionName) {
 
     const table = document.createElement('table');
     table.className = 'pf-table';
+
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
@@ -146,7 +145,7 @@ function createTable(data, sectionName) {
   });
 }
 
-// ==== Рендер Sous-Vide ====
+// ==== Таблица Sous-Vide ====
 function renderSousVide(data) {
   const container = document.querySelector('.table-container');
   container.innerHTML = '';
@@ -162,6 +161,7 @@ function renderSousVide(data) {
 
     const table = document.createElement('table');
     table.className = 'sv-table';
+
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
@@ -197,7 +197,7 @@ function renderSousVide(data) {
   });
 }
 
-// ==== i18n переводы ====
+// ==== Переводы ====
 const translations = {
   home: { ru: "На главную", en: "Home" },
   back: { ru: "Назад", en: "Back" },
@@ -207,7 +207,7 @@ const translations = {
   lang_en: { ru: "Англ", en: "EN" }
 };
 
-// ==== Обновление текста кнопок ====
+// ==== Обновление текста ====
 function updateI18nText() {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
