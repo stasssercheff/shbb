@@ -1,10 +1,11 @@
-// ---- start of fixed script.js ----
-window.currentLang = window.currentLang || 'ru';
+// ---- FIXED script.js (без дублирования перевода) ----
+window.currentLang = window.currentLang || localStorage.getItem("lang") || 'ru';
 
-// ==== Навигация (оставил как просил) ====
+// ==== Навигация ====
 function goHome() {
   location.href = "https://stasssercheff.github.io/shbb/";
 }
+
 function goBack() {
   const currentPath = window.location.pathname;
   const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
@@ -34,25 +35,10 @@ function loadData(sectionName, callback) {
     .catch(err => console.error(`Ошибка загрузки ${sectionName}:`, err));
 }
 
-// ==== Переключение языка ====
-function switchLanguage(lang) {
-  if (!lang) return;
-  currentLang = lang;
-  updateI18nText();
-
-  // если раздел открыт — перерисовать
-  const activeSection = document.querySelector('.section-btn.active');
-  if (activeSection) renderSection(activeSection.dataset.section, false);
-}
-
 // ==== Отображение раздела ====
 function renderSection(sectionName, toggle = true) {
-  if (!sectionName) return;
   const container = document.querySelector('.table-container');
-  if (!container) {
-    console.error('Не найден .table-container в DOM');
-    return;
-  }
+  if (!container) return;
 
   const btn = document.querySelector(`.section-btn[data-section="${sectionName}"]`);
   document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
@@ -67,23 +53,17 @@ function renderSection(sectionName, toggle = true) {
   container.dataset.active = sectionName;
 
   loadData(sectionName, data => {
-    try {
-      if (sectionName === 'Preps') createTable(data);
-      else if (sectionName === 'Sous-Vide') renderSousVide(data);
-      else console.warn('Неизвестная секция:', sectionName);
-    } catch (e) {
-      console.error('Ошибка при рендере секции', sectionName, e);
-    }
+    if (sectionName === 'Preps') createTable(data);
+    else if (sectionName === 'Sous-Vide') renderSousVide(data);
   });
 }
 
 // ==== Таблица Preps ====
 function createTable(data) {
   const container = document.querySelector('.table-container');
-  if (!container) return;
   container.innerHTML = '';
 
-  if (!data || !Array.isArray(data.recipes)) {
+  if (!data?.recipes?.length) {
     container.textContent = 'Нет данных для отображения';
     return;
   }
@@ -94,7 +74,9 @@ function createTable(data) {
 
     const title = document.createElement('div');
     title.className = 'dish-title';
-    title.textContent = (currentLang === 'ru') ? (dish.name?.ru || dish.title) : (dish.name?.en || dish.title);
+    title.textContent = (currentLang === 'ru')
+      ? (dish.name?.ru || dish.title)
+      : (dish.name?.en || dish.title);
     card.appendChild(title);
 
     const table = document.createElement('table');
@@ -103,7 +85,7 @@ function createTable(data) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    const headers = currentLang === 'ru'
+    const headers = (currentLang === 'ru')
       ? ['#', 'Продукт', 'Гр/шт', 'Описание']
       : ['#', 'Ingredient', 'Gr/Pcs', 'Process'];
 
@@ -115,7 +97,6 @@ function createTable(data) {
     });
     thead.appendChild(trHead);
 
-    // ингредиенты
     (dish.ingredients || []).forEach((ing, i) => {
       const tr = document.createElement('tr');
 
@@ -123,21 +104,22 @@ function createTable(data) {
       tdNum.textContent = i + 1;
 
       const tdName = document.createElement('td');
-      tdName.textContent = (currentLang === 'ru') ? (ing['Продукт'] || '') : (ing['Ingredient'] || '');
+      tdName.textContent = (currentLang === 'ru')
+        ? (ing['Продукт'] || '')
+        : (ing['Ingredient'] || '');
 
       const tdAmount = document.createElement('td');
       tdAmount.textContent = ing['Шт/гр'] || '';
       tdAmount.dataset.base = ing['Шт/гр'] || '0';
 
-      // редактируемая опция — ключевой ингредиент
       if (dish.key && ing['Продукт'] === dish.key) {
         tdAmount.contentEditable = true;
         tdAmount.classList.add('key-ingredient');
 
         tdAmount.addEventListener('input', () => {
-          let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
-          if (parseFloat(tdAmount.dataset.base) === 0) tdAmount.dataset.base = 1;
-          const factor = newVal / parseFloat(tdAmount.dataset.base || 1);
+          const newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
+          const baseVal = parseFloat(tdAmount.dataset.base) || 1;
+          const factor = newVal / baseVal;
 
           const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
           rows.forEach(r => {
@@ -148,10 +130,6 @@ function createTable(data) {
             }
           });
         });
-
-        tdAmount.addEventListener('keydown', e => {
-          if (!/[0-9]|Backspace|Delete|ArrowLeft|ArrowRight/.test(e.key)) e.preventDefault();
-        });
       }
 
       tr.appendChild(tdNum);
@@ -160,8 +138,8 @@ function createTable(data) {
 
       if (i === 0) {
         const tdDesc = document.createElement('td');
-        tdDesc.textContent = (dish.process?.[currentLang]) || '';
-        tdDesc.rowSpan = (dish.ingredients || []).length || 1;
+        tdDesc.textContent = dish.process?.[currentLang] || '';
+        tdDesc.rowSpan = dish.ingredients.length;
         tr.appendChild(tdDesc);
       }
 
@@ -178,10 +156,9 @@ function createTable(data) {
 // ==== Таблица Sous-Vide ====
 function renderSousVide(data) {
   const container = document.querySelector('.table-container');
-  if (!container) return;
   container.innerHTML = '';
 
-  if (!data || !Array.isArray(data.recipes)) {
+  if (!data?.recipes?.length) {
     container.textContent = 'Нет данных для отображения';
     return;
   }
@@ -192,7 +169,7 @@ function renderSousVide(data) {
 
     const title = document.createElement('div');
     title.className = 'dish-title';
-    title.textContent = (currentLang === 'ru') ? (dish.title || '') : (dish.title || '');
+    title.textContent = dish.title;
     card.appendChild(title);
 
     const table = document.createElement('table');
@@ -201,7 +178,7 @@ function renderSousVide(data) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    const headers = currentLang === 'ru'
+    const headers = (currentLang === 'ru')
       ? ['#', 'Продукт', 'Гр/шт', 'Темп °C', 'Время', 'Описание']
       : ['#', 'Ingredient', 'Gr/Pcs', 'Temp °C', 'Time', 'Process'];
 
@@ -215,21 +192,16 @@ function renderSousVide(data) {
 
     (dish.ingredients || []).forEach((ing, i) => {
       const tr = document.createElement('tr');
+
       const temp = ing['Температура С / Temperature C'] || '';
       const time = ing['Время мин / Time'] || '';
 
-      // попытка найти процесс для этой строки (если dish.process — массив с range)
       let procText = '';
-      try {
-        if (Array.isArray(dish.process)) {
-          const proc = dish.process.find(p => i + 1 >= p.range[0] && i + 1 <= p.range[1]);
-          procText = proc ? (proc[currentLang] || '') : '';
-        } else {
-          // если process — объект с ru/en (как в Preps) — просто подставим общий текст
-          procText = dish.process?.[currentLang] || '';
-        }
-      } catch (e) {
-        procText = '';
+      if (Array.isArray(dish.process)) {
+        const proc = dish.process.find(p => i + 1 >= p.range[0] && i + 1 <= p.range[1]);
+        procText = proc ? (proc[currentLang] || '') : '';
+      } else {
+        procText = dish.process?.[currentLang] || '';
       }
 
       tr.innerHTML = `
@@ -240,6 +212,7 @@ function renderSousVide(data) {
         <td>${time}</td>
         <td>${procText}</td>
       `;
+
       tbody.appendChild(tr);
     });
 
@@ -250,98 +223,11 @@ function renderSousVide(data) {
   });
 }
 
-// ==== Переводы (локальный набор, можно расширить) ====
-const translations = {
-  home: { ru: "На главную", en: "Home" },
-  back: { ru: "Назад", en: "Back" },
-  preps: { ru: "ПФ", en: "Preps" },
-  sousvide: { ru: "Су-вид", en: "Sous-Vide" },
-  lang_ru: { ru: "Рус", en: "RU" },
-  lang_en: { ru: "Англ", en: "EN" }
-};
-
-// ==== Обновление текста ====
-function updateI18nText() {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (translations[key] && translations[key][currentLang]) {
-      el.textContent = translations[key][currentLang];
-    }
-  });
-}
-
-// ==== Вспомогалка: определить язык по кнопке ====
-function detectLangFromButton(btn) {
-  if (!btn) return null;
-  if (btn.dataset.lang) return btn.dataset.lang;
-  const di = btn.dataset.i18n || '';
-  if (di === 'lang_ru') return 'ru';
-  if (di === 'lang_en') return 'en';
-  const t = (btn.textContent || btn.innerText || '').trim().toLowerCase();
-  if (t.startsWith('ru') || t.startsWith('рус')) return 'ru';
-  if (t.startsWith('en') || t.startsWith('анг')) return 'en';
-  return null;
-}
-
-// ==== Инициализация (надежная: делегирование кликов) ====
-(function init() {
-  // сразу обновляем тексты (если элементы есть)
-  updateI18nText();
-
-  // делегируем клики по кнопкам секций и языков
-  document.body.addEventListener('click', function (e) {
-    // section buttons (делегирование)
-    const sectionBtn = e.target.closest('.section-btn');
-    if (sectionBtn) {
-      const section = sectionBtn.dataset.section;
-      if (section) {
-        // включаем визуальную активность
-        document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
-        sectionBtn.classList.add('active');
-        renderSection(section);
-      }
-      return; // если клик был по section-btn — дальше не обрабатываем
-    }
-
-    // language buttons внутри контейнера .lang-switch
-    const langBtn = e.target.closest('.lang-switch button, .lang-btn');
-    if (langBtn) {
-      // получить язык
-      const lang = detectLangFromButton(langBtn);
-      if (lang) {
-        // визуально пометим
-        document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-        langBtn.classList.add('active');
-        switchLanguage(lang);
-      } else {
-        // если нет data-lang — попробуем текст (на всякий)
-        const txt = (langBtn.textContent || '').trim().toLowerCase();
-        if (txt === 'ru' || txt === 'рус') {
-          document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-          langBtn.classList.add('active');
-          switchLanguage('ru');
-        } else if (txt === 'en' || txt === 'англ') {
-          document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-          langBtn.classList.add('active');
-          switchLanguage('en');
-        }
-      }
-      return;
-    }
-
-    // навигация: если у тебя кнопки с onclick, они сработают напрямую,
-    // но добавим поддержку делегированно (если у кнопки data-i18n="home/back")
-    const navHome = e.target.closest('[data-i18n="home"]');
-    if (navHome) { goHome(); return; }
-    const navBack = e.target.closest('[data-i18n="back"]');
-    if (navBack) { goBack(); return; }
+// ==== Инициализация ====
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.section-btn').forEach(btn => {
+    btn.addEventListener('click', () => renderSection(btn.dataset.section));
   });
 
-  // если section-btn уже помечен active в разметке — загрузим его сразу
-  const initialActive = document.querySelector('.section-btn.active') || document.querySelector('.section-btn[data-section="Preps"]');
-  if (initialActive && initialActive.dataset && initialActive.dataset.section) {
-    // не сразу, а через setTimeout(0) чтобы DOM успел (и чтобы избежать race)
-    setTimeout(() => renderSection(initialActive.dataset.section), 0);
-  }
-})();
- // ---- end of fixed script.js ----
+  // Языки теперь управляются через lang.js, поэтому здесь ничего не трогаем
+});
