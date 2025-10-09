@@ -13,48 +13,6 @@ body {
   overflow-x: hidden; /* убираем горизонтальный скролл */
 }
 
-/* Хедер — два ряда */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px 5%;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-/* Ряды внутри хедера */
-.lang-switch,
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* Кнопки внутри рядов */
-.lang-switch button,
-.nav-buttons button {
-  flex: 1;
-  max-width: 48%;
-  min-width: 100px;
-  padding: 12px 0;
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background-color: #d8cfc0;
-  color: #333;
-  text-align: center;
-}
-
-.lang-switch button:hover,
-.nav-buttons button:hover {
-  background-color: #c1b29a;
-}
-
 .table-container {
   max-width: 1200px;
   margin: 10px auto;
