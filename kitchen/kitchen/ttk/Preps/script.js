@@ -250,3 +250,23 @@ document.querySelectorAll('.lang-switch button').forEach(btn => {
     switchLanguage(btn.textContent.toLowerCase());
   });
 });
+
+// ==== Обновление текста навигационных кнопок ====
+function updateNavButtons() {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations && translations[key] && translations[key][currentLang]) {
+      el.textContent = translations[key][currentLang];
+    }
+  });
+}
+
+// Обновляем сразу после загрузки страницы
+document.addEventListener("DOMContentLoaded", updateNavButtons);
+
+// Переопределяем switchLanguage, чтобы обновляло и кнопки
+const originalSwitchLanguage = switchLanguage;
+switchLanguage = function(lang) {
+  originalSwitchLanguage(lang);
+  updateNavButtons();
+};
