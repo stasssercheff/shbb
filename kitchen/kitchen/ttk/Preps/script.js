@@ -23,8 +23,12 @@ const dataFiles = {
 function loadData(sectionName, callback) {
   const path = dataFiles[sectionName];
   console.log('Загружаем:', path);
+
   fetch(path)
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    })
     .then(data => callback(data))
     .catch(err => console.error(`Ошибка загрузки ${sectionName}:`, err));
 }
