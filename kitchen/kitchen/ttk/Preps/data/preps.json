@@ -359,6 +359,24 @@
         "ru": "В кастрюлю поместить масло и розмарин, прогреть масло, достать розмарин, чтобы его не осталось в масле. Тыкву мелко нарезать, поместить в кастрюлю, жарить на медленном огне с добавлением меда. После размягчения  50-65 % тыквы добавить воду, кипятить на медленном огне 1 час. Далее ввести сливки довести до кипения, перебить блендером, добавить ворчетсер и соль. Проверить на вкус.",
         "en": "Place the oil and rosemary in a saucepan, heat the oil, remove the rosemary so that it is not left in the oil. Finely chop the pumpkin, place in a saucepan, fry over low heat with the addition of honey. After softening 50-65% of the pumpkin, add water and simmer over low heat for 1 hour. Next, add the cream, bring to a boil, blend with a blender, add Worcester and salt. Test the taste."
       }
-    }
+    },
+{
+  "name": {
+    "ru": "ПФ ШПИНАТ",
+    "en": "PREP SPINACH"
+  },
+  "key": "ПФ Шпинат",
+  "ingredients": [
+    { "№": 1, "Продукт": "ПФ Шпинат", "Ingredient": "Prep spinach", "Шт/гр": "4500" },
+    { "№": 2, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "5" },
+    { "№": 3, "Продукт": "ПФ Чесночное масло", "Ingredient": "Prep garlic oil", "Шт/гр": "10" },
+    { "№": 4, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "130" },
+    { "№": 5, "Продукт": "Молоко", "Ingredient": "Milk", "Шт/гр": "130" }
+  ],
+  "process": {
+    "ru": "Шпинат промыть в воде, оборвать листья и погрузить в кипяток на 1,5 минуты. Далее полученную массу отжать от воды и порубить на не слишком мелкие части. На разогретой сковороде смешать шпинат с чесночным маслом, солью и сливками. Прогреть до закипания сливок. Полученную массу пробить в блендере до однородной консистенции.",
+    "en": "Rinse the spinach in water, remove the leaves and immerse them in boiling water for 1.5 minutes. Then squeeze out the water and chop the mass into moderately small pieces. In a heated pan, combine the spinach with garlic oil, salt, and cream. Heat until the cream begins to boil. Blend the resulting mixture until smooth."
+  }
+}   
   ]
 }
