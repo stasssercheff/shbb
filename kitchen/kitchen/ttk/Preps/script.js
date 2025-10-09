@@ -1,5 +1,5 @@
-// ---- FIXED script.js (без дублирования перевода) ----
-window.currentLang = window.currentLang || localStorage.getItem("lang") || 'ru';
+// ==== Текущий язык из lang.js ====
+window.currentLang = window.currentLang || 'ru';
 
 // ==== Навигация ====
 function goHome() {
@@ -21,26 +21,17 @@ const dataFiles = {
 
 // ==== Загрузка JSON ====
 function loadData(sectionName, callback) {
-  const path = dataFiles[sectionName];
-  if (!path) {
-    console.error('Нет пути для секции:', sectionName);
-    return;
-  }
-  fetch(path)
-    .then(res => {
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.json();
-    })
+  fetch(dataFiles[sectionName])
+    .then(res => res.json())
     .then(data => callback(data))
     .catch(err => console.error(`Ошибка загрузки ${sectionName}:`, err));
 }
 
-// ==== Отображение раздела ====
+// ==== Отображение секции ====
 function renderSection(sectionName, toggle = true) {
   const container = document.querySelector('.table-container');
-  if (!container) return;
-
   const btn = document.querySelector(`.section-btn[data-section="${sectionName}"]`);
+
   document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
 
   if (toggle && container.dataset.active === sectionName) {
@@ -49,7 +40,7 @@ function renderSection(sectionName, toggle = true) {
     return;
   }
 
-  if (btn) btn.classList.add('active');
+  btn.classList.add('active');
   container.dataset.active = sectionName;
 
   loadData(sectionName, data => {
@@ -63,20 +54,15 @@ function createTable(data) {
   const container = document.querySelector('.table-container');
   container.innerHTML = '';
 
-  if (!data?.recipes?.length) {
-    container.textContent = 'Нет данных для отображения';
-    return;
-  }
-
   data.recipes.forEach(dish => {
     const card = document.createElement('div');
     card.className = 'dish-card';
 
     const title = document.createElement('div');
     title.className = 'dish-title';
-    title.textContent = (currentLang === 'ru')
-      ? (dish.name?.ru || dish.title)
-      : (dish.name?.en || dish.title);
+    title.textContent = currentLang === 'ru'
+      ? dish.name?.ru || dish.title
+      : dish.name?.en || dish.title;
     card.appendChild(title);
 
     const table = document.createElement('table');
@@ -85,7 +71,7 @@ function createTable(data) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    const headers = (currentLang === 'ru')
+    const headers = currentLang === 'ru'
       ? ['#', 'Продукт', 'Гр/шт', 'Описание']
       : ['#', 'Ingredient', 'Gr/Pcs', 'Process'];
 
@@ -97,29 +83,27 @@ function createTable(data) {
     });
     thead.appendChild(trHead);
 
-    (dish.ingredients || []).forEach((ing, i) => {
+    dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
       const tdNum = document.createElement('td');
       tdNum.textContent = i + 1;
 
       const tdName = document.createElement('td');
-      tdName.textContent = (currentLang === 'ru')
-        ? (ing['Продукт'] || '')
-        : (ing['Ingredient'] || '');
+      tdName.textContent = currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient'];
 
       const tdAmount = document.createElement('td');
-      tdAmount.textContent = ing['Шт/гр'] || '';
-      tdAmount.dataset.base = ing['Шт/гр'] || '0';
+      tdAmount.textContent = ing['Шт/гр'];
+      tdAmount.dataset.base = ing['Шт/гр'];
 
-      if (dish.key && ing['Продукт'] === dish.key) {
+      if (ing['Продукт'] === dish.key) {
         tdAmount.contentEditable = true;
         tdAmount.classList.add('key-ingredient');
 
         tdAmount.addEventListener('input', () => {
-          const newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
-          const baseVal = parseFloat(tdAmount.dataset.base) || 1;
-          const factor = newVal / baseVal;
+          let newVal = parseFloat(tdAmount.textContent.replace(/[^0-9.]/g, '')) || 0;
+          if (parseFloat(tdAmount.dataset.base) === 0) tdAmount.dataset.base = 1;
+          const factor = newVal / parseFloat(tdAmount.dataset.base);
 
           const rows = tdAmount.closest('table').querySelectorAll('tbody tr');
           rows.forEach(r => {
@@ -129,6 +113,10 @@ function createTable(data) {
               cell.textContent = Math.round(base * factor);
             }
           });
+        });
+
+        tdAmount.addEventListener('keydown', e => {
+          if (!/[0-9]|Backspace|Delete|ArrowLeft|ArrowRight/.test(e.key)) e.preventDefault();
         });
       }
 
@@ -158,11 +146,6 @@ function renderSousVide(data) {
   const container = document.querySelector('.table-container');
   container.innerHTML = '';
 
-  if (!data?.recipes?.length) {
-    container.textContent = 'Нет данных для отображения';
-    return;
-  }
-
   data.recipes.forEach(dish => {
     const card = document.createElement('div');
     card.className = 'dish-card';
@@ -178,7 +161,7 @@ function renderSousVide(data) {
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
-    const headers = (currentLang === 'ru')
+    const headers = currentLang === 'ru'
       ? ['#', 'Продукт', 'Гр/шт', 'Темп °C', 'Время', 'Описание']
       : ['#', 'Ingredient', 'Gr/Pcs', 'Temp °C', 'Time', 'Process'];
 
@@ -190,29 +173,16 @@ function renderSousVide(data) {
     });
     thead.appendChild(trHead);
 
-    (dish.ingredients || []).forEach((ing, i) => {
+    dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
-
-      const temp = ing['Температура С / Temperature C'] || '';
-      const time = ing['Время мин / Time'] || '';
-
-      let procText = '';
-      if (Array.isArray(dish.process)) {
-        const proc = dish.process.find(p => i + 1 >= p.range[0] && i + 1 <= p.range[1]);
-        procText = proc ? (proc[currentLang] || '') : '';
-      } else {
-        procText = dish.process?.[currentLang] || '';
-      }
-
       tr.innerHTML = `
-        <td>${ing['№'] || (i + 1)}</td>
-        <td>${(currentLang === 'ru') ? (ing['Продукт'] || '') : (ing['Ingredient'] || '')}</td>
-        <td>${ing['Шт/гр'] || ''}</td>
-        <td>${temp}</td>
-        <td>${time}</td>
-        <td>${procText}</td>
+        <td>${ing['№']}</td>
+        <td>${currentLang === 'ru' ? ing['Продукт'] : ing['Ingredient']}</td>
+        <td>${ing['Шт/гр']}</td>
+        <td>${ing['Температура С / Temperature C'] || ''}</td>
+        <td>${ing['Время мин / Time'] || ''}</td>
+        <td>${(dish.process.find(p => i + 1 >= p.range[0] && i + 1 <= p.range[1])?.[currentLang]) || ''}</td>
       `;
-
       tbody.appendChild(tr);
     });
 
@@ -229,5 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener('click', () => renderSection(btn.dataset.section));
   });
 
-  // Языки теперь управляются через lang.js, поэтому здесь ничего не трогаем
+  // загружаем перевод
+  if (typeof updateI18nText === "function") updateI18nText();
 });
