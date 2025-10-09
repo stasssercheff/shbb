@@ -21,8 +21,7 @@ const dataFiles = {
   'Sous-Vide': 'data/sv.json'
 };
 
-
-// Загрузка JSON
+// ==== Загрузка JSON ====
 function loadData(sectionName, callback) {
   fetch(dataFiles[sectionName])
     .then(res => res.json())
@@ -30,16 +29,17 @@ function loadData(sectionName, callback) {
     .catch(err => console.error(err));
 }
 
-// Переключение языка (не закрывает таблицу)
+// ==== Переключение языка (не закрывает таблицу) ====
 function switchLanguage(lang) {
   currentLang = lang;
   const activeSection = document.querySelector('.section-btn.active');
   if (activeSection) {
     renderSection(activeSection.dataset.section, false);
   }
+  updateNavButtons();
 }
 
-// Отображение раздела
+// ==== Отображение раздела ====
 function renderSection(sectionName, toggle = true) {
   const container = document.querySelector('.table-container');
   const btn = document.querySelector(`.section-btn[data-section="${sectionName}"]`);
@@ -64,7 +64,7 @@ function renderSection(sectionName, toggle = true) {
   });
 }
 
-// Создание таблицы
+// ==== Создание таблицы для Preps ====
 function createTable(data, sectionName) {
   const tableContainer = document.querySelector('.table-container');
   tableContainer.innerHTML = '';
@@ -223,50 +223,4 @@ function renderSousVide(data) {
 
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
-      tr.appendChild(tdAmount);
-      tr.appendChild(tdTemp);
-      tr.appendChild(tdTime);
-      tr.appendChild(tdProcess);
-
-      tbody.appendChild(tr);
-    });
-
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    card.appendChild(table);
-    tableContainer.appendChild(card);
-  });
-}
-
-// ==== Инициализация кнопок ====
-document.querySelectorAll('.section-btn').forEach(btn => {
-  btn.addEventListener('click', () => renderSection(btn.dataset.section));
-});
-
-document.querySelectorAll('.lang-switch button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    switchLanguage(btn.textContent.toLowerCase());
-  });
-});
-
-// ==== Обновление текста навигационных кнопок ====
-function updateNavButtons() {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (translations && translations[key] && translations[key][currentLang]) {
-      el.textContent = translations[key][currentLang];
-    }
-  });
-}
-
-// Обновляем сразу после загрузки страницы
-document.addEventListener("DOMContentLoaded", updateNavButtons);
-
-// Переопределяем switchLanguage, чтобы обновляло и кнопки
-const originalSwitchLanguage = switchLanguage;
-switchLanguage = function(lang) {
-  originalSwitchLanguage(lang);
-  updateNavButtons();
-};
+      tr.a
