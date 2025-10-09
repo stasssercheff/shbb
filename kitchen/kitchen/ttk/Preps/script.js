@@ -14,7 +14,7 @@ function goBack() {
 
 // ==== Данные JSON ====
 const dataFiles = {
-  Preps: 'data/preps.json',
+  'Preps': 'data/preps.json',
   'Sous-Vide': 'data/sv.json'
 };
 
