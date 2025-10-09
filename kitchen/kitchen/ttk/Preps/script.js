@@ -1,21 +1,26 @@
 window.currentLang = window.currentLang || 'ru';
 
 // ==== Навигация ====
+
+// На главную
 function goHome() {
- location.href = "http://stasssercheff.github.io/shbb/";
+  location.href = "https://stasssercheff.github.io/shbb/";
 }
+
 // На уровень выше (одну папку вверх)
 function goBack() {
-    const currentPath = window.location.pathname;
-    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-    window.location.href = upperPath + "/index.html";
+  const currentPath = window.location.pathname;
+  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+  window.location.href = upperPath + "/index.html";
+}
 
-
+// ==== Данные JSON ====
 const dataFiles = {
   Preps: 'data/preps.json',
   'Sous-Vide': 'data/sv.json'
 };
+
 
 // Загрузка JSON
 function loadData(sectionName, callback) {
