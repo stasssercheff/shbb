@@ -1,4 +1,3 @@
-window.currentLang = window.currentLang || 'ru';
 
 
 const dataFiles = {
