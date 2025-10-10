@@ -193,42 +193,44 @@ async function loadSection(section) {
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('current-date').textContent = new Date().toLocaleDateString();
 
-  document.querySelectorAll('.section-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const section = btn.dataset.section;
-      loadSection(section);
-    });
+ // ==== Инициализация кнопок и языка ====
+document.querySelectorAll('.section-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const section = btn.dataset.section;
+    loadSection(section);
   });
+});
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentLang = btn.dataset.lang;
-      document.querySelectorAll('.section-panel').forEach(panel => {
-        if (panel.style.display === 'block') {
-          const section = panel.id;
-          panel.innerHTML = '';
-          const tblContainer = document.createElement('div');
-          tblContainer.className = 'table-container';
-          fetch(dataFiles[section])
-            .then(res => res.json())
-            .then(data => {
-              tblContainer.appendChild(createTable(data));
-              panel.appendChild(tblContainer);
+// ==== Инициализация переключателя языка ====
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentLang = btn.dataset.lang;
+    document.querySelectorAll('.section-panel').forEach(panel => {
+      if (panel.style.display === 'block') {
+        const section = panel.id;
+        panel.innerHTML = '';
+        const tblContainer = document.createElement('div');
+        tblContainer.className = 'table-container';
+        fetch(dataFiles[section])
+          .then(res => res.json())
+          .then(data => {
+            tblContainer.appendChild(createTable(data));
+            panel.appendChild(tblContainer);
 
-              // --- Кликабельность фото после обновления языка ---
-              const photoModal = createPhotoModal();
-              tblContainer.querySelectorAll('.dish-photo').forEach(img => {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', () => {
-                  const modalImg = photoModal.querySelector('img');
-                  modalImg.src = img.src;
-                  modalImg.alt = img.alt;
-                  photoModal.style.display = 'flex';
-                });
+            // --- Кликабельность фото после обновления языка ---
+            const photoModal = createPhotoModal();
+            tblContainer.querySelectorAll('.dish-photo').forEach(img => {
+              img.style.cursor = 'pointer';
+              img.addEventListener('click', () => {
+                const modalImg = photoModal.querySelector('img');
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                photoModal.style.display = 'flex';
               });
             });
-        }
-      });
+          });
+      }
     });
   });
 });
+
