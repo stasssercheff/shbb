@@ -15,8 +15,8 @@ function goBack() {
 
 // ==== Пути к данным ====
 const dataFiles = {
-  'Preps': 'data/preps.json',
-  'Sous-Vide': 'data/sv.json'
+  'Preps': '/shbb/kitchen/kitchen/ttk/Preps/data/preps.json',
+  'Sous-Vide': '/shbb/kitchen/kitchen/ttk/Preps/data/sv.json'
 };
 
 // ==== Загрузка JSON ====
