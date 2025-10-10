@@ -211,3 +211,42 @@ body {
     font-size: 10px;
   }
 }
+
+/* === Контейнер кнопок === */
+.sections-container {
+  display: flex;
+  flex-direction: column;  /* или row, если нужно */
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Кнопки === */
+.section-btn {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #d8cfc0;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.3s;
+}
+
+.section-btn:hover,
+.section-btn.active {
+  background-color: #c1b29a;
+}
+
