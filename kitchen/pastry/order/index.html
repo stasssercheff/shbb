@@ -2,378 +2,410 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Списание/Наполнение / Spoiled/Given</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="checklist_kitchen"></title>
+
+  <!-- ✅ Подключаем общий CSS -->
+  <link rel="stylesheet" href="../../../common.css">
+    <!-- ✅ Локальный CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Логика перевода -->
+  <script src="../../../lang.js" defer></script>
+   <!-- ✅ Глобальные настройки языков отправки -->
+  <script src="../../../sendConfig.js" defer></script>
+  <script src="script.js" defer></script>
+
+
+  
 </head>
-<body>
-  <div class="wrapper">
-    <div class="container">
+<body data-profile="order">
 
-<header class="page-header">
-  <!-- Ряд кнопок языка -->
-  <div class="lang-switch">
-    <button onclick="switchLanguage('ru')">RU</button>
-    <button onclick="switchLanguage('en')">EN</button>
+  <!-- Хедер с языками и кнопками -->
+  <header class="page-header">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="nav-btn" data-i18n="home" onclick="goHome()"></button>
+      <button class="nav-btn" data-i18n="back" onclick="goBack()"></button>
+    </div>
+  </header>
+  
+  <main class="main-container">
+
+     <div class="date-container">
+    <span data-i18n="date">Дата</span>:
+    <span id="current-date"></span>
   </div>
+    
+    <!-- Заголовок -->
+    <h1 data-i18n="order"></h1>
 
-  <!-- Ряд навигационных кнопок -->
-  <div class="nav-buttons">
-    <button onclick="location.href='http://stasssercheff.github.io/shbb/'">На главную</button>
-    <button onclick="location.href='../index.html'">Назад</button>
-  </div>
-</header>
-
-      <!-- Дата -->
-<div class="input-block">
-  <label for="autodate" class="check-label" data-ru="Дата" data-en="Date">Дата</label>
-  <div id="autodate" class="autodate"></div>
+<div class="dish">
+  <label for="employeeSelect" data-i18n="name"></label>
+  <select id="employeeSelect" name="chef" class="qty">
+    <option value="" selected>-</option>
+    <option value="maksim" data-i18n="Timofey"></option>
+    <option value="boris" data-i18n="Irina"></option>
+    <option value="stas" data-i18n="stas"></option>
+  </select>
 </div>
 
-      <!-- Имя -->
-      <div class="dish">
-        <label class="check-label" data-ru="Имя" data-en="Name">Имя</label>
-        <select name="chef" class="qty" data-label-ru="Имя" data-label-en="Name">
-          <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-          <option value="Timofey" data-ru="Тимофей" data-en="Timofey">Тимофей</option>
-          <option value="Irina" data-ru="Ирина" data-en="Irina">Ирина</option>
-        </select>
-      </div>
-
-
-    <!-- Раздел: Заказ продуктов -->
+<!-- Раздел: Заказ продуктов -->
 <div class="menu-section">
-  <div class="section-title" data-ru="Заказ продуктов" data-en="Order products">Заказ продуктов</div>
+  <div class="section-title" data-i18n="order_products"></div>
 
-<div class="dish">
-  <label class="check-label" data-ru="Вишня с/з(уп)" data-en="Cherry frozen(pack)">Вишня с/з(уп)</label>
-  <select name="Cherry frozen(pack)" class="qty" data-label-ru="Вишня с/з(уп)" data-label-en="Cherry frozen(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-    <option data-ru="6" data-en="6">6</option>
-  </select>
+  <div class="dish">
+    <label class="check-label" data-i18n="cherry_frozen_pack"></label>
+    <select name="Cherry frozen(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="fresh_cherries_gr"></label>
+    <select name="Fresh cherries(gr)" class="qty">
+      <option value="">—</option>
+      <option value="100">100</option>
+      <option value="200">200</option>
+      <option value="300">300</option>
+      <option value="400">400</option>
+    </select>
+  </div>
+
+
+   <div class="dish">
+    <label class="check-label" data-i18n="strawberry"></label>
+    <select name="Strawberry" class="qty">
+      <option value="" selected>-</option>
+      <option value="order+" data-i18n="order+"></option>
+    </select>
+  </div>
+    
+  <div class="dish">
+    <label class="check-label" data-i18n="glucose_pack"></label>
+    <select name="Glucose(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="blueberry_pack"></label>
+    <select name="Blueberry(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="yeast_pack"></label>
+    <select name="Yeast(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="gold_spray"></label>
+    <select name="Gold spray" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="cocoa_kg"></label>
+    <select name="Cocoa(kg)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="fresh_strawberries_pack"></label>
+    <select name="Fresh strawberries(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="corn_starch_pack"></label>
+    <select name="Corn starch(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="creamcheese_kg"></label>
+    <select name="Creamcheese(kg)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="citric_acid_pack"></label>
+    <select name="Citric acid(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="margarine_block"></label>
+    <select name="Margarine(block)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="honey"></label>
+    <select name="Honey" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="milk_12l"></label>
+    <select name="Milk(12 l)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="condensed_milk_pack"></label>
+    <select name="Condensed milk(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="flour_bag"></label>
+    <select name="Flour(bag)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="cake_braid"></label>
+    <select name="Cake braid" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="cookie_pack"></label>
+    <select name="Cookie(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="round_backing_pack"></label>
+    <select name="Round backing(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="triangular_backing_pack"></label>
+    <select name="Triangular backing(pack)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="sugar_bag"></label>
+    <select name="Sugar(bag)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="brown_sugar_kg"></label>
+    <select name="Brown sugar(kg)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="cream_liter"></label>
+    <select name="Cream(liter)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="butter_block"></label>
+    <select name="Butter(block)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="salt_kg"></label>
+    <select name="Salt(kg)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="hazelnut_kg"></label>
+    <select name="Hazelnut(kg)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="chocolate_white_kg"></label>
+    <select name="Chocolate white(kg)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="chocolate_black_kg"></label>
+    <select name="Chocolate black(kg)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="egg_30"></label>
+    <select name="Egg(30)" class="qty">
+      <option value="">—</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+  </div>
+
+  <div class="dish">
+    <label class="check-label" data-i18n="comment"></label>
+    <textarea class="comment" rows="3" placeholder="..."></textarea>
+  </div>
 </div>
 
-<div class="dish">
-  <label class="check-label" data-ru="Вишня свежая(гр)" data-en="Fresh cherries(gr)">Вишня свежая(гр)</label>
-  <select name="Fresh cherries(gr)" class="qty" data-label-ru="Вишня свежая(гр)" data-label-en="Fresh cherries(gr)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="100" data-en="100">100</option>
-    <option data-ru="200" data-en="200">200</option>
-    <option data-ru="300" data-en="300">300</option>
-    <option data-ru="400" data-en="400">400</option>
-  </select>
-</div>
 
-<div class="dish">
-  <label class="check-label" data-ru="Глюкоза(уп)" data-en="Glucose(pack)">Глюкоза(уп)</label>
-  <select name="Glucose(pack)" class="qty" data-label-ru="Глюкоза(уп)" data-label-en="Glucose(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-    <option data-ru="6" data-en="6">6</option>
-    <option data-ru="7" data-en="7">7</option>
-    <option data-ru="8" data-en="8">8</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Голубика(уп)" data-en="Blueberry(pack)">Голубика(уп)</label>
-  <select name="Blueberry(pack)" class="qty" data-label-ru="Голубика(уп)" data-label-en="Blueberry(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Дрожжи(уп)" data-en="Yeast(pack)">Дрожжи(уп)</label>
-  <select name="Yeast(pack)" class="qty" data-label-ru="Дрожжи(уп)" data-label-en="Yeast(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Золото спрей" data-en="Gold spray">Золото спрей</label>
-  <select name="Gold spray" class="qty" data-label-ru="Золото спрей" data-label-en="Gold spray">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Какао(кг)" data-en="Cocoa(kg)">Какао(кг)</label>
-  <select name="Cocoa(kg)" class="qty" data-label-ru="Какао(кг)" data-label-en="Cocoa(kg)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Клубника свежая(уп)" data-en="Fresh strawberries(pack)">Клубника свежая(уп)</label>
-  <select name="Fresh strawberries(pack)" class="qty" data-label-ru="Клубника свежая(уп)" data-label-en="Fresh strawberries(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Крахмал кукурузный(уп)" data-en="Corn starch(pack)">Крахмал кукурузный(уп)</label>
-  <select name="Corn starch(pack)" class="qty" data-label-ru="Крахмал кукурузный(уп)" data-label-en="Corn starch(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Кремчиз(кг)" data-en="Creamcheese(kg)">Кремчиз(кг)</label>
-  <select name="Creamcheese(kg)" class="qty" data-label-ru="Кремчиз(кг)" data-label-en="Creamcheese(kg)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-    <option data-ru="6" data-en="6">6</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Лимонная кислота(уп)" data-en="Citric acid(pack)">Лимонная кислота(уп)</label>
-  <select name="Citric acid(pack)" class="qty" data-label-ru="Лимонная кислота(уп)" data-label-en="Citric acid(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Маргарин(блок)" data-en="Marganrine(block)">Маргарин(блок)</label>
-  <select name="Marganrine(block)" class="qty" data-label-ru="Маргарин(блок)" data-label-en="Marganrine(block)»>
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-    <option data-ru="6" data-en="6">6</option>
-    <option data-ru="7" data-en="7">7</option>
-    <option data-ru="8" data-en="8">8</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Мед" data-en="Honey">Мед</label>
-  <select name="Honey" class="qty" data-label-ru="Мед" data-label-en="Honey">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Молоко(12 л)" data-en="Milk">Молоко(12 л)</label>
-    <select name="Milk(12 l)" class="qty" data-label-ru="Молоко(12 л)" data-label-en="Milk(12 l)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Молоко сгущенное(уп)" data-en="Condensed milk(pack)">Молоко сгущенное(уп)</label>
-  <select name="Condensed milk(pack)" class="qty" data-label-ru="Молоко сгущенное(уп)" data-label-en="Condensed milk(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Мука(мешок)" data-en="Flour(bag)">Мука(мешок)</label>
-  <select name="Flour(bag)" class="qty" data-label-ru="Мука(мешок)" data-label-en="Flour(bag)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Оплетка для тортов" data-en="Cake braid">Оплетка для тортов</label>
-  <select name="Cake braid" class="qty" data-label-ru="Оплетка для тортов" data-label-en="Cake braid">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Печенье(уп)" data-en="Cookie(pack)">Печенье(уп)</label>
-  <select name="Cookie(pack)" class="qty" data-label-ru="Печенье(уп)" data-label-en="Cookie(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Подложка круглая" data-en="Round backing(pack)">Подложка круглая</label>
-  <select name="Round backing(pack)" class="qty" data-label-ru="Подложка круглая" data-label-en="Round backing(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Подложка треугольная" data-en="Triangular backing(pack)">Подложка треугольная</label>
-  <select name="Triangular backing(pack)" class="qty" data-label-ru="Подложка треугольная" data-label-en="Triangular backing(pack)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Сахар(мешок)" data-en="Sugar(bag)">Сахар(мешок)</label>
-  <select name="Sugar(bag)" class="qty" data-label-ru="Сахар(мешок)" data-label-en="Sugar(bag)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Сахар коричневый(кг)" data-en="Brown sugar(kg)">Сахар коричневый(кг)</label>
-  <select name="Brown sugar(kg)" class="qty" data-label-ru="Сахар коричневый(кг)" data-label-en="Brown sugar(kg)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Сливки(литр)" data-en="Cream(liter)">Сливки(литр)</label>
-  <select name="Cream(liter)" class="qty" data-label-ru="Сливки(литр)" data-label-en="Cream(liter)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-    <option data-ru="6" data-en="6">6</option>
-    <option data-ru="7" data-en="7">7</option>
-    <option data-ru="8" data-en="8">8</option>
-    <option data-ru="9" data-en="9">9</option>
-    <option data-ru="10" data-en="10">10</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Сливочное масло(блок)" data-en="Butter(block)">Сливочное масло(блок)</label>
-  <select name="Butter(block)" class="qty" data-label-ru="Сливочное масло(блок)" data-label-en="Butter(block)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Соль(кг)" data-en="Salt(kg)">Соль(кг)</label>
-  <select name="Salt(kg)" class="qty" data-label-ru="Соль(кг)" data-label-en="Salt(kg)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="фундук(кг)" data-en="Hazelnut(kg)">фундук(кг)</label>
-  <select name="Hazelnut(kg)" class="qty" data-label-ru="фундук(кг)" data-label-en="Hazelnut(kg)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Шоколад белый(кг)" data-en="Chocolate white(kg)">Шоколад белый(кг)</label>
-  <select name="Chocolate white(kg)" class="qty" data-label-ru="Шоколад белый(кг)" data-label-en="Chocolate white(kg)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Шоколад черный(кг)" data-en="Chocolate black(kg)">Шоколад черный(кг)</label>
-  <select name="Chocolate black(kg)" class="qty" data-label-ru="Шоколад черный(кг)" data-label-en="Chocolate black(kg)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-  </select>
-</div>
-
-<div class="dish">
-  <label class="check-label" data-ru="Яйцо(30)" data-en="Egg(30)">Яйцо(30)</label>
-  <select name="Egg(30)" class="qty" data-label-ru="Яйцо(30)" data-label-en="Egg(30)">
-    <option value="" data-ru="— Выбрать —" data-en="— Select —">— Выбрать —</option>
-    <option data-ru="1" data-en="1">1</option>
-    <option data-ru="2" data-en="2">2</option>
-    <option data-ru="3" data-en="3">3</option>
-    <option data-ru="4" data-en="4">4</option>
-    <option data-ru="5" data-en="5">5</option>
-    <option data-ru="6" data-en="6">6</option>
-    <option data-ru="7" data-en="7">7</option>
-    <option data-ru="8" data-en="8">8</option>
-  </select>
-</div>
 
 <div class="dish">
     <label class="check-label" data-ru="Комментарий" data-en="Comment">Комментарий</label>
@@ -386,8 +418,6 @@
         <button id="sendToTelegram">ОТПРАВИТЬ</button>
       </div>
 
-    </div> <!-- .container -->
-  </div>   <!-- .wrapper -->
 
   <script src="script.js"></script>
 </body>
