@@ -9,6 +9,50 @@ function goBack() {
     history.back();
 }
 
+  // === Загрузка словаря ===
+  fetch('dict.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Ошибка загрузки словаря');
+      return res.json();
+    })
+    .then(dictionary => {
+      window.dictionary = dictionary;
+
+      // Перепишем switchLanguage чтобы использовать словарь
+      switchLanguage = function(lang) {
+        document.documentElement.lang = lang;
+
+        // Заголовки секций
+        document.querySelectorAll('.section-title').forEach(title => {
+          const key = title.dataset.i18n;
+          if (dictionary[key] && dictionary[key][lang]) {
+            title.textContent = dictionary[key][lang];
+          }
+        });
+
+        // Метки блюд
+        document.querySelectorAll('.check-label').forEach(label => {
+          const key = label.dataset.i18n;
+          if (dictionary[key] && dictionary[key][lang]) {
+            label.textContent = dictionary[key][lang];
+          }
+        });
+
+        // Опции селектов
+        document.querySelectorAll('select option').forEach(opt => {
+          const key = opt.dataset.i18n;
+          if (dictionary[key] && dictionary[key][lang]) {
+            opt.textContent = dictionary[key][lang];
+          }
+        });
+      };
+
+      // После загрузки словаря — применяем язык
+      switchLanguage(lang);
+    })
+    .catch(err => console.error('Ошибка загрузки dict.json:', err));
+
+
 // === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
