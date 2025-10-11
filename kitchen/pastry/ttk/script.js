@@ -1,4 +1,3 @@
-let currentLang = localStorage.getItem('lang') || 'ru';
 
 // На главную
 function goHome() {
