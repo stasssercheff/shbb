@@ -485,28 +485,6 @@
     "en": "In a large bowl, combine sugar and eggs, stirring with a whisk without whipping. Add melted butter. Add dry ingredients (flour, baking powder, salt) and mix until smooth. Transfer the dough into a piping bag and chill for 1–1.5 hours. Pipe 15 g of batter into each mold. Bake at 220°C (convection 25) for about 10 minutes. Cool on a rack. Use a nozzle to make a hole and fill with 2–3 g of cherry confit.\n\nTempering: Melt 200 g of dark chocolate to 45°C. Add 20% (40 g) and stir until smooth. Optionally, add coloring. Cool to 28–30°C working temperature. Pour 10 g of chocolate into each mold and place a chilled cookie on top, pressing gently. Chill or freeze until chocolate is set.\n\nStorage: Store decorated cookies in an airtight container in the freezer for up to 3 weeks, or in the refrigerator for up to 5 days."
   }
 },
-{
-  "name": { 
-    "ru": "ПФ ОСНОВА ЧЕРРИТАРТ", 
-    "en": "PF CHERRYTART BASE" 
-  },
-  "key": "Тарт шт.",
-  "ingredients": [
-    { "№": 1, "Продукт": "Сахар (пудра)", "Ingredient": "Powdered sugar", "Шт/гр": "41" },
-    { "№": 2, "Продукт": "Мак", "Ingredient": "Poppy seeds", "Шт/гр": "12" },
-    { "№": 3, "Продукт": "Мука миндальная", "Ingredient": "Almond flour", "Шт/гр": "25" },
-    { "№": 4, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "165" },
-    { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
-    { "№": 6, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "75" },
-    { "№": 7, "Продукт": "Яйцо (желток)", "Ingredient": "Egg yolk", "Шт/гр": "36" },
-    { "№": 8, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "7" },
-    { "№": 9, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "363" }
-  ],
-  "process": {
-    "ru": "Сухие ингредиенты смешать с маслом в крошку в дежe, используя насадку 'лопатка'. Добавить желтки и замесить однородное тесто (не вымешивать долго). Раскатать пласт толщиной 5 мм и выпекать при 180°C (конвекция 15) до золотистого цвета.",
-    "en": "Mix the dry ingredients with butter into crumbs in a bowl using a paddle attachment. Add the egg yolks and knead into a smooth dough (do not overmix). Roll out into a 5 mm thick sheet and bake at 180°C (convection 15) until golden brown."
-  }
-},
     {
   "name": { 
     "ru": "Печенье (пряник)", 
@@ -531,6 +509,95 @@
     "ru": "Муку, крахмал и соду соединить и просеять. Добавить специи: корицу, мускатный орех и перемешать. Все остальные ингредиенты (масло, соль, мед, сахар, яйца) взбить в миксере до кремообразной консистенции. Ввести мучную смесь и замесить тесто. Тесто положить в холодильник на 1 час. Распорционировать по 100 г, раскатать и сформовать пресс-формой (если требуется, нанести оттиск), вырезать формочкой (готовая заготовка 65 г). Выложить заготовки на противень и выпекать 10–15 минут при 200°C. Готовым печеньям дать полностью остыть, убрать в холодильник в бокс.",
     "en": "Sift together flour, cornstarch, and baking soda. Add spices: cinnamon and nutmeg, and mix. Beat the remaining ingredients (butter, salt, honey, sugar, eggs) in a mixer until creamy. Add the flour mixture and knead the dough. Refrigerate the dough for 1 hour. Portion into 100 g pieces, roll out, and shape with a press (if desired, imprint pattern), cut with a cookie cutter (final piece 65 g). Place on a baking sheet and bake for 10–15 minutes at 200°C. Allow the cookies to cool completely, then store in the fridge in a container."
   }
-}   
-  ]
+},
+    [
+  {
+    "name": { "ru": "ПФ ПЕЧЕНЬЕ ЧЕРРИТАРТ", "en": "PF CHERRY TART BISCUIT" },
+    "key": "Печенье шт.",
+    "ingredients": [
+      { "№": 1, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "41" },
+      { "№": 2, "Продукт": "Мак", "Ingredient": "Poppy", "Шт/гр": "12" },
+      { "№": 3, "Продукт": "Мука миндальная", "Ingredient": "Almond flour", "Шт/гр": "25" },
+      { "№": 4, "Продукт": "Мука", "Ingredient": "Flour", "Шт/гр": "165" },
+      { "№": 5, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
+      { "№": 6, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "75" },
+      { "№": 7, "Продукт": "Яйцо (желток)", "Ingredient": "Egg yolk", "Шт/гр": "36" },
+      { "№": 8, "Продукт": "Разрыхлитель", "Ingredient": "Baking powder", "Шт/гр": "7" },
+      { "№": 9, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "363" }
+    ],
+    "process": {
+      "ru": "Сухие ингредиенты смешать в крошку с маслом в деже, используя насадку 'лопатка'. Добавить желтки и замесить однородное тесто (долго не вымешивать). Раскатать пласт толщиной 5 мм и выпекать до золотистого цвета при 180°C, конвекция 15.",
+      "en": "Mix dry ingredients into crumbs with butter in a bowl using a paddle attachment. Add yolks and knead into a homogeneous dough (do not overmix). Roll out into a 5 mm layer and bake until golden brown at 180°C, convection 15."
+    }
+  },
+  {
+    "name": { "ru": "ПФ ОСНОВА ЧЕРРИТАРТ", "en": "PF CHERRY TART BASE" },
+    "key": "Основа шт.",
+    "ingredients": [
+      { "№": 1, "Продукт": "ПФ Печенье черритарт", "Ingredient": "Prep cherry tart biscuit", "Шт/гр": "350" },
+      { "№": 2, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "50" },
+      { "№": 3, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "400" }
+    ],
+    "process": {
+      "ru": "Песочное тесто смолоть в крошку, добавить сливочное масло (комнатной температуры). Из полученной массы сформировать борта и дно для тарта толщиной 3–5 мм, используя круглую форму. Борта формы выстелить ацетатной лентой. Подготовленный корж убрать в холодильник.",
+      "en": "Grind the shortcrust pastry into crumbs, add butter (at room temperature). Form the sides and bottom of the tart, 3–5 mm thick, using a round mold. Line the sides with acetate tape and refrigerate the prepared crust."
+    }
+  },
+  {
+    "name": { "ru": "ПФ НАЧИНКА ЧЕРРИТАРТ", "en": "PF CHERRY TART FILLING" },
+    "key": "Начинка шт.",
+    "ingredients": [
+      { "№": 1, "Продукт": "Сыр Кремчиз", "Ingredient": "Cream cheese", "Шт/гр": "316" },
+      { "№": 2, "Продукт": "Сыр Маскарпоне", "Ingredient": "Mascarpone", "Шт/гр": "208" },
+      { "№": 3, "Продукт": "Ваниль", "Ingredient": "Vanilla", "Шт/гр": "10" },
+      { "№": 4, "Продукт": "Сливки", "Ingredient": "Cream", "Шт/гр": "190" },
+      { "№": 5, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "60" },
+      { "№": 6, "Продукт": "Яйцо (желток)", "Ingredient": "Egg yolk", "Шт/гр": "167" },
+      { "№": 7, "Продукт": "Желатин", "Ingredient": "Gelatin", "Шт/гр": "30" },
+      { "№": 8, "Продукт": "Вода", "Ingredient": "Water", "Шт/гр": "200" },
+      { "№": 9, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "40" },
+      { "№": 10, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
+      { "№": 11, "Продукт": "Масло сливочное", "Ingredient": "Butter", "Шт/гр": "90" },
+      { "№": 12, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "1113" }
+    ],
+    "process": {
+      "ru": "Сыры и масло должны быть комнатной температуры. Приготовить соус Англез: соединить сливки, сахар, желтки, ванильный экстракт, пробить блендером, процедить и уварить до 80°C, постоянно помешивая. Сыры соединить и пробить блендером. Желатин замочить, дать набухнуть, слить лишнюю воду. Сахар, соль и сливочное масло соединить до растворения сахара. Все подготовленные ингредиенты объединить, пробить блендером до однородной массы. Вылить в форму, прослоить вишней и охладить минимум 6 часов (лучше на ночь).",
+      "en": "The cheeses and butter should be at room temperature. Prepare Anglaise sauce: combine cream, sugar, yolks, and vanilla extract; blend, strain, and heat to 80°C, stirring constantly. Combine the cheeses and blend. Soak gelatin, let it bloom, drain excess water. Combine sugar, salt, and butter until sugar dissolves. Combine all prepared ingredients, blend until smooth, pour into tart mold, layer with cherries, and chill for at least 6 hours (preferably overnight)."
+    }
+  },
+  {
+    "name": { "ru": "ПФ ЖЕЛЕ ЧЕРРИТАРТ", "en": "PF CHERRY TART JELLY" },
+    "key": "Желе шт.",
+    "ingredients": [
+      { "№": 1, "Продукт": "Сок вишневый", "Ingredient": "Cherry juice", "Шт/гр": "860" },
+      { "№": 2, "Продукт": "Сахар", "Ingredient": "Sugar", "Шт/гр": "50" },
+      { "№": 3, "Продукт": "Глюкоза", "Ingredient": "Glucose", "Шт/гр": "50" },
+      { "№": 4, "Продукт": "Соль", "Ingredient": "Salt", "Шт/гр": "2" },
+      { "№": 5, "Продукт": "Лимонная кислота", "Ingredient": "Citric acid", "Шт/гр": "2" },
+      { "№": 6, "Продукт": "Краситель пищевой", "Ingredient": "Food coloring", "Шт/гр": "3" },
+      { "№": 7, "Продукт": "Специя Масала", "Ingredient": "Spice Masala", "Шт/гр": "3" },
+      { "№": 8, "Продукт": "Желатин листовой", "Ingredient": "Leaf gelatin", "Шт/гр": "30" },
+      { "№": 9, "Продукт": "Итого", "Ingredient": "Total", "Шт/гр": "1000" }
+    ],
+    "process": {
+      "ru": "Желатин замочить в соке и дать набухнуть. Смешать все ингредиенты, довести до кипения и прокипятить 1–2 минуты на медленном огне. Процедить через сито.",
+      "en": "Soak gelatin in juice and let it swell. Mix all ingredients, bring to a boil, simmer for 1–2 minutes over low heat, and strain through a sieve."
+    }
+  },
+  {
+    "name": { "ru": "ЧЕРРИТАРТ", "en": "CHERRY TART" },
+    "key": "Торт шт.",
+    "ingredients": [
+      { "№": 1, "Продукт": "ПФ Желе Черритарт", "Ingredient": "Prep Jelly Cherry Tart", "Шт/гр": "150" },
+      { "№": 2, "Продукт": "ПФ Начинка Черритарт", "Ingredient": "Prep Cherry Tart Filling", "Шт/гр": "1000" },
+      { "№": 3, "Продукт": "ПФ Основа Черритарт", "Ingredient": "Prep Cherry Tart Base", "Шт/гр": "400" },
+      { "№": 4, "Продукт": "Вишня С/М", "Ingredient": "Cherry frozen", "Шт/гр": "50" },
+      { "№": 5, "Продукт": "Торт шт.", "Ingredient": "Cake pcs", "Шт/гр": "1" }
+    ],
+    "process": {
+      "ru": "На подготовленный корж вылить сырную массу, разложить вишню, слегка утопив её в массе. Дать застыть, нанести сверху вишнёвое желе, убрать в холод для застывания. Готовый торт достать из формы, подровнять края, нарезать на 12 частей, каждую часть обернуть ацетатной плёнкой. Хранить без покрытия в холодильнике до 4 дней, в морозильной камере до 2 недель. Полуфабрикат с покрытием — 5 дней в холодильнике.",
+      "en": "Pour the cheese mixture onto the prepared base, arrange cherries, slightly pressing them into the mass. Let it set, spread cherry jelly on top, and refrigerate to harden. Remove from mold, trim edges, cut into 12 pieces, wrap each in acetate film. Store uncoated cake in fridge up to 4 days, in freezer up to 2 weeks; semi-finished coated cake — 5 days refrigerated."
+    }
+  }
+]
 }
