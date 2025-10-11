@@ -20,7 +20,7 @@ function switchLanguage(lang) {
   document.querySelectorAll('.check-label').forEach(label => {
     if (label.dataset[lang]) label.textContent = label.dataset[lang];
   });
-
+ 
   document.querySelectorAll('select').forEach(select => {
     Array.from(select.options).forEach(option => {
       if (option.value === '') option.textContent = '—';
