@@ -1,58 +1,68 @@
+/* ========= СТИЛИ ДЛЯ ТАБЛИЦ ========= */
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f6f8;
-  color: #333;
-}
-
-/* Таблицы */
+/* Контейнер таблиц */
 .table-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 5px 10px;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background-color: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px var(--shadow);
 }
+
+/* Карточка отдельного блюда */
 .dish-card {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px var(--shadow);
 }
+
+/* Заголовок блюда */
 .dish-title {
   text-align: center;
   font-weight: 600;
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: var(--text);
 }
+
+/* Таблицы */
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 8px;
 }
+
 th, td {
-  border: 1px solid #ccc;
-  padding: 4px 6px;
+  border: 1px solid #ddd;
+  padding: 6px 8px;
   font-size: 14px;
+  vertical-align: top;
 }
+
+th {
+  background-color: var(--bg);
+  font-weight: 600;
+}
+
 td {
-  text-align: left;   /* текст по левому краю */
+  text-align: left;
 }
+
+/* Центрируем числовые столбцы */
 td:nth-child(1),
 td:nth-child(3),
 td:nth-child(4) {
-  text-align: center; /* цифры по центру */
+  text-align: center;
 }
 
-/* Ширина колонок Preps */
-.pf-table th:nth-child(1), .pf-table td:nth-child(1) {
-  width: 40px;
-}
-.pf-table th:nth-child(2), .pf-table td:nth-child(2) {
-  width: 180px;
-}
-.pf-table th:nth-child(3), .pf-table td:nth-child(3) {
-  width: 80px;
-}
-.pf-table th:nth-child(4), .pf-table td:nth-child(4) {
-  width: 300px;
-}
+/* Задаём ширину колонок для preps */
+.pf-table th:nth-child(1), .pf-table td:nth-child(1) { width: 40px; }
+.pf-table th:nth-child(2), .pf-table td:nth-child(2) { width: 180px; }
+.pf-table th:nth-child(3), .pf-table td:nth-child(3) { width: 80px; }
+.pf-table th:nth-child(4), .pf-table td:nth-child(4) { width: 300px; }
 
 /* Ключевой ингредиент */
 .key-ingredient {
@@ -60,44 +70,28 @@ td:nth-child(4) {
   font-weight: 600;
 }
 
-/* Хедер — два ряда */
-.page-header {
-  display: flex;
-  flex-direction: column; /* два ряда: язык и навигация */
-  gap: 10px;
-  padding: 10px 5%;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+/* ===== Адаптив ===== */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 8px;
+  }
+
+  th, td {
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .dish-title {
+    font-size: 18px;
+  }
 }
 
-/* Ряды внутри хедера */
-.lang-switch,
-.nav-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
+@media (max-width: 480px) {
+  .dish-title {
+    font-size: 16px;
+  }
 
-/* Кнопки внутри рядов */
-.lang-switch button,
-.nav-buttons button {
-  flex: 1;               /* равная ширина */
-  max-width: 48%;        /* чтобы две кнопки помещались в ряд */
-  min-width: 100px;      /* минимальная ширина */
-  padding: 12px 0;
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background-color: #d8cfc0;
-  color: #333;
-  text-align: center;
-}
-
-.lang-switch button:hover,
-.nav-buttons button:hover {
-  background-color: #c1b29a;
+  table, th, td {
+    font-size: 12px;
+  }
 }
