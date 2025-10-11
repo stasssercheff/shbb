@@ -2158,5 +2158,164 @@
     "ru": "Мало", 
     "en": "Few", 
     "vi": "Ít" 
+  },
+  "section_titles": {
+    "order_products": {
+      "ru": "Заказ продуктов",
+      "en": "Order products",
+      "vi": "Đặt sản phẩm"
+    
+  },
+  "products": {
+    "cherry_frozen_pack": {
+      "ru": "Вишня с/з(уп)",
+      "en": "Cherry frozen(pack)",
+      "vi": "Anh đào đông lạnh(gói)"
+    },
+    "fresh_cherries_gr": {
+      "ru": "Вишня свежая(гр)",
+      "en": "Fresh cherries(gr)",
+      "vi": "Anh đào tươi(gr)"
+    },
+    "glucose_pack": {
+      "ru": "Глюкоза(уп)",
+      "en": "Glucose(pack)",
+      "vi": "Glucose(gói)"
+    },
+    "blueberry_pack": {
+      "ru": "Голубика(уп)",
+      "en": "Blueberry(pack)",
+      "vi": "Việt quất(gói)"
+    },
+    "yeast_pack": {
+      "ru": "Дрожжи(уп)",
+      "en": "Yeast(pack)",
+      "vi": "Men(gói)"
+    },
+    "gold_spray": {
+      "ru": "Золото спрей",
+      "en": "Gold spray",
+      "vi": "Xịt vàng"
+    },
+    "cocoa_kg": {
+      "ru": "Какао(кг)",
+      "en": "Cocoa(kg)",
+      "vi": "Ca cao(kg)"
+    },
+    "fresh_strawberries_pack": {
+      "ru": "Клубника свежая(уп)",
+      "en": "Fresh strawberries(pack)",
+      "vi": "Dâu tây tươi(gói)"
+    },
+    "corn_starch_pack": {
+      "ru": "Крахмал кукурузный(уп)",
+      "en": "Corn starch(pack)",
+      "vi": "Tinh bột ngô(gói)"
+    },
+    "creamcheese_kg": {
+      "ru": "Кремчиз(кг)",
+      "en": "Creamcheese(kg)",
+      "vi": "Phô mai kem(kg)"
+    },
+    "citric_acid_pack": {
+      "ru": "Лимонная кислота(уп)",
+      "en": "Citric acid(pack)",
+      "vi": "Axit citric(gói)"
+    },
+    "margarine_block": {
+      "ru": "Маргарин(блок)",
+      "en": "Margarine(block)",
+      "vi": "Bơ thực vật(khối)"
+    },
+    "honey": {
+      "ru": "Мёд",
+      "en": "Honey",
+      "vi": "Mật ong"
+    },
+    "milk_12l": {
+      "ru": "Молоко(12 л)",
+      "en": "Milk(12 L)",
+      "vi": "Sữa(12 L)"
+    },
+    "condensed_milk_pack": {
+      "ru": "Молоко сгущённое(уп)",
+      "en": "Condensed milk(pack)",
+      "vi": "Sữa đặc(gói)"
+    },
+    "flour_bag": {
+      "ru": "Мука(мешок)",
+      "en": "Flour(bag)",
+      "vi": "Bột mì(túi)"
+    },
+    "cake_braid": {
+      "ru": "Оплетка для тортов",
+      "en": "Cake braid",
+      "vi": "Dây viền bánh"
+    },
+    "cookie_pack": {
+      "ru": "Печенье(уп)",
+      "en": "Cookie(pack)",
+      "vi": "Bánh quy(gói)"
+    },
+    "round_backing_pack": {
+      "ru": "Подложка круглая",
+      "en": "Round backing(pack)",
+      "vi": "Đế tròn(gói)"
+    },
+    "triangular_backing_pack": {
+      "ru": "Подложка треугольная",
+      "en": "Triangular backing(pack)",
+      "vi": "Đế tam giác(gói)"
+    },
+    "sugar_bag": {
+      "ru": "Сахар(мешок)",
+      "en": "Sugar(bag)",
+      "vi": "Đường(túi)"
+    },
+    "brown_sugar_kg": {
+      "ru": "Сахар коричневый(кг)",
+      "en": "Brown sugar(kg)",
+      "vi": "Đường nâu(kg)"
+    },
+    "cream_liter": {
+      "ru": "Сливки(литр)",
+      "en": "Cream(liter)",
+      "vi": "Kem(lít)"
+    },
+    "butter_block": {
+      "ru": "Сливочное масло(блок)",
+      "en": "Butter(block)",
+      "vi": "Bơ(khối)"
+    },
+    "salt_kg": {
+      "ru": "Соль(кг)",
+      "en": "Salt(kg)",
+      "vi": "Muối(kg)"
+    },
+    "hazelnut_kg": {
+      "ru": "Фундук(кг)",
+      "en": "Hazelnut(kg)",
+      "vi": "Hạt phỉ(kg)"
+    },
+    "chocolate_white_kg": {
+      "ru": "Шоколад белый(кг)",
+      "en": "White chocolate(kg)",
+      "vi": "Sô cô la trắng(kg)"
+    },
+    "chocolate_black_kg": {
+      "ru": "Шоколад чёрный(кг)",
+      "en": "Dark chocolate(kg)",
+      "vi": "Sô cô la đen(kg)"
+    },
+    "egg_30": {
+      "ru": "Яйцо(30)",
+      "en": "Egg(30)",
+      "vi": "Trứng(30)"
+    },
+    "comment": {
+      "ru": "Комментарий",
+      "en": "Comment",
+      "vi": "Ghi chú"
+    }
   }
 }
