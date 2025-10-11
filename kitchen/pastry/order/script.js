@@ -1,57 +1,29 @@
 
-// Функция возврата на главную страницу
+// === Навигация ===
 function goHome() {
-    location.href = '/index.html';
+  location.href = "http://stasssercheff.github.io/shbb/";
 }
 
-// Функция возврата на предыдущую страницу
 function goBack() {
-    history.back();
+  const currentPath = window.location.pathname;
+  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+  window.location.href = upperPath + "/index.html";
+}
 }
 
-  // === Загрузка словаря ===
-  fetch('dict.json')
-    .then(res => {
-      if (!res.ok) throw new Error('Ошибка загрузки словаря');
-      return res.json();
-    })
-    .then(dictionary => {
-      window.dictionary = dictionary;
-
-      // Перепишем switchLanguage чтобы использовать словарь
-      switchLanguage = function(lang) {
-        document.documentElement.lang = lang;
-
-        // Заголовки секций
-        document.querySelectorAll('.section-title').forEach(title => {
-          const key = title.dataset.i18n;
-          if (dictionary[key] && dictionary[key][lang]) {
-            title.textContent = dictionary[key][lang];
-          }
-        });
-
-        // Метки блюд
-        document.querySelectorAll('.check-label').forEach(label => {
-          const key = label.dataset.i18n;
-          if (dictionary[key] && dictionary[key][lang]) {
-            label.textContent = dictionary[key][lang];
-          }
-        });
-
-        // Опции селектов
-        document.querySelectorAll('select option').forEach(opt => {
-          const key = opt.dataset.i18n;
-          if (dictionary[key] && dictionary[key][lang]) {
-            opt.textContent = dictionary[key][lang];
-          }
-        });
-      };
-
-      // После загрузки словаря — применяем язык
-      switchLanguage(lang);
-    })
-    .catch(err => console.error('Ошибка загрузки dict.json:', err));
-
+// === Автоподстановка даты ===
+document.addEventListener("DOMContentLoaded", () => {
+  const dateEl = document.getElementById("current-date");
+  if (dateEl) {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    dateEl.textContent = `${day}.${month}.${year}`;
+  }
+});
+ 
 
 // === Переключение языка ===
 function switchLanguage(lang) {
