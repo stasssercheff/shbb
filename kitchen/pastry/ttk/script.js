@@ -1,5 +1,19 @@
 let currentLang = localStorage.getItem('lang') || 'ru';
 
+// На главную
+function goHome() {
+    location.href = "http://stasssercheff.github.io/shbb/";
+}
+
+// На уровень выше (одну папку вверх)
+function goBack() {
+    const currentPath = window.location.pathname;
+    const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+    const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
+    window.location.href = upperPath + "/index.html";
+}
+
+
 const dataFiles = {
   Preps: 'data/preps.json'
 };
@@ -116,10 +130,6 @@ function createTable(data) {
     tableContainer.appendChild(card);
   });
 }
-
-// Навигация
-function goHome() { location.href = '/index.html'; }
-function goBack() { history.back(); }
 
 // ✅ Инициализация
 document.addEventListener('DOMContentLoaded', () => {
