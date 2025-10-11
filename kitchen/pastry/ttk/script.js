@@ -1,4 +1,4 @@
-let currentLang = 'ru';
+let currentLang = localStorage.getItem('lang') || 'ru';
 
 const dataFiles = {
   Preps: 'data/preps.json'
@@ -12,21 +12,21 @@ function loadData(sectionName, callback) {
     .catch(err => console.error(err));
 }
 
-// Переключение языка (только перерисовка)
-function switchLanguage(lang) {
+// 🔄 Обновление таблицы при смене языка
+function updateTablesByLang(lang) {
   currentLang = lang;
-  renderSection('Preps', false);
+  renderSection('Preps');
 }
 
 // Отображение раздела
-function renderSection(sectionName, toggle = true) {
+function renderSection(sectionName) {
   loadData(sectionName, data => createTable(data, sectionName));
 }
 
-// Создание таблицы с перерасчетом
-function createTable(data, sectionName) {
+// Создание таблицы
+function createTable(data) {
   const tableContainer = document.querySelector('.table-container');
-  tableContainer.innerHTML = ''; // очищаем контейнер
+  tableContainer.innerHTML = '';
 
   data.recipes.forEach((dish) => {
     const card = document.createElement('div');
@@ -47,7 +47,7 @@ function createTable(data, sectionName) {
 
     const headers = currentLang === 'ru'
       ? ['#', 'Продукт', 'Гр/шт', 'Описание']
-      : ['#', 'Ingredient', 'Gr/Pcs', 'process'];
+      : ['#', 'Ingredient', 'Gr/Pcs', 'Process'];
 
     const trHead = document.createElement('tr');
     headers.forEach(h => {
@@ -57,7 +57,6 @@ function createTable(data, sectionName) {
     });
     thead.appendChild(trHead);
 
-    // Заполняем ингредиенты с перерасчетом
     dish.ingredients.forEach((ing, i) => {
       const tr = document.createElement('tr');
 
@@ -122,5 +121,16 @@ function createTable(data, sectionName) {
 function goHome() { location.href = '/index.html'; }
 function goBack() { history.back(); }
 
-// Инициализация: отображаем Preps сразу
-document.addEventListener('DOMContentLoaded', () => renderSection('Preps'));
+// ✅ Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  renderSection('Preps');
+
+  // Подключаемся к глобальному переключению языка
+  const originalSwitchLang = window.switchLanguage;
+  if (typeof originalSwitchLang === 'function') {
+    window.switchLanguage = function (lang) {
+      originalSwitchLang(lang);  // стандартное поведение lang.js
+      updateTablesByLang(lang);  // плюс обновляем таблицы
+    };
+  }
+});
