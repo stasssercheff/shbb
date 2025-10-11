@@ -3,25 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница выбора</title>
+  <title data-i18n="ttk"></title>
+
+  <!-- Подключаем общий стиль -->
+  <link rel="stylesheet" href="../../../common.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Логика перевода -->
+  <script src="../../../lang.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
+  
+  <header class="page-header">
+    <!-- Переключатель языка -->
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
 
-<header class="page-header">
-  <!-- Переключение языка -->
-  <div class="lang-switch">
-    <button class="lang-btn active" data-lang="ru">RU</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-  </div>
+    <!-- Кнопки навигации -->
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="goHome()" data-i18n="home"></button>
+      <button class="nav-btn" onclick="goBack()" data-i18n="back"></button>
+    </div>
+  </header>
 
-  <!-- Навигационные кнопки -->
-  <div class="nav-buttons">
-    <button class="nav-btn" onclick="goHome()">На главную</button>
-    <button class="nav-btn" onclick="goBack()">Назад</button>
-  </div>
-</header>
 
 <main>
   <!-- Контейнер для таблицы Preps -->
