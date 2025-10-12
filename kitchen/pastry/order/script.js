@@ -6,17 +6,13 @@ function goHome() {
 function goBack() {
   const currentPath = window.location.pathname;
   const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
   window.location.href = parentPath + "/index.html";
 }
 
-// 👇 ДОБАВЬ ЭТО ↓↓↓
+// 👇 Делаем доступным для onclick()
 window.goHome = goHome;
 window.goBack = goBack;
 
-
-// === Глобальные переменные ===
-let translations = {};
 
 // === Загрузка словаря из корня сайта ===
 document.addEventListener("DOMContentLoaded", () => {
