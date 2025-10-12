@@ -10,6 +10,11 @@ function goBack() {
   window.location.href = parentPath + "/index.html";
 }
 
+// 👇 ДОБАВЬ ЭТО ↓↓↓
+window.goHome = goHome;
+window.goBack = goBack;
+
+
 // === Глобальные переменные ===
 let translations = {};
 
