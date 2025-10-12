@@ -4,9 +4,7 @@ function goHome() {
 }
 
 function goBack() {
-  const currentPath = window.location.pathname;
-  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-  window.location.href = parentPath + "/index.html";
+ location.href = "kitchen/pastry/index.html"; 
 }
 
 // 👇 Делаем доступным для onclick()
