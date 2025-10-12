@@ -1,29 +1,67 @@
-fetch(`${window.location.origin}/shbb/lang.json`)
-
-
 // === Навигация ===
 function goHome() {
-  location.href = "http://stasssercheff.github.io/shbb/";
+  location.href = "https://stasssercheff.github.io/shbb/";
 }
 
 function goBack() {
   const currentPath = window.location.pathname;
   const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
   const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-  window.location.href = upperPath + "/index.html";
+  window.location.href = parentPath + "/index.html";
 }
 
-// === Автоподстановка даты ===
+// === Глобальные переменные ===
+let translations = {};
+
+// === Загрузка словаря из корня сайта ===
 document.addEventListener("DOMContentLoaded", () => {
+  const langPath = `${window.location.origin}/shbb/lang.json`;
+  console.log("🌐 Загрузка словаря из:", langPath);
+
+  fetch(langPath)
+    .then(res => {
+      if (!res.ok) throw new Error(`Ошибка ${res.status}`);
+      return res.json();
+    })
+    .then(data => {
+      translations = data;
+      console.log("✅ Словарь загружен:", Object.keys(translations).length, "ключей");
+      initPage();
+    })
+    .catch(err => {
+      console.error("❌ Ошибка загрузки словаря:", err);
+      initPage(); // всё равно запустим страницу
+    });
+});
+
+// === Инициализация страницы ===
+function initPage() {
+  const lang = localStorage.getItem("lang") || "ru";
+
+  // Дата
   const dateEl = document.getElementById("current-date");
   if (dateEl) {
     const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-    dateEl.textContent = `${day}.${month}.${year}`;
+    const d = String(today.getDate()).padStart(2, "0");
+    const m = String(today.getMonth() + 1).padStart(2, "0");
+    const y = today.getFullYear();
+    dateEl.textContent = `${d}.${m}.${y}`;
   }
-});
+
+  restoreFormData();
+  switchLanguage(lang);
+
+  // Слушатели
+  document.querySelectorAll("select, textarea.comment").forEach(el => {
+    el.addEventListener("input", saveFormData);
+  });
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => switchLanguage(btn.dataset.lang));
+  });
+
+  setupSendButton();
+}
 
 // === Переключение языка ===
 function switchLanguage(lang) {
@@ -33,10 +71,10 @@ function switchLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
     if (translations[key] && translations[key][lang]) {
-      if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", translations[key][lang]);
-      } else if (el.tagName === "TEXTAREA" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", translations[key][lang]);
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        if (el.hasAttribute("placeholder")) {
+          el.setAttribute("placeholder", translations[key][lang]);
+        }
       } else {
         el.textContent = translations[key][lang];
       }
@@ -44,124 +82,45 @@ function switchLanguage(lang) {
   });
 
   // Обновляем опции select
-  document.querySelectorAll("select").forEach(select => {
-    Array.from(select.options).forEach(option => {
-      const key = option.dataset.i18n;
-      if (key && translations[key] && translations[key][lang]) {
-        option.textContent = translations[key][lang];
-      }
-      if (option.value === "") option.textContent = "—";
-    });
+  document.querySelectorAll("select option").forEach(opt => {
+    const key = opt.dataset.i18n;
+    if (key && translations[key] && translations[key][lang]) {
+      opt.textContent = translations[key][lang];
+    }
+    if (opt.value === "") opt.textContent = "—";
   });
+
+  console.log("🌍 Язык переключён:", lang);
 }
 
-// === Сохранение/восстановление данных формы ===
+// === Сохранение формы ===
 function saveFormData() {
   const data = {};
-  document.querySelectorAll("select").forEach(select => {
-    data[select.name || select.id] = select.value;
-  });
-  document.querySelectorAll("textarea.comment").forEach(textarea => {
-    data[textarea.name || textarea.id] = textarea.value;
+  document.querySelectorAll("select, textarea.comment").forEach(el => {
+    data[el.name || el.id] = el.value;
   });
   localStorage.setItem("formData", JSON.stringify(data));
 }
 
+// === Восстановление формы ===
 function restoreFormData() {
   const saved = localStorage.getItem("formData");
   if (!saved) return;
   const data = JSON.parse(saved);
-  document.querySelectorAll("select").forEach(select => {
-    if (data[select.name || select.id] !== undefined) {
-      select.value = data[select.name || select.id];
-    }
-  });
-  document.querySelectorAll("textarea.comment").forEach(textarea => {
-    if (data[textarea.name || textarea.id] !== undefined) {
-      textarea.value = data[textarea.name || textarea.id];
+  document.querySelectorAll("select, textarea.comment").forEach(el => {
+    if (data[el.name || el.id] !== undefined) {
+      el.value = data[el.name || el.id];
     }
   });
 }
 
-// === DOMContentLoaded ===
-document.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("lang") || "ru";
-
-  // Пустая опция для select.qty
-  document.querySelectorAll("select.qty").forEach(select => {
-    const hasEmpty = Array.from(select.options).some(opt => opt.value === "");
-    if (!hasEmpty) {
-      const emptyOption = document.createElement("option");
-      emptyOption.value = "";
-      emptyOption.dataset.i18n = "empty";
-      emptyOption.textContent = "—";
-      emptyOption.selected = true;
-      select.insertBefore(emptyOption, select.firstChild);
-    }
-  });
-
-  restoreFormData();
-  switchLanguage(lang);
-
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, "0");
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const formattedDate = `${day}/${month}`;
-
-  document.querySelectorAll("select, textarea.comment").forEach(el => {
-    el.addEventListener("input", saveFormData);
-  });
-
-  // === Функция сборки сообщения ===
-  const buildMessage = lang => {
-    let message = `🧾 <b>${lang === "en" ? "PRODUCT ORDER" : "ЗАКАЗ ПРОДУКТОВ"}</b>\n\n`;
-    message += `📅 ${lang === "en" ? "Date" : "Дата"}: ${formattedDate}\n`;
-
-    const nameSelect = document.querySelector('select[name="chef"]');
-    const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
-    const name = selectedChef?.dataset.i18n
-      ? translations[selectedChef.dataset.i18n][lang]
-      : "—";
-    message += `${lang === "en" ? "👨‍🍳 Name" : "👨‍🍳 Имя"}: ${name}\n\n`;
-
-    document.querySelectorAll(".menu-section").forEach(section => {
-      const sectionTitle = section.querySelector(".section-title");
-      const titleKey = sectionTitle?.dataset.i18n;
-      const title = translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
-
-      let sectionContent = "";
-      section.querySelectorAll(".dish").forEach(dish => {
-        const select = dish.querySelector("select.qty");
-        if (!select || !select.value) return;
-
-        const label = dish.querySelector("label");
-        const labelKey = label?.dataset.i18n;
-        const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
-
-        const selectedOption = select.options[select.selectedIndex];
-        const optionKey = selectedOption?.dataset.i18n;
-        const value = (optionKey && translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
-
-        sectionContent += `• ${labelText}: ${value}\n`;
-      });
-
-      const commentField = section.querySelector("textarea.comment");
-      if (commentField && commentField.value.trim()) {
-        sectionContent += `💬 ${lang === "en" ? "Comment" : "Комментарий"}: ${commentField.value.trim()}\n`;
-      }
-
-      if (sectionContent.trim()) {
-        message += `🔸 <b>${title}</b>\n${sectionContent}\n`;
-      }
-    });
-
-    return message;
-  };
-
-  // === Кнопка отправки ===
+// === Отправка ===
+function setupSendButton() {
   const button = document.getElementById("sendToTelegram");
+  if (!button) return;
+
   button.addEventListener("click", async () => {
-    const chat_id = "-1003076643701"; // твой Telegram чат ID
+    const chat_id = "-1003076643701";
     const worker_url = "https://shbb1.stassser.workers.dev/";
     const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
@@ -169,27 +128,19 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id, text: msg })
-    }).then(res => res.json());
+    }).then(r => r.json());
 
-    const sendEmail = async msg => {
-      try {
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            access_key: accessKey,
-            subject: "ЗАКАЗ ПРОДУКТОВ",
-            from_name: "SHBB PASTRY",
-            reply_to: "no-reply@shbb.com",
-            message: msg
-          })
-        }).then(r => r.json());
-
-        if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
-      } catch (err) {
-        alert("Ошибка отправки email: " + err.message);
-      }
-    };
+    const sendEmail = msg => fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        access_key: accessKey,
+        subject: "ЗАКАЗ ПРОДУКТОВ",
+        from_name: "SHBB PASTRY",
+        reply_to: "no-reply@shbb.com",
+        message: msg
+      })
+    }).then(r => r.json());
 
     const sendAllParts = async text => {
       let start = 0;
@@ -202,13 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const clearForm = () => {
-      document.querySelectorAll("select").forEach(select => (select.value = ""));
-      document.querySelectorAll("textarea.comment").forEach(textarea => (textarea.value = ""));
+      document.querySelectorAll("select").forEach(s => s.value = "");
+      document.querySelectorAll("textarea.comment").forEach(t => t.value = "");
     };
 
     try {
-      // ✅ Используем языки из sendConfig.js
-      for (const lang of window.sendLangs) {
+      // ✅ получаем список языков из sendConfig.js
+      const langs = window.sendLangs || ["ru"];
+      for (const lang of langs) {
         const msg = buildMessage(lang);
         await sendAllParts(msg);
       }
@@ -217,9 +169,49 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.clear();
       clearForm();
     } catch (err) {
-      alert("❌ Ошибка при отправке: " + err.message);
+      alert("❌ Ошибка отправки: " + err.message);
       console.error(err);
     }
   });
-});
+}
 
+// === Сборка текста ===
+function buildMessage(lang) {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const date = `${day}/${month}`;
+
+  let msg = `🧾 <b>${lang === "en" ? "PRODUCT ORDER" : "ЗАКАЗ ПРОДУКТОВ"}</b>\n\n`;
+  msg += `📅 ${lang === "en" ? "Date" : "Дата"}: ${date}\n`;
+
+  const nameSelect = document.querySelector('select[name="chef"]');
+  const selected = nameSelect?.options[nameSelect.selectedIndex];
+  const name = selected?.dataset.i18n
+    ? translations[selected.dataset.i18n]?.[lang]
+    : selected?.textContent || "—";
+  msg += `${lang === "en" ? "👨‍🍳 Name" : "👨‍🍳 Имя"}: ${name}\n\n`;
+
+  document.querySelectorAll(".menu-section").forEach(section => {
+    const titleKey = section.querySelector(".section-title")?.dataset.i18n;
+    const title = translations[titleKey]?.[lang] || section.querySelector(".section-title")?.textContent || "";
+
+    let content = "";
+    section.querySelectorAll(".dish").forEach(dish => {
+      const select = dish.querySelector("select.qty");
+      if (!select || !select.value) return;
+      const label = dish.querySelector("label");
+      const labelText = translations[label?.dataset.i18n]?.[lang] || label?.textContent || "";
+      content += `• ${labelText}: ${select.value}\n`;
+    });
+
+    const comment = section.querySelector("textarea.comment");
+    if (comment && comment.value.trim()) {
+      content += `💬 ${lang === "en" ? "Comment" : "Комментарий"}: ${comment.value.trim()}\n`;
+    }
+
+    if (content.trim()) msg += `🔸 <b>${title}</b>\n${content}\n`;
+  });
+
+  return msg;
+}
