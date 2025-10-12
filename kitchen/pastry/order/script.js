@@ -1,3 +1,6 @@
+fetch(`${window.location.origin}/shbb/lang.json`)
+
+
 // === Навигация ===
 function goHome() {
   location.href = "http://stasssercheff.github.io/shbb/";
