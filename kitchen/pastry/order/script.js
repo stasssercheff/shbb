@@ -4,8 +4,10 @@ function goHome() {
 }
 
 function goBack() {
- location.href = "kitchen/pastry/index.html"; 
+ location.href = "/index.html"; 
 }
+
+
 
 // 👇 Делаем доступным для onclick()
 window.goHome = goHome;
