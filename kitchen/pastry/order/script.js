@@ -1,17 +1,28 @@
-// === Навигация ===
-function goHome() {
-  location.href = "https://stasssercheff.github.io/shbb/";
-}
-
 function goBack() {
- location.href = "/index.html"; 
+  const currentPath = window.location.pathname; // например: /shbb/kitchen/pastry/order/
+  const parts = currentPath.split("/").filter(Boolean); // ["shbb", "kitchen", "pastry", "order"]
+
+  if (parts.length <= 1) {
+    // если на самом верху — идём на главную
+    window.location.href = "https://stasssercheff.github.io/shbb/";
+    return;
+  }
+
+  // удаляем последний сегмент пути
+  parts.pop();
+
+  // собираем путь обратно
+  const newPath = "/" + parts.join("/") + "/index.html";
+  const target = window.location.origin + newPath;
+
+  console.log("🔙 Переход назад:", target);
+  window.location.href = target;
 }
 
-
-
-// 👇 Делаем доступным для onclick()
-window.goHome = goHome;
+// 👇 Обязательно добавь это:
 window.goBack = goBack;
+window.goHome = goHome;
+
 
 
 // === Загрузка словаря из корня сайта ===
