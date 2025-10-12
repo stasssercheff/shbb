@@ -10,7 +10,6 @@ function goBack() {
   const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
   window.location.href = upperPath + "/index.html";
 }
-}
 
 // === Автоподстановка даты ===
 document.addEventListener("DOMContentLoaded", () => {
