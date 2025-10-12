@@ -1,15 +1,19 @@
 
 // === Навигация ===
-function goHome() {
+window.goHome = function() {
   location.href = "http://stasssercheff.github.io/shbb/";
-}
+};
 
-function goBack() {
+window.goBack = function() {
   const currentPath = window.location.pathname;
   const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
   const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-  window.location.href = upperPath + "/index.html";
-}
+  
+  // переход ровно на уровень выше
+  const target = parentPath + "/index.html";
+  window.location.href = target;
+};
+
 
 // === Автоподстановка даты ===
 document.addEventListener("DOMContentLoaded", () => {
