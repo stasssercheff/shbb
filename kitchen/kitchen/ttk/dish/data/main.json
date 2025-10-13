@@ -17,7 +17,7 @@
       "ru": "Погрузить пасту в кипящую воду на 12 мин через сетку. Достать креветки на дефрост. На разогретую сковороду налить растительное масло, добавить соль, перец, креветки, жарить, позже влить чесночное масло.  Добавить сливочное масло и биск. Довести соус до однородного густого  состояния. Ввести пасту в соус с малым количеством воды(если соус выпарился сильно). Поместить пасту на тарелку вытянуто по центру тарелки. Посыпать пасту и немного оставшуюсю часть тарелки пармезаном, украсить ветками тимьяна.",
       "en": "Place the pasta in boiling water through a mesh strainer for 12 minutes. Remove the shrimp and defrost. Pour vegetable oil into a preheated frying pan, add salt, pepper, and shrimp. Fry, then add the garlic oil. Add the butter and bisque. Blend until the sauce is smooth and thick. Stir the pasta into the sauce with a little water (if the sauce has evaporated too much). Place the pasta on a plate, centered. Sprinkle the pasta and the remaining portion of the plate with Parmesan cheese and garnish with thyme sprigs."
     },
-    "photo": "photos/pasta shimps.png"
+    "photo": "../dishes/photos/pasta shimps.png"
   },
   {
     "name": { "ru": "Паста с уткой и горгонзолой", "en": "Duck Pasta with Gorgonzola" },
