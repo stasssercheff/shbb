@@ -16,7 +16,7 @@
       "ru": "С краю тарелки выложить пучком ПФ микс салат. Полить Соусим винегрет.Поставить кипятиться сотейник с водой и уксусом для яиц. После закипания убавить огонь на минимум. В воду разбить ПФ Пашот, оставить на 3-4 мин. Ломтики хлеба поставить запекаться на 3-4 мин в духовку.Смазать обе части соусом тартар. Поверх отсадить ПФ шпинат, размазать,Сверху выложить нарезанную Форель СС. Голландский соус поместить в миску и поставить на водяную баню для разогрева.В центр выложить яйцо пашот. Поверх каждого яйца выложить голландский соус. Поверх соуса декорировать микрозеленью.",
       "en": "Put a saucepan with water for eggs to boil. Break PF Poached Egg into boiling water, turn off heat, leave for 3-4 minutes. Cut bread slices and bake in the oven for 3-4 minutes. Grease both parts with tartar sauce. Put PF spinach on top, spread, Put sliced ​​SS Trout on top. Place Hollandaise sauce in a bowl and put in a water bath to warm up. Put a poached egg in the center. Put Hollandaise sauce on top of each egg. Decorate the sauce with microgreens. Put a bunch of PF mixed salad on the edge of the plate."
     },
-    "photo": "../dishes/images/photos/benedict.png"
+    "photo": "../dishes/photos/benedict.png"
   },
   {
     "name": { "ru": "СКРЭМБЛ", "en": "SCRAMBLE" },
@@ -35,7 +35,7 @@
       "ru": "Взбить 2 яйца со сливочным маслом (растопленным) и солью. Приготовить скрэмбл (не засушенный) 1 ломтик тостового хлеба разрезать на 2 треугольника, прогреть в духовке до состояния тоста. Салатный лист порвать на небольшие листики, выложить на половину тарелки. Черри нарезать напополам наискосок. Огурец разрезать вдоль напополам, далее каждую половинку порезать на слайсы вдоль всей длины. Выложить огурец и черри на салат, перемешать взрыхлить. Выложить скрэмбл в центр тарелку. Сбоку от скрэмбла как на фото поместить кнелю риета, тостовый хлеб положить углом на скрэмбл.",
       "en": "Mix 2 eggs with melted butter and salt. Make scrambled eggs (not dried out). Cut 1 slice of toast into 2 triangles and toast in the oven until toasted. Tear the lettuce into small leaves and arrange them on half a plate. Slice the cherry tomatoes in half diagonally. Cut the cucumber in half lengthwise, then slice each half lengthwise. Arrange the cucumber and cherry tomatoes on top of the salad and toss to loosen. Place the scrambled eggs in the center of the plate. Place the quenelles rettes to the side of the scrambled eggs, as shown in the photo. Place the toasted bread at an angle on the scrambled eggs."
     },
-    "photo": "../dishes/images/photos/scramble.png"
+    "photo": "../dishes/photos/scramble.png"
   },
   {
     "name": { "ru": "ЙОГУРТ БОУЛ", "en": "YOGURT BOWL" },
@@ -54,7 +54,7 @@
       "ru": "Скарю выложить мюсли. Прижимая к мюслям выложить нарезаный кубиком манго и дрегонфрут. Клубнику очистить порезать напополам и наискосок, выложить на фрукты. На пустую область налить йогурт. Поверх мюслей выложить семена тыквы и кокосовые чипсы. Сублемированную клубнику достать из морожзилки, натереть сверху на центр. В центр поместить соцветие мяты.",
       "en": "Place the granola on a baking sheet. Press the diced mango and dragon fruit into the granola, rinsing and cutting them diagonally. Peel the strawberries, cut them in half and arrange them on top of the fruit. Pour yogurt into the empty space. Place pumpkin seeds and coconut chips on top of the granola. Remove the freeze-dried strawberries from the freezer and grate them onto the center. Place a mint flower in the center."
     },
-    "photo": "../dishes/images/photos/bowl.png"
+    "photo": "../dishes/photos/bowl.png"
   },
   {
     "name": { "ru": "КРОК МАДАМ", "en": "CROC MADAM" },
@@ -72,7 +72,7 @@
       "ru": "Два ломтика бриоша смазать маслом с 2х сторон и обжарить с одной , перевернуть покрыть оба сыром и один ветчиной. Посестить оба ломтика на гастроемкость начинкой вверх. поместить на верхнюю полку печи и запека 5–7 мин. На сковородке приготовить глазунью со смещением желтка к краю(чтобы не прорезать при нарезке сендвича), положить сверху на сендвич. Разрезать на два треугольника, выложить с рукколой и черри.",
       "en": "Butter two slices of brioche on both sides and fry on one. Turn over and cover both with cheese and one with ham. Place both slices in a gastronorm pan, filling side up. Place on the top rack of the oven and bake for 5-7 minutes. Cook the fried egg in a frying pan, pushing the yolk toward the edge (to avoid cutting through when slicing the sandwich). Place on top of the sandwich. Cut into two triangles and top with arugula and cherry tomatoes."
     },
-    "photo": "../dishes/images/photos/crock.png"
+    "photo": "../dishes/photos/crock.png"
   },
   {
     "name": { "ru": "ПЕНКЕЙКИ С ФРУКТАМИ", "en": "PANCAKES WITH FRUIT" },
@@ -91,7 +91,7 @@
       "ru": "Испечь 2 пэнкейка, выложить друг на друга. Вокруг разместить фрукты. Маракуйю разрезать и поставить на тарелку. Посыпать сахарной пудрой, украсить мятой. Подать с соусниками: кленовый сироп, нутелла, йогурт.",
       "en": "Bake 2 pancakes, stack them. Arrange fruits around. Cut passion fruit, place on plate. Sprinkle with powdered sugar, garnish with mint. Serve with sauce boats: maple syrup, Nutella, yogurt."
     },
-    "photo": "../dishes/images/photos/pancakes.png"
+    "photo": "../dishes/photos/pancakes.png"
   },
   {
     "name": { "ru": "СЫРНИКИ", "en": "SYRNIKI" },
@@ -108,7 +108,7 @@
       "ru": "Сырники прогреть в печи 7 минут (замороженные – 15). Нарезать клубнику. Выложить сырники, посыпать клубникой, украсить мятой и сахарной пудрой. Подать с соусами в соусниках.",
       "en": "Heat syrniki in oven for 7 minutes (15 if frozen). Cut strawberries. Arrange syrniki, sprinkle with strawberries, garnish with mint and powdered sugar. Serve with sauces."
     },
-    "photo": "../dishes/images/photos/syrniki.png"
+    "photo": "../dishes/photos/syrniki.png"
   },
   {
     "name": { "ru": "КАША ДРУЖБА", "en": "PORRIDGE DRUZHBA" },
@@ -122,7 +122,7 @@
       "ru": "Пакет с кашей прогреть в горячей воде. Выложить кашу в тарелку. Нарезать клубнику, добавить с голубикой в центр. Украсить мятой.",
       "en": "Heat porridge bag in hot water. Place porridge on plate. Cut strawberries, add with blueberries to the center. Garnish with mint."
     },
-    "photo": "../dishes/images/photos/poridge.png"
+    "photo": "../dishes/photos/poridge.png"
   },
   {
     "name": { "ru": "ГЛАЗУНЬЯ С РЫБОЙ", "en": "SUNNY FRIED EGG" },
@@ -141,6 +141,6 @@
       "ru": "На сковороде пожарить глазунью из 2 яиц. Чиабатту подсушить, смазать кремчизом. Огурец нарезать эллипсами, черри – дольками. Рыбу и черри выложить волной. На тарелку – рукколу, сверху – глазунью, рядом – гренка с микрозеленью.",
       "en": "Fry 2 sunny-side-up eggs. Toast ciabatta, spread with cream cheese. Slice cucumber into ovals, cut cherry tomatoes. Arrange trout and cherry wave-like. On plate – arugula, top with fried eggs, serve with ciabatta and microgreens."
     },
-    "photo": "../dishes/images/photos/sunfried eggs.png"
+    "photo": "../dishes/photos/sunfried eggs.png"
   }
 ]
