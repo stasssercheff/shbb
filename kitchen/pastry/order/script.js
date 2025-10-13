@@ -1,27 +1,12 @@
 function goBack() {
-  const currentPath = window.location.pathname; // например: /shbb/kitchen/pastry/order/
-  const parts = currentPath.split("/").filter(Boolean); // ["shbb", "kitchen", "pastry", "order"]
-
-  if (parts.length <= 1) {
-    // если на самом верху — идём на главную
-    window.location.href = "https://stasssercheff.github.io/shbb/";
-    return;
-  }
-
-  // удаляем последний сегмент пути
-  parts.pop();
-
-  // собираем путь обратно
-  const newPath = "/" + parts.join("/") + "/index.html";
-  const target = window.location.origin + newPath;
-
-  console.log("🔙 Переход назад:", target);
-  window.location.href = target;
+  // 🔙 Переход на уровень выше (Pastry)
+  window.location.href = "https://stasssercheff.github.io/shbb/kitchen/pastry/index.html";
 }
 
-// 👇 Обязательно добавь это:
-window.goBack = goBack;
-window.goHome = goHome;
+function goHome() {
+  // 🏠 Переход на главную
+  window.location.href = "https://stasssercheff.github.io/shbb/";
+}
 
 
 
