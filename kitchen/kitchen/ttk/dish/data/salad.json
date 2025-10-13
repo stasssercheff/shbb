@@ -15,7 +15,7 @@
       "ru": "В тарелку выложить салат микс. Поверх рукколу. Нарезать клубнику. Распределить клубнику и сегменты апельсина по всей площади салата сверху. Полить цитрусовым соусом. На разогретую сковороду с растительным маслом и солью выложить печень(без жидкости) и обжаривать до получения хорошего колера. Глазировать печень соусом бальзамик в сковороде. Выложить печень на салат, не закрывая клубнику и апельсин. Тонкой струйкой полить салат соусом бальзамик.",
       "en": "Place the salad mix on a plate. Arugula on top. Cut the strawberries. Distribute the strawberries and orange segments over the entire surface of the salad. Drizzle with citrus sauce. Place the liver (without liquid) in a preheated frying pan with vegetable oil and salt and fry until a good color is obtained. Glaze the liver with balsamic sauce in a frying pan. Place the liver on the salad, without covering the strawberries and orange. Pour the balsamic sauce over the salad in a thin stream."
     },
-    "photo": "../dishes/images/photos/liver salad.png"
+    "photo": "../dishes/photos/liver salad.png"
   },
   {
     "name": { "ru": "Овощной салат", "en": "Vegetable Salad" },
@@ -31,7 +31,7 @@
       "ru": "Нарезать огурец, редис и болгарский перец на треугольники. Черри разрезать напополам и каждую половинку наискосок. Смешать все овощи с соусом. Выложить в тарелку, украсить микрозеленью. Соус (йогурт -50, чесночное масло-5, соль-1).",
       "en": "Cut the cucumber, radish and bell pepper into triangles. Cut the cherry tomatoes in half and each half diagonally. Mix all the vegetables with the sauce. Put on a plate, garnish with microgreens. Sauce (yogurt -50, garlic oil-5, salt-1)."
     },
-    "photo": "../dishes/images/photos/vegitable salad.png"
+    "photo": "../dishes/photos/vegitable salad.png"
   },
   {
     "name": { "ru": "Салат с креветками", "en": "Prawn Salad" },
@@ -50,7 +50,7 @@
       "ru": "Выложить объемно на тарелку рукколу, нарезать черри, выложить поверх рукколы. Полить соусом винегрет. Креветки обжарить с солью и чесночным маслом. Выложить на салат. Полить соус бальзамик. Посыпать сыром пармезан.",
       "en": "Put the arugula on a plate, cut the cherry tomatoes, put it on top of the arugula. Pour the vinaigrette sauce. Fry the shrimps with salt and garlic oil. Put it on the salad. Pour the balsamic sauce. Sprinkle with Parmesan cheese."
     },
-    "photo": "../dishes/images/photos/prawn salad.png"
+    "photo": "../dishes/photos/prawn salad.png"
   },
   {
     "name": { "ru": "Теплый салат с осьминогом", "en": "Octopus Salad" },
@@ -69,7 +69,7 @@
       "ru": "На плоскую тарелку выложить салатный лист, порезать томат черри (как всегда) выложить на салат микс. Полить соусом винегрет. Взять картофель (2 шт) срезать тонко края, нарезать каждый на 3 толстых монеты. Обжарить на сковороде с добавлением сливочного и чесночного масла на медленном огне, чтобы не сгорело. Выложить на тарелку. Размороженный осьминог поместить в болитор на 1-2 минуты для прогрева. Обжарить до появления красноватого колера, добавить в сковороду сладкий чили, глазировать осьминога. Выложить осьминога в тарелку, сладким чили со сковороды полить салат.",
       "en": "Place a lettuce leaf on a flat plate, slice a cherry tomato (as always), and arrange the mixed salad on top. Drizzle with vinaigrette. Take 2 potatoes, trim the edges thinly, and cut each into 3 thick coins. Fry in a pan with butter and garlic oil over low heat to prevent burning. Place on a plate. Place the defrosted octopus in a bolitor for 1-2 minutes to heat through. Fry until reddish in color, add sweet chili to the pan, and glaze the octopus. Place the octopus on a plate and pour the sweet chili from the pan over the salad."
     },
-    "photo": "../dishes/images/photos/octopus.png"
+    "photo": "../dishes/photos/octopus.png"
   },
   {
     "name": { "ru": "Тартар", "en": "Tartar" },
@@ -89,7 +89,7 @@
       "ru": "Нарезать мясо мелким кубиком в миску. Замешать с каперсами (нарубленными максимально мелко), ворчестером, солью, перцем, маслом и 20 г пармезана. Поставить кольцо в центр тарелки, выложить в него тартар, утрамбовать. Сделать углубление под желток, выложить желток. С одной стороны по борту тарелки выложить 4 гренки веером. С противоположной стороны выложить рукколу. Снять кольцо. Посыпать все 10 г пармезана преимущественно на тартар.",
       "en": "Cut the meat into small cubes in a bowl. Mix with capers (chopped as finely as possible), Worcestershire sauce, salt, pepper, olive oil, and 20 g Parmesan. Place a ring in the center of the plate, put the tartare inside, and press. Make a depression for the yolk and place the yolk in it. On one side along the edge of the plate, fan out 4 croutons. On the opposite side, place the arugula. Remove the ring. Sprinkle 10 g of Parmesan mainly on the tartare."
     },
-    "photo": "../dishes/images/photos/tartar.png"
+    "photo": "../dishes/photos/tartar.png"
   },
   {
     "name": { "ru": "Жюльен", "en": "Julien" },
@@ -103,7 +103,7 @@
       "ru": "ПФ Жульен поместить в горячую воду для оттаивания и прогрева. Гренки из чиабатты (0.2-0.3 см толщиной, нарезкой в длину батона) поместить в печь на 4-6 мин для подсыхания. В керамический соусник выложить Жульен, посыпать сверху моцареллу. Горелкой растопить сыр до золотистой корочки. Поместить гренки веером сбоку. Посыпать все пармезаном.",
       "en": "Place the Prep Julienne in hot water to defrost and warm up. Place the ciabatta croutons (0.2-0.3 cm thick, cut along the length of the loaf) in the oven for 4-6 minutes to dry. Place the Julienne in a ceramic sauceboat, sprinkle mozzarella on top. Melt the cheese with a blowtorch until golden brown. Place the croutons on the side in a fan shape. Sprinkle everything with Parmesan."
     },
-    "photo": "../dishes/images/photos/jouliene.png"
+    "photo": "../dishes/photos/jouliene.png"
   }
 ]
     
