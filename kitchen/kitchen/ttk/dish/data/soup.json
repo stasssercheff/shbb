@@ -12,7 +12,7 @@
       "ru": "Пакет с супом поместить в горячую воду до полного прогрева. Промять пакет для избегания комочков. Вылить суп в тарелку. Поверх супа в центр отсадить ПФ соус песто. Вокруг по спирали тонкой струйкой отсадить сливки. Поверх песто поместить микрозелень. Поверх сливок поместить семена тыквы.",
       "en": "Place the soup bag in hot water until fully heated. Knead the bag to avoid lumps. Pour the soup into a bowl. Pour the PF pesto sauce over the soup in the center. Spread the cream around in a thin stream in a spiral. Place microgreens on top of the pesto. Place pumpkin seeds on top of the cream."
     },
-    "photo": "../dishes/images/photos/soup pumpkin.png"
+    "photo": "../dishes/photos/soup pumpkin.png"
   },
   {
     "name": { "ru": "Суп брокколи", "en": "Broccoli Soup" },
@@ -25,6 +25,6 @@
       "ru": "Размороженный пакет с супом поместить в горячую воду до полного прогрева. Промять пакет для избегания комочков. Взять чиабатту посыпать пармезаном, запекать до расплавления сыра в пече(чтобы не гнулась). Вылить суп в тарелку, посыпать суп пармезаном, выложить гренку как на фото.",
       "en": "Place the defrosted soup bag in hot water until thoroughly heated. Press the bag to remove lumps. Sprinkle the ciabatta with Parmesan cheese and bake in the oven until the cheese melts (to prevent warping). Pour the soup into a bowl, sprinkle with Parmesan cheese, and top with croutons, as shown in the photo."
     },
-    "photo": "../dishes/images/photos/soup brokkoli.png"
+    "photo": "../dishes/photos/soup brokkoli.png"
   }
 ]
