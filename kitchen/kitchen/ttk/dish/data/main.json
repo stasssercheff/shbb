@@ -1,152 +1,125 @@
 [
   {
-    "name": {
-      "ru": "ЯЙЦА БЕНЕДИКТ",
-      "en": "EGGS BENEDICT"
-    },
+    "name": { "ru": "Паста с креветками", "en": "Pasta with Shrimps" },
     "ingredients": [
-      { "ru": "ПФ Пашот", "en": "Prep Poached", "amount": "1" },
-      { "ru": "ПФ Соус Тартар", "en": "Tartar sauce", "amount": "40" },
-      { "ru": "ПФ Форель С/С", "en": "Prep Salted trout", "amount": "40" },
-      { "ru": "ПФ Соус Голландский", "en": "Hollandaise sauce", "amount": "50" },
-      { "ru": "ПФ Шпинат", "en": "Prep Spinach", "amount": "40" },
-      { "ru": "Деревенский хлеб", "en": "Country bread", "amount": "70" },
-      { "ru": "Микрозелень", "en": "Microgreens", "amount": "3" },
-      { "ru": "ПФ Салат микс", "en": "Mixed salad", "amount": "30" },
-      { "ru": "ПФ Соус винегрет", "en": "Vinaigrette sauce", "amount": "10" }
+      { "ru": "Паста (лингвини)", "en": "Pasta (linguine)", "amount": "-" },
+      { "ru": "Креветки", "en": "Shrimp", "amount": "-" },
+      { "ru": "Масло сливочное", "en": "Butter", "amount": "-" },
+      { "ru": "Соль", "en": "Salt", "amount": "-" },
+      { "ru": "Перец", "en": "Pepper", "amount": "-" },
+      { "ru": "Чесночное масло ПФ", "en": "Garlic oil PF", "amount": "-" },
+      { "ru": "Растительное масло", "en": "Vegetable oil", "amount": "-" },
+      { "ru": "Биск ПФ", "en": "Bisque PF", "amount": "-" },
+      { "ru": "Пармезан", "en": "Parmesan", "amount": "-" },
+      { "ru": "Тимьян", "en": "Thyme", "amount": "-" }
     ],
     "process": {
-      "ru": "С краю тарелки выложить пучком ПФ микс салат. Полить Соусим винегрет.Поставить кипятиться сотейник с водой и уксусом для яиц. После закипания убавить огонь на минимум. В воду разбить ПФ Пашот, оставить на 3-4 мин. Ломтики хлеба поставить запекаться на 3-4 мин в духовку.Смазать обе части соусом тартар. Поверх отсадить ПФ шпинат, размазать,Сверху выложить нарезанную Форель СС. Голландский соус поместить в миску и поставить на водяную баню для разогрева.В центр выложить яйцо пашот. Поверх каждого яйца выложить голландский соус. Поверх соуса декорировать микрозеленью.",
-      "en": "Put a saucepan with water for eggs to boil. Break PF Poached Egg into boiling water, turn off heat, leave for 3-4 minutes. Cut bread slices and bake in the oven for 3-4 minutes. Grease both parts with tartar sauce. Put PF spinach on top, spread, Put sliced ​​SS Trout on top. Place Hollandaise sauce in a bowl and put in a water bath to warm up. Put a poached egg in the center. Put Hollandaise sauce on top of each egg. Decorate the sauce with microgreens. Put a bunch of PF mixed salad on the edge of the plate."
+      "ru": "Погрузить пасту в кипящую воду на 12 мин через сетку. Достать креветки на дефрост. На разогретую сковороду налить растительное масло, добавить соль, перец, креветки, жарить, позже влить чесночное масло.  Добавить сливочное масло и биск. Довести соус до однородного густого  состояния. Ввести пасту в соус с малым количеством воды(если соус выпарился сильно). Поместить пасту на тарелку вытянуто по центру тарелки. Посыпать пасту и немного оставшуюсю часть тарелки пармезаном, украсить ветками тимьяна.",
+      "en": "Place the pasta in boiling water through a mesh strainer for 12 minutes. Remove the shrimp and defrost. Pour vegetable oil into a preheated frying pan, add salt, pepper, and shrimp. Fry, then add the garlic oil. Add the butter and bisque. Blend until the sauce is smooth and thick. Stir the pasta into the sauce with a little water (if the sauce has evaporated too much). Place the pasta on a plate, centered. Sprinkle the pasta and the remaining portion of the plate with Parmesan cheese and garnish with thyme sprigs."
     },
-    "photo": "photos/benedict.png"
+    "photo": "photos/pasta shimps.png"
   },
   {
-    "name": {
-      "ru": "СКРЭМБЛ",
-      "en": "SCRAMBLE"
-    },
+    "name": { "ru": "Паста с уткой и горгонзолой", "en": "Duck Pasta with Gorgonzola" },
     "ingredients": [
-      { "ru": "Яйцо", "en": "Egg", "amount": "2" },
-      { "ru": "Масло сливочное", "en": "Butter", "amount": "5" },
-      { "ru": "Соль", "en": "Salt", "amount": "1" },
-      { "ru": "ПФ Бриош", "en": "Toast bread", "amount": "50" },
-      { "ru": "ПФ Огурец", "en": "Cucumber", "amount": "50" },
-      { "ru": "Помидоры Черри темные", "en": "Dark Cherry", "amount": "40" },
-      { "ru": "ПФ Салат микс", "en": "Mixed Salad", "amount": "40" },
-      { "ru": "ПФ Риет", "en": "Prep trout riet", "amount": "50" },
-      { "ru": "ПФ Соус винегрет", "en": "Vinaigrette sauce", "amount": "10" }
+      { "ru": "Паста (лингвини)", "en": "Pasta (linguine)", "amount": "-" },
+      { "ru": "ПФ Утка", "en": "PF Duck", "amount": "-" },
+      { "ru": "Сливки", "en": "Cream", "amount": "-" },
+      { "ru": "Горгонзола", "en": "Gorgonzola", "amount": "-" },
+      { "ru": "Соль", "en": "Salt", "amount": "-" },
+      { "ru": "Перец", "en": "Pepper", "amount": "-" },
+      { "ru": "Пармезан", "en": "Parmesan", "amount": "-" },
+      { "ru": "Микрозелень", "en": "Microgreens", "amount": "-" }
     ],
     "process": {
-      "ru": "Взбить 2 яйца со сливочным маслом (растопленным) и солью. Приготовить скрэмбл (не засушенный) 1 ломтик тостового хлеба разрезать на 2 треугольника, прогреть в духовке до состояния тоста. Салатный лист порвать на небольшие листики, выложить на половину тарелки. Черри нарезать напополам наискосок. Огурец разрезать вдоль напополам, далее каждую половинку порезать на слайсы вдоль всей длины. Выложить огурец и черри на салат, перемешать взрыхлить. Выложить скрэмбл в центр тарелку. Сбоку от скрэмбла как на фото поместить кнелю риета, тостовый хлеб положить углом на скрэмбл.",
-      "en": "Mix 2 eggs with melted butter and salt. Make scrambled eggs (not dried out). Cut 1 slice of toast into 2 triangles and toast in the oven until toasted. Tear the lettuce into small leaves and arrange them on half a plate. Slice the cherry tomatoes in half diagonally. Cut the cucumber in half lengthwise, then slice each half lengthwise. Arrange the cucumber and cherry tomatoes on top of the salad and toss to loosen. Place the scrambled eggs in the center of the plate. Place the quenelles rettes to the side of the scrambled eggs, as shown in the photo. Place the toasted bread at an angle on the scrambled eggs."
+      "ru": "Отварить пасту в кипящей воде в течение 12 минут. На сковороду поместить горгонзолу, ПФ утку, сливки. Разогревать помешивая на медленном огне до однородного состояния. Ввести свареную пасту, перемешать. Поместить пасту на тарелку вытянуто по центру тарелки. Посыпать пасту и немного оставшуюсю часть тарелки пармезаном, украсить микрозеленью.",
+      "en": "Cook the pasta in boiling water for 12 minutes. Place the Gorgonzola, duck breast, and cream in a frying pan. Heat over low heat, stirring occasionally, until smooth. Add the cooked pasta and stir. Place the pasta on a plate, centered. Sprinkle the pasta and the remaining portion of the plate with Parmesan cheese and garnish with microgreens."
     },
-    "photo": "photos/scramble.png"
+    "photo": "photos/pasta duck.png"
   },
   {
-    "name": { "ru": "ЙОГУРТ БОУЛ", "en": "YOGURT BOWL" },
+    "name": { "ru": "Рататуй", "en": "Ratatouille" },
     "ingredients": [
-      { "ru": "Йогурт", "en": "Yogurt", "amount": "150" },
-      { "ru": "ПФ Дрэгон фрут", "en": "Dragon fruit", "amount": "50" },
-      { "ru": "Семена тыквы", "en": "Pumpkin seeds", "amount": "20" },
-      { "ru": "Мюсли", "en": "Musly", "amount": "50" },
-      { "ru": "ПФ Манго", "en": "Mango", "amount": "50" },
-      { "ru": "ПФ Клубника", "en": "Strawberry", "amount": "30" },
-      { "ru": "ПФ Мята", "en": "Mint", "amount": "5" },
-      { "ru": "Клубника сублемированная", "en": "Sublemated strawberry", "amount": "5" },
-      { "ru": "Кокосовые чипсы", "en": "Coconut chips", "amount": "5" }
+      { "ru": "ПФ Рататуй", "en": "Prep Ratatouille", "amount": "-" },
+      { "ru": "Сыр пармезан", "en": "Parmesan cheese", "amount": "-" },
+      { "ru": "Микрозелень", "en": "Microgreens", "amount": "-" },
+      { "ru": "Бородинский (гренки)", "en": "Borodinsky (croutons)", "amount": "-" }
     ],
     "process": {
-      "ru": "Скарю выложить мюсли. Прижимая к мюслям выложить нарезаный кубиком манго и дрегонфрут. Клубнику очистить порезать напополам и наискосок, выложить на фрукты. На пустую область налить йогурт. Поверх мюслей выложить семена тыквы и кокосовые чипсы. Сублемированную клубнику достать из морожзилки, натереть сверху на центр. В центр поместить соцветие мяты.",
-      "en": "Place the granola on a baking sheet. Press the diced mango and dragon fruit into the granola, rinsing and cutting them diagonally. Peel the strawberries, cut them in half and arrange them on top of the fruit. Pour yogurt into the empty space. Place pumpkin seeds and coconut chips on top of the granola. Remove the freeze-dried strawberries from the freezer and grate them onto the center. Place a mint flower in the center."
+      "ru": "Размороженый пакет с рартатуем поместить в негорячую воду на 3-5 минут. После процедить через сито от лишней жидкости и выложить в тарелку через большое кольцо(10 см), снять кольцо. С одной стороны по борту тарелки выложить 4 гренки веером. Обильно посыпать пармезаном поверх рататуя и расплавить горелкой пармезан до образования корочки. Немного присыпать оставшуюся часть тарелки + гренки. Украсить рататуй в центре микрозеленью.",
+      "en": "Place the defrosted bag of rartatouille in lukewarm water for 3-5 minutes. Then strain the excess liquid through a sieve and place it on a plate through a large (10 cm) ring; remove the ring. Arrange 4 croutons in a fan shape along one side of the plate. Sprinkle Parmesan generously over the ratatouille and melt it with a blowtorch until a crust forms. Sprinkle a little more on the rest of the plate and croutons. Garnish the center of the ratatouille with microgreens."
     },
-    "photo": "photos/bowl.png"
+    "photo": "photos/retatoulle.png"
   },
   {
-    "name": { "ru": "КРОК МАДАМ", "en": "CROC MADAM" },
+    "name": { "ru": "Куриная грудка гриль", "en": "Grilled Chicken Breast" },
     "ingredients": [
-      { "ru": "Бриош квадрат", "en": "Brioche slice", "amount": "2" },
-      { "ru": "Масло сливочное", "en": "Butter", "amount": "40" },
-      { "ru": "Моцарелла", "en": "Mozzarella", "amount": "100" },
-      { "ru": "Окорок", "en": "Ham", "amount": "40" },
-      { "ru": "Соль", "en": "Salt", "amount": "1" },
-      { "ru": "Черри", "en": "Cherry", "amount": "30" },
-      { "ru": "Руккола", "en": "Arugula", "amount": "10" },
-      { "ru": "Яйцо", "en": "Egg", "amount": "1" }
+      { "ru": "ПФ Куриная грудка", "en": "Prep Chicken breast", "amount": "-" },
+      { "ru": "ПФ Цукини", "en": "Zucchini", "amount": "-" },
+      { "ru": "ПФ Перец болгарский", "en": "PF Bell pepper", "amount": "-" },
+      { "ru": "Черри темные", "en": "Dark cherry tomatoes", "amount": "-" },
+      { "ru": "ПФ Соус из перца", "en": "PF Pepper sauce", "amount": "-" },
+      { "ru": "Масло растительное", "en": "Vegetable oil", "amount": "-" },
+      { "ru": "ПФ Чесночное масло", "en": "PF Garlic oil", "amount": "-" },
+      { "ru": "Соль", "en": "Salt", "amount": "-" },
+      { "ru": "Перец черный молотый", "en": "Ground black pepper", "amount": "-" }
     ],
     "process": {
-      "ru": "Два ломтика бриоша смазать маслом с 2х сторон и обжарить с одной , перевернуть покрыть оба сыром и один ветчиной. Посестить оба ломтика на гастроемкость начинкой вверх. поместить на верхнюю полку печи и запека 5–7 мин. На сковородке приготовить глазунью со смещением желтка к краю(чтобы не прорезать при нарезке сендвича), положить сверху на сендвич. Разрезать на два треугольника, выложить с рукколой и черри.",
-      "en": "Butter two slices of brioche on both sides and fry on one. Turn over and cover both with cheese and one with ham. Place both slices in a gastronorm pan, filling side up. Place on the top rack of the oven and bake for 5-7 minutes. Cook the fried egg in a frying pan, pushing the yolk toward the edge (to avoid cutting through when slicing the sandwich). Place on top of the sandwich. Cut into two triangles and top with arugula and cherry tomatoes."
+      "ru": "Разогреть сковороду гриль. Цуккини и перец нарезанные на 4 пластинки и томат замешать с чесночным маслом и солью.  Овощи колировать на сковороде гриль, далее отправить допекаться в духовке. Грудку пометстить в горячую воду на 1-2 мин., далее извлечь из пакета, протереть обвалять в миске от овощей колировать на разогретой сковороде гриль по 1-1,5 мин с каждой стороны. В средний соусник отсадить разогретый соус.  Выложить цукини веяром по краю тарелки, ближе к центру так же веяром выложить перец. Грудку нарезать на 4-5 слайсов наискосок поперек длины. Сбоку от овощей вдоль тарелки выложить курицу. Между курой и перцем выложить черри.  Поставить в тарелку соус. Украсить подпаленой веткой розмарина.",
+      "en": "Heat a grill pan. Toss the zucchini and pepper, quartered, and tomato with garlic oil and salt. Roast the vegetables in the grill pan, then finish roasting in the oven. Dip the chicken breast in hot water for 1-2 minutes, then remove from the bag, pat dry, and roll in a bowl to remove the vegetables. Roast in the preheated grill pan for 1-1.5 minutes per side. Pour the heated sauce into a medium gravy boat. Arrange the zucchini fanned around the edge of the plate, and fan the peppers closer to the center. Slice the chicken breast diagonally across the length of the chicken into 4-5 slices. Arrange the chicken along the side of the vegetables. Place cherry tomatoes between the chicken and the peppers. Serve the sauce on the plate. Garnish with a charred rosemary sprig."
     },
-    "photo": "photos/crock.png"
+    "photo": "photos/chicken.png"
   },
   {
-    "name": { "ru": "ПЕНКЕЙКИ С ФРУКТАМИ", "en": "PANCAKES WITH FRUIT" },
+    "name": { "ru": "Стейк форели", "en": "Trout Steak" },
     "ingredients": [
-      { "ru": "ПФ Тесто пэнкейки", "en": "Prep Pancakes daugh", "amount": "200" },
-      { "ru": "Манго", "en": "Mango", "amount": "70" },
-      { "ru": "Клубника", "en": "Strawberry", "amount": "2-3" },
-      { "ru": "Дрэгон фрут", "en": "Dragon fruit", "amount": "70" },
-      { "ru": "Нутелла", "en": "Nutella", "amount": "50" },
-      { "ru": "Йогурт", "en": "Yogurt", "amount": "50" },
-      { "ru": "Кленовый сироп", "en": "Maple syrup", "amount": "15" },
-      { "ru": "Сахарная пудра", "en": "Powdered sugar", "amount": "1" },
-      { "ru": "Мята", "en": "Mint", "amount": "1" }
+      { "ru": "ПФ Стейк форель", "en": "Trout steak", "amount": "-" },
+      { "ru": "ПФ Фасоль", "en": "Beans", "amount": "-" },
+      { "ru": "ПФ Брокколи", "en": "Broccoli", "amount": "-" },
+      { "ru": "ПФ Соус маракуйя", "en": "Passion fruit sauce", "amount": "-" },
+      { "ru": "Тимьян", "en": "Thyme", "amount": "-" },
+      { "ru": "Масло растительное", "en": "Vegetable oil", "amount": "-" },
+      { "ru": "ПФ Чесночное масло", "en": "PF Garlic oil", "amount": "-" },
+      { "ru": "Соль", "en": "Salt", "amount": "-" }
     ],
     "process": {
-      "ru": "Испечь 2 пэнкейка, выложить друг на друга. Вокруг разместить фрукты. Маракуйю разрезать и поставить на тарелку. Посыпать сахарной пудрой, украсить мятой. Подать с соусниками: кленовый сироп, нутелла, йогурт.",
-      "en": "Bake 2 pancakes, stack them. Arrange fruits around. Cut passion fruit, place on plate. Sprinkle with powdered sugar, garnish with mint. Serve with sauce boats: maple syrup, Nutella, yogurt."
+      "ru": "ПФ стейк форели и соус поместить в болитор (рыбу на 1-2 минуты). В кипящую воду поместить брокколи в сетке на 8 минут. После дать стечь воде.  Фасоль замороженую обжарить на разогретой сухой сковороде с добавлением масла и соли в конце. Извлечь форель из воды и пакета, очистить отбелка салфеткой. Обжарить на сковороде шкурой сверху, снять шкуру, перевернуть, обжарить с другой стороны. Выложить чуть сбоку от центра тарелки фасоль соломкой друг к другу. Наискосок в 45 градусов поверх стейк. В угол между Форелью и фасолью вылить соус. В противоположный угол выложить брокколи пучком. На рыбу положить тимьян.",
+      "en": "Place the trout steak and sauce in a bolitor (the fish should sit for 1-2 minutes). Place the broccoli in a mesh bag in boiling water for 8 minutes. Then drain. Fry the frozen beans in a hot dry frying pan, adding oil and salt at the end. Remove the trout from the water and bag, and clean the whites with a paper towel. Fry in a frying pan, skin side up, and remove the skin on, flip, and fry on the other side. Arrange the beans, julienned, slightly to the side of the plate, at a 45-degree angle, on top of the steak. Pour the sauce into the corner between the trout and the beans. Place a bunch of broccoli in the opposite corner. Sprinkle thyme on top of the fish."
     },
-    "photo": "photos/pancakes.png"
+    "photo": "photos/trout.png"
   },
   {
-    "name": { "ru": "СЫРНИКИ", "en": "SYRNIKI" },
+    "name": { "ru": "Говядина с брокколи", "en": "Beef with Broccoli" },
     "ingredients": [
-      { "ru": "ПФ Сырники", "en": "Prep Syrniki", "amount": "150" },
-      { "ru": "Клубника", "en": "Strawberry", "amount": "2-3" },
-      { "ru": "Йогурт", "en": "Yogurt", "amount": "50" },
-      { "ru": "Мед", "en": "Honey", "amount": "30" },
-      { "ru": "ПФ Соус вишневый", "en": "PF Cherry Sauce", "amount": "30" },
-      { "ru": "Мята", "en": "Mint", "amount": "5" },
-      { "ru": "Сахарная пудра", "en": "Powdered sugar", "amount": "1" }
+      { "ru": "ПФ Говядина", "en": "Prep Beef", "amount": "-" },
+      { "ru": "ПФ Брокколи", "en": "Broccoli", "amount": "-" },
+      { "ru": "ПФ Соус на говядину", "en": "Beef Sauce", "amount": "-" },
+      { "ru": "Масло растительное", "en": "Vegetable oil", "amount": "-" },
+      { "ru": "Соль", "en": "Salt", "amount": "-" },
+      { "ru": "Перец черный молотый", "en": "Ground black pepper", "amount": "-" }
     ],
     "process": {
-      "ru": "Сырники прогреть в печи 7 минут (замороженные – 15). Нарезать клубнику. Выложить сырники, посыпать клубникой, украсить мятой и сахарной пудрой. Подать с соусами в соусниках.",
-      "en": "Heat syrniki in oven for 7 minutes (15 if frozen). Cut strawberries. Arrange syrniki, sprinkle with strawberries, garnish with mint and powdered sugar. Serve with sauces."
+      "ru": "ПФ говядину поместить в горячую воду для прогрева на 1-2 минуты. Брокколи поместить вариться в сетке на 8 минут. Достать говядину очистить салфеткой от белка и обжарить на хорошо разогретой сковороде с добавлением масла, перца и соли. Выложить в тарелку сбоку у борта брокколи, далее по борту говядину. Между брокколи и говядиной по борту выложить соус кнелей.  Украсить микрозеленью.",
+      "en": "Place the PF beef in hot water to warm up for 30-40 seconds. Place the broccoli in a net to cook for 8-10 minutes. Remove the beef, clean the protein with a napkin and fry in a well-heated frying pan with the addition of oil, pepper and salt. Place the broccoli on the side of the plate, then the beef along the side. Place the quenelles sauce between the broccoli and beef along the side. Decorate with microgreens."
     },
-    "photo": "photos/syrniki.png"
+    "photo": "photos/beef.png"
   },
   {
-    "name": { "ru": "КАША ДРУЖБА", "en": "PORRIDGE DRUZHBA" },
+    "name": { "ru": "Токпокки", "en": "Tteobokki" },
     "ingredients": [
-      { "ru": "ПФ каша", "en": "Prep kasha", "amount": "300" },
-      { "ru": "Клубника", "en": "Strawberry", "amount": "2-3" },
-      { "ru": "Голубика", "en": "Blueberry", "amount": "5-7" },
-      { "ru": "Мята", "en": "Mint", "amount": "5" }
+      { "ru": "Токпокки", "en": "Tteokbokki", "amount": "-" },
+      { "ru": "ПФ кура", "en": "Prep chicken", "amount": "-" },
+      { "ru": "ПФ Перец болгарский", "en": "Prep bell pepper", "amount": "-" },
+      { "ru": "ПФ Фасоль", "en": "Prep beans", "amount": "-" },
+      { "ru": "Масло растительное", "en": "Vegetable oil", "amount": "-" },
+      { "ru": "Сливки", "en": "Cream", "amount": "-" },
+      { "ru": "Перечный соус", "en": "Pepper sauce", "amount": "-" },
+      { "ru": "Микрозелень", "en": "Microgreens", "amount": "-" }
     ],
     "process": {
-      "ru": "Пакет с кашей прогреть в горячей воде. Выложить кашу в тарелку. Нарезать клубнику, добавить с голубикой в центр. Украсить мятой.",
-      "en": "Heat porridge bag in hot water. Place porridge on plate. Cut strawberries, add with blueberries to the center. Garnish with mint."
+      "ru": "Нарезать мелкой соломкой перец и курицу. В сковороду налить масло, поместить фасоль, обжарить до размороженного состояния. Добавить перец, перечный соус и сливки. Ввести курицу. Токпокки отварить 2-3 минуты и добавить в сковороду. Перемешать и выложить на тарелку. Украсить микрозеленью.",
+      "en": "Cut pepper and chicken into thin strips. Pour oil into pan, place beans, fry until defrosted. Add pepper, pepper sauce, and cream. Add chicken. Boil tteokbokki 2-3 minutes and add to the pan. Mix and place on plate. Decorate with microgreens."
     },
-    "photo": "photos/poridge.png"
-  },
-  {
-    "name": { "ru": "ГЛАЗУНЬЯ С РЫБОЙ", "en": "SUNNY FRIED EGG" },
-    "ingredients": [
-      { "ru": "Яйцо", "en": "Egg", "amount": "2" },
-      { "ru": "Белая чиабатта", "en": "White ciabatta", "amount": "20" },
-      { "ru": "ПФ Сыр Кремчиз", "en": "Cream cheese", "amount": "20" },
-      { "ru": "Огурец", "en": "Cucumber", "amount": "30" },
-      { "ru": "Помидоры Черри темные", "en": "Dark Cherry Tomatoes", "amount": "30" },
-      { "ru": "Масло растительное", "en": "Vegetable oil", "amount": "5" },
-      { "ru": "Соль", "en": "Salt", "amount": "1" },
-      { "ru": "Микрозелень", "en": "Microgreens", "amount": "3" },
-      { "ru": "ПФ Форель С/С", "en": "Prep Salted trout", "amount": "40" }
-    ],
-    "process": {
-      "ru": "На сковороде пожарить глазунью из 2 яиц. Чиабатту подсушить, смазать кремчизом. Огурец нарезать эллипсами, черри – дольками. Рыбу и черри выложить волной. На тарелку – рукколу, сверху – глазунью, рядом – гренка с микрозеленью.",
-      "en": "Fry 2 sunny-side-up eggs. Toast ciabatta, spread with cream cheese. Slice cucumber into ovals, cut cherry tomatoes. Arrange trout and cherry wave-like. On plate – arugula, top with fried eggs, serve with ciabatta and microgreens."
-    },
-    "photo": "photos/sunfried eggs.png"
+    "photo": "photos/tobbokki.png"
   }
 ]
