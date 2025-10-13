@@ -66,19 +66,14 @@ function createTable(sectionArray) {
 
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
-
-  // Убрали колонку "Гр/Шт"
-  [
-    '№',
-    window.currentLang === 'ru' ? 'Ингредиент' : 'Ingredient',
-    window.currentLang === 'ru' ? 'Описание' : 'Description',
-    window.currentLang === 'ru' ? 'Фото' : 'Photo'
-  ].forEach(text => {
+  ['№', window.currentLang === 'ru' ? 'Ингредиент' : 'Ingredient',
+   window.currentLang === 'ru' ? 'Гр/Шт' : 'Amount',
+   window.currentLang === 'ru' ? 'Описание' : 'Description',
+   window.currentLang === 'ru' ? 'Фото' : 'Photo'].forEach(text => {
     const th = document.createElement('th');
     th.textContent = text;
     headerRow.appendChild(th);
   });
-
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
@@ -87,7 +82,7 @@ function createTable(sectionArray) {
   sectionArray.forEach(dish => {
     const dishRow = document.createElement('tr');
     const tdDish = document.createElement('td');
-    tdDish.colSpan = 4; // теперь 4 столбца
+    tdDish.colSpan = 5;
     tdDish.style.fontWeight = '600';
     tdDish.textContent = dish.name[window.currentLang];
     dishRow.appendChild(tdDish);
@@ -104,6 +99,9 @@ function createTable(sectionArray) {
 
       const tdName = document.createElement('td');
       tdName.textContent = ing[window.currentLang];
+
+      const tdAmount = document.createElement('td');
+      tdAmount.textContent = ing.amount || '';
 
       const tdDesc = document.createElement('td');
       if (i === 0) {
@@ -123,6 +121,7 @@ function createTable(sectionArray) {
 
       tr.appendChild(tdNum);
       tr.appendChild(tdName);
+      tr.appendChild(tdAmount);
       if (i === 0) tr.appendChild(tdDesc);
       tr.appendChild(tdPhoto);
 
