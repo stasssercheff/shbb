@@ -1,0 +1,30 @@
+[
+  {
+    "name": { "ru": "Тыквенный суп", "en": "Pumpkin Soup" },
+    "ingredients": [
+      { "ru": "ПФ Суп тыквенный", "en": "Prep Pumpkin", "amount": "300" },
+      { "ru": "Микрозелень", "en": "Microgreens", "amount": "5" },
+      { "ru": "ПФ Соус песто", "en": "Pesto sauce", "amount": "5" },
+      { "ru": "Сливки", "en": "Cream", "amount": "10" },
+      { "ru": "Семена тыквы", "en": "Pumpkin seeds", "amount": "5" }
+    ],
+    "process": {
+      "ru": "Пакет с супом поместить в горячую воду до полного прогрева. Промять пакет для избегания комочков. Вылить суп в тарелку. Поверх супа в центр отсадить ПФ соус песто. Вокруг по спирали тонкой струйкой отсадить сливки. Поверх песто поместить микрозелень. Поверх сливок поместить семена тыквы.",
+      "en": "Place the soup bag in hot water until fully heated. Knead the bag to avoid lumps. Pour the soup into a bowl. Pour the PF pesto sauce over the soup in the center. Spread the cream around in a thin stream in a spiral. Place microgreens on top of the pesto. Place pumpkin seeds on top of the cream."
+    },
+    "photo": "photos/soup pumpkin.png"
+  },
+  {
+    "name": { "ru": "Суп брокколи", "en": "Broccoli Soup" },
+    "ingredients": [
+      { "ru": "ПФ Суп брокколи", "en": "Prep broccoli Soup", "amount": "300" },
+      { "ru": "Сыр пармезан", "en": "Parmesan cheese", "amount": "20" },
+      { "ru": "Белая чиабатта", "en": "White ciabatta", "amount": "20" }
+    ],
+    "process": {
+      "ru": "Размороженный пакет с супом поместить в горячую воду до полного прогрева. Промять пакет для избегания комочков. Взять чиабатту посыпать пармезаном, запекать до расплавления сыра в пече(чтобы не гнулась). Вылить суп в тарелку, посыпать суп пармезаном, выложить гренку как на фото.",
+      "en": "Place the defrosted soup bag in hot water until thoroughly heated. Press the bag to remove lumps. Sprinkle the ciabatta with Parmesan cheese and bake in the oven until the cheese melts (to prevent warping). Pour the soup into a bowl, sprinkle with Parmesan cheese, and top with croutons, as shown in the photo."
+    },
+    "photo": "photos/soup brokkoli.png"
+  }
+]
