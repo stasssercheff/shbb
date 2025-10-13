@@ -9,7 +9,7 @@
       "ru": "Предварительно после заморозки нарезаный хлеб достать из морозилки, выложить смесь на один ломтик, накрыть вторым, завернуть в конверт и убрать в бокс. Подписать бокс.",
       "en": "First, after freezing, take the sliced bread out of the freezer, put the mixture on one slice, cover with a second slice, wrap in an envelope and put in a box. Label the box."
     },
-    "photo": "../dishes/images/swtuna.png"
+    "photo": "../dishes/images/photos/swtuna.png"
   },
   {
     "name": { "ru": "СЕНДВИЧ С ФОРЕЛЬЮ", "en": "TROUT SANDWICH" },
@@ -24,7 +24,7 @@
       "ru": "Предварительно после заморозки нарезаный хлеб достать из морозилки. Смазать оба ломтика с внутренней части кремчизом (размазать ложкой). Выложить лист салата, поверх выложить рыбу. Поверх рыбы выложить слайсы огурца. Накрыть вторым ломтиком хлеба. Завернуть в конверт и убрать в бокс. Подписать бокс.",
       "en": "First, remove the sliced bread from the freezer after freezing. Grease both slices on the inside with cream cheese (spread with a spoon). Put a leaf of lettuce, put the fish on top. Put cucumber slices on top of the fish. Cover with a second slice of bread. Wrap in an envelope and put in a box. Label the box."
     },
-    "photo": "../dishes/images/swtrout.png"
+    "photo": "../dishes/images/photos/swtrout.png"
   },
   {
     "name": { "ru": "КРУАССАН С ГОЯДИНОЙ", "en": "BEEF CROISSANT" },
@@ -39,7 +39,7 @@
       "ru": "Разрезать круассан  на 2 плоские части, смазать обе части внутри соусом. На нижнюю часть выложить листья салата. Огурец порезать на тонкие слайсы, выложить поверх салата. Говядину порезать на тонкие маленькие кусочки, выложить поверх огурца, накрыть вторым ломтиком хлеба. Разрезать по диагонали от угла к углу напополам. Конверт подрезать чтобы скленены были только 2 грани. Завернуть в конверт и убрать в бокс. Подписать бокс.",
       "en": "Cut the Facaccia into 2 flat parts, grease both parts with sauce inside. Put lettuce leaves on the bottom part. Cut the cucumber into thin slices, put on top of the salad. Cut the beef into thin small pieces, put on top of the cucumber, cover with the second slice of bread. Cut diagonally from corner to corner in half. Trim the envelope so that only 2 edges are glued. Wrap in the envelope and put in the box. Label the box."
     },
-    "photo": "../dishes/images/crbeef.png"
+    "photo": "../dishes/images/photos/crbeef.png"
   },
   {
     "name": { "ru": "СЕНДВИЧ С КУРОЙ(2)", "en": "CHICKEN SANDWICH(2)" },
@@ -55,6 +55,6 @@
       "ru": "Смазать оба ломтика внутри соусом. На нижнюю часть выложить листья салата. Огурец порезать на тонкие слайсы, выложить поверх салата. Куру порезать на тонкие 5-6 слайсов под углом, выложить поверх огурца. Томаты Черри подрезать с краев, порезать на 4 кольца каждую, выложить на второй ломтик поверх соуса. Накрыть вторым ломтиком хлеба чтобы томаты были поверх куры. Разрезать по диагонали от угла к углу напополам. Конверт подрезать чтобы скленены были только 2 грани. Завернуть в конверт и убрать в бокс. Подписать бокс.",
       "en": "Take 2 slices of toast and spread with sauce. Put lettuce leaves on the bottom. Cut cucumber into thin slices, put on top of the salad. Cut chicken into 5-6 thin slices at an angle, put on top of the cucumber. Trim cherry tomatoes from the edges, cut into 4 rings each, put on the second slice on top of the sauce. Cover with a second slice of bread so that the tomatoes are on top of the chicken. Cut diagonally from corner to corner in half. Trim the envelope so that only 2 edges are glued. Wrap in an envelope and put in a box. Label the box."
     },
-    "photo": "../dishes/images/swchicken.png"
+    "photo": "../dishes/images/photos/swchicken.png"
   }
 ]
