@@ -3,15 +3,12 @@ let translations = {}; // словарь для i18n
 
 // === Навигация ===
 window.goHome = function () {
-  // переход в корень сайта
   window.location.href = "https://stasssercheff.github.io/shbb/";
 };
 
 window.goBack = function () {
-  // переход на уровень вверх
   window.location.href = "../index.html";
 };
-
 
 // === Переключение языка ===
 function switchLanguage(lang) {
@@ -29,7 +26,6 @@ function switchLanguage(lang) {
     }
   });
 
-  // Перевод опций select
   document.querySelectorAll("select").forEach(select => {
     Array.from(select.options).forEach(option => {
       const key = option.dataset.i18n;
@@ -146,7 +142,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   // === Кнопка отправки ===
   const button = document.getElementById("sendToTelegram");
   if (button) {
+    console.log("✅ Кнопка найдена, обработчик навешан");
     button.addEventListener("click", async () => {
+      console.log("🚀 Нажата кнопка отправки");
       const chat_id = "-1002393080811";
       const worker_url = "https://shbb1.stassser.workers.dev/";
       const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
@@ -193,7 +191,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       };
 
       try {
-        for (const lang of window.sendLangs) {
+        for (const lang of window.sendLangs || ["ru"]) {
           const msg = buildMessage(lang);
           await sendAllParts(msg);
         }
@@ -206,5 +204,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error(err);
       }
     });
+  } else {
+    console.warn("⚠️ Кнопка #sendToTelegram не найдена в DOM");
   }
 });
