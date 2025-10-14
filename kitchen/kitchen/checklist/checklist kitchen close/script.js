@@ -2,16 +2,16 @@
 let translations = {}; // словарь для i18n
 
 // === Навигация ===
-function goHome() {
-  location.href = "http://stasssercheff.github.io/shbb/";
-}
+window.goHome = function () {
+  // переход в корень сайта
+  window.location.href = "https://stasssercheff.github.io/shbb/";
+};
 
-function goBack() {
-  const currentPath = window.location.pathname;
-  const parentPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
-  const upperPath = parentPath.substring(0, parentPath.lastIndexOf("/"));
-  window.location.href = upperPath + "/index.html";
-}
+window.goBack = function () {
+  // переход на уровень вверх
+  window.location.href = "../index.html";
+};
+
 
 // === Переключение языка ===
 function switchLanguage(lang) {
