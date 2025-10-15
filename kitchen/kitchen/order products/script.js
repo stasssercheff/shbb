@@ -10,25 +10,17 @@ function goBack() {
   window.location.href = upperPath + "/index.html";
 }
 
-// === Загрузка переводов ===
-if (typeof window.translations === "undefined") {
-  window.translations = {};
-}
-
-if (typeof window.loadTranslations !== "function") {
-  window.loadTranslations = async function loadTranslations() {
-    try {
-      const res = await fetch("/shbb/lang.json");
-      if (!res.ok) throw new Error("Не найден /shbb/lang.json (status " + res.status + ")");
-      const data = await res.json();
-      window.translations = data;
-      console.log("✅ Переводы загружены:", Object.keys(data));
-    } catch (err) {
-      console.error("❌ Ошибка загрузки lang.json:", err);
-      window.translations = window.translations || {};
-    }
-  };
-}
+// === Автоподстановка даты ===
+document.addEventListener("DOMContentLoaded", () => {
+  const dateEl = document.getElementById("current-date");
+  if (dateEl) {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    dateEl.textContent = `${day}.${month}.${year}`;
+  }
+});
 
 // === Переключение языка ===
 function switchLanguage(lang) {
@@ -37,22 +29,23 @@ function switchLanguage(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.dataset.i18n;
-    if (window.translations[key] && window.translations[key][lang]) {
+    if (translations[key] && translations[key][lang]) {
       if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", window.translations[key][lang]);
+        el.setAttribute("placeholder", translations[key][lang]);
       } else if (el.tagName === "TEXTAREA" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", window.translations[key][lang]);
+        el.setAttribute("placeholder", translations[key][lang]);
       } else {
-        el.textContent = window.translations[key][lang];
+        el.textContent = translations[key][lang];
       }
     }
   });
 
+  // Обновляем опции select
   document.querySelectorAll("select").forEach(select => {
     Array.from(select.options).forEach(option => {
       const key = option.dataset.i18n;
-      if (key && window.translations[key] && window.translations[key][lang]) {
-        option.textContent = window.translations[key][lang];
+      if (key && translations[key] && translations[key][lang]) {
+        option.textContent = translations[key][lang];
       }
       if (option.value === "") option.textContent = "—";
     });
@@ -87,21 +80,11 @@ function restoreFormData() {
   });
 }
 
-// === Основной блок ===
-document.addEventListener("DOMContentLoaded", async () => {
-  const dateEl = document.getElementById("current-date");
-  if (dateEl) {
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, "0");
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const year = today.getFullYear();
-    dateEl.textContent = `${day}.${month}.${year}`;
-  }
-
-  await loadTranslations();
-
+// === DOMContentLoaded ===
+document.addEventListener("DOMContentLoaded", () => {
   const lang = localStorage.getItem("lang") || "ru";
 
+  // Пустая опция для select.qty
   document.querySelectorAll("select.qty").forEach(select => {
     const hasEmpty = Array.from(select.options).some(opt => opt.value === "");
     if (!hasEmpty) {
@@ -134,14 +117,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const nameSelect = document.querySelector('select[name="chef"]');
     const selectedChef = nameSelect?.options[nameSelect.selectedIndex];
     const name = selectedChef?.dataset.i18n
-      ? window.translations[selectedChef.dataset.i18n][lang]
+      ? translations[selectedChef.dataset.i18n][lang]
       : "—";
     message += `${lang === "en" ? "👨‍🍳 Name" : "👨‍🍳 Имя"}: ${name}\n\n`;
 
     document.querySelectorAll(".menu-section").forEach(section => {
       const sectionTitle = section.querySelector(".section-title");
       const titleKey = sectionTitle?.dataset.i18n;
-      const title = window.translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
+      const title = translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
 
       let sectionContent = "";
       section.querySelectorAll(".dish").forEach(dish => {
@@ -150,11 +133,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const label = dish.querySelector("label");
         const labelKey = label?.dataset.i18n;
-        const labelText = window.translations[labelKey]?.[lang] || label?.textContent || "—";
+        const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
 
         const selectedOption = select.options[select.selectedIndex];
         const optionKey = selectedOption?.dataset.i18n;
-        const value = (optionKey && window.translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
+        const value = (optionKey && translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
 
         sectionContent += `• ${labelText}: ${value}\n`;
       });
@@ -174,66 +157,65 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // === Кнопка отправки ===
   const button = document.getElementById("sendToTelegram");
-  if (button) {
-    button.addEventListener("click", async () => {
-      const chat_id = "-1002393080811";
-      const worker_url = "https://shbb1.stassser.workers.dev/";
-      const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
+  button.addEventListener("click", async () => {
+    const chat_id = "-1002393080811"; // твой Telegram чат ID
+    const worker_url = "https://shbb1.stassser.workers.dev/";
+    const accessKey = "14d92358-9b7a-4e16-b2a7-35e9ed71de43";
 
-      const sendMessage = msg => fetch(worker_url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id, text: msg })
-      }).then(res => res.json());
+    const sendMessage = msg => fetch(worker_url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id, text: msg })
+    }).then(res => res.json());
 
-      const sendEmail = async msg => {
-        try {
-          const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              access_key: accessKey,
-              subject: "ЗАКАЗ ПРОДУКТОВ",
-              from_name: "SHBB KITCHEN",
-              reply_to: "no-reply@shbb.com",
-              message: msg
-            })
-          }).then(r => r.json());
-
-          if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
-        } catch (err) {
-          alert("Ошибка отправки email: " + err.message);
-        }
-      };
-
-      const sendAllParts = async text => {
-        let start = 0;
-        while (start < text.length) {
-          const chunk = text.slice(start, start + 4000);
-          await sendMessage(chunk);
-          await sendEmail(chunk);
-          start += 4000;
-        }
-      };
-
-      const clearForm = () => {
-        document.querySelectorAll("select").forEach(select => (select.value = ""));
-        document.querySelectorAll("textarea.comment").forEach(textarea => (textarea.value = ""));
-      };
-
+    const sendEmail = async msg => {
       try {
-        for (const lang of window.sendLangs) {
-          const msg = buildMessage(lang);
-          await sendAllParts(msg);
-        }
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: "ЗАКАЗ ПРОДУКТОВ",
+            from_name: "SHBB KITCHEN",
+            reply_to: "no-reply@shbb.com",
+            message: msg
+          })
+        }).then(r => r.json());
 
-        alert("✅ ОТПРАВЛЕНО");
-        localStorage.clear();
-        clearForm();
+        if (!res.success) alert("Ошибка отправки email. Проверьте форму.");
       } catch (err) {
-        alert("❌ Ошибка при отправке: " + err.message);
-        console.error(err);
+        alert("Ошибка отправки email: " + err.message);
       }
-    });
-  }
+    };
+
+    const sendAllParts = async text => {
+      let start = 0;
+      while (start < text.length) {
+        const chunk = text.slice(start, start + 4000);
+        await sendMessage(chunk);
+        await sendEmail(chunk);
+        start += 4000;
+      }
+    };
+
+    const clearForm = () => {
+      document.querySelectorAll("select").forEach(select => (select.value = ""));
+      document.querySelectorAll("textarea.comment").forEach(textarea => (textarea.value = ""));
+    };
+
+    try {
+      // ✅ Используем языки из sendConfig.js
+      for (const lang of window.sendLangs) {
+        const msg = buildMessage(lang);
+        await sendAllParts(msg);
+      }
+
+      alert("✅ ОТПРАВЛЕНО");
+      localStorage.clear();
+      clearForm();
+    } catch (err) {
+      alert("❌ Ошибка при отправке: " + err.message);
+      console.error(err);
+    }
+  });
 });
