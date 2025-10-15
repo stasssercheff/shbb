@@ -1,4 +1,3 @@
-
 // === Навигация ===
 function goHome() {
   location.href = "http://stasssercheff.github.io/shbb/";
@@ -12,7 +11,7 @@ function goBack() {
 }
 
 // === Автоподстановка даты ===
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const dateEl = document.getElementById("current-date");
   if (dateEl) {
     const today = new Date();
@@ -21,86 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const year = today.getFullYear();
     dateEl.textContent = `${day}.${month}.${year}`;
   }
-});
 
-// === Загрузка переводов ===
-let translations = {};
+  // === Загружаем переводы до их использования ===
+  await loadTranslations();
 
-async function loadTranslations() {
-  try {
-    // 🔹 Абсолютный путь — всегда работает независимо от подпапки
-    const res = await fetch("/shbb/lang.json");
-    if (!res.ok) throw new Error("Не найден /shbb/lang.json");
-    const data = await res.json();
-    translations = data;
-    console.log("✅ Переводы загружены:", Object.keys(data));
-  } catch (err) {
-    console.error("❌ Ошибка загрузки lang.json:", err);
-    translations = {}; // чтобы не ломалось при отсутствии файла
-  }
-}
-
-
-// === Переключение языка ===
-function switchLanguage(lang) {
-  document.documentElement.lang = lang;
-  localStorage.setItem("lang", lang);
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[key] && translations[key][lang]) {
-      if (el.tagName === "INPUT" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", translations[key][lang]);
-      } else if (el.tagName === "TEXTAREA" && el.hasAttribute("placeholder")) {
-        el.setAttribute("placeholder", translations[key][lang]);
-      } else {
-        el.textContent = translations[key][lang];
-      }
-    }
-  });
-
-  // Обновляем опции select
-  document.querySelectorAll("select").forEach(select => {
-    Array.from(select.options).forEach(option => {
-      const key = option.dataset.i18n;
-      if (key && translations[key] && translations[key][lang]) {
-        option.textContent = translations[key][lang];
-      }
-      if (option.value === "") option.textContent = "—";
-    });
-  });
-}
-
-// === Сохранение/восстановление данных формы ===
-function saveFormData() {
-  const data = {};
-  document.querySelectorAll("select").forEach(select => {
-    data[select.name || select.id] = select.value;
-  });
-  document.querySelectorAll("textarea.comment").forEach(textarea => {
-    data[textarea.name || textarea.id] = textarea.value;
-  });
-  localStorage.setItem("formData", JSON.stringify(data));
-}
-
-function restoreFormData() {
-  const saved = localStorage.getItem("formData");
-  if (!saved) return;
-  const data = JSON.parse(saved);
-  document.querySelectorAll("select").forEach(select => {
-    if (data[select.name || select.id] !== undefined) {
-      select.value = data[select.name || select.id];
-    }
-  });
-  document.querySelectorAll("textarea.comment").forEach(textarea => {
-    if (data[textarea.name || textarea.id] !== undefined) {
-      textarea.value = data[textarea.name || textarea.id];
-    }
-  });
-}
-
-// === DOMContentLoaded ===
-document.addEventListener("DOMContentLoaded", () => {
   const lang = localStorage.getItem("lang") || "ru";
 
   // Пустая опция для select.qty
@@ -146,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const title = translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
 
       let sectionContent = "";
+      let itemIndex = 1;
+
       section.querySelectorAll(".dish").forEach(dish => {
         const select = dish.querySelector("select.qty");
         if (!select || !select.value) return;
@@ -154,11 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const labelKey = label?.dataset.i18n;
         const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
 
-        const selectedOption = select.options[select.selectedIndex];
-        const optionKey = selectedOption?.dataset.i18n;
-        const value = (optionKey && translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
-
-        sectionContent += `• ${labelText}: ${value}\n`;
+        sectionContent += `${itemIndex}. ${labelText}\n`;
+        itemIndex++;
       });
 
       const commentField = section.querySelector("textarea.comment");
@@ -167,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (sectionContent.trim()) {
-        message += `🔸 <b>${title}</b>\n${sectionContent}\n`;
+        message += `\n<b>${title}</b>\n${sectionContent}\n`;
       }
     });
 
