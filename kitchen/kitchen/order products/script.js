@@ -145,6 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const title = translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
 
       let sectionContent = "";
+      let itemIndex = 1;
+
       section.querySelectorAll(".dish").forEach(dish => {
         const select = dish.querySelector("select.qty");
         if (!select || !select.value) return;
@@ -153,11 +155,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const labelKey = label?.dataset.i18n;
         const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
 
-        const selectedOption = select.options[select.selectedIndex];
-        const optionKey = selectedOption?.dataset.i18n;
-        const value = (optionKey && translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
-
-        sectionContent += `• ${labelText}: ${value}\n`;
+        sectionContent += `${itemIndex}. ${labelText}\n`;
+        itemIndex++;
       });
 
       const commentField = section.querySelector("textarea.comment");
@@ -166,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (sectionContent.trim()) {
-        message += `🔸 <b>${title}</b>\n${sectionContent}\n`;
+        message += `\n<b>${title}</b>\n${sectionContent}\n`;
       }
     });
 
