@@ -22,6 +22,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// === Загрузка переводов ===
+let translations = {};
+
+async function loadTranslations() {
+  try {
+    // 🔹 Абсолютный путь — всегда работает независимо от подпапки
+    const res = await fetch("/shbb/lang.json");
+    if (!res.ok) throw new Error("Не найден /shbb/lang.json");
+    const data = await res.json();
+    translations = data;
+    console.log("✅ Переводы загружены:", Object.keys(data));
+  } catch (err) {
+    console.error("❌ Ошибка загрузки lang.json:", err);
+    translations = {}; // чтобы не ломалось при отсутствии файла
+  }
+}
+
+
 // === Переключение языка ===
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
