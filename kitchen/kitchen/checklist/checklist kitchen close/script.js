@@ -1,6 +1,4 @@
-// script.js — Kitchen Close (исправленная версия)
-// === Глобальные переменные ===
-let translations = {}; // словарь для i18n (будет подхвачен через lang.json или window.translations)
+
 
 // === Навигация ===
 window.goHome = function () {
