@@ -127,20 +127,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const title = translations[titleKey]?.[lang] || sectionTitle?.textContent || "";
 
       let sectionContent = "";
-      section.querySelectorAll(".dish").forEach(dish => {
-        const select = dish.querySelector("select.qty");
-        if (!select || !select.value) return;
+      const dishes = Array.from(section.querySelectorAll(".dish")).filter(dish => {
+  const select = dish.querySelector("select.qty");
+  return select && select.value;
+});
 
-        const label = dish.querySelector("label");
-        const labelKey = label?.dataset.i18n;
-        const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
+dishes.forEach((dish, index) => {
+  const label = dish.querySelector("label");
+  const labelKey = label?.dataset.i18n;
+  const labelText = translations[labelKey]?.[lang] || label?.textContent || "—";
+  sectionContent += `${index + 1}. ${labelText}\n`;
+});
 
-        const selectedOption = select.options[select.selectedIndex];
-        const optionKey = selectedOption?.dataset.i18n;
-        const value = (optionKey && translations[optionKey]?.[lang]) || selectedOption?.textContent || "—";
-
-        sectionContent += `• ${labelText}: ${value}\n`;
-      });
 
       const commentField = section.querySelector("textarea.comment");
       if (commentField && commentField.value.trim()) {
@@ -148,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (sectionContent.trim()) {
-        message += `🔸 <b>${title}</b>\n${sectionContent}\n`;
+       message += `${title}\n${sectionContent}\n`;
       }
     });
 
