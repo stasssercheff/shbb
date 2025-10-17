@@ -17,7 +17,7 @@
       "vi": "Bánh mì Ciabatta Ý cổ điển làm từ bột mì."
     },
     "amount": 200,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/ciabatta.png"
   },
   {
     "name": {
@@ -40,7 +40,7 @@
       "vi": "Bánh mì Borodinsky với men mạch nha, phủ hạt ngò."
     },
     "amount": 400,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/borodinskiy.png"
   },
   {
     "name": {
@@ -63,11 +63,11 @@
       "vi": "Bánh mì Tartine làm từ bột kiều mạch."
     },
     "amount": 480,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/tartin.png"
   },
   {
     "name": {
-      "ru": "Чемная чиабатта / Country Bread",
+      "ru": "Деревенский хлеб",
       "en": "Country Bread",
       "vi": "Bánh mì đồng quê"
     },
@@ -84,6 +84,6 @@
       "vi": "Bánh mì nông thôn với vỏ giòn kiểu thủ công."
     },
     "amount": 400,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/countrybread.png"
   }
 ]
