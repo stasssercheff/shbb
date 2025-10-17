@@ -2328,6 +2328,26 @@
       "ru": "Комментарий",
       "en": "Comment",
       "vi": "Ghi chú"
-    }
+  },
+  "work_area_section": {
+    "ru": "Рабочая зона",
+    "en": "Work Area",
+    "vi": "Khu vực làm việc"
+  },
+  "equipment_section": {
+    "ru": "Оборудование",
+    "en": "Equipment",
+    "vi": "Thiết bị"
+  },
+  "fridge_kitchen_section": {
+    "ru": "Холодильник (кухня)",
+    "en": "Fridge (Kitchen)",
+    "vi": "Tủ lạnh (bếp)"
+  },
+  "freezer_kitchen_section": {
+    "ru": "Морозильник (кухня)",
+    "en": "Freezer (Kitchen)",
+    "vi": "Ngăn đá (bếp)"
+  }
   }
 
