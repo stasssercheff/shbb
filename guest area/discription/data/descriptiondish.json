@@ -65,16 +65,16 @@
     ],
     "amount": "540",
     "process": {
-      "ru": "В центре тарелки скрембл, по кругу выкладывается риет, тостовый хлеб и овощи на подложке из микса салатов.",
-      "en": "Place the scramble in the center of the plate, surround with trout rillettes, toast, and vegetables on a bed of salad mix.",
-      "vi": "Đặt trứng bác ở giữa đĩa, xung quanh là rillettes cá trout, bánh mì nướng và rau củ trên nền hỗn hợp rau trộn."
+     "ru": "В центре тарелки скрембл, по кругу выкладывается риет (красная рыба, масло, сливки), тостовый хлеб и овощи на подложке из микса салатов.",
+"en": "Scrambled eggs in the center of the plate, surrounded by rillettes (red fish, butter, cream), toast bread, and vegetables on a bed of salad mix.",
+"vi": "Trứng bác ở giữa đĩa, xung quanh là rillettes (cá đỏ, bơ, kem), bánh mì nướng và rau củ trên nền hỗn hợp rau trộn."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/scramble.png"
   },
   {
     "name": { "ru": "Яйца Бенедикт", "en": "Eggs Benedict", "vi": "Trứng Benedict" },
     "ingredients": [
-      { "ru": "Пашот (2)", "en": "Poached eggs (2)", "vi": "Trứng poche (2 quả)" },
+      { "ru": "Яйцо пашот (2)", "en": "Poached eggs (2)", "vi": "Trứng poche (2 quả)" },
       { "ru": "Соус тартар", "en": "Tartar sauce", "vi": "Sốt tartar" },
       { "ru": "Форель слабой соли (40 гр.)", "en": "Lightly salted trout (40g)", "vi": "Cá trout muối nhạt (40g)" },
       { "ru": "Соус Голландский", "en": "Hollandaise sauce", "vi": "Sốt Hollandaise" },
@@ -104,9 +104,9 @@
     ],
     "amount": "290",
     "process": {
-      "ru": "Сырники домашнего производства с клубникой, йогуртом, медом и ягодным соусом собственного производства.",
-      "en": "Homemade syrniki served with strawberries, yogurt, honey, and homemade berry sauce.",
-      "vi": "Syrniki tự làm phục vụ kèm dâu tây, sữa chua, mật ong và sốt trái mọng tự làm."
+     "ru": "Сырники (творог, манка, без муки) домашнего производства с клубникой, йогуртом, медом и ягодным соусом собственного производства.",
+     "en": "Homemade syrniki (cottage cheese, semolina, no flour) served with strawberries, yogurt, honey, and homemade berry sauce.",
+     "vi": "Syrniki tự làm (phô mai tươi, bột semolina, không bột mì) dùng kèm dâu tây, sữa chua, mật ong và sốt trái mọng tự làm."
     },
     "photo": "../../kitchen/kitchen/ttk/dishes/photos/syrniki.png"
   },
