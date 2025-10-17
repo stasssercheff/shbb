@@ -359,6 +359,11 @@
     "en": "Almond Croissant",
     "vi": "Bánh sừng bò hạnh nhân"
   },
+  "sandwich_set": {
+  "ru": "Набор на сендвичи",
+  "en": "Sandwich Set",
+  "vi": "Bộ làm bánh sandwich"
+},
   "croissant_duck": {
     "ru": "Круассан с уткой",
     "en": "Duck Croissant",
