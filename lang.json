@@ -2334,6 +2334,11 @@
       "en": "Comment",
       "vi": "Ghi chú"
   },
+  "orange": {
+  "ru": "Апельсин",
+  "en": "Orange",
+  "vi": "Cam"
+},
   "work_area_section": {
     "ru": "Рабочая зона",
     "en": "Work Area",
