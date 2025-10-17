@@ -16,7 +16,7 @@
       "vi": "Bánh mì brioche với kem và tương miso. Phủ caramel mặn và rắc vụn sô cô la."
     },
     "amount": 160,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/sbon.png"
   },
   {
     "name": { "ru": "Булка с маком", "en": "Poppy Seed Bun", "vi": "Bánh mì hạt anh túc" },
@@ -33,7 +33,7 @@
       "vi": "Bánh mì truyền thống với hạt anh túc."
     },
     "amount": 140,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/ppsbun.png"
   },
   {
     "name": { "ru": "Кардамоновая булка", "en": "Cardamom Bun", "vi": "Bánh mì thảo quả" },
@@ -50,7 +50,7 @@
       "vi": "Bánh mì nhân thảo quả."
     },
     "amount": 140,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/carbun.png"
   },
   {
     "name": { "ru": "Круассан миндальный", "en": "Almond Croissant", "vi": "Bánh sừng bò hạnh nhân" },
@@ -68,7 +68,7 @@
       "vi": "Bánh sừng bò nhân kem hạnh nhân, trang trí bằng lát hạnh nhân."
     },
     "amount": 70,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/elmcroissant.png"
   },
   {
     "name": { "ru": "Круассан", "en": "Croissant", "vi": "Bánh sừng bò" },
@@ -85,6 +85,6 @@
       "vi": "Bánh sừng bò truyền thống."
     },
     "amount": 130,
-    "photo": ""
+    "photo": "../../kitchen/kitchen/ttk/dishes/photos/croissant.png"
   }
 ]
