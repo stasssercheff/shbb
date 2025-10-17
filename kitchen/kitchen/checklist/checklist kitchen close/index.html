@@ -43,7 +43,7 @@
       <option value="-" selected>-</option>
       <option value="maksim" data-i18n="maksim"></option>
       <option value="boris" data-i18n="boris"></option>
-      <option value="miguel" data-i18n="anna"></option>
+      <option value="miguel" data-i18n="-"></option>
       <option value="stas" data-i18n="stas"></option>
     </select>
   </div>   
@@ -59,21 +59,20 @@
     </select>
   </div>
 
-  <div class="dish">
-    <label class="check-label" data-i18n="extractor"></label>
-    <select name="extractor" class="qty">
-      <option value="-" selected>-</option>
-      <option data-i18n="washed"></option>
-    </select>
-  </div>
+ <div class="dish">
+  <label class="check-label">
+    <span data-i18n="bolitor"></span>,
+    <span data-i18n="extractor"></span>,
+    <span data-i18n="stove"></span>,
+    <span data-i18n="tables"></span>,
+  </label>
 
-  <div class="dish">
-    <label class="check-label" data-i18n="stove"></label>
-    <select name="stove" class="qty">
-      <option value="-" selected>-</option>
-      <option data-i18n="washed"></option>
-    </select>
-  </div>
+  <select name="bolitor_extractor_stove_tables_under_table_shelf" class="qty">
+    <option value="-" selected>-</option>
+    <option data-i18n="cleaned"></option>
+  </select>
+</div>
+
 
   <div class="dish">
     <label class="check-label" data-i18n="tables"></label>
@@ -83,12 +82,7 @@
     </select>
   </div>
 
-  <div class="dish">
-    <label class="check-label" data-i18n="under_table_shelf"></label>
-    <select name="under_table_shelf" class="qty">
-      <option value="-" selected>-</option>
-      <option data-i18n="cleaned"></option>
-    </select>
+
   </div>
 
   <div class="section-title" data-i18n="comment"></div>
