@@ -2264,6 +2264,11 @@
       "en": "Flour(bag)",
       "vi": "Bột mì(túi)"
     },
+  "julienne": {
+  "ru": "Жюльен",
+  "en": "Julienne",
+  "vi": "Món julienne"
+},
     "cake_braid": {
       "ru": "Оплетка для тортов",
       "en": "Cake braid",
