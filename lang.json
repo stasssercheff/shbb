@@ -213,7 +213,61 @@
     "ru": "Чиабатта пшеничная",
     "en": "Ciabatta",
     "vi": "Bánh mì trắng"
+  
+  
+  
+  
+  
+  
   },
+  "poppyseed_bun_50%": {
+    "ru": "Булка с маком 50%",
+    "en": "Poppyseed bun 50%",
+    "vi": "Bánh mè 50%"
+  },
+  "missobon_50%": {
+    "ru": "Миссобон 50%",
+    "en": "Missobon 50%",
+    "vi": "Missobon 50%"
+  },
+  "cardamon_bun_50%": {
+    "ru": "Кардамоновая булка 50%",
+    "en": "Cardamon bun 50%",
+    "vi": "Bánh hạt nhục đậu khấu 50%"
+  },
+  "borodinskiy_50%": {
+    "ru": "Бородинский 50%",
+    "en": "Borodinskiy 50%",
+    "vi": "Borodinskiy 50%"
+  },
+  "borodinskiy_half_50%": {
+    "ru": "Бородинский 1/2 50%",
+    "en": "Borodinskiy 1/2 50%",
+    "vi": "Borodinskiy 1/2 50%"
+  },
+  "tartin_50%": {
+    "ru": "Тарртин 50%",
+    "en": "Tartin 50%",
+    "vi": "Tartin 50%"
+  },
+  "tartin_half_50%": {
+    "ru": "Тарртин 1/2",
+    "en": "Tartin 1/2",
+    "vi": "Tartin 1/2"
+  },
+  "country_bread_50%": {
+    "ru": "Деревенский хлеб 50%",
+    "en": "Country bread 50%",
+    "vi": "Bánh mì đen 50%"
+  },
+  "ciabatta_50%": {
+    "ru": "Чиабатта пшеничная 50%",
+    "en": "Ciabatta 50%",
+    "vi": "Bánh mì trắng 50%"
+  },
+
+
+  
   "checklist": {
     "ru": "Чек-лист",
     "en": "Checklist",
