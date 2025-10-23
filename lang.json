@@ -383,26 +383,36 @@
   "en": "Nhan",
   "vi": "Nhan"
 }, 
-  "thai": {
-    "ru": "Тай",
-    "en": "Thai",
-    "vi": "Thai"
-  },
-  "huyen": {
-    "ru": "Хуен",
-    "en": "Huyen",
-    "vi": "Huyền"
-  },
   "khiem": {
     "ru": "Кхиэм",
     "en": "Khiem",
     "vi": "Khiêm"
   },
-  "nhung": {
-    "ru": "Ньунг",
-    "en": "Nhung",
-    "vi": "Nhung"
-  },
+  "quyen": {
+  "ru": "Куен",
+  "en": "Quyen",
+  "vi": "Quyên"
+},
+"thai": {
+  "ru": "Тхай",
+  "en": "Thai",
+  "vi": "Thái"
+},
+"jun": {
+  "ru": "Джун",
+  "en": "Jun",
+  "vi": "Jun"
+},
+"nhung": {
+  "ru": "Ньюнг",
+  "en": "Nhung",
+  "vi": "Nhung"
+},
+"huyen": {
+  "ru": "Хуен",
+  "en": "Huyen",
+  "vi": "Huyên"
+},
   "btn_send": {
     "ru": "Отправить",
     "en": "Send",
